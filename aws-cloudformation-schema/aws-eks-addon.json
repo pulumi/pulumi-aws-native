@@ -18,10 +18,10 @@
       "permissions" : [ "eks:DescribeAddon" ]
     },
     "create" : {
-      "permissions" : [ "eks:CreateAddon", "eks:DescribeAddon", "eks:TagResource", "iam:PassRole" ]
+      "permissions" : [ "eks:CreateAddon", "eks:DescribeAddon", "eks:TagResource", "iam:PassRole", "iam:GetRole", "eks:CreatePodIdentityAssociation" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "eks:UpdateAddon", "eks:DescribeAddon", "eks:DescribeUpdate", "eks:ListTagsForResource", "eks:TagResource", "eks:UntagResource" ]
+      "permissions" : [ "iam:PassRole", "iam:GetRole", "eks:UpdateAddon", "eks:DescribeAddon", "eks:DescribeUpdate", "eks:ListTagsForResource", "eks:TagResource", "eks:UntagResource", "eks:CreatePodIdentityAssociation", "eks:DeletePodIdentityAssociation" ]
     },
     "list" : {
       "permissions" : [ "eks:ListAddons" ],
@@ -35,7 +35,7 @@
       }
     },
     "delete" : {
-      "permissions" : [ "eks:DeleteAddon", "eks:DescribeAddon" ]
+      "permissions" : [ "eks:DeleteAddon", "eks:DescribeAddon", "eks:DeletePodIdentityAssociation" ]
     }
   },
   "writeOnlyProperties" : [ "/properties/ResolveConflicts", "/properties/PreserveOnDelete" ],

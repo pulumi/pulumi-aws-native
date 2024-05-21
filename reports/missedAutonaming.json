@@ -2771,6 +2771,65 @@
       }
     }
   },
+  "aws-native:datazone:GroupProfile": {
+    "cfTypeName": "AWS::DataZone::GroupProfile",
+    "properties": {
+      "domainIdentifier": {
+        "type": "string",
+        "description": "The identifier of the Amazon DataZone domain in which the group profile would be created."
+      },
+      "groupIdentifier": {
+        "type": "string",
+        "description": "The ID of the group."
+      },
+      "status": {
+        "$ref": "#/types/aws-native:datazone:GroupProfileStatus"
+      }
+    }
+  },
+  "aws-native:datazone:ProjectMembership": {
+    "cfTypeName": "AWS::DataZone::ProjectMembership",
+    "properties": {
+      "designation": {
+        "$ref": "#/types/aws-native:datazone:ProjectMembershipUserDesignation"
+      },
+      "domainIdentifier": {
+        "type": "string"
+      },
+      "member": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:datazone:ProjectMembershipMember0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:ProjectMembershipMember1Properties"
+          }
+        ]
+      },
+      "projectIdentifier": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:datazone:UserProfile": {
+    "cfTypeName": "AWS::DataZone::UserProfile",
+    "properties": {
+      "domainIdentifier": {
+        "type": "string",
+        "description": "The identifier of the Amazon DataZone domain in which the user profile would be created."
+      },
+      "status": {
+        "$ref": "#/types/aws-native:datazone:UserProfileStatus"
+      },
+      "userIdentifier": {
+        "type": "string",
+        "description": "The ID of the user."
+      },
+      "userType": {
+        "$ref": "#/types/aws-native:datazone:UserProfileUserType"
+      }
+    }
+  },
   "aws-native:deadline:Farm": {
     "cfTypeName": "AWS::Deadline::Farm",
     "properties": {
