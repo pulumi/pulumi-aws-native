@@ -53,6 +53,9 @@
   },
   "required" : [ "Location", "Properties", "RestApiId" ],
   "createOnlyProperties" : [ "/properties/Location", "/properties/RestApiId" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "primaryIdentifier" : [ "/properties/DocumentationPartId", "/properties/RestApiId" ],
   "readOnlyProperties" : [ "/properties/DocumentationPartId" ],
   "handlers" : {

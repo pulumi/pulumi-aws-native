@@ -193,7 +193,7 @@
       "permissions" : [ "m2:ListTagsForResource", "m2:GetEnvironment" ]
     },
     "update" : {
-      "permissions" : [ "m2:TagResource", "m2:UntagResource", "m2:ListTagsForResource", "m2:GetEnvironment", "m2:UpdateEnvironment" ]
+      "permissions" : [ "m2:TagResource", "m2:UntagResource", "m2:ListTagsForResource", "m2:GetEnvironment", "m2:UpdateEnvironment", "kms:DescribeKey" ]
     },
     "delete" : {
       "permissions" : [ "elasticloadbalancing:DeleteLoadBalancer", "m2:DeleteEnvironment", "m2:GetEnvironment" ]

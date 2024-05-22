@@ -45,7 +45,9 @@
   "createOnlyProperties" : [ "/properties/ResponseType", "/properties/RestApiId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "apigateway:PUT", "apigateway:GET" ]

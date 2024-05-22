@@ -1,5 +1,7 @@
 {
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : false
+  },
   "typeName" : "AWS::ApiGateway::Deployment",
   "readOnlyProperties" : [ "/properties/DeploymentId" ],
   "description" : "The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.",
