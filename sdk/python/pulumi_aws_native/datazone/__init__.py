@@ -16,9 +16,14 @@ from .get_domain import *
 from .get_environment import *
 from .get_environment_blueprint_configuration import *
 from .get_environment_profile import *
+from .get_group_profile import *
 from .get_project import *
 from .get_subscription_target import *
+from .get_user_profile import *
+from .group_profile import *
 from .project import *
+from .project_membership import *
 from .subscription_target import *
+from .user_profile import *
 from ._inputs import *
 from . import outputs

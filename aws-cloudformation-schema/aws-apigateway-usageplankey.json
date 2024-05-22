@@ -22,7 +22,9 @@
       "type" : "string"
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "KeyType", "UsagePlanId", "KeyId" ],
   "createOnlyProperties" : [ "/properties/KeyId", "/properties/UsagePlanId", "/properties/KeyType" ],
   "primaryIdentifier" : [ "/properties/Id" ],

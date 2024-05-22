@@ -2499,6 +2499,104 @@ func (o EnvironmentProfileEnvironmentParameterArrayOutput) Index(i pulumi.IntInp
 	}).(EnvironmentProfileEnvironmentParameterOutput)
 }
 
+type ProjectMembershipMember0Properties struct {
+	UserIdentifier string `pulumi:"userIdentifier"`
+}
+
+// ProjectMembershipMember0PropertiesInput is an input type that accepts ProjectMembershipMember0PropertiesArgs and ProjectMembershipMember0PropertiesOutput values.
+// You can construct a concrete instance of `ProjectMembershipMember0PropertiesInput` via:
+//
+//	ProjectMembershipMember0PropertiesArgs{...}
+type ProjectMembershipMember0PropertiesInput interface {
+	pulumi.Input
+
+	ToProjectMembershipMember0PropertiesOutput() ProjectMembershipMember0PropertiesOutput
+	ToProjectMembershipMember0PropertiesOutputWithContext(context.Context) ProjectMembershipMember0PropertiesOutput
+}
+
+type ProjectMembershipMember0PropertiesArgs struct {
+	UserIdentifier pulumi.StringInput `pulumi:"userIdentifier"`
+}
+
+func (ProjectMembershipMember0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMember0Properties)(nil)).Elem()
+}
+
+func (i ProjectMembershipMember0PropertiesArgs) ToProjectMembershipMember0PropertiesOutput() ProjectMembershipMember0PropertiesOutput {
+	return i.ToProjectMembershipMember0PropertiesOutputWithContext(context.Background())
+}
+
+func (i ProjectMembershipMember0PropertiesArgs) ToProjectMembershipMember0PropertiesOutputWithContext(ctx context.Context) ProjectMembershipMember0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMembershipMember0PropertiesOutput)
+}
+
+type ProjectMembershipMember0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipMember0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMember0Properties)(nil)).Elem()
+}
+
+func (o ProjectMembershipMember0PropertiesOutput) ToProjectMembershipMember0PropertiesOutput() ProjectMembershipMember0PropertiesOutput {
+	return o
+}
+
+func (o ProjectMembershipMember0PropertiesOutput) ToProjectMembershipMember0PropertiesOutputWithContext(ctx context.Context) ProjectMembershipMember0PropertiesOutput {
+	return o
+}
+
+func (o ProjectMembershipMember0PropertiesOutput) UserIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectMembershipMember0Properties) string { return v.UserIdentifier }).(pulumi.StringOutput)
+}
+
+type ProjectMembershipMember1Properties struct {
+	GroupIdentifier string `pulumi:"groupIdentifier"`
+}
+
+// ProjectMembershipMember1PropertiesInput is an input type that accepts ProjectMembershipMember1PropertiesArgs and ProjectMembershipMember1PropertiesOutput values.
+// You can construct a concrete instance of `ProjectMembershipMember1PropertiesInput` via:
+//
+//	ProjectMembershipMember1PropertiesArgs{...}
+type ProjectMembershipMember1PropertiesInput interface {
+	pulumi.Input
+
+	ToProjectMembershipMember1PropertiesOutput() ProjectMembershipMember1PropertiesOutput
+	ToProjectMembershipMember1PropertiesOutputWithContext(context.Context) ProjectMembershipMember1PropertiesOutput
+}
+
+type ProjectMembershipMember1PropertiesArgs struct {
+	GroupIdentifier pulumi.StringInput `pulumi:"groupIdentifier"`
+}
+
+func (ProjectMembershipMember1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMember1Properties)(nil)).Elem()
+}
+
+func (i ProjectMembershipMember1PropertiesArgs) ToProjectMembershipMember1PropertiesOutput() ProjectMembershipMember1PropertiesOutput {
+	return i.ToProjectMembershipMember1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ProjectMembershipMember1PropertiesArgs) ToProjectMembershipMember1PropertiesOutputWithContext(ctx context.Context) ProjectMembershipMember1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMembershipMember1PropertiesOutput)
+}
+
+type ProjectMembershipMember1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipMember1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMember1Properties)(nil)).Elem()
+}
+
+func (o ProjectMembershipMember1PropertiesOutput) ToProjectMembershipMember1PropertiesOutput() ProjectMembershipMember1PropertiesOutput {
+	return o
+}
+
+func (o ProjectMembershipMember1PropertiesOutput) ToProjectMembershipMember1PropertiesOutputWithContext(ctx context.Context) ProjectMembershipMember1PropertiesOutput {
+	return o
+}
+
+func (o ProjectMembershipMember1PropertiesOutput) GroupIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectMembershipMember1Properties) string { return v.GroupIdentifier }).(pulumi.StringOutput)
+}
+
 // The details of the subscription target configuration.
 type SubscriptionTargetForm struct {
 	// The content of the subscription target configuration.
@@ -2608,6 +2706,270 @@ func (o SubscriptionTargetFormArrayOutput) Index(i pulumi.IntInput) Subscription
 	}).(SubscriptionTargetFormOutput)
 }
 
+type UserProfileDetails0Properties struct {
+	Iam UserProfileIamUserProfileDetails `pulumi:"iam"`
+}
+
+type UserProfileDetails0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetails0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetails0Properties)(nil)).Elem()
+}
+
+func (o UserProfileDetails0PropertiesOutput) ToUserProfileDetails0PropertiesOutput() UserProfileDetails0PropertiesOutput {
+	return o
+}
+
+func (o UserProfileDetails0PropertiesOutput) ToUserProfileDetails0PropertiesOutputWithContext(ctx context.Context) UserProfileDetails0PropertiesOutput {
+	return o
+}
+
+func (o UserProfileDetails0PropertiesOutput) Iam() UserProfileIamUserProfileDetailsOutput {
+	return o.ApplyT(func(v UserProfileDetails0Properties) UserProfileIamUserProfileDetails { return v.Iam }).(UserProfileIamUserProfileDetailsOutput)
+}
+
+type UserProfileDetails0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetails0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileDetails0Properties)(nil)).Elem()
+}
+
+func (o UserProfileDetails0PropertiesPtrOutput) ToUserProfileDetails0PropertiesPtrOutput() UserProfileDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o UserProfileDetails0PropertiesPtrOutput) ToUserProfileDetails0PropertiesPtrOutputWithContext(ctx context.Context) UserProfileDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o UserProfileDetails0PropertiesPtrOutput) Elem() UserProfileDetails0PropertiesOutput {
+	return o.ApplyT(func(v *UserProfileDetails0Properties) UserProfileDetails0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileDetails0Properties
+		return ret
+	}).(UserProfileDetails0PropertiesOutput)
+}
+
+func (o UserProfileDetails0PropertiesPtrOutput) Iam() UserProfileIamUserProfileDetailsPtrOutput {
+	return o.ApplyT(func(v *UserProfileDetails0Properties) *UserProfileIamUserProfileDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Iam
+	}).(UserProfileIamUserProfileDetailsPtrOutput)
+}
+
+type UserProfileDetails1Properties struct {
+	Sso UserProfileSsoUserProfileDetails `pulumi:"sso"`
+}
+
+type UserProfileDetails1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetails1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetails1Properties)(nil)).Elem()
+}
+
+func (o UserProfileDetails1PropertiesOutput) ToUserProfileDetails1PropertiesOutput() UserProfileDetails1PropertiesOutput {
+	return o
+}
+
+func (o UserProfileDetails1PropertiesOutput) ToUserProfileDetails1PropertiesOutputWithContext(ctx context.Context) UserProfileDetails1PropertiesOutput {
+	return o
+}
+
+func (o UserProfileDetails1PropertiesOutput) Sso() UserProfileSsoUserProfileDetailsOutput {
+	return o.ApplyT(func(v UserProfileDetails1Properties) UserProfileSsoUserProfileDetails { return v.Sso }).(UserProfileSsoUserProfileDetailsOutput)
+}
+
+type UserProfileDetails1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetails1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileDetails1Properties)(nil)).Elem()
+}
+
+func (o UserProfileDetails1PropertiesPtrOutput) ToUserProfileDetails1PropertiesPtrOutput() UserProfileDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o UserProfileDetails1PropertiesPtrOutput) ToUserProfileDetails1PropertiesPtrOutputWithContext(ctx context.Context) UserProfileDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o UserProfileDetails1PropertiesPtrOutput) Elem() UserProfileDetails1PropertiesOutput {
+	return o.ApplyT(func(v *UserProfileDetails1Properties) UserProfileDetails1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileDetails1Properties
+		return ret
+	}).(UserProfileDetails1PropertiesOutput)
+}
+
+func (o UserProfileDetails1PropertiesPtrOutput) Sso() UserProfileSsoUserProfileDetailsPtrOutput {
+	return o.ApplyT(func(v *UserProfileDetails1Properties) *UserProfileSsoUserProfileDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Sso
+	}).(UserProfileSsoUserProfileDetailsPtrOutput)
+}
+
+// The details of the IAM User Profile.
+type UserProfileIamUserProfileDetails struct {
+	// The ARN of the IAM User Profile.
+	Arn *string `pulumi:"arn"`
+}
+
+// The details of the IAM User Profile.
+type UserProfileIamUserProfileDetailsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileIamUserProfileDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileIamUserProfileDetails)(nil)).Elem()
+}
+
+func (o UserProfileIamUserProfileDetailsOutput) ToUserProfileIamUserProfileDetailsOutput() UserProfileIamUserProfileDetailsOutput {
+	return o
+}
+
+func (o UserProfileIamUserProfileDetailsOutput) ToUserProfileIamUserProfileDetailsOutputWithContext(ctx context.Context) UserProfileIamUserProfileDetailsOutput {
+	return o
+}
+
+// The ARN of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileIamUserProfileDetails) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileIamUserProfileDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileIamUserProfileDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileIamUserProfileDetails)(nil)).Elem()
+}
+
+func (o UserProfileIamUserProfileDetailsPtrOutput) ToUserProfileIamUserProfileDetailsPtrOutput() UserProfileIamUserProfileDetailsPtrOutput {
+	return o
+}
+
+func (o UserProfileIamUserProfileDetailsPtrOutput) ToUserProfileIamUserProfileDetailsPtrOutputWithContext(ctx context.Context) UserProfileIamUserProfileDetailsPtrOutput {
+	return o
+}
+
+func (o UserProfileIamUserProfileDetailsPtrOutput) Elem() UserProfileIamUserProfileDetailsOutput {
+	return o.ApplyT(func(v *UserProfileIamUserProfileDetails) UserProfileIamUserProfileDetails {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileIamUserProfileDetails
+		return ret
+	}).(UserProfileIamUserProfileDetailsOutput)
+}
+
+// The ARN of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileIamUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the SSO User Profile.
+type UserProfileSsoUserProfileDetails struct {
+	// The First Name of the IAM User Profile.
+	FirstName *string `pulumi:"firstName"`
+	// The Last Name of the IAM User Profile.
+	LastName *string `pulumi:"lastName"`
+	// The username of the SSO User Profile.
+	Username *string `pulumi:"username"`
+}
+
+// The details of the SSO User Profile.
+type UserProfileSsoUserProfileDetailsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileSsoUserProfileDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileSsoUserProfileDetails)(nil)).Elem()
+}
+
+func (o UserProfileSsoUserProfileDetailsOutput) ToUserProfileSsoUserProfileDetailsOutput() UserProfileSsoUserProfileDetailsOutput {
+	return o
+}
+
+func (o UserProfileSsoUserProfileDetailsOutput) ToUserProfileSsoUserProfileDetailsOutputWithContext(ctx context.Context) UserProfileSsoUserProfileDetailsOutput {
+	return o
+}
+
+// The First Name of the IAM User Profile.
+func (o UserProfileSsoUserProfileDetailsOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSsoUserProfileDetails) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// The Last Name of the IAM User Profile.
+func (o UserProfileSsoUserProfileDetailsOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSsoUserProfileDetails) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// The username of the SSO User Profile.
+func (o UserProfileSsoUserProfileDetailsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSsoUserProfileDetails) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileSsoUserProfileDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileSsoUserProfileDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileSsoUserProfileDetails)(nil)).Elem()
+}
+
+func (o UserProfileSsoUserProfileDetailsPtrOutput) ToUserProfileSsoUserProfileDetailsPtrOutput() UserProfileSsoUserProfileDetailsPtrOutput {
+	return o
+}
+
+func (o UserProfileSsoUserProfileDetailsPtrOutput) ToUserProfileSsoUserProfileDetailsPtrOutputWithContext(ctx context.Context) UserProfileSsoUserProfileDetailsPtrOutput {
+	return o
+}
+
+func (o UserProfileSsoUserProfileDetailsPtrOutput) Elem() UserProfileSsoUserProfileDetailsOutput {
+	return o.ApplyT(func(v *UserProfileSsoUserProfileDetails) UserProfileSsoUserProfileDetails {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileSsoUserProfileDetails
+		return ret
+	}).(UserProfileSsoUserProfileDetailsOutput)
+}
+
+// The First Name of the IAM User Profile.
+func (o UserProfileSsoUserProfileDetailsPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSsoUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Last Name of the IAM User Profile.
+func (o UserProfileSsoUserProfileDetailsPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSsoUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the SSO User Profile.
+func (o UserProfileSsoUserProfileDetailsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSsoUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
@@ -2645,6 +3007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesOutput{})
@@ -2683,6 +3047,16 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileDetails0PropertiesOutput{})
+	pulumi.RegisterOutputType(UserProfileDetails0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileDetails1PropertiesOutput{})
+	pulumi.RegisterOutputType(UserProfileDetails1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileIamUserProfileDetailsOutput{})
+	pulumi.RegisterOutputType(UserProfileIamUserProfileDetailsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileSsoUserProfileDetailsOutput{})
+	pulumi.RegisterOutputType(UserProfileSsoUserProfileDetailsPtrOutput{})
 }

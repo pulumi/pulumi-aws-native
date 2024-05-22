@@ -75,9 +75,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-                *Default (, , event sources)*: 0
-                *Default (, Kafka, , event sources)*: 500 ms
-                *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+                 *Default (, , event sources)*: 0
+                 *Default (, Kafka, , event sources)*: 500 ms
+                 *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
                  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         :param pulumi.Input[int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
@@ -88,9 +88,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Specific configuration settings for a self-managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         :param pulumi.Input[str] starting_position: The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-                 +  *LATEST* - Read only new records.
-                 +  *TRIM_HORIZON* - Process all available records.
-                 +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+                 +   *LATEST* - Read only new records.
+                 +   *TRIM_HORIZON* - Process all available records.
+                 +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
         :param pulumi.Input[float] starting_position_timestamp: With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topic.
         :param pulumi.Input[int] tumbling_window_in_seconds: (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -288,9 +288,9 @@ class EventSourceMappingArgs:
     def maximum_batching_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-         *Default (, , event sources)*: 0
-         *Default (, Kafka, , event sources)*: 500 ms
-         *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+          *Default (, , event sources)*: 0
+          *Default (, Kafka, , event sources)*: 500 ms
+          *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -400,9 +400,9 @@ class EventSourceMappingArgs:
     def starting_position(self) -> Optional[pulumi.Input[str]]:
         """
         The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-          +  *LATEST* - Read only new records.
-          +  *TRIM_HORIZON* - Process all available records.
-          +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+          +   *LATEST* - Read only new records.
+          +   *TRIM_HORIZON* - Process all available records.
+          +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
         """
         return pulumi.get(self, "starting_position")
 
@@ -479,13 +479,13 @@ class EventSourceMapping(pulumi.CustomResource):
         """
         The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
          For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
-          +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-          +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-          +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-          +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-          +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-          +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-          +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+          +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+          +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+          +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+          +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+          +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+          +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+          +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -522,9 +522,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-                *Default (, , event sources)*: 0
-                *Default (, Kafka, , event sources)*: 500 ms
-                *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+                 *Default (, , event sources)*: 0
+                 *Default (, Kafka, , event sources)*: 500 ms
+                 *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
                  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         :param pulumi.Input[int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
@@ -535,9 +535,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] self_managed_kafka_event_source_config: Specific configuration settings for a self-managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         :param pulumi.Input[str] starting_position: The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-                 +  *LATEST* - Read only new records.
-                 +  *TRIM_HORIZON* - Process all available records.
-                 +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+                 +   *LATEST* - Read only new records.
+                 +   *TRIM_HORIZON* - Process all available records.
+                 +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
         :param pulumi.Input[float] starting_position_timestamp: With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topic.
         :param pulumi.Input[int] tumbling_window_in_seconds: (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -551,13 +551,13 @@ class EventSourceMapping(pulumi.CustomResource):
         """
         The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
          For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
-          +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-          +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-          +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-          +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-          +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-          +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-          +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+          +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+          +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+          +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+          +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+          +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+          +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+          +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
         :param str resource_name: The name of the resource.
         :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.
@@ -797,9 +797,9 @@ class EventSourceMapping(pulumi.CustomResource):
     def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-         *Default (, , event sources)*: 0
-         *Default (, Kafka, , event sources)*: 500 ms
-         *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+          *Default (, , event sources)*: 0
+          *Default (, Kafka, , event sources)*: 500 ms
+          *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -873,9 +873,9 @@ class EventSourceMapping(pulumi.CustomResource):
     def starting_position(self) -> pulumi.Output[Optional[str]]:
         """
         The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-          +  *LATEST* - Read only new records.
-          +  *TRIM_HORIZON* - Process all available records.
-          +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+          +   *LATEST* - Read only new records.
+          +   *TRIM_HORIZON* - Process all available records.
+          +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
         """
         return pulumi.get(self, "starting_position")
 

@@ -60,8 +60,10 @@ type LookupEnvironmentResult struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWebservers        *int                             `pulumi:"maxWebservers"`
 	// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers *int `pulumi:"maxWorkers"`
+	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
@@ -205,9 +207,17 @@ func (o LookupEnvironmentResultOutput) LoggingConfiguration() EnvironmentLogging
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentLoggingConfiguration { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
+func (o LookupEnvironmentResultOutput) MaxWebservers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *int { return v.MaxWebservers }).(pulumi.IntPtrOutput)
+}
+
 // The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
 func (o LookupEnvironmentResultOutput) MaxWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *int { return v.MaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupEnvironmentResultOutput) MinWebservers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *int { return v.MinWebservers }).(pulumi.IntPtrOutput)
 }
 
 // The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .

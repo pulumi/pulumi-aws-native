@@ -107,10 +107,12 @@ namespace Pulumi.AwsNative.Mwaa
         /// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         /// </summary>
         public readonly Outputs.EnvironmentLoggingConfiguration? LoggingConfiguration;
+        public readonly int? MaxWebservers;
         /// <summary>
         /// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
         /// </summary>
         public readonly int? MaxWorkers;
+        public readonly int? MinWebservers;
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
         /// </summary>
@@ -207,7 +209,11 @@ namespace Pulumi.AwsNative.Mwaa
 
             Outputs.EnvironmentLoggingConfiguration? loggingConfiguration,
 
+            int? maxWebservers,
+
             int? maxWorkers,
+
+            int? minWebservers,
 
             int? minWorkers,
 
@@ -248,7 +254,9 @@ namespace Pulumi.AwsNative.Mwaa
             EnvironmentClass = environmentClass;
             ExecutionRoleArn = executionRoleArn;
             LoggingConfiguration = loggingConfiguration;
+            MaxWebservers = maxWebservers;
             MaxWorkers = maxWorkers;
+            MinWebservers = minWebservers;
             MinWorkers = minWorkers;
             NetworkConfiguration = networkConfiguration;
             PluginsS3ObjectVersion = pluginsS3ObjectVersion;

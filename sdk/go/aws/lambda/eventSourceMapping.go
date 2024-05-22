@@ -15,13 +15,13 @@ import (
 // The “AWS::Lambda::EventSourceMapping“ resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
 //
 //	For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
-//	 +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-//	 +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-//	 +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-//	 +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-//	 +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-//	 +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-//	 +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+//	 +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+//	 +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+//	 +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+//	 +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+//	 +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+//	 +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+//	 +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 
@@ -70,9 +70,9 @@ type EventSourceMapping struct {
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayOutput `pulumi:"functionResponseTypes"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-	//  *Default (, , event sources)*: 0
-	//  *Default (, Kafka, , event sources)*: 500 ms
-	//  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+	//   *Default (, , event sources)*: 0
+	//   *Default (, Kafka, , event sources)*: 500 ms
+	//   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrOutput `pulumi:"maximumBatchingWindowInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
@@ -92,9 +92,9 @@ type EventSourceMapping struct {
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayOutput `pulumi:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-	//   +  *LATEST* - Read only new records.
-	//   +  *TRIM_HORIZON* - Process all available records.
-	//   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+	//   +   *LATEST* - Read only new records.
+	//   +   *TRIM_HORIZON* - Process all available records.
+	//   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition pulumi.StringPtrOutput `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrOutput `pulumi:"startingPositionTimestamp"`
@@ -199,9 +199,9 @@ type eventSourceMappingArgs struct {
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-	//  *Default (, , event sources)*: 0
-	//  *Default (, Kafka, , event sources)*: 500 ms
-	//  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+	//   *Default (, , event sources)*: 0
+	//   *Default (, Kafka, , event sources)*: 500 ms
+	//   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
@@ -221,9 +221,9 @@ type eventSourceMappingArgs struct {
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-	//   +  *LATEST* - Read only new records.
-	//   +  *TRIM_HORIZON* - Process all available records.
-	//   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+	//   +   *LATEST* - Read only new records.
+	//   +   *TRIM_HORIZON* - Process all available records.
+	//   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition *string `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp *float64 `pulumi:"startingPositionTimestamp"`
@@ -278,9 +278,9 @@ type EventSourceMappingArgs struct {
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayInput
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-	//  *Default (, , event sources)*: 0
-	//  *Default (, Kafka, , event sources)*: 500 ms
-	//  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+	//   *Default (, , event sources)*: 0
+	//   *Default (, Kafka, , event sources)*: 500 ms
+	//   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
 	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
@@ -300,9 +300,9 @@ type EventSourceMappingArgs struct {
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayInput
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-	//   +  *LATEST* - Read only new records.
-	//   +  *TRIM_HORIZON* - Process all available records.
-	//   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+	//   +   *LATEST* - Read only new records.
+	//   +   *TRIM_HORIZON* - Process all available records.
+	//   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition pulumi.StringPtrInput
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrInput

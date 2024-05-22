@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableUnaggregatedFieldWells struct {
+	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
+	Values []TemplateUnaggregatedField `pulumi:"values"`
+}
+
+// TemplateTableUnaggregatedFieldWellsInput is an input type that accepts TemplateTableUnaggregatedFieldWellsArgs and TemplateTableUnaggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateTableUnaggregatedFieldWellsInput` via:
+//
+//	TemplateTableUnaggregatedFieldWellsArgs{...}
+type TemplateTableUnaggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput
+	ToTemplateTableUnaggregatedFieldWellsOutputWithContext(context.Context) TemplateTableUnaggregatedFieldWellsOutput
+}
+
+type TemplateTableUnaggregatedFieldWellsArgs struct {
+	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
+	Values TemplateUnaggregatedFieldArrayInput `pulumi:"values"`
+}
+
+func (TemplateTableUnaggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableUnaggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput {
+	return i.ToTemplateTableUnaggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsOutput)
+}
+
+func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return i.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsOutput).ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateTableUnaggregatedFieldWellsPtrInput is an input type that accepts TemplateTableUnaggregatedFieldWellsArgs, TemplateTableUnaggregatedFieldWellsPtr and TemplateTableUnaggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateTableUnaggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateTableUnaggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableUnaggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput
+	ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput
+}
+
+type templateTableUnaggregatedFieldWellsPtrType TemplateTableUnaggregatedFieldWellsArgs
+
+func TemplateTableUnaggregatedFieldWellsPtr(v *TemplateTableUnaggregatedFieldWellsArgs) TemplateTableUnaggregatedFieldWellsPtrInput {
+	return (*templateTableUnaggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateTableUnaggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableUnaggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateTableUnaggregatedFieldWellsPtrType) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return i.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableUnaggregatedFieldWellsPtrType) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsPtrOutput)
+}
+
+type TemplateTableUnaggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableUnaggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableUnaggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableUnaggregatedFieldWells) *TemplateTableUnaggregatedFieldWells {
+		return &v
+	}).(TemplateTableUnaggregatedFieldWellsPtrOutput)
+}
+
+// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
+func (o TemplateTableUnaggregatedFieldWellsOutput) Values() TemplateUnaggregatedFieldArrayOutput {
+	return o.ApplyT(func(v TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField { return v.Values }).(TemplateUnaggregatedFieldArrayOutput)
+}
+
+type TemplateTableUnaggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableUnaggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableUnaggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateTableUnaggregatedFieldWellsPtrOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateTableUnaggregatedFieldWellsPtrOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Elem() TemplateTableUnaggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateTableUnaggregatedFieldWells) TemplateTableUnaggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableUnaggregatedFieldWells
+		return ret
+	}).(TemplateTableUnaggregatedFieldWellsOutput)
+}
+
+// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
+func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Values() TemplateUnaggregatedFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateUnaggregatedFieldArrayOutput)
+}
+
 type TemplateTableVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
@@ -17136,6 +17273,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualInput)(nil)).Elem(), TemplateTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualPtrInput)(nil)).Elem(), TemplateTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
@@ -17314,6 +17453,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableVisualOutput{})
 	pulumi.RegisterOutputType(TemplateTableVisualPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsOutput{})

@@ -28,6 +28,9 @@
   "required" : [ "RestApiId" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/RestApiId" ],
   "readOnlyProperties" : [ "/properties/RequestValidatorId" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "primaryIdentifier" : [ "/properties/RestApiId", "/properties/RequestValidatorId" ],
   "handlers" : {
     "create" : {

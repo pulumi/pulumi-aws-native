@@ -772,6 +772,47 @@ func (i SubscriberAwsLogSourceArgs) ToSubscriberAwsLogSourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriberAwsLogSourceOutput)
 }
 
+func (i SubscriberAwsLogSourceArgs) ToSubscriberAwsLogSourcePtrOutput() SubscriberAwsLogSourcePtrOutput {
+	return i.ToSubscriberAwsLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (i SubscriberAwsLogSourceArgs) ToSubscriberAwsLogSourcePtrOutputWithContext(ctx context.Context) SubscriberAwsLogSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberAwsLogSourceOutput).ToSubscriberAwsLogSourcePtrOutputWithContext(ctx)
+}
+
+// SubscriberAwsLogSourcePtrInput is an input type that accepts SubscriberAwsLogSourceArgs, SubscriberAwsLogSourcePtr and SubscriberAwsLogSourcePtrOutput values.
+// You can construct a concrete instance of `SubscriberAwsLogSourcePtrInput` via:
+//
+//	        SubscriberAwsLogSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriberAwsLogSourcePtrInput interface {
+	pulumi.Input
+
+	ToSubscriberAwsLogSourcePtrOutput() SubscriberAwsLogSourcePtrOutput
+	ToSubscriberAwsLogSourcePtrOutputWithContext(context.Context) SubscriberAwsLogSourcePtrOutput
+}
+
+type subscriberAwsLogSourcePtrType SubscriberAwsLogSourceArgs
+
+func SubscriberAwsLogSourcePtr(v *SubscriberAwsLogSourceArgs) SubscriberAwsLogSourcePtrInput {
+	return (*subscriberAwsLogSourcePtrType)(v)
+}
+
+func (*subscriberAwsLogSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberAwsLogSource)(nil)).Elem()
+}
+
+func (i *subscriberAwsLogSourcePtrType) ToSubscriberAwsLogSourcePtrOutput() SubscriberAwsLogSourcePtrOutput {
+	return i.ToSubscriberAwsLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *subscriberAwsLogSourcePtrType) ToSubscriberAwsLogSourcePtrOutputWithContext(ctx context.Context) SubscriberAwsLogSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberAwsLogSourcePtrOutput)
+}
+
 // Amazon Security Lake supports log and event collection for natively supported AWS services.
 type SubscriberAwsLogSourceOutput struct{ *pulumi.OutputState }
 
@@ -787,6 +828,16 @@ func (o SubscriberAwsLogSourceOutput) ToSubscriberAwsLogSourceOutputWithContext(
 	return o
 }
 
+func (o SubscriberAwsLogSourceOutput) ToSubscriberAwsLogSourcePtrOutput() SubscriberAwsLogSourcePtrOutput {
+	return o.ToSubscriberAwsLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberAwsLogSourceOutput) ToSubscriberAwsLogSourcePtrOutputWithContext(ctx context.Context) SubscriberAwsLogSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberAwsLogSource) *SubscriberAwsLogSource {
+		return &v
+	}).(SubscriberAwsLogSourcePtrOutput)
+}
+
 // The name for a AWS source. This must be a Regionally unique value.
 func (o SubscriberAwsLogSourceOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberAwsLogSource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
@@ -795,6 +846,50 @@ func (o SubscriberAwsLogSourceOutput) SourceName() pulumi.StringPtrOutput {
 // The version for a AWS source. This must be a Regionally unique value.
 func (o SubscriberAwsLogSourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberAwsLogSource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+type SubscriberAwsLogSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberAwsLogSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberAwsLogSource)(nil)).Elem()
+}
+
+func (o SubscriberAwsLogSourcePtrOutput) ToSubscriberAwsLogSourcePtrOutput() SubscriberAwsLogSourcePtrOutput {
+	return o
+}
+
+func (o SubscriberAwsLogSourcePtrOutput) ToSubscriberAwsLogSourcePtrOutputWithContext(ctx context.Context) SubscriberAwsLogSourcePtrOutput {
+	return o
+}
+
+func (o SubscriberAwsLogSourcePtrOutput) Elem() SubscriberAwsLogSourceOutput {
+	return o.ApplyT(func(v *SubscriberAwsLogSource) SubscriberAwsLogSource {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberAwsLogSource
+		return ret
+	}).(SubscriberAwsLogSourceOutput)
+}
+
+// The name for a AWS source. This must be a Regionally unique value.
+func (o SubscriberAwsLogSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberAwsLogSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version for a AWS source. This must be a Regionally unique value.
+func (o SubscriberAwsLogSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberAwsLogSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type SubscriberCustomLogSource struct {
@@ -834,6 +929,47 @@ func (i SubscriberCustomLogSourceArgs) ToSubscriberCustomLogSourceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriberCustomLogSourceOutput)
 }
 
+func (i SubscriberCustomLogSourceArgs) ToSubscriberCustomLogSourcePtrOutput() SubscriberCustomLogSourcePtrOutput {
+	return i.ToSubscriberCustomLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (i SubscriberCustomLogSourceArgs) ToSubscriberCustomLogSourcePtrOutputWithContext(ctx context.Context) SubscriberCustomLogSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberCustomLogSourceOutput).ToSubscriberCustomLogSourcePtrOutputWithContext(ctx)
+}
+
+// SubscriberCustomLogSourcePtrInput is an input type that accepts SubscriberCustomLogSourceArgs, SubscriberCustomLogSourcePtr and SubscriberCustomLogSourcePtrOutput values.
+// You can construct a concrete instance of `SubscriberCustomLogSourcePtrInput` via:
+//
+//	        SubscriberCustomLogSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriberCustomLogSourcePtrInput interface {
+	pulumi.Input
+
+	ToSubscriberCustomLogSourcePtrOutput() SubscriberCustomLogSourcePtrOutput
+	ToSubscriberCustomLogSourcePtrOutputWithContext(context.Context) SubscriberCustomLogSourcePtrOutput
+}
+
+type subscriberCustomLogSourcePtrType SubscriberCustomLogSourceArgs
+
+func SubscriberCustomLogSourcePtr(v *SubscriberCustomLogSourceArgs) SubscriberCustomLogSourcePtrInput {
+	return (*subscriberCustomLogSourcePtrType)(v)
+}
+
+func (*subscriberCustomLogSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberCustomLogSource)(nil)).Elem()
+}
+
+func (i *subscriberCustomLogSourcePtrType) ToSubscriberCustomLogSourcePtrOutput() SubscriberCustomLogSourcePtrOutput {
+	return i.ToSubscriberCustomLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *subscriberCustomLogSourcePtrType) ToSubscriberCustomLogSourcePtrOutputWithContext(ctx context.Context) SubscriberCustomLogSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberCustomLogSourcePtrOutput)
+}
+
 type SubscriberCustomLogSourceOutput struct{ *pulumi.OutputState }
 
 func (SubscriberCustomLogSourceOutput) ElementType() reflect.Type {
@@ -848,6 +984,16 @@ func (o SubscriberCustomLogSourceOutput) ToSubscriberCustomLogSourceOutputWithCo
 	return o
 }
 
+func (o SubscriberCustomLogSourceOutput) ToSubscriberCustomLogSourcePtrOutput() SubscriberCustomLogSourcePtrOutput {
+	return o.ToSubscriberCustomLogSourcePtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberCustomLogSourceOutput) ToSubscriberCustomLogSourcePtrOutputWithContext(ctx context.Context) SubscriberCustomLogSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberCustomLogSource) *SubscriberCustomLogSource {
+		return &v
+	}).(SubscriberCustomLogSourcePtrOutput)
+}
+
 // The name for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberCustomLogSourceOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberCustomLogSource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
@@ -856,6 +1002,50 @@ func (o SubscriberCustomLogSourceOutput) SourceName() pulumi.StringPtrOutput {
 // The version for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberCustomLogSourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberCustomLogSource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+type SubscriberCustomLogSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberCustomLogSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberCustomLogSource)(nil)).Elem()
+}
+
+func (o SubscriberCustomLogSourcePtrOutput) ToSubscriberCustomLogSourcePtrOutput() SubscriberCustomLogSourcePtrOutput {
+	return o
+}
+
+func (o SubscriberCustomLogSourcePtrOutput) ToSubscriberCustomLogSourcePtrOutputWithContext(ctx context.Context) SubscriberCustomLogSourcePtrOutput {
+	return o
+}
+
+func (o SubscriberCustomLogSourcePtrOutput) Elem() SubscriberCustomLogSourceOutput {
+	return o.ApplyT(func(v *SubscriberCustomLogSource) SubscriberCustomLogSource {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberCustomLogSource
+		return ret
+	}).(SubscriberCustomLogSourceOutput)
+}
+
+// The name for a third-party custom source. This must be a Regionally unique value.
+func (o SubscriberCustomLogSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberCustomLogSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version for a third-party custom source. This must be a Regionally unique value.
+func (o SubscriberCustomLogSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberCustomLogSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The AWS identity used to access your data.
@@ -966,102 +1156,104 @@ func (o SubscriberIdentityPropertiesPtrOutput) Principal() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type SubscriberSource0Properties struct {
-	AwsLogSource SubscriberAwsLogSource `pulumi:"awsLogSource"`
+type SubscriberSource struct {
+	AwsLogSource    *SubscriberAwsLogSource    `pulumi:"awsLogSource"`
+	CustomLogSource *SubscriberCustomLogSource `pulumi:"customLogSource"`
 }
 
-// SubscriberSource0PropertiesInput is an input type that accepts SubscriberSource0PropertiesArgs and SubscriberSource0PropertiesOutput values.
-// You can construct a concrete instance of `SubscriberSource0PropertiesInput` via:
+// SubscriberSourceInput is an input type that accepts SubscriberSourceArgs and SubscriberSourceOutput values.
+// You can construct a concrete instance of `SubscriberSourceInput` via:
 //
-//	SubscriberSource0PropertiesArgs{...}
-type SubscriberSource0PropertiesInput interface {
+//	SubscriberSourceArgs{...}
+type SubscriberSourceInput interface {
 	pulumi.Input
 
-	ToSubscriberSource0PropertiesOutput() SubscriberSource0PropertiesOutput
-	ToSubscriberSource0PropertiesOutputWithContext(context.Context) SubscriberSource0PropertiesOutput
+	ToSubscriberSourceOutput() SubscriberSourceOutput
+	ToSubscriberSourceOutputWithContext(context.Context) SubscriberSourceOutput
 }
 
-type SubscriberSource0PropertiesArgs struct {
-	AwsLogSource SubscriberAwsLogSourceInput `pulumi:"awsLogSource"`
+type SubscriberSourceArgs struct {
+	AwsLogSource    SubscriberAwsLogSourcePtrInput    `pulumi:"awsLogSource"`
+	CustomLogSource SubscriberCustomLogSourcePtrInput `pulumi:"customLogSource"`
 }
 
-func (SubscriberSource0PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberSource0Properties)(nil)).Elem()
+func (SubscriberSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberSource)(nil)).Elem()
 }
 
-func (i SubscriberSource0PropertiesArgs) ToSubscriberSource0PropertiesOutput() SubscriberSource0PropertiesOutput {
-	return i.ToSubscriberSource0PropertiesOutputWithContext(context.Background())
+func (i SubscriberSourceArgs) ToSubscriberSourceOutput() SubscriberSourceOutput {
+	return i.ToSubscriberSourceOutputWithContext(context.Background())
 }
 
-func (i SubscriberSource0PropertiesArgs) ToSubscriberSource0PropertiesOutputWithContext(ctx context.Context) SubscriberSource0PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSource0PropertiesOutput)
+func (i SubscriberSourceArgs) ToSubscriberSourceOutputWithContext(ctx context.Context) SubscriberSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourceOutput)
 }
 
-type SubscriberSource0PropertiesOutput struct{ *pulumi.OutputState }
-
-func (SubscriberSource0PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberSource0Properties)(nil)).Elem()
-}
-
-func (o SubscriberSource0PropertiesOutput) ToSubscriberSource0PropertiesOutput() SubscriberSource0PropertiesOutput {
-	return o
-}
-
-func (o SubscriberSource0PropertiesOutput) ToSubscriberSource0PropertiesOutputWithContext(ctx context.Context) SubscriberSource0PropertiesOutput {
-	return o
-}
-
-func (o SubscriberSource0PropertiesOutput) AwsLogSource() SubscriberAwsLogSourceOutput {
-	return o.ApplyT(func(v SubscriberSource0Properties) SubscriberAwsLogSource { return v.AwsLogSource }).(SubscriberAwsLogSourceOutput)
-}
-
-type SubscriberSource1Properties struct {
-	CustomLogSource SubscriberCustomLogSource `pulumi:"customLogSource"`
-}
-
-// SubscriberSource1PropertiesInput is an input type that accepts SubscriberSource1PropertiesArgs and SubscriberSource1PropertiesOutput values.
-// You can construct a concrete instance of `SubscriberSource1PropertiesInput` via:
+// SubscriberSourceArrayInput is an input type that accepts SubscriberSourceArray and SubscriberSourceArrayOutput values.
+// You can construct a concrete instance of `SubscriberSourceArrayInput` via:
 //
-//	SubscriberSource1PropertiesArgs{...}
-type SubscriberSource1PropertiesInput interface {
+//	SubscriberSourceArray{ SubscriberSourceArgs{...} }
+type SubscriberSourceArrayInput interface {
 	pulumi.Input
 
-	ToSubscriberSource1PropertiesOutput() SubscriberSource1PropertiesOutput
-	ToSubscriberSource1PropertiesOutputWithContext(context.Context) SubscriberSource1PropertiesOutput
+	ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput
+	ToSubscriberSourceArrayOutputWithContext(context.Context) SubscriberSourceArrayOutput
 }
 
-type SubscriberSource1PropertiesArgs struct {
-	CustomLogSource SubscriberCustomLogSourceInput `pulumi:"customLogSource"`
+type SubscriberSourceArray []SubscriberSourceInput
+
+func (SubscriberSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberSource)(nil)).Elem()
 }
 
-func (SubscriberSource1PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberSource1Properties)(nil)).Elem()
+func (i SubscriberSourceArray) ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput {
+	return i.ToSubscriberSourceArrayOutputWithContext(context.Background())
 }
 
-func (i SubscriberSource1PropertiesArgs) ToSubscriberSource1PropertiesOutput() SubscriberSource1PropertiesOutput {
-	return i.ToSubscriberSource1PropertiesOutputWithContext(context.Background())
+func (i SubscriberSourceArray) ToSubscriberSourceArrayOutputWithContext(ctx context.Context) SubscriberSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourceArrayOutput)
 }
 
-func (i SubscriberSource1PropertiesArgs) ToSubscriberSource1PropertiesOutputWithContext(ctx context.Context) SubscriberSource1PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSource1PropertiesOutput)
+type SubscriberSourceOutput struct{ *pulumi.OutputState }
+
+func (SubscriberSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberSource)(nil)).Elem()
 }
 
-type SubscriberSource1PropertiesOutput struct{ *pulumi.OutputState }
-
-func (SubscriberSource1PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberSource1Properties)(nil)).Elem()
-}
-
-func (o SubscriberSource1PropertiesOutput) ToSubscriberSource1PropertiesOutput() SubscriberSource1PropertiesOutput {
+func (o SubscriberSourceOutput) ToSubscriberSourceOutput() SubscriberSourceOutput {
 	return o
 }
 
-func (o SubscriberSource1PropertiesOutput) ToSubscriberSource1PropertiesOutputWithContext(ctx context.Context) SubscriberSource1PropertiesOutput {
+func (o SubscriberSourceOutput) ToSubscriberSourceOutputWithContext(ctx context.Context) SubscriberSourceOutput {
 	return o
 }
 
-func (o SubscriberSource1PropertiesOutput) CustomLogSource() SubscriberCustomLogSourceOutput {
-	return o.ApplyT(func(v SubscriberSource1Properties) SubscriberCustomLogSource { return v.CustomLogSource }).(SubscriberCustomLogSourceOutput)
+func (o SubscriberSourceOutput) AwsLogSource() SubscriberAwsLogSourcePtrOutput {
+	return o.ApplyT(func(v SubscriberSource) *SubscriberAwsLogSource { return v.AwsLogSource }).(SubscriberAwsLogSourcePtrOutput)
+}
+
+func (o SubscriberSourceOutput) CustomLogSource() SubscriberCustomLogSourcePtrOutput {
+	return o.ApplyT(func(v SubscriberSource) *SubscriberCustomLogSource { return v.CustomLogSource }).(SubscriberCustomLogSourcePtrOutput)
+}
+
+type SubscriberSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriberSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberSource)(nil)).Elem()
+}
+
+func (o SubscriberSourceArrayOutput) ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput {
+	return o
+}
+
+func (o SubscriberSourceArrayOutput) ToSubscriberSourceArrayOutputWithContext(ctx context.Context) SubscriberSourceArrayOutput {
+	return o
+}
+
+func (o SubscriberSourceArrayOutput) Index(i pulumi.IntInput) SubscriberSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriberSource {
+		return vs[0].([]SubscriberSource)[vs[1].(int)]
+	}).(SubscriberSourceOutput)
 }
 
 type SubscriberTag struct {
@@ -1083,10 +1275,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeTransitionsInput)(nil)).Elem(), DataLakeTransitionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeTransitionsArrayInput)(nil)).Elem(), DataLakeTransitionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberAwsLogSourceInput)(nil)).Elem(), SubscriberAwsLogSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberAwsLogSourcePtrInput)(nil)).Elem(), SubscriberAwsLogSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberCustomLogSourceInput)(nil)).Elem(), SubscriberCustomLogSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberCustomLogSourcePtrInput)(nil)).Elem(), SubscriberCustomLogSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberIdentityPropertiesInput)(nil)).Elem(), SubscriberIdentityPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSource0PropertiesInput)(nil)).Elem(), SubscriberSource0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSource1PropertiesInput)(nil)).Elem(), SubscriberSource1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceInput)(nil)).Elem(), SubscriberSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceArrayInput)(nil)).Elem(), SubscriberSourceArray{})
 	pulumi.RegisterOutputType(DataLakeEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeExpirationOutput{})
@@ -1098,9 +1292,11 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeTransitionsOutput{})
 	pulumi.RegisterOutputType(DataLakeTransitionsArrayOutput{})
 	pulumi.RegisterOutputType(SubscriberAwsLogSourceOutput{})
+	pulumi.RegisterOutputType(SubscriberAwsLogSourcePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberCustomLogSourceOutput{})
+	pulumi.RegisterOutputType(SubscriberCustomLogSourcePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriberIdentityPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberSource0PropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberSource1PropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberSourceOutput{})
+	pulumi.RegisterOutputType(SubscriberSourceArrayOutput{})
 }

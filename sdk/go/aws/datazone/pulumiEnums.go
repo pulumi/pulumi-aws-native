@@ -968,6 +968,766 @@ func (o EnvironmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the group profile.
+type GroupProfileStatus string
+
+const (
+	GroupProfileStatusAssigned    = GroupProfileStatus("ASSIGNED")
+	GroupProfileStatusNotAssigned = GroupProfileStatus("NOT_ASSIGNED")
+)
+
+func (GroupProfileStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupProfileStatus)(nil)).Elem()
+}
+
+func (e GroupProfileStatus) ToGroupProfileStatusOutput() GroupProfileStatusOutput {
+	return pulumi.ToOutput(e).(GroupProfileStatusOutput)
+}
+
+func (e GroupProfileStatus) ToGroupProfileStatusOutputWithContext(ctx context.Context) GroupProfileStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GroupProfileStatusOutput)
+}
+
+func (e GroupProfileStatus) ToGroupProfileStatusPtrOutput() GroupProfileStatusPtrOutput {
+	return e.ToGroupProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (e GroupProfileStatus) ToGroupProfileStatusPtrOutputWithContext(ctx context.Context) GroupProfileStatusPtrOutput {
+	return GroupProfileStatus(e).ToGroupProfileStatusOutputWithContext(ctx).ToGroupProfileStatusPtrOutputWithContext(ctx)
+}
+
+func (e GroupProfileStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GroupProfileStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GroupProfileStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GroupProfileStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GroupProfileStatusOutput struct{ *pulumi.OutputState }
+
+func (GroupProfileStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupProfileStatus)(nil)).Elem()
+}
+
+func (o GroupProfileStatusOutput) ToGroupProfileStatusOutput() GroupProfileStatusOutput {
+	return o
+}
+
+func (o GroupProfileStatusOutput) ToGroupProfileStatusOutputWithContext(ctx context.Context) GroupProfileStatusOutput {
+	return o
+}
+
+func (o GroupProfileStatusOutput) ToGroupProfileStatusPtrOutput() GroupProfileStatusPtrOutput {
+	return o.ToGroupProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GroupProfileStatusOutput) ToGroupProfileStatusPtrOutputWithContext(ctx context.Context) GroupProfileStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupProfileStatus) *GroupProfileStatus {
+		return &v
+	}).(GroupProfileStatusPtrOutput)
+}
+
+func (o GroupProfileStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GroupProfileStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GroupProfileStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupProfileStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GroupProfileStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GroupProfileStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GroupProfileStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupProfileStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupProfileStatus)(nil)).Elem()
+}
+
+func (o GroupProfileStatusPtrOutput) ToGroupProfileStatusPtrOutput() GroupProfileStatusPtrOutput {
+	return o
+}
+
+func (o GroupProfileStatusPtrOutput) ToGroupProfileStatusPtrOutputWithContext(ctx context.Context) GroupProfileStatusPtrOutput {
+	return o
+}
+
+func (o GroupProfileStatusPtrOutput) Elem() GroupProfileStatusOutput {
+	return o.ApplyT(func(v *GroupProfileStatus) GroupProfileStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GroupProfileStatus
+		return ret
+	}).(GroupProfileStatusOutput)
+}
+
+func (o GroupProfileStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GroupProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GroupProfileStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GroupProfileStatusInput is an input type that accepts values of the GroupProfileStatus enum
+// A concrete instance of `GroupProfileStatusInput` can be one of the following:
+//
+//	GroupProfileStatusAssigned
+//	GroupProfileStatusNotAssigned
+type GroupProfileStatusInput interface {
+	pulumi.Input
+
+	ToGroupProfileStatusOutput() GroupProfileStatusOutput
+	ToGroupProfileStatusOutputWithContext(context.Context) GroupProfileStatusOutput
+}
+
+var groupProfileStatusPtrType = reflect.TypeOf((**GroupProfileStatus)(nil)).Elem()
+
+type GroupProfileStatusPtrInput interface {
+	pulumi.Input
+
+	ToGroupProfileStatusPtrOutput() GroupProfileStatusPtrOutput
+	ToGroupProfileStatusPtrOutputWithContext(context.Context) GroupProfileStatusPtrOutput
+}
+
+type groupProfileStatusPtr string
+
+func GroupProfileStatusPtr(v string) GroupProfileStatusPtrInput {
+	return (*groupProfileStatusPtr)(&v)
+}
+
+func (*groupProfileStatusPtr) ElementType() reflect.Type {
+	return groupProfileStatusPtrType
+}
+
+func (in *groupProfileStatusPtr) ToGroupProfileStatusPtrOutput() GroupProfileStatusPtrOutput {
+	return pulumi.ToOutput(in).(GroupProfileStatusPtrOutput)
+}
+
+func (in *groupProfileStatusPtr) ToGroupProfileStatusPtrOutputWithContext(ctx context.Context) GroupProfileStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GroupProfileStatusPtrOutput)
+}
+
+type ProjectMembershipUserDesignation string
+
+const (
+	ProjectMembershipUserDesignationProjectOwner       = ProjectMembershipUserDesignation("PROJECT_OWNER")
+	ProjectMembershipUserDesignationProjectContributor = ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR")
+)
+
+func (ProjectMembershipUserDesignation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipUserDesignation)(nil)).Elem()
+}
+
+func (e ProjectMembershipUserDesignation) ToProjectMembershipUserDesignationOutput() ProjectMembershipUserDesignationOutput {
+	return pulumi.ToOutput(e).(ProjectMembershipUserDesignationOutput)
+}
+
+func (e ProjectMembershipUserDesignation) ToProjectMembershipUserDesignationOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProjectMembershipUserDesignationOutput)
+}
+
+func (e ProjectMembershipUserDesignation) ToProjectMembershipUserDesignationPtrOutput() ProjectMembershipUserDesignationPtrOutput {
+	return e.ToProjectMembershipUserDesignationPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectMembershipUserDesignation) ToProjectMembershipUserDesignationPtrOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationPtrOutput {
+	return ProjectMembershipUserDesignation(e).ToProjectMembershipUserDesignationOutputWithContext(ctx).ToProjectMembershipUserDesignationPtrOutputWithContext(ctx)
+}
+
+func (e ProjectMembershipUserDesignation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectMembershipUserDesignation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectMembershipUserDesignation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectMembershipUserDesignation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProjectMembershipUserDesignationOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipUserDesignationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipUserDesignation)(nil)).Elem()
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToProjectMembershipUserDesignationOutput() ProjectMembershipUserDesignationOutput {
+	return o
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToProjectMembershipUserDesignationOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationOutput {
+	return o
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToProjectMembershipUserDesignationPtrOutput() ProjectMembershipUserDesignationPtrOutput {
+	return o.ToProjectMembershipUserDesignationPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToProjectMembershipUserDesignationPtrOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectMembershipUserDesignation) *ProjectMembershipUserDesignation {
+		return &v
+	}).(ProjectMembershipUserDesignationPtrOutput)
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectMembershipUserDesignation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipUserDesignationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectMembershipUserDesignation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectMembershipUserDesignationPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipUserDesignationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectMembershipUserDesignation)(nil)).Elem()
+}
+
+func (o ProjectMembershipUserDesignationPtrOutput) ToProjectMembershipUserDesignationPtrOutput() ProjectMembershipUserDesignationPtrOutput {
+	return o
+}
+
+func (o ProjectMembershipUserDesignationPtrOutput) ToProjectMembershipUserDesignationPtrOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationPtrOutput {
+	return o
+}
+
+func (o ProjectMembershipUserDesignationPtrOutput) Elem() ProjectMembershipUserDesignationOutput {
+	return o.ApplyT(func(v *ProjectMembershipUserDesignation) ProjectMembershipUserDesignation {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectMembershipUserDesignation
+		return ret
+	}).(ProjectMembershipUserDesignationOutput)
+}
+
+func (o ProjectMembershipUserDesignationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipUserDesignationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectMembershipUserDesignation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProjectMembershipUserDesignationInput is an input type that accepts values of the ProjectMembershipUserDesignation enum
+// A concrete instance of `ProjectMembershipUserDesignationInput` can be one of the following:
+//
+//	ProjectMembershipUserDesignationProjectOwner
+//	ProjectMembershipUserDesignationProjectContributor
+type ProjectMembershipUserDesignationInput interface {
+	pulumi.Input
+
+	ToProjectMembershipUserDesignationOutput() ProjectMembershipUserDesignationOutput
+	ToProjectMembershipUserDesignationOutputWithContext(context.Context) ProjectMembershipUserDesignationOutput
+}
+
+var projectMembershipUserDesignationPtrType = reflect.TypeOf((**ProjectMembershipUserDesignation)(nil)).Elem()
+
+type ProjectMembershipUserDesignationPtrInput interface {
+	pulumi.Input
+
+	ToProjectMembershipUserDesignationPtrOutput() ProjectMembershipUserDesignationPtrOutput
+	ToProjectMembershipUserDesignationPtrOutputWithContext(context.Context) ProjectMembershipUserDesignationPtrOutput
+}
+
+type projectMembershipUserDesignationPtr string
+
+func ProjectMembershipUserDesignationPtr(v string) ProjectMembershipUserDesignationPtrInput {
+	return (*projectMembershipUserDesignationPtr)(&v)
+}
+
+func (*projectMembershipUserDesignationPtr) ElementType() reflect.Type {
+	return projectMembershipUserDesignationPtrType
+}
+
+func (in *projectMembershipUserDesignationPtr) ToProjectMembershipUserDesignationPtrOutput() ProjectMembershipUserDesignationPtrOutput {
+	return pulumi.ToOutput(in).(ProjectMembershipUserDesignationPtrOutput)
+}
+
+func (in *projectMembershipUserDesignationPtr) ToProjectMembershipUserDesignationPtrOutputWithContext(ctx context.Context) ProjectMembershipUserDesignationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProjectMembershipUserDesignationPtrOutput)
+}
+
+// The status of the user profile.
+type UserProfileStatus string
+
+const (
+	UserProfileStatusAssigned    = UserProfileStatus("ASSIGNED")
+	UserProfileStatusNotAssigned = UserProfileStatus("NOT_ASSIGNED")
+	UserProfileStatusActivated   = UserProfileStatus("ACTIVATED")
+	UserProfileStatusDeactivated = UserProfileStatus("DEACTIVATED")
+)
+
+func (UserProfileStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileStatus)(nil)).Elem()
+}
+
+func (e UserProfileStatus) ToUserProfileStatusOutput() UserProfileStatusOutput {
+	return pulumi.ToOutput(e).(UserProfileStatusOutput)
+}
+
+func (e UserProfileStatus) ToUserProfileStatusOutputWithContext(ctx context.Context) UserProfileStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileStatusOutput)
+}
+
+func (e UserProfileStatus) ToUserProfileStatusPtrOutput() UserProfileStatusPtrOutput {
+	return e.ToUserProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileStatus) ToUserProfileStatusPtrOutputWithContext(ctx context.Context) UserProfileStatusPtrOutput {
+	return UserProfileStatus(e).ToUserProfileStatusOutputWithContext(ctx).ToUserProfileStatusPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileStatusOutput struct{ *pulumi.OutputState }
+
+func (UserProfileStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileStatus)(nil)).Elem()
+}
+
+func (o UserProfileStatusOutput) ToUserProfileStatusOutput() UserProfileStatusOutput {
+	return o
+}
+
+func (o UserProfileStatusOutput) ToUserProfileStatusOutputWithContext(ctx context.Context) UserProfileStatusOutput {
+	return o
+}
+
+func (o UserProfileStatusOutput) ToUserProfileStatusPtrOutput() UserProfileStatusPtrOutput {
+	return o.ToUserProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileStatusOutput) ToUserProfileStatusPtrOutputWithContext(ctx context.Context) UserProfileStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileStatus) *UserProfileStatus {
+		return &v
+	}).(UserProfileStatusPtrOutput)
+}
+
+func (o UserProfileStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileStatus)(nil)).Elem()
+}
+
+func (o UserProfileStatusPtrOutput) ToUserProfileStatusPtrOutput() UserProfileStatusPtrOutput {
+	return o
+}
+
+func (o UserProfileStatusPtrOutput) ToUserProfileStatusPtrOutputWithContext(ctx context.Context) UserProfileStatusPtrOutput {
+	return o
+}
+
+func (o UserProfileStatusPtrOutput) Elem() UserProfileStatusOutput {
+	return o.ApplyT(func(v *UserProfileStatus) UserProfileStatus {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileStatus
+		return ret
+	}).(UserProfileStatusOutput)
+}
+
+func (o UserProfileStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileStatusInput is an input type that accepts values of the UserProfileStatus enum
+// A concrete instance of `UserProfileStatusInput` can be one of the following:
+//
+//	UserProfileStatusAssigned
+//	UserProfileStatusNotAssigned
+//	UserProfileStatusActivated
+//	UserProfileStatusDeactivated
+type UserProfileStatusInput interface {
+	pulumi.Input
+
+	ToUserProfileStatusOutput() UserProfileStatusOutput
+	ToUserProfileStatusOutputWithContext(context.Context) UserProfileStatusOutput
+}
+
+var userProfileStatusPtrType = reflect.TypeOf((**UserProfileStatus)(nil)).Elem()
+
+type UserProfileStatusPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileStatusPtrOutput() UserProfileStatusPtrOutput
+	ToUserProfileStatusPtrOutputWithContext(context.Context) UserProfileStatusPtrOutput
+}
+
+type userProfileStatusPtr string
+
+func UserProfileStatusPtr(v string) UserProfileStatusPtrInput {
+	return (*userProfileStatusPtr)(&v)
+}
+
+func (*userProfileStatusPtr) ElementType() reflect.Type {
+	return userProfileStatusPtrType
+}
+
+func (in *userProfileStatusPtr) ToUserProfileStatusPtrOutput() UserProfileStatusPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileStatusPtrOutput)
+}
+
+func (in *userProfileStatusPtr) ToUserProfileStatusPtrOutputWithContext(ctx context.Context) UserProfileStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileStatusPtrOutput)
+}
+
+// The type of the user profile.
+type UserProfileType string
+
+const (
+	UserProfileTypeIam = UserProfileType("IAM")
+	UserProfileTypeSso = UserProfileType("SSO")
+)
+
+type UserProfileTypeOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileType)(nil)).Elem()
+}
+
+func (o UserProfileTypeOutput) ToUserProfileTypeOutput() UserProfileTypeOutput {
+	return o
+}
+
+func (o UserProfileTypeOutput) ToUserProfileTypeOutputWithContext(ctx context.Context) UserProfileTypeOutput {
+	return o
+}
+
+func (o UserProfileTypeOutput) ToUserProfileTypePtrOutput() UserProfileTypePtrOutput {
+	return o.ToUserProfileTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileTypeOutput) ToUserProfileTypePtrOutputWithContext(ctx context.Context) UserProfileTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileType) *UserProfileType {
+		return &v
+	}).(UserProfileTypePtrOutput)
+}
+
+func (o UserProfileTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileType)(nil)).Elem()
+}
+
+func (o UserProfileTypePtrOutput) ToUserProfileTypePtrOutput() UserProfileTypePtrOutput {
+	return o
+}
+
+func (o UserProfileTypePtrOutput) ToUserProfileTypePtrOutputWithContext(ctx context.Context) UserProfileTypePtrOutput {
+	return o
+}
+
+func (o UserProfileTypePtrOutput) Elem() UserProfileTypeOutput {
+	return o.ApplyT(func(v *UserProfileType) UserProfileType {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileType
+		return ret
+	}).(UserProfileTypeOutput)
+}
+
+func (o UserProfileTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the user.
+type UserProfileUserType string
+
+const (
+	UserProfileUserTypeIamUser = UserProfileUserType("IAM_USER")
+	UserProfileUserTypeIamRole = UserProfileUserType("IAM_ROLE")
+	UserProfileUserTypeSsoUser = UserProfileUserType("SSO_USER")
+)
+
+func (UserProfileUserType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserType)(nil)).Elem()
+}
+
+func (e UserProfileUserType) ToUserProfileUserTypeOutput() UserProfileUserTypeOutput {
+	return pulumi.ToOutput(e).(UserProfileUserTypeOutput)
+}
+
+func (e UserProfileUserType) ToUserProfileUserTypeOutputWithContext(ctx context.Context) UserProfileUserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileUserTypeOutput)
+}
+
+func (e UserProfileUserType) ToUserProfileUserTypePtrOutput() UserProfileUserTypePtrOutput {
+	return e.ToUserProfileUserTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserType) ToUserProfileUserTypePtrOutputWithContext(ctx context.Context) UserProfileUserTypePtrOutput {
+	return UserProfileUserType(e).ToUserProfileUserTypeOutputWithContext(ctx).ToUserProfileUserTypePtrOutputWithContext(ctx)
+}
+
+func (e UserProfileUserType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileUserTypeOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserType)(nil)).Elem()
+}
+
+func (o UserProfileUserTypeOutput) ToUserProfileUserTypeOutput() UserProfileUserTypeOutput {
+	return o
+}
+
+func (o UserProfileUserTypeOutput) ToUserProfileUserTypeOutputWithContext(ctx context.Context) UserProfileUserTypeOutput {
+	return o
+}
+
+func (o UserProfileUserTypeOutput) ToUserProfileUserTypePtrOutput() UserProfileUserTypePtrOutput {
+	return o.ToUserProfileUserTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserTypeOutput) ToUserProfileUserTypePtrOutputWithContext(ctx context.Context) UserProfileUserTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserType) *UserProfileUserType {
+		return &v
+	}).(UserProfileUserTypePtrOutput)
+}
+
+func (o UserProfileUserTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileUserTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserType)(nil)).Elem()
+}
+
+func (o UserProfileUserTypePtrOutput) ToUserProfileUserTypePtrOutput() UserProfileUserTypePtrOutput {
+	return o
+}
+
+func (o UserProfileUserTypePtrOutput) ToUserProfileUserTypePtrOutputWithContext(ctx context.Context) UserProfileUserTypePtrOutput {
+	return o
+}
+
+func (o UserProfileUserTypePtrOutput) Elem() UserProfileUserTypeOutput {
+	return o.ApplyT(func(v *UserProfileUserType) UserProfileUserType {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserType
+		return ret
+	}).(UserProfileUserTypeOutput)
+}
+
+func (o UserProfileUserTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileUserType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileUserTypeInput is an input type that accepts values of the UserProfileUserType enum
+// A concrete instance of `UserProfileUserTypeInput` can be one of the following:
+//
+//	UserProfileUserTypeIamUser
+//	UserProfileUserTypeIamRole
+//	UserProfileUserTypeSsoUser
+type UserProfileUserTypeInput interface {
+	pulumi.Input
+
+	ToUserProfileUserTypeOutput() UserProfileUserTypeOutput
+	ToUserProfileUserTypeOutputWithContext(context.Context) UserProfileUserTypeOutput
+}
+
+var userProfileUserTypePtrType = reflect.TypeOf((**UserProfileUserType)(nil)).Elem()
+
+type UserProfileUserTypePtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserTypePtrOutput() UserProfileUserTypePtrOutput
+	ToUserProfileUserTypePtrOutputWithContext(context.Context) UserProfileUserTypePtrOutput
+}
+
+type userProfileUserTypePtr string
+
+func UserProfileUserTypePtr(v string) UserProfileUserTypePtrInput {
+	return (*userProfileUserTypePtr)(&v)
+}
+
+func (*userProfileUserTypePtr) ElementType() reflect.Type {
+	return userProfileUserTypePtrType
+}
+
+func (in *userProfileUserTypePtr) ToUserProfileUserTypePtrOutput() UserProfileUserTypePtrOutput {
+	return pulumi.ToOutput(in).(UserProfileUserTypePtrOutput)
+}
+
+func (in *userProfileUserTypePtr) ToUserProfileUserTypePtrOutputWithContext(ctx context.Context) UserProfileUserTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileUserTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingPtrInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
@@ -977,6 +1737,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthTypePtrInput)(nil)).Elem(), DomainAuthType("IAM_IDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentPtrInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusPtrInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationPtrInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusPtrInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserTypeInput)(nil)).Elem(), UserProfileUserType("IAM_USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserTypePtrInput)(nil)).Elem(), UserProfileUserType("IAM_USER"))
 	pulumi.RegisterOutputType(DataSourceEnableSettingOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFilterExpressionTypeOutput{})
@@ -991,4 +1759,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainUserAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(GroupProfileStatusOutput{})
+	pulumi.RegisterOutputType(GroupProfileStatusPtrOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipUserDesignationOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipUserDesignationPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileStatusOutput{})
+	pulumi.RegisterOutputType(UserProfileStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileTypeOutput{})
+	pulumi.RegisterOutputType(UserProfileTypePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserTypeOutput{})
+	pulumi.RegisterOutputType(UserProfileUserTypePtrOutput{})
 }

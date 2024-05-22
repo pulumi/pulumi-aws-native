@@ -92,3 +92,53 @@ export const EnvironmentStatus = {
  * The status of the Amazon DataZone environment.
  */
 export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
+
+export const GroupProfileStatus = {
+    Assigned: "ASSIGNED",
+    NotAssigned: "NOT_ASSIGNED",
+} as const;
+
+/**
+ * The status of the group profile.
+ */
+export type GroupProfileStatus = (typeof GroupProfileStatus)[keyof typeof GroupProfileStatus];
+
+export const ProjectMembershipUserDesignation = {
+    ProjectOwner: "PROJECT_OWNER",
+    ProjectContributor: "PROJECT_CONTRIBUTOR",
+} as const;
+
+export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];
+
+export const UserProfileStatus = {
+    Assigned: "ASSIGNED",
+    NotAssigned: "NOT_ASSIGNED",
+    Activated: "ACTIVATED",
+    Deactivated: "DEACTIVATED",
+} as const;
+
+/**
+ * The status of the user profile.
+ */
+export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
+
+export const UserProfileType = {
+    Iam: "IAM",
+    Sso: "SSO",
+} as const;
+
+/**
+ * The type of the user profile.
+ */
+export type UserProfileType = (typeof UserProfileType)[keyof typeof UserProfileType];
+
+export const UserProfileUserType = {
+    IamUser: "IAM_USER",
+    IamRole: "IAM_ROLE",
+    SsoUser: "SSO_USER",
+} as const;
+
+/**
+ * The type of the user.
+ */
+export type UserProfileUserType = (typeof UserProfileUserType)[keyof typeof UserProfileUserType];

@@ -11,13 +11,18 @@ namespace Pulumi.AwsNative.SecurityLake.Outputs
 {
 
     [OutputType]
-    public sealed class SubscriberSource1Properties
+    public sealed class SubscriberSource
     {
-        public readonly Outputs.SubscriberCustomLogSource CustomLogSource;
+        public readonly Outputs.SubscriberAwsLogSource? AwsLogSource;
+        public readonly Outputs.SubscriberCustomLogSource? CustomLogSource;
 
         [OutputConstructor]
-        private SubscriberSource1Properties(Outputs.SubscriberCustomLogSource customLogSource)
+        private SubscriberSource(
+            Outputs.SubscriberAwsLogSource? awsLogSource,
+
+            Outputs.SubscriberCustomLogSource? customLogSource)
         {
+            AwsLogSource = awsLogSource;
             CustomLogSource = customLogSource;
         }
     }

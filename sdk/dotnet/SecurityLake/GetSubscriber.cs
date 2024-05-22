@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.SecurityLake
         /// <summary>
         /// The supported AWS services from which logs and events are collected.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.SubscriberSource0Properties, Outputs.SubscriberSource1Properties>> Sources;
+        public readonly ImmutableArray<Outputs.SubscriberSource> Sources;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Security Lake subscriber.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.SecurityLake
 
             string? s3BucketArn,
 
-            ImmutableArray<Union<Outputs.SubscriberSource0Properties, Outputs.SubscriberSource1Properties>> sources,
+            ImmutableArray<Outputs.SubscriberSource> sources,
 
             string? subscriberArn,
 

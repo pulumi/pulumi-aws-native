@@ -51,8 +51,10 @@ type Environment struct {
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	MaxWebservers        pulumi.IntPtrOutput                      `pulumi:"maxWebservers"`
 	// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers pulumi.IntPtrOutput `pulumi:"maxWorkers"`
+	MaxWorkers    pulumi.IntPtrOutput `pulumi:"maxWorkers"`
+	MinWebservers pulumi.IntPtrOutput `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
 	MinWorkers pulumi.IntPtrOutput `pulumi:"minWorkers"`
 	// The name of your Amazon MWAA environment.
@@ -179,8 +181,10 @@ type environmentArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWebservers        *int                             `pulumi:"maxWebservers"`
 	// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers *int `pulumi:"maxWorkers"`
+	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The name of your Amazon MWAA environment.
@@ -258,8 +262,10 @@ type EnvironmentArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
+	MaxWebservers        pulumi.IntPtrInput
 	// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers pulumi.IntPtrInput
+	MaxWorkers    pulumi.IntPtrInput
+	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
 	MinWorkers pulumi.IntPtrInput
 	// The name of your Amazon MWAA environment.
@@ -412,9 +418,17 @@ func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfiguratio
 	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
+func (o EnvironmentOutput) MaxWebservers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MaxWebservers }).(pulumi.IntPtrOutput)
+}
+
 // The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
 func (o EnvironmentOutput) MaxWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentOutput) MinWebservers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MinWebservers }).(pulumi.IntPtrOutput)
 }
 
 // The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .

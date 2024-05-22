@@ -20,8 +20,7 @@ __all__ = [
     'SubscriberAwsLogSource',
     'SubscriberCustomLogSource',
     'SubscriberIdentityProperties',
-    'SubscriberSource0Properties',
-    'SubscriberSource1Properties',
+    'SubscriberSource',
 ]
 
 @pulumi.output_type
@@ -381,60 +380,42 @@ class SubscriberIdentityProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberSource0Properties(dict):
+class SubscriberSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "awsLogSource":
             suggest = "aws_log_source"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberSource0Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SubscriberSource0Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SubscriberSource0Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 aws_log_source: 'outputs.SubscriberAwsLogSource'):
-        pulumi.set(__self__, "aws_log_source", aws_log_source)
-
-    @property
-    @pulumi.getter(name="awsLogSource")
-    def aws_log_source(self) -> 'outputs.SubscriberAwsLogSource':
-        return pulumi.get(self, "aws_log_source")
-
-
-@pulumi.output_type
-class SubscriberSource1Properties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customLogSource":
+        elif key == "customLogSource":
             suggest = "custom_log_source"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberSource1Properties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberSource. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberSource1Properties.__key_warning(key)
+        SubscriberSource.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberSource1Properties.__key_warning(key)
+        SubscriberSource.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_log_source: 'outputs.SubscriberCustomLogSource'):
-        pulumi.set(__self__, "custom_log_source", custom_log_source)
+                 aws_log_source: Optional['outputs.SubscriberAwsLogSource'] = None,
+                 custom_log_source: Optional['outputs.SubscriberCustomLogSource'] = None):
+        if aws_log_source is not None:
+            pulumi.set(__self__, "aws_log_source", aws_log_source)
+        if custom_log_source is not None:
+            pulumi.set(__self__, "custom_log_source", custom_log_source)
+
+    @property
+    @pulumi.getter(name="awsLogSource")
+    def aws_log_source(self) -> Optional['outputs.SubscriberAwsLogSource']:
+        return pulumi.get(self, "aws_log_source")
 
     @property
     @pulumi.getter(name="customLogSource")
-    def custom_log_source(self) -> 'outputs.SubscriberCustomLogSource':
+    def custom_log_source(self) -> Optional['outputs.SubscriberCustomLogSource']:
         return pulumi.get(self, "custom_log_source")
 
 

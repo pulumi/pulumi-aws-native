@@ -30,7 +30,13 @@ __all__ = [
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
+    'ProjectMembershipMember0Properties',
+    'ProjectMembershipMember1Properties',
     'SubscriptionTargetForm',
+    'UserProfileDetails0Properties',
+    'UserProfileDetails1Properties',
+    'UserProfileIamUserProfileDetails',
+    'UserProfileSsoUserProfileDetails',
 ]
 
 @pulumi.output_type
@@ -830,6 +836,64 @@ class EnvironmentProfileEnvironmentParameter(dict):
 
 
 @pulumi.output_type
+class ProjectMembershipMember0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userIdentifier":
+            suggest = "user_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectMembershipMember0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectMembershipMember0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectMembershipMember0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_identifier: str):
+        pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> str:
+        return pulumi.get(self, "user_identifier")
+
+
+@pulumi.output_type
+class ProjectMembershipMember1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIdentifier":
+            suggest = "group_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectMembershipMember1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectMembershipMember1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectMembershipMember1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_identifier: str):
+        pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> str:
+        return pulumi.get(self, "group_identifier")
+
+
+@pulumi.output_type
 class SubscriptionTargetForm(dict):
     """
     The details of the subscription target configuration.
@@ -877,5 +941,118 @@ class SubscriptionTargetForm(dict):
         The form name included in the subscription target configuration.
         """
         return pulumi.get(self, "form_name")
+
+
+@pulumi.output_type
+class UserProfileDetails0Properties(dict):
+    def __init__(__self__, *,
+                 iam: 'outputs.UserProfileIamUserProfileDetails'):
+        pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> 'outputs.UserProfileIamUserProfileDetails':
+        return pulumi.get(self, "iam")
+
+
+@pulumi.output_type
+class UserProfileDetails1Properties(dict):
+    def __init__(__self__, *,
+                 sso: 'outputs.UserProfileSsoUserProfileDetails'):
+        pulumi.set(__self__, "sso", sso)
+
+    @property
+    @pulumi.getter
+    def sso(self) -> 'outputs.UserProfileSsoUserProfileDetails':
+        return pulumi.get(self, "sso")
+
+
+@pulumi.output_type
+class UserProfileIamUserProfileDetails(dict):
+    """
+    The details of the IAM User Profile.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[str] = None):
+        """
+        The details of the IAM User Profile.
+        :param str arn: The ARN of the IAM User Profile.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM User Profile.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class UserProfileSsoUserProfileDetails(dict):
+    """
+    The details of the SSO User Profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileSsoUserProfileDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileSsoUserProfileDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileSsoUserProfileDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 first_name: Optional[str] = None,
+                 last_name: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        The details of the SSO User Profile.
+        :param str first_name: The First Name of the IAM User Profile.
+        :param str last_name: The Last Name of the IAM User Profile.
+        :param str username: The username of the SSO User Profile.
+        """
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[str]:
+        """
+        The First Name of the IAM User Profile.
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[str]:
+        """
+        The Last Name of the IAM User Profile.
+        """
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username of the SSO User Profile.
+        """
+        return pulumi.get(self, "username")
 
 

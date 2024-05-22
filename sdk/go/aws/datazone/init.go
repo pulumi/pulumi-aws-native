@@ -31,10 +31,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentBlueprintConfiguration{}
 	case "aws-native:datazone:EnvironmentProfile":
 		r = &EnvironmentProfile{}
+	case "aws-native:datazone:GroupProfile":
+		r = &GroupProfile{}
 	case "aws-native:datazone:Project":
 		r = &Project{}
+	case "aws-native:datazone:ProjectMembership":
+		r = &ProjectMembership{}
 	case "aws-native:datazone:SubscriptionTarget":
 		r = &SubscriptionTarget{}
+	case "aws-native:datazone:UserProfile":
+		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

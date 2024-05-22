@@ -55,6 +55,11 @@ export const getEnvironmentProfile: typeof import("./getEnvironmentProfile").get
 export const getEnvironmentProfileOutput: typeof import("./getEnvironmentProfile").getEnvironmentProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentProfile","getEnvironmentProfileOutput"], () => require("./getEnvironmentProfile"));
 
+export { GetGroupProfileArgs, GetGroupProfileResult, GetGroupProfileOutputArgs } from "./getGroupProfile";
+export const getGroupProfile: typeof import("./getGroupProfile").getGroupProfile = null as any;
+export const getGroupProfileOutput: typeof import("./getGroupProfile").getGroupProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupProfile","getGroupProfileOutput"], () => require("./getGroupProfile"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
@@ -65,15 +70,35 @@ export const getSubscriptionTarget: typeof import("./getSubscriptionTarget").get
 export const getSubscriptionTargetOutput: typeof import("./getSubscriptionTarget").getSubscriptionTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionTarget","getSubscriptionTargetOutput"], () => require("./getSubscriptionTarget"));
 
+export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
+export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
+export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getUserProfile","getUserProfileOutput"], () => require("./getUserProfile"));
+
+export { GroupProfileArgs } from "./groupProfile";
+export type GroupProfile = import("./groupProfile").GroupProfile;
+export const GroupProfile: typeof import("./groupProfile").GroupProfile = null as any;
+utilities.lazyLoad(exports, ["GroupProfile"], () => require("./groupProfile"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
+export { ProjectMembershipArgs } from "./projectMembership";
+export type ProjectMembership = import("./projectMembership").ProjectMembership;
+export const ProjectMembership: typeof import("./projectMembership").ProjectMembership = null as any;
+utilities.lazyLoad(exports, ["ProjectMembership"], () => require("./projectMembership"));
+
 export { SubscriptionTargetArgs } from "./subscriptionTarget";
 export type SubscriptionTarget = import("./subscriptionTarget").SubscriptionTarget;
 export const SubscriptionTarget: typeof import("./subscriptionTarget").SubscriptionTarget = null as any;
 utilities.lazyLoad(exports, ["SubscriptionTarget"], () => require("./subscriptionTarget"));
+
+export { UserProfileArgs } from "./userProfile";
+export type UserProfile = import("./userProfile").UserProfile;
+export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
 
 
 // Export enums:
@@ -93,10 +118,16 @@ const _module = {
                 return new EnvironmentBlueprintConfiguration(name, <any>undefined, { urn })
             case "aws-native:datazone:EnvironmentProfile":
                 return new EnvironmentProfile(name, <any>undefined, { urn })
+            case "aws-native:datazone:GroupProfile":
+                return new GroupProfile(name, <any>undefined, { urn })
             case "aws-native:datazone:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws-native:datazone:ProjectMembership":
+                return new ProjectMembership(name, <any>undefined, { urn })
             case "aws-native:datazone:SubscriptionTarget":
                 return new SubscriptionTarget(name, <any>undefined, { urn })
+            case "aws-native:datazone:UserProfile":
+                return new UserProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

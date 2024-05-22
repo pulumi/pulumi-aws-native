@@ -7,18 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SecurityLake.Outputs
+namespace Pulumi.AwsNative.DataZone.Outputs
 {
 
     [OutputType]
-    public sealed class SubscriberSource0Properties
+    public sealed class ProjectMembershipMember0Properties
     {
-        public readonly Outputs.SubscriberAwsLogSource AwsLogSource;
+        public readonly string UserIdentifier;
 
         [OutputConstructor]
-        private SubscriberSource0Properties(Outputs.SubscriberAwsLogSource awsLogSource)
+        private ProjectMembershipMember0Properties(string userIdentifier)
         {
-            AwsLogSource = awsLogSource;
+            UserIdentifier = userIdentifier;
         }
     }
 }

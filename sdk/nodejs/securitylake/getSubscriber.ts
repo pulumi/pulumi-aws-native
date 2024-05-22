@@ -47,7 +47,7 @@ export interface GetSubscriberResult {
     /**
      * The supported AWS services from which logs and events are collected.
      */
-    readonly sources?: (outputs.securitylake.SubscriberSource0Properties | outputs.securitylake.SubscriberSource1Properties)[];
+    readonly sources?: outputs.securitylake.SubscriberSource[];
     /**
      * The Amazon Resource Name (ARN) of the Security Lake subscriber.
      */

@@ -244,4 +244,159 @@ namespace Pulumi.AwsNative.DataZone
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of the group profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct GroupProfileStatus : IEquatable<GroupProfileStatus>
+    {
+        private readonly string _value;
+
+        private GroupProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GroupProfileStatus Assigned { get; } = new GroupProfileStatus("ASSIGNED");
+        public static GroupProfileStatus NotAssigned { get; } = new GroupProfileStatus("NOT_ASSIGNED");
+
+        public static bool operator ==(GroupProfileStatus left, GroupProfileStatus right) => left.Equals(right);
+        public static bool operator !=(GroupProfileStatus left, GroupProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GroupProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GroupProfileStatus other && Equals(other);
+        public bool Equals(GroupProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ProjectMembershipUserDesignation : IEquatable<ProjectMembershipUserDesignation>
+    {
+        private readonly string _value;
+
+        private ProjectMembershipUserDesignation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectMembershipUserDesignation ProjectOwner { get; } = new ProjectMembershipUserDesignation("PROJECT_OWNER");
+        public static ProjectMembershipUserDesignation ProjectContributor { get; } = new ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR");
+
+        public static bool operator ==(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => left.Equals(right);
+        public static bool operator !=(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectMembershipUserDesignation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectMembershipUserDesignation other && Equals(other);
+        public bool Equals(ProjectMembershipUserDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the user profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileStatus : IEquatable<UserProfileStatus>
+    {
+        private readonly string _value;
+
+        private UserProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileStatus Assigned { get; } = new UserProfileStatus("ASSIGNED");
+        public static UserProfileStatus NotAssigned { get; } = new UserProfileStatus("NOT_ASSIGNED");
+        public static UserProfileStatus Activated { get; } = new UserProfileStatus("ACTIVATED");
+        public static UserProfileStatus Deactivated { get; } = new UserProfileStatus("DEACTIVATED");
+
+        public static bool operator ==(UserProfileStatus left, UserProfileStatus right) => left.Equals(right);
+        public static bool operator !=(UserProfileStatus left, UserProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileStatus other && Equals(other);
+        public bool Equals(UserProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the user profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileType : IEquatable<UserProfileType>
+    {
+        private readonly string _value;
+
+        private UserProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileType Iam { get; } = new UserProfileType("IAM");
+        public static UserProfileType Sso { get; } = new UserProfileType("SSO");
+
+        public static bool operator ==(UserProfileType left, UserProfileType right) => left.Equals(right);
+        public static bool operator !=(UserProfileType left, UserProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileType other && Equals(other);
+        public bool Equals(UserProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileUserType : IEquatable<UserProfileUserType>
+    {
+        private readonly string _value;
+
+        private UserProfileUserType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileUserType IamUser { get; } = new UserProfileUserType("IAM_USER");
+        public static UserProfileUserType IamRole { get; } = new UserProfileUserType("IAM_ROLE");
+        public static UserProfileUserType SsoUser { get; } = new UserProfileUserType("SSO_USER");
+
+        public static bool operator ==(UserProfileUserType left, UserProfileUserType right) => left.Equals(right);
+        public static bool operator !=(UserProfileUserType left, UserProfileUserType right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileUserType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileUserType other && Equals(other);
+        public bool Equals(UserProfileUserType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

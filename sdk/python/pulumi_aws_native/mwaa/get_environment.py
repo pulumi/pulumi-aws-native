@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, celery_executor_queue=None, dag_s3_path=None, database_vpc_endpoint_service=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_workers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, startup_script_s3_object_version=None, startup_script_s3_path=None, tags=None, webserver_access_mode=None, webserver_url=None, webserver_vpc_endpoint_service=None, weekly_maintenance_window_start=None):
+    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, celery_executor_queue=None, dag_s3_path=None, database_vpc_endpoint_service=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_webservers=None, max_workers=None, min_webservers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, startup_script_s3_object_version=None, startup_script_s3_path=None, tags=None, webserver_access_mode=None, webserver_url=None, webserver_vpc_endpoint_service=None, weekly_maintenance_window_start=None):
         if airflow_configuration_options and not isinstance(airflow_configuration_options, dict):
             raise TypeError("Expected argument 'airflow_configuration_options' to be a dict")
         pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -48,9 +48,15 @@ class GetEnvironmentResult:
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if max_webservers and not isinstance(max_webservers, int):
+            raise TypeError("Expected argument 'max_webservers' to be a int")
+        pulumi.set(__self__, "max_webservers", max_webservers)
         if max_workers and not isinstance(max_workers, int):
             raise TypeError("Expected argument 'max_workers' to be a int")
         pulumi.set(__self__, "max_workers", max_workers)
+        if min_webservers and not isinstance(min_webservers, int):
+            raise TypeError("Expected argument 'min_webservers' to be a int")
+        pulumi.set(__self__, "min_webservers", min_webservers)
         if min_workers and not isinstance(min_workers, int):
             raise TypeError("Expected argument 'min_workers' to be a int")
         pulumi.set(__self__, "min_workers", min_workers)
@@ -184,12 +190,22 @@ class GetEnvironmentResult:
         return pulumi.get(self, "logging_configuration")
 
     @property
+    @pulumi.getter(name="maxWebservers")
+    def max_webservers(self) -> Optional[int]:
+        return pulumi.get(self, "max_webservers")
+
+    @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[int]:
         """
         The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
         """
         return pulumi.get(self, "max_workers")
+
+    @property
+    @pulumi.getter(name="minWebservers")
+    def min_webservers(self) -> Optional[int]:
+        return pulumi.get(self, "min_webservers")
 
     @property
     @pulumi.getter(name="minWorkers")
@@ -342,7 +358,9 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             environment_class=self.environment_class,
             execution_role_arn=self.execution_role_arn,
             logging_configuration=self.logging_configuration,
+            max_webservers=self.max_webservers,
             max_workers=self.max_workers,
+            min_webservers=self.min_webservers,
             min_workers=self.min_workers,
             network_configuration=self.network_configuration,
             plugins_s3_object_version=self.plugins_s3_object_version,
@@ -383,7 +401,9 @@ def get_environment(name: Optional[str] = None,
         environment_class=pulumi.get(__ret__, 'environment_class'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
+        max_webservers=pulumi.get(__ret__, 'max_webservers'),
         max_workers=pulumi.get(__ret__, 'max_workers'),
+        min_webservers=pulumi.get(__ret__, 'min_webservers'),
         min_workers=pulumi.get(__ret__, 'min_workers'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
         plugins_s3_object_version=pulumi.get(__ret__, 'plugins_s3_object_version'),

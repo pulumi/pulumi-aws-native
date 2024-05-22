@@ -95,10 +95,12 @@ export class Environment extends pulumi.CustomResource {
      * The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
+    public readonly maxWebservers!: pulumi.Output<number | undefined>;
     /**
      * The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
      */
     public readonly maxWorkers!: pulumi.Output<number | undefined>;
+    public readonly minWebservers!: pulumi.Output<number | undefined>;
     /**
      * The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
      */
@@ -198,7 +200,9 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["maxWebservers"] = args ? args.maxWebservers : undefined;
             resourceInputs["maxWorkers"] = args ? args.maxWorkers : undefined;
+            resourceInputs["minWebservers"] = args ? args.minWebservers : undefined;
             resourceInputs["minWorkers"] = args ? args.minWorkers : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
@@ -230,7 +234,9 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["kmsKey"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["maxWebservers"] = undefined /*out*/;
             resourceInputs["maxWorkers"] = undefined /*out*/;
+            resourceInputs["minWebservers"] = undefined /*out*/;
             resourceInputs["minWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
@@ -305,10 +311,12 @@ export interface EnvironmentArgs {
      * The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
+    maxWebservers?: pulumi.Input<number>;
     /**
      * The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
      */
     maxWorkers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number>;
     /**
      * The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
      */

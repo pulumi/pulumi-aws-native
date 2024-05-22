@@ -255,8 +255,11 @@ AWS::DataZone::Domain
 AWS::DataZone::Environment
 AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
+AWS::DataZone::GroupProfile
 AWS::DataZone::Project
+AWS::DataZone::ProjectMembership
 AWS::DataZone::SubscriptionTarget
+AWS::DataZone::UserProfile
 AWS::Deadline::Farm
 AWS::Deadline::Fleet
 AWS::Deadline::LicenseEndpoint

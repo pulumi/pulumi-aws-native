@@ -361,16 +361,22 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "required" : [ "Name", "IncidentTemplate" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-incidents:CreateResponsePlan", "ssm-incidents:GetResponsePlan", "ssm-incidents:TagResource", "ssm-incidents:ListTagsForResource", "iam:PassRole", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey*" ]
+      "permissions" : [ "ssm-incidents:CreateResponsePlan", "ssm-incidents:GetResponsePlan", "ssm-incidents:TagResource", "ssm-incidents:ListTagsForResource", "iam:PassRole", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ]
     },
     "read" : {
       "permissions" : [ "ssm-incidents:GetResponsePlan", "ssm-incidents:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ssm-incidents:UpdateResponsePlan", "ssm-incidents:GetResponsePlan", "ssm-incidents:TagResource", "ssm-incidents:UntagResource", "ssm-incidents:ListTagsForResource", "iam:PassRole", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey*" ]
+      "permissions" : [ "ssm-incidents:UpdateResponsePlan", "ssm-incidents:GetResponsePlan", "ssm-incidents:TagResource", "ssm-incidents:UntagResource", "ssm-incidents:ListTagsForResource", "iam:PassRole", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ]
     },
     "delete" : {
       "permissions" : [ "ssm-incidents:DeleteResponsePlan", "ssm-incidents:GetResponsePlan" ]

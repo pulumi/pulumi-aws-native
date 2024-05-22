@@ -26,6 +26,9 @@
     }
   },
   "required" : [ "RestApiId" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "createOnlyProperties" : [ "/properties/ContentType", "/properties/Name", "/properties/RestApiId" ],
   "primaryIdentifier" : [ "/properties/RestApiId", "/properties/Name" ],
   "handlers" : {

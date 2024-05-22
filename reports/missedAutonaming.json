@@ -2771,6 +2771,65 @@
       }
     }
   },
+  "aws-native:datazone:GroupProfile": {
+    "cfTypeName": "AWS::DataZone::GroupProfile",
+    "properties": {
+      "domainIdentifier": {
+        "type": "string",
+        "description": "The identifier of the Amazon DataZone domain in which the group profile would be created."
+      },
+      "groupIdentifier": {
+        "type": "string",
+        "description": "The ID of the group."
+      },
+      "status": {
+        "$ref": "#/types/aws-native:datazone:GroupProfileStatus"
+      }
+    }
+  },
+  "aws-native:datazone:ProjectMembership": {
+    "cfTypeName": "AWS::DataZone::ProjectMembership",
+    "properties": {
+      "designation": {
+        "$ref": "#/types/aws-native:datazone:ProjectMembershipUserDesignation"
+      },
+      "domainIdentifier": {
+        "type": "string"
+      },
+      "member": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:datazone:ProjectMembershipMember0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:ProjectMembershipMember1Properties"
+          }
+        ]
+      },
+      "projectIdentifier": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:datazone:UserProfile": {
+    "cfTypeName": "AWS::DataZone::UserProfile",
+    "properties": {
+      "domainIdentifier": {
+        "type": "string",
+        "description": "The identifier of the Amazon DataZone domain in which the user profile would be created."
+      },
+      "status": {
+        "$ref": "#/types/aws-native:datazone:UserProfileStatus"
+      },
+      "userIdentifier": {
+        "type": "string",
+        "description": "The ID of the user."
+      },
+      "userType": {
+        "$ref": "#/types/aws-native:datazone:UserProfileUserType"
+      }
+    }
+  },
   "aws-native:deadline:Farm": {
     "cfTypeName": "AWS::Deadline::Farm",
     "properties": {
@@ -7789,7 +7848,7 @@
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
-        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n *Default (, , event sources)*: 0\n *Default (, Kafka, , event sources)*: 500 ms\n *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
+        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n  *Default (, , event sources)*: 0\n  *Default (, Kafka, , event sources)*: 500 ms\n  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
       },
       "maximumRecordAgeInSeconds": {
         "type": "integer",
@@ -7831,7 +7890,7 @@
       },
       "startingPosition": {
         "type": "string",
-        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +  *LATEST* - Read only new records.\n  +  *TRIM_HORIZON* - Process all available records.\n  +  *AT_TIMESTAMP* - Specify a time from which to start reading records."
+        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +   *LATEST* - Read only new records.\n  +   *TRIM_HORIZON* - Process all available records.\n  +   *AT_TIMESTAMP* - Specify a time from which to start reading records."
       },
       "startingPositionTimestamp": {
         "type": "number",

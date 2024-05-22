@@ -40,7 +40,7 @@ type LookupSubscriberResult struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// The supported AWS services from which logs and events are collected.
-	Sources []interface{} `pulumi:"sources"`
+	Sources []SubscriberSource `pulumi:"sources"`
 	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	SubscriberArn *string `pulumi:"subscriberArn"`
 	// The description for your subscriber account in Security Lake.
@@ -114,8 +114,8 @@ func (o LookupSubscriberResultOutput) S3BucketArn() pulumi.StringPtrOutput {
 }
 
 // The supported AWS services from which logs and events are collected.
-func (o LookupSubscriberResultOutput) Sources() pulumi.ArrayOutput {
-	return o.ApplyT(func(v LookupSubscriberResult) []interface{} { return v.Sources }).(pulumi.ArrayOutput)
+func (o LookupSubscriberResultOutput) Sources() SubscriberSourceArrayOutput {
+	return o.ApplyT(func(v LookupSubscriberResult) []SubscriberSource { return v.Sources }).(SubscriberSourceArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Security Lake subscriber.

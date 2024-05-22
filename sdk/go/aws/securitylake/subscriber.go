@@ -30,7 +30,7 @@ type Subscriber struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// The supported AWS services from which logs and events are collected.
-	Sources pulumi.ArrayOutput `pulumi:"sources"`
+	Sources SubscriberSourceArrayOutput `pulumi:"sources"`
 	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	SubscriberArn pulumi.StringOutput `pulumi:"subscriberArn"`
 	// The description for your subscriber account in Security Lake.
@@ -108,7 +108,7 @@ type subscriberArgs struct {
 	// The ARN for the data lake.
 	DataLakeArn string `pulumi:"dataLakeArn"`
 	// The supported AWS services from which logs and events are collected.
-	Sources []interface{} `pulumi:"sources"`
+	Sources []SubscriberSource `pulumi:"sources"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
 	// The AWS identity used to access your data.
@@ -128,7 +128,7 @@ type SubscriberArgs struct {
 	// The ARN for the data lake.
 	DataLakeArn pulumi.StringInput
 	// The supported AWS services from which logs and events are collected.
-	Sources pulumi.ArrayInput
+	Sources SubscriberSourceArrayInput
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
 	// The AWS identity used to access your data.
@@ -204,8 +204,8 @@ func (o SubscriberOutput) S3BucketArn() pulumi.StringOutput {
 }
 
 // The supported AWS services from which logs and events are collected.
-func (o SubscriberOutput) Sources() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *Subscriber) pulumi.ArrayOutput { return v.Sources }).(pulumi.ArrayOutput)
+func (o SubscriberOutput) Sources() SubscriberSourceArrayOutput {
+	return o.ApplyT(func(v *Subscriber) SubscriberSourceArrayOutput { return v.Sources }).(SubscriberSourceArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Security Lake subscriber.

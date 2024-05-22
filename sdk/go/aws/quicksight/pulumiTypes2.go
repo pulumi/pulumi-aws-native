@@ -8919,6 +8919,212 @@ func (o DataSourceRdsParametersPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+//
+//	   <code>GetClusterCredentials</code>
+//	</a>.</p>
+type DataSourceRedshiftIamParameters struct {
+	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+	AutoCreateDatabaseUser *bool `pulumi:"autoCreateDatabaseUser"`
+	// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+	DatabaseGroups []string `pulumi:"databaseGroups"`
+	// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+	DatabaseUser *string `pulumi:"databaseUser"`
+	// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DataSourceRedshiftIamParametersInput is an input type that accepts DataSourceRedshiftIamParametersArgs and DataSourceRedshiftIamParametersOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftIamParametersInput` via:
+//
+//	DataSourceRedshiftIamParametersArgs{...}
+type DataSourceRedshiftIamParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftIamParametersOutput() DataSourceRedshiftIamParametersOutput
+	ToDataSourceRedshiftIamParametersOutputWithContext(context.Context) DataSourceRedshiftIamParametersOutput
+}
+
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+//
+//	   <code>GetClusterCredentials</code>
+//	</a>.</p>
+type DataSourceRedshiftIamParametersArgs struct {
+	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+	AutoCreateDatabaseUser pulumi.BoolPtrInput `pulumi:"autoCreateDatabaseUser"`
+	// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+	DatabaseGroups pulumi.StringArrayInput `pulumi:"databaseGroups"`
+	// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+	DatabaseUser pulumi.StringPtrInput `pulumi:"databaseUser"`
+	// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DataSourceRedshiftIamParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftIamParameters)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftIamParametersArgs) ToDataSourceRedshiftIamParametersOutput() DataSourceRedshiftIamParametersOutput {
+	return i.ToDataSourceRedshiftIamParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftIamParametersArgs) ToDataSourceRedshiftIamParametersOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftIamParametersOutput)
+}
+
+func (i DataSourceRedshiftIamParametersArgs) ToDataSourceRedshiftIamParametersPtrOutput() DataSourceRedshiftIamParametersPtrOutput {
+	return i.ToDataSourceRedshiftIamParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftIamParametersArgs) ToDataSourceRedshiftIamParametersPtrOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftIamParametersOutput).ToDataSourceRedshiftIamParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftIamParametersPtrInput is an input type that accepts DataSourceRedshiftIamParametersArgs, DataSourceRedshiftIamParametersPtr and DataSourceRedshiftIamParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftIamParametersPtrInput` via:
+//
+//	        DataSourceRedshiftIamParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftIamParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftIamParametersPtrOutput() DataSourceRedshiftIamParametersPtrOutput
+	ToDataSourceRedshiftIamParametersPtrOutputWithContext(context.Context) DataSourceRedshiftIamParametersPtrOutput
+}
+
+type dataSourceRedshiftIamParametersPtrType DataSourceRedshiftIamParametersArgs
+
+func DataSourceRedshiftIamParametersPtr(v *DataSourceRedshiftIamParametersArgs) DataSourceRedshiftIamParametersPtrInput {
+	return (*dataSourceRedshiftIamParametersPtrType)(v)
+}
+
+func (*dataSourceRedshiftIamParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftIamParameters)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftIamParametersPtrType) ToDataSourceRedshiftIamParametersPtrOutput() DataSourceRedshiftIamParametersPtrOutput {
+	return i.ToDataSourceRedshiftIamParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftIamParametersPtrType) ToDataSourceRedshiftIamParametersPtrOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftIamParametersPtrOutput)
+}
+
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+//
+//	   <code>GetClusterCredentials</code>
+//	</a>.</p>
+type DataSourceRedshiftIamParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftIamParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftIamParameters)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftIamParametersOutput) ToDataSourceRedshiftIamParametersOutput() DataSourceRedshiftIamParametersOutput {
+	return o
+}
+
+func (o DataSourceRedshiftIamParametersOutput) ToDataSourceRedshiftIamParametersOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersOutput {
+	return o
+}
+
+func (o DataSourceRedshiftIamParametersOutput) ToDataSourceRedshiftIamParametersPtrOutput() DataSourceRedshiftIamParametersPtrOutput {
+	return o.ToDataSourceRedshiftIamParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftIamParametersOutput) ToDataSourceRedshiftIamParametersPtrOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftIamParameters) *DataSourceRedshiftIamParameters {
+		return &v
+	}).(DataSourceRedshiftIamParametersPtrOutput)
+}
+
+// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+func (o DataSourceRedshiftIamParametersOutput) AutoCreateDatabaseUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceRedshiftIamParameters) *bool { return v.AutoCreateDatabaseUser }).(pulumi.BoolPtrOutput)
+}
+
+// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+func (o DataSourceRedshiftIamParametersOutput) DatabaseGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceRedshiftIamParameters) []string { return v.DatabaseGroups }).(pulumi.StringArrayOutput)
+}
+
+// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+func (o DataSourceRedshiftIamParametersOutput) DatabaseUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceRedshiftIamParameters) *string { return v.DatabaseUser }).(pulumi.StringPtrOutput)
+}
+
+// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+func (o DataSourceRedshiftIamParametersOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRedshiftIamParameters) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DataSourceRedshiftIamParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftIamParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftIamParameters)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftIamParametersPtrOutput) ToDataSourceRedshiftIamParametersPtrOutput() DataSourceRedshiftIamParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftIamParametersPtrOutput) ToDataSourceRedshiftIamParametersPtrOutputWithContext(ctx context.Context) DataSourceRedshiftIamParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftIamParametersPtrOutput) Elem() DataSourceRedshiftIamParametersOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) DataSourceRedshiftIamParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftIamParameters
+		return ret
+	}).(DataSourceRedshiftIamParametersOutput)
+}
+
+// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+func (o DataSourceRedshiftIamParametersPtrOutput) AutoCreateDatabaseUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoCreateDatabaseUser
+	}).(pulumi.BoolPtrOutput)
+}
+
+// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+func (o DataSourceRedshiftIamParametersPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
 //
 //	<code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
@@ -8929,7 +9135,8 @@ type DataSourceRedshiftParameters struct {
 	// <p>Database.</p>
 	Database string `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-	Host *string `pulumi:"host"`
+	Host          *string                          `pulumi:"host"`
+	IamParameters *DataSourceRedshiftIamParameters `pulumi:"iamParameters"`
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
 	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
@@ -8959,7 +9166,8 @@ type DataSourceRedshiftParametersArgs struct {
 	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-	Host pulumi.StringPtrInput `pulumi:"host"`
+	Host          pulumi.StringPtrInput                   `pulumi:"host"`
+	IamParameters DataSourceRedshiftIamParametersPtrInput `pulumi:"iamParameters"`
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
 	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
@@ -9065,6 +9273,10 @@ func (o DataSourceRedshiftParametersOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+func (o DataSourceRedshiftParametersOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters { return v.IamParameters }).(DataSourceRedshiftIamParametersPtrOutput)
+}
+
 // An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 //
 // This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
@@ -9133,6 +9345,15 @@ func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 		}
 		return v.Host
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceRedshiftParametersPtrOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters {
+		if v == nil {
+			return nil
+		}
+		return v.IamParameters
+	}).(DataSourceRedshiftIamParametersPtrOutput)
 }
 
 // An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
@@ -85481,143 +85702,6 @@ func (o TemplateTableStyleTargetArrayOutput) Index(i pulumi.IntInput) TemplateTa
 	}).(TemplateTableStyleTargetOutput)
 }
 
-type TemplateTableUnaggregatedFieldWells struct {
-	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-	Values []TemplateUnaggregatedField `pulumi:"values"`
-}
-
-// TemplateTableUnaggregatedFieldWellsInput is an input type that accepts TemplateTableUnaggregatedFieldWellsArgs and TemplateTableUnaggregatedFieldWellsOutput values.
-// You can construct a concrete instance of `TemplateTableUnaggregatedFieldWellsInput` via:
-//
-//	TemplateTableUnaggregatedFieldWellsArgs{...}
-type TemplateTableUnaggregatedFieldWellsInput interface {
-	pulumi.Input
-
-	ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput
-	ToTemplateTableUnaggregatedFieldWellsOutputWithContext(context.Context) TemplateTableUnaggregatedFieldWellsOutput
-}
-
-type TemplateTableUnaggregatedFieldWellsArgs struct {
-	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-	Values TemplateUnaggregatedFieldArrayInput `pulumi:"values"`
-}
-
-func (TemplateTableUnaggregatedFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput {
-	return i.ToTemplateTableUnaggregatedFieldWellsOutputWithContext(context.Background())
-}
-
-func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsOutput)
-}
-
-func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return i.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableUnaggregatedFieldWellsArgs) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsOutput).ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx)
-}
-
-// TemplateTableUnaggregatedFieldWellsPtrInput is an input type that accepts TemplateTableUnaggregatedFieldWellsArgs, TemplateTableUnaggregatedFieldWellsPtr and TemplateTableUnaggregatedFieldWellsPtrOutput values.
-// You can construct a concrete instance of `TemplateTableUnaggregatedFieldWellsPtrInput` via:
-//
-//	        TemplateTableUnaggregatedFieldWellsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableUnaggregatedFieldWellsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput
-	ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput
-}
-
-type templateTableUnaggregatedFieldWellsPtrType TemplateTableUnaggregatedFieldWellsArgs
-
-func TemplateTableUnaggregatedFieldWellsPtr(v *TemplateTableUnaggregatedFieldWellsArgs) TemplateTableUnaggregatedFieldWellsPtrInput {
-	return (*templateTableUnaggregatedFieldWellsPtrType)(v)
-}
-
-func (*templateTableUnaggregatedFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (i *templateTableUnaggregatedFieldWellsPtrType) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return i.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableUnaggregatedFieldWellsPtrType) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableUnaggregatedFieldWellsPtrOutput)
-}
-
-type TemplateTableUnaggregatedFieldWellsOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableUnaggregatedFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsOutput() TemplateTableUnaggregatedFieldWellsOutput {
-	return o
-}
-
-func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsOutput {
-	return o
-}
-
-func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return o.ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableUnaggregatedFieldWells) *TemplateTableUnaggregatedFieldWells {
-		return &v
-	}).(TemplateTableUnaggregatedFieldWellsPtrOutput)
-}
-
-// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-func (o TemplateTableUnaggregatedFieldWellsOutput) Values() TemplateUnaggregatedFieldArrayOutput {
-	return o.ApplyT(func(v TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField { return v.Values }).(TemplateUnaggregatedFieldArrayOutput)
-}
-
-type TemplateTableUnaggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableUnaggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (o TemplateTableUnaggregatedFieldWellsPtrOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutput() TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o TemplateTableUnaggregatedFieldWellsPtrOutput) ToTemplateTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableUnaggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Elem() TemplateTableUnaggregatedFieldWellsOutput {
-	return o.ApplyT(func(v *TemplateTableUnaggregatedFieldWells) TemplateTableUnaggregatedFieldWells {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableUnaggregatedFieldWells
-		return ret
-	}).(TemplateTableUnaggregatedFieldWellsOutput)
-}
-
-// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Values() TemplateUnaggregatedFieldArrayOutput {
-	return o.ApplyT(func(v *TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(TemplateUnaggregatedFieldArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFieldFolderInput)(nil)).Elem(), DataSetFieldFolderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFieldFolderMapInput)(nil)).Elem(), DataSetFieldFolderMap{})
@@ -85721,6 +85805,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePrestoParametersPtrInput)(nil)).Elem(), DataSourcePrestoParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRdsParametersInput)(nil)).Elem(), DataSourceRdsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRdsParametersPtrInput)(nil)).Elem(), DataSourceRdsParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftIamParametersInput)(nil)).Elem(), DataSourceRedshiftIamParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftIamParametersPtrInput)(nil)).Elem(), DataSourceRedshiftIamParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftParametersInput)(nil)).Elem(), DataSourceRedshiftParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftParametersPtrInput)(nil)).Elem(), DataSourceRedshiftParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceResourcePermissionInput)(nil)).Elem(), DataSourceResourcePermissionArgs{})
@@ -86600,8 +86686,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableSortConfigurationPtrInput)(nil)).Elem(), TemplateTableSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableStyleTargetInput)(nil)).Elem(), TemplateTableStyleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableStyleTargetArrayInput)(nil)).Elem(), TemplateTableStyleTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterOutputType(DataSetFieldFolderOutput{})
 	pulumi.RegisterOutputType(DataSetFieldFolderMapOutput{})
 	pulumi.RegisterOutputType(DataSetFilterOperationOutput{})
@@ -86706,6 +86790,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourcePrestoParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRdsParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceRdsParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftIamParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftIamParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRedshiftParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceRedshiftParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceResourcePermissionOutput{})
@@ -87591,6 +87677,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableStyleTargetOutput{})
 	pulumi.RegisterOutputType(TemplateTableStyleTargetArrayOutput{})
-	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsOutput{})
-	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsPtrOutput{})
 }

@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
 /**
  * The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
  *  For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
- *   +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
- *   +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
- *   +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
- *   +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
- *   +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
- *   +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
- *   +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+ *   +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+ *   +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+ *   +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+ *   +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+ *   +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+ *   +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+ *   +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**
@@ -113,9 +113,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly functionResponseTypes!: pulumi.Output<enums.lambda.EventSourceMappingFunctionResponseTypesItem[] | undefined>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-     *  *Default (, , event sources)*: 0
-     *  *Default (, Kafka, , event sources)*: 500 ms
-     *  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+     *   *Default (, , event sources)*: 0
+     *   *Default (, Kafka, , event sources)*: 500 ms
+     *   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
      */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -153,9 +153,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-     *   +  *LATEST* - Read only new records.
-     *   +  *TRIM_HORIZON* - Process all available records.
-     *   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+     *   +   *LATEST* - Read only new records.
+     *   +   *TRIM_HORIZON* - Process all available records.
+     *   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
@@ -310,9 +310,9 @@ export interface EventSourceMappingArgs {
     functionResponseTypes?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingFunctionResponseTypesItem>[]>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-     *  *Default (, , event sources)*: 0
-     *  *Default (, Kafka, , event sources)*: 500 ms
-     *  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+     *   *Default (, , event sources)*: 0
+     *   *Default (, Kafka, , event sources)*: 500 ms
+     *   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
      */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
@@ -350,9 +350,9 @@ export interface EventSourceMappingArgs {
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
     /**
      * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-     *   +  *LATEST* - Read only new records.
-     *   +  *TRIM_HORIZON* - Process all available records.
-     *   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+     *   +   *LATEST* - Read only new records.
+     *   +   *TRIM_HORIZON* - Process all available records.
+     *   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
      */
     startingPosition?: pulumi.Input<string>;
     /**

@@ -16083,6 +16083,14 @@ export namespace datazone {
         value?: string;
     }
 
+    export interface ProjectMembershipMember0Properties {
+        userIdentifier: string;
+    }
+
+    export interface ProjectMembershipMember1Properties {
+        groupIdentifier: string;
+    }
+
     /**
      * The details of the subscription target configuration.
      */
@@ -16095,6 +16103,42 @@ export namespace datazone {
          * The form name included in the subscription target configuration.
          */
         formName: string;
+    }
+
+    export interface UserProfileDetails0Properties {
+        iam: outputs.datazone.UserProfileIamUserProfileDetails;
+    }
+
+    export interface UserProfileDetails1Properties {
+        sso: outputs.datazone.UserProfileSsoUserProfileDetails;
+    }
+
+    /**
+     * The details of the IAM User Profile.
+     */
+    export interface UserProfileIamUserProfileDetails {
+        /**
+         * The ARN of the IAM User Profile.
+         */
+        arn?: string;
+    }
+
+    /**
+     * The details of the SSO User Profile.
+     */
+    export interface UserProfileSsoUserProfileDetails {
+        /**
+         * The First Name of the IAM User Profile.
+         */
+        firstName?: string;
+        /**
+         * The Last Name of the IAM User Profile.
+         */
+        lastName?: string;
+        /**
+         * The username of the SSO User Profile.
+         */
+        username?: string;
     }
 
 }
@@ -65337,6 +65381,30 @@ export namespace quicksight {
     }
 
     /**
+     * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+     *                <code>GetClusterCredentials</code>
+     *             </a>.</p>
+     */
+    export interface DataSourceRedshiftIamParameters {
+        /**
+         * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+         */
+        autoCreateDatabaseUser?: boolean;
+        /**
+         * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+         */
+        databaseGroups?: string[];
+        /**
+         * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+         */
+        databaseUser?: string;
+        /**
+         * <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+         */
+        roleArn: string;
+    }
+
+    /**
      * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
      *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
      */
@@ -65354,6 +65422,7 @@ export namespace quicksight {
          * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
          */
         host?: string;
+        iamParameters?: outputs.quicksight.DataSourceRedshiftIamParameters;
         /**
          * An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
          *
@@ -83761,12 +83830,9 @@ export namespace securitylake {
         principal: string;
     }
 
-    export interface SubscriberSource0Properties {
-        awsLogSource: outputs.securitylake.SubscriberAwsLogSource;
-    }
-
-    export interface SubscriberSource1Properties {
-        customLogSource: outputs.securitylake.SubscriberCustomLogSource;
+    export interface SubscriberSource {
+        awsLogSource?: outputs.securitylake.SubscriberAwsLogSource;
+        customLogSource?: outputs.securitylake.SubscriberCustomLogSource;
     }
 
 }

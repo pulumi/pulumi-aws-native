@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.SecurityLake
         /// The supported AWS services from which logs and events are collected.
         /// </summary>
         [Output("sources")]
-        public Output<ImmutableArray<Union<Outputs.SubscriberSource0Properties, Outputs.SubscriberSource1Properties>>> Sources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubscriberSource>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Security Lake subscriber.
@@ -159,14 +159,14 @@ namespace Pulumi.AwsNative.SecurityLake
         public Input<string> DataLakeArn { get; set; } = null!;
 
         [Input("sources", required: true)]
-        private InputList<Union<Inputs.SubscriberSource0PropertiesArgs, Inputs.SubscriberSource1PropertiesArgs>>? _sources;
+        private InputList<Inputs.SubscriberSourceArgs>? _sources;
 
         /// <summary>
         /// The supported AWS services from which logs and events are collected.
         /// </summary>
-        public InputList<Union<Inputs.SubscriberSource0PropertiesArgs, Inputs.SubscriberSource1PropertiesArgs>> Sources
+        public InputList<Inputs.SubscriberSourceArgs> Sources
         {
-            get => _sources ?? (_sources = new InputList<Union<Inputs.SubscriberSource0PropertiesArgs, Inputs.SubscriberSource1PropertiesArgs>>());
+            get => _sources ?? (_sources = new InputList<Inputs.SubscriberSourceArgs>());
             set => _sources = value;
         }
 

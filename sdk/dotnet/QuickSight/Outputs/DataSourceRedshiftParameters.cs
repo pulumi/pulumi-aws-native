@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Host. This field can be blank if &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;
         /// </summary>
         public readonly string? Host;
+        public readonly Outputs.DataSourceRedshiftIamParameters? IamParameters;
         /// <summary>
         /// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
         /// 
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? host,
 
+            Outputs.DataSourceRedshiftIamParameters? iamParameters,
+
             Outputs.DataSourceIdentityCenterConfiguration? identityCenterConfiguration,
 
             double? port)
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ClusterId = clusterId;
             Database = database;
             Host = host;
+            IamParameters = iamParameters;
             IdentityCenterConfiguration = identityCenterConfiguration;
             Port = port;
         }

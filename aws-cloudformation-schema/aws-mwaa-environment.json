@@ -155,6 +155,16 @@
       "description" : "Minimum worker compute units.",
       "minimum" : 1
     },
+    "MaxWebservers" : {
+      "type" : "integer",
+      "description" : "Maximum webserver compute units.",
+      "minimum" : 2
+    },
+    "MinWebservers" : {
+      "type" : "integer",
+      "description" : "Minimum webserver compute units.",
+      "minimum" : 2
+    },
     "Schedulers" : {
       "type" : "integer",
       "description" : "Scheduler compute units.",
@@ -379,6 +389,12 @@
     },
     "MinWorkers" : {
       "$ref" : "#/definitions/MinWorkers"
+    },
+    "MaxWebservers" : {
+      "$ref" : "#/definitions/MaxWebservers"
+    },
+    "MinWebservers" : {
+      "$ref" : "#/definitions/MinWebservers"
     },
     "Schedulers" : {
       "$ref" : "#/definitions/Schedulers"

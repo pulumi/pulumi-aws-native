@@ -29,6 +29,8 @@ __all__ = [
     'EnvironmentBlueprintConfigurationRegionalParameterArgs',
     'EnvironmentParameterArgs',
     'EnvironmentProfileEnvironmentParameterArgs',
+    'ProjectMembershipMember0PropertiesArgs',
+    'ProjectMembershipMember1PropertiesArgs',
     'SubscriptionTargetFormArgs',
 ]
 
@@ -675,6 +677,38 @@ class EnvironmentProfileEnvironmentParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProjectMembershipMember0PropertiesArgs:
+    def __init__(__self__, *,
+                 user_identifier: pulumi.Input[str]):
+        pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "user_identifier")
+
+    @user_identifier.setter
+    def user_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_identifier", value)
+
+
+@pulumi.input_type
+class ProjectMembershipMember1PropertiesArgs:
+    def __init__(__self__, *,
+                 group_identifier: pulumi.Input[str]):
+        pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_identifier", value)
 
 
 @pulumi.input_type

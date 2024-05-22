@@ -1299,8 +1299,11 @@ _utilities.register(
    "aws-native:datazone:Environment": "Environment",
    "aws-native:datazone:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration",
    "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
+   "aws-native:datazone:GroupProfile": "GroupProfile",
    "aws-native:datazone:Project": "Project",
-   "aws-native:datazone:SubscriptionTarget": "SubscriptionTarget"
+   "aws-native:datazone:ProjectMembership": "ProjectMembership",
+   "aws-native:datazone:SubscriptionTarget": "SubscriptionTarget",
+   "aws-native:datazone:UserProfile": "UserProfile"
   }
  },
  {

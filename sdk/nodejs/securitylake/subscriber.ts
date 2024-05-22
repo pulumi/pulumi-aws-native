@@ -62,7 +62,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The supported AWS services from which logs and events are collected.
      */
-    public readonly sources!: pulumi.Output<(outputs.securitylake.SubscriberSource0Properties | outputs.securitylake.SubscriberSource1Properties)[]>;
+    public readonly sources!: pulumi.Output<outputs.securitylake.SubscriberSource[]>;
     /**
      * The Amazon Resource Name (ARN) of the Security Lake subscriber.
      */
@@ -161,7 +161,7 @@ export interface SubscriberArgs {
     /**
      * The supported AWS services from which logs and events are collected.
      */
-    sources: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource0PropertiesArgs | inputs.securitylake.SubscriberSource1PropertiesArgs>[]>;
+    sources: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSourceArgs>[]>;
     /**
      * The description for your subscriber account in Security Lake.
      */

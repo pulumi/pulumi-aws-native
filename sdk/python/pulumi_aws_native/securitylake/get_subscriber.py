@@ -92,7 +92,7 @@ class GetSubscriberResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[Sequence[Any]]:
+    def sources(self) -> Optional[Sequence['outputs.SubscriberSource']]:
         """
         The supported AWS services from which logs and events are collected.
         """

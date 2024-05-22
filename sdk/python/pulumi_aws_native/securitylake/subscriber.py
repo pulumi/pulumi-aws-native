@@ -21,7 +21,7 @@ class SubscriberArgs:
     def __init__(__self__, *,
                  access_types: pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]],
                  data_lake_arn: pulumi.Input[str],
-                 sources: pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSource0PropertiesArgs', 'SubscriberSource1PropertiesArgs']]]],
+                 sources: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]],
                  subscriber_identity: pulumi.Input['SubscriberIdentityPropertiesArgs'],
                  subscriber_description: Optional[pulumi.Input[str]] = None,
                  subscriber_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class SubscriberArgs:
                
                Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
         :param pulumi.Input[str] data_lake_arn: The ARN for the data lake.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSource0PropertiesArgs', 'SubscriberSource1PropertiesArgs']]]] sources: The supported AWS services from which logs and events are collected.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected.
         :param pulumi.Input['SubscriberIdentityPropertiesArgs'] subscriber_identity: The AWS identity used to access your data.
         :param pulumi.Input[str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[str] subscriber_name: The name of your Security Lake subscriber account.
@@ -77,14 +77,14 @@ class SubscriberArgs:
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSource0PropertiesArgs', 'SubscriberSource1PropertiesArgs']]]]:
+    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]:
         """
         The supported AWS services from which logs and events are collected.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSource0PropertiesArgs', 'SubscriberSource1PropertiesArgs']]]]):
+    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]):
         pulumi.set(self, "sources", value)
 
     @property
@@ -143,7 +143,7 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_types: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
                  data_lake_arn: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SubscriberSource0PropertiesArgs'], pulumi.InputType['SubscriberSource1PropertiesArgs']]]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriberSourceArgs']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[str]] = None,
                  subscriber_identity: Optional[pulumi.Input[pulumi.InputType['SubscriberIdentityPropertiesArgs']]] = None,
                  subscriber_name: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class Subscriber(pulumi.CustomResource):
                
                Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
         :param pulumi.Input[str] data_lake_arn: The ARN for the data lake.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SubscriberSource0PropertiesArgs'], pulumi.InputType['SubscriberSource1PropertiesArgs']]]]] sources: The supported AWS services from which logs and events are collected.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriberSourceArgs']]]] sources: The supported AWS services from which logs and events are collected.
         :param pulumi.Input[str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[pulumi.InputType['SubscriberIdentityPropertiesArgs']] subscriber_identity: The AWS identity used to access your data.
         :param pulumi.Input[str] subscriber_name: The name of your Security Lake subscriber account.
@@ -190,7 +190,7 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_types: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
                  data_lake_arn: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SubscriberSource0PropertiesArgs'], pulumi.InputType['SubscriberSource1PropertiesArgs']]]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriberSourceArgs']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[str]] = None,
                  subscriber_identity: Optional[pulumi.Input[pulumi.InputType['SubscriberIdentityPropertiesArgs']]] = None,
                  subscriber_name: Optional[pulumi.Input[str]] = None,
@@ -306,7 +306,7 @@ class Subscriber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Sequence[Any]]:
+    def sources(self) -> pulumi.Output[Sequence['outputs.SubscriberSource']]:
         """
         The supported AWS services from which logs and events are collected.
         """

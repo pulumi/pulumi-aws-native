@@ -19,8 +19,7 @@ __all__ = [
     'SubscriberAwsLogSourceArgs',
     'SubscriberCustomLogSourceArgs',
     'SubscriberIdentityPropertiesArgs',
-    'SubscriberSource0PropertiesArgs',
-    'SubscriberSource1PropertiesArgs',
+    'SubscriberSourceArgs',
 ]
 
 @pulumi.input_type
@@ -312,34 +311,31 @@ class SubscriberIdentityPropertiesArgs:
 
 
 @pulumi.input_type
-class SubscriberSource0PropertiesArgs:
+class SubscriberSourceArgs:
     def __init__(__self__, *,
-                 aws_log_source: pulumi.Input['SubscriberAwsLogSourceArgs']):
-        pulumi.set(__self__, "aws_log_source", aws_log_source)
+                 aws_log_source: Optional[pulumi.Input['SubscriberAwsLogSourceArgs']] = None,
+                 custom_log_source: Optional[pulumi.Input['SubscriberCustomLogSourceArgs']] = None):
+        if aws_log_source is not None:
+            pulumi.set(__self__, "aws_log_source", aws_log_source)
+        if custom_log_source is not None:
+            pulumi.set(__self__, "custom_log_source", custom_log_source)
 
     @property
     @pulumi.getter(name="awsLogSource")
-    def aws_log_source(self) -> pulumi.Input['SubscriberAwsLogSourceArgs']:
+    def aws_log_source(self) -> Optional[pulumi.Input['SubscriberAwsLogSourceArgs']]:
         return pulumi.get(self, "aws_log_source")
 
     @aws_log_source.setter
-    def aws_log_source(self, value: pulumi.Input['SubscriberAwsLogSourceArgs']):
+    def aws_log_source(self, value: Optional[pulumi.Input['SubscriberAwsLogSourceArgs']]):
         pulumi.set(self, "aws_log_source", value)
-
-
-@pulumi.input_type
-class SubscriberSource1PropertiesArgs:
-    def __init__(__self__, *,
-                 custom_log_source: pulumi.Input['SubscriberCustomLogSourceArgs']):
-        pulumi.set(__self__, "custom_log_source", custom_log_source)
 
     @property
     @pulumi.getter(name="customLogSource")
-    def custom_log_source(self) -> pulumi.Input['SubscriberCustomLogSourceArgs']:
+    def custom_log_source(self) -> Optional[pulumi.Input['SubscriberCustomLogSourceArgs']]:
         return pulumi.get(self, "custom_log_source")
 
     @custom_log_source.setter
-    def custom_log_source(self, value: pulumi.Input['SubscriberCustomLogSourceArgs']):
+    def custom_log_source(self, value: Optional[pulumi.Input['SubscriberCustomLogSourceArgs']]):
         pulumi.set(self, "custom_log_source", value)
 
 

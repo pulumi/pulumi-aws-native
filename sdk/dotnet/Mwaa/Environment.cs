@@ -95,11 +95,17 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        [Output("maxWebservers")]
+        public Output<int?> MaxWebservers { get; private set; } = null!;
+
         /// <summary>
         /// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
         /// </summary>
         [Output("maxWorkers")]
         public Output<int?> MaxWorkers { get; private set; } = null!;
+
+        [Output("minWebservers")]
+        public Output<int?> MinWebservers { get; private set; } = null!;
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
@@ -326,11 +332,17 @@ namespace Pulumi.AwsNative.Mwaa
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        [Input("maxWebservers")]
+        public Input<int>? MaxWebservers { get; set; }
+
         /// <summary>
         /// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
         /// </summary>
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
+
+        [Input("minWebservers")]
+        public Input<int>? MinWebservers { get; set; }
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
