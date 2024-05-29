@@ -928,6 +928,7 @@ AWS::SecurityHub::Standard
 AWS::SecurityLake::AwsLogSource
 AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
+AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation

@@ -172,7 +172,8 @@
           "items" : {
             "$ref" : "#/definitions/Function"
           },
-          "description" : "List of Function definitions"
+          "description" : "List of Function definitions",
+          "insertionOrder" : false
         }
       },
       "required" : [ "Functions" ],
@@ -385,7 +386,6 @@
     "AgentResourceRoleArn" : {
       "type" : "string",
       "maxLength" : 2048,
-      "pattern" : "^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/(service-role/)?AmazonBedrockExecutionRoleForAgents.+$",
       "description" : "ARN of a IAM role."
     },
     "AgentStatus" : {
@@ -452,8 +452,8 @@
     },
     "Instruction" : {
       "type" : "string",
-      "maxLength" : 1200,
       "minLength" : 40,
+      "maxLength" : 4000,
       "description" : "Instruction for the agent."
     },
     "KnowledgeBases" : {

@@ -55,7 +55,7 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateActivity" ]
+      "permissions" : [ "states:CreateActivity", "states:TagResource" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeActivity", "states:ListTagsForResource" ]
@@ -64,7 +64,10 @@
       "permissions" : [ "states:ListTagsForResource", "states:TagResource", "states:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "states:DeleteActivity" ]
+      "permissions" : [ "states:DescribeActivity", "states:DeleteActivity" ]
+    },
+    "list" : {
+      "permissions" : [ "states:ListActivities" ]
     }
   }
 }

@@ -11116,6 +11116,18 @@
       }
     }
   },
+  "aws-native:securitylake:SubscriberNotification": {
+    "cfTypeName": "AWS::SecurityLake::SubscriberNotification",
+    "properties": {
+      "notificationConfiguration": {
+        "$ref": "#/types/aws-native:securitylake:SubscriberNotificationNotificationConfiguration"
+      },
+      "subscriberArn": {
+        "type": "string",
+        "description": "The ARN for the subscriber"
+      }
+    }
+  },
   "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
     "cfTypeName": "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
     "properties": {

@@ -468,9 +468,6 @@
     },
     "delete" : {
       "permissions" : [ "acm-pca:GetCertificate" ]
-    },
-    "update" : {
-      "permissions" : [ ]
     }
   }
 }
