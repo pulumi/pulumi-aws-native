@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, environment_type=None, name=None, tags=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, environment_type=None, fleet_service_role=None, fleet_vpc_config=None, name=None, overflow_behavior=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,9 +34,18 @@ class GetFleetResult:
         if environment_type and not isinstance(environment_type, str):
             raise TypeError("Expected argument 'environment_type' to be a str")
         pulumi.set(__self__, "environment_type", environment_type)
+        if fleet_service_role and not isinstance(fleet_service_role, str):
+            raise TypeError("Expected argument 'fleet_service_role' to be a str")
+        pulumi.set(__self__, "fleet_service_role", fleet_service_role)
+        if fleet_vpc_config and not isinstance(fleet_vpc_config, dict):
+            raise TypeError("Expected argument 'fleet_vpc_config' to be a dict")
+        pulumi.set(__self__, "fleet_vpc_config", fleet_vpc_config)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if overflow_behavior and not isinstance(overflow_behavior, str):
+            raise TypeError("Expected argument 'overflow_behavior' to be a str")
+        pulumi.set(__self__, "overflow_behavior", overflow_behavior)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -101,12 +111,27 @@ class GetFleetResult:
         return pulumi.get(self, "environment_type")
 
     @property
+    @pulumi.getter(name="fleetServiceRole")
+    def fleet_service_role(self) -> Optional[str]:
+        return pulumi.get(self, "fleet_service_role")
+
+    @property
+    @pulumi.getter(name="fleetVpcConfig")
+    def fleet_vpc_config(self) -> Optional['outputs.FleetVpcConfig']:
+        return pulumi.get(self, "fleet_vpc_config")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
         The name of the compute fleet.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overflowBehavior")
+    def overflow_behavior(self) -> Optional['FleetOverflowBehavior']:
+        return pulumi.get(self, "overflow_behavior")
 
     @property
     @pulumi.getter
@@ -129,7 +154,10 @@ class AwaitableGetFleetResult(GetFleetResult):
             base_capacity=self.base_capacity,
             compute_type=self.compute_type,
             environment_type=self.environment_type,
+            fleet_service_role=self.fleet_service_role,
+            fleet_vpc_config=self.fleet_vpc_config,
             name=self.name,
+            overflow_behavior=self.overflow_behavior,
             tags=self.tags)
 
 
@@ -151,7 +179,10 @@ def get_fleet(arn: Optional[str] = None,
         base_capacity=pulumi.get(__ret__, 'base_capacity'),
         compute_type=pulumi.get(__ret__, 'compute_type'),
         environment_type=pulumi.get(__ret__, 'environment_type'),
+        fleet_service_role=pulumi.get(__ret__, 'fleet_service_role'),
+        fleet_vpc_config=pulumi.get(__ret__, 'fleet_vpc_config'),
         name=pulumi.get(__ret__, 'name'),
+        overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

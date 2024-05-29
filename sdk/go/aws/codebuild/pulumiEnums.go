@@ -380,13 +380,182 @@ func (in *fleetEnvironmentTypePtr) ToFleetEnvironmentTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(FleetEnvironmentTypePtrOutput)
 }
 
+type FleetOverflowBehavior string
+
+const (
+	FleetOverflowBehaviorQueue    = FleetOverflowBehavior("QUEUE")
+	FleetOverflowBehaviorOnDemand = FleetOverflowBehavior("ON_DEMAND")
+)
+
+func (FleetOverflowBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetOverflowBehavior)(nil)).Elem()
+}
+
+func (e FleetOverflowBehavior) ToFleetOverflowBehaviorOutput() FleetOverflowBehaviorOutput {
+	return pulumi.ToOutput(e).(FleetOverflowBehaviorOutput)
+}
+
+func (e FleetOverflowBehavior) ToFleetOverflowBehaviorOutputWithContext(ctx context.Context) FleetOverflowBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetOverflowBehaviorOutput)
+}
+
+func (e FleetOverflowBehavior) ToFleetOverflowBehaviorPtrOutput() FleetOverflowBehaviorPtrOutput {
+	return e.ToFleetOverflowBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e FleetOverflowBehavior) ToFleetOverflowBehaviorPtrOutputWithContext(ctx context.Context) FleetOverflowBehaviorPtrOutput {
+	return FleetOverflowBehavior(e).ToFleetOverflowBehaviorOutputWithContext(ctx).ToFleetOverflowBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e FleetOverflowBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetOverflowBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetOverflowBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetOverflowBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetOverflowBehaviorOutput struct{ *pulumi.OutputState }
+
+func (FleetOverflowBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetOverflowBehavior)(nil)).Elem()
+}
+
+func (o FleetOverflowBehaviorOutput) ToFleetOverflowBehaviorOutput() FleetOverflowBehaviorOutput {
+	return o
+}
+
+func (o FleetOverflowBehaviorOutput) ToFleetOverflowBehaviorOutputWithContext(ctx context.Context) FleetOverflowBehaviorOutput {
+	return o
+}
+
+func (o FleetOverflowBehaviorOutput) ToFleetOverflowBehaviorPtrOutput() FleetOverflowBehaviorPtrOutput {
+	return o.ToFleetOverflowBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o FleetOverflowBehaviorOutput) ToFleetOverflowBehaviorPtrOutputWithContext(ctx context.Context) FleetOverflowBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetOverflowBehavior) *FleetOverflowBehavior {
+		return &v
+	}).(FleetOverflowBehaviorPtrOutput)
+}
+
+func (o FleetOverflowBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetOverflowBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetOverflowBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetOverflowBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetOverflowBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetOverflowBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetOverflowBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetOverflowBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetOverflowBehavior)(nil)).Elem()
+}
+
+func (o FleetOverflowBehaviorPtrOutput) ToFleetOverflowBehaviorPtrOutput() FleetOverflowBehaviorPtrOutput {
+	return o
+}
+
+func (o FleetOverflowBehaviorPtrOutput) ToFleetOverflowBehaviorPtrOutputWithContext(ctx context.Context) FleetOverflowBehaviorPtrOutput {
+	return o
+}
+
+func (o FleetOverflowBehaviorPtrOutput) Elem() FleetOverflowBehaviorOutput {
+	return o.ApplyT(func(v *FleetOverflowBehavior) FleetOverflowBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret FleetOverflowBehavior
+		return ret
+	}).(FleetOverflowBehaviorOutput)
+}
+
+func (o FleetOverflowBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetOverflowBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetOverflowBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetOverflowBehaviorInput is an input type that accepts values of the FleetOverflowBehavior enum
+// A concrete instance of `FleetOverflowBehaviorInput` can be one of the following:
+//
+//	FleetOverflowBehaviorQueue
+//	FleetOverflowBehaviorOnDemand
+type FleetOverflowBehaviorInput interface {
+	pulumi.Input
+
+	ToFleetOverflowBehaviorOutput() FleetOverflowBehaviorOutput
+	ToFleetOverflowBehaviorOutputWithContext(context.Context) FleetOverflowBehaviorOutput
+}
+
+var fleetOverflowBehaviorPtrType = reflect.TypeOf((**FleetOverflowBehavior)(nil)).Elem()
+
+type FleetOverflowBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToFleetOverflowBehaviorPtrOutput() FleetOverflowBehaviorPtrOutput
+	ToFleetOverflowBehaviorPtrOutputWithContext(context.Context) FleetOverflowBehaviorPtrOutput
+}
+
+type fleetOverflowBehaviorPtr string
+
+func FleetOverflowBehaviorPtr(v string) FleetOverflowBehaviorPtrInput {
+	return (*fleetOverflowBehaviorPtr)(&v)
+}
+
+func (*fleetOverflowBehaviorPtr) ElementType() reflect.Type {
+	return fleetOverflowBehaviorPtrType
+}
+
+func (in *fleetOverflowBehaviorPtr) ToFleetOverflowBehaviorPtrOutput() FleetOverflowBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(FleetOverflowBehaviorPtrOutput)
+}
+
+func (in *fleetOverflowBehaviorPtr) ToFleetOverflowBehaviorPtrOutputWithContext(ctx context.Context) FleetOverflowBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetOverflowBehaviorPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("BUILD_GENERAL1_SMALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypePtrInput)(nil)).Elem(), FleetComputeType("BUILD_GENERAL1_SMALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEnvironmentTypeInput)(nil)).Elem(), FleetEnvironmentType("WINDOWS_SERVER_2019_CONTAINER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEnvironmentTypePtrInput)(nil)).Elem(), FleetEnvironmentType("WINDOWS_SERVER_2019_CONTAINER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetOverflowBehaviorInput)(nil)).Elem(), FleetOverflowBehavior("QUEUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetOverflowBehaviorPtrInput)(nil)).Elem(), FleetOverflowBehavior("QUEUE"))
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetEnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(FleetEnvironmentTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetOverflowBehaviorOutput{})
+	pulumi.RegisterOutputType(FleetOverflowBehaviorPtrOutput{})
 }

@@ -11,6 +11,8 @@ from .data_lake import *
 from .get_aws_log_source import *
 from .get_data_lake import *
 from .get_subscriber import *
+from .get_subscriber_notification import *
 from .subscriber import *
+from .subscriber_notification import *
 from ._inputs import *
 from . import outputs

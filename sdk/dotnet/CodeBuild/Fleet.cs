@@ -67,11 +67,20 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("environmentType")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType?> EnvironmentType { get; private set; } = null!;
 
+        [Output("fleetServiceRole")]
+        public Output<string?> FleetServiceRole { get; private set; } = null!;
+
+        [Output("fleetVpcConfig")]
+        public Output<Outputs.FleetVpcConfig?> FleetVpcConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the compute fleet.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
+
+        [Output("overflowBehavior")]
+        public Output<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior?> OverflowBehavior { get; private set; } = null!;
 
         /// <summary>
         /// A list of tag key and value pairs associated with this compute fleet.
@@ -172,11 +181,20 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("environmentType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType>? EnvironmentType { get; set; }
 
+        [Input("fleetServiceRole")]
+        public Input<string>? FleetServiceRole { get; set; }
+
+        [Input("fleetVpcConfig")]
+        public Input<Inputs.FleetVpcConfigArgs>? FleetVpcConfig { get; set; }
+
         /// <summary>
         /// The name of the compute fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("overflowBehavior")]
+        public Input<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior>? OverflowBehavior { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

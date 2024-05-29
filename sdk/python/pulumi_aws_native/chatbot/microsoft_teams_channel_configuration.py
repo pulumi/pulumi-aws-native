@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['MicrosoftTeamsChannelConfigurationArgs', 'MicrosoftTeamsChannelConfiguration']
 
@@ -22,6 +24,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a MicrosoftTeamsChannelConfiguration resource.
@@ -33,6 +36,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the configuration
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -47,6 +51,8 @@ class MicrosoftTeamsChannelConfigurationArgs:
             pulumi.set(__self__, "logging_level", logging_level)
         if sns_topic_arns is not None:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if user_role_required is not None:
             pulumi.set(__self__, "user_role_required", user_role_required)
 
@@ -147,6 +153,18 @@ class MicrosoftTeamsChannelConfigurationArgs:
         pulumi.set(self, "sns_topic_arns", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="userRoleRequired")
     def user_role_required(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -169,6 +187,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -184,6 +203,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the configuration
         :param pulumi.Input[str] team_id: The id of the Microsoft Teams team
         :param pulumi.Input[str] teams_channel_id: The id of the Microsoft Teams channel
         :param pulumi.Input[str] teams_tenant_id: The id of the Microsoft Teams tenant
@@ -218,6 +238,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -238,6 +259,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
             __props__.__dict__["iam_role_arn"] = iam_role_arn
             __props__.__dict__["logging_level"] = logging_level
             __props__.__dict__["sns_topic_arns"] = sns_topic_arns
+            __props__.__dict__["tags"] = tags
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
@@ -279,6 +301,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         __props__.__dict__["iam_role_arn"] = None
         __props__.__dict__["logging_level"] = None
         __props__.__dict__["sns_topic_arns"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["team_id"] = None
         __props__.__dict__["teams_channel_id"] = None
         __props__.__dict__["teams_tenant_id"] = None
@@ -332,6 +355,14 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="teamId")

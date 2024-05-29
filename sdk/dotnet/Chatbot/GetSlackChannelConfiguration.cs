@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public readonly ImmutableArray<string> SnsTopicArns;
         /// <summary>
+        /// The tags to add to the configuration
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Enables use of a user role requirement in your chat configuration
         /// </summary>
         public readonly bool? UserRoleRequired;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.Chatbot
 
             ImmutableArray<string> snsTopicArns,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             bool? userRoleRequired)
         {
             Arn = arn;
@@ -108,6 +114,7 @@ namespace Pulumi.AwsNative.Chatbot
             LoggingLevel = loggingLevel;
             SlackChannelId = slackChannelId;
             SnsTopicArns = snsTopicArns;
+            Tags = tags;
             UserRoleRequired = userRoleRequired;
         }
     }

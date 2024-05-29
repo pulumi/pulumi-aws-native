@@ -2853,7 +2853,8 @@ _utilities.register(
   "classes": {
    "aws-native:securitylake:AwsLogSource": "AwsLogSource",
    "aws-native:securitylake:DataLake": "DataLake",
-   "aws-native:securitylake:Subscriber": "Subscriber"
+   "aws-native:securitylake:Subscriber": "Subscriber",
+   "aws-native:securitylake:SubscriberNotification": "SubscriberNotification"
   }
  },
  {

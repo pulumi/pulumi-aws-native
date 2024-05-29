@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,8 @@ type LookupSlackChannelConfigurationResult struct {
 	SlackChannelId *string `pulumi:"slackChannelId"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags []aws.Tag `pulumi:"tags"`
 	// Enables use of a user role requirement in your chat configuration
 	UserRoleRequired *bool `pulumi:"userRoleRequired"`
 }
@@ -108,6 +111,11 @@ func (o LookupSlackChannelConfigurationResultOutput) SlackChannelId() pulumi.Str
 // ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 func (o LookupSlackChannelConfigurationResultOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSlackChannelConfigurationResult) []string { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
+}
+
+// The tags to add to the configuration
+func (o LookupSlackChannelConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSlackChannelConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Enables use of a user role requirement in your chat configuration

@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public readonly ImmutableArray<string> SnsTopicArns;
         /// <summary>
+        /// The tags to add to the configuration
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The id of the Microsoft Teams channel
         /// </summary>
         public readonly string? TeamsChannelId;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Chatbot
 
             ImmutableArray<string> snsTopicArns,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? teamsChannelId,
 
             bool? userRoleRequired)
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.Chatbot
             IamRoleArn = iamRoleArn;
             LoggingLevel = loggingLevel;
             SnsTopicArns = snsTopicArns;
+            Tags = tags;
             TeamsChannelId = teamsChannelId;
             UserRoleRequired = userRoleRequired;
         }

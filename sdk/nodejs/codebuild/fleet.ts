@@ -81,10 +81,13 @@ export class Fleet extends pulumi.CustomResource {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     public readonly environmentType!: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
+    public readonly fleetServiceRole!: pulumi.Output<string | undefined>;
+    public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
     /**
      * The name of the compute fleet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly overflowBehavior!: pulumi.Output<enums.codebuild.FleetOverflowBehavior | undefined>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
      *
@@ -106,7 +109,10 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
             resourceInputs["environmentType"] = args ? args.environmentType : undefined;
+            resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
+            resourceInputs["fleetVpcConfig"] = args ? args.fleetVpcConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -114,7 +120,10 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["computeType"] = undefined /*out*/;
             resourceInputs["environmentType"] = undefined /*out*/;
+            resourceInputs["fleetServiceRole"] = undefined /*out*/;
+            resourceInputs["fleetVpcConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overflowBehavior"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -166,10 +175,13 @@ export interface FleetArgs {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType>;
+    fleetServiceRole?: pulumi.Input<string>;
+    fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
     /**
      * The name of the compute fleet.
      */
     name?: pulumi.Input<string>;
+    overflowBehavior?: pulumi.Input<enums.codebuild.FleetOverflowBehavior>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
      *

@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.AutoScalingGroupInstanceRequirements? InstanceRequirements;
         /// <summary>
-        /// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
         ///  You can specify up to 40 instance types per Auto Scaling group.
         /// </summary>
         public readonly string? InstanceType;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type MicrosoftTeamsChannelConfiguration struct {
 	LoggingLevel pulumi.StringPtrOutput `pulumi:"loggingLevel"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The id of the Microsoft Teams team
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 	// The id of the Microsoft Teams channel
@@ -106,6 +109,8 @@ type microsoftTeamsChannelConfigurationArgs struct {
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags []aws.Tag `pulumi:"tags"`
 	// The id of the Microsoft Teams team
 	TeamId string `pulumi:"teamId"`
 	// The id of the Microsoft Teams channel
@@ -128,6 +133,8 @@ type MicrosoftTeamsChannelConfigurationArgs struct {
 	LoggingLevel pulumi.StringPtrInput
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayInput
+	// The tags to add to the configuration
+	Tags aws.TagArrayInput
 	// The id of the Microsoft Teams team
 	TeamId pulumi.StringInput
 	// The id of the Microsoft Teams channel
@@ -203,6 +210,11 @@ func (o MicrosoftTeamsChannelConfigurationOutput) LoggingLevel() pulumi.StringPt
 // ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 func (o MicrosoftTeamsChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MicrosoftTeamsChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
+}
+
+// The tags to add to the configuration
+func (o MicrosoftTeamsChannelConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MicrosoftTeamsChannelConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The id of the Microsoft Teams team

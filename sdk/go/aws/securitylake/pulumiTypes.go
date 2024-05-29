@@ -1156,6 +1156,448 @@ func (o SubscriberIdentityPropertiesPtrOutput) Principal() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for HTTPS subscriber notification.
+type SubscriberNotificationHttpsNotificationConfiguration struct {
+	// The key name for the notification subscription.
+	AuthorizationApiKeyName *string `pulumi:"authorizationApiKeyName"`
+	// The key value for the notification subscription.
+	AuthorizationApiKeyValue *string `pulumi:"authorizationApiKeyValue"`
+	// The subscription endpoint in Security Lake.
+	Endpoint string `pulumi:"endpoint"`
+	// The HTTPS method used for the notification subscription.
+	HttpMethod *SubscriberNotificationHttpsNotificationConfigurationHttpMethod `pulumi:"httpMethod"`
+	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	TargetRoleArn string `pulumi:"targetRoleArn"`
+}
+
+// SubscriberNotificationHttpsNotificationConfigurationInput is an input type that accepts SubscriberNotificationHttpsNotificationConfigurationArgs and SubscriberNotificationHttpsNotificationConfigurationOutput values.
+// You can construct a concrete instance of `SubscriberNotificationHttpsNotificationConfigurationInput` via:
+//
+//	SubscriberNotificationHttpsNotificationConfigurationArgs{...}
+type SubscriberNotificationHttpsNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToSubscriberNotificationHttpsNotificationConfigurationOutput() SubscriberNotificationHttpsNotificationConfigurationOutput
+	ToSubscriberNotificationHttpsNotificationConfigurationOutputWithContext(context.Context) SubscriberNotificationHttpsNotificationConfigurationOutput
+}
+
+// The configuration for HTTPS subscriber notification.
+type SubscriberNotificationHttpsNotificationConfigurationArgs struct {
+	// The key name for the notification subscription.
+	AuthorizationApiKeyName pulumi.StringPtrInput `pulumi:"authorizationApiKeyName"`
+	// The key value for the notification subscription.
+	AuthorizationApiKeyValue pulumi.StringPtrInput `pulumi:"authorizationApiKeyValue"`
+	// The subscription endpoint in Security Lake.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The HTTPS method used for the notification subscription.
+	HttpMethod SubscriberNotificationHttpsNotificationConfigurationHttpMethodPtrInput `pulumi:"httpMethod"`
+	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	TargetRoleArn pulumi.StringInput `pulumi:"targetRoleArn"`
+}
+
+func (SubscriberNotificationHttpsNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationHttpsNotificationConfiguration)(nil)).Elem()
+}
+
+func (i SubscriberNotificationHttpsNotificationConfigurationArgs) ToSubscriberNotificationHttpsNotificationConfigurationOutput() SubscriberNotificationHttpsNotificationConfigurationOutput {
+	return i.ToSubscriberNotificationHttpsNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SubscriberNotificationHttpsNotificationConfigurationArgs) ToSubscriberNotificationHttpsNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationHttpsNotificationConfigurationOutput)
+}
+
+func (i SubscriberNotificationHttpsNotificationConfigurationArgs) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutput() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return i.ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriberNotificationHttpsNotificationConfigurationArgs) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationHttpsNotificationConfigurationOutput).ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(ctx)
+}
+
+// SubscriberNotificationHttpsNotificationConfigurationPtrInput is an input type that accepts SubscriberNotificationHttpsNotificationConfigurationArgs, SubscriberNotificationHttpsNotificationConfigurationPtr and SubscriberNotificationHttpsNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `SubscriberNotificationHttpsNotificationConfigurationPtrInput` via:
+//
+//	        SubscriberNotificationHttpsNotificationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriberNotificationHttpsNotificationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberNotificationHttpsNotificationConfigurationPtrOutput() SubscriberNotificationHttpsNotificationConfigurationPtrOutput
+	ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(context.Context) SubscriberNotificationHttpsNotificationConfigurationPtrOutput
+}
+
+type subscriberNotificationHttpsNotificationConfigurationPtrType SubscriberNotificationHttpsNotificationConfigurationArgs
+
+func SubscriberNotificationHttpsNotificationConfigurationPtr(v *SubscriberNotificationHttpsNotificationConfigurationArgs) SubscriberNotificationHttpsNotificationConfigurationPtrInput {
+	return (*subscriberNotificationHttpsNotificationConfigurationPtrType)(v)
+}
+
+func (*subscriberNotificationHttpsNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberNotificationHttpsNotificationConfiguration)(nil)).Elem()
+}
+
+func (i *subscriberNotificationHttpsNotificationConfigurationPtrType) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutput() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return i.ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriberNotificationHttpsNotificationConfigurationPtrType) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
+}
+
+// The configuration for HTTPS subscriber notification.
+type SubscriberNotificationHttpsNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationHttpsNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationHttpsNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) ToSubscriberNotificationHttpsNotificationConfigurationOutput() SubscriberNotificationHttpsNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) ToSubscriberNotificationHttpsNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutput() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o.ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberNotificationHttpsNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfiguration {
+		return &v
+	}).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
+}
+
+// The key name for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberNotificationHttpsNotificationConfiguration) *string { return v.AuthorizationApiKeyName }).(pulumi.StringPtrOutput)
+}
+
+// The key value for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberNotificationHttpsNotificationConfiguration) *string {
+		return v.AuthorizationApiKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription endpoint in Security Lake.
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberNotificationHttpsNotificationConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The HTTPS method used for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) HttpMethod() SubscriberNotificationHttpsNotificationConfigurationHttpMethodPtrOutput {
+	return o.ApplyT(func(v SubscriberNotificationHttpsNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfigurationHttpMethod {
+		return v.HttpMethod
+	}).(SubscriberNotificationHttpsNotificationConfigurationHttpMethodPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+func (o SubscriberNotificationHttpsNotificationConfigurationOutput) TargetRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberNotificationHttpsNotificationConfiguration) string { return v.TargetRoleArn }).(pulumi.StringOutput)
+}
+
+type SubscriberNotificationHttpsNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationHttpsNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberNotificationHttpsNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutput() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) ToSubscriberNotificationHttpsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) Elem() SubscriberNotificationHttpsNotificationConfigurationOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) SubscriberNotificationHttpsNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberNotificationHttpsNotificationConfiguration
+		return ret
+	}).(SubscriberNotificationHttpsNotificationConfigurationOutput)
+}
+
+// The key name for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationApiKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key value for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationApiKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription endpoint in Security Lake.
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS method used for the notification subscription.
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) HttpMethod() SubscriberNotificationHttpsNotificationConfigurationHttpMethodPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfigurationHttpMethod {
+		if v == nil {
+			return nil
+		}
+		return v.HttpMethod
+	}).(SubscriberNotificationHttpsNotificationConfigurationHttpMethodPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationHttpsNotificationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriberNotificationNotificationConfiguration struct {
+	HttpsNotificationConfiguration *SubscriberNotificationHttpsNotificationConfiguration `pulumi:"httpsNotificationConfiguration"`
+	SqsNotificationConfiguration   *SubscriberNotificationSqsNotificationConfiguration   `pulumi:"sqsNotificationConfiguration"`
+}
+
+// SubscriberNotificationNotificationConfigurationInput is an input type that accepts SubscriberNotificationNotificationConfigurationArgs and SubscriberNotificationNotificationConfigurationOutput values.
+// You can construct a concrete instance of `SubscriberNotificationNotificationConfigurationInput` via:
+//
+//	SubscriberNotificationNotificationConfigurationArgs{...}
+type SubscriberNotificationNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToSubscriberNotificationNotificationConfigurationOutput() SubscriberNotificationNotificationConfigurationOutput
+	ToSubscriberNotificationNotificationConfigurationOutputWithContext(context.Context) SubscriberNotificationNotificationConfigurationOutput
+}
+
+type SubscriberNotificationNotificationConfigurationArgs struct {
+	HttpsNotificationConfiguration SubscriberNotificationHttpsNotificationConfigurationPtrInput `pulumi:"httpsNotificationConfiguration"`
+	SqsNotificationConfiguration   SubscriberNotificationSqsNotificationConfigurationPtrInput   `pulumi:"sqsNotificationConfiguration"`
+}
+
+func (SubscriberNotificationNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationNotificationConfiguration)(nil)).Elem()
+}
+
+func (i SubscriberNotificationNotificationConfigurationArgs) ToSubscriberNotificationNotificationConfigurationOutput() SubscriberNotificationNotificationConfigurationOutput {
+	return i.ToSubscriberNotificationNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SubscriberNotificationNotificationConfigurationArgs) ToSubscriberNotificationNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationNotificationConfigurationOutput)
+}
+
+type SubscriberNotificationNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationNotificationConfigurationOutput) ToSubscriberNotificationNotificationConfigurationOutput() SubscriberNotificationNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationNotificationConfigurationOutput) ToSubscriberNotificationNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationNotificationConfigurationOutput) HttpsNotificationConfiguration() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v SubscriberNotificationNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfiguration {
+		return v.HttpsNotificationConfiguration
+	}).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
+}
+
+func (o SubscriberNotificationNotificationConfigurationOutput) SqsNotificationConfiguration() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v SubscriberNotificationNotificationConfiguration) *SubscriberNotificationSqsNotificationConfiguration {
+		return v.SqsNotificationConfiguration
+	}).(SubscriberNotificationSqsNotificationConfigurationPtrOutput)
+}
+
+type SubscriberNotificationNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberNotificationNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationNotificationConfigurationPtrOutput) ToSubscriberNotificationNotificationConfigurationPtrOutput() SubscriberNotificationNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationNotificationConfigurationPtrOutput) ToSubscriberNotificationNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationNotificationConfigurationPtrOutput) Elem() SubscriberNotificationNotificationConfigurationOutput {
+	return o.ApplyT(func(v *SubscriberNotificationNotificationConfiguration) SubscriberNotificationNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberNotificationNotificationConfiguration
+		return ret
+	}).(SubscriberNotificationNotificationConfigurationOutput)
+}
+
+func (o SubscriberNotificationNotificationConfigurationPtrOutput) HttpsNotificationConfiguration() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsNotificationConfiguration
+	}).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
+}
+
+func (o SubscriberNotificationNotificationConfigurationPtrOutput) SqsNotificationConfiguration() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v *SubscriberNotificationNotificationConfiguration) *SubscriberNotificationSqsNotificationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SqsNotificationConfiguration
+	}).(SubscriberNotificationSqsNotificationConfigurationPtrOutput)
+}
+
+// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+type SubscriberNotificationSqsNotificationConfiguration struct {
+}
+
+// SubscriberNotificationSqsNotificationConfigurationInput is an input type that accepts SubscriberNotificationSqsNotificationConfigurationArgs and SubscriberNotificationSqsNotificationConfigurationOutput values.
+// You can construct a concrete instance of `SubscriberNotificationSqsNotificationConfigurationInput` via:
+//
+//	SubscriberNotificationSqsNotificationConfigurationArgs{...}
+type SubscriberNotificationSqsNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToSubscriberNotificationSqsNotificationConfigurationOutput() SubscriberNotificationSqsNotificationConfigurationOutput
+	ToSubscriberNotificationSqsNotificationConfigurationOutputWithContext(context.Context) SubscriberNotificationSqsNotificationConfigurationOutput
+}
+
+// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+type SubscriberNotificationSqsNotificationConfigurationArgs struct {
+}
+
+func (SubscriberNotificationSqsNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationSqsNotificationConfiguration)(nil)).Elem()
+}
+
+func (i SubscriberNotificationSqsNotificationConfigurationArgs) ToSubscriberNotificationSqsNotificationConfigurationOutput() SubscriberNotificationSqsNotificationConfigurationOutput {
+	return i.ToSubscriberNotificationSqsNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SubscriberNotificationSqsNotificationConfigurationArgs) ToSubscriberNotificationSqsNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationSqsNotificationConfigurationOutput)
+}
+
+func (i SubscriberNotificationSqsNotificationConfigurationArgs) ToSubscriberNotificationSqsNotificationConfigurationPtrOutput() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return i.ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriberNotificationSqsNotificationConfigurationArgs) ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationSqsNotificationConfigurationOutput).ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(ctx)
+}
+
+// SubscriberNotificationSqsNotificationConfigurationPtrInput is an input type that accepts SubscriberNotificationSqsNotificationConfigurationArgs, SubscriberNotificationSqsNotificationConfigurationPtr and SubscriberNotificationSqsNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `SubscriberNotificationSqsNotificationConfigurationPtrInput` via:
+//
+//	        SubscriberNotificationSqsNotificationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriberNotificationSqsNotificationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberNotificationSqsNotificationConfigurationPtrOutput() SubscriberNotificationSqsNotificationConfigurationPtrOutput
+	ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(context.Context) SubscriberNotificationSqsNotificationConfigurationPtrOutput
+}
+
+type subscriberNotificationSqsNotificationConfigurationPtrType SubscriberNotificationSqsNotificationConfigurationArgs
+
+func SubscriberNotificationSqsNotificationConfigurationPtr(v *SubscriberNotificationSqsNotificationConfigurationArgs) SubscriberNotificationSqsNotificationConfigurationPtrInput {
+	return (*subscriberNotificationSqsNotificationConfigurationPtrType)(v)
+}
+
+func (*subscriberNotificationSqsNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberNotificationSqsNotificationConfiguration)(nil)).Elem()
+}
+
+func (i *subscriberNotificationSqsNotificationConfigurationPtrType) ToSubscriberNotificationSqsNotificationConfigurationPtrOutput() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return i.ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriberNotificationSqsNotificationConfigurationPtrType) ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberNotificationSqsNotificationConfigurationPtrOutput)
+}
+
+// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+type SubscriberNotificationSqsNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationSqsNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberNotificationSqsNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationOutput) ToSubscriberNotificationSqsNotificationConfigurationOutput() SubscriberNotificationSqsNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationOutput) ToSubscriberNotificationSqsNotificationConfigurationOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationOutput {
+	return o
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationOutput) ToSubscriberNotificationSqsNotificationConfigurationPtrOutput() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o.ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationOutput) ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberNotificationSqsNotificationConfiguration) *SubscriberNotificationSqsNotificationConfiguration {
+		return &v
+	}).(SubscriberNotificationSqsNotificationConfigurationPtrOutput)
+}
+
+type SubscriberNotificationSqsNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberNotificationSqsNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberNotificationSqsNotificationConfiguration)(nil)).Elem()
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationPtrOutput) ToSubscriberNotificationSqsNotificationConfigurationPtrOutput() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationPtrOutput) ToSubscriberNotificationSqsNotificationConfigurationPtrOutputWithContext(ctx context.Context) SubscriberNotificationSqsNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o SubscriberNotificationSqsNotificationConfigurationPtrOutput) Elem() SubscriberNotificationSqsNotificationConfigurationOutput {
+	return o.ApplyT(func(v *SubscriberNotificationSqsNotificationConfiguration) SubscriberNotificationSqsNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberNotificationSqsNotificationConfiguration
+		return ret
+	}).(SubscriberNotificationSqsNotificationConfigurationOutput)
+}
+
 type SubscriberSource struct {
 	AwsLogSource    *SubscriberAwsLogSource    `pulumi:"awsLogSource"`
 	CustomLogSource *SubscriberCustomLogSource `pulumi:"customLogSource"`
@@ -1279,6 +1721,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberCustomLogSourceInput)(nil)).Elem(), SubscriberCustomLogSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberCustomLogSourcePtrInput)(nil)).Elem(), SubscriberCustomLogSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberIdentityPropertiesInput)(nil)).Elem(), SubscriberIdentityPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationHttpsNotificationConfigurationInput)(nil)).Elem(), SubscriberNotificationHttpsNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationHttpsNotificationConfigurationPtrInput)(nil)).Elem(), SubscriberNotificationHttpsNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationNotificationConfigurationInput)(nil)).Elem(), SubscriberNotificationNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationSqsNotificationConfigurationInput)(nil)).Elem(), SubscriberNotificationSqsNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationSqsNotificationConfigurationPtrInput)(nil)).Elem(), SubscriberNotificationSqsNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceInput)(nil)).Elem(), SubscriberSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceArrayInput)(nil)).Elem(), SubscriberSourceArray{})
 	pulumi.RegisterOutputType(DataLakeEncryptionConfigurationOutput{})
@@ -1297,6 +1744,12 @@ func init() {
 	pulumi.RegisterOutputType(SubscriberCustomLogSourcePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriberIdentityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationHttpsNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationHttpsNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationSqsNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(SubscriberNotificationSqsNotificationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceArrayOutput{})
 }

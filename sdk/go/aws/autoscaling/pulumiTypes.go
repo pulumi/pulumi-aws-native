@@ -665,13 +665,13 @@ func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage
 //
 //	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
 //	To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-//	 +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-//	 +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
 //	 You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
-//	 For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	 For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-//	``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+//	 ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupInstanceRequirements struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -751,9 +751,8 @@ type AutoScalingGroupInstanceRequirements struct {
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
 	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
 	//  Default: No minimum or maximum limits
@@ -777,10 +776,8 @@ type AutoScalingGroupInstanceRequirements struct {
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-	//  To turn off price protection, specify a high value, such as ``999999``.
 	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
-	//   Default: ``100``
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum total local storage size for an instance type, in GB.
 	//  Default: No minimum or maximum limits
@@ -804,13 +801,13 @@ type AutoScalingGroupInstanceRequirementsInput interface {
 //
 //	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
 //	To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-//	 +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-//	 +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
 //	 You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
-//	 For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	 For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-//	``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+//	 ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupInstanceRequirementsArgs struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -890,9 +887,8 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
 	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
 	//  Default: No minimum or maximum limits
@@ -916,10 +912,8 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-	//  To turn off price protection, specify a high value, such as ``999999``.
 	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
-	//   Default: ``100``
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum total local storage size for an instance type, in GB.
 	//  Default: No minimum or maximum limits
@@ -985,13 +979,13 @@ func (i *autoScalingGroupInstanceRequirementsPtrType) ToAutoScalingGroupInstance
 //
 //	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
 //	To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-//	 +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-//	 +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
 //	 You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
-//	 For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	 For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-//	``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+//	 ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -1172,9 +1166,8 @@ func (o AutoScalingGroupInstanceRequirementsOutput) LocalStorageTypes() pulumi.S
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
 //	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o AutoScalingGroupInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
@@ -1233,10 +1226,8 @@ func (o AutoScalingGroupInstanceRequirementsOutput) RequireHibernateSupport() pu
 // [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-//	To turn off price protection, specify a high value, such as ``999999``.
 //	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
-//	 Default: ``100``
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o AutoScalingGroupInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
@@ -1499,9 +1490,8 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) LocalStorageTypes() pulum
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
 //	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *int {
 		if v == nil {
@@ -1587,10 +1577,8 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) RequireHibernateSupport()
 // [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-//	To turn off price protection, specify a high value, such as ``999999``.
 //	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
-//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
-//	 Default: ``100``
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *int {
 		if v == nil {
@@ -2107,7 +2095,7 @@ type AutoScalingGroupLaunchTemplateOverrides struct {
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 	InstanceRequirements *AutoScalingGroupInstanceRequirements `pulumi:"instanceRequirements"`
-	// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  You can specify up to 40 instance types per Auto Scaling group.
 	InstanceType *string `pulumi:"instanceType"`
 	// Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -2144,7 +2132,7 @@ type AutoScalingGroupLaunchTemplateOverridesArgs struct {
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 	InstanceRequirements AutoScalingGroupInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
-	// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  You can specify up to 40 instance types per Auto Scaling group.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -2226,7 +2214,7 @@ func (o AutoScalingGroupLaunchTemplateOverridesOutput) InstanceRequirements() Au
 	}).(AutoScalingGroupInstanceRequirementsPtrOutput)
 }
 
-// The instance type, such as “m3.xlarge“. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The instance type, such as “m3.xlarge“. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
 //
 //	You can specify up to 40 instance types per Auto Scaling group.
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
@@ -2276,9 +2264,9 @@ func (o AutoScalingGroupLaunchTemplateOverridesArrayOutput) Index(i pulumi.IntIn
 //	 +  The ID or the name of the launch template, but not both.
 //	 +  The version of the launch template.
 //
-//	``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+//	 ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
 //	For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
-//	For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+//	For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
 type AutoScalingGroupLaunchTemplateSpecification struct {
 	// The ID of the launch template.
 	//  You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
@@ -2309,9 +2297,9 @@ type AutoScalingGroupLaunchTemplateSpecificationInput interface {
 //	 +  The ID or the name of the launch template, but not both.
 //	 +  The version of the launch template.
 //
-//	``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+//	 ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
 //	For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
-//	For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+//	For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
 type AutoScalingGroupLaunchTemplateSpecificationArgs struct {
 	// The ID of the launch template.
 	//  You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
@@ -2384,9 +2372,9 @@ func (i *autoScalingGroupLaunchTemplateSpecificationPtrType) ToAutoScalingGroupL
 //	 +  The ID or the name of the launch template, but not both.
 //	 +  The version of the launch template.
 //
-//	``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+//	 ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
 //	For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
-//	For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+//	For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
 type AutoScalingGroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -2513,7 +2501,7 @@ type AutoScalingGroupLifecycleHookSpecification struct {
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
-	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Prepare to add a lifecycle hook to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -2548,7 +2536,7 @@ type AutoScalingGroupLifecycleHookSpecificationArgs struct {
 	NotificationMetadata pulumi.StringPtrInput `pulumi:"notificationMetadata"`
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
 	NotificationTargetArn pulumi.StringPtrInput `pulumi:"notificationTargetArn"`
-	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Prepare to add a lifecycle hook to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
@@ -2641,7 +2629,7 @@ func (o AutoScalingGroupLifecycleHookSpecificationOutput) NotificationTargetArn(
 	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.NotificationTargetArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Prepare to add a lifecycle hook to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //
 //	Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
 func (o AutoScalingGroupLifecycleHookSpecificationOutput) RoleArn() pulumi.StringPtrOutput {
@@ -3016,7 +3004,7 @@ type AutoScalingGroupMetricsCollection struct {
 	//   +   ``GroupAndWarmPoolTotalCapacity``
 	//
 	//  If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
-	//  For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+	//  For more information, see [Amazon CloudWatch metrics for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	Metrics []string `pulumi:"metrics"`
 }
 
@@ -3061,7 +3049,7 @@ type AutoScalingGroupMetricsCollectionArgs struct {
 	//   +   ``GroupAndWarmPoolTotalCapacity``
 	//
 	//  If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
-	//  For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+	//  For more information, see [Amazon CloudWatch metrics for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
 }
 
@@ -3149,7 +3137,7 @@ func (o AutoScalingGroupMetricsCollectionOutput) Granularity() pulumi.StringOutp
 //	 +   ``GroupAndWarmPoolTotalCapacity``
 //
 //	If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
-//	For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+//	For more information, see [Amazon CloudWatch metrics for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupMetricsCollectionOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupMetricsCollection) []string { return v.Metrics }).(pulumi.StringArrayOutput)
 }
@@ -3688,11 +3676,11 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntP
 
 // A structure that specifies an Amazon SNS notification configuration for the “NotificationConfigurations“ property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 //
-//	For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 type AutoScalingGroupNotificationConfiguration struct {
 	// A list of event types that send a notification. Event types can include any of the following types.
-	//  *Allowed values*:
+	//   *Allowed values*:
 	//   +   ``autoscaling:EC2_INSTANCE_LAUNCH``
 	//   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
 	//   +   ``autoscaling:EC2_INSTANCE_TERMINATE``
@@ -3716,11 +3704,11 @@ type AutoScalingGroupNotificationConfigurationInput interface {
 
 // A structure that specifies an Amazon SNS notification configuration for the “NotificationConfigurations“ property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 //
-//	For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 type AutoScalingGroupNotificationConfigurationArgs struct {
 	// A list of event types that send a notification. Event types can include any of the following types.
-	//  *Allowed values*:
+	//   *Allowed values*:
 	//   +   ``autoscaling:EC2_INSTANCE_LAUNCH``
 	//   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
 	//   +   ``autoscaling:EC2_INSTANCE_TERMINATE``
@@ -3811,7 +3799,7 @@ func (i AutoScalingGroupNotificationConfigurationArray) ToAutoScalingGroupNotifi
 
 // A structure that specifies an Amazon SNS notification configuration for the “NotificationConfigurations“ property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 //
-//	For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+//	For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
 //	For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
 type AutoScalingGroupNotificationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3840,11 +3828,11 @@ func (o AutoScalingGroupNotificationConfigurationOutput) ToAutoScalingGroupNotif
 // A list of event types that send a notification. Event types can include any of the following types.
 //
 //	*Allowed values*:
-//	 +   ``autoscaling:EC2_INSTANCE_LAUNCH``
-//	 +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
-//	 +   ``autoscaling:EC2_INSTANCE_TERMINATE``
-//	 +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``
-//	 +   ``autoscaling:TEST_NOTIFICATION``
+//	+   ``autoscaling:EC2_INSTANCE_LAUNCH``
+//	+   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
+//	+   ``autoscaling:EC2_INSTANCE_TERMINATE``
+//	+   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``
+//	+   ``autoscaling:TEST_NOTIFICATION``
 func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
@@ -3881,11 +3869,11 @@ func (o AutoScalingGroupNotificationConfigurationPtrOutput) Elem() AutoScalingGr
 // A list of event types that send a notification. Event types can include any of the following types.
 //
 //	*Allowed values*:
-//	 +   ``autoscaling:EC2_INSTANCE_LAUNCH``
-//	 +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
-//	 +   ``autoscaling:EC2_INSTANCE_TERMINATE``
-//	 +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``
-//	 +   ``autoscaling:TEST_NOTIFICATION``
+//	+   ``autoscaling:EC2_INSTANCE_LAUNCH``
+//	+   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
+//	+   ``autoscaling:EC2_INSTANCE_TERMINATE``
+//	+   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``
+//	+   ``autoscaling:TEST_NOTIFICATION``
 func (o AutoScalingGroupNotificationConfigurationPtrOutput) NotificationTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) []string {
 		if v == nil {

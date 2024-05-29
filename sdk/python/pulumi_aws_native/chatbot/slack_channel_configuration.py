@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['SlackChannelConfigurationArgs', 'SlackChannelConfiguration']
 
@@ -21,6 +23,7 @@ class SlackChannelConfigurationArgs:
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
@@ -31,6 +34,7 @@ class SlackChannelConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the configuration
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -44,6 +48,8 @@ class SlackChannelConfigurationArgs:
             pulumi.set(__self__, "logging_level", logging_level)
         if sns_topic_arns is not None:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if user_role_required is not None:
             pulumi.set(__self__, "user_role_required", user_role_required)
 
@@ -132,6 +138,18 @@ class SlackChannelConfigurationArgs:
         pulumi.set(self, "sns_topic_arns", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="userRoleRequired")
     def user_role_required(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -156,6 +174,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -170,6 +189,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the configuration
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         ...
@@ -203,6 +223,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -226,6 +247,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slack_workspace_id'")
             __props__.__dict__["slack_workspace_id"] = slack_workspace_id
             __props__.__dict__["sns_topic_arns"] = sns_topic_arns
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["user_role_required"] = user_role_required
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationName", "slackWorkspaceId"])
@@ -260,6 +282,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         __props__.__dict__["slack_channel_id"] = None
         __props__.__dict__["slack_workspace_id"] = None
         __props__.__dict__["sns_topic_arns"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["user_role_required"] = None
         return SlackChannelConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -326,6 +349,14 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userRoleRequired")

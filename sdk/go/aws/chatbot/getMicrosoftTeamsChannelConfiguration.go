@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupMicrosoftTeamsChannelConfigurationResult struct {
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags []aws.Tag `pulumi:"tags"`
 	// The id of the Microsoft Teams channel
 	TeamsChannelId *string `pulumi:"teamsChannelId"`
 	// Enables use of a user role requirement in your chat configuration
@@ -103,6 +106,11 @@ func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) LoggingLevel() pul
 // ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) []string { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
+}
+
+// The tags to add to the configuration
+func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The id of the Microsoft Teams channel

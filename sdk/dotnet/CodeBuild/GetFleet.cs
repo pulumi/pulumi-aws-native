@@ -101,10 +101,13 @@ namespace Pulumi.AwsNative.CodeBuild
         /// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? EnvironmentType;
+        public readonly string? FleetServiceRole;
+        public readonly Outputs.FleetVpcConfig? FleetVpcConfig;
         /// <summary>
         /// The name of the compute fleet.
         /// </summary>
         public readonly string? Name;
+        public readonly Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? OverflowBehavior;
         /// <summary>
         /// A list of tag key and value pairs associated with this compute fleet.
         /// 
@@ -122,7 +125,13 @@ namespace Pulumi.AwsNative.CodeBuild
 
             Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? environmentType,
 
+            string? fleetServiceRole,
+
+            Outputs.FleetVpcConfig? fleetVpcConfig,
+
             string? name,
+
+            Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? overflowBehavior,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -130,7 +139,10 @@ namespace Pulumi.AwsNative.CodeBuild
             BaseCapacity = baseCapacity;
             ComputeType = computeType;
             EnvironmentType = environmentType;
+            FleetServiceRole = fleetServiceRole;
+            FleetVpcConfig = fleetVpcConfig;
             Name = name;
+            OverflowBehavior = overflowBehavior;
             Tags = tags;
         }
     }

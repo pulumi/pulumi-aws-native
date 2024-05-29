@@ -8,9 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FleetArgs', 'Fleet']
 
@@ -20,7 +22,10 @@ class FleetArgs:
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
+                 fleet_service_role: Optional[pulumi.Input[str]] = None,
+                 fleet_vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
@@ -66,8 +71,14 @@ class FleetArgs:
             pulumi.set(__self__, "compute_type", compute_type)
         if environment_type is not None:
             pulumi.set(__self__, "environment_type", environment_type)
+        if fleet_service_role is not None:
+            pulumi.set(__self__, "fleet_service_role", fleet_service_role)
+        if fleet_vpc_config is not None:
+            pulumi.set(__self__, "fleet_vpc_config", fleet_vpc_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if overflow_behavior is not None:
+            pulumi.set(__self__, "overflow_behavior", overflow_behavior)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -136,6 +147,24 @@ class FleetArgs:
         pulumi.set(self, "environment_type", value)
 
     @property
+    @pulumi.getter(name="fleetServiceRole")
+    def fleet_service_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fleet_service_role")
+
+    @fleet_service_role.setter
+    def fleet_service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fleet_service_role", value)
+
+    @property
+    @pulumi.getter(name="fleetVpcConfig")
+    def fleet_vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
+        return pulumi.get(self, "fleet_vpc_config")
+
+    @fleet_vpc_config.setter
+    def fleet_vpc_config(self, value: Optional[pulumi.Input['FleetVpcConfigArgs']]):
+        pulumi.set(self, "fleet_vpc_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -146,6 +175,15 @@ class FleetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="overflowBehavior")
+    def overflow_behavior(self) -> Optional[pulumi.Input['FleetOverflowBehavior']]:
+        return pulumi.get(self, "overflow_behavior")
+
+    @overflow_behavior.setter
+    def overflow_behavior(self, value: Optional[pulumi.Input['FleetOverflowBehavior']]):
+        pulumi.set(self, "overflow_behavior", value)
 
     @property
     @pulumi.getter
@@ -170,7 +208,10 @@ class Fleet(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
+                 fleet_service_role: Optional[pulumi.Input[str]] = None,
+                 fleet_vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -241,7 +282,10 @@ class Fleet(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
+                 fleet_service_role: Optional[pulumi.Input[str]] = None,
+                 fleet_vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -255,7 +299,10 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["base_capacity"] = base_capacity
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["environment_type"] = environment_type
+            __props__.__dict__["fleet_service_role"] = fleet_service_role
+            __props__.__dict__["fleet_vpc_config"] = fleet_vpc_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["overflow_behavior"] = overflow_behavior
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Fleet, __self__).__init__(
@@ -284,7 +331,10 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["base_capacity"] = None
         __props__.__dict__["compute_type"] = None
         __props__.__dict__["environment_type"] = None
+        __props__.__dict__["fleet_service_role"] = None
+        __props__.__dict__["fleet_vpc_config"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["overflow_behavior"] = None
         __props__.__dict__["tags"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
@@ -349,12 +399,27 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "environment_type")
 
     @property
+    @pulumi.getter(name="fleetServiceRole")
+    def fleet_service_role(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "fleet_service_role")
+
+    @property
+    @pulumi.getter(name="fleetVpcConfig")
+    def fleet_vpc_config(self) -> pulumi.Output[Optional['outputs.FleetVpcConfig']]:
+        return pulumi.get(self, "fleet_vpc_config")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the compute fleet.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overflowBehavior")
+    def overflow_behavior(self) -> pulumi.Output[Optional['FleetOverflowBehavior']]:
+        return pulumi.get(self, "overflow_behavior")
 
     @property
     @pulumi.getter

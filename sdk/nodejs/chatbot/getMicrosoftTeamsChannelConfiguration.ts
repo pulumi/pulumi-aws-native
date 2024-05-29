@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -43,6 +46,10 @@ export interface GetMicrosoftTeamsChannelConfigurationResult {
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
     readonly snsTopicArns?: string[];
+    /**
+     * The tags to add to the configuration
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * The id of the Microsoft Teams channel
      */

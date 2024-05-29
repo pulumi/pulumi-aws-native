@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type SlackChannelConfiguration struct {
 	SlackWorkspaceId pulumi.StringOutput `pulumi:"slackWorkspaceId"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Enables use of a user role requirement in your chat configuration
 	UserRoleRequired pulumi.BoolPtrOutput `pulumi:"userRoleRequired"`
 }
@@ -104,6 +107,8 @@ type slackChannelConfigurationArgs struct {
 	SlackWorkspaceId string `pulumi:"slackWorkspaceId"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
+	// The tags to add to the configuration
+	Tags []aws.Tag `pulumi:"tags"`
 	// Enables use of a user role requirement in your chat configuration
 	UserRoleRequired *bool `pulumi:"userRoleRequired"`
 }
@@ -124,6 +129,8 @@ type SlackChannelConfigurationArgs struct {
 	SlackWorkspaceId pulumi.StringInput
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayInput
+	// The tags to add to the configuration
+	Tags aws.TagArrayInput
 	// Enables use of a user role requirement in your chat configuration
 	UserRoleRequired pulumi.BoolPtrInput
 }
@@ -203,6 +210,11 @@ func (o SlackChannelConfigurationOutput) SlackWorkspaceId() pulumi.StringOutput 
 // ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 func (o SlackChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
+}
+
+// The tags to add to the configuration
+func (o SlackChannelConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Enables use of a user role requirement in your chat configuration

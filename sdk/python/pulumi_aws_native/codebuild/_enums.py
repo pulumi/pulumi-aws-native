@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'FleetComputeType',
     'FleetEnvironmentType',
+    'FleetOverflowBehavior',
 ]
 
 
@@ -57,3 +58,8 @@ class FleetEnvironmentType(str, Enum):
     LINUX_CONTAINER = "LINUX_CONTAINER"
     LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER"
     ARM_CONTAINER = "ARM_CONTAINER"
+
+
+class FleetOverflowBehavior(str, Enum):
+    QUEUE = "QUEUE"
+    ON_DEMAND = "ON_DEMAND"

@@ -51,9 +51,12 @@ type Fleet struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType FleetEnvironmentTypePtrOutput `pulumi:"environmentType"`
+	EnvironmentType  FleetEnvironmentTypePtrOutput `pulumi:"environmentType"`
+	FleetServiceRole pulumi.StringPtrOutput        `pulumi:"fleetServiceRole"`
+	FleetVpcConfig   FleetVpcConfigPtrOutput       `pulumi:"fleetVpcConfig"`
 	// The name of the compute fleet.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name             pulumi.StringPtrOutput         `pulumi:"name"`
+	OverflowBehavior FleetOverflowBehaviorPtrOutput `pulumi:"overflowBehavior"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -133,9 +136,12 @@ type fleetArgs struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
+	EnvironmentType  *FleetEnvironmentType `pulumi:"environmentType"`
+	FleetServiceRole *string               `pulumi:"fleetServiceRole"`
+	FleetVpcConfig   *FleetVpcConfig       `pulumi:"fleetVpcConfig"`
 	// The name of the compute fleet.
-	Name *string `pulumi:"name"`
+	Name             *string                `pulumi:"name"`
+	OverflowBehavior *FleetOverflowBehavior `pulumi:"overflowBehavior"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -177,9 +183,12 @@ type FleetArgs struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType FleetEnvironmentTypePtrInput
+	EnvironmentType  FleetEnvironmentTypePtrInput
+	FleetServiceRole pulumi.StringPtrInput
+	FleetVpcConfig   FleetVpcConfigPtrInput
 	// The name of the compute fleet.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	OverflowBehavior FleetOverflowBehaviorPtrInput
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -271,9 +280,21 @@ func (o FleetOutput) EnvironmentType() FleetEnvironmentTypePtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetEnvironmentTypePtrOutput { return v.EnvironmentType }).(FleetEnvironmentTypePtrOutput)
 }
 
+func (o FleetOutput) FleetServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetServiceRole }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) FleetVpcConfig() FleetVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetVpcConfigPtrOutput { return v.FleetVpcConfig }).(FleetVpcConfigPtrOutput)
+}
+
 // The name of the compute fleet.
 func (o FleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) OverflowBehavior() FleetOverflowBehaviorPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetOverflowBehaviorPtrOutput { return v.OverflowBehavior }).(FleetOverflowBehaviorPtrOutput)
 }
 
 // A list of tag key and value pairs associated with this compute fleet.

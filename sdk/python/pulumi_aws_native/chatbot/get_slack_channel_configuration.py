@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetSlackChannelConfigurationResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSlackChannelConfigurationResult:
-    def __init__(__self__, arn=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, slack_channel_id=None, sns_topic_arns=None, user_role_required=None):
+    def __init__(__self__, arn=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, slack_channel_id=None, sns_topic_arns=None, tags=None, user_role_required=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +38,9 @@ class GetSlackChannelConfigurationResult:
         if sns_topic_arns and not isinstance(sns_topic_arns, list):
             raise TypeError("Expected argument 'sns_topic_arns' to be a list")
         pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if user_role_required and not isinstance(user_role_required, bool):
             raise TypeError("Expected argument 'user_role_required' to be a bool")
         pulumi.set(__self__, "user_role_required", user_role_required)
@@ -90,6 +94,14 @@ class GetSlackChannelConfigurationResult:
         return pulumi.get(self, "sns_topic_arns")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="userRoleRequired")
     def user_role_required(self) -> Optional[bool]:
         """
@@ -110,6 +122,7 @@ class AwaitableGetSlackChannelConfigurationResult(GetSlackChannelConfigurationRe
             logging_level=self.logging_level,
             slack_channel_id=self.slack_channel_id,
             sns_topic_arns=self.sns_topic_arns,
+            tags=self.tags,
             user_role_required=self.user_role_required)
 
 
@@ -133,6 +146,7 @@ def get_slack_channel_configuration(arn: Optional[str] = None,
         logging_level=pulumi.get(__ret__, 'logging_level'),
         slack_channel_id=pulumi.get(__ret__, 'slack_channel_id'),
         sns_topic_arns=pulumi.get(__ret__, 'sns_topic_arns'),
+        tags=pulumi.get(__ret__, 'tags'),
         user_role_required=pulumi.get(__ret__, 'user_role_required'))
 
 

@@ -30,10 +30,20 @@ export const getSubscriber: typeof import("./getSubscriber").getSubscriber = nul
 export const getSubscriberOutput: typeof import("./getSubscriber").getSubscriberOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriber","getSubscriberOutput"], () => require("./getSubscriber"));
 
+export { GetSubscriberNotificationArgs, GetSubscriberNotificationResult, GetSubscriberNotificationOutputArgs } from "./getSubscriberNotification";
+export const getSubscriberNotification: typeof import("./getSubscriberNotification").getSubscriberNotification = null as any;
+export const getSubscriberNotificationOutput: typeof import("./getSubscriberNotification").getSubscriberNotificationOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriberNotification","getSubscriberNotificationOutput"], () => require("./getSubscriberNotification"));
+
 export { SubscriberArgs } from "./subscriber";
 export type Subscriber = import("./subscriber").Subscriber;
 export const Subscriber: typeof import("./subscriber").Subscriber = null as any;
 utilities.lazyLoad(exports, ["Subscriber"], () => require("./subscriber"));
+
+export { SubscriberNotificationArgs } from "./subscriberNotification";
+export type SubscriberNotification = import("./subscriberNotification").SubscriberNotification;
+export const SubscriberNotification: typeof import("./subscriberNotification").SubscriberNotification = null as any;
+utilities.lazyLoad(exports, ["SubscriberNotification"], () => require("./subscriberNotification"));
 
 
 // Export enums:
@@ -49,6 +59,8 @@ const _module = {
                 return new DataLake(name, <any>undefined, { urn })
             case "aws-native:securitylake:Subscriber":
                 return new Subscriber(name, <any>undefined, { urn })
+            case "aws-native:securitylake:SubscriberNotification":
+                return new SubscriberNotification(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

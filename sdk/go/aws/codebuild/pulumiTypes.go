@@ -4,7 +4,11 @@
 package codebuild
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -16,5 +20,172 @@ type FleetTag struct {
 	Value string `pulumi:"value"`
 }
 
+type FleetVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	Subnets          []string `pulumi:"subnets"`
+	VpcId            *string  `pulumi:"vpcId"`
+}
+
+// FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
+// You can construct a concrete instance of `FleetVpcConfigInput` via:
+//
+//	FleetVpcConfigArgs{...}
+type FleetVpcConfigInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigOutput() FleetVpcConfigOutput
+	ToFleetVpcConfigOutputWithContext(context.Context) FleetVpcConfigOutput
+}
+
+type FleetVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
+	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (FleetVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return i.ToFleetVpcConfigOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput)
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return i.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput).ToFleetVpcConfigPtrOutputWithContext(ctx)
+}
+
+// FleetVpcConfigPtrInput is an input type that accepts FleetVpcConfigArgs, FleetVpcConfigPtr and FleetVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FleetVpcConfigPtrInput` via:
+//
+//	        FleetVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput
+	ToFleetVpcConfigPtrOutputWithContext(context.Context) FleetVpcConfigPtrOutput
+}
+
+type fleetVpcConfigPtrType FleetVpcConfigArgs
+
+func FleetVpcConfigPtr(v *FleetVpcConfigArgs) FleetVpcConfigPtrInput {
+	return (*fleetVpcConfigPtrType)(v)
+}
+
+func (*fleetVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfig)(nil)).Elem()
+}
+
+func (i *fleetVpcConfigPtrType) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return i.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetVpcConfigPtrType) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigPtrOutput)
+}
+
+type FleetVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return o
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return o
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return o.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetVpcConfig) *FleetVpcConfig {
+		return &v
+	}).(FleetVpcConfigPtrOutput)
+}
+
+func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FleetVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+func (o FleetVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type FleetVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigPtrOutput) Elem() FleetVpcConfigOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) FleetVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FleetVpcConfig
+		return ret
+	}).(FleetVpcConfigOutput)
+}
+
+func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FleetVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FleetVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigPtrInput)(nil)).Elem(), FleetVpcConfigArgs{})
+	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
 }

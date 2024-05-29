@@ -20,6 +20,9 @@ __all__ = [
     'SubscriberAwsLogSource',
     'SubscriberCustomLogSource',
     'SubscriberIdentityProperties',
+    'SubscriberNotificationHttpsNotificationConfiguration',
+    'SubscriberNotificationNotificationConfiguration',
+    'SubscriberNotificationSqsNotificationConfiguration',
     'SubscriberSource',
 ]
 
@@ -377,6 +380,150 @@ class SubscriberIdentityProperties(dict):
         The AWS identity principal.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class SubscriberNotificationHttpsNotificationConfiguration(dict):
+    """
+    The configuration for HTTPS subscriber notification.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetRoleArn":
+            suggest = "target_role_arn"
+        elif key == "authorizationApiKeyName":
+            suggest = "authorization_api_key_name"
+        elif key == "authorizationApiKeyValue":
+            suggest = "authorization_api_key_value"
+        elif key == "httpMethod":
+            suggest = "http_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberNotificationHttpsNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriberNotificationHttpsNotificationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriberNotificationHttpsNotificationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: str,
+                 target_role_arn: str,
+                 authorization_api_key_name: Optional[str] = None,
+                 authorization_api_key_value: Optional[str] = None,
+                 http_method: Optional['SubscriberNotificationHttpsNotificationConfigurationHttpMethod'] = None):
+        """
+        The configuration for HTTPS subscriber notification.
+        :param str endpoint: The subscription endpoint in Security Lake.
+        :param str target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        :param str authorization_api_key_name: The key name for the notification subscription.
+        :param str authorization_api_key_value: The key value for the notification subscription.
+        :param 'SubscriberNotificationHttpsNotificationConfigurationHttpMethod' http_method: The HTTPS method used for the notification subscription.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "target_role_arn", target_role_arn)
+        if authorization_api_key_name is not None:
+            pulumi.set(__self__, "authorization_api_key_name", authorization_api_key_name)
+        if authorization_api_key_value is not None:
+            pulumi.set(__self__, "authorization_api_key_value", authorization_api_key_value)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The subscription endpoint in Security Lake.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        """
+        return pulumi.get(self, "target_role_arn")
+
+    @property
+    @pulumi.getter(name="authorizationApiKeyName")
+    def authorization_api_key_name(self) -> Optional[str]:
+        """
+        The key name for the notification subscription.
+        """
+        return pulumi.get(self, "authorization_api_key_name")
+
+    @property
+    @pulumi.getter(name="authorizationApiKeyValue")
+    def authorization_api_key_value(self) -> Optional[str]:
+        """
+        The key value for the notification subscription.
+        """
+        return pulumi.get(self, "authorization_api_key_value")
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional['SubscriberNotificationHttpsNotificationConfigurationHttpMethod']:
+        """
+        The HTTPS method used for the notification subscription.
+        """
+        return pulumi.get(self, "http_method")
+
+
+@pulumi.output_type
+class SubscriberNotificationNotificationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpsNotificationConfiguration":
+            suggest = "https_notification_configuration"
+        elif key == "sqsNotificationConfiguration":
+            suggest = "sqs_notification_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberNotificationNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriberNotificationNotificationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriberNotificationNotificationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 https_notification_configuration: Optional['outputs.SubscriberNotificationHttpsNotificationConfiguration'] = None,
+                 sqs_notification_configuration: Optional['outputs.SubscriberNotificationSqsNotificationConfiguration'] = None):
+        if https_notification_configuration is not None:
+            pulumi.set(__self__, "https_notification_configuration", https_notification_configuration)
+        if sqs_notification_configuration is not None:
+            pulumi.set(__self__, "sqs_notification_configuration", sqs_notification_configuration)
+
+    @property
+    @pulumi.getter(name="httpsNotificationConfiguration")
+    def https_notification_configuration(self) -> Optional['outputs.SubscriberNotificationHttpsNotificationConfiguration']:
+        return pulumi.get(self, "https_notification_configuration")
+
+    @property
+    @pulumi.getter(name="sqsNotificationConfiguration")
+    def sqs_notification_configuration(self) -> Optional['outputs.SubscriberNotificationSqsNotificationConfiguration']:
+        return pulumi.get(self, "sqs_notification_configuration")
+
+
+@pulumi.output_type
+class SubscriberNotificationSqsNotificationConfiguration(dict):
+    """
+    The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+    """
+    def __init__(__self__):
+        """
+        The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+        """
+        pass
 
 
 @pulumi.output_type

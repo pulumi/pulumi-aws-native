@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Chatbot
         public Output<ImmutableArray<string>> SnsTopicArns { get; private set; } = null!;
 
         /// <summary>
+        /// The tags to add to the configuration
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the Microsoft Teams team
         /// </summary>
         [Output("teamId")]
@@ -166,6 +172,18 @@ namespace Pulumi.AwsNative.Chatbot
         {
             get => _snsTopicArns ?? (_snsTopicArns = new InputList<string>());
             set => _snsTopicArns = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the configuration
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

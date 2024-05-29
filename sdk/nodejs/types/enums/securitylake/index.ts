@@ -8,3 +8,13 @@ export const SubscriberAccessTypesItem = {
 } as const;
 
 export type SubscriberAccessTypesItem = (typeof SubscriberAccessTypesItem)[keyof typeof SubscriberAccessTypesItem];
+
+export const SubscriberNotificationHttpsNotificationConfigurationHttpMethod = {
+    Post: "POST",
+    Put: "PUT",
+} as const;
+
+/**
+ * The HTTPS method used for the notification subscription.
+ */
+export type SubscriberNotificationHttpsNotificationConfigurationHttpMethod = (typeof SubscriberNotificationHttpsNotificationConfigurationHttpMethod)[keyof typeof SubscriberNotificationHttpsNotificationConfigurationHttpMethod];

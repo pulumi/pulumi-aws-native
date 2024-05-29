@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataLake{}
 	case "aws-native:securitylake:Subscriber":
 		r = &Subscriber{}
+	case "aws-native:securitylake:SubscriberNotification":
+		r = &SubscriberNotification{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

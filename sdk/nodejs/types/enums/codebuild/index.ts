@@ -54,3 +54,10 @@ export const FleetEnvironmentType = {
  * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
  */
 export type FleetEnvironmentType = (typeof FleetEnvironmentType)[keyof typeof FleetEnvironmentType];
+
+export const FleetOverflowBehavior = {
+    Queue: "QUEUE",
+    OnDemand: "ON_DEMAND",
+} as const;
+
+export type FleetOverflowBehavior = (typeof FleetOverflowBehavior)[keyof typeof FleetOverflowBehavior];

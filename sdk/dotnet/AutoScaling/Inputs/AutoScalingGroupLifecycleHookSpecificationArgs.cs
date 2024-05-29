@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<string>? NotificationTargetArn { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+        /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Prepare to add a lifecycle hook to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
         ///  Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
         /// </summary>
         [Input("roleArn")]

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -59,6 +62,10 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly snsTopicArns!: pulumi.Output<string[] | undefined>;
     /**
+     * The tags to add to the configuration
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The id of the Microsoft Teams team
      */
     public readonly teamId!: pulumi.Output<string>;
@@ -103,6 +110,7 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
             resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["teamId"] = args ? args.teamId : undefined;
             resourceInputs["teamsChannelId"] = args ? args.teamsChannelId : undefined;
             resourceInputs["teamsTenantId"] = args ? args.teamsTenantId : undefined;
@@ -115,6 +123,7 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["iamRoleArn"] = undefined /*out*/;
             resourceInputs["loggingLevel"] = undefined /*out*/;
             resourceInputs["snsTopicArns"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["teamId"] = undefined /*out*/;
             resourceInputs["teamsChannelId"] = undefined /*out*/;
             resourceInputs["teamsTenantId"] = undefined /*out*/;
@@ -151,6 +160,10 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
     snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to add to the configuration
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The id of the Microsoft Teams team
      */

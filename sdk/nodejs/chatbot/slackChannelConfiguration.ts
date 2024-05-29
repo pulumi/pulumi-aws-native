@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -67,6 +70,10 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly snsTopicArns!: pulumi.Output<string[] | undefined>;
     /**
+     * The tags to add to the configuration
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Enables use of a user role requirement in your chat configuration
      */
     public readonly userRoleRequired!: pulumi.Output<boolean | undefined>;
@@ -98,6 +105,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
             resourceInputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
             resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -109,6 +117,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["slackChannelId"] = undefined /*out*/;
             resourceInputs["slackWorkspaceId"] = undefined /*out*/;
             resourceInputs["snsTopicArns"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userRoleRequired"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,6 +159,10 @@ export interface SlackChannelConfigurationArgs {
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
     snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to add to the configuration
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Enables use of a user role requirement in your chat configuration
      */

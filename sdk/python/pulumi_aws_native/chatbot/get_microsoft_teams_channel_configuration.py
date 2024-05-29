@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetMicrosoftTeamsChannelConfigurationResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMicrosoftTeamsChannelConfigurationResult:
-    def __init__(__self__, arn=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, sns_topic_arns=None, teams_channel_id=None, user_role_required=None):
+    def __init__(__self__, arn=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, sns_topic_arns=None, tags=None, teams_channel_id=None, user_role_required=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +35,9 @@ class GetMicrosoftTeamsChannelConfigurationResult:
         if sns_topic_arns and not isinstance(sns_topic_arns, list):
             raise TypeError("Expected argument 'sns_topic_arns' to be a list")
         pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if teams_channel_id and not isinstance(teams_channel_id, str):
             raise TypeError("Expected argument 'teams_channel_id' to be a str")
         pulumi.set(__self__, "teams_channel_id", teams_channel_id)
@@ -82,6 +86,14 @@ class GetMicrosoftTeamsChannelConfigurationResult:
         return pulumi.get(self, "sns_topic_arns")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the configuration
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="teamsChannelId")
     def teams_channel_id(self) -> Optional[str]:
         """
@@ -109,6 +121,7 @@ class AwaitableGetMicrosoftTeamsChannelConfigurationResult(GetMicrosoftTeamsChan
             iam_role_arn=self.iam_role_arn,
             logging_level=self.logging_level,
             sns_topic_arns=self.sns_topic_arns,
+            tags=self.tags,
             teams_channel_id=self.teams_channel_id,
             user_role_required=self.user_role_required)
 
@@ -132,6 +145,7 @@ def get_microsoft_teams_channel_configuration(arn: Optional[str] = None,
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         logging_level=pulumi.get(__ret__, 'logging_level'),
         sns_topic_arns=pulumi.get(__ret__, 'sns_topic_arns'),
+        tags=pulumi.get(__ret__, 'tags'),
         teams_channel_id=pulumi.get(__ret__, 'teams_channel_id'),
         user_role_required=pulumi.get(__ret__, 'user_role_required'))
 
