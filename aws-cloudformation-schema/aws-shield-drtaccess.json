@@ -45,7 +45,7 @@
       "permissions" : [ "shield:DescribeDRTAccess", "shield:AssociateDRTLogBucket", "shield:AssociateDRTRole", "shield:DisassociateDRTLogBucket", "shield:DisassociateDRTRole", "iam:PassRole", "iam:GetRole", "iam:ListAttachedRolePolicies", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "s3:DeleteBucketPolicy" ]
     },
     "list" : {
-      "permissions" : [ ]
+      "permissions" : [ "shield:DescribeDRTAccess" ]
     }
   }
 }
