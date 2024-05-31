@@ -305,6 +305,37 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
+    /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationPolicyParameterConfigurationValueType : IEquatable<ConfigurationPolicyParameterConfigurationValueType>
+    {
+        private readonly string _value;
+
+        private ConfigurationPolicyParameterConfigurationValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationPolicyParameterConfigurationValueType Default { get; } = new ConfigurationPolicyParameterConfigurationValueType("DEFAULT");
+        public static ConfigurationPolicyParameterConfigurationValueType Custom { get; } = new ConfigurationPolicyParameterConfigurationValueType("CUSTOM");
+
+        public static bool operator ==(ConfigurationPolicyParameterConfigurationValueType left, ConfigurationPolicyParameterConfigurationValueType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationPolicyParameterConfigurationValueType left, ConfigurationPolicyParameterConfigurationValueType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationPolicyParameterConfigurationValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationPolicyParameterConfigurationValueType other && Equals(other);
+        public bool Equals(ConfigurationPolicyParameterConfigurationValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
     /// </summary>
     [EnumType]
@@ -328,6 +359,38 @@ namespace Pulumi.AwsNative.SecurityHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DelegatedAdminStatus other && Equals(other);
         public bool Equals(DelegatedAdminStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+    /// </summary>
+    [EnumType]
+    public readonly struct FindingAggregatorRegionLinkingMode : IEquatable<FindingAggregatorRegionLinkingMode>
+    {
+        private readonly string _value;
+
+        private FindingAggregatorRegionLinkingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FindingAggregatorRegionLinkingMode AllRegions { get; } = new FindingAggregatorRegionLinkingMode("ALL_REGIONS");
+        public static FindingAggregatorRegionLinkingMode AllRegionsExceptSpecified { get; } = new FindingAggregatorRegionLinkingMode("ALL_REGIONS_EXCEPT_SPECIFIED");
+        public static FindingAggregatorRegionLinkingMode SpecifiedRegions { get; } = new FindingAggregatorRegionLinkingMode("SPECIFIED_REGIONS");
+
+        public static bool operator ==(FindingAggregatorRegionLinkingMode left, FindingAggregatorRegionLinkingMode right) => left.Equals(right);
+        public static bool operator !=(FindingAggregatorRegionLinkingMode left, FindingAggregatorRegionLinkingMode right) => !left.Equals(right);
+
+        public static explicit operator string(FindingAggregatorRegionLinkingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FindingAggregatorRegionLinkingMode other && Equals(other);
+        public bool Equals(FindingAggregatorRegionLinkingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -422,6 +485,195 @@ namespace Pulumi.AwsNative.SecurityHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InsightStringFilterComparison other && Equals(other);
         public bool Equals(InsightStringFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationConfigurationAutoEnableStandards : IEquatable<OrganizationConfigurationAutoEnableStandards>
+    {
+        private readonly string _value;
+
+        private OrganizationConfigurationAutoEnableStandards(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationConfigurationAutoEnableStandards Default { get; } = new OrganizationConfigurationAutoEnableStandards("DEFAULT");
+        public static OrganizationConfigurationAutoEnableStandards None { get; } = new OrganizationConfigurationAutoEnableStandards("NONE");
+
+        public static bool operator ==(OrganizationConfigurationAutoEnableStandards left, OrganizationConfigurationAutoEnableStandards right) => left.Equals(right);
+        public static bool operator !=(OrganizationConfigurationAutoEnableStandards left, OrganizationConfigurationAutoEnableStandards right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationConfigurationAutoEnableStandards value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationConfigurationAutoEnableStandards other && Equals(other);
+        public bool Equals(OrganizationConfigurationAutoEnableStandards other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the organization uses local or central configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationConfigurationConfigurationType : IEquatable<OrganizationConfigurationConfigurationType>
+    {
+        private readonly string _value;
+
+        private OrganizationConfigurationConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationConfigurationConfigurationType Central { get; } = new OrganizationConfigurationConfigurationType("CENTRAL");
+        public static OrganizationConfigurationConfigurationType Local { get; } = new OrganizationConfigurationConfigurationType("LOCAL");
+
+        public static bool operator ==(OrganizationConfigurationConfigurationType left, OrganizationConfigurationConfigurationType right) => left.Equals(right);
+        public static bool operator !=(OrganizationConfigurationConfigurationType left, OrganizationConfigurationConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationConfigurationConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationConfigurationConfigurationType other && Equals(other);
+        public bool Equals(OrganizationConfigurationConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes whether central configuration could be enabled as the ConfigurationType for the organization.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationConfigurationStatus : IEquatable<OrganizationConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private OrganizationConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationConfigurationStatus Pending { get; } = new OrganizationConfigurationStatus("PENDING");
+        public static OrganizationConfigurationStatus Enabled { get; } = new OrganizationConfigurationStatus("ENABLED");
+        public static OrganizationConfigurationStatus Failed { get; } = new OrganizationConfigurationStatus("FAILED");
+
+        public static bool operator ==(OrganizationConfigurationStatus left, OrganizationConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(OrganizationConfigurationStatus left, OrganizationConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationConfigurationStatus other && Equals(other);
+        public bool Equals(OrganizationConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the association between the specified target and the configuration
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyAssociationAssociationStatus : IEquatable<PolicyAssociationAssociationStatus>
+    {
+        private readonly string _value;
+
+        private PolicyAssociationAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyAssociationAssociationStatus Success { get; } = new PolicyAssociationAssociationStatus("SUCCESS");
+        public static PolicyAssociationAssociationStatus Pending { get; } = new PolicyAssociationAssociationStatus("PENDING");
+        public static PolicyAssociationAssociationStatus Failed { get; } = new PolicyAssociationAssociationStatus("FAILED");
+
+        public static bool operator ==(PolicyAssociationAssociationStatus left, PolicyAssociationAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(PolicyAssociationAssociationStatus left, PolicyAssociationAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyAssociationAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyAssociationAssociationStatus other && Equals(other);
+        public bool Equals(PolicyAssociationAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyAssociationAssociationType : IEquatable<PolicyAssociationAssociationType>
+    {
+        private readonly string _value;
+
+        private PolicyAssociationAssociationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyAssociationAssociationType Applied { get; } = new PolicyAssociationAssociationType("APPLIED");
+        public static PolicyAssociationAssociationType Inherited { get; } = new PolicyAssociationAssociationType("INHERITED");
+
+        public static bool operator ==(PolicyAssociationAssociationType left, PolicyAssociationAssociationType right) => left.Equals(right);
+        public static bool operator !=(PolicyAssociationAssociationType left, PolicyAssociationAssociationType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyAssociationAssociationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyAssociationAssociationType other && Equals(other);
+        public bool Equals(PolicyAssociationAssociationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the target is an AWS account, organizational unit, or the organization root
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyAssociationTargetType : IEquatable<PolicyAssociationTargetType>
+    {
+        private readonly string _value;
+
+        private PolicyAssociationTargetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyAssociationTargetType Account { get; } = new PolicyAssociationTargetType("ACCOUNT");
+        public static PolicyAssociationTargetType OrganizationalUnit { get; } = new PolicyAssociationTargetType("ORGANIZATIONAL_UNIT");
+        public static PolicyAssociationTargetType Root { get; } = new PolicyAssociationTargetType("ROOT");
+
+        public static bool operator ==(PolicyAssociationTargetType left, PolicyAssociationTargetType right) => left.Equals(right);
+        public static bool operator !=(PolicyAssociationTargetType left, PolicyAssociationTargetType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyAssociationTargetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyAssociationTargetType other && Equals(other);
+        public bool Equals(PolicyAssociationTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

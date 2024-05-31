@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string?> ConfigurationValues { get; private set; } = null!;
 
         /// <summary>
+        /// An array of pod identities to apply to this add-on.
+        /// </summary>
+        [Output("podIdentityAssociations")]
+        public Output<ImmutableArray<Outputs.AddonPodIdentityAssociation>> PodIdentityAssociations { get; private set; } = null!;
+
+        /// <summary>
         /// PreserveOnDelete parameter value
         /// </summary>
         [Output("preserveOnDelete")]
@@ -142,6 +148,18 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
+
+        [Input("podIdentityAssociations")]
+        private InputList<Inputs.AddonPodIdentityAssociationArgs>? _podIdentityAssociations;
+
+        /// <summary>
+        /// An array of pod identities to apply to this add-on.
+        /// </summary>
+        public InputList<Inputs.AddonPodIdentityAssociationArgs> PodIdentityAssociations
+        {
+            get => _podIdentityAssociations ?? (_podIdentityAssociations = new InputList<Inputs.AddonPodIdentityAssociationArgs>());
+            set => _podIdentityAssociations = value;
+        }
 
         /// <summary>
         /// PreserveOnDelete parameter value

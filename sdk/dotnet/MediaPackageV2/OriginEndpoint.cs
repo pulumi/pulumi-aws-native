@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
+        /// </summary>
+        [Output("dashManifests")]
+        public Output<ImmutableArray<Outputs.OriginEndpointDashManifestConfiguration>> DashManifests { get; private set; } = null!;
+
+        /// <summary>
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;
         /// </summary>
         [Output("description")]
@@ -161,6 +167,18 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("containerType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType>? ContainerType { get; set; }
+
+        [Input("dashManifests")]
+        private InputList<Inputs.OriginEndpointDashManifestConfigurationArgs>? _dashManifests;
+
+        /// <summary>
+        /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
+        /// </summary>
+        public InputList<Inputs.OriginEndpointDashManifestConfigurationArgs> DashManifests
+        {
+            get => _dashManifests ?? (_dashManifests = new InputList<Inputs.OriginEndpointDashManifestConfigurationArgs>());
+            set => _dashManifests = value;
+        }
 
         /// <summary>
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;

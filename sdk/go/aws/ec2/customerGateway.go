@@ -19,7 +19,8 @@ type CustomerGateway struct {
 
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	BgpAsn         pulumi.IntPtrOutput     `pulumi:"bgpAsn"`
+	BgpAsnExtended pulumi.Float64PtrOutput `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// The ID of the customer gateway.
@@ -49,6 +50,7 @@ func NewCustomerGateway(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bgpAsn",
+		"bgpAsnExtended",
 		"certificateArn",
 		"deviceName",
 		"ipAddress",
@@ -90,7 +92,8 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn *int `pulumi:"bgpAsn"`
+	BgpAsn         *int     `pulumi:"bgpAsn"`
+	BgpAsnExtended *float64 `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of customer gateway device.
@@ -107,7 +110,8 @@ type customerGatewayArgs struct {
 type CustomerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn pulumi.IntPtrInput
+	BgpAsn         pulumi.IntPtrInput
+	BgpAsnExtended pulumi.Float64PtrInput
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// The name of customer gateway device.
@@ -162,6 +166,10 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 //	Default: 65000
 func (o CustomerGatewayOutput) BgpAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
+}
+
+func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.Float64PtrOutput { return v.BgpAsnExtended }).(pulumi.Float64PtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the customer gateway certificate.

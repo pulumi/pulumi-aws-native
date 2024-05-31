@@ -58,6 +58,10 @@ export class OriginEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * <p>A DASH manifest configuration.</p>
+     */
+    public readonly dashManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointDashManifestConfiguration[] | undefined>;
+    /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -110,6 +114,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["containerType"] = args ? args.containerType : undefined;
+            resourceInputs["dashManifests"] = args ? args.dashManifests : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["hlsManifests"] = args ? args.hlsManifests : undefined;
             resourceInputs["lowLatencyHlsManifests"] = args ? args.lowLatencyHlsManifests : undefined;
@@ -126,6 +131,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["containerType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dashManifests"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hlsManifests"] = undefined /*out*/;
             resourceInputs["lowLatencyHlsManifests"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface OriginEndpointArgs {
      * The container type associated with the origin endpoint configuration.
      */
     containerType?: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
+    /**
+     * <p>A DASH manifest configuration.</p>
+     */
+    dashManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointDashManifestConfigurationArgs>[]>;
     /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */

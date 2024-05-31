@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOriginEndpointResult:
-    def __init__(__self__, arn=None, container_type=None, created_at=None, description=None, hls_manifests=None, low_latency_hls_manifests=None, modified_at=None, segment=None, startover_window_seconds=None, tags=None):
+    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifests=None, description=None, hls_manifests=None, low_latency_hls_manifests=None, modified_at=None, segment=None, startover_window_seconds=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -31,6 +31,9 @@ class GetOriginEndpointResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if dash_manifests and not isinstance(dash_manifests, list):
+            raise TypeError("Expected argument 'dash_manifests' to be a list")
+        pulumi.set(__self__, "dash_manifests", dash_manifests)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -76,6 +79,14 @@ class GetOriginEndpointResult:
         <p>The date and time the origin endpoint was created.</p>
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="dashManifests")
+    def dash_manifests(self) -> Optional[Sequence['outputs.OriginEndpointDashManifestConfiguration']]:
+        """
+        <p>A DASH manifest configuration.</p>
+        """
+        return pulumi.get(self, "dash_manifests")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
             arn=self.arn,
             container_type=self.container_type,
             created_at=self.created_at,
+            dash_manifests=self.dash_manifests,
             description=self.description,
             hls_manifests=self.hls_manifests,
             low_latency_hls_manifests=self.low_latency_hls_manifests,
@@ -169,6 +181,7 @@ def get_origin_endpoint(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         container_type=pulumi.get(__ret__, 'container_type'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        dash_manifests=pulumi.get(__ret__, 'dash_manifests'),
         description=pulumi.get(__ret__, 'description'),
         hls_manifests=pulumi.get(__ret__, 'hls_manifests'),
         low_latency_hls_manifests=pulumi.get(__ret__, 'low_latency_hls_manifests'),

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const OriginEndpointAdMarkerDash = {
+    Binary: "BINARY",
+    Xml: "XML",
+} as const;
+
+export type OriginEndpointAdMarkerDash = (typeof OriginEndpointAdMarkerDash)[keyof typeof OriginEndpointAdMarkerDash];
+
 export const OriginEndpointAdMarkerHls = {
     Daterange: "DATERANGE",
 } as const;
@@ -21,6 +28,38 @@ export const OriginEndpointContainerType = {
 } as const;
 
 export type OriginEndpointContainerType = (typeof OriginEndpointContainerType)[keyof typeof OriginEndpointContainerType];
+
+export const OriginEndpointDashDrmSignaling = {
+    Individual: "INDIVIDUAL",
+    Referenced: "REFERENCED",
+} as const;
+
+export type OriginEndpointDashDrmSignaling = (typeof OriginEndpointDashDrmSignaling)[keyof typeof OriginEndpointDashDrmSignaling];
+
+export const OriginEndpointDashPeriodTrigger = {
+    Avails: "AVAILS",
+    DrmKeyRotation: "DRM_KEY_ROTATION",
+    SourceChanges: "SOURCE_CHANGES",
+    SourceDisruptions: "SOURCE_DISRUPTIONS",
+    None: "NONE",
+} as const;
+
+export type OriginEndpointDashPeriodTrigger = (typeof OriginEndpointDashPeriodTrigger)[keyof typeof OriginEndpointDashPeriodTrigger];
+
+export const OriginEndpointDashSegmentTemplateFormat = {
+    NumberWithTimeline: "NUMBER_WITH_TIMELINE",
+} as const;
+
+export type OriginEndpointDashSegmentTemplateFormat = (typeof OriginEndpointDashSegmentTemplateFormat)[keyof typeof OriginEndpointDashSegmentTemplateFormat];
+
+export const OriginEndpointDashUtcTimingMode = {
+    HttpHead: "HTTP_HEAD",
+    HttpIso: "HTTP_ISO",
+    HttpXsdate: "HTTP_XSDATE",
+    UtcDirect: "UTC_DIRECT",
+} as const;
+
+export type OriginEndpointDashUtcTimingMode = (typeof OriginEndpointDashUtcTimingMode)[keyof typeof OriginEndpointDashUtcTimingMode];
 
 export const OriginEndpointDrmSystem = {
     ClearKeyAes128: "CLEAR_KEY_AES_128",

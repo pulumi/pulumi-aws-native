@@ -1398,6 +1398,172 @@ func (in *automationRulesFindingFieldsUpdateVerificationStatePtr) ToAutomationRu
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
 }
 
+// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+type ConfigurationPolicyParameterConfigurationValueType string
+
+const (
+	ConfigurationPolicyParameterConfigurationValueTypeDefault = ConfigurationPolicyParameterConfigurationValueType("DEFAULT")
+	ConfigurationPolicyParameterConfigurationValueTypeCustom  = ConfigurationPolicyParameterConfigurationValueType("CUSTOM")
+)
+
+func (ConfigurationPolicyParameterConfigurationValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToConfigurationPolicyParameterConfigurationValueTypeOutput() ConfigurationPolicyParameterConfigurationValueTypeOutput {
+	return pulumi.ToOutput(e).(ConfigurationPolicyParameterConfigurationValueTypeOutput)
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToConfigurationPolicyParameterConfigurationValueTypeOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfigurationPolicyParameterConfigurationValueTypeOutput)
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToConfigurationPolicyParameterConfigurationValueTypePtrOutput() ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return e.ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return ConfigurationPolicyParameterConfigurationValueType(e).ToConfigurationPolicyParameterConfigurationValueTypeOutputWithContext(ctx).ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationPolicyParameterConfigurationValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfigurationPolicyParameterConfigurationValueTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyParameterConfigurationValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToConfigurationPolicyParameterConfigurationValueTypeOutput() ConfigurationPolicyParameterConfigurationValueTypeOutput {
+	return o
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToConfigurationPolicyParameterConfigurationValueTypeOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypeOutput {
+	return o
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToConfigurationPolicyParameterConfigurationValueTypePtrOutput() ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return o.ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyParameterConfigurationValueType) *ConfigurationPolicyParameterConfigurationValueType {
+		return &v
+	}).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationPolicyParameterConfigurationValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationPolicyParameterConfigurationValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPolicyParameterConfigurationValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyParameterConfigurationValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypePtrOutput) ToConfigurationPolicyParameterConfigurationValueTypePtrOutput() ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypePtrOutput) ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypePtrOutput) Elem() ConfigurationPolicyParameterConfigurationValueTypeOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyParameterConfigurationValueType) ConfigurationPolicyParameterConfigurationValueType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyParameterConfigurationValueType
+		return ret
+	}).(ConfigurationPolicyParameterConfigurationValueTypeOutput)
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyParameterConfigurationValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfigurationPolicyParameterConfigurationValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfigurationPolicyParameterConfigurationValueTypeInput is an input type that accepts values of the ConfigurationPolicyParameterConfigurationValueType enum
+// A concrete instance of `ConfigurationPolicyParameterConfigurationValueTypeInput` can be one of the following:
+//
+//	ConfigurationPolicyParameterConfigurationValueTypeDefault
+//	ConfigurationPolicyParameterConfigurationValueTypeCustom
+type ConfigurationPolicyParameterConfigurationValueTypeInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyParameterConfigurationValueTypeOutput() ConfigurationPolicyParameterConfigurationValueTypeOutput
+	ToConfigurationPolicyParameterConfigurationValueTypeOutputWithContext(context.Context) ConfigurationPolicyParameterConfigurationValueTypeOutput
+}
+
+var configurationPolicyParameterConfigurationValueTypePtrType = reflect.TypeOf((**ConfigurationPolicyParameterConfigurationValueType)(nil)).Elem()
+
+type ConfigurationPolicyParameterConfigurationValueTypePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyParameterConfigurationValueTypePtrOutput() ConfigurationPolicyParameterConfigurationValueTypePtrOutput
+	ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(context.Context) ConfigurationPolicyParameterConfigurationValueTypePtrOutput
+}
+
+type configurationPolicyParameterConfigurationValueTypePtr string
+
+func ConfigurationPolicyParameterConfigurationValueTypePtr(v string) ConfigurationPolicyParameterConfigurationValueTypePtrInput {
+	return (*configurationPolicyParameterConfigurationValueTypePtr)(&v)
+}
+
+func (*configurationPolicyParameterConfigurationValueTypePtr) ElementType() reflect.Type {
+	return configurationPolicyParameterConfigurationValueTypePtrType
+}
+
+func (in *configurationPolicyParameterConfigurationValueTypePtr) ToConfigurationPolicyParameterConfigurationValueTypePtrOutput() ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
+}
+
+func (in *configurationPolicyParameterConfigurationValueTypePtr) ToConfigurationPolicyParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) ConfigurationPolicyParameterConfigurationValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
+}
+
 // The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
 type DelegatedAdminStatus string
 
@@ -1487,6 +1653,174 @@ func (o DelegatedAdminStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+type FindingAggregatorRegionLinkingMode string
+
+const (
+	FindingAggregatorRegionLinkingModeAllRegions                = FindingAggregatorRegionLinkingMode("ALL_REGIONS")
+	FindingAggregatorRegionLinkingModeAllRegionsExceptSpecified = FindingAggregatorRegionLinkingMode("ALL_REGIONS_EXCEPT_SPECIFIED")
+	FindingAggregatorRegionLinkingModeSpecifiedRegions          = FindingAggregatorRegionLinkingMode("SPECIFIED_REGIONS")
+)
+
+func (FindingAggregatorRegionLinkingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingAggregatorRegionLinkingMode)(nil)).Elem()
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToFindingAggregatorRegionLinkingModeOutput() FindingAggregatorRegionLinkingModeOutput {
+	return pulumi.ToOutput(e).(FindingAggregatorRegionLinkingModeOutput)
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToFindingAggregatorRegionLinkingModeOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FindingAggregatorRegionLinkingModeOutput)
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToFindingAggregatorRegionLinkingModePtrOutput() FindingAggregatorRegionLinkingModePtrOutput {
+	return e.ToFindingAggregatorRegionLinkingModePtrOutputWithContext(context.Background())
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToFindingAggregatorRegionLinkingModePtrOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModePtrOutput {
+	return FindingAggregatorRegionLinkingMode(e).ToFindingAggregatorRegionLinkingModeOutputWithContext(ctx).ToFindingAggregatorRegionLinkingModePtrOutputWithContext(ctx)
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FindingAggregatorRegionLinkingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FindingAggregatorRegionLinkingModeOutput struct{ *pulumi.OutputState }
+
+func (FindingAggregatorRegionLinkingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingAggregatorRegionLinkingMode)(nil)).Elem()
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToFindingAggregatorRegionLinkingModeOutput() FindingAggregatorRegionLinkingModeOutput {
+	return o
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToFindingAggregatorRegionLinkingModeOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModeOutput {
+	return o
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToFindingAggregatorRegionLinkingModePtrOutput() FindingAggregatorRegionLinkingModePtrOutput {
+	return o.ToFindingAggregatorRegionLinkingModePtrOutputWithContext(context.Background())
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToFindingAggregatorRegionLinkingModePtrOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingAggregatorRegionLinkingMode) *FindingAggregatorRegionLinkingMode {
+		return &v
+	}).(FindingAggregatorRegionLinkingModePtrOutput)
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FindingAggregatorRegionLinkingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FindingAggregatorRegionLinkingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FindingAggregatorRegionLinkingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FindingAggregatorRegionLinkingModePtrOutput struct{ *pulumi.OutputState }
+
+func (FindingAggregatorRegionLinkingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FindingAggregatorRegionLinkingMode)(nil)).Elem()
+}
+
+func (o FindingAggregatorRegionLinkingModePtrOutput) ToFindingAggregatorRegionLinkingModePtrOutput() FindingAggregatorRegionLinkingModePtrOutput {
+	return o
+}
+
+func (o FindingAggregatorRegionLinkingModePtrOutput) ToFindingAggregatorRegionLinkingModePtrOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModePtrOutput {
+	return o
+}
+
+func (o FindingAggregatorRegionLinkingModePtrOutput) Elem() FindingAggregatorRegionLinkingModeOutput {
+	return o.ApplyT(func(v *FindingAggregatorRegionLinkingMode) FindingAggregatorRegionLinkingMode {
+		if v != nil {
+			return *v
+		}
+		var ret FindingAggregatorRegionLinkingMode
+		return ret
+	}).(FindingAggregatorRegionLinkingModeOutput)
+}
+
+func (o FindingAggregatorRegionLinkingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FindingAggregatorRegionLinkingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FindingAggregatorRegionLinkingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FindingAggregatorRegionLinkingModeInput is an input type that accepts values of the FindingAggregatorRegionLinkingMode enum
+// A concrete instance of `FindingAggregatorRegionLinkingModeInput` can be one of the following:
+//
+//	FindingAggregatorRegionLinkingModeAllRegions
+//	FindingAggregatorRegionLinkingModeAllRegionsExceptSpecified
+//	FindingAggregatorRegionLinkingModeSpecifiedRegions
+type FindingAggregatorRegionLinkingModeInput interface {
+	pulumi.Input
+
+	ToFindingAggregatorRegionLinkingModeOutput() FindingAggregatorRegionLinkingModeOutput
+	ToFindingAggregatorRegionLinkingModeOutputWithContext(context.Context) FindingAggregatorRegionLinkingModeOutput
+}
+
+var findingAggregatorRegionLinkingModePtrType = reflect.TypeOf((**FindingAggregatorRegionLinkingMode)(nil)).Elem()
+
+type FindingAggregatorRegionLinkingModePtrInput interface {
+	pulumi.Input
+
+	ToFindingAggregatorRegionLinkingModePtrOutput() FindingAggregatorRegionLinkingModePtrOutput
+	ToFindingAggregatorRegionLinkingModePtrOutputWithContext(context.Context) FindingAggregatorRegionLinkingModePtrOutput
+}
+
+type findingAggregatorRegionLinkingModePtr string
+
+func FindingAggregatorRegionLinkingModePtr(v string) FindingAggregatorRegionLinkingModePtrInput {
+	return (*findingAggregatorRegionLinkingModePtr)(&v)
+}
+
+func (*findingAggregatorRegionLinkingModePtr) ElementType() reflect.Type {
+	return findingAggregatorRegionLinkingModePtrType
+}
+
+func (in *findingAggregatorRegionLinkingModePtr) ToFindingAggregatorRegionLinkingModePtrOutput() FindingAggregatorRegionLinkingModePtrOutput {
+	return pulumi.ToOutput(in).(FindingAggregatorRegionLinkingModePtrOutput)
+}
+
+func (in *findingAggregatorRegionLinkingModePtr) ToFindingAggregatorRegionLinkingModePtrOutputWithContext(ctx context.Context) FindingAggregatorRegionLinkingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FindingAggregatorRegionLinkingModePtrOutput)
 }
 
 // A date range unit for the date filter.
@@ -1989,6 +2323,781 @@ func (in *insightStringFilterComparisonPtr) ToInsightStringFilterComparisonPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(InsightStringFilterComparisonPtrOutput)
 }
 
+// Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
+type OrganizationConfigurationAutoEnableStandards string
+
+const (
+	OrganizationConfigurationAutoEnableStandardsDefault = OrganizationConfigurationAutoEnableStandards("DEFAULT")
+	OrganizationConfigurationAutoEnableStandardsNone    = OrganizationConfigurationAutoEnableStandards("NONE")
+)
+
+func (OrganizationConfigurationAutoEnableStandards) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationAutoEnableStandards)(nil)).Elem()
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToOrganizationConfigurationAutoEnableStandardsOutput() OrganizationConfigurationAutoEnableStandardsOutput {
+	return pulumi.ToOutput(e).(OrganizationConfigurationAutoEnableStandardsOutput)
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToOrganizationConfigurationAutoEnableStandardsOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OrganizationConfigurationAutoEnableStandardsOutput)
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToOrganizationConfigurationAutoEnableStandardsPtrOutput() OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return e.ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return OrganizationConfigurationAutoEnableStandards(e).ToOrganizationConfigurationAutoEnableStandardsOutputWithContext(ctx).ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(ctx)
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationConfigurationAutoEnableStandards) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OrganizationConfigurationAutoEnableStandardsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationAutoEnableStandardsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationAutoEnableStandards)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToOrganizationConfigurationAutoEnableStandardsOutput() OrganizationConfigurationAutoEnableStandardsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToOrganizationConfigurationAutoEnableStandardsOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToOrganizationConfigurationAutoEnableStandardsPtrOutput() OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return o.ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationAutoEnableStandards) *OrganizationConfigurationAutoEnableStandards {
+		return &v
+	}).(OrganizationConfigurationAutoEnableStandardsPtrOutput)
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationAutoEnableStandards) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationAutoEnableStandards) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigurationAutoEnableStandardsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationAutoEnableStandardsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationAutoEnableStandards)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsPtrOutput) ToOrganizationConfigurationAutoEnableStandardsPtrOutput() OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsPtrOutput) ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsPtrOutput) Elem() OrganizationConfigurationAutoEnableStandardsOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationAutoEnableStandards) OrganizationConfigurationAutoEnableStandards {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationAutoEnableStandards
+		return ret
+	}).(OrganizationConfigurationAutoEnableStandardsOutput)
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationAutoEnableStandardsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationConfigurationAutoEnableStandards) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OrganizationConfigurationAutoEnableStandardsInput is an input type that accepts values of the OrganizationConfigurationAutoEnableStandards enum
+// A concrete instance of `OrganizationConfigurationAutoEnableStandardsInput` can be one of the following:
+//
+//	OrganizationConfigurationAutoEnableStandardsDefault
+//	OrganizationConfigurationAutoEnableStandardsNone
+type OrganizationConfigurationAutoEnableStandardsInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationAutoEnableStandardsOutput() OrganizationConfigurationAutoEnableStandardsOutput
+	ToOrganizationConfigurationAutoEnableStandardsOutputWithContext(context.Context) OrganizationConfigurationAutoEnableStandardsOutput
+}
+
+var organizationConfigurationAutoEnableStandardsPtrType = reflect.TypeOf((**OrganizationConfigurationAutoEnableStandards)(nil)).Elem()
+
+type OrganizationConfigurationAutoEnableStandardsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationAutoEnableStandardsPtrOutput() OrganizationConfigurationAutoEnableStandardsPtrOutput
+	ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(context.Context) OrganizationConfigurationAutoEnableStandardsPtrOutput
+}
+
+type organizationConfigurationAutoEnableStandardsPtr string
+
+func OrganizationConfigurationAutoEnableStandardsPtr(v string) OrganizationConfigurationAutoEnableStandardsPtrInput {
+	return (*organizationConfigurationAutoEnableStandardsPtr)(&v)
+}
+
+func (*organizationConfigurationAutoEnableStandardsPtr) ElementType() reflect.Type {
+	return organizationConfigurationAutoEnableStandardsPtrType
+}
+
+func (in *organizationConfigurationAutoEnableStandardsPtr) ToOrganizationConfigurationAutoEnableStandardsPtrOutput() OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return pulumi.ToOutput(in).(OrganizationConfigurationAutoEnableStandardsPtrOutput)
+}
+
+func (in *organizationConfigurationAutoEnableStandardsPtr) ToOrganizationConfigurationAutoEnableStandardsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableStandardsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OrganizationConfigurationAutoEnableStandardsPtrOutput)
+}
+
+// Indicates whether the organization uses local or central configuration.
+type OrganizationConfigurationConfigurationType string
+
+const (
+	OrganizationConfigurationConfigurationTypeCentral = OrganizationConfigurationConfigurationType("CENTRAL")
+	OrganizationConfigurationConfigurationTypeLocal   = OrganizationConfigurationConfigurationType("LOCAL")
+)
+
+func (OrganizationConfigurationConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationConfigurationType)(nil)).Elem()
+}
+
+func (e OrganizationConfigurationConfigurationType) ToOrganizationConfigurationConfigurationTypeOutput() OrganizationConfigurationConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(OrganizationConfigurationConfigurationTypeOutput)
+}
+
+func (e OrganizationConfigurationConfigurationType) ToOrganizationConfigurationConfigurationTypeOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OrganizationConfigurationConfigurationTypeOutput)
+}
+
+func (e OrganizationConfigurationConfigurationType) ToOrganizationConfigurationConfigurationTypePtrOutput() OrganizationConfigurationConfigurationTypePtrOutput {
+	return e.ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationConfigurationConfigurationType) ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypePtrOutput {
+	return OrganizationConfigurationConfigurationType(e).ToOrganizationConfigurationConfigurationTypeOutputWithContext(ctx).ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e OrganizationConfigurationConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationConfigurationConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationConfigurationConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationConfigurationConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OrganizationConfigurationConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationConfigurationType)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToOrganizationConfigurationConfigurationTypeOutput() OrganizationConfigurationConfigurationTypeOutput {
+	return o
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToOrganizationConfigurationConfigurationTypeOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypeOutput {
+	return o
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToOrganizationConfigurationConfigurationTypePtrOutput() OrganizationConfigurationConfigurationTypePtrOutput {
+	return o.ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationConfigurationType) *OrganizationConfigurationConfigurationType {
+		return &v
+	}).(OrganizationConfigurationConfigurationTypePtrOutput)
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigurationConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationConfigurationType)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationConfigurationTypePtrOutput) ToOrganizationConfigurationConfigurationTypePtrOutput() OrganizationConfigurationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationConfigurationTypePtrOutput) ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationConfigurationTypePtrOutput) Elem() OrganizationConfigurationConfigurationTypeOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationConfigurationType) OrganizationConfigurationConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationConfigurationType
+		return ret
+	}).(OrganizationConfigurationConfigurationTypeOutput)
+}
+
+func (o OrganizationConfigurationConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationConfigurationConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OrganizationConfigurationConfigurationTypeInput is an input type that accepts values of the OrganizationConfigurationConfigurationType enum
+// A concrete instance of `OrganizationConfigurationConfigurationTypeInput` can be one of the following:
+//
+//	OrganizationConfigurationConfigurationTypeCentral
+//	OrganizationConfigurationConfigurationTypeLocal
+type OrganizationConfigurationConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationConfigurationTypeOutput() OrganizationConfigurationConfigurationTypeOutput
+	ToOrganizationConfigurationConfigurationTypeOutputWithContext(context.Context) OrganizationConfigurationConfigurationTypeOutput
+}
+
+var organizationConfigurationConfigurationTypePtrType = reflect.TypeOf((**OrganizationConfigurationConfigurationType)(nil)).Elem()
+
+type OrganizationConfigurationConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationConfigurationTypePtrOutput() OrganizationConfigurationConfigurationTypePtrOutput
+	ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(context.Context) OrganizationConfigurationConfigurationTypePtrOutput
+}
+
+type organizationConfigurationConfigurationTypePtr string
+
+func OrganizationConfigurationConfigurationTypePtr(v string) OrganizationConfigurationConfigurationTypePtrInput {
+	return (*organizationConfigurationConfigurationTypePtr)(&v)
+}
+
+func (*organizationConfigurationConfigurationTypePtr) ElementType() reflect.Type {
+	return organizationConfigurationConfigurationTypePtrType
+}
+
+func (in *organizationConfigurationConfigurationTypePtr) ToOrganizationConfigurationConfigurationTypePtrOutput() OrganizationConfigurationConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(OrganizationConfigurationConfigurationTypePtrOutput)
+}
+
+func (in *organizationConfigurationConfigurationTypePtr) ToOrganizationConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) OrganizationConfigurationConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OrganizationConfigurationConfigurationTypePtrOutput)
+}
+
+// Describes whether central configuration could be enabled as the ConfigurationType for the organization.
+type OrganizationConfigurationStatus string
+
+const (
+	OrganizationConfigurationStatusPending = OrganizationConfigurationStatus("PENDING")
+	OrganizationConfigurationStatusEnabled = OrganizationConfigurationStatus("ENABLED")
+	OrganizationConfigurationStatusFailed  = OrganizationConfigurationStatus("FAILED")
+)
+
+type OrganizationConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationStatus)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationStatusOutput) ToOrganizationConfigurationStatusOutput() OrganizationConfigurationStatusOutput {
+	return o
+}
+
+func (o OrganizationConfigurationStatusOutput) ToOrganizationConfigurationStatusOutputWithContext(ctx context.Context) OrganizationConfigurationStatusOutput {
+	return o
+}
+
+func (o OrganizationConfigurationStatusOutput) ToOrganizationConfigurationStatusPtrOutput() OrganizationConfigurationStatusPtrOutput {
+	return o.ToOrganizationConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationStatusOutput) ToOrganizationConfigurationStatusPtrOutputWithContext(ctx context.Context) OrganizationConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationStatus) *OrganizationConfigurationStatus {
+		return &v
+	}).(OrganizationConfigurationStatusPtrOutput)
+}
+
+func (o OrganizationConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationStatus)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationStatusPtrOutput) ToOrganizationConfigurationStatusPtrOutput() OrganizationConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationStatusPtrOutput) ToOrganizationConfigurationStatusPtrOutputWithContext(ctx context.Context) OrganizationConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationStatusPtrOutput) Elem() OrganizationConfigurationStatusOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationStatus) OrganizationConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationStatus
+		return ret
+	}).(OrganizationConfigurationStatusOutput)
+}
+
+func (o OrganizationConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the association between the specified target and the configuration
+type PolicyAssociationAssociationStatus string
+
+const (
+	PolicyAssociationAssociationStatusSuccess = PolicyAssociationAssociationStatus("SUCCESS")
+	PolicyAssociationAssociationStatusPending = PolicyAssociationAssociationStatus("PENDING")
+	PolicyAssociationAssociationStatusFailed  = PolicyAssociationAssociationStatus("FAILED")
+)
+
+type PolicyAssociationAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssociationAssociationStatus)(nil)).Elem()
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToPolicyAssociationAssociationStatusOutput() PolicyAssociationAssociationStatusOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToPolicyAssociationAssociationStatusOutputWithContext(ctx context.Context) PolicyAssociationAssociationStatusOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToPolicyAssociationAssociationStatusPtrOutput() PolicyAssociationAssociationStatusPtrOutput {
+	return o.ToPolicyAssociationAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToPolicyAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) PolicyAssociationAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssociationAssociationStatus) *PolicyAssociationAssociationStatus {
+		return &v
+	}).(PolicyAssociationAssociationStatusPtrOutput)
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyAssociationAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssociationAssociationStatus)(nil)).Elem()
+}
+
+func (o PolicyAssociationAssociationStatusPtrOutput) ToPolicyAssociationAssociationStatusPtrOutput() PolicyAssociationAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationStatusPtrOutput) ToPolicyAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) PolicyAssociationAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationStatusPtrOutput) Elem() PolicyAssociationAssociationStatusOutput {
+	return o.ApplyT(func(v *PolicyAssociationAssociationStatus) PolicyAssociationAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssociationAssociationStatus
+		return ret
+	}).(PolicyAssociationAssociationStatusOutput)
+}
+
+func (o PolicyAssociationAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyAssociationAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
+type PolicyAssociationAssociationType string
+
+const (
+	PolicyAssociationAssociationTypeApplied   = PolicyAssociationAssociationType("APPLIED")
+	PolicyAssociationAssociationTypeInherited = PolicyAssociationAssociationType("INHERITED")
+)
+
+type PolicyAssociationAssociationTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationAssociationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssociationAssociationType)(nil)).Elem()
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToPolicyAssociationAssociationTypeOutput() PolicyAssociationAssociationTypeOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToPolicyAssociationAssociationTypeOutputWithContext(ctx context.Context) PolicyAssociationAssociationTypeOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToPolicyAssociationAssociationTypePtrOutput() PolicyAssociationAssociationTypePtrOutput {
+	return o.ToPolicyAssociationAssociationTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToPolicyAssociationAssociationTypePtrOutputWithContext(ctx context.Context) PolicyAssociationAssociationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssociationAssociationType) *PolicyAssociationAssociationType {
+		return &v
+	}).(PolicyAssociationAssociationTypePtrOutput)
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationAssociationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationAssociationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyAssociationAssociationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationAssociationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssociationAssociationType)(nil)).Elem()
+}
+
+func (o PolicyAssociationAssociationTypePtrOutput) ToPolicyAssociationAssociationTypePtrOutput() PolicyAssociationAssociationTypePtrOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationTypePtrOutput) ToPolicyAssociationAssociationTypePtrOutputWithContext(ctx context.Context) PolicyAssociationAssociationTypePtrOutput {
+	return o
+}
+
+func (o PolicyAssociationAssociationTypePtrOutput) Elem() PolicyAssociationAssociationTypeOutput {
+	return o.ApplyT(func(v *PolicyAssociationAssociationType) PolicyAssociationAssociationType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssociationAssociationType
+		return ret
+	}).(PolicyAssociationAssociationTypeOutput)
+}
+
+func (o PolicyAssociationAssociationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationAssociationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyAssociationAssociationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the target is an AWS account, organizational unit, or the organization root
+type PolicyAssociationTargetType string
+
+const (
+	PolicyAssociationTargetTypeAccount            = PolicyAssociationTargetType("ACCOUNT")
+	PolicyAssociationTargetTypeOrganizationalUnit = PolicyAssociationTargetType("ORGANIZATIONAL_UNIT")
+	PolicyAssociationTargetTypeRoot               = PolicyAssociationTargetType("ROOT")
+)
+
+func (PolicyAssociationTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssociationTargetType)(nil)).Elem()
+}
+
+func (e PolicyAssociationTargetType) ToPolicyAssociationTargetTypeOutput() PolicyAssociationTargetTypeOutput {
+	return pulumi.ToOutput(e).(PolicyAssociationTargetTypeOutput)
+}
+
+func (e PolicyAssociationTargetType) ToPolicyAssociationTargetTypeOutputWithContext(ctx context.Context) PolicyAssociationTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyAssociationTargetTypeOutput)
+}
+
+func (e PolicyAssociationTargetType) ToPolicyAssociationTargetTypePtrOutput() PolicyAssociationTargetTypePtrOutput {
+	return e.ToPolicyAssociationTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyAssociationTargetType) ToPolicyAssociationTargetTypePtrOutputWithContext(ctx context.Context) PolicyAssociationTargetTypePtrOutput {
+	return PolicyAssociationTargetType(e).ToPolicyAssociationTargetTypeOutputWithContext(ctx).ToPolicyAssociationTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e PolicyAssociationTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyAssociationTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyAssociationTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyAssociationTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyAssociationTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssociationTargetType)(nil)).Elem()
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToPolicyAssociationTargetTypeOutput() PolicyAssociationTargetTypeOutput {
+	return o
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToPolicyAssociationTargetTypeOutputWithContext(ctx context.Context) PolicyAssociationTargetTypeOutput {
+	return o
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToPolicyAssociationTargetTypePtrOutput() PolicyAssociationTargetTypePtrOutput {
+	return o.ToPolicyAssociationTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToPolicyAssociationTargetTypePtrOutputWithContext(ctx context.Context) PolicyAssociationTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssociationTargetType) *PolicyAssociationTargetType {
+		return &v
+	}).(PolicyAssociationTargetTypePtrOutput)
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyAssociationTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyAssociationTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssociationTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssociationTargetType)(nil)).Elem()
+}
+
+func (o PolicyAssociationTargetTypePtrOutput) ToPolicyAssociationTargetTypePtrOutput() PolicyAssociationTargetTypePtrOutput {
+	return o
+}
+
+func (o PolicyAssociationTargetTypePtrOutput) ToPolicyAssociationTargetTypePtrOutputWithContext(ctx context.Context) PolicyAssociationTargetTypePtrOutput {
+	return o
+}
+
+func (o PolicyAssociationTargetTypePtrOutput) Elem() PolicyAssociationTargetTypeOutput {
+	return o.ApplyT(func(v *PolicyAssociationTargetType) PolicyAssociationTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssociationTargetType
+		return ret
+	}).(PolicyAssociationTargetTypeOutput)
+}
+
+func (o PolicyAssociationTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssociationTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyAssociationTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyAssociationTargetTypeInput is an input type that accepts values of the PolicyAssociationTargetType enum
+// A concrete instance of `PolicyAssociationTargetTypeInput` can be one of the following:
+//
+//	PolicyAssociationTargetTypeAccount
+//	PolicyAssociationTargetTypeOrganizationalUnit
+//	PolicyAssociationTargetTypeRoot
+type PolicyAssociationTargetTypeInput interface {
+	pulumi.Input
+
+	ToPolicyAssociationTargetTypeOutput() PolicyAssociationTargetTypeOutput
+	ToPolicyAssociationTargetTypeOutputWithContext(context.Context) PolicyAssociationTargetTypeOutput
+}
+
+var policyAssociationTargetTypePtrType = reflect.TypeOf((**PolicyAssociationTargetType)(nil)).Elem()
+
+type PolicyAssociationTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyAssociationTargetTypePtrOutput() PolicyAssociationTargetTypePtrOutput
+	ToPolicyAssociationTargetTypePtrOutputWithContext(context.Context) PolicyAssociationTargetTypePtrOutput
+}
+
+type policyAssociationTargetTypePtr string
+
+func PolicyAssociationTargetTypePtr(v string) PolicyAssociationTargetTypePtrInput {
+	return (*policyAssociationTargetTypePtr)(&v)
+}
+
+func (*policyAssociationTargetTypePtr) ElementType() reflect.Type {
+	return policyAssociationTargetTypePtrType
+}
+
+func (in *policyAssociationTargetTypePtr) ToPolicyAssociationTargetTypePtrOutput() PolicyAssociationTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicyAssociationTargetTypePtrOutput)
+}
+
+func (in *policyAssociationTargetTypePtr) ToPolicyAssociationTargetTypePtrOutputWithContext(ctx context.Context) PolicyAssociationTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyAssociationTargetTypePtrOutput)
+}
+
 type SecurityControlParameterConfigurationValueType string
 
 const (
@@ -2171,12 +3280,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionTypePtrInput)(nil)).Elem(), AutomationRulesActionType("FINDING_FIELDS_UPDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateVerificationStateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateVerificationState("UNKNOWN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateVerificationStatePtrInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateVerificationState("UNKNOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueTypeInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationValueType("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueTypePtrInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationValueType("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModeInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModePtrInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitPtrInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonPtrInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonPtrInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationAutoEnableStandardsInput)(nil)).Elem(), OrganizationConfigurationAutoEnableStandards("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationAutoEnableStandardsPtrInput)(nil)).Elem(), OrganizationConfigurationAutoEnableStandards("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationConfigurationTypeInput)(nil)).Elem(), OrganizationConfigurationConfigurationType("CENTRAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationConfigurationTypePtrInput)(nil)).Elem(), OrganizationConfigurationConfigurationType("CENTRAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociationTargetTypeInput)(nil)).Elem(), PolicyAssociationTargetType("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociationTargetTypePtrInput)(nil)).Elem(), PolicyAssociationTargetType("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypeInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypePtrInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitOutput{})
@@ -2195,14 +3314,30 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesActionTypePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStateOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypeOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypePtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
+	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModeOutput{})
+	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModePtrOutput{})
 	pulumi.RegisterOutputType(InsightDateRangeUnitOutput{})
 	pulumi.RegisterOutputType(InsightDateRangeUnitPtrOutput{})
 	pulumi.RegisterOutputType(InsightMapFilterComparisonOutput{})
 	pulumi.RegisterOutputType(InsightMapFilterComparisonPtrOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterComparisonOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterComparisonPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationAutoEnableStandardsOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationAutoEnableStandardsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationAssociationStatusOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationAssociationTypeOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationAssociationTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationTargetTypeOutput{})
+	pulumi.RegisterOutputType(PolicyAssociationTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityControlParameterConfigurationValueTypeOutput{})
 	pulumi.RegisterOutputType(SecurityControlParameterConfigurationValueTypePtrOutput{})
 }

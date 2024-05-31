@@ -39,6 +39,10 @@ export interface GetOriginEndpointResult {
      */
     readonly createdAt?: string;
     /**
+     * <p>A DASH manifest configuration.</p>
+     */
+    readonly dashManifests?: outputs.mediapackagev2.OriginEndpointDashManifestConfiguration[];
+    /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     readonly description?: string;

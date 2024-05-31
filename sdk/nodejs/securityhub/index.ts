@@ -10,20 +10,40 @@ export type AutomationRule = import("./automationRule").AutomationRule;
 export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
 utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
 
+export { ConfigurationPolicyArgs } from "./configurationPolicy";
+export type ConfigurationPolicy = import("./configurationPolicy").ConfigurationPolicy;
+export const ConfigurationPolicy: typeof import("./configurationPolicy").ConfigurationPolicy = null as any;
+utilities.lazyLoad(exports, ["ConfigurationPolicy"], () => require("./configurationPolicy"));
+
 export { DelegatedAdminArgs } from "./delegatedAdmin";
 export type DelegatedAdmin = import("./delegatedAdmin").DelegatedAdmin;
 export const DelegatedAdmin: typeof import("./delegatedAdmin").DelegatedAdmin = null as any;
 utilities.lazyLoad(exports, ["DelegatedAdmin"], () => require("./delegatedAdmin"));
+
+export { FindingAggregatorArgs } from "./findingAggregator";
+export type FindingAggregator = import("./findingAggregator").FindingAggregator;
+export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
+utilities.lazyLoad(exports, ["FindingAggregator"], () => require("./findingAggregator"));
 
 export { GetAutomationRuleArgs, GetAutomationRuleResult, GetAutomationRuleOutputArgs } from "./getAutomationRule";
 export const getAutomationRule: typeof import("./getAutomationRule").getAutomationRule = null as any;
 export const getAutomationRuleOutput: typeof import("./getAutomationRule").getAutomationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAutomationRule","getAutomationRuleOutput"], () => require("./getAutomationRule"));
 
+export { GetConfigurationPolicyArgs, GetConfigurationPolicyResult, GetConfigurationPolicyOutputArgs } from "./getConfigurationPolicy";
+export const getConfigurationPolicy: typeof import("./getConfigurationPolicy").getConfigurationPolicy = null as any;
+export const getConfigurationPolicyOutput: typeof import("./getConfigurationPolicy").getConfigurationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationPolicy","getConfigurationPolicyOutput"], () => require("./getConfigurationPolicy"));
+
 export { GetDelegatedAdminArgs, GetDelegatedAdminResult, GetDelegatedAdminOutputArgs } from "./getDelegatedAdmin";
 export const getDelegatedAdmin: typeof import("./getDelegatedAdmin").getDelegatedAdmin = null as any;
 export const getDelegatedAdminOutput: typeof import("./getDelegatedAdmin").getDelegatedAdminOutput = null as any;
 utilities.lazyLoad(exports, ["getDelegatedAdmin","getDelegatedAdminOutput"], () => require("./getDelegatedAdmin"));
+
+export { GetFindingAggregatorArgs, GetFindingAggregatorResult, GetFindingAggregatorOutputArgs } from "./getFindingAggregator";
+export const getFindingAggregator: typeof import("./getFindingAggregator").getFindingAggregator = null as any;
+export const getFindingAggregatorOutput: typeof import("./getFindingAggregator").getFindingAggregatorOutput = null as any;
+utilities.lazyLoad(exports, ["getFindingAggregator","getFindingAggregatorOutput"], () => require("./getFindingAggregator"));
 
 export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
 export const getHub: typeof import("./getHub").getHub = null as any;
@@ -34,6 +54,16 @@ export { GetInsightArgs, GetInsightResult, GetInsightOutputArgs } from "./getIns
 export const getInsight: typeof import("./getInsight").getInsight = null as any;
 export const getInsightOutput: typeof import("./getInsight").getInsightOutput = null as any;
 utilities.lazyLoad(exports, ["getInsight","getInsightOutput"], () => require("./getInsight"));
+
+export { GetOrganizationConfigurationArgs, GetOrganizationConfigurationResult, GetOrganizationConfigurationOutputArgs } from "./getOrganizationConfiguration";
+export const getOrganizationConfiguration: typeof import("./getOrganizationConfiguration").getOrganizationConfiguration = null as any;
+export const getOrganizationConfigurationOutput: typeof import("./getOrganizationConfiguration").getOrganizationConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationConfiguration","getOrganizationConfigurationOutput"], () => require("./getOrganizationConfiguration"));
+
+export { GetPolicyAssociationArgs, GetPolicyAssociationResult, GetPolicyAssociationOutputArgs } from "./getPolicyAssociation";
+export const getPolicyAssociation: typeof import("./getPolicyAssociation").getPolicyAssociation = null as any;
+export const getPolicyAssociationOutput: typeof import("./getPolicyAssociation").getPolicyAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyAssociation","getPolicyAssociationOutput"], () => require("./getPolicyAssociation"));
 
 export { GetProductSubscriptionArgs, GetProductSubscriptionResult, GetProductSubscriptionOutputArgs } from "./getProductSubscription";
 export const getProductSubscription: typeof import("./getProductSubscription").getProductSubscription = null as any;
@@ -60,6 +90,16 @@ export type Insight = import("./insight").Insight;
 export const Insight: typeof import("./insight").Insight = null as any;
 utilities.lazyLoad(exports, ["Insight"], () => require("./insight"));
 
+export { OrganizationConfigurationArgs } from "./organizationConfiguration";
+export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
+export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
+
+export { PolicyAssociationArgs } from "./policyAssociation";
+export type PolicyAssociation = import("./policyAssociation").PolicyAssociation;
+export const PolicyAssociation: typeof import("./policyAssociation").PolicyAssociation = null as any;
+utilities.lazyLoad(exports, ["PolicyAssociation"], () => require("./policyAssociation"));
+
 export { ProductSubscriptionArgs } from "./productSubscription";
 export type ProductSubscription = import("./productSubscription").ProductSubscription;
 export const ProductSubscription: typeof import("./productSubscription").ProductSubscription = null as any;
@@ -85,12 +125,20 @@ const _module = {
         switch (type) {
             case "aws-native:securityhub:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
+            case "aws-native:securityhub:ConfigurationPolicy":
+                return new ConfigurationPolicy(name, <any>undefined, { urn })
             case "aws-native:securityhub:DelegatedAdmin":
                 return new DelegatedAdmin(name, <any>undefined, { urn })
+            case "aws-native:securityhub:FindingAggregator":
+                return new FindingAggregator(name, <any>undefined, { urn })
             case "aws-native:securityhub:Hub":
                 return new Hub(name, <any>undefined, { urn })
             case "aws-native:securityhub:Insight":
                 return new Insight(name, <any>undefined, { urn })
+            case "aws-native:securityhub:OrganizationConfiguration":
+                return new OrganizationConfiguration(name, <any>undefined, { urn })
+            case "aws-native:securityhub:PolicyAssociation":
+                return new PolicyAssociation(name, <any>undefined, { urn })
             case "aws-native:securityhub:ProductSubscription":
                 return new ProductSubscription(name, <any>undefined, { urn })
             case "aws-native:securityhub:SecurityControl":

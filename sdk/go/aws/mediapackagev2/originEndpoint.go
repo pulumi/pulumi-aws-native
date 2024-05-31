@@ -27,6 +27,8 @@ type OriginEndpoint struct {
 	ContainerType OriginEndpointContainerTypePtrOutput `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// <p>A DASH manifest configuration.</p>
+	DashManifests OriginEndpointDashManifestConfigurationArrayOutput `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -103,6 +105,8 @@ type originEndpointArgs struct {
 	ChannelName string `pulumi:"channelName"`
 	// The container type associated with the origin endpoint configuration.
 	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
+	// <p>A DASH manifest configuration.</p>
+	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description *string `pulumi:"description"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -127,6 +131,8 @@ type OriginEndpointArgs struct {
 	ChannelName pulumi.StringInput
 	// The container type associated with the origin endpoint configuration.
 	ContainerType OriginEndpointContainerTypePtrInput
+	// <p>A DASH manifest configuration.</p>
+	DashManifests OriginEndpointDashManifestConfigurationArrayInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description pulumi.StringPtrInput
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -203,6 +209,11 @@ func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypePtrOutp
 // <p>The date and time the origin endpoint was created.</p>
 func (o OriginEndpointOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// <p>A DASH manifest configuration.</p>
+func (o OriginEndpointOutput) DashManifests() OriginEndpointDashManifestConfigurationArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointDashManifestConfigurationArrayOutput { return v.DashManifests }).(OriginEndpointDashManifestConfigurationArrayOutput)
 }
 
 // <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>

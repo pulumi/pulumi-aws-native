@@ -27,6 +27,8 @@ type Addon struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrOutput `pulumi:"configurationValues"`
+	// An array of pod identities to apply to this add-on.
+	PodIdentityAssociations AddonPodIdentityAssociationArrayOutput `pulumi:"podIdentityAssociations"`
 	// PreserveOnDelete parameter value
 	PreserveOnDelete pulumi.BoolPtrOutput `pulumi:"preserveOnDelete"`
 	// Resolve parameter value conflicts
@@ -93,6 +95,8 @@ type addonArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues *string `pulumi:"configurationValues"`
+	// An array of pod identities to apply to this add-on.
+	PodIdentityAssociations []AddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	// PreserveOnDelete parameter value
 	PreserveOnDelete *bool `pulumi:"preserveOnDelete"`
 	// Resolve parameter value conflicts
@@ -113,6 +117,8 @@ type AddonArgs struct {
 	ClusterName pulumi.StringInput
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrInput
+	// An array of pod identities to apply to this add-on.
+	PodIdentityAssociations AddonPodIdentityAssociationArrayInput
 	// PreserveOnDelete parameter value
 	PreserveOnDelete pulumi.BoolPtrInput
 	// Resolve parameter value conflicts
@@ -183,6 +189,11 @@ func (o AddonOutput) ClusterName() pulumi.StringOutput {
 // The configuration values to use with the add-on
 func (o AddonOutput) ConfigurationValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
+}
+
+// An array of pod identities to apply to this add-on.
+func (o AddonOutput) PodIdentityAssociations() AddonPodIdentityAssociationArrayOutput {
+	return o.ApplyT(func(v *Addon) AddonPodIdentityAssociationArrayOutput { return v.PodIdentityAssociations }).(AddonPodIdentityAssociationArrayOutput)
 }
 
 // PreserveOnDelete parameter value

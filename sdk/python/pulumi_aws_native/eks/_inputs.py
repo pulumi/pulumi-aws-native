@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AccessEntryAccessPolicyArgs',
     'AccessEntryAccessScopeArgs',
+    'AddonPodIdentityAssociationArgs',
     'ClusterAccessConfigArgs',
     'ClusterControlPlanePlacementArgs',
     'ClusterEncryptionConfigArgs',
@@ -109,6 +110,44 @@ class AccessEntryAccessScopeArgs:
     @namespaces.setter
     def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "namespaces", value)
+
+
+@pulumi.input_type
+class AddonPodIdentityAssociationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 service_account: pulumi.Input[str]):
+        """
+        A pod identity to associate with an add-on.
+        :param pulumi.Input[str] role_arn: The IAM role ARN that the pod identity association is created for.
+        :param pulumi.Input[str] service_account: The Kubernetes service account that the pod identity association is created for.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service_account", service_account)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM role ARN that the pod identity association is created for.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> pulumi.Input[str]:
+        """
+        The Kubernetes service account that the pod identity association is created for.
+        """
+        return pulumi.get(self, "service_account")
+
+    @service_account.setter
+    def service_account(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_account", value)
 
 
 @pulumi.input_type

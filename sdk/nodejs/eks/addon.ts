@@ -58,6 +58,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly configurationValues!: pulumi.Output<string | undefined>;
     /**
+     * An array of pod identities to apply to this add-on.
+     */
+    public readonly podIdentityAssociations!: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
+    /**
      * PreserveOnDelete parameter value
      */
     public readonly preserveOnDelete!: pulumi.Output<boolean | undefined>;
@@ -92,6 +96,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
+            resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
             resourceInputs["preserveOnDelete"] = args ? args.preserveOnDelete : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
@@ -103,6 +108,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["configurationValues"] = undefined /*out*/;
+            resourceInputs["podIdentityAssociations"] = undefined /*out*/;
             resourceInputs["preserveOnDelete"] = undefined /*out*/;
             resourceInputs["resolveConflicts"] = undefined /*out*/;
             resourceInputs["serviceAccountRoleArn"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface AddonArgs {
      * The configuration values to use with the add-on
      */
     configurationValues?: pulumi.Input<string>;
+    /**
+     * An array of pod identities to apply to this add-on.
+     */
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociationArgs>[]>;
     /**
      * PreserveOnDelete parameter value
      */

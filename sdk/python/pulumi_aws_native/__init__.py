@@ -2838,9 +2838,13 @@ _utilities.register(
   "fqn": "pulumi_aws_native.securityhub",
   "classes": {
    "aws-native:securityhub:AutomationRule": "AutomationRule",
+   "aws-native:securityhub:ConfigurationPolicy": "ConfigurationPolicy",
    "aws-native:securityhub:DelegatedAdmin": "DelegatedAdmin",
+   "aws-native:securityhub:FindingAggregator": "FindingAggregator",
    "aws-native:securityhub:Hub": "Hub",
    "aws-native:securityhub:Insight": "Insight",
+   "aws-native:securityhub:OrganizationConfiguration": "OrganizationConfiguration",
+   "aws-native:securityhub:PolicyAssociation": "PolicyAssociation",
    "aws-native:securityhub:ProductSubscription": "ProductSubscription",
    "aws-native:securityhub:SecurityControl": "SecurityControl",
    "aws-native:securityhub:Standard": "Standard"

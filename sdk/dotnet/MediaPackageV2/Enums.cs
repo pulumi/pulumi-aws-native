@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     [EnumType]
+    public readonly struct OriginEndpointAdMarkerDash : IEquatable<OriginEndpointAdMarkerDash>
+    {
+        private readonly string _value;
+
+        private OriginEndpointAdMarkerDash(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointAdMarkerDash Binary { get; } = new OriginEndpointAdMarkerDash("BINARY");
+        public static OriginEndpointAdMarkerDash Xml { get; } = new OriginEndpointAdMarkerDash("XML");
+
+        public static bool operator ==(OriginEndpointAdMarkerDash left, OriginEndpointAdMarkerDash right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointAdMarkerDash left, OriginEndpointAdMarkerDash right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointAdMarkerDash value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointAdMarkerDash other && Equals(other);
+        public bool Equals(OriginEndpointAdMarkerDash other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointAdMarkerHls : IEquatable<OriginEndpointAdMarkerHls>
     {
         private readonly string _value;
@@ -83,6 +111,122 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointContainerType other && Equals(other);
         public bool Equals(OriginEndpointContainerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointDashDrmSignaling : IEquatable<OriginEndpointDashDrmSignaling>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashDrmSignaling(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashDrmSignaling Individual { get; } = new OriginEndpointDashDrmSignaling("INDIVIDUAL");
+        public static OriginEndpointDashDrmSignaling Referenced { get; } = new OriginEndpointDashDrmSignaling("REFERENCED");
+
+        public static bool operator ==(OriginEndpointDashDrmSignaling left, OriginEndpointDashDrmSignaling right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashDrmSignaling left, OriginEndpointDashDrmSignaling right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashDrmSignaling value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashDrmSignaling other && Equals(other);
+        public bool Equals(OriginEndpointDashDrmSignaling other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointDashPeriodTrigger : IEquatable<OriginEndpointDashPeriodTrigger>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashPeriodTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashPeriodTrigger Avails { get; } = new OriginEndpointDashPeriodTrigger("AVAILS");
+        public static OriginEndpointDashPeriodTrigger DrmKeyRotation { get; } = new OriginEndpointDashPeriodTrigger("DRM_KEY_ROTATION");
+        public static OriginEndpointDashPeriodTrigger SourceChanges { get; } = new OriginEndpointDashPeriodTrigger("SOURCE_CHANGES");
+        public static OriginEndpointDashPeriodTrigger SourceDisruptions { get; } = new OriginEndpointDashPeriodTrigger("SOURCE_DISRUPTIONS");
+        public static OriginEndpointDashPeriodTrigger None { get; } = new OriginEndpointDashPeriodTrigger("NONE");
+
+        public static bool operator ==(OriginEndpointDashPeriodTrigger left, OriginEndpointDashPeriodTrigger right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashPeriodTrigger left, OriginEndpointDashPeriodTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashPeriodTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashPeriodTrigger other && Equals(other);
+        public bool Equals(OriginEndpointDashPeriodTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointDashSegmentTemplateFormat : IEquatable<OriginEndpointDashSegmentTemplateFormat>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashSegmentTemplateFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashSegmentTemplateFormat NumberWithTimeline { get; } = new OriginEndpointDashSegmentTemplateFormat("NUMBER_WITH_TIMELINE");
+
+        public static bool operator ==(OriginEndpointDashSegmentTemplateFormat left, OriginEndpointDashSegmentTemplateFormat right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashSegmentTemplateFormat left, OriginEndpointDashSegmentTemplateFormat right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashSegmentTemplateFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashSegmentTemplateFormat other && Equals(other);
+        public bool Equals(OriginEndpointDashSegmentTemplateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointDashUtcTimingMode : IEquatable<OriginEndpointDashUtcTimingMode>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashUtcTimingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashUtcTimingMode HttpHead { get; } = new OriginEndpointDashUtcTimingMode("HTTP_HEAD");
+        public static OriginEndpointDashUtcTimingMode HttpIso { get; } = new OriginEndpointDashUtcTimingMode("HTTP_ISO");
+        public static OriginEndpointDashUtcTimingMode HttpXsdate { get; } = new OriginEndpointDashUtcTimingMode("HTTP_XSDATE");
+        public static OriginEndpointDashUtcTimingMode UtcDirect { get; } = new OriginEndpointDashUtcTimingMode("UTC_DIRECT");
+
+        public static bool operator ==(OriginEndpointDashUtcTimingMode left, OriginEndpointDashUtcTimingMode right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashUtcTimingMode left, OriginEndpointDashUtcTimingMode right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashUtcTimingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashUtcTimingMode other && Equals(other);
+        public bool Equals(OriginEndpointDashUtcTimingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

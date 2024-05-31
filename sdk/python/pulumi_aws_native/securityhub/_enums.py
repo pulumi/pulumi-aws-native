@@ -13,10 +13,18 @@ __all__ = [
     'AutomationRuleWorkflowUpdateStatus',
     'AutomationRulesActionType',
     'AutomationRulesFindingFieldsUpdateVerificationState',
+    'ConfigurationPolicyParameterConfigurationValueType',
     'DelegatedAdminStatus',
+    'FindingAggregatorRegionLinkingMode',
     'InsightDateRangeUnit',
     'InsightMapFilterComparison',
     'InsightStringFilterComparison',
+    'OrganizationConfigurationAutoEnableStandards',
+    'OrganizationConfigurationConfigurationType',
+    'OrganizationConfigurationStatus',
+    'PolicyAssociationAssociationStatus',
+    'PolicyAssociationAssociationType',
+    'PolicyAssociationTargetType',
     'SecurityControlParameterConfigurationValueType',
 ]
 
@@ -134,12 +142,29 @@ class AutomationRulesFindingFieldsUpdateVerificationState(str, Enum):
     BENIGN_POSITIVE = "BENIGN_POSITIVE"
 
 
+class ConfigurationPolicyParameterConfigurationValueType(str, Enum):
+    """
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+    """
+    DEFAULT = "DEFAULT"
+    CUSTOM = "CUSTOM"
+
+
 class DelegatedAdminStatus(str, Enum):
     """
     The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
     """
     ENABLED = "ENABLED"
     DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS"
+
+
+class FindingAggregatorRegionLinkingMode(str, Enum):
+    """
+    Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+    """
+    ALL_REGIONS = "ALL_REGIONS"
+    ALL_REGIONS_EXCEPT_SPECIFIED = "ALL_REGIONS_EXCEPT_SPECIFIED"
+    SPECIFIED_REGIONS = "SPECIFIED_REGIONS"
 
 
 class InsightDateRangeUnit(str, Enum):
@@ -165,6 +190,57 @@ class InsightStringFilterComparison(str, Enum):
     PREFIX = "PREFIX"
     NOT_EQUALS = "NOT_EQUALS"
     PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
+
+
+class OrganizationConfigurationAutoEnableStandards(str, Enum):
+    """
+    Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
+    """
+    DEFAULT = "DEFAULT"
+    NONE = "NONE"
+
+
+class OrganizationConfigurationConfigurationType(str, Enum):
+    """
+    Indicates whether the organization uses local or central configuration.
+    """
+    CENTRAL = "CENTRAL"
+    LOCAL = "LOCAL"
+
+
+class OrganizationConfigurationStatus(str, Enum):
+    """
+    Describes whether central configuration could be enabled as the ConfigurationType for the organization.
+    """
+    PENDING = "PENDING"
+    ENABLED = "ENABLED"
+    FAILED = "FAILED"
+
+
+class PolicyAssociationAssociationStatus(str, Enum):
+    """
+    The current status of the association between the specified target and the configuration
+    """
+    SUCCESS = "SUCCESS"
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+
+
+class PolicyAssociationAssociationType(str, Enum):
+    """
+    Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
+    """
+    APPLIED = "APPLIED"
+    INHERITED = "INHERITED"
+
+
+class PolicyAssociationTargetType(str, Enum):
+    """
+    Indicates whether the target is an AWS account, organizational unit, or the organization root
+    """
+    ACCOUNT = "ACCOUNT"
+    ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
+    ROOT = "ROOT"
 
 
 class SecurityControlParameterConfigurationValueType(str, Enum):

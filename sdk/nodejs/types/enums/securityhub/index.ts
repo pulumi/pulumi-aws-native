@@ -131,6 +131,16 @@ export const AutomationRulesFindingFieldsUpdateVerificationState = {
  */
 export type AutomationRulesFindingFieldsUpdateVerificationState = (typeof AutomationRulesFindingFieldsUpdateVerificationState)[keyof typeof AutomationRulesFindingFieldsUpdateVerificationState];
 
+export const ConfigurationPolicyParameterConfigurationValueType = {
+    Default: "DEFAULT",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+ */
+export type ConfigurationPolicyParameterConfigurationValueType = (typeof ConfigurationPolicyParameterConfigurationValueType)[keyof typeof ConfigurationPolicyParameterConfigurationValueType];
+
 export const DelegatedAdminStatus = {
     Enabled: "ENABLED",
     DisableInProgress: "DISABLE_IN_PROGRESS",
@@ -140,6 +150,17 @@ export const DelegatedAdminStatus = {
  * The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
  */
 export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
+
+export const FindingAggregatorRegionLinkingMode = {
+    AllRegions: "ALL_REGIONS",
+    AllRegionsExceptSpecified: "ALL_REGIONS_EXCEPT_SPECIFIED",
+    SpecifiedRegions: "SPECIFIED_REGIONS",
+} as const;
+
+/**
+ * Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+ */
+export type FindingAggregatorRegionLinkingMode = (typeof FindingAggregatorRegionLinkingMode)[keyof typeof FindingAggregatorRegionLinkingMode];
 
 export const InsightDateRangeUnit = {
     Days: "DAYS",
@@ -171,6 +192,69 @@ export const InsightStringFilterComparison = {
  * The condition to apply to a string value when filtering Security Hub findings.
  */
 export type InsightStringFilterComparison = (typeof InsightStringFilterComparison)[keyof typeof InsightStringFilterComparison];
+
+export const OrganizationConfigurationAutoEnableStandards = {
+    Default: "DEFAULT",
+    None: "NONE",
+} as const;
+
+/**
+ * Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
+ */
+export type OrganizationConfigurationAutoEnableStandards = (typeof OrganizationConfigurationAutoEnableStandards)[keyof typeof OrganizationConfigurationAutoEnableStandards];
+
+export const OrganizationConfigurationConfigurationType = {
+    Central: "CENTRAL",
+    Local: "LOCAL",
+} as const;
+
+/**
+ * Indicates whether the organization uses local or central configuration.
+ */
+export type OrganizationConfigurationConfigurationType = (typeof OrganizationConfigurationConfigurationType)[keyof typeof OrganizationConfigurationConfigurationType];
+
+export const OrganizationConfigurationStatus = {
+    Pending: "PENDING",
+    Enabled: "ENABLED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Describes whether central configuration could be enabled as the ConfigurationType for the organization.
+ */
+export type OrganizationConfigurationStatus = (typeof OrganizationConfigurationStatus)[keyof typeof OrganizationConfigurationStatus];
+
+export const PolicyAssociationAssociationStatus = {
+    Success: "SUCCESS",
+    Pending: "PENDING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The current status of the association between the specified target and the configuration
+ */
+export type PolicyAssociationAssociationStatus = (typeof PolicyAssociationAssociationStatus)[keyof typeof PolicyAssociationAssociationStatus];
+
+export const PolicyAssociationAssociationType = {
+    Applied: "APPLIED",
+    Inherited: "INHERITED",
+} as const;
+
+/**
+ * Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
+ */
+export type PolicyAssociationAssociationType = (typeof PolicyAssociationAssociationType)[keyof typeof PolicyAssociationAssociationType];
+
+export const PolicyAssociationTargetType = {
+    Account: "ACCOUNT",
+    OrganizationalUnit: "ORGANIZATIONAL_UNIT",
+    Root: "ROOT",
+} as const;
+
+/**
+ * Indicates whether the target is an AWS account, organizational unit, or the organization root
+ */
+export type PolicyAssociationTargetType = (typeof PolicyAssociationTargetType)[keyof typeof PolicyAssociationTargetType];
 
 export const SecurityControlParameterConfigurationValueType = {
     Default: "DEFAULT",

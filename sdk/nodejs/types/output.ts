@@ -23546,6 +23546,20 @@ export namespace eks {
     }
 
     /**
+     * A pod identity to associate with an add-on.
+     */
+    export interface AddonPodIdentityAssociation {
+        /**
+         * The IAM role ARN that the pod identity association is created for.
+         */
+        roleArn: string;
+        /**
+         * The Kubernetes service account that the pod identity association is created for.
+         */
+        serviceAccount: string;
+    }
+
+    /**
      * An object representing the Access Config to use for the cluster.
      */
     export interface ClusterAccessConfig {
@@ -42532,6 +42546,53 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Retrieve the DASH manifest configuration.</p>
+     */
+    export interface OriginEndpointDashManifestConfiguration {
+        drmSignaling?: enums.mediapackagev2.OriginEndpointDashDrmSignaling;
+        filterConfiguration?: outputs.mediapackagev2.OriginEndpointFilterConfiguration;
+        /**
+         * <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+         */
+        manifestName: string;
+        /**
+         * <p>The total duration (in seconds) of the manifest's content.</p>
+         */
+        manifestWindowSeconds?: number;
+        /**
+         * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+         */
+        minBufferTimeSeconds?: number;
+        /**
+         * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+         */
+        minUpdatePeriodSeconds?: number;
+        /**
+         * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+         *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+         */
+        periodTriggers?: enums.mediapackagev2.OriginEndpointDashPeriodTrigger[];
+        scteDash?: outputs.mediapackagev2.OriginEndpointScteDash;
+        segmentTemplateFormat?: enums.mediapackagev2.OriginEndpointDashSegmentTemplateFormat;
+        /**
+         * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+         */
+        suggestedPresentationDelaySeconds?: number;
+        utcTiming?: outputs.mediapackagev2.OriginEndpointDashUtcTiming;
+    }
+
+    /**
+     * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+     */
+    export interface OriginEndpointDashUtcTiming {
+        timingMode?: enums.mediapackagev2.OriginEndpointDashUtcTimingMode;
+        /**
+         * <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+         */
+        timingSource?: string;
+    }
+
+    /**
      * <p>The parameters for encrypting content.</p>
      */
     export interface OriginEndpointEncryption {
@@ -42691,6 +42752,13 @@ export namespace mediapackagev2 {
          * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
          */
         scteFilter?: enums.mediapackagev2.OriginEndpointScteFilter[];
+    }
+
+    /**
+     * <p>The SCTE configuration.</p>
+     */
+    export interface OriginEndpointScteDash {
+        adMarkerDash?: enums.mediapackagev2.OriginEndpointAdMarkerDash;
     }
 
     /**
@@ -83098,6 +83166,109 @@ export namespace securityhub {
          * Array Members: Minimum number of 1 item. Maximum number of 20 items.
          */
         workflowStatus?: outputs.securityhub.AutomationRuleStringFilter[];
+    }
+
+    /**
+     * An object that provides the current value of a security control parameter and identifies whether it has been customized.
+     */
+    export interface ConfigurationPolicyParameterConfiguration {
+        value?: outputs.securityhub.ConfigurationPolicyParameterValue;
+        /**
+         * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+         */
+        valueType: enums.securityhub.ConfigurationPolicyParameterConfigurationValueType;
+    }
+
+    /**
+     * An object that includes the data type of a security control parameter and its current value.
+     */
+    export interface ConfigurationPolicyParameterValue {
+        /**
+         * A control parameter that is a boolean.
+         */
+        boolean?: boolean;
+        /**
+         * A control parameter that is a double.
+         */
+        double?: number;
+        /**
+         * A control parameter that is an enum.
+         */
+        enum?: string;
+        /**
+         * A control parameter that is a list of enums.
+         */
+        enumList?: string[];
+        /**
+         * A control parameter that is an integer.
+         */
+        integer?: number;
+        /**
+         * A control parameter that is a list of integers.
+         */
+        integerList?: number[];
+        /**
+         * A control parameter that is a string.
+         */
+        string?: string;
+        /**
+         * A control parameter that is a list of strings.
+         */
+        stringList?: string[];
+    }
+
+    /**
+     * An object that defines how Security Hub is configured.
+     */
+    export interface ConfigurationPolicyPolicy {
+        securityHub?: outputs.securityhub.ConfigurationPolicySecurityHubPolicy;
+    }
+
+    /**
+     * An object of security control and control parameter value that are included in a configuration policy.
+     */
+    export interface ConfigurationPolicySecurityControlCustomParameter {
+        /**
+         * An object that specifies parameter values for a control in a configuration policy.
+         */
+        parameters?: {[key: string]: outputs.securityhub.ConfigurationPolicyParameterConfiguration};
+        /**
+         * The ID of the security control.
+         */
+        securityControlId?: string;
+    }
+
+    /**
+     * An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
+     */
+    export interface ConfigurationPolicySecurityControlsConfiguration {
+        /**
+         * A list of security controls that are disabled in the configuration policy
+         */
+        disabledSecurityControlIdentifiers?: string[];
+        /**
+         * A list of security controls that are enabled in the configuration policy.
+         */
+        enabledSecurityControlIdentifiers?: string[];
+        /**
+         * A list of security controls and control parameter values that are included in a configuration policy.
+         */
+        securityControlCustomParameters?: outputs.securityhub.ConfigurationPolicySecurityControlCustomParameter[];
+    }
+
+    /**
+     * An object that defines how AWS Security Hub is configured.
+     */
+    export interface ConfigurationPolicySecurityHubPolicy {
+        /**
+         * A list that defines which security standards are enabled in the configuration policy.
+         */
+        enabledStandardIdentifiers?: string[];
+        securityControlsConfiguration?: outputs.securityhub.ConfigurationPolicySecurityControlsConfiguration;
+        /**
+         * Indicates whether Security Hub is enabled in the policy.
+         */
+        serviceEnabled?: boolean;
     }
 
     /**

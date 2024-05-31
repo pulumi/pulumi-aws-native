@@ -35,6 +35,8 @@ type LookupOriginEndpointResult struct {
 	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt *string `pulumi:"createdAt"`
+	// <p>A DASH manifest configuration.</p>
+	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description *string `pulumi:"description"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -100,6 +102,11 @@ func (o LookupOriginEndpointResultOutput) ContainerType() OriginEndpointContaine
 // <p>The date and time the origin endpoint was created.</p>
 func (o LookupOriginEndpointResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// <p>A DASH manifest configuration.</p>
+func (o LookupOriginEndpointResultOutput) DashManifests() OriginEndpointDashManifestConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointDashManifestConfiguration { return v.DashManifests }).(OriginEndpointDashManifestConfigurationArrayOutput)
 }
 
 // <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>

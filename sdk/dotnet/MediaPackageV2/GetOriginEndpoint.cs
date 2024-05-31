@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OriginEndpointDashManifestConfiguration> DashManifests;
+        /// <summary>
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? createdAt,
 
+            ImmutableArray<Outputs.OriginEndpointDashManifestConfiguration> dashManifests,
+
             string? description,
 
             ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration> hlsManifests,
@@ -123,6 +129,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Arn = arn;
             ContainerType = containerType;
             CreatedAt = createdAt;
+            DashManifests = dashManifests;
             Description = description;
             HlsManifests = hlsManifests;
             LowLatencyHlsManifests = lowLatencyHlsManifests;

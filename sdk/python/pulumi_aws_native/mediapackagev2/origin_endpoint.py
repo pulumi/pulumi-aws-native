@@ -22,6 +22,7 @@ class OriginEndpointArgs:
                  channel_group_name: pulumi.Input[str],
                  channel_name: pulumi.Input[str],
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
+                 dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] = None,
@@ -34,6 +35,7 @@ class OriginEndpointArgs:
         :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
         :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint.
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]] dash_manifests: <p>A DASH manifest configuration.</p>
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
@@ -46,6 +48,8 @@ class OriginEndpointArgs:
         pulumi.set(__self__, "channel_name", channel_name)
         if container_type is not None:
             pulumi.set(__self__, "container_type", container_type)
+        if dash_manifests is not None:
+            pulumi.set(__self__, "dash_manifests", dash_manifests)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if hls_manifests is not None:
@@ -96,6 +100,18 @@ class OriginEndpointArgs:
     @container_type.setter
     def container_type(self, value: Optional[pulumi.Input['OriginEndpointContainerType']]):
         pulumi.set(self, "container_type", value)
+
+    @property
+    @pulumi.getter(name="dashManifests")
+    def dash_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]]]:
+        """
+        <p>A DASH manifest configuration.</p>
+        """
+        return pulumi.get(self, "dash_manifests")
+
+    @dash_manifests.setter
+    def dash_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]]]):
+        pulumi.set(self, "dash_manifests", value)
 
     @property
     @pulumi.getter
@@ -190,6 +206,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
+                 dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointDashManifestConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]]] = None,
@@ -206,6 +223,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
         :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint.
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointDashManifestConfigurationArgs']]]] dash_manifests: <p>A DASH manifest configuration.</p>
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
@@ -241,6 +259,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
+                 dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointDashManifestConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]]] = None,
@@ -264,6 +283,7 @@ class OriginEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["container_type"] = container_type
+            __props__.__dict__["dash_manifests"] = dash_manifests
             __props__.__dict__["description"] = description
             __props__.__dict__["hls_manifests"] = hls_manifests
             __props__.__dict__["low_latency_hls_manifests"] = low_latency_hls_manifests
@@ -303,6 +323,7 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["container_type"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["dash_manifests"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hls_manifests"] = None
         __props__.__dict__["low_latency_hls_manifests"] = None
@@ -352,6 +373,14 @@ class OriginEndpoint(pulumi.CustomResource):
         <p>The date and time the origin endpoint was created.</p>
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="dashManifests")
+    def dash_manifests(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointDashManifestConfiguration']]]:
+        """
+        <p>A DASH manifest configuration.</p>
+        """
+        return pulumi.get(self, "dash_manifests")
 
     @property
     @pulumi.getter

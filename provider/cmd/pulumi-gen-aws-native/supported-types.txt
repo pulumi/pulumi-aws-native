@@ -919,9 +919,13 @@ AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
 AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::ConfigurationPolicy
 AWS::SecurityHub::DelegatedAdmin
+AWS::SecurityHub::FindingAggregator
 AWS::SecurityHub::Hub
 AWS::SecurityHub::Insight
+AWS::SecurityHub::OrganizationConfiguration
+AWS::SecurityHub::PolicyAssociation
 AWS::SecurityHub::ProductSubscription
 AWS::SecurityHub::SecurityControl
 AWS::SecurityHub::Standard

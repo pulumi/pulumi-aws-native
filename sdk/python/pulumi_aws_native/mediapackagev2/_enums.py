@@ -5,15 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'OriginEndpointAdMarkerDash',
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
     'OriginEndpointContainerType',
+    'OriginEndpointDashDrmSignaling',
+    'OriginEndpointDashPeriodTrigger',
+    'OriginEndpointDashSegmentTemplateFormat',
+    'OriginEndpointDashUtcTimingMode',
     'OriginEndpointDrmSystem',
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
     'OriginEndpointTsEncryptionMethod',
 ]
+
+
+class OriginEndpointAdMarkerDash(str, Enum):
+    BINARY = "BINARY"
+    XML = "XML"
 
 
 class OriginEndpointAdMarkerHls(str, Enum):
@@ -28,6 +38,30 @@ class OriginEndpointCmafEncryptionMethod(str, Enum):
 class OriginEndpointContainerType(str, Enum):
     TS = "TS"
     CMAF = "CMAF"
+
+
+class OriginEndpointDashDrmSignaling(str, Enum):
+    INDIVIDUAL = "INDIVIDUAL"
+    REFERENCED = "REFERENCED"
+
+
+class OriginEndpointDashPeriodTrigger(str, Enum):
+    AVAILS = "AVAILS"
+    DRM_KEY_ROTATION = "DRM_KEY_ROTATION"
+    SOURCE_CHANGES = "SOURCE_CHANGES"
+    SOURCE_DISRUPTIONS = "SOURCE_DISRUPTIONS"
+    NONE = "NONE"
+
+
+class OriginEndpointDashSegmentTemplateFormat(str, Enum):
+    NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE"
+
+
+class OriginEndpointDashUtcTimingMode(str, Enum):
+    HTTP_HEAD = "HTTP_HEAD"
+    HTTP_ISO = "HTTP_ISO"
+    HTTP_XSDATE = "HTTP_XSDATE"
+    UTC_DIRECT = "UTC_DIRECT"
 
 
 class OriginEndpointDrmSystem(str, Enum):

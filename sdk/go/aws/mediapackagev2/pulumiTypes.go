@@ -76,6 +76,346 @@ type ChannelTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// <p>Retrieve the DASH manifest configuration.</p>
+type OriginEndpointDashManifestConfiguration struct {
+	DrmSignaling        *OriginEndpointDashDrmSignaling    `pulumi:"drmSignaling"`
+	FilterConfiguration *OriginEndpointFilterConfiguration `pulumi:"filterConfiguration"`
+	// <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+	ManifestName string `pulumi:"manifestName"`
+	// <p>The total duration (in seconds) of the manifest's content.</p>
+	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
+	// <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
+	// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+	MinUpdatePeriodSeconds *int `pulumi:"minUpdatePeriodSeconds"`
+	// <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+	//          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+	PeriodTriggers        []OriginEndpointDashPeriodTrigger        `pulumi:"periodTriggers"`
+	ScteDash              *OriginEndpointScteDash                  `pulumi:"scteDash"`
+	SegmentTemplateFormat *OriginEndpointDashSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
+	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+	SuggestedPresentationDelaySeconds *int                         `pulumi:"suggestedPresentationDelaySeconds"`
+	UtcTiming                         *OriginEndpointDashUtcTiming `pulumi:"utcTiming"`
+}
+
+// OriginEndpointDashManifestConfigurationInput is an input type that accepts OriginEndpointDashManifestConfigurationArgs and OriginEndpointDashManifestConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointDashManifestConfigurationInput` via:
+//
+//	OriginEndpointDashManifestConfigurationArgs{...}
+type OriginEndpointDashManifestConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashManifestConfigurationOutput() OriginEndpointDashManifestConfigurationOutput
+	ToOriginEndpointDashManifestConfigurationOutputWithContext(context.Context) OriginEndpointDashManifestConfigurationOutput
+}
+
+// <p>Retrieve the DASH manifest configuration.</p>
+type OriginEndpointDashManifestConfigurationArgs struct {
+	DrmSignaling        OriginEndpointDashDrmSignalingPtrInput    `pulumi:"drmSignaling"`
+	FilterConfiguration OriginEndpointFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+	// <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+	ManifestName pulumi.StringInput `pulumi:"manifestName"`
+	// <p>The total duration (in seconds) of the manifest's content.</p>
+	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
+	// <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
+	// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+	MinUpdatePeriodSeconds pulumi.IntPtrInput `pulumi:"minUpdatePeriodSeconds"`
+	// <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+	//          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+	PeriodTriggers        OriginEndpointDashPeriodTriggerArrayInput       `pulumi:"periodTriggers"`
+	ScteDash              OriginEndpointScteDashPtrInput                  `pulumi:"scteDash"`
+	SegmentTemplateFormat OriginEndpointDashSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
+	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+	SuggestedPresentationDelaySeconds pulumi.IntPtrInput                  `pulumi:"suggestedPresentationDelaySeconds"`
+	UtcTiming                         OriginEndpointDashUtcTimingPtrInput `pulumi:"utcTiming"`
+}
+
+func (OriginEndpointDashManifestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashManifestConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointDashManifestConfigurationArgs) ToOriginEndpointDashManifestConfigurationOutput() OriginEndpointDashManifestConfigurationOutput {
+	return i.ToOriginEndpointDashManifestConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashManifestConfigurationArgs) ToOriginEndpointDashManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashManifestConfigurationOutput)
+}
+
+// OriginEndpointDashManifestConfigurationArrayInput is an input type that accepts OriginEndpointDashManifestConfigurationArray and OriginEndpointDashManifestConfigurationArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointDashManifestConfigurationArrayInput` via:
+//
+//	OriginEndpointDashManifestConfigurationArray{ OriginEndpointDashManifestConfigurationArgs{...} }
+type OriginEndpointDashManifestConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashManifestConfigurationArrayOutput() OriginEndpointDashManifestConfigurationArrayOutput
+	ToOriginEndpointDashManifestConfigurationArrayOutputWithContext(context.Context) OriginEndpointDashManifestConfigurationArrayOutput
+}
+
+type OriginEndpointDashManifestConfigurationArray []OriginEndpointDashManifestConfigurationInput
+
+func (OriginEndpointDashManifestConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointDashManifestConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointDashManifestConfigurationArray) ToOriginEndpointDashManifestConfigurationArrayOutput() OriginEndpointDashManifestConfigurationArrayOutput {
+	return i.ToOriginEndpointDashManifestConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashManifestConfigurationArray) ToOriginEndpointDashManifestConfigurationArrayOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashManifestConfigurationArrayOutput)
+}
+
+// <p>Retrieve the DASH manifest configuration.</p>
+type OriginEndpointDashManifestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashManifestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashManifestConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManifestConfigurationOutput() OriginEndpointDashManifestConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) DrmSignaling() OriginEndpointDashDrmSignalingPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashDrmSignaling { return v.DrmSignaling }).(OriginEndpointDashDrmSignalingPtrOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) FilterConfiguration() OriginEndpointFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointFilterConfiguration {
+		return v.FilterConfiguration
+	}).(OriginEndpointFilterConfigurationPtrOutput)
+}
+
+// <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+func (o OriginEndpointDashManifestConfigurationOutput) ManifestName() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) string { return v.ManifestName }).(pulumi.StringOutput)
+}
+
+// <p>The total duration (in seconds) of the manifest's content.</p>
+func (o OriginEndpointDashManifestConfigurationOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *int { return v.ManifestWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+// <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+func (o OriginEndpointDashManifestConfigurationOutput) MinBufferTimeSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *int { return v.MinBufferTimeSeconds }).(pulumi.IntPtrOutput)
+}
+
+// <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+func (o OriginEndpointDashManifestConfigurationOutput) MinUpdatePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *int { return v.MinUpdatePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+//
+//	For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+func (o OriginEndpointDashManifestConfigurationOutput) PeriodTriggers() OriginEndpointDashPeriodTriggerArrayOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) []OriginEndpointDashPeriodTrigger {
+		return v.PeriodTriggers
+	}).(OriginEndpointDashPeriodTriggerArrayOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) ScteDash() OriginEndpointScteDashPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointScteDash { return v.ScteDash }).(OriginEndpointScteDashPtrOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) SegmentTemplateFormat() OriginEndpointDashSegmentTemplateFormatPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashSegmentTemplateFormat {
+		return v.SegmentTemplateFormat
+	}).(OriginEndpointDashSegmentTemplateFormatPtrOutput)
+}
+
+// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+func (o OriginEndpointDashManifestConfigurationOutput) SuggestedPresentationDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *int { return v.SuggestedPresentationDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) UtcTiming() OriginEndpointDashUtcTimingPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashUtcTiming { return v.UtcTiming }).(OriginEndpointDashUtcTimingPtrOutput)
+}
+
+type OriginEndpointDashManifestConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashManifestConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointDashManifestConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointDashManifestConfigurationArrayOutput) ToOriginEndpointDashManifestConfigurationArrayOutput() OriginEndpointDashManifestConfigurationArrayOutput {
+	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationArrayOutput) ToOriginEndpointDashManifestConfigurationArrayOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationArrayOutput {
+	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashManifestConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointDashManifestConfiguration {
+		return vs[0].([]OriginEndpointDashManifestConfiguration)[vs[1].(int)]
+	}).(OriginEndpointDashManifestConfigurationOutput)
+}
+
+// <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+type OriginEndpointDashUtcTiming struct {
+	TimingMode *OriginEndpointDashUtcTimingMode `pulumi:"timingMode"`
+	// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+	TimingSource *string `pulumi:"timingSource"`
+}
+
+// OriginEndpointDashUtcTimingInput is an input type that accepts OriginEndpointDashUtcTimingArgs and OriginEndpointDashUtcTimingOutput values.
+// You can construct a concrete instance of `OriginEndpointDashUtcTimingInput` via:
+//
+//	OriginEndpointDashUtcTimingArgs{...}
+type OriginEndpointDashUtcTimingInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashUtcTimingOutput() OriginEndpointDashUtcTimingOutput
+	ToOriginEndpointDashUtcTimingOutputWithContext(context.Context) OriginEndpointDashUtcTimingOutput
+}
+
+// <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+type OriginEndpointDashUtcTimingArgs struct {
+	TimingMode OriginEndpointDashUtcTimingModePtrInput `pulumi:"timingMode"`
+	// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+	TimingSource pulumi.StringPtrInput `pulumi:"timingSource"`
+}
+
+func (OriginEndpointDashUtcTimingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashUtcTiming)(nil)).Elem()
+}
+
+func (i OriginEndpointDashUtcTimingArgs) ToOriginEndpointDashUtcTimingOutput() OriginEndpointDashUtcTimingOutput {
+	return i.ToOriginEndpointDashUtcTimingOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashUtcTimingArgs) ToOriginEndpointDashUtcTimingOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashUtcTimingOutput)
+}
+
+func (i OriginEndpointDashUtcTimingArgs) ToOriginEndpointDashUtcTimingPtrOutput() OriginEndpointDashUtcTimingPtrOutput {
+	return i.ToOriginEndpointDashUtcTimingPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashUtcTimingArgs) ToOriginEndpointDashUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashUtcTimingOutput).ToOriginEndpointDashUtcTimingPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointDashUtcTimingPtrInput is an input type that accepts OriginEndpointDashUtcTimingArgs, OriginEndpointDashUtcTimingPtr and OriginEndpointDashUtcTimingPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointDashUtcTimingPtrInput` via:
+//
+//	        OriginEndpointDashUtcTimingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointDashUtcTimingPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashUtcTimingPtrOutput() OriginEndpointDashUtcTimingPtrOutput
+	ToOriginEndpointDashUtcTimingPtrOutputWithContext(context.Context) OriginEndpointDashUtcTimingPtrOutput
+}
+
+type originEndpointDashUtcTimingPtrType OriginEndpointDashUtcTimingArgs
+
+func OriginEndpointDashUtcTimingPtr(v *OriginEndpointDashUtcTimingArgs) OriginEndpointDashUtcTimingPtrInput {
+	return (*originEndpointDashUtcTimingPtrType)(v)
+}
+
+func (*originEndpointDashUtcTimingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashUtcTiming)(nil)).Elem()
+}
+
+func (i *originEndpointDashUtcTimingPtrType) ToOriginEndpointDashUtcTimingPtrOutput() OriginEndpointDashUtcTimingPtrOutput {
+	return i.ToOriginEndpointDashUtcTimingPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointDashUtcTimingPtrType) ToOriginEndpointDashUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashUtcTimingPtrOutput)
+}
+
+// <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+type OriginEndpointDashUtcTimingOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashUtcTimingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashUtcTiming)(nil)).Elem()
+}
+
+func (o OriginEndpointDashUtcTimingOutput) ToOriginEndpointDashUtcTimingOutput() OriginEndpointDashUtcTimingOutput {
+	return o
+}
+
+func (o OriginEndpointDashUtcTimingOutput) ToOriginEndpointDashUtcTimingOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingOutput {
+	return o
+}
+
+func (o OriginEndpointDashUtcTimingOutput) ToOriginEndpointDashUtcTimingPtrOutput() OriginEndpointDashUtcTimingPtrOutput {
+	return o.ToOriginEndpointDashUtcTimingPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashUtcTimingOutput) ToOriginEndpointDashUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashUtcTiming) *OriginEndpointDashUtcTiming {
+		return &v
+	}).(OriginEndpointDashUtcTimingPtrOutput)
+}
+
+func (o OriginEndpointDashUtcTimingOutput) TimingMode() OriginEndpointDashUtcTimingModePtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashUtcTiming) *OriginEndpointDashUtcTimingMode { return v.TimingMode }).(OriginEndpointDashUtcTimingModePtrOutput)
+}
+
+// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+func (o OriginEndpointDashUtcTimingOutput) TimingSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashUtcTiming) *string { return v.TimingSource }).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashUtcTimingPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashUtcTimingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashUtcTiming)(nil)).Elem()
+}
+
+func (o OriginEndpointDashUtcTimingPtrOutput) ToOriginEndpointDashUtcTimingPtrOutput() OriginEndpointDashUtcTimingPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashUtcTimingPtrOutput) ToOriginEndpointDashUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashUtcTimingPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashUtcTimingPtrOutput) Elem() OriginEndpointDashUtcTimingOutput {
+	return o.ApplyT(func(v *OriginEndpointDashUtcTiming) OriginEndpointDashUtcTiming {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashUtcTiming
+		return ret
+	}).(OriginEndpointDashUtcTimingOutput)
+}
+
+func (o OriginEndpointDashUtcTimingPtrOutput) TimingMode() OriginEndpointDashUtcTimingModePtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashUtcTiming) *OriginEndpointDashUtcTimingMode {
+		if v == nil {
+			return nil
+		}
+		return v.TimingMode
+	}).(OriginEndpointDashUtcTimingModePtrOutput)
+}
+
+// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+func (o OriginEndpointDashUtcTimingPtrOutput) TimingSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashUtcTiming) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimingSource
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryption struct {
 	// <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
@@ -1309,6 +1649,142 @@ func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayO
 }
 
 // <p>The SCTE configuration.</p>
+type OriginEndpointScteDash struct {
+	AdMarkerDash *OriginEndpointAdMarkerDash `pulumi:"adMarkerDash"`
+}
+
+// OriginEndpointScteDashInput is an input type that accepts OriginEndpointScteDashArgs and OriginEndpointScteDashOutput values.
+// You can construct a concrete instance of `OriginEndpointScteDashInput` via:
+//
+//	OriginEndpointScteDashArgs{...}
+type OriginEndpointScteDashInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteDashOutput() OriginEndpointScteDashOutput
+	ToOriginEndpointScteDashOutputWithContext(context.Context) OriginEndpointScteDashOutput
+}
+
+// <p>The SCTE configuration.</p>
+type OriginEndpointScteDashArgs struct {
+	AdMarkerDash OriginEndpointAdMarkerDashPtrInput `pulumi:"adMarkerDash"`
+}
+
+func (OriginEndpointScteDashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteDash)(nil)).Elem()
+}
+
+func (i OriginEndpointScteDashArgs) ToOriginEndpointScteDashOutput() OriginEndpointScteDashOutput {
+	return i.ToOriginEndpointScteDashOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointScteDashArgs) ToOriginEndpointScteDashOutputWithContext(ctx context.Context) OriginEndpointScteDashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteDashOutput)
+}
+
+func (i OriginEndpointScteDashArgs) ToOriginEndpointScteDashPtrOutput() OriginEndpointScteDashPtrOutput {
+	return i.ToOriginEndpointScteDashPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointScteDashArgs) ToOriginEndpointScteDashPtrOutputWithContext(ctx context.Context) OriginEndpointScteDashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteDashOutput).ToOriginEndpointScteDashPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointScteDashPtrInput is an input type that accepts OriginEndpointScteDashArgs, OriginEndpointScteDashPtr and OriginEndpointScteDashPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointScteDashPtrInput` via:
+//
+//	        OriginEndpointScteDashArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointScteDashPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteDashPtrOutput() OriginEndpointScteDashPtrOutput
+	ToOriginEndpointScteDashPtrOutputWithContext(context.Context) OriginEndpointScteDashPtrOutput
+}
+
+type originEndpointScteDashPtrType OriginEndpointScteDashArgs
+
+func OriginEndpointScteDashPtr(v *OriginEndpointScteDashArgs) OriginEndpointScteDashPtrInput {
+	return (*originEndpointScteDashPtrType)(v)
+}
+
+func (*originEndpointScteDashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointScteDash)(nil)).Elem()
+}
+
+func (i *originEndpointScteDashPtrType) ToOriginEndpointScteDashPtrOutput() OriginEndpointScteDashPtrOutput {
+	return i.ToOriginEndpointScteDashPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointScteDashPtrType) ToOriginEndpointScteDashPtrOutputWithContext(ctx context.Context) OriginEndpointScteDashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteDashPtrOutput)
+}
+
+// <p>The SCTE configuration.</p>
+type OriginEndpointScteDashOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteDashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteDash)(nil)).Elem()
+}
+
+func (o OriginEndpointScteDashOutput) ToOriginEndpointScteDashOutput() OriginEndpointScteDashOutput {
+	return o
+}
+
+func (o OriginEndpointScteDashOutput) ToOriginEndpointScteDashOutputWithContext(ctx context.Context) OriginEndpointScteDashOutput {
+	return o
+}
+
+func (o OriginEndpointScteDashOutput) ToOriginEndpointScteDashPtrOutput() OriginEndpointScteDashPtrOutput {
+	return o.ToOriginEndpointScteDashPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteDashOutput) ToOriginEndpointScteDashPtrOutputWithContext(ctx context.Context) OriginEndpointScteDashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointScteDash) *OriginEndpointScteDash {
+		return &v
+	}).(OriginEndpointScteDashPtrOutput)
+}
+
+func (o OriginEndpointScteDashOutput) AdMarkerDash() OriginEndpointAdMarkerDashPtrOutput {
+	return o.ApplyT(func(v OriginEndpointScteDash) *OriginEndpointAdMarkerDash { return v.AdMarkerDash }).(OriginEndpointAdMarkerDashPtrOutput)
+}
+
+type OriginEndpointScteDashPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteDashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointScteDash)(nil)).Elem()
+}
+
+func (o OriginEndpointScteDashPtrOutput) ToOriginEndpointScteDashPtrOutput() OriginEndpointScteDashPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteDashPtrOutput) ToOriginEndpointScteDashPtrOutputWithContext(ctx context.Context) OriginEndpointScteDashPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteDashPtrOutput) Elem() OriginEndpointScteDashOutput {
+	return o.ApplyT(func(v *OriginEndpointScteDash) OriginEndpointScteDash {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointScteDash
+		return ret
+	}).(OriginEndpointScteDashOutput)
+}
+
+func (o OriginEndpointScteDashPtrOutput) AdMarkerDash() OriginEndpointAdMarkerDashPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointScteDash) *OriginEndpointAdMarkerDash {
+		if v == nil {
+			return nil
+		}
+		return v.AdMarkerDash
+	}).(OriginEndpointAdMarkerDashPtrOutput)
+}
+
+// <p>The SCTE configuration.</p>
 type OriginEndpointScteHls struct {
 	// The SCTE-35 HLS ad-marker configuration.
 	AdMarkerHls *OriginEndpointAdMarkerHls `pulumi:"adMarkerHls"`
@@ -1956,6 +2432,10 @@ type OriginEndpointTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashManifestConfigurationInput)(nil)).Elem(), OriginEndpointDashManifestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointDashManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashUtcTimingInput)(nil)).Elem(), OriginEndpointDashUtcTimingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashUtcTimingPtrInput)(nil)).Elem(), OriginEndpointDashUtcTimingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionInput)(nil)).Elem(), OriginEndpointEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionPtrInput)(nil)).Elem(), OriginEndpointEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationArgs{})
@@ -1970,6 +2450,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInput)(nil)).Elem(), OriginEndpointScteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSctePtrInput)(nil)).Elem(), OriginEndpointScteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteDashInput)(nil)).Elem(), OriginEndpointScteDashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteDashPtrInput)(nil)).Elem(), OriginEndpointScteDashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteHlsInput)(nil)).Elem(), OriginEndpointScteHlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteHlsPtrInput)(nil)).Elem(), OriginEndpointScteHlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSegmentInput)(nil)).Elem(), OriginEndpointSegmentArgs{})
@@ -1978,6 +2460,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeKeyProviderPtrInput)(nil)).Elem(), OriginEndpointSpekeKeyProviderArgs{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashManifestConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashUtcTimingOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashUtcTimingPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionContractConfigurationOutput{})
@@ -1992,6 +2478,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSctePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteDashOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteDashPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteHlsOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteHlsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSegmentOutput{})

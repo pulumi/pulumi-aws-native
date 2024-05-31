@@ -11,17 +11,221 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'OriginEndpointDashManifestConfigurationArgs',
+    'OriginEndpointDashUtcTimingArgs',
     'OriginEndpointEncryptionContractConfigurationArgs',
     'OriginEndpointEncryptionMethodArgs',
     'OriginEndpointEncryptionArgs',
     'OriginEndpointFilterConfigurationArgs',
     'OriginEndpointHlsManifestConfigurationArgs',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgs',
+    'OriginEndpointScteDashArgs',
     'OriginEndpointScteHlsArgs',
     'OriginEndpointScteArgs',
     'OriginEndpointSegmentArgs',
     'OriginEndpointSpekeKeyProviderArgs',
 ]
+
+@pulumi.input_type
+class OriginEndpointDashManifestConfigurationArgs:
+    def __init__(__self__, *,
+                 manifest_name: pulumi.Input[str],
+                 drm_signaling: Optional[pulumi.Input['OriginEndpointDashDrmSignaling']] = None,
+                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_window_seconds: Optional[pulumi.Input[int]] = None,
+                 min_buffer_time_seconds: Optional[pulumi.Input[int]] = None,
+                 min_update_period_seconds: Optional[pulumi.Input[int]] = None,
+                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]] = None,
+                 scte_dash: Optional[pulumi.Input['OriginEndpointScteDashArgs']] = None,
+                 segment_template_format: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']] = None,
+                 suggested_presentation_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 utc_timing: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']] = None):
+        """
+        <p>Retrieve the DASH manifest configuration.</p>
+        :param pulumi.Input[str] manifest_name: <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+        :param pulumi.Input[int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
+        :param pulumi.Input[int] min_buffer_time_seconds: <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+        :param pulumi.Input[int] min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]] period_triggers: <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+                        For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        :param pulumi.Input[int] suggested_presentation_delay_seconds: <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+        """
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        if drm_signaling is not None:
+            pulumi.set(__self__, "drm_signaling", drm_signaling)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+        if min_buffer_time_seconds is not None:
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
+        if min_update_period_seconds is not None:
+            pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
+        if period_triggers is not None:
+            pulumi.set(__self__, "period_triggers", period_triggers)
+        if scte_dash is not None:
+            pulumi.set(__self__, "scte_dash", scte_dash)
+        if segment_template_format is not None:
+            pulumi.set(__self__, "segment_template_format", segment_template_format)
+        if suggested_presentation_delay_seconds is not None:
+            pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+        if utc_timing is not None:
+            pulumi.set(__self__, "utc_timing", utc_timing)
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> pulumi.Input[str]:
+        """
+        <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @manifest_name.setter
+    def manifest_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manifest_name", value)
+
+    @property
+    @pulumi.getter(name="drmSignaling")
+    def drm_signaling(self) -> Optional[pulumi.Input['OriginEndpointDashDrmSignaling']]:
+        return pulumi.get(self, "drm_signaling")
+
+    @drm_signaling.setter
+    def drm_signaling(self, value: Optional[pulumi.Input['OriginEndpointDashDrmSignaling']]):
+        pulumi.set(self, "drm_signaling", value)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+    @property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        <p>The total duration (in seconds) of the manifest's content.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+    @manifest_window_seconds.setter
+    def manifest_window_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "manifest_window_seconds", value)
+
+    @property
+    @pulumi.getter(name="minBufferTimeSeconds")
+    def min_buffer_time_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+        """
+        return pulumi.get(self, "min_buffer_time_seconds")
+
+    @min_buffer_time_seconds.setter
+    def min_buffer_time_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_buffer_time_seconds", value)
+
+    @property
+    @pulumi.getter(name="minUpdatePeriodSeconds")
+    def min_update_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+        """
+        return pulumi.get(self, "min_update_period_seconds")
+
+    @min_update_period_seconds.setter
+    def min_update_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_update_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodTriggers")
+    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]:
+        """
+        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+                 For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        """
+        return pulumi.get(self, "period_triggers")
+
+    @period_triggers.setter
+    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]):
+        pulumi.set(self, "period_triggers", value)
+
+    @property
+    @pulumi.getter(name="scteDash")
+    def scte_dash(self) -> Optional[pulumi.Input['OriginEndpointScteDashArgs']]:
+        return pulumi.get(self, "scte_dash")
+
+    @scte_dash.setter
+    def scte_dash(self, value: Optional[pulumi.Input['OriginEndpointScteDashArgs']]):
+        pulumi.set(self, "scte_dash", value)
+
+    @property
+    @pulumi.getter(name="segmentTemplateFormat")
+    def segment_template_format(self) -> Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]:
+        return pulumi.get(self, "segment_template_format")
+
+    @segment_template_format.setter
+    def segment_template_format(self, value: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]):
+        pulumi.set(self, "segment_template_format", value)
+
+    @property
+    @pulumi.getter(name="suggestedPresentationDelaySeconds")
+    def suggested_presentation_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+        """
+        return pulumi.get(self, "suggested_presentation_delay_seconds")
+
+    @suggested_presentation_delay_seconds.setter
+    def suggested_presentation_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suggested_presentation_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="utcTiming")
+    def utc_timing(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]:
+        return pulumi.get(self, "utc_timing")
+
+    @utc_timing.setter
+    def utc_timing(self, value: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]):
+        pulumi.set(self, "utc_timing", value)
+
+
+@pulumi.input_type
+class OriginEndpointDashUtcTimingArgs:
+    def __init__(__self__, *,
+                 timing_mode: Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']] = None,
+                 timing_source: Optional[pulumi.Input[str]] = None):
+        """
+        <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+        :param pulumi.Input[str] timing_source: <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+        """
+        if timing_mode is not None:
+            pulumi.set(__self__, "timing_mode", timing_mode)
+        if timing_source is not None:
+            pulumi.set(__self__, "timing_source", timing_source)
+
+    @property
+    @pulumi.getter(name="timingMode")
+    def timing_mode(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']]:
+        return pulumi.get(self, "timing_mode")
+
+    @timing_mode.setter
+    def timing_mode(self, value: Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']]):
+        pulumi.set(self, "timing_mode", value)
+
+    @property
+    @pulumi.getter(name="timingSource")
+    def timing_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+        """
+        return pulumi.get(self, "timing_source")
+
+    @timing_source.setter
+    def timing_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timing_source", value)
+
 
 @pulumi.input_type
 class OriginEndpointEncryptionContractConfigurationArgs:
@@ -507,6 +711,26 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class OriginEndpointScteDashArgs:
+    def __init__(__self__, *,
+                 ad_marker_dash: Optional[pulumi.Input['OriginEndpointAdMarkerDash']] = None):
+        """
+        <p>The SCTE configuration.</p>
+        """
+        if ad_marker_dash is not None:
+            pulumi.set(__self__, "ad_marker_dash", ad_marker_dash)
+
+    @property
+    @pulumi.getter(name="adMarkerDash")
+    def ad_marker_dash(self) -> Optional[pulumi.Input['OriginEndpointAdMarkerDash']]:
+        return pulumi.get(self, "ad_marker_dash")
+
+    @ad_marker_dash.setter
+    def ad_marker_dash(self, value: Optional[pulumi.Input['OriginEndpointAdMarkerDash']]):
+        pulumi.set(self, "ad_marker_dash", value)
 
 
 @pulumi.input_type
