@@ -503,17 +503,15 @@
       "required" : [ "Value", "Key" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "Id", "ChannelId" ],
-  "oneOf" : [ {
-    "required" : [ "HlsPackage" ]
-  }, {
-    "required" : [ "DashPackage" ]
-  }, {
-    "required" : [ "MssPackage" ]
-  }, {
-    "required" : [ "CmafPackage" ]
-  } ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Url" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Id" ],

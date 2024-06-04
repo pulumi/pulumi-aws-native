@@ -78,6 +78,13 @@
       "required" : [ "Value", "Key" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "Id", "PackagingGroupId", "SourceArn", "SourceRoleArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/EgressEndpoints/*/PackagingConfigurationId", "/properties/EgressEndpoints/*/Url" ],
