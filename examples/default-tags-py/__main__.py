@@ -1,7 +1,7 @@
 # Copyright 2021, Pulumi Corporation.  All rights reserved.
 
 import pulumi
-from pulumi_aws_native import logs, resiliencehub, TagArgs
+from pulumi_aws_native import logs, resiliencehub, TagArgs, s3
 
 log_group = logs.LogGroup(
     "log-test",
@@ -34,5 +34,8 @@ policy = resiliencehub.ResiliencyPolicy(
   tags={"localTag": "localTagValue"},
 )
 
+bucket = s3.Bucket("bucket", tags=[TagArgs(key="localTag", value="localTagValue")])
+
 pulumi.export("logGroupTags", log_group.tags)
 pulumi.export("policyTags", policy.tags)
+pulumi.export("bucketTags", bucket.tags)

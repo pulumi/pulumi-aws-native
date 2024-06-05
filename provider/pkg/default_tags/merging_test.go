@@ -155,6 +155,55 @@ func TestDefaultTags(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("key value array tag ordering", func(t *testing.T) {
+		tags := resource.NewPropertyValue([]interface{}{
+			map[string]interface{}{
+				"key":   "localTag1",
+				"value": "localTagValue1",
+			},
+			map[string]interface{}{
+				"key":   "localTag2",
+				"value": "localTagValue2",
+			},
+		})
+		defaultTags := map[string]string{
+			"defaultTag1": "defaultTagValue1",
+			"defaultTag2": "defaultTagValue2",
+			"defaultTag3": "defaultTagValue3",
+			"defaultTag4": "defaultTagValue4",
+		}
+
+		expected := resource.NewPropertyValue([]interface{}{
+			map[string]interface{}{
+				"key":   "localTag1",
+				"value": "localTagValue1",
+			},
+			map[string]interface{}{
+				"key":   "localTag2",
+				"value": "localTagValue2",
+			},
+			map[string]interface{}{
+				"key":   "defaultTag1",
+				"value": "defaultTagValue1",
+			},
+			map[string]interface{}{
+				"key":   "defaultTag2",
+				"value": "defaultTagValue2",
+			},
+			map[string]interface{}{
+				"key":   "defaultTag3",
+				"value": "defaultTagValue3",
+			},
+			map[string]interface{}{
+				"key":   "defaultTag4",
+				"value": "defaultTagValue4",
+			},
+		})
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
+		assert.NoError(t, err)
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("key value array uppercase", func(t *testing.T) {
 		tags := resource.NewPropertyValue([]interface{}{
 			map[string]interface{}{
