@@ -49,12 +49,17 @@ func TestDefaultTagsPython(t *testing.T) {
 			Config: map[string]string{
 				"aws-native:defaultTags": `{
 						"tags": {
-							"defaultTag": "defaultTagValue"
+							"defaultTag": "defaultTagValue",
+							"tag1": "tag1Value",
+							"tag2": "tag2Value",
+							"tag3": "tag3Value",
+							"tag4": "tag4Value"
 						}
 					}`,
 			},
+			RequireEmptyPreviewAfterRefresh: true,
 			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
-				assert.Equal(t, []interface{}{
+				listTags := []interface{}{
 					map[string]interface{}{
 						"key":   "localTag",
 						"value": "localTagValue",
@@ -63,11 +68,35 @@ func TestDefaultTagsPython(t *testing.T) {
 						"key":   "defaultTag",
 						"value": "defaultTagValue",
 					},
-				}, stackInfo.Outputs["logGroupTags"])
+					map[string]interface{}{
+						"key":   "tag1",
+						"value": "tag1Value",
+					},
+					map[string]interface{}{
+						"key":   "tag2",
+						"value": "tag2Value",
+					},
+					map[string]interface{}{
+						"key":   "tag3",
+						"value": "tag3Value",
+					},
+					map[string]interface{}{
+						"key":   "tag4",
+						"value": "tag4Value",
+					},
+				}
+
+				// The CC tag output is randomly ordered. We can't assert on the order, but the preview test will catch any changes in the input order.
+				assert.ElementsMatch(t, listTags, stackInfo.Outputs["logGroupTags"])
+				assert.ElementsMatch(t, listTags, stackInfo.Outputs["bucketTags"])
 
 				assert.Equal(t, map[string]interface{}{
 					"defaultTag": "defaultTagValue",
 					"localTag":   "localTagValue",
+					"tag1": "tag1Value",
+					"tag2": "tag2Value",
+					"tag3": "tag3Value",
+					"tag4": "tag4Value",
 				}, stackInfo.Outputs["policyTags"])
 			},
 		})
