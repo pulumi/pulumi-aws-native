@@ -78,6 +78,13 @@
       }
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "Id" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName" ],
