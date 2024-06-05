@@ -2,6 +2,7 @@ package default_tags
 
 import (
 	"fmt"
+	"sort"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -59,11 +60,19 @@ func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 				existingKeys[key.StringValue()] = true
 			}
 		}
-		for k, v := range defaultTags {
-			if _, ok := existingKeys[k]; !ok {
+
+		// Get the sorted list of keys from defaultTags
+		var keys []string
+		for k := range defaultTags {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+
+		for _, key := range keys {
+			if _, ok := existingKeys[key]; !ok {
 				asArray = append(asArray, resource.NewObjectProperty(map[resource.PropertyKey]resource.PropertyValue{
-					keyProp:   resource.NewStringProperty(k),
-					valueProp: resource.NewStringProperty(v),
+					keyProp:   resource.NewStringProperty(key),
+					valueProp: resource.NewStringProperty(defaultTags[key]),
 				}))
 			}
 		}
