@@ -2,6 +2,7 @@ package schema
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
 	jsschema "github.com/pulumi/jsschema"
@@ -16,17 +17,17 @@ func marshalSpec(spec map[string]interface{}) *jsschema.Schema {
 	return s
 }
 
-func runTest(t *testing.T, spec map[string]interface{}, docs Docs) *schema.PackageSpec {
+func runTest(t *testing.T, spec map[string]interface{}, docs Docs) (*schema.PackageSpec, *Reports) {
 	s := marshalSpec(spec)
 	semanticsDocument, err := GatherSemantics("../../../provider/cmd/pulumi-resource-aws-native")
 	if err != nil {
 		t.Fatalf("Error gathering semantics: %v", err)
 	}
-	packageSpec, _, _, err := GatherPackage([]string{s.Extras["typeName"].(string)}, []*jsschema.Schema{s}, false, &semanticsDocument, &docs)
+	packageSpec, _, reports, err := GatherPackage([]string{s.Extras["typeName"].(string)}, []*jsschema.Schema{s}, false, &semanticsDocument, &docs)
 	if err != nil {
 		t.Fatalf("GatherPackage failed: %v", err)
 	}
-	return packageSpec
+	return packageSpec, reports
 }
 
 func TestGatherPackage_docs_inputProperty(t *testing.T) {
@@ -50,7 +51,7 @@ func TestGatherPackage_docs_inputProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		packageSpec.Resources["aws-native:events:Rule"].Properties["description"].Description,
@@ -100,7 +101,7 @@ func TestGatherPackage_docs_refProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		"The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.",
@@ -155,7 +156,7 @@ func TestGatherPackage_docs_nestedProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		"The parameters for using a Kinesis stream as a source.",
@@ -204,7 +205,7 @@ func TestGatherPackage_docs_nestedPropertyProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		"The maximum length of a time to wait for events.",
@@ -288,7 +289,7 @@ func TestGatherPackage_docs_nestedListProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		"A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .\n\nIf there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .\n\nThis parameter is only supported for tasks hosted on Fargate using the following platform versions:\n\n- Linux platform version `1.4.0` or later.\n- Windows platform version `1.0.0` or later.",
@@ -341,10 +342,148 @@ func TestGatherPackage_docs_listProperty(t *testing.T) {
 		},
 	}
 
-	packageSpec := runTest(t, spec, docs)
+	packageSpec, _ := runTest(t, spec, docs)
 	assert.Equal(
 		t,
 		"An array of server URLs.",
 		packageSpec.Types["aws-native:pipes:PipeSourceSelfManagedKafkaParameters"].Properties["additionalBootstrapServers"].Description,
 	)
+}
+
+func TestGatherPackage_docs_topLevelResource(t *testing.T) {
+	spec := map[string]interface{}{
+		"typeName":    "AWS::EC2::Volume",
+		"properties":  map[string]interface{}{},
+		"definitions": map[string]interface{}{},
+	}
+	docs := Docs{
+		Types: map[string]DocsTypes{
+			"AWS::EC2::Volume": {
+				Description: "Specifies an Amazon Elastic Block Store (Amazon EBS) volume.\n\nWhen you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.\n\nAmazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.\n\nSome common scenarios when you might encounter a cooldown period for Amazon EBS include:\n\n- You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.\n- You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.\n\nFor more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .\n\n*DeletionPolicy attribute*\n\nTo control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .\n\n> If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.",
+				Properties:  map[string]string{},
+			},
+		},
+	}
+
+	packageSpec, _ := runTest(t, spec, docs)
+	assert.Equal(
+		t,
+		"Specifies an Amazon Elastic Block Store (Amazon EBS) volume.\n\nWhen you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.\n\nAmazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.\n\nSome common scenarios when you might encounter a cooldown period for Amazon EBS include:\n\n- You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.\n- You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.\n\nFor more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .\n\n*DeletionPolicy attribute*\n\nTo control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .\n\n> If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.",
+		packageSpec.Resources["aws-native:ec2:Volume"].Description,
+	)
+}
+
+func TestGatherPackage_docs_augmentation_topLevelResource(t *testing.T) {
+	spec := map[string]interface{}{
+		// AWS::EC2::Volume has forced augmentation turned on to replace bad schema descriptions with the docs descriptions
+		"typeName":    "AWS::EC2::Volume",
+		"description": "bad description",
+		"properties":  map[string]interface{}{},
+		"definitions": map[string]interface{}{},
+	}
+	docs := Docs{
+		Types: map[string]DocsTypes{
+			"AWS::EC2::Volume": {
+				Description: "Specifies an Amazon Elastic Block Store (Amazon EBS) volume.\n\nWhen you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.\n\nAmazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.\n\nSome common scenarios when you might encounter a cooldown period for Amazon EBS include:\n\n- You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.\n- You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.\n\nFor more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .\n\n*DeletionPolicy attribute*\n\nTo control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .\n\n> If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.",
+				Properties:  map[string]string{},
+			},
+		},
+	}
+
+	packageSpec, _ := runTest(t, spec, docs)
+	assert.Equal(
+		t,
+		"Specifies an Amazon Elastic Block Store (Amazon EBS) volume.\n\nWhen you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.\n\nAmazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.\n\nSome common scenarios when you might encounter a cooldown period for Amazon EBS include:\n\n- You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.\n- You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.\n\nFor more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .\n\n*DeletionPolicy attribute*\n\nTo control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .\n\n> If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.",
+		packageSpec.Resources["aws-native:ec2:Volume"].Description,
+	)
+}
+
+func TestGatherPackage_docs_augmentation_nestedProperty(t *testing.T) {
+	spec := map[string]interface{}{
+		"definitions": map[string]interface{}{
+			"EncryptionConfiguration": map[string]interface{}{
+				"type": "object",
+				"properties": map[string]interface{}{
+					"EncryptionType": map[string]interface{}{
+						"$ref":        "#/definitions/EncryptionType",
+						"description": "The encryption type to use.\n If you u... Truncated",
+					},
+				},
+			},
+			"EncryptionType": map[string]interface{}{
+				"type":        "string",
+				"description": "The encryption type to use.",
+				"enum":        []interface{}{"AES256", "KMS"},
+			},
+		},
+		"properties": map[string]interface{}{
+
+			"EncryptionConfiguration": map[string]interface{}{
+				"$ref":        "#/definitions/EncryptionConfiguration",
+				"description": "The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.",
+			},
+		},
+		"typeName":    "AWS::ECR::Repository",
+		"description": "The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.",
+	}
+	docs := Docs{
+		Types: map[string]DocsTypes{
+			"AWS::ECR::Repository.EncryptionConfiguration": {
+				Description: "The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.\n\nBy default, when no encryption configuration is set or the `AES256` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.\n\nFor more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .",
+				Properties: map[string]string{
+					"EncryptionType": "The encryption type to use.\n\nIf you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .\n\nIf you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .",
+				},
+			},
+		},
+	}
+
+	packageSpec, _ := runTest(t, spec, docs)
+	assert.Equal(
+		t,
+		"The encryption type to use.\n\nIf you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .\n\nIf you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .",
+		packageSpec.Types["aws-native:ecr:RepositoryEncryptionConfiguration"].Properties["encryptionType"].Description,
+	)
+}
+
+func TestGatherPackage_docs_augmentation_unknownProperty(t *testing.T) {
+	spec := map[string]interface{}{
+		"definitions": map[string]interface{}{
+			"EncryptionConfiguration": map[string]interface{}{
+				"type": "object",
+				"properties": map[string]interface{}{
+					"EncryptionType": map[string]interface{}{
+						"$ref":        "#/definitions/EncryptionType",
+						"description": "The encryption type to use.\n If you u... Truncated",
+					},
+				},
+			},
+			"EncryptionType": map[string]interface{}{
+				"type":        "string",
+				"description": "The encryption type to use.",
+				"enum":        []interface{}{"AES256", "KMS"},
+			},
+		},
+		"properties": map[string]interface{}{
+
+			"EncryptionConfiguration": map[string]interface{}{
+				"$ref":        "#/definitions/EncryptionConfiguration",
+				"description": "The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.",
+			},
+		},
+		"typeName":    "AWS::ECR::Repository",
+		"description": "The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.",
+	}
+	docs := Docs{
+		Types: map[string]DocsTypes{},
+	}
+
+	packageSpec, reports := runTest(t, spec, docs)
+	assert.Equal(
+		t,
+		"The encryption type to use.\n If you u... Truncated",
+		packageSpec.Types["aws-native:ecr:RepositoryEncryptionConfiguration"].Properties["encryptionType"].Description,
+	)
+	assert.Contains(t, reports.MissingDocs, "AWS::ECR::Repository")
+	assert.Contains(t, reports.MissingDocs["AWS::ECR::Repository"], "EncryptionType")
+	assert.Equal(t, fmt.Sprint(1), reports.MissingDocs["AWS::ECR::Repository"]["EncryptionType"])
 }

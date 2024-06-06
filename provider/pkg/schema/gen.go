@@ -27,6 +27,16 @@ const packageName = "aws-native"
 const globalTagToken = "aws-native:index:Tag"
 const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
+// The documentation of some resources/properties is incomplete or incorrect in the AWS CloudFormation schema. The CloudFormation docs are more complete and accurate in these cases.
+var forceDocumentationAugmentation = map[string]bool{
+	// Documentation is truncated
+	"AWS::EC2::Volume":      true,
+	"AWS::EC2::VPCEndpoint": true,
+	"AWS::ECR::Repository.EncryptionConfiguration.EncryptionType": true,
+	"AWS::IAM::Role.Policies":                                     true,
+	"AWS::IAM::Role.RoleName":                                     true,
+}
+
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
 	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument, docsSchema *Docs) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
@@ -870,6 +880,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		}
 	}
 
+	ctx.updateDesc(ctx.cfTypeName, "", ctx.resourceSpec)
 	var deprecationMessage string
 	if !ctx.isSupported {
 		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
@@ -961,8 +972,9 @@ func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec
 }
 
 // updateDesc updates the schema with a description from the CloudFormation docs if one
-// is not already provided
+// is not already provided or incomplete.
 func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.Schema) {
+	fullyQualifiedPropertyName := GetFullyQualifiedPropertyName(refName, propName)
 	if spec.Description == "" {
 		desc, found := ctx.docs.GetPropertyDesc(
 			refName,
@@ -982,6 +994,14 @@ func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.
 					propName: "0",
 				}
 			}
+		}
+	} else if _, ok := forceDocumentationAugmentation[fullyQualifiedPropertyName]; ok {
+		if desc, found := ctx.docs.GetPropertyDesc(refName, propName); found {
+			spec.Description = desc
+			ctx.reports.DocsUpdated += 1
+		} else {
+			ctx.reportMissingDocs(desc, propName)
+			fmt.Printf("Description augmentation configured for type %s but CloudFormation Docs do not include description\n", fullyQualifiedPropertyName)
 		}
 	}
 }
@@ -1538,4 +1558,11 @@ func GatherSemantics(schemaDir string) (metadata.SemanticsSpecDocument, error) {
 		return semanticsDocument, err
 	}
 	return semanticsDocument, nil
+}
+
+func GetFullyQualifiedPropertyName(refName, propName string) string {
+	if propName == "" {
+		return refName
+	}
+	return fmt.Sprintf("%s.%s", refName, propName)
 }
