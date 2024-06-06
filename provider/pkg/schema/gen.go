@@ -30,11 +30,11 @@ const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 // The documentation of some resources/properties is incomplete or incorrect in the AWS CloudFormation schema. The CloudFormation docs are more complete and accurate in these cases.
 var forceDocumentationAugmentation = map[string]bool{
 	// Documentation is truncated
-	"AWS::EC2::Volume": true,
+	"AWS::EC2::Volume":      true,
 	"AWS::EC2::VPCEndpoint": true,
 	"AWS::ECR::Repository.EncryptionConfiguration.EncryptionType": true,
-	"AWS::IAM::Role.Policies": true,
-	"AWS::IAM::Role.RoleName": true,
+	"AWS::IAM::Role.Policies":                                     true,
+	"AWS::IAM::Role.RoleName":                                     true,
 }
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
@@ -974,6 +974,7 @@ func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec
 // updateDesc updates the schema with a description from the CloudFormation docs if one
 // is not already provided or incomplete.
 func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.Schema) {
+	fullyQualifiedPropertyName := GetFullyQualifiedPropertyName(refName, propName)
 	if spec.Description == "" {
 		desc, found := ctx.docs.GetPropertyDesc(
 			refName,
@@ -994,10 +995,13 @@ func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.
 				}
 			}
 		}
-	} else if _, ok := forceDocumentationAugmentation[GetFullyQualifiedPropertyName(refName, propName)]; ok {
+	} else if _, ok := forceDocumentationAugmentation[fullyQualifiedPropertyName]; ok {
 		if desc, found := ctx.docs.GetPropertyDesc(refName, propName); found {
 			spec.Description = desc
 			ctx.reports.DocsUpdated += 1
+		} else {
+			ctx.reportMissingDocs(desc, propName)
+			fmt.Printf("Description augmentation configured for type %s but CloudFormation Docs do not include description\n", fullyQualifiedPropertyName)
 		}
 	}
 }
