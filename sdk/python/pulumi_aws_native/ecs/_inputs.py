@@ -18,6 +18,7 @@ __all__ = [
     'ClusterConfigurationArgs',
     'ClusterExecuteCommandConfigurationArgs',
     'ClusterExecuteCommandLogConfigurationArgs',
+    'ClusterManagedStorageConfigurationArgs',
     'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingsArgs',
     'ServiceAwsVpcConfigurationArgs',
@@ -363,13 +364,16 @@ class ClusterCapacityProviderStrategyItemArgs:
 @pulumi.input_type
 class ClusterConfigurationArgs:
     def __init__(__self__, *,
-                 execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None):
+                 execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None,
+                 managed_storage_configuration: Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']] = None):
         """
         The execute command configuration for the cluster.
         :param pulumi.Input['ClusterExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+        if managed_storage_configuration is not None:
+            pulumi.set(__self__, "managed_storage_configuration", managed_storage_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
@@ -382,6 +386,15 @@ class ClusterConfigurationArgs:
     @execute_command_configuration.setter
     def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']]):
         pulumi.set(self, "execute_command_configuration", value)
+
+    @property
+    @pulumi.getter(name="managedStorageConfiguration")
+    def managed_storage_configuration(self) -> Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']]:
+        return pulumi.get(self, "managed_storage_configuration")
+
+    @managed_storage_configuration.setter
+    def managed_storage_configuration(self, value: Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']]):
+        pulumi.set(self, "managed_storage_configuration", value)
 
 
 @pulumi.input_type
@@ -536,6 +549,35 @@ class ClusterExecuteCommandLogConfigurationArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+@pulumi.input_type
+class ClusterManagedStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 fargate_ephemeral_storage_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        if fargate_ephemeral_storage_kms_key_id is not None:
+            pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
+    def fargate_ephemeral_storage_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
+
+    @fargate_ephemeral_storage_kms_key_id.setter
+    def fargate_ephemeral_storage_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fargate_ephemeral_storage_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type

@@ -660,6 +660,7 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 type ClusterConfiguration struct {
 	// The details of the execute command configuration.
 	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
+	ManagedStorageConfiguration *ClusterManagedStorageConfiguration `pulumi:"managedStorageConfiguration"`
 }
 
 // ClusterConfigurationInput is an input type that accepts ClusterConfigurationArgs and ClusterConfigurationOutput values.
@@ -677,6 +678,7 @@ type ClusterConfigurationInput interface {
 type ClusterConfigurationArgs struct {
 	// The details of the execute command configuration.
 	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
+	ManagedStorageConfiguration ClusterManagedStorageConfigurationPtrInput `pulumi:"managedStorageConfiguration"`
 }
 
 func (ClusterConfigurationArgs) ElementType() reflect.Type {
@@ -762,6 +764,10 @@ func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecute
 	return o.ApplyT(func(v ClusterConfiguration) *ClusterExecuteCommandConfiguration { return v.ExecuteCommandConfiguration }).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
+func (o ClusterConfigurationOutput) ManagedStorageConfiguration() ClusterManagedStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfiguration) *ClusterManagedStorageConfiguration { return v.ManagedStorageConfiguration }).(ClusterManagedStorageConfigurationPtrOutput)
+}
+
 type ClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationPtrOutput) ElementType() reflect.Type {
@@ -794,6 +800,15 @@ func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExec
 		}
 		return v.ExecuteCommandConfiguration
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
+}
+
+func (o ClusterConfigurationPtrOutput) ManagedStorageConfiguration() ClusterManagedStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) *ClusterManagedStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedStorageConfiguration
+	}).(ClusterManagedStorageConfigurationPtrOutput)
 }
 
 // The details of the execute command configuration.
@@ -1213,6 +1228,154 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 			return nil
 		}
 		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterManagedStorageConfiguration struct {
+	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
+	KmsKeyId                        *string `pulumi:"kmsKeyId"`
+}
+
+// ClusterManagedStorageConfigurationInput is an input type that accepts ClusterManagedStorageConfigurationArgs and ClusterManagedStorageConfigurationOutput values.
+// You can construct a concrete instance of `ClusterManagedStorageConfigurationInput` via:
+//
+//	ClusterManagedStorageConfigurationArgs{...}
+type ClusterManagedStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput
+	ToClusterManagedStorageConfigurationOutputWithContext(context.Context) ClusterManagedStorageConfigurationOutput
+}
+
+type ClusterManagedStorageConfigurationArgs struct {
+	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
+	KmsKeyId                        pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (ClusterManagedStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput {
+	return i.ToClusterManagedStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationOutput)
+}
+
+func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
+	return i.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationOutput).ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterManagedStorageConfigurationPtrInput is an input type that accepts ClusterManagedStorageConfigurationArgs, ClusterManagedStorageConfigurationPtr and ClusterManagedStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterManagedStorageConfigurationPtrInput` via:
+//
+//	        ClusterManagedStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterManagedStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput
+	ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Context) ClusterManagedStorageConfigurationPtrOutput
+}
+
+type clusterManagedStorageConfigurationPtrType ClusterManagedStorageConfigurationArgs
+
+func ClusterManagedStorageConfigurationPtr(v *ClusterManagedStorageConfigurationArgs) ClusterManagedStorageConfigurationPtrInput {
+	return (*clusterManagedStorageConfigurationPtrType)(v)
+}
+
+func (*clusterManagedStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (i *clusterManagedStorageConfigurationPtrType) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
+	return i.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterManagedStorageConfigurationPtrType) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationPtrOutput)
+}
+
+type ClusterManagedStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput {
+	return o
+}
+
+func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationOutput {
+	return o
+}
+
+func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
+	return o.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterManagedStorageConfiguration) *ClusterManagedStorageConfiguration {
+		return &v
+	}).(ClusterManagedStorageConfigurationPtrOutput)
+}
+
+func (o ClusterManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.FargateEphemeralStorageKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterManagedStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (o ClusterManagedStorageConfigurationPtrOutput) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterManagedStorageConfigurationPtrOutput) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterManagedStorageConfigurationPtrOutput) Elem() ClusterManagedStorageConfigurationOutput {
+	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) ClusterManagedStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterManagedStorageConfiguration
+		return ret
+	}).(ClusterManagedStorageConfigurationOutput)
+}
+
+func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FargateEphemeralStorageKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11968,6 +12131,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedStorageConfigurationInput)(nil)).Elem(), ClusterManagedStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedStorageConfigurationPtrInput)(nil)).Elem(), ClusterManagedStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
@@ -12106,6 +12271,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterManagedStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterManagedStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})

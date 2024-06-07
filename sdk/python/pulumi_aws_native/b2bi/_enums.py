@@ -102,6 +102,7 @@ class CapabilityX12Version(str, Enum):
     VERSION4010 = "VERSION_4010"
     VERSION4030 = "VERSION_4030"
     VERSION5010 = "VERSION_5010"
+    VERSION5010_HIPAA = "VERSION_5010_HIPAA"
 
 
 class ProfileLogging(str, Enum):

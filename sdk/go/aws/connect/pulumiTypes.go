@@ -4956,7 +4956,8 @@ type RuleActions struct {
 	// Information about the EventBridge action.
 	EventBridgeActions []RuleEventBridgeAction `pulumi:"eventBridgeActions"`
 	// Information about the send notification action.
-	SendNotificationActions []RuleSendNotificationAction `pulumi:"sendNotificationActions"`
+	SendNotificationActions     []RuleSendNotificationAction     `pulumi:"sendNotificationActions"`
+	SubmitAutoEvaluationActions []RuleSubmitAutoEvaluationAction `pulumi:"submitAutoEvaluationActions"`
 	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
 	TaskActions       []RuleTaskAction       `pulumi:"taskActions"`
 	UpdateCaseActions []RuleUpdateCaseAction `pulumi:"updateCaseActions"`
@@ -4982,7 +4983,8 @@ type RuleActionsArgs struct {
 	// Information about the EventBridge action.
 	EventBridgeActions RuleEventBridgeActionArrayInput `pulumi:"eventBridgeActions"`
 	// Information about the send notification action.
-	SendNotificationActions RuleSendNotificationActionArrayInput `pulumi:"sendNotificationActions"`
+	SendNotificationActions     RuleSendNotificationActionArrayInput     `pulumi:"sendNotificationActions"`
+	SubmitAutoEvaluationActions RuleSubmitAutoEvaluationActionArrayInput `pulumi:"submitAutoEvaluationActions"`
 	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
 	TaskActions       RuleTaskActionArrayInput       `pulumi:"taskActions"`
 	UpdateCaseActions RuleUpdateCaseActionArrayInput `pulumi:"updateCaseActions"`
@@ -5036,6 +5038,10 @@ func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput
 // Information about the send notification action.
 func (o RuleActionsOutput) SendNotificationActions() RuleSendNotificationActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleSendNotificationAction { return v.SendNotificationActions }).(RuleSendNotificationActionArrayOutput)
+}
+
+func (o RuleActionsOutput) SubmitAutoEvaluationActions() RuleSubmitAutoEvaluationActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleSubmitAutoEvaluationAction { return v.SubmitAutoEvaluationActions }).(RuleSubmitAutoEvaluationActionArrayOutput)
 }
 
 // Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
@@ -5117,6 +5123,15 @@ func (o RuleActionsPtrOutput) SendNotificationActions() RuleSendNotificationActi
 		}
 		return v.SendNotificationActions
 	}).(RuleSendNotificationActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) SubmitAutoEvaluationActions() RuleSubmitAutoEvaluationActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleSubmitAutoEvaluationAction {
+		if v == nil {
+			return nil
+		}
+		return v.SubmitAutoEvaluationActions
+	}).(RuleSubmitAutoEvaluationActionArrayOutput)
 }
 
 // Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
@@ -6000,6 +6015,106 @@ func (o RuleSendNotificationActionArrayOutput) Index(i pulumi.IntInput) RuleSend
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSendNotificationAction {
 		return vs[0].([]RuleSendNotificationAction)[vs[1].(int)]
 	}).(RuleSendNotificationActionOutput)
+}
+
+// The definition of submit auto evaluation action.
+type RuleSubmitAutoEvaluationAction struct {
+	// The Amazon Resource Name (ARN) of the evaluation form.
+	EvaluationFormArn string `pulumi:"evaluationFormArn"`
+}
+
+// RuleSubmitAutoEvaluationActionInput is an input type that accepts RuleSubmitAutoEvaluationActionArgs and RuleSubmitAutoEvaluationActionOutput values.
+// You can construct a concrete instance of `RuleSubmitAutoEvaluationActionInput` via:
+//
+//	RuleSubmitAutoEvaluationActionArgs{...}
+type RuleSubmitAutoEvaluationActionInput interface {
+	pulumi.Input
+
+	ToRuleSubmitAutoEvaluationActionOutput() RuleSubmitAutoEvaluationActionOutput
+	ToRuleSubmitAutoEvaluationActionOutputWithContext(context.Context) RuleSubmitAutoEvaluationActionOutput
+}
+
+// The definition of submit auto evaluation action.
+type RuleSubmitAutoEvaluationActionArgs struct {
+	// The Amazon Resource Name (ARN) of the evaluation form.
+	EvaluationFormArn pulumi.StringInput `pulumi:"evaluationFormArn"`
+}
+
+func (RuleSubmitAutoEvaluationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSubmitAutoEvaluationAction)(nil)).Elem()
+}
+
+func (i RuleSubmitAutoEvaluationActionArgs) ToRuleSubmitAutoEvaluationActionOutput() RuleSubmitAutoEvaluationActionOutput {
+	return i.ToRuleSubmitAutoEvaluationActionOutputWithContext(context.Background())
+}
+
+func (i RuleSubmitAutoEvaluationActionArgs) ToRuleSubmitAutoEvaluationActionOutputWithContext(ctx context.Context) RuleSubmitAutoEvaluationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSubmitAutoEvaluationActionOutput)
+}
+
+// RuleSubmitAutoEvaluationActionArrayInput is an input type that accepts RuleSubmitAutoEvaluationActionArray and RuleSubmitAutoEvaluationActionArrayOutput values.
+// You can construct a concrete instance of `RuleSubmitAutoEvaluationActionArrayInput` via:
+//
+//	RuleSubmitAutoEvaluationActionArray{ RuleSubmitAutoEvaluationActionArgs{...} }
+type RuleSubmitAutoEvaluationActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleSubmitAutoEvaluationActionArrayOutput() RuleSubmitAutoEvaluationActionArrayOutput
+	ToRuleSubmitAutoEvaluationActionArrayOutputWithContext(context.Context) RuleSubmitAutoEvaluationActionArrayOutput
+}
+
+type RuleSubmitAutoEvaluationActionArray []RuleSubmitAutoEvaluationActionInput
+
+func (RuleSubmitAutoEvaluationActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSubmitAutoEvaluationAction)(nil)).Elem()
+}
+
+func (i RuleSubmitAutoEvaluationActionArray) ToRuleSubmitAutoEvaluationActionArrayOutput() RuleSubmitAutoEvaluationActionArrayOutput {
+	return i.ToRuleSubmitAutoEvaluationActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSubmitAutoEvaluationActionArray) ToRuleSubmitAutoEvaluationActionArrayOutputWithContext(ctx context.Context) RuleSubmitAutoEvaluationActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSubmitAutoEvaluationActionArrayOutput)
+}
+
+// The definition of submit auto evaluation action.
+type RuleSubmitAutoEvaluationActionOutput struct{ *pulumi.OutputState }
+
+func (RuleSubmitAutoEvaluationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSubmitAutoEvaluationAction)(nil)).Elem()
+}
+
+func (o RuleSubmitAutoEvaluationActionOutput) ToRuleSubmitAutoEvaluationActionOutput() RuleSubmitAutoEvaluationActionOutput {
+	return o
+}
+
+func (o RuleSubmitAutoEvaluationActionOutput) ToRuleSubmitAutoEvaluationActionOutputWithContext(ctx context.Context) RuleSubmitAutoEvaluationActionOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the evaluation form.
+func (o RuleSubmitAutoEvaluationActionOutput) EvaluationFormArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSubmitAutoEvaluationAction) string { return v.EvaluationFormArn }).(pulumi.StringOutput)
+}
+
+type RuleSubmitAutoEvaluationActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSubmitAutoEvaluationActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSubmitAutoEvaluationAction)(nil)).Elem()
+}
+
+func (o RuleSubmitAutoEvaluationActionArrayOutput) ToRuleSubmitAutoEvaluationActionArrayOutput() RuleSubmitAutoEvaluationActionArrayOutput {
+	return o
+}
+
+func (o RuleSubmitAutoEvaluationActionArrayOutput) ToRuleSubmitAutoEvaluationActionArrayOutputWithContext(ctx context.Context) RuleSubmitAutoEvaluationActionArrayOutput {
+	return o
+}
+
+func (o RuleSubmitAutoEvaluationActionArrayOutput) Index(i pulumi.IntInput) RuleSubmitAutoEvaluationActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSubmitAutoEvaluationAction {
+		return vs[0].([]RuleSubmitAutoEvaluationAction)[vs[1].(int)]
+	}).(RuleSubmitAutoEvaluationActionOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -7802,6 +7917,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceMapInput)(nil)).Elem(), RuleReferenceMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSubmitAutoEvaluationActionInput)(nil)).Elem(), RuleSubmitAutoEvaluationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSubmitAutoEvaluationActionArrayInput)(nil)).Elem(), RuleSubmitAutoEvaluationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionArrayInput)(nil)).Elem(), RuleTaskActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceInput)(nil)).Elem(), RuleTriggerEventSourceArgs{})
@@ -7909,6 +8026,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleReferenceMapOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleSubmitAutoEvaluationActionOutput{})
+	pulumi.RegisterOutputType(RuleSubmitAutoEvaluationActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceOutput{})

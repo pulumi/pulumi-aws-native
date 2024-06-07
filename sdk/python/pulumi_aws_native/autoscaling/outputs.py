@@ -50,6 +50,8 @@ __all__ = [
     'ScalingPolicyPredictiveScalingPredefinedScalingMetric',
     'ScalingPolicyStepAdjustment',
     'ScalingPolicyTargetTrackingConfiguration',
+    'ScalingPolicyTargetTrackingMetricDataQuery',
+    'ScalingPolicyTargetTrackingMetricStat',
     'WarmPoolInstanceReusePolicy',
 ]
 
@@ -2026,51 +2028,33 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_name: str,
-                 namespace: str,
-                 statistic: str,
                  dimensions: Optional[Sequence['outputs.ScalingPolicyMetricDimension']] = None,
+                 metric_name: Optional[str] = None,
+                 metrics: Optional[Sequence['outputs.ScalingPolicyTargetTrackingMetricDataQuery']] = None,
+                 namespace: Optional[str] = None,
+                 statistic: Optional[str] = None,
                  unit: Optional[str] = None):
         """
-        :param str metric_name: The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-        :param str namespace: The namespace of the metric.
-        :param str statistic: The statistic of the metric.
         :param Sequence['ScalingPolicyMetricDimension'] dimensions: The dimensions of the metric.
                
                Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+        :param str metric_name: The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+        :param str namespace: The namespace of the metric.
+        :param str statistic: The statistic of the metric.
         :param str unit: The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "statistic", statistic)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
-        """
-        The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-        """
-        return pulumi.get(self, "metric_name")
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> str:
-        """
-        The namespace of the metric.
-        """
-        return pulumi.get(self, "namespace")
-
-    @property
-    @pulumi.getter
-    def statistic(self) -> str:
-        """
-        The statistic of the metric.
-        """
-        return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter
@@ -2081,6 +2065,35 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
         Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence['outputs.ScalingPolicyTargetTrackingMetricDataQuery']]:
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        The namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def statistic(self) -> Optional[str]:
+        """
+        The statistic of the metric.
+        """
+        return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter
@@ -3115,6 +3128,96 @@ class ScalingPolicyTargetTrackingConfiguration(dict):
         A predefined metric. You must specify either a predefined metric or a customized metric.
         """
         return pulumi.get(self, "predefined_metric_specification")
+
+
+@pulumi.output_type
+class ScalingPolicyTargetTrackingMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyTargetTrackingMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyTargetTrackingMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyTargetTrackingMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 expression: Optional[str] = None,
+                 label: Optional[str] = None,
+                 metric_stat: Optional['outputs.ScalingPolicyTargetTrackingMetricStat'] = None,
+                 return_data: Optional[bool] = None):
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.ScalingPolicyTargetTrackingMetricStat']:
+        return pulumi.get(self, "metric_stat")
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[bool]:
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class ScalingPolicyTargetTrackingMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.ScalingPolicyMetric',
+                 stat: str,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> 'outputs.ScalingPolicyMetric':
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

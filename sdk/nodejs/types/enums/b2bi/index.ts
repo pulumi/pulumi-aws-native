@@ -92,6 +92,7 @@ export const CapabilityX12Version = {
     Version4010: "VERSION_4010",
     Version4030: "VERSION_4030",
     Version5010: "VERSION_5010",
+    Version5010Hipaa: "VERSION_5010_HIPAA",
 } as const;
 
 export type CapabilityX12Version = (typeof CapabilityX12Version)[keyof typeof CapabilityX12Version];

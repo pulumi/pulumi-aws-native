@@ -24,6 +24,12 @@ export const PipeBatchResourceRequirementType = {
 
 export type PipeBatchResourceRequirementType = (typeof PipeBatchResourceRequirementType)[keyof typeof PipeBatchResourceRequirementType];
 
+export const PipeDimensionValueType = {
+    Varchar: "VARCHAR",
+} as const;
+
+export type PipeDimensionValueType = (typeof PipeDimensionValueType)[keyof typeof PipeDimensionValueType];
+
 export const PipeDynamoDbStreamStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
     Latest: "LATEST",
@@ -43,6 +49,15 @@ export const PipeEcsResourceRequirementType = {
 } as const;
 
 export type PipeEcsResourceRequirementType = (typeof PipeEcsResourceRequirementType)[keyof typeof PipeEcsResourceRequirementType];
+
+export const PipeEpochTimeUnit = {
+    Milliseconds: "MILLISECONDS",
+    Seconds: "SECONDS",
+    Microseconds: "MICROSECONDS",
+    Nanoseconds: "NANOSECONDS",
+} as const;
+
+export type PipeEpochTimeUnit = (typeof PipeEpochTimeUnit)[keyof typeof PipeEpochTimeUnit];
 
 export const PipeIncludeExecutionDataOption = {
     All: "ALL",
@@ -74,6 +89,16 @@ export const PipeLogLevel = {
 } as const;
 
 export type PipeLogLevel = (typeof PipeLogLevel)[keyof typeof PipeLogLevel];
+
+export const PipeMeasureValueType = {
+    Double: "DOUBLE",
+    Bigint: "BIGINT",
+    Varchar: "VARCHAR",
+    Boolean: "BOOLEAN",
+    Timestamp: "TIMESTAMP",
+} as const;
+
+export type PipeMeasureValueType = (typeof PipeMeasureValueType)[keyof typeof PipeMeasureValueType];
 
 export const PipeMskStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
@@ -157,3 +182,10 @@ export const PipeTargetInvocationType = {
 } as const;
 
 export type PipeTargetInvocationType = (typeof PipeTargetInvocationType)[keyof typeof PipeTargetInvocationType];
+
+export const PipeTimeFieldType = {
+    Epoch: "EPOCH",
+    TimestampFormat: "TIMESTAMP_FORMAT",
+} as const;
+
+export type PipeTimeFieldType = (typeof PipeTimeFieldType)[keyof typeof PipeTimeFieldType];

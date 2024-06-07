@@ -8,13 +8,16 @@ __all__ = [
     'PipeAssignPublicIp',
     'PipeBatchJobDependencyType',
     'PipeBatchResourceRequirementType',
+    'PipeDimensionValueType',
     'PipeDynamoDbStreamStartPosition',
     'PipeEcsEnvironmentFileType',
     'PipeEcsResourceRequirementType',
+    'PipeEpochTimeUnit',
     'PipeIncludeExecutionDataOption',
     'PipeKinesisStreamStartPosition',
     'PipeLaunchType',
     'PipeLogLevel',
+    'PipeMeasureValueType',
     'PipeMskStartPosition',
     'PipeOnPartialBatchItemFailureStreams',
     'PipePlacementConstraintType',
@@ -25,6 +28,7 @@ __all__ = [
     'PipeSelfManagedKafkaStartPosition',
     'PipeState',
     'PipeTargetInvocationType',
+    'PipeTimeFieldType',
 ]
 
 
@@ -44,6 +48,10 @@ class PipeBatchResourceRequirementType(str, Enum):
     VCPU = "VCPU"
 
 
+class PipeDimensionValueType(str, Enum):
+    VARCHAR = "VARCHAR"
+
+
 class PipeDynamoDbStreamStartPosition(str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
@@ -56,6 +64,13 @@ class PipeEcsEnvironmentFileType(str, Enum):
 class PipeEcsResourceRequirementType(str, Enum):
     GPU = "GPU"
     INFERENCE_ACCELERATOR = "InferenceAccelerator"
+
+
+class PipeEpochTimeUnit(str, Enum):
+    MILLISECONDS = "MILLISECONDS"
+    SECONDS = "SECONDS"
+    MICROSECONDS = "MICROSECONDS"
+    NANOSECONDS = "NANOSECONDS"
 
 
 class PipeIncludeExecutionDataOption(str, Enum):
@@ -79,6 +94,14 @@ class PipeLogLevel(str, Enum):
     ERROR = "ERROR"
     INFO = "INFO"
     TRACE = "TRACE"
+
+
+class PipeMeasureValueType(str, Enum):
+    DOUBLE = "DOUBLE"
+    BIGINT = "BIGINT"
+    VARCHAR = "VARCHAR"
+    BOOLEAN = "BOOLEAN"
+    TIMESTAMP = "TIMESTAMP"
 
 
 class PipeMskStartPosition(str, Enum):
@@ -142,3 +165,8 @@ class PipeState(str, Enum):
 class PipeTargetInvocationType(str, Enum):
     REQUEST_RESPONSE = "REQUEST_RESPONSE"
     FIRE_AND_FORGET = "FIRE_AND_FORGET"
+
+
+class PipeTimeFieldType(str, Enum):
+    EPOCH = "EPOCH"
+    TIMESTAMP_FORMAT = "TIMESTAMP_FORMAT"

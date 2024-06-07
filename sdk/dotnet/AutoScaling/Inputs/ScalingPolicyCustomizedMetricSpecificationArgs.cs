@@ -29,20 +29,28 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         /// <summary>
         /// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
         /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
+
+        [Input("metrics")]
+        private InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>? _metrics;
+        public InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>());
+            set => _metrics = value;
+        }
 
         /// <summary>
         /// The namespace of the metric.
         /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
         /// <summary>
         /// The statistic of the metric.
         /// </summary>
-        [Input("statistic", required: true)]
-        public Input<string> Statistic { get; set; } = null!;
+        [Input("statistic")]
+        public Input<string>? Statistic { get; set; }
 
         /// <summary>
         /// The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .

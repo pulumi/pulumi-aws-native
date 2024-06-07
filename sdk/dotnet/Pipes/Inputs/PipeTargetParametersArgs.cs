@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         [Input("stepFunctionStateMachineParameters")]
         public Input<Inputs.PipeTargetStateMachineParametersArgs>? StepFunctionStateMachineParameters { get; set; }
 
+        [Input("timestreamParameters")]
+        public Input<Inputs.PipeTargetTimestreamParametersArgs>? TimestreamParameters { get; set; }
+
         public PipeTargetParametersArgs()
         {
         }

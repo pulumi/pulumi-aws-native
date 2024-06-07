@@ -22,15 +22,16 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// <summary>
         /// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
         /// </summary>
-        public readonly string MetricName;
+        public readonly string? MetricName;
+        public readonly ImmutableArray<Outputs.ScalingPolicyTargetTrackingMetricDataQuery> Metrics;
         /// <summary>
         /// The namespace of the metric.
         /// </summary>
-        public readonly string Namespace;
+        public readonly string? Namespace;
         /// <summary>
         /// The statistic of the metric.
         /// </summary>
-        public readonly string Statistic;
+        public readonly string? Statistic;
         /// <summary>
         /// The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
         /// </summary>
@@ -40,16 +41,19 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         private ScalingPolicyCustomizedMetricSpecification(
             ImmutableArray<Outputs.ScalingPolicyMetricDimension> dimensions,
 
-            string metricName,
+            string? metricName,
 
-            string @namespace,
+            ImmutableArray<Outputs.ScalingPolicyTargetTrackingMetricDataQuery> metrics,
 
-            string statistic,
+            string? @namespace,
+
+            string? statistic,
 
             string? unit)
         {
             Dimensions = dimensions;
             MetricName = metricName;
+            Metrics = metrics;
             Namespace = @namespace;
             Statistic = statistic;
             Unit = unit;

@@ -21,6 +21,7 @@ __all__ = [
     'PipeCapacityProviderStrategyItemArgs',
     'PipeCloudwatchLogsLogDestinationArgs',
     'PipeDeadLetterConfigArgs',
+    'PipeDimensionMappingArgs',
     'PipeEcsContainerOverrideArgs',
     'PipeEcsEnvironmentFileArgs',
     'PipeEcsEnvironmentVariableArgs',
@@ -37,6 +38,8 @@ __all__ = [
     'PipeMqBrokerAccessCredentialsPropertiesArgs',
     'PipeMskAccessCredentials0PropertiesArgs',
     'PipeMskAccessCredentials1PropertiesArgs',
+    'PipeMultiMeasureAttributeMappingArgs',
+    'PipeMultiMeasureMappingArgs',
     'PipeNetworkConfigurationArgs',
     'PipePlacementConstraintArgs',
     'PipePlacementStrategyArgs',
@@ -47,6 +50,7 @@ __all__ = [
     'PipeSelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs',
     'PipeSelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs',
     'PipeSelfManagedKafkaAccessConfigurationVpcArgs',
+    'PipeSingleMeasureMappingArgs',
     'PipeSourceActiveMqBrokerParametersArgs',
     'PipeSourceDynamoDbStreamParametersArgs',
     'PipeSourceKinesisStreamParametersArgs',
@@ -68,6 +72,7 @@ __all__ = [
     'PipeTargetSageMakerPipelineParametersArgs',
     'PipeTargetSqsQueueParametersArgs',
     'PipeTargetStateMachineParametersArgs',
+    'PipeTargetTimestreamParametersArgs',
 ]
 
 @pulumi.input_type
@@ -540,6 +545,44 @@ class PipeDeadLetterConfigArgs:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class PipeDimensionMappingArgs:
+    def __init__(__self__, *,
+                 dimension_name: pulumi.Input[str],
+                 dimension_value: pulumi.Input[str],
+                 dimension_value_type: pulumi.Input['PipeDimensionValueType']):
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "dimension_value", dimension_value)
+        pulumi.set(__self__, "dimension_value_type", dimension_value_type)
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dimension_name")
+
+    @dimension_name.setter
+    def dimension_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dimension_name", value)
+
+    @property
+    @pulumi.getter(name="dimensionValue")
+    def dimension_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dimension_value")
+
+    @dimension_value.setter
+    def dimension_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dimension_value", value)
+
+    @property
+    @pulumi.getter(name="dimensionValueType")
+    def dimension_value_type(self) -> pulumi.Input['PipeDimensionValueType']:
+        return pulumi.get(self, "dimension_value_type")
+
+    @dimension_value_type.setter
+    def dimension_value_type(self, value: pulumi.Input['PipeDimensionValueType']):
+        pulumi.set(self, "dimension_value_type", value)
 
 
 @pulumi.input_type
@@ -1325,6 +1368,71 @@ class PipeMskAccessCredentials1PropertiesArgs:
 
 
 @pulumi.input_type
+class PipeMultiMeasureAttributeMappingArgs:
+    def __init__(__self__, *,
+                 measure_value: pulumi.Input[str],
+                 measure_value_type: pulumi.Input['PipeMeasureValueType'],
+                 multi_measure_attribute_name: pulumi.Input[str]):
+        pulumi.set(__self__, "measure_value", measure_value)
+        pulumi.set(__self__, "measure_value_type", measure_value_type)
+        pulumi.set(__self__, "multi_measure_attribute_name", multi_measure_attribute_name)
+
+    @property
+    @pulumi.getter(name="measureValue")
+    def measure_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure_value")
+
+    @measure_value.setter
+    def measure_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure_value", value)
+
+    @property
+    @pulumi.getter(name="measureValueType")
+    def measure_value_type(self) -> pulumi.Input['PipeMeasureValueType']:
+        return pulumi.get(self, "measure_value_type")
+
+    @measure_value_type.setter
+    def measure_value_type(self, value: pulumi.Input['PipeMeasureValueType']):
+        pulumi.set(self, "measure_value_type", value)
+
+    @property
+    @pulumi.getter(name="multiMeasureAttributeName")
+    def multi_measure_attribute_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "multi_measure_attribute_name")
+
+    @multi_measure_attribute_name.setter
+    def multi_measure_attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "multi_measure_attribute_name", value)
+
+
+@pulumi.input_type
+class PipeMultiMeasureMappingArgs:
+    def __init__(__self__, *,
+                 multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureAttributeMappingArgs']]],
+                 multi_measure_name: pulumi.Input[str]):
+        pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
+        pulumi.set(__self__, "multi_measure_name", multi_measure_name)
+
+    @property
+    @pulumi.getter(name="multiMeasureAttributeMappings")
+    def multi_measure_attribute_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureAttributeMappingArgs']]]:
+        return pulumi.get(self, "multi_measure_attribute_mappings")
+
+    @multi_measure_attribute_mappings.setter
+    def multi_measure_attribute_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureAttributeMappingArgs']]]):
+        pulumi.set(self, "multi_measure_attribute_mappings", value)
+
+    @property
+    @pulumi.getter(name="multiMeasureName")
+    def multi_measure_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "multi_measure_name")
+
+    @multi_measure_name.setter
+    def multi_measure_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "multi_measure_name", value)
+
+
+@pulumi.input_type
 class PipeNetworkConfigurationArgs:
     def __init__(__self__, *,
                  awsvpc_configuration: Optional[pulumi.Input['PipeAwsVpcConfigurationArgs']] = None):
@@ -1670,6 +1778,44 @@ class PipeSelfManagedKafkaAccessConfigurationVpcArgs:
     @subnets.setter
     def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class PipeSingleMeasureMappingArgs:
+    def __init__(__self__, *,
+                 measure_name: pulumi.Input[str],
+                 measure_value: pulumi.Input[str],
+                 measure_value_type: pulumi.Input['PipeMeasureValueType']):
+        pulumi.set(__self__, "measure_name", measure_name)
+        pulumi.set(__self__, "measure_value", measure_value)
+        pulumi.set(__self__, "measure_value_type", measure_value_type)
+
+    @property
+    @pulumi.getter(name="measureName")
+    def measure_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure_name")
+
+    @measure_name.setter
+    def measure_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure_name", value)
+
+    @property
+    @pulumi.getter(name="measureValue")
+    def measure_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure_value")
+
+    @measure_value.setter
+    def measure_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure_value", value)
+
+    @property
+    @pulumi.getter(name="measureValueType")
+    def measure_value_type(self) -> pulumi.Input['PipeMeasureValueType']:
+        return pulumi.get(self, "measure_value_type")
+
+    @measure_value_type.setter
+    def measure_value_type(self, value: pulumi.Input['PipeMeasureValueType']):
+        pulumi.set(self, "measure_value_type", value)
 
 
 @pulumi.input_type
@@ -3214,7 +3360,8 @@ class PipeTargetParametersArgs:
                  redshift_data_parameters: Optional[pulumi.Input['PipeTargetRedshiftDataParametersArgs']] = None,
                  sage_maker_pipeline_parameters: Optional[pulumi.Input['PipeTargetSageMakerPipelineParametersArgs']] = None,
                  sqs_queue_parameters: Optional[pulumi.Input['PipeTargetSqsQueueParametersArgs']] = None,
-                 step_function_state_machine_parameters: Optional[pulumi.Input['PipeTargetStateMachineParametersArgs']] = None):
+                 step_function_state_machine_parameters: Optional[pulumi.Input['PipeTargetStateMachineParametersArgs']] = None,
+                 timestream_parameters: Optional[pulumi.Input['PipeTargetTimestreamParametersArgs']] = None):
         """
         :param pulumi.Input['PipeTargetBatchJobParametersArgs'] batch_job_parameters: The parameters for using an AWS Batch job as a target.
         :param pulumi.Input['PipeTargetCloudWatchLogsParametersArgs'] cloud_watch_logs_parameters: The parameters for using an CloudWatch Logs log stream as a target.
@@ -3255,6 +3402,8 @@ class PipeTargetParametersArgs:
             pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
         if step_function_state_machine_parameters is not None:
             pulumi.set(__self__, "step_function_state_machine_parameters", step_function_state_machine_parameters)
+        if timestream_parameters is not None:
+            pulumi.set(__self__, "timestream_parameters", timestream_parameters)
 
     @property
     @pulumi.getter(name="batchJobParameters")
@@ -3401,6 +3550,15 @@ class PipeTargetParametersArgs:
     @step_function_state_machine_parameters.setter
     def step_function_state_machine_parameters(self, value: Optional[pulumi.Input['PipeTargetStateMachineParametersArgs']]):
         pulumi.set(self, "step_function_state_machine_parameters", value)
+
+    @property
+    @pulumi.getter(name="timestreamParameters")
+    def timestream_parameters(self) -> Optional[pulumi.Input['PipeTargetTimestreamParametersArgs']]:
+        return pulumi.get(self, "timestream_parameters")
+
+    @timestream_parameters.setter
+    def timestream_parameters(self, value: Optional[pulumi.Input['PipeTargetTimestreamParametersArgs']]):
+        pulumi.set(self, "timestream_parameters", value)
 
 
 @pulumi.input_type
@@ -3605,5 +3763,103 @@ class PipeTargetStateMachineParametersArgs:
     @invocation_type.setter
     def invocation_type(self, value: Optional[pulumi.Input['PipeTargetInvocationType']]):
         pulumi.set(self, "invocation_type", value)
+
+
+@pulumi.input_type
+class PipeTargetTimestreamParametersArgs:
+    def __init__(__self__, *,
+                 dimension_mappings: pulumi.Input[Sequence[pulumi.Input['PipeDimensionMappingArgs']]],
+                 time_value: pulumi.Input[str],
+                 version_value: pulumi.Input[str],
+                 epoch_time_unit: Optional[pulumi.Input['PipeEpochTimeUnit']] = None,
+                 multi_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureMappingArgs']]]] = None,
+                 single_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['PipeSingleMeasureMappingArgs']]]] = None,
+                 time_field_type: Optional[pulumi.Input['PipeTimeFieldType']] = None,
+                 timestamp_format: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "dimension_mappings", dimension_mappings)
+        pulumi.set(__self__, "time_value", time_value)
+        pulumi.set(__self__, "version_value", version_value)
+        if epoch_time_unit is not None:
+            pulumi.set(__self__, "epoch_time_unit", epoch_time_unit)
+        if multi_measure_mappings is not None:
+            pulumi.set(__self__, "multi_measure_mappings", multi_measure_mappings)
+        if single_measure_mappings is not None:
+            pulumi.set(__self__, "single_measure_mappings", single_measure_mappings)
+        if time_field_type is not None:
+            pulumi.set(__self__, "time_field_type", time_field_type)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+
+    @property
+    @pulumi.getter(name="dimensionMappings")
+    def dimension_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['PipeDimensionMappingArgs']]]:
+        return pulumi.get(self, "dimension_mappings")
+
+    @dimension_mappings.setter
+    def dimension_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['PipeDimensionMappingArgs']]]):
+        pulumi.set(self, "dimension_mappings", value)
+
+    @property
+    @pulumi.getter(name="timeValue")
+    def time_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_value")
+
+    @time_value.setter
+    def time_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_value", value)
+
+    @property
+    @pulumi.getter(name="versionValue")
+    def version_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "version_value")
+
+    @version_value.setter
+    def version_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version_value", value)
+
+    @property
+    @pulumi.getter(name="epochTimeUnit")
+    def epoch_time_unit(self) -> Optional[pulumi.Input['PipeEpochTimeUnit']]:
+        return pulumi.get(self, "epoch_time_unit")
+
+    @epoch_time_unit.setter
+    def epoch_time_unit(self, value: Optional[pulumi.Input['PipeEpochTimeUnit']]):
+        pulumi.set(self, "epoch_time_unit", value)
+
+    @property
+    @pulumi.getter(name="multiMeasureMappings")
+    def multi_measure_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureMappingArgs']]]]:
+        return pulumi.get(self, "multi_measure_mappings")
+
+    @multi_measure_mappings.setter
+    def multi_measure_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipeMultiMeasureMappingArgs']]]]):
+        pulumi.set(self, "multi_measure_mappings", value)
+
+    @property
+    @pulumi.getter(name="singleMeasureMappings")
+    def single_measure_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipeSingleMeasureMappingArgs']]]]:
+        return pulumi.get(self, "single_measure_mappings")
+
+    @single_measure_mappings.setter
+    def single_measure_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipeSingleMeasureMappingArgs']]]]):
+        pulumi.set(self, "single_measure_mappings", value)
+
+    @property
+    @pulumi.getter(name="timeFieldType")
+    def time_field_type(self) -> Optional[pulumi.Input['PipeTimeFieldType']]:
+        return pulumi.get(self, "time_field_type")
+
+    @time_field_type.setter
+    def time_field_type(self, value: Optional[pulumi.Input['PipeTimeFieldType']]):
+        pulumi.set(self, "time_field_type", value)
+
+    @property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timestamp_format")
+
+    @timestamp_format.setter
+    def timestamp_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestamp_format", value)
 
 

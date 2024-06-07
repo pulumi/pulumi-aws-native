@@ -55,6 +55,7 @@ __all__ = [
     'RuleNotificationRecipientType',
     'RuleReference',
     'RuleSendNotificationAction',
+    'RuleSubmitAutoEvaluationAction',
     'RuleTaskAction',
     'RuleTriggerEventSource',
     'RuleUpdateCaseAction',
@@ -1961,6 +1962,8 @@ class RuleActions(dict):
             suggest = "event_bridge_actions"
         elif key == "sendNotificationActions":
             suggest = "send_notification_actions"
+        elif key == "submitAutoEvaluationActions":
+            suggest = "submit_auto_evaluation_actions"
         elif key == "taskActions":
             suggest = "task_actions"
         elif key == "updateCaseActions":
@@ -1983,6 +1986,7 @@ class RuleActions(dict):
                  end_associated_tasks_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
                  event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
                  send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
+                 submit_auto_evaluation_actions: Optional[Sequence['outputs.RuleSubmitAutoEvaluationAction']] = None,
                  task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
                  update_case_actions: Optional[Sequence['outputs.RuleUpdateCaseAction']] = None):
         """
@@ -2002,6 +2006,8 @@ class RuleActions(dict):
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
         if send_notification_actions is not None:
             pulumi.set(__self__, "send_notification_actions", send_notification_actions)
+        if submit_auto_evaluation_actions is not None:
+            pulumi.set(__self__, "submit_auto_evaluation_actions", submit_auto_evaluation_actions)
         if task_actions is not None:
             pulumi.set(__self__, "task_actions", task_actions)
         if update_case_actions is not None:
@@ -2040,6 +2046,11 @@ class RuleActions(dict):
         Information about the send notification action.
         """
         return pulumi.get(self, "send_notification_actions")
+
+    @property
+    @pulumi.getter(name="submitAutoEvaluationActions")
+    def submit_auto_evaluation_actions(self) -> Optional[Sequence['outputs.RuleSubmitAutoEvaluationAction']]:
+        return pulumi.get(self, "submit_auto_evaluation_actions")
 
     @property
     @pulumi.getter(name="taskActions")
@@ -2401,6 +2412,45 @@ class RuleSendNotificationAction(dict):
         The subject of notification.
         """
         return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class RuleSubmitAutoEvaluationAction(dict):
+    """
+    The definition of submit auto evaluation action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationFormArn":
+            suggest = "evaluation_form_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSubmitAutoEvaluationAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSubmitAutoEvaluationAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSubmitAutoEvaluationAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 evaluation_form_arn: str):
+        """
+        The definition of submit auto evaluation action.
+        :param str evaluation_form_arn: The Amazon Resource Name (ARN) of the evaluation form.
+        """
+        pulumi.set(__self__, "evaluation_form_arn", evaluation_form_arn)
+
+    @property
+    @pulumi.getter(name="evaluationFormArn")
+    def evaluation_form_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the evaluation form.
+        """
+        return pulumi.get(self, "evaluation_form_arn")
 
 
 @pulumi.output_type

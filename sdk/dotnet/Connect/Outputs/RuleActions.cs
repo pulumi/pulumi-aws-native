@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// Information about the send notification action.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleSendNotificationAction> SendNotificationActions;
+        public readonly ImmutableArray<Outputs.RuleSubmitAutoEvaluationAction> SubmitAutoEvaluationActions;
         /// <summary>
         /// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
         /// </summary>
@@ -48,6 +49,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             ImmutableArray<Outputs.RuleSendNotificationAction> sendNotificationActions,
 
+            ImmutableArray<Outputs.RuleSubmitAutoEvaluationAction> submitAutoEvaluationActions,
+
             ImmutableArray<Outputs.RuleTaskAction> taskActions,
 
             ImmutableArray<Outputs.RuleUpdateCaseAction> updateCaseActions)
@@ -57,6 +60,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             EndAssociatedTasksActions = endAssociatedTasksActions;
             EventBridgeActions = eventBridgeActions;
             SendNotificationActions = sendNotificationActions;
+            SubmitAutoEvaluationActions = submitAutoEvaluationActions;
             TaskActions = taskActions;
             UpdateCaseActions = updateCaseActions;
         }

@@ -507,6 +507,169 @@ func (in *pipeBatchResourceRequirementTypePtr) ToPipeBatchResourceRequirementTyp
 	return pulumi.ToOutputWithContext(ctx, in).(PipeBatchResourceRequirementTypePtrOutput)
 }
 
+type PipeDimensionValueType string
+
+const (
+	PipeDimensionValueTypeVarchar = PipeDimensionValueType("VARCHAR")
+)
+
+func (PipeDimensionValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDimensionValueType)(nil)).Elem()
+}
+
+func (e PipeDimensionValueType) ToPipeDimensionValueTypeOutput() PipeDimensionValueTypeOutput {
+	return pulumi.ToOutput(e).(PipeDimensionValueTypeOutput)
+}
+
+func (e PipeDimensionValueType) ToPipeDimensionValueTypeOutputWithContext(ctx context.Context) PipeDimensionValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeDimensionValueTypeOutput)
+}
+
+func (e PipeDimensionValueType) ToPipeDimensionValueTypePtrOutput() PipeDimensionValueTypePtrOutput {
+	return e.ToPipeDimensionValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e PipeDimensionValueType) ToPipeDimensionValueTypePtrOutputWithContext(ctx context.Context) PipeDimensionValueTypePtrOutput {
+	return PipeDimensionValueType(e).ToPipeDimensionValueTypeOutputWithContext(ctx).ToPipeDimensionValueTypePtrOutputWithContext(ctx)
+}
+
+func (e PipeDimensionValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeDimensionValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeDimensionValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeDimensionValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeDimensionValueTypeOutput struct{ *pulumi.OutputState }
+
+func (PipeDimensionValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDimensionValueType)(nil)).Elem()
+}
+
+func (o PipeDimensionValueTypeOutput) ToPipeDimensionValueTypeOutput() PipeDimensionValueTypeOutput {
+	return o
+}
+
+func (o PipeDimensionValueTypeOutput) ToPipeDimensionValueTypeOutputWithContext(ctx context.Context) PipeDimensionValueTypeOutput {
+	return o
+}
+
+func (o PipeDimensionValueTypeOutput) ToPipeDimensionValueTypePtrOutput() PipeDimensionValueTypePtrOutput {
+	return o.ToPipeDimensionValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o PipeDimensionValueTypeOutput) ToPipeDimensionValueTypePtrOutputWithContext(ctx context.Context) PipeDimensionValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeDimensionValueType) *PipeDimensionValueType {
+		return &v
+	}).(PipeDimensionValueTypePtrOutput)
+}
+
+func (o PipeDimensionValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeDimensionValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDimensionValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeDimensionValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeDimensionValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeDimensionValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeDimensionValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PipeDimensionValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeDimensionValueType)(nil)).Elem()
+}
+
+func (o PipeDimensionValueTypePtrOutput) ToPipeDimensionValueTypePtrOutput() PipeDimensionValueTypePtrOutput {
+	return o
+}
+
+func (o PipeDimensionValueTypePtrOutput) ToPipeDimensionValueTypePtrOutputWithContext(ctx context.Context) PipeDimensionValueTypePtrOutput {
+	return o
+}
+
+func (o PipeDimensionValueTypePtrOutput) Elem() PipeDimensionValueTypeOutput {
+	return o.ApplyT(func(v *PipeDimensionValueType) PipeDimensionValueType {
+		if v != nil {
+			return *v
+		}
+		var ret PipeDimensionValueType
+		return ret
+	}).(PipeDimensionValueTypeOutput)
+}
+
+func (o PipeDimensionValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeDimensionValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeDimensionValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeDimensionValueTypeInput is an input type that accepts values of the PipeDimensionValueType enum
+// A concrete instance of `PipeDimensionValueTypeInput` can be one of the following:
+//
+//	PipeDimensionValueTypeVarchar
+type PipeDimensionValueTypeInput interface {
+	pulumi.Input
+
+	ToPipeDimensionValueTypeOutput() PipeDimensionValueTypeOutput
+	ToPipeDimensionValueTypeOutputWithContext(context.Context) PipeDimensionValueTypeOutput
+}
+
+var pipeDimensionValueTypePtrType = reflect.TypeOf((**PipeDimensionValueType)(nil)).Elem()
+
+type PipeDimensionValueTypePtrInput interface {
+	pulumi.Input
+
+	ToPipeDimensionValueTypePtrOutput() PipeDimensionValueTypePtrOutput
+	ToPipeDimensionValueTypePtrOutputWithContext(context.Context) PipeDimensionValueTypePtrOutput
+}
+
+type pipeDimensionValueTypePtr string
+
+func PipeDimensionValueTypePtr(v string) PipeDimensionValueTypePtrInput {
+	return (*pipeDimensionValueTypePtr)(&v)
+}
+
+func (*pipeDimensionValueTypePtr) ElementType() reflect.Type {
+	return pipeDimensionValueTypePtrType
+}
+
+func (in *pipeDimensionValueTypePtr) ToPipeDimensionValueTypePtrOutput() PipeDimensionValueTypePtrOutput {
+	return pulumi.ToOutput(in).(PipeDimensionValueTypePtrOutput)
+}
+
+func (in *pipeDimensionValueTypePtr) ToPipeDimensionValueTypePtrOutputWithContext(ctx context.Context) PipeDimensionValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeDimensionValueTypePtrOutput)
+}
+
 type PipeDynamoDbStreamStartPosition string
 
 const (
@@ -998,6 +1161,175 @@ func (in *pipeEcsResourceRequirementTypePtr) ToPipeEcsResourceRequirementTypePtr
 
 func (in *pipeEcsResourceRequirementTypePtr) ToPipeEcsResourceRequirementTypePtrOutputWithContext(ctx context.Context) PipeEcsResourceRequirementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PipeEcsResourceRequirementTypePtrOutput)
+}
+
+type PipeEpochTimeUnit string
+
+const (
+	PipeEpochTimeUnitMilliseconds = PipeEpochTimeUnit("MILLISECONDS")
+	PipeEpochTimeUnitSeconds      = PipeEpochTimeUnit("SECONDS")
+	PipeEpochTimeUnitMicroseconds = PipeEpochTimeUnit("MICROSECONDS")
+	PipeEpochTimeUnitNanoseconds  = PipeEpochTimeUnit("NANOSECONDS")
+)
+
+func (PipeEpochTimeUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeEpochTimeUnit)(nil)).Elem()
+}
+
+func (e PipeEpochTimeUnit) ToPipeEpochTimeUnitOutput() PipeEpochTimeUnitOutput {
+	return pulumi.ToOutput(e).(PipeEpochTimeUnitOutput)
+}
+
+func (e PipeEpochTimeUnit) ToPipeEpochTimeUnitOutputWithContext(ctx context.Context) PipeEpochTimeUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeEpochTimeUnitOutput)
+}
+
+func (e PipeEpochTimeUnit) ToPipeEpochTimeUnitPtrOutput() PipeEpochTimeUnitPtrOutput {
+	return e.ToPipeEpochTimeUnitPtrOutputWithContext(context.Background())
+}
+
+func (e PipeEpochTimeUnit) ToPipeEpochTimeUnitPtrOutputWithContext(ctx context.Context) PipeEpochTimeUnitPtrOutput {
+	return PipeEpochTimeUnit(e).ToPipeEpochTimeUnitOutputWithContext(ctx).ToPipeEpochTimeUnitPtrOutputWithContext(ctx)
+}
+
+func (e PipeEpochTimeUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeEpochTimeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeEpochTimeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeEpochTimeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeEpochTimeUnitOutput struct{ *pulumi.OutputState }
+
+func (PipeEpochTimeUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeEpochTimeUnit)(nil)).Elem()
+}
+
+func (o PipeEpochTimeUnitOutput) ToPipeEpochTimeUnitOutput() PipeEpochTimeUnitOutput {
+	return o
+}
+
+func (o PipeEpochTimeUnitOutput) ToPipeEpochTimeUnitOutputWithContext(ctx context.Context) PipeEpochTimeUnitOutput {
+	return o
+}
+
+func (o PipeEpochTimeUnitOutput) ToPipeEpochTimeUnitPtrOutput() PipeEpochTimeUnitPtrOutput {
+	return o.ToPipeEpochTimeUnitPtrOutputWithContext(context.Background())
+}
+
+func (o PipeEpochTimeUnitOutput) ToPipeEpochTimeUnitPtrOutputWithContext(ctx context.Context) PipeEpochTimeUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeEpochTimeUnit) *PipeEpochTimeUnit {
+		return &v
+	}).(PipeEpochTimeUnitPtrOutput)
+}
+
+func (o PipeEpochTimeUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeEpochTimeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeEpochTimeUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeEpochTimeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeEpochTimeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeEpochTimeUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeEpochTimeUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeEpochTimeUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeEpochTimeUnit)(nil)).Elem()
+}
+
+func (o PipeEpochTimeUnitPtrOutput) ToPipeEpochTimeUnitPtrOutput() PipeEpochTimeUnitPtrOutput {
+	return o
+}
+
+func (o PipeEpochTimeUnitPtrOutput) ToPipeEpochTimeUnitPtrOutputWithContext(ctx context.Context) PipeEpochTimeUnitPtrOutput {
+	return o
+}
+
+func (o PipeEpochTimeUnitPtrOutput) Elem() PipeEpochTimeUnitOutput {
+	return o.ApplyT(func(v *PipeEpochTimeUnit) PipeEpochTimeUnit {
+		if v != nil {
+			return *v
+		}
+		var ret PipeEpochTimeUnit
+		return ret
+	}).(PipeEpochTimeUnitOutput)
+}
+
+func (o PipeEpochTimeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeEpochTimeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeEpochTimeUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeEpochTimeUnitInput is an input type that accepts values of the PipeEpochTimeUnit enum
+// A concrete instance of `PipeEpochTimeUnitInput` can be one of the following:
+//
+//	PipeEpochTimeUnitMilliseconds
+//	PipeEpochTimeUnitSeconds
+//	PipeEpochTimeUnitMicroseconds
+//	PipeEpochTimeUnitNanoseconds
+type PipeEpochTimeUnitInput interface {
+	pulumi.Input
+
+	ToPipeEpochTimeUnitOutput() PipeEpochTimeUnitOutput
+	ToPipeEpochTimeUnitOutputWithContext(context.Context) PipeEpochTimeUnitOutput
+}
+
+var pipeEpochTimeUnitPtrType = reflect.TypeOf((**PipeEpochTimeUnit)(nil)).Elem()
+
+type PipeEpochTimeUnitPtrInput interface {
+	pulumi.Input
+
+	ToPipeEpochTimeUnitPtrOutput() PipeEpochTimeUnitPtrOutput
+	ToPipeEpochTimeUnitPtrOutputWithContext(context.Context) PipeEpochTimeUnitPtrOutput
+}
+
+type pipeEpochTimeUnitPtr string
+
+func PipeEpochTimeUnitPtr(v string) PipeEpochTimeUnitPtrInput {
+	return (*pipeEpochTimeUnitPtr)(&v)
+}
+
+func (*pipeEpochTimeUnitPtr) ElementType() reflect.Type {
+	return pipeEpochTimeUnitPtrType
+}
+
+func (in *pipeEpochTimeUnitPtr) ToPipeEpochTimeUnitPtrOutput() PipeEpochTimeUnitPtrOutput {
+	return pulumi.ToOutput(in).(PipeEpochTimeUnitPtrOutput)
+}
+
+func (in *pipeEpochTimeUnitPtr) ToPipeEpochTimeUnitPtrOutputWithContext(ctx context.Context) PipeEpochTimeUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeEpochTimeUnitPtrOutput)
 }
 
 type PipeIncludeExecutionDataOption string
@@ -1709,6 +2041,177 @@ func (in *pipeLogLevelPtr) ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput {
 
 func (in *pipeLogLevelPtr) ToPipeLogLevelPtrOutputWithContext(ctx context.Context) PipeLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PipeLogLevelPtrOutput)
+}
+
+type PipeMeasureValueType string
+
+const (
+	PipeMeasureValueTypeDouble    = PipeMeasureValueType("DOUBLE")
+	PipeMeasureValueTypeBigint    = PipeMeasureValueType("BIGINT")
+	PipeMeasureValueTypeVarchar   = PipeMeasureValueType("VARCHAR")
+	PipeMeasureValueTypeBoolean   = PipeMeasureValueType("BOOLEAN")
+	PipeMeasureValueTypeTimestamp = PipeMeasureValueType("TIMESTAMP")
+)
+
+func (PipeMeasureValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMeasureValueType)(nil)).Elem()
+}
+
+func (e PipeMeasureValueType) ToPipeMeasureValueTypeOutput() PipeMeasureValueTypeOutput {
+	return pulumi.ToOutput(e).(PipeMeasureValueTypeOutput)
+}
+
+func (e PipeMeasureValueType) ToPipeMeasureValueTypeOutputWithContext(ctx context.Context) PipeMeasureValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeMeasureValueTypeOutput)
+}
+
+func (e PipeMeasureValueType) ToPipeMeasureValueTypePtrOutput() PipeMeasureValueTypePtrOutput {
+	return e.ToPipeMeasureValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e PipeMeasureValueType) ToPipeMeasureValueTypePtrOutputWithContext(ctx context.Context) PipeMeasureValueTypePtrOutput {
+	return PipeMeasureValueType(e).ToPipeMeasureValueTypeOutputWithContext(ctx).ToPipeMeasureValueTypePtrOutputWithContext(ctx)
+}
+
+func (e PipeMeasureValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeMeasureValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeMeasureValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeMeasureValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeMeasureValueTypeOutput struct{ *pulumi.OutputState }
+
+func (PipeMeasureValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMeasureValueType)(nil)).Elem()
+}
+
+func (o PipeMeasureValueTypeOutput) ToPipeMeasureValueTypeOutput() PipeMeasureValueTypeOutput {
+	return o
+}
+
+func (o PipeMeasureValueTypeOutput) ToPipeMeasureValueTypeOutputWithContext(ctx context.Context) PipeMeasureValueTypeOutput {
+	return o
+}
+
+func (o PipeMeasureValueTypeOutput) ToPipeMeasureValueTypePtrOutput() PipeMeasureValueTypePtrOutput {
+	return o.ToPipeMeasureValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o PipeMeasureValueTypeOutput) ToPipeMeasureValueTypePtrOutputWithContext(ctx context.Context) PipeMeasureValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMeasureValueType) *PipeMeasureValueType {
+		return &v
+	}).(PipeMeasureValueTypePtrOutput)
+}
+
+func (o PipeMeasureValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeMeasureValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMeasureValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeMeasureValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeMeasureValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeMeasureValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeMeasureValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PipeMeasureValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeMeasureValueType)(nil)).Elem()
+}
+
+func (o PipeMeasureValueTypePtrOutput) ToPipeMeasureValueTypePtrOutput() PipeMeasureValueTypePtrOutput {
+	return o
+}
+
+func (o PipeMeasureValueTypePtrOutput) ToPipeMeasureValueTypePtrOutputWithContext(ctx context.Context) PipeMeasureValueTypePtrOutput {
+	return o
+}
+
+func (o PipeMeasureValueTypePtrOutput) Elem() PipeMeasureValueTypeOutput {
+	return o.ApplyT(func(v *PipeMeasureValueType) PipeMeasureValueType {
+		if v != nil {
+			return *v
+		}
+		var ret PipeMeasureValueType
+		return ret
+	}).(PipeMeasureValueTypeOutput)
+}
+
+func (o PipeMeasureValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeMeasureValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeMeasureValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeMeasureValueTypeInput is an input type that accepts values of the PipeMeasureValueType enum
+// A concrete instance of `PipeMeasureValueTypeInput` can be one of the following:
+//
+//	PipeMeasureValueTypeDouble
+//	PipeMeasureValueTypeBigint
+//	PipeMeasureValueTypeVarchar
+//	PipeMeasureValueTypeBoolean
+//	PipeMeasureValueTypeTimestamp
+type PipeMeasureValueTypeInput interface {
+	pulumi.Input
+
+	ToPipeMeasureValueTypeOutput() PipeMeasureValueTypeOutput
+	ToPipeMeasureValueTypeOutputWithContext(context.Context) PipeMeasureValueTypeOutput
+}
+
+var pipeMeasureValueTypePtrType = reflect.TypeOf((**PipeMeasureValueType)(nil)).Elem()
+
+type PipeMeasureValueTypePtrInput interface {
+	pulumi.Input
+
+	ToPipeMeasureValueTypePtrOutput() PipeMeasureValueTypePtrOutput
+	ToPipeMeasureValueTypePtrOutputWithContext(context.Context) PipeMeasureValueTypePtrOutput
+}
+
+type pipeMeasureValueTypePtr string
+
+func PipeMeasureValueTypePtr(v string) PipeMeasureValueTypePtrInput {
+	return (*pipeMeasureValueTypePtr)(&v)
+}
+
+func (*pipeMeasureValueTypePtr) ElementType() reflect.Type {
+	return pipeMeasureValueTypePtrType
+}
+
+func (in *pipeMeasureValueTypePtr) ToPipeMeasureValueTypePtrOutput() PipeMeasureValueTypePtrOutput {
+	return pulumi.ToOutput(in).(PipeMeasureValueTypePtrOutput)
+}
+
+func (in *pipeMeasureValueTypePtr) ToPipeMeasureValueTypePtrOutputWithContext(ctx context.Context) PipeMeasureValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeMeasureValueTypePtrOutput)
 }
 
 type PipeMskStartPosition string
@@ -3299,6 +3802,171 @@ func (in *pipeTargetInvocationTypePtr) ToPipeTargetInvocationTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(PipeTargetInvocationTypePtrOutput)
 }
 
+type PipeTimeFieldType string
+
+const (
+	PipeTimeFieldTypeEpoch           = PipeTimeFieldType("EPOCH")
+	PipeTimeFieldTypeTimestampFormat = PipeTimeFieldType("TIMESTAMP_FORMAT")
+)
+
+func (PipeTimeFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeTimeFieldType)(nil)).Elem()
+}
+
+func (e PipeTimeFieldType) ToPipeTimeFieldTypeOutput() PipeTimeFieldTypeOutput {
+	return pulumi.ToOutput(e).(PipeTimeFieldTypeOutput)
+}
+
+func (e PipeTimeFieldType) ToPipeTimeFieldTypeOutputWithContext(ctx context.Context) PipeTimeFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeTimeFieldTypeOutput)
+}
+
+func (e PipeTimeFieldType) ToPipeTimeFieldTypePtrOutput() PipeTimeFieldTypePtrOutput {
+	return e.ToPipeTimeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e PipeTimeFieldType) ToPipeTimeFieldTypePtrOutputWithContext(ctx context.Context) PipeTimeFieldTypePtrOutput {
+	return PipeTimeFieldType(e).ToPipeTimeFieldTypeOutputWithContext(ctx).ToPipeTimeFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e PipeTimeFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeTimeFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeTimeFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeTimeFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeTimeFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (PipeTimeFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeTimeFieldType)(nil)).Elem()
+}
+
+func (o PipeTimeFieldTypeOutput) ToPipeTimeFieldTypeOutput() PipeTimeFieldTypeOutput {
+	return o
+}
+
+func (o PipeTimeFieldTypeOutput) ToPipeTimeFieldTypeOutputWithContext(ctx context.Context) PipeTimeFieldTypeOutput {
+	return o
+}
+
+func (o PipeTimeFieldTypeOutput) ToPipeTimeFieldTypePtrOutput() PipeTimeFieldTypePtrOutput {
+	return o.ToPipeTimeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o PipeTimeFieldTypeOutput) ToPipeTimeFieldTypePtrOutputWithContext(ctx context.Context) PipeTimeFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeTimeFieldType) *PipeTimeFieldType {
+		return &v
+	}).(PipeTimeFieldTypePtrOutput)
+}
+
+func (o PipeTimeFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeTimeFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeTimeFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeTimeFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeTimeFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeTimeFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeTimeFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PipeTimeFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeTimeFieldType)(nil)).Elem()
+}
+
+func (o PipeTimeFieldTypePtrOutput) ToPipeTimeFieldTypePtrOutput() PipeTimeFieldTypePtrOutput {
+	return o
+}
+
+func (o PipeTimeFieldTypePtrOutput) ToPipeTimeFieldTypePtrOutputWithContext(ctx context.Context) PipeTimeFieldTypePtrOutput {
+	return o
+}
+
+func (o PipeTimeFieldTypePtrOutput) Elem() PipeTimeFieldTypeOutput {
+	return o.ApplyT(func(v *PipeTimeFieldType) PipeTimeFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret PipeTimeFieldType
+		return ret
+	}).(PipeTimeFieldTypeOutput)
+}
+
+func (o PipeTimeFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeTimeFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeTimeFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeTimeFieldTypeInput is an input type that accepts values of the PipeTimeFieldType enum
+// A concrete instance of `PipeTimeFieldTypeInput` can be one of the following:
+//
+//	PipeTimeFieldTypeEpoch
+//	PipeTimeFieldTypeTimestampFormat
+type PipeTimeFieldTypeInput interface {
+	pulumi.Input
+
+	ToPipeTimeFieldTypeOutput() PipeTimeFieldTypeOutput
+	ToPipeTimeFieldTypeOutputWithContext(context.Context) PipeTimeFieldTypeOutput
+}
+
+var pipeTimeFieldTypePtrType = reflect.TypeOf((**PipeTimeFieldType)(nil)).Elem()
+
+type PipeTimeFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToPipeTimeFieldTypePtrOutput() PipeTimeFieldTypePtrOutput
+	ToPipeTimeFieldTypePtrOutputWithContext(context.Context) PipeTimeFieldTypePtrOutput
+}
+
+type pipeTimeFieldTypePtr string
+
+func PipeTimeFieldTypePtr(v string) PipeTimeFieldTypePtrInput {
+	return (*pipeTimeFieldTypePtr)(&v)
+}
+
+func (*pipeTimeFieldTypePtr) ElementType() reflect.Type {
+	return pipeTimeFieldTypePtrType
+}
+
+func (in *pipeTimeFieldTypePtr) ToPipeTimeFieldTypePtrOutput() PipeTimeFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(PipeTimeFieldTypePtrOutput)
+}
+
+func (in *pipeTimeFieldTypePtr) ToPipeTimeFieldTypePtrOutputWithContext(ctx context.Context) PipeTimeFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeTimeFieldTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAssignPublicIpInput)(nil)).Elem(), PipeAssignPublicIp("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAssignPublicIpPtrInput)(nil)).Elem(), PipeAssignPublicIp("ENABLED"))
@@ -3306,12 +3974,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchJobDependencyTypePtrInput)(nil)).Elem(), PipeBatchJobDependencyType("N_TO_N"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementTypeInput)(nil)).Elem(), PipeBatchResourceRequirementType("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementTypePtrInput)(nil)).Elem(), PipeBatchResourceRequirementType("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDimensionValueTypeInput)(nil)).Elem(), PipeDimensionValueType("VARCHAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDimensionValueTypePtrInput)(nil)).Elem(), PipeDimensionValueType("VARCHAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDbStreamStartPositionInput)(nil)).Elem(), PipeDynamoDbStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDynamoDbStreamStartPositionPtrInput)(nil)).Elem(), PipeDynamoDbStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileTypeInput)(nil)).Elem(), PipeEcsEnvironmentFileType("s3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileTypePtrInput)(nil)).Elem(), PipeEcsEnvironmentFileType("s3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsResourceRequirementTypeInput)(nil)).Elem(), PipeEcsResourceRequirementType("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsResourceRequirementTypePtrInput)(nil)).Elem(), PipeEcsResourceRequirementType("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeEpochTimeUnitInput)(nil)).Elem(), PipeEpochTimeUnit("MILLISECONDS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeEpochTimeUnitPtrInput)(nil)).Elem(), PipeEpochTimeUnit("MILLISECONDS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionInput)(nil)).Elem(), PipeIncludeExecutionDataOption("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionPtrInput)(nil)).Elem(), PipeIncludeExecutionDataOption("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionArrayInput)(nil)).Elem(), PipeIncludeExecutionDataOptionArray{})
@@ -3321,6 +3993,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLaunchTypePtrInput)(nil)).Elem(), PipeLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogLevelInput)(nil)).Elem(), PipeLogLevel("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogLevelPtrInput)(nil)).Elem(), PipeLogLevel("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMeasureValueTypeInput)(nil)).Elem(), PipeMeasureValueType("DOUBLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMeasureValueTypePtrInput)(nil)).Elem(), PipeMeasureValueType("DOUBLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionPtrInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeOnPartialBatchItemFailureStreamsInput)(nil)).Elem(), PipeOnPartialBatchItemFailureStreams("AUTOMATIC_BISECT"))
@@ -3339,18 +4013,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaStartPositionPtrInput)(nil)).Elem(), PipeSelfManagedKafkaStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetInvocationTypeInput)(nil)).Elem(), PipeTargetInvocationType("REQUEST_RESPONSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetInvocationTypePtrInput)(nil)).Elem(), PipeTargetInvocationType("REQUEST_RESPONSE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeTimeFieldTypeInput)(nil)).Elem(), PipeTimeFieldType("EPOCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeTimeFieldTypePtrInput)(nil)).Elem(), PipeTimeFieldType("EPOCH"))
 	pulumi.RegisterOutputType(PipeAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(PipeAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchJobDependencyTypeOutput{})
 	pulumi.RegisterOutputType(PipeBatchJobDependencyTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementTypeOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementTypePtrOutput{})
+	pulumi.RegisterOutputType(PipeDimensionValueTypeOutput{})
+	pulumi.RegisterOutputType(PipeDimensionValueTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeDynamoDbStreamStartPositionOutput{})
 	pulumi.RegisterOutputType(PipeDynamoDbStreamStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileTypeOutput{})
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsResourceRequirementTypeOutput{})
 	pulumi.RegisterOutputType(PipeEcsResourceRequirementTypePtrOutput{})
+	pulumi.RegisterOutputType(PipeEpochTimeUnitOutput{})
+	pulumi.RegisterOutputType(PipeEpochTimeUnitPtrOutput{})
 	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionOutput{})
 	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionPtrOutput{})
 	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionArrayOutput{})
@@ -3360,6 +4040,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeLaunchTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeLogLevelOutput{})
 	pulumi.RegisterOutputType(PipeLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(PipeMeasureValueTypeOutput{})
+	pulumi.RegisterOutputType(PipeMeasureValueTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeMskStartPositionOutput{})
 	pulumi.RegisterOutputType(PipeMskStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeOnPartialBatchItemFailureStreamsOutput{})
@@ -3380,4 +4062,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(PipeTargetInvocationTypeOutput{})
 	pulumi.RegisterOutputType(PipeTargetInvocationTypePtrOutput{})
+	pulumi.RegisterOutputType(PipeTimeFieldTypeOutput{})
+	pulumi.RegisterOutputType(PipeTimeFieldTypePtrOutput{})
 }

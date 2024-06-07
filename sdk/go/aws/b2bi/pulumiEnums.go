@@ -487,9 +487,10 @@ func (in *capabilityX12TransactionSetPtr) ToCapabilityX12TransactionSetPtrOutput
 type CapabilityX12Version string
 
 const (
-	CapabilityX12VersionVersion4010 = CapabilityX12Version("VERSION_4010")
-	CapabilityX12VersionVersion4030 = CapabilityX12Version("VERSION_4030")
-	CapabilityX12VersionVersion5010 = CapabilityX12Version("VERSION_5010")
+	CapabilityX12VersionVersion4010      = CapabilityX12Version("VERSION_4010")
+	CapabilityX12VersionVersion4030      = CapabilityX12Version("VERSION_4030")
+	CapabilityX12VersionVersion5010      = CapabilityX12Version("VERSION_5010")
+	CapabilityX12VersionVersion5010Hipaa = CapabilityX12Version("VERSION_5010_HIPAA")
 )
 
 func (CapabilityX12Version) ElementType() reflect.Type {
@@ -617,6 +618,7 @@ func (o CapabilityX12VersionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	CapabilityX12VersionVersion4010
 //	CapabilityX12VersionVersion4030
 //	CapabilityX12VersionVersion5010
+//	CapabilityX12VersionVersion5010Hipaa
 type CapabilityX12VersionInput interface {
 	pulumi.Input
 

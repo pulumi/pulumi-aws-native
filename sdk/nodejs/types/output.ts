@@ -6251,15 +6251,16 @@ export namespace autoscaling {
         /**
          * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
          */
-        metricName: string;
+        metricName?: string;
+        metrics?: outputs.autoscaling.ScalingPolicyTargetTrackingMetricDataQuery[];
         /**
          * The namespace of the metric.
          */
-        namespace: string;
+        namespace?: string;
         /**
          * The statistic of the metric.
          */
-        statistic: string;
+        statistic?: string;
         /**
          * The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
          */
@@ -6563,6 +6564,20 @@ export namespace autoscaling {
          * > Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
          */
         targetValue: number;
+    }
+
+    export interface ScalingPolicyTargetTrackingMetricDataQuery {
+        expression?: string;
+        id: string;
+        label?: string;
+        metricStat?: outputs.autoscaling.ScalingPolicyTargetTrackingMetricStat;
+        returnData?: boolean;
+    }
+
+    export interface ScalingPolicyTargetTrackingMetricStat {
+        metric: outputs.autoscaling.ScalingPolicyMetric;
+        stat: string;
+        unit?: string;
     }
 
     export interface WarmPoolInstanceReusePolicy {
@@ -13500,6 +13515,7 @@ export namespace connect {
          * Information about the send notification action.
          */
         sendNotificationActions?: outputs.connect.RuleSendNotificationAction[];
+        submitAutoEvaluationActions?: outputs.connect.RuleSubmitAutoEvaluationAction[];
         /**
          * Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
          */
@@ -13604,6 +13620,16 @@ export namespace connect {
          * The subject of notification.
          */
         subject?: string;
+    }
+
+    /**
+     * The definition of submit auto evaluation action.
+     */
+    export interface RuleSubmitAutoEvaluationAction {
+        /**
+         * The Amazon Resource Name (ARN) of the evaluation form.
+         */
+        evaluationFormArn: string;
     }
 
     /**
@@ -21776,6 +21802,7 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: outputs.ecs.ClusterExecuteCommandConfiguration;
+        managedStorageConfiguration?: outputs.ecs.ClusterManagedStorageConfiguration;
     }
 
     /**
@@ -21825,6 +21852,11 @@ export namespace ecs {
          * An optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: string;
+    }
+
+    export interface ClusterManagedStorageConfiguration {
+        fargateEphemeralStorageKmsKeyId?: string;
+        kmsKeyId?: string;
     }
 
     /**
@@ -46502,6 +46534,12 @@ export namespace pipes {
         arn?: string;
     }
 
+    export interface PipeDimensionMapping {
+        dimensionName: string;
+        dimensionValue: string;
+        dimensionValueType: enums.pipes.PipeDimensionValueType;
+    }
+
     export interface PipeEcsContainerOverride {
         /**
          * The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
@@ -46729,6 +46767,17 @@ export namespace pipes {
         clientCertificateTlsAuth: string;
     }
 
+    export interface PipeMultiMeasureAttributeMapping {
+        measureValue: string;
+        measureValueType: enums.pipes.PipeMeasureValueType;
+        multiMeasureAttributeName: string;
+    }
+
+    export interface PipeMultiMeasureMapping {
+        multiMeasureAttributeMappings: outputs.pipes.PipeMultiMeasureAttributeMapping[];
+        multiMeasureName: string;
+    }
+
     export interface PipeNetworkConfiguration {
         /**
          * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
@@ -46831,6 +46880,12 @@ export namespace pipes {
          * List of SubnetId.
          */
         subnets?: string[];
+    }
+
+    export interface PipeSingleMeasureMapping {
+        measureName: string;
+        measureValue: string;
+        measureValueType: enums.pipes.PipeMeasureValueType;
     }
 
     export interface PipeSourceActiveMqBrokerParameters {
@@ -47299,6 +47354,7 @@ export namespace pipes {
          * The parameters for using a Step Functions state machine as a target.
          */
         stepFunctionStateMachineParameters?: outputs.pipes.PipeTargetStateMachineParameters;
+        timestreamParameters?: outputs.pipes.PipeTargetTimestreamParameters;
     }
 
     export interface PipeTargetRedshiftDataParameters {
@@ -47360,6 +47416,17 @@ export namespace pipes {
          * For more information, see [Invocation types](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation) in the *Amazon EventBridge User Guide* .
          */
         invocationType?: enums.pipes.PipeTargetInvocationType;
+    }
+
+    export interface PipeTargetTimestreamParameters {
+        dimensionMappings: outputs.pipes.PipeDimensionMapping[];
+        epochTimeUnit?: enums.pipes.PipeEpochTimeUnit;
+        multiMeasureMappings?: outputs.pipes.PipeMultiMeasureMapping[];
+        singleMeasureMappings?: outputs.pipes.PipeSingleMeasureMapping[];
+        timeFieldType?: enums.pipes.PipeTimeFieldType;
+        timeValue: string;
+        timestampFormat?: string;
+        versionValue: string;
     }
 
 }

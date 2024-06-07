@@ -93,6 +93,33 @@ namespace Pulumi.AwsNative.Pipes
     }
 
     [EnumType]
+    public readonly struct PipeDimensionValueType : IEquatable<PipeDimensionValueType>
+    {
+        private readonly string _value;
+
+        private PipeDimensionValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeDimensionValueType Varchar { get; } = new PipeDimensionValueType("VARCHAR");
+
+        public static bool operator ==(PipeDimensionValueType left, PipeDimensionValueType right) => left.Equals(right);
+        public static bool operator !=(PipeDimensionValueType left, PipeDimensionValueType right) => !left.Equals(right);
+
+        public static explicit operator string(PipeDimensionValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeDimensionValueType other && Equals(other);
+        public bool Equals(PipeDimensionValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PipeDynamoDbStreamStartPosition : IEquatable<PipeDynamoDbStreamStartPosition>
     {
         private readonly string _value;
@@ -168,6 +195,36 @@ namespace Pulumi.AwsNative.Pipes
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipeEcsResourceRequirementType other && Equals(other);
         public bool Equals(PipeEcsResourceRequirementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PipeEpochTimeUnit : IEquatable<PipeEpochTimeUnit>
+    {
+        private readonly string _value;
+
+        private PipeEpochTimeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeEpochTimeUnit Milliseconds { get; } = new PipeEpochTimeUnit("MILLISECONDS");
+        public static PipeEpochTimeUnit Seconds { get; } = new PipeEpochTimeUnit("SECONDS");
+        public static PipeEpochTimeUnit Microseconds { get; } = new PipeEpochTimeUnit("MICROSECONDS");
+        public static PipeEpochTimeUnit Nanoseconds { get; } = new PipeEpochTimeUnit("NANOSECONDS");
+
+        public static bool operator ==(PipeEpochTimeUnit left, PipeEpochTimeUnit right) => left.Equals(right);
+        public static bool operator !=(PipeEpochTimeUnit left, PipeEpochTimeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(PipeEpochTimeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeEpochTimeUnit other && Equals(other);
+        public bool Equals(PipeEpochTimeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -283,6 +340,37 @@ namespace Pulumi.AwsNative.Pipes
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipeLogLevel other && Equals(other);
         public bool Equals(PipeLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PipeMeasureValueType : IEquatable<PipeMeasureValueType>
+    {
+        private readonly string _value;
+
+        private PipeMeasureValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeMeasureValueType Double { get; } = new PipeMeasureValueType("DOUBLE");
+        public static PipeMeasureValueType Bigint { get; } = new PipeMeasureValueType("BIGINT");
+        public static PipeMeasureValueType Varchar { get; } = new PipeMeasureValueType("VARCHAR");
+        public static PipeMeasureValueType Boolean { get; } = new PipeMeasureValueType("BOOLEAN");
+        public static PipeMeasureValueType Timestamp { get; } = new PipeMeasureValueType("TIMESTAMP");
+
+        public static bool operator ==(PipeMeasureValueType left, PipeMeasureValueType right) => left.Equals(right);
+        public static bool operator !=(PipeMeasureValueType left, PipeMeasureValueType right) => !left.Equals(right);
+
+        public static explicit operator string(PipeMeasureValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeMeasureValueType other && Equals(other);
+        public bool Equals(PipeMeasureValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -576,6 +664,34 @@ namespace Pulumi.AwsNative.Pipes
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipeTargetInvocationType other && Equals(other);
         public bool Equals(PipeTargetInvocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PipeTimeFieldType : IEquatable<PipeTimeFieldType>
+    {
+        private readonly string _value;
+
+        private PipeTimeFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeTimeFieldType Epoch { get; } = new PipeTimeFieldType("EPOCH");
+        public static PipeTimeFieldType TimestampFormat { get; } = new PipeTimeFieldType("TIMESTAMP_FORMAT");
+
+        public static bool operator ==(PipeTimeFieldType left, PipeTimeFieldType right) => left.Equals(right);
+        public static bool operator !=(PipeTimeFieldType left, PipeTimeFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(PipeTimeFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeTimeFieldType other && Equals(other);
+        public bool Equals(PipeTimeFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

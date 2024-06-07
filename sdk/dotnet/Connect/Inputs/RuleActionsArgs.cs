@@ -67,6 +67,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _sendNotificationActions = value;
         }
 
+        [Input("submitAutoEvaluationActions")]
+        private InputList<Inputs.RuleSubmitAutoEvaluationActionArgs>? _submitAutoEvaluationActions;
+        public InputList<Inputs.RuleSubmitAutoEvaluationActionArgs> SubmitAutoEvaluationActions
+        {
+            get => _submitAutoEvaluationActions ?? (_submitAutoEvaluationActions = new InputList<Inputs.RuleSubmitAutoEvaluationActionArgs>());
+            set => _submitAutoEvaluationActions = value;
+        }
+
         [Input("taskActions")]
         private InputList<Inputs.RuleTaskActionArgs>? _taskActions;
 

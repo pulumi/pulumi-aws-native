@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// The parameters for using a Step Functions state machine as a target.
         /// </summary>
         public readonly Outputs.PipeTargetStateMachineParameters? StepFunctionStateMachineParameters;
+        public readonly Outputs.PipeTargetTimestreamParameters? TimestreamParameters;
 
         [OutputConstructor]
         private PipeTargetParameters(
@@ -88,7 +89,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             Outputs.PipeTargetSqsQueueParameters? sqsQueueParameters,
 
-            Outputs.PipeTargetStateMachineParameters? stepFunctionStateMachineParameters)
+            Outputs.PipeTargetStateMachineParameters? stepFunctionStateMachineParameters,
+
+            Outputs.PipeTargetTimestreamParameters? timestreamParameters)
         {
             BatchJobParameters = batchJobParameters;
             CloudWatchLogsParameters = cloudWatchLogsParameters;
@@ -102,6 +105,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
             SageMakerPipelineParameters = sageMakerPipelineParameters;
             SqsQueueParameters = sqsQueueParameters;
             StepFunctionStateMachineParameters = stepFunctionStateMachineParameters;
+            TimestreamParameters = timestreamParameters;
         }
     }
 }

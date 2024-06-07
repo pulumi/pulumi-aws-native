@@ -1498,6 +1498,112 @@ func (o PipeDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipeDimensionMapping struct {
+	DimensionName      string                 `pulumi:"dimensionName"`
+	DimensionValue     string                 `pulumi:"dimensionValue"`
+	DimensionValueType PipeDimensionValueType `pulumi:"dimensionValueType"`
+}
+
+// PipeDimensionMappingInput is an input type that accepts PipeDimensionMappingArgs and PipeDimensionMappingOutput values.
+// You can construct a concrete instance of `PipeDimensionMappingInput` via:
+//
+//	PipeDimensionMappingArgs{...}
+type PipeDimensionMappingInput interface {
+	pulumi.Input
+
+	ToPipeDimensionMappingOutput() PipeDimensionMappingOutput
+	ToPipeDimensionMappingOutputWithContext(context.Context) PipeDimensionMappingOutput
+}
+
+type PipeDimensionMappingArgs struct {
+	DimensionName      pulumi.StringInput          `pulumi:"dimensionName"`
+	DimensionValue     pulumi.StringInput          `pulumi:"dimensionValue"`
+	DimensionValueType PipeDimensionValueTypeInput `pulumi:"dimensionValueType"`
+}
+
+func (PipeDimensionMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDimensionMapping)(nil)).Elem()
+}
+
+func (i PipeDimensionMappingArgs) ToPipeDimensionMappingOutput() PipeDimensionMappingOutput {
+	return i.ToPipeDimensionMappingOutputWithContext(context.Background())
+}
+
+func (i PipeDimensionMappingArgs) ToPipeDimensionMappingOutputWithContext(ctx context.Context) PipeDimensionMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeDimensionMappingOutput)
+}
+
+// PipeDimensionMappingArrayInput is an input type that accepts PipeDimensionMappingArray and PipeDimensionMappingArrayOutput values.
+// You can construct a concrete instance of `PipeDimensionMappingArrayInput` via:
+//
+//	PipeDimensionMappingArray{ PipeDimensionMappingArgs{...} }
+type PipeDimensionMappingArrayInput interface {
+	pulumi.Input
+
+	ToPipeDimensionMappingArrayOutput() PipeDimensionMappingArrayOutput
+	ToPipeDimensionMappingArrayOutputWithContext(context.Context) PipeDimensionMappingArrayOutput
+}
+
+type PipeDimensionMappingArray []PipeDimensionMappingInput
+
+func (PipeDimensionMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeDimensionMapping)(nil)).Elem()
+}
+
+func (i PipeDimensionMappingArray) ToPipeDimensionMappingArrayOutput() PipeDimensionMappingArrayOutput {
+	return i.ToPipeDimensionMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PipeDimensionMappingArray) ToPipeDimensionMappingArrayOutputWithContext(ctx context.Context) PipeDimensionMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeDimensionMappingArrayOutput)
+}
+
+type PipeDimensionMappingOutput struct{ *pulumi.OutputState }
+
+func (PipeDimensionMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDimensionMapping)(nil)).Elem()
+}
+
+func (o PipeDimensionMappingOutput) ToPipeDimensionMappingOutput() PipeDimensionMappingOutput {
+	return o
+}
+
+func (o PipeDimensionMappingOutput) ToPipeDimensionMappingOutputWithContext(ctx context.Context) PipeDimensionMappingOutput {
+	return o
+}
+
+func (o PipeDimensionMappingOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeDimensionMapping) string { return v.DimensionName }).(pulumi.StringOutput)
+}
+
+func (o PipeDimensionMappingOutput) DimensionValue() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeDimensionMapping) string { return v.DimensionValue }).(pulumi.StringOutput)
+}
+
+func (o PipeDimensionMappingOutput) DimensionValueType() PipeDimensionValueTypeOutput {
+	return o.ApplyT(func(v PipeDimensionMapping) PipeDimensionValueType { return v.DimensionValueType }).(PipeDimensionValueTypeOutput)
+}
+
+type PipeDimensionMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeDimensionMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeDimensionMapping)(nil)).Elem()
+}
+
+func (o PipeDimensionMappingArrayOutput) ToPipeDimensionMappingArrayOutput() PipeDimensionMappingArrayOutput {
+	return o
+}
+
+func (o PipeDimensionMappingArrayOutput) ToPipeDimensionMappingArrayOutputWithContext(ctx context.Context) PipeDimensionMappingArrayOutput {
+	return o
+}
+
+func (o PipeDimensionMappingArrayOutput) Index(i pulumi.IntInput) PipeDimensionMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeDimensionMapping {
+		return vs[0].([]PipeDimensionMapping)[vs[1].(int)]
+	}).(PipeDimensionMappingOutput)
+}
+
 type PipeEcsContainerOverride struct {
 	// The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Command []string `pulumi:"command"`
@@ -3871,6 +3977,214 @@ func (o PipeMskAccessCredentials1PropertiesPtrOutput) ClientCertificateTlsAuth()
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipeMultiMeasureAttributeMapping struct {
+	MeasureValue              string               `pulumi:"measureValue"`
+	MeasureValueType          PipeMeasureValueType `pulumi:"measureValueType"`
+	MultiMeasureAttributeName string               `pulumi:"multiMeasureAttributeName"`
+}
+
+// PipeMultiMeasureAttributeMappingInput is an input type that accepts PipeMultiMeasureAttributeMappingArgs and PipeMultiMeasureAttributeMappingOutput values.
+// You can construct a concrete instance of `PipeMultiMeasureAttributeMappingInput` via:
+//
+//	PipeMultiMeasureAttributeMappingArgs{...}
+type PipeMultiMeasureAttributeMappingInput interface {
+	pulumi.Input
+
+	ToPipeMultiMeasureAttributeMappingOutput() PipeMultiMeasureAttributeMappingOutput
+	ToPipeMultiMeasureAttributeMappingOutputWithContext(context.Context) PipeMultiMeasureAttributeMappingOutput
+}
+
+type PipeMultiMeasureAttributeMappingArgs struct {
+	MeasureValue              pulumi.StringInput        `pulumi:"measureValue"`
+	MeasureValueType          PipeMeasureValueTypeInput `pulumi:"measureValueType"`
+	MultiMeasureAttributeName pulumi.StringInput        `pulumi:"multiMeasureAttributeName"`
+}
+
+func (PipeMultiMeasureAttributeMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (i PipeMultiMeasureAttributeMappingArgs) ToPipeMultiMeasureAttributeMappingOutput() PipeMultiMeasureAttributeMappingOutput {
+	return i.ToPipeMultiMeasureAttributeMappingOutputWithContext(context.Background())
+}
+
+func (i PipeMultiMeasureAttributeMappingArgs) ToPipeMultiMeasureAttributeMappingOutputWithContext(ctx context.Context) PipeMultiMeasureAttributeMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMultiMeasureAttributeMappingOutput)
+}
+
+// PipeMultiMeasureAttributeMappingArrayInput is an input type that accepts PipeMultiMeasureAttributeMappingArray and PipeMultiMeasureAttributeMappingArrayOutput values.
+// You can construct a concrete instance of `PipeMultiMeasureAttributeMappingArrayInput` via:
+//
+//	PipeMultiMeasureAttributeMappingArray{ PipeMultiMeasureAttributeMappingArgs{...} }
+type PipeMultiMeasureAttributeMappingArrayInput interface {
+	pulumi.Input
+
+	ToPipeMultiMeasureAttributeMappingArrayOutput() PipeMultiMeasureAttributeMappingArrayOutput
+	ToPipeMultiMeasureAttributeMappingArrayOutputWithContext(context.Context) PipeMultiMeasureAttributeMappingArrayOutput
+}
+
+type PipeMultiMeasureAttributeMappingArray []PipeMultiMeasureAttributeMappingInput
+
+func (PipeMultiMeasureAttributeMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (i PipeMultiMeasureAttributeMappingArray) ToPipeMultiMeasureAttributeMappingArrayOutput() PipeMultiMeasureAttributeMappingArrayOutput {
+	return i.ToPipeMultiMeasureAttributeMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PipeMultiMeasureAttributeMappingArray) ToPipeMultiMeasureAttributeMappingArrayOutputWithContext(ctx context.Context) PipeMultiMeasureAttributeMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMultiMeasureAttributeMappingArrayOutput)
+}
+
+type PipeMultiMeasureAttributeMappingOutput struct{ *pulumi.OutputState }
+
+func (PipeMultiMeasureAttributeMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (o PipeMultiMeasureAttributeMappingOutput) ToPipeMultiMeasureAttributeMappingOutput() PipeMultiMeasureAttributeMappingOutput {
+	return o
+}
+
+func (o PipeMultiMeasureAttributeMappingOutput) ToPipeMultiMeasureAttributeMappingOutputWithContext(ctx context.Context) PipeMultiMeasureAttributeMappingOutput {
+	return o
+}
+
+func (o PipeMultiMeasureAttributeMappingOutput) MeasureValue() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) string { return v.MeasureValue }).(pulumi.StringOutput)
+}
+
+func (o PipeMultiMeasureAttributeMappingOutput) MeasureValueType() PipeMeasureValueTypeOutput {
+	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) PipeMeasureValueType { return v.MeasureValueType }).(PipeMeasureValueTypeOutput)
+}
+
+func (o PipeMultiMeasureAttributeMappingOutput) MultiMeasureAttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) string { return v.MultiMeasureAttributeName }).(pulumi.StringOutput)
+}
+
+type PipeMultiMeasureAttributeMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeMultiMeasureAttributeMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (o PipeMultiMeasureAttributeMappingArrayOutput) ToPipeMultiMeasureAttributeMappingArrayOutput() PipeMultiMeasureAttributeMappingArrayOutput {
+	return o
+}
+
+func (o PipeMultiMeasureAttributeMappingArrayOutput) ToPipeMultiMeasureAttributeMappingArrayOutputWithContext(ctx context.Context) PipeMultiMeasureAttributeMappingArrayOutput {
+	return o
+}
+
+func (o PipeMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.IntInput) PipeMultiMeasureAttributeMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeMultiMeasureAttributeMapping {
+		return vs[0].([]PipeMultiMeasureAttributeMapping)[vs[1].(int)]
+	}).(PipeMultiMeasureAttributeMappingOutput)
+}
+
+type PipeMultiMeasureMapping struct {
+	MultiMeasureAttributeMappings []PipeMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
+	MultiMeasureName              string                             `pulumi:"multiMeasureName"`
+}
+
+// PipeMultiMeasureMappingInput is an input type that accepts PipeMultiMeasureMappingArgs and PipeMultiMeasureMappingOutput values.
+// You can construct a concrete instance of `PipeMultiMeasureMappingInput` via:
+//
+//	PipeMultiMeasureMappingArgs{...}
+type PipeMultiMeasureMappingInput interface {
+	pulumi.Input
+
+	ToPipeMultiMeasureMappingOutput() PipeMultiMeasureMappingOutput
+	ToPipeMultiMeasureMappingOutputWithContext(context.Context) PipeMultiMeasureMappingOutput
+}
+
+type PipeMultiMeasureMappingArgs struct {
+	MultiMeasureAttributeMappings PipeMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
+	MultiMeasureName              pulumi.StringInput                         `pulumi:"multiMeasureName"`
+}
+
+func (PipeMultiMeasureMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMultiMeasureMapping)(nil)).Elem()
+}
+
+func (i PipeMultiMeasureMappingArgs) ToPipeMultiMeasureMappingOutput() PipeMultiMeasureMappingOutput {
+	return i.ToPipeMultiMeasureMappingOutputWithContext(context.Background())
+}
+
+func (i PipeMultiMeasureMappingArgs) ToPipeMultiMeasureMappingOutputWithContext(ctx context.Context) PipeMultiMeasureMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMultiMeasureMappingOutput)
+}
+
+// PipeMultiMeasureMappingArrayInput is an input type that accepts PipeMultiMeasureMappingArray and PipeMultiMeasureMappingArrayOutput values.
+// You can construct a concrete instance of `PipeMultiMeasureMappingArrayInput` via:
+//
+//	PipeMultiMeasureMappingArray{ PipeMultiMeasureMappingArgs{...} }
+type PipeMultiMeasureMappingArrayInput interface {
+	pulumi.Input
+
+	ToPipeMultiMeasureMappingArrayOutput() PipeMultiMeasureMappingArrayOutput
+	ToPipeMultiMeasureMappingArrayOutputWithContext(context.Context) PipeMultiMeasureMappingArrayOutput
+}
+
+type PipeMultiMeasureMappingArray []PipeMultiMeasureMappingInput
+
+func (PipeMultiMeasureMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeMultiMeasureMapping)(nil)).Elem()
+}
+
+func (i PipeMultiMeasureMappingArray) ToPipeMultiMeasureMappingArrayOutput() PipeMultiMeasureMappingArrayOutput {
+	return i.ToPipeMultiMeasureMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PipeMultiMeasureMappingArray) ToPipeMultiMeasureMappingArrayOutputWithContext(ctx context.Context) PipeMultiMeasureMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeMultiMeasureMappingArrayOutput)
+}
+
+type PipeMultiMeasureMappingOutput struct{ *pulumi.OutputState }
+
+func (PipeMultiMeasureMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeMultiMeasureMapping)(nil)).Elem()
+}
+
+func (o PipeMultiMeasureMappingOutput) ToPipeMultiMeasureMappingOutput() PipeMultiMeasureMappingOutput {
+	return o
+}
+
+func (o PipeMultiMeasureMappingOutput) ToPipeMultiMeasureMappingOutputWithContext(ctx context.Context) PipeMultiMeasureMappingOutput {
+	return o
+}
+
+func (o PipeMultiMeasureMappingOutput) MultiMeasureAttributeMappings() PipeMultiMeasureAttributeMappingArrayOutput {
+	return o.ApplyT(func(v PipeMultiMeasureMapping) []PipeMultiMeasureAttributeMapping {
+		return v.MultiMeasureAttributeMappings
+	}).(PipeMultiMeasureAttributeMappingArrayOutput)
+}
+
+func (o PipeMultiMeasureMappingOutput) MultiMeasureName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeMultiMeasureMapping) string { return v.MultiMeasureName }).(pulumi.StringOutput)
+}
+
+type PipeMultiMeasureMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeMultiMeasureMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeMultiMeasureMapping)(nil)).Elem()
+}
+
+func (o PipeMultiMeasureMappingArrayOutput) ToPipeMultiMeasureMappingArrayOutput() PipeMultiMeasureMappingArrayOutput {
+	return o
+}
+
+func (o PipeMultiMeasureMappingArrayOutput) ToPipeMultiMeasureMappingArrayOutputWithContext(ctx context.Context) PipeMultiMeasureMappingArrayOutput {
+	return o
+}
+
+func (o PipeMultiMeasureMappingArrayOutput) Index(i pulumi.IntInput) PipeMultiMeasureMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeMultiMeasureMapping {
+		return vs[0].([]PipeMultiMeasureMapping)[vs[1].(int)]
+	}).(PipeMultiMeasureMappingOutput)
+}
+
 type PipeNetworkConfiguration struct {
 	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 	AwsvpcConfiguration *PipeAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
@@ -5252,6 +5566,112 @@ func (o PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput) Subnets() pulumi.St
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type PipeSingleMeasureMapping struct {
+	MeasureName      string               `pulumi:"measureName"`
+	MeasureValue     string               `pulumi:"measureValue"`
+	MeasureValueType PipeMeasureValueType `pulumi:"measureValueType"`
+}
+
+// PipeSingleMeasureMappingInput is an input type that accepts PipeSingleMeasureMappingArgs and PipeSingleMeasureMappingOutput values.
+// You can construct a concrete instance of `PipeSingleMeasureMappingInput` via:
+//
+//	PipeSingleMeasureMappingArgs{...}
+type PipeSingleMeasureMappingInput interface {
+	pulumi.Input
+
+	ToPipeSingleMeasureMappingOutput() PipeSingleMeasureMappingOutput
+	ToPipeSingleMeasureMappingOutputWithContext(context.Context) PipeSingleMeasureMappingOutput
+}
+
+type PipeSingleMeasureMappingArgs struct {
+	MeasureName      pulumi.StringInput        `pulumi:"measureName"`
+	MeasureValue     pulumi.StringInput        `pulumi:"measureValue"`
+	MeasureValueType PipeMeasureValueTypeInput `pulumi:"measureValueType"`
+}
+
+func (PipeSingleMeasureMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSingleMeasureMapping)(nil)).Elem()
+}
+
+func (i PipeSingleMeasureMappingArgs) ToPipeSingleMeasureMappingOutput() PipeSingleMeasureMappingOutput {
+	return i.ToPipeSingleMeasureMappingOutputWithContext(context.Background())
+}
+
+func (i PipeSingleMeasureMappingArgs) ToPipeSingleMeasureMappingOutputWithContext(ctx context.Context) PipeSingleMeasureMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSingleMeasureMappingOutput)
+}
+
+// PipeSingleMeasureMappingArrayInput is an input type that accepts PipeSingleMeasureMappingArray and PipeSingleMeasureMappingArrayOutput values.
+// You can construct a concrete instance of `PipeSingleMeasureMappingArrayInput` via:
+//
+//	PipeSingleMeasureMappingArray{ PipeSingleMeasureMappingArgs{...} }
+type PipeSingleMeasureMappingArrayInput interface {
+	pulumi.Input
+
+	ToPipeSingleMeasureMappingArrayOutput() PipeSingleMeasureMappingArrayOutput
+	ToPipeSingleMeasureMappingArrayOutputWithContext(context.Context) PipeSingleMeasureMappingArrayOutput
+}
+
+type PipeSingleMeasureMappingArray []PipeSingleMeasureMappingInput
+
+func (PipeSingleMeasureMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeSingleMeasureMapping)(nil)).Elem()
+}
+
+func (i PipeSingleMeasureMappingArray) ToPipeSingleMeasureMappingArrayOutput() PipeSingleMeasureMappingArrayOutput {
+	return i.ToPipeSingleMeasureMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PipeSingleMeasureMappingArray) ToPipeSingleMeasureMappingArrayOutputWithContext(ctx context.Context) PipeSingleMeasureMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeSingleMeasureMappingArrayOutput)
+}
+
+type PipeSingleMeasureMappingOutput struct{ *pulumi.OutputState }
+
+func (PipeSingleMeasureMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeSingleMeasureMapping)(nil)).Elem()
+}
+
+func (o PipeSingleMeasureMappingOutput) ToPipeSingleMeasureMappingOutput() PipeSingleMeasureMappingOutput {
+	return o
+}
+
+func (o PipeSingleMeasureMappingOutput) ToPipeSingleMeasureMappingOutputWithContext(ctx context.Context) PipeSingleMeasureMappingOutput {
+	return o
+}
+
+func (o PipeSingleMeasureMappingOutput) MeasureName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeSingleMeasureMapping) string { return v.MeasureName }).(pulumi.StringOutput)
+}
+
+func (o PipeSingleMeasureMappingOutput) MeasureValue() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeSingleMeasureMapping) string { return v.MeasureValue }).(pulumi.StringOutput)
+}
+
+func (o PipeSingleMeasureMappingOutput) MeasureValueType() PipeMeasureValueTypeOutput {
+	return o.ApplyT(func(v PipeSingleMeasureMapping) PipeMeasureValueType { return v.MeasureValueType }).(PipeMeasureValueTypeOutput)
+}
+
+type PipeSingleMeasureMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeSingleMeasureMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeSingleMeasureMapping)(nil)).Elem()
+}
+
+func (o PipeSingleMeasureMappingArrayOutput) ToPipeSingleMeasureMappingArrayOutput() PipeSingleMeasureMappingArrayOutput {
+	return o
+}
+
+func (o PipeSingleMeasureMappingArrayOutput) ToPipeSingleMeasureMappingArrayOutputWithContext(ctx context.Context) PipeSingleMeasureMappingArrayOutput {
+	return o
+}
+
+func (o PipeSingleMeasureMappingArrayOutput) Index(i pulumi.IntInput) PipeSingleMeasureMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeSingleMeasureMapping {
+		return vs[0].([]PipeSingleMeasureMapping)[vs[1].(int)]
+	}).(PipeSingleMeasureMappingOutput)
 }
 
 type PipeSourceActiveMqBrokerParameters struct {
@@ -8864,6 +9284,7 @@ type PipeTargetParameters struct {
 	SqsQueueParameters *PipeTargetSqsQueueParameters `pulumi:"sqsQueueParameters"`
 	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters *PipeTargetStateMachineParameters `pulumi:"stepFunctionStateMachineParameters"`
+	TimestreamParameters               *PipeTargetTimestreamParameters   `pulumi:"timestreamParameters"`
 }
 
 // PipeTargetParametersInput is an input type that accepts PipeTargetParametersArgs and PipeTargetParametersOutput values.
@@ -8904,6 +9325,7 @@ type PipeTargetParametersArgs struct {
 	SqsQueueParameters PipeTargetSqsQueueParametersPtrInput `pulumi:"sqsQueueParameters"`
 	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters PipeTargetStateMachineParametersPtrInput `pulumi:"stepFunctionStateMachineParameters"`
+	TimestreamParameters               PipeTargetTimestreamParametersPtrInput   `pulumi:"timestreamParameters"`
 }
 
 func (PipeTargetParametersArgs) ElementType() reflect.Type {
@@ -9051,6 +9473,10 @@ func (o PipeTargetParametersOutput) StepFunctionStateMachineParameters() PipeTar
 	}).(PipeTargetStateMachineParametersPtrOutput)
 }
 
+func (o PipeTargetParametersOutput) TimestreamParameters() PipeTargetTimestreamParametersPtrOutput {
+	return o.ApplyT(func(v PipeTargetParameters) *PipeTargetTimestreamParameters { return v.TimestreamParameters }).(PipeTargetTimestreamParametersPtrOutput)
+}
+
 type PipeTargetParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (PipeTargetParametersPtrOutput) ElementType() reflect.Type {
@@ -9195,6 +9621,15 @@ func (o PipeTargetParametersPtrOutput) StepFunctionStateMachineParameters() Pipe
 		}
 		return v.StepFunctionStateMachineParameters
 	}).(PipeTargetStateMachineParametersPtrOutput)
+}
+
+func (o PipeTargetParametersPtrOutput) TimestreamParameters() PipeTargetTimestreamParametersPtrOutput {
+	return o.ApplyT(func(v *PipeTargetParameters) *PipeTargetTimestreamParameters {
+		if v == nil {
+			return nil
+		}
+		return v.TimestreamParameters
+	}).(PipeTargetTimestreamParametersPtrOutput)
 }
 
 type PipeTargetRedshiftDataParameters struct {
@@ -9897,6 +10332,244 @@ func (o PipeTargetStateMachineParametersPtrOutput) InvocationType() PipeTargetIn
 	}).(PipeTargetInvocationTypePtrOutput)
 }
 
+type PipeTargetTimestreamParameters struct {
+	DimensionMappings     []PipeDimensionMapping     `pulumi:"dimensionMappings"`
+	EpochTimeUnit         *PipeEpochTimeUnit         `pulumi:"epochTimeUnit"`
+	MultiMeasureMappings  []PipeMultiMeasureMapping  `pulumi:"multiMeasureMappings"`
+	SingleMeasureMappings []PipeSingleMeasureMapping `pulumi:"singleMeasureMappings"`
+	TimeFieldType         *PipeTimeFieldType         `pulumi:"timeFieldType"`
+	TimeValue             string                     `pulumi:"timeValue"`
+	TimestampFormat       *string                    `pulumi:"timestampFormat"`
+	VersionValue          string                     `pulumi:"versionValue"`
+}
+
+// PipeTargetTimestreamParametersInput is an input type that accepts PipeTargetTimestreamParametersArgs and PipeTargetTimestreamParametersOutput values.
+// You can construct a concrete instance of `PipeTargetTimestreamParametersInput` via:
+//
+//	PipeTargetTimestreamParametersArgs{...}
+type PipeTargetTimestreamParametersInput interface {
+	pulumi.Input
+
+	ToPipeTargetTimestreamParametersOutput() PipeTargetTimestreamParametersOutput
+	ToPipeTargetTimestreamParametersOutputWithContext(context.Context) PipeTargetTimestreamParametersOutput
+}
+
+type PipeTargetTimestreamParametersArgs struct {
+	DimensionMappings     PipeDimensionMappingArrayInput     `pulumi:"dimensionMappings"`
+	EpochTimeUnit         PipeEpochTimeUnitPtrInput          `pulumi:"epochTimeUnit"`
+	MultiMeasureMappings  PipeMultiMeasureMappingArrayInput  `pulumi:"multiMeasureMappings"`
+	SingleMeasureMappings PipeSingleMeasureMappingArrayInput `pulumi:"singleMeasureMappings"`
+	TimeFieldType         PipeTimeFieldTypePtrInput          `pulumi:"timeFieldType"`
+	TimeValue             pulumi.StringInput                 `pulumi:"timeValue"`
+	TimestampFormat       pulumi.StringPtrInput              `pulumi:"timestampFormat"`
+	VersionValue          pulumi.StringInput                 `pulumi:"versionValue"`
+}
+
+func (PipeTargetTimestreamParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeTargetTimestreamParameters)(nil)).Elem()
+}
+
+func (i PipeTargetTimestreamParametersArgs) ToPipeTargetTimestreamParametersOutput() PipeTargetTimestreamParametersOutput {
+	return i.ToPipeTargetTimestreamParametersOutputWithContext(context.Background())
+}
+
+func (i PipeTargetTimestreamParametersArgs) ToPipeTargetTimestreamParametersOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeTargetTimestreamParametersOutput)
+}
+
+func (i PipeTargetTimestreamParametersArgs) ToPipeTargetTimestreamParametersPtrOutput() PipeTargetTimestreamParametersPtrOutput {
+	return i.ToPipeTargetTimestreamParametersPtrOutputWithContext(context.Background())
+}
+
+func (i PipeTargetTimestreamParametersArgs) ToPipeTargetTimestreamParametersPtrOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeTargetTimestreamParametersOutput).ToPipeTargetTimestreamParametersPtrOutputWithContext(ctx)
+}
+
+// PipeTargetTimestreamParametersPtrInput is an input type that accepts PipeTargetTimestreamParametersArgs, PipeTargetTimestreamParametersPtr and PipeTargetTimestreamParametersPtrOutput values.
+// You can construct a concrete instance of `PipeTargetTimestreamParametersPtrInput` via:
+//
+//	        PipeTargetTimestreamParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeTargetTimestreamParametersPtrInput interface {
+	pulumi.Input
+
+	ToPipeTargetTimestreamParametersPtrOutput() PipeTargetTimestreamParametersPtrOutput
+	ToPipeTargetTimestreamParametersPtrOutputWithContext(context.Context) PipeTargetTimestreamParametersPtrOutput
+}
+
+type pipeTargetTimestreamParametersPtrType PipeTargetTimestreamParametersArgs
+
+func PipeTargetTimestreamParametersPtr(v *PipeTargetTimestreamParametersArgs) PipeTargetTimestreamParametersPtrInput {
+	return (*pipeTargetTimestreamParametersPtrType)(v)
+}
+
+func (*pipeTargetTimestreamParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeTargetTimestreamParameters)(nil)).Elem()
+}
+
+func (i *pipeTargetTimestreamParametersPtrType) ToPipeTargetTimestreamParametersPtrOutput() PipeTargetTimestreamParametersPtrOutput {
+	return i.ToPipeTargetTimestreamParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeTargetTimestreamParametersPtrType) ToPipeTargetTimestreamParametersPtrOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeTargetTimestreamParametersPtrOutput)
+}
+
+type PipeTargetTimestreamParametersOutput struct{ *pulumi.OutputState }
+
+func (PipeTargetTimestreamParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeTargetTimestreamParameters)(nil)).Elem()
+}
+
+func (o PipeTargetTimestreamParametersOutput) ToPipeTargetTimestreamParametersOutput() PipeTargetTimestreamParametersOutput {
+	return o
+}
+
+func (o PipeTargetTimestreamParametersOutput) ToPipeTargetTimestreamParametersOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersOutput {
+	return o
+}
+
+func (o PipeTargetTimestreamParametersOutput) ToPipeTargetTimestreamParametersPtrOutput() PipeTargetTimestreamParametersPtrOutput {
+	return o.ToPipeTargetTimestreamParametersPtrOutputWithContext(context.Background())
+}
+
+func (o PipeTargetTimestreamParametersOutput) ToPipeTargetTimestreamParametersPtrOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeTargetTimestreamParameters) *PipeTargetTimestreamParameters {
+		return &v
+	}).(PipeTargetTimestreamParametersPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) DimensionMappings() PipeDimensionMappingArrayOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeDimensionMapping { return v.DimensionMappings }).(PipeDimensionMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) EpochTimeUnit() PipeEpochTimeUnitPtrOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) *PipeEpochTimeUnit { return v.EpochTimeUnit }).(PipeEpochTimeUnitPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) MultiMeasureMappings() PipeMultiMeasureMappingArrayOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeMultiMeasureMapping { return v.MultiMeasureMappings }).(PipeMultiMeasureMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) SingleMeasureMappings() PipeSingleMeasureMappingArrayOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeSingleMeasureMapping { return v.SingleMeasureMappings }).(PipeSingleMeasureMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) TimeFieldType() PipeTimeFieldTypePtrOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) *PipeTimeFieldType { return v.TimeFieldType }).(PipeTimeFieldTypePtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) TimeValue() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) string { return v.TimeValue }).(pulumi.StringOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) TimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersOutput) VersionValue() pulumi.StringOutput {
+	return o.ApplyT(func(v PipeTargetTimestreamParameters) string { return v.VersionValue }).(pulumi.StringOutput)
+}
+
+type PipeTargetTimestreamParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeTargetTimestreamParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeTargetTimestreamParameters)(nil)).Elem()
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) ToPipeTargetTimestreamParametersPtrOutput() PipeTargetTimestreamParametersPtrOutput {
+	return o
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) ToPipeTargetTimestreamParametersPtrOutputWithContext(ctx context.Context) PipeTargetTimestreamParametersPtrOutput {
+	return o
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) Elem() PipeTargetTimestreamParametersOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) PipeTargetTimestreamParameters {
+		if v != nil {
+			return *v
+		}
+		var ret PipeTargetTimestreamParameters
+		return ret
+	}).(PipeTargetTimestreamParametersOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) DimensionMappings() PipeDimensionMappingArrayOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeDimensionMapping {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionMappings
+	}).(PipeDimensionMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) EpochTimeUnit() PipeEpochTimeUnitPtrOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *PipeEpochTimeUnit {
+		if v == nil {
+			return nil
+		}
+		return v.EpochTimeUnit
+	}).(PipeEpochTimeUnitPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) MultiMeasureMappings() PipeMultiMeasureMappingArrayOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeMultiMeasureMapping {
+		if v == nil {
+			return nil
+		}
+		return v.MultiMeasureMappings
+	}).(PipeMultiMeasureMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) SingleMeasureMappings() PipeSingleMeasureMappingArrayOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeSingleMeasureMapping {
+		if v == nil {
+			return nil
+		}
+		return v.SingleMeasureMappings
+	}).(PipeSingleMeasureMappingArrayOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) TimeFieldType() PipeTimeFieldTypePtrOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *PipeTimeFieldType {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFieldType
+	}).(PipeTimeFieldTypePtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) TimeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PipeTargetTimestreamParametersPtrOutput) VersionValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionValue
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationPtrInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
@@ -9918,6 +10591,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeCloudwatchLogsLogDestinationPtrInput)(nil)).Elem(), PipeCloudwatchLogsLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDeadLetterConfigInput)(nil)).Elem(), PipeDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDeadLetterConfigPtrInput)(nil)).Elem(), PipeDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDimensionMappingInput)(nil)).Elem(), PipeDimensionMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDimensionMappingArrayInput)(nil)).Elem(), PipeDimensionMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsContainerOverrideInput)(nil)).Elem(), PipeEcsContainerOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsContainerOverrideArrayInput)(nil)).Elem(), PipeEcsContainerOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileInput)(nil)).Elem(), PipeEcsEnvironmentFileArgs{})
@@ -9950,6 +10625,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskAccessCredentials0PropertiesPtrInput)(nil)).Elem(), PipeMskAccessCredentials0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskAccessCredentials1PropertiesInput)(nil)).Elem(), PipeMskAccessCredentials1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskAccessCredentials1PropertiesPtrInput)(nil)).Elem(), PipeMskAccessCredentials1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMultiMeasureAttributeMappingInput)(nil)).Elem(), PipeMultiMeasureAttributeMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMultiMeasureAttributeMappingArrayInput)(nil)).Elem(), PipeMultiMeasureAttributeMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMultiMeasureMappingInput)(nil)).Elem(), PipeMultiMeasureMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMultiMeasureMappingArrayInput)(nil)).Elem(), PipeMultiMeasureMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationPtrInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementConstraintInput)(nil)).Elem(), PipePlacementConstraintArgs{})
@@ -9970,6 +10649,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationCredentials3PropertiesPtrInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcPtrInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSingleMeasureMappingInput)(nil)).Elem(), PipeSingleMeasureMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeSingleMeasureMappingArrayInput)(nil)).Elem(), PipeSingleMeasureMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMqBrokerParametersInput)(nil)).Elem(), PipeSourceActiveMqBrokerParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMqBrokerParametersPtrInput)(nil)).Elem(), PipeSourceActiveMqBrokerParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceDynamoDbStreamParametersInput)(nil)).Elem(), PipeSourceDynamoDbStreamParametersArgs{})
@@ -10012,6 +10693,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetSqsQueueParametersPtrInput)(nil)).Elem(), PipeTargetSqsQueueParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersPtrInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetTimestreamParametersInput)(nil)).Elem(), PipeTargetTimestreamParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetTimestreamParametersPtrInput)(nil)).Elem(), PipeTargetTimestreamParametersArgs{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchArrayPropertiesOutput{})
@@ -10032,6 +10715,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeCloudwatchLogsLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PipeDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(PipeDeadLetterConfigPtrOutput{})
+	pulumi.RegisterOutputType(PipeDimensionMappingOutput{})
+	pulumi.RegisterOutputType(PipeDimensionMappingArrayOutput{})
 	pulumi.RegisterOutputType(PipeEcsContainerOverrideOutput{})
 	pulumi.RegisterOutputType(PipeEcsContainerOverrideArrayOutput{})
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileOutput{})
@@ -10064,6 +10749,10 @@ func init() {
 	pulumi.RegisterOutputType(PipeMskAccessCredentials0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeMskAccessCredentials1PropertiesOutput{})
 	pulumi.RegisterOutputType(PipeMskAccessCredentials1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipeMultiMeasureAttributeMappingOutput{})
+	pulumi.RegisterOutputType(PipeMultiMeasureAttributeMappingArrayOutput{})
+	pulumi.RegisterOutputType(PipeMultiMeasureMappingOutput{})
+	pulumi.RegisterOutputType(PipeMultiMeasureMappingArrayOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipePlacementConstraintOutput{})
@@ -10084,6 +10773,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationCredentials3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput{})
+	pulumi.RegisterOutputType(PipeSingleMeasureMappingOutput{})
+	pulumi.RegisterOutputType(PipeSingleMeasureMappingArrayOutput{})
 	pulumi.RegisterOutputType(PipeSourceActiveMqBrokerParametersOutput{})
 	pulumi.RegisterOutputType(PipeSourceActiveMqBrokerParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceDynamoDbStreamParametersOutput{})
@@ -10126,4 +10817,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeTargetSqsQueueParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeTargetStateMachineParametersOutput{})
 	pulumi.RegisterOutputType(PipeTargetStateMachineParametersPtrOutput{})
+	pulumi.RegisterOutputType(PipeTargetTimestreamParametersOutput{})
+	pulumi.RegisterOutputType(PipeTargetTimestreamParametersPtrOutput{})
 }

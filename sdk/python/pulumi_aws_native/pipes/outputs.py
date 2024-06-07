@@ -22,6 +22,7 @@ __all__ = [
     'PipeCapacityProviderStrategyItem',
     'PipeCloudwatchLogsLogDestination',
     'PipeDeadLetterConfig',
+    'PipeDimensionMapping',
     'PipeEcsContainerOverride',
     'PipeEcsEnvironmentFile',
     'PipeEcsEnvironmentVariable',
@@ -38,6 +39,8 @@ __all__ = [
     'PipeMqBrokerAccessCredentialsProperties',
     'PipeMskAccessCredentials0Properties',
     'PipeMskAccessCredentials1Properties',
+    'PipeMultiMeasureAttributeMapping',
+    'PipeMultiMeasureMapping',
     'PipeNetworkConfiguration',
     'PipePlacementConstraint',
     'PipePlacementStrategy',
@@ -48,6 +51,7 @@ __all__ = [
     'PipeSelfManagedKafkaAccessConfigurationCredentials2Properties',
     'PipeSelfManagedKafkaAccessConfigurationCredentials3Properties',
     'PipeSelfManagedKafkaAccessConfigurationVpc',
+    'PipeSingleMeasureMapping',
     'PipeSourceActiveMqBrokerParameters',
     'PipeSourceDynamoDbStreamParameters',
     'PipeSourceKinesisStreamParameters',
@@ -69,6 +73,7 @@ __all__ = [
     'PipeTargetSageMakerPipelineParameters',
     'PipeTargetSqsQueueParameters',
     'PipeTargetStateMachineParameters',
+    'PipeTargetTimestreamParameters',
 ]
 
 @pulumi.output_type
@@ -550,6 +555,53 @@ class PipeDeadLetterConfig(dict):
         For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon SNS topic or Amazon SQS queue ARN.
         """
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class PipeDimensionMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionName":
+            suggest = "dimension_name"
+        elif key == "dimensionValue":
+            suggest = "dimension_value"
+        elif key == "dimensionValueType":
+            suggest = "dimension_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeDimensionMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeDimensionMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeDimensionMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_name: str,
+                 dimension_value: str,
+                 dimension_value_type: 'PipeDimensionValueType'):
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "dimension_value", dimension_value)
+        pulumi.set(__self__, "dimension_value_type", dimension_value_type)
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> str:
+        return pulumi.get(self, "dimension_name")
+
+    @property
+    @pulumi.getter(name="dimensionValue")
+    def dimension_value(self) -> str:
+        return pulumi.get(self, "dimension_value")
+
+    @property
+    @pulumi.getter(name="dimensionValueType")
+    def dimension_value_type(self) -> 'PipeDimensionValueType':
+        return pulumi.get(self, "dimension_value_type")
 
 
 @pulumi.output_type
@@ -1388,6 +1440,91 @@ class PipeMskAccessCredentials1Properties(dict):
 
 
 @pulumi.output_type
+class PipeMultiMeasureAttributeMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "measureValue":
+            suggest = "measure_value"
+        elif key == "measureValueType":
+            suggest = "measure_value_type"
+        elif key == "multiMeasureAttributeName":
+            suggest = "multi_measure_attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeMultiMeasureAttributeMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeMultiMeasureAttributeMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeMultiMeasureAttributeMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 measure_value: str,
+                 measure_value_type: 'PipeMeasureValueType',
+                 multi_measure_attribute_name: str):
+        pulumi.set(__self__, "measure_value", measure_value)
+        pulumi.set(__self__, "measure_value_type", measure_value_type)
+        pulumi.set(__self__, "multi_measure_attribute_name", multi_measure_attribute_name)
+
+    @property
+    @pulumi.getter(name="measureValue")
+    def measure_value(self) -> str:
+        return pulumi.get(self, "measure_value")
+
+    @property
+    @pulumi.getter(name="measureValueType")
+    def measure_value_type(self) -> 'PipeMeasureValueType':
+        return pulumi.get(self, "measure_value_type")
+
+    @property
+    @pulumi.getter(name="multiMeasureAttributeName")
+    def multi_measure_attribute_name(self) -> str:
+        return pulumi.get(self, "multi_measure_attribute_name")
+
+
+@pulumi.output_type
+class PipeMultiMeasureMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multiMeasureAttributeMappings":
+            suggest = "multi_measure_attribute_mappings"
+        elif key == "multiMeasureName":
+            suggest = "multi_measure_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeMultiMeasureMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeMultiMeasureMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeMultiMeasureMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multi_measure_attribute_mappings: Sequence['outputs.PipeMultiMeasureAttributeMapping'],
+                 multi_measure_name: str):
+        pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
+        pulumi.set(__self__, "multi_measure_name", multi_measure_name)
+
+    @property
+    @pulumi.getter(name="multiMeasureAttributeMappings")
+    def multi_measure_attribute_mappings(self) -> Sequence['outputs.PipeMultiMeasureAttributeMapping']:
+        return pulumi.get(self, "multi_measure_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="multiMeasureName")
+    def multi_measure_name(self) -> str:
+        return pulumi.get(self, "multi_measure_name")
+
+
+@pulumi.output_type
 class PipeNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1788,6 +1925,53 @@ class PipeSelfManagedKafkaAccessConfigurationVpc(dict):
         List of SubnetId.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class PipeSingleMeasureMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "measureName":
+            suggest = "measure_name"
+        elif key == "measureValue":
+            suggest = "measure_value"
+        elif key == "measureValueType":
+            suggest = "measure_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeSingleMeasureMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeSingleMeasureMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeSingleMeasureMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 measure_name: str,
+                 measure_value: str,
+                 measure_value_type: 'PipeMeasureValueType'):
+        pulumi.set(__self__, "measure_name", measure_name)
+        pulumi.set(__self__, "measure_value", measure_value)
+        pulumi.set(__self__, "measure_value_type", measure_value_type)
+
+    @property
+    @pulumi.getter(name="measureName")
+    def measure_name(self) -> str:
+        return pulumi.get(self, "measure_name")
+
+    @property
+    @pulumi.getter(name="measureValue")
+    def measure_value(self) -> str:
+        return pulumi.get(self, "measure_value")
+
+    @property
+    @pulumi.getter(name="measureValueType")
+    def measure_value_type(self) -> 'PipeMeasureValueType':
+        return pulumi.get(self, "measure_value_type")
 
 
 @pulumi.output_type
@@ -3368,6 +3552,8 @@ class PipeTargetParameters(dict):
             suggest = "sqs_queue_parameters"
         elif key == "stepFunctionStateMachineParameters":
             suggest = "step_function_state_machine_parameters"
+        elif key == "timestreamParameters":
+            suggest = "timestream_parameters"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipeTargetParameters. Access the value via the '{suggest}' property getter instead.")
@@ -3392,7 +3578,8 @@ class PipeTargetParameters(dict):
                  redshift_data_parameters: Optional['outputs.PipeTargetRedshiftDataParameters'] = None,
                  sage_maker_pipeline_parameters: Optional['outputs.PipeTargetSageMakerPipelineParameters'] = None,
                  sqs_queue_parameters: Optional['outputs.PipeTargetSqsQueueParameters'] = None,
-                 step_function_state_machine_parameters: Optional['outputs.PipeTargetStateMachineParameters'] = None):
+                 step_function_state_machine_parameters: Optional['outputs.PipeTargetStateMachineParameters'] = None,
+                 timestream_parameters: Optional['outputs.PipeTargetTimestreamParameters'] = None):
         """
         :param 'PipeTargetBatchJobParameters' batch_job_parameters: The parameters for using an AWS Batch job as a target.
         :param 'PipeTargetCloudWatchLogsParameters' cloud_watch_logs_parameters: The parameters for using an CloudWatch Logs log stream as a target.
@@ -3433,6 +3620,8 @@ class PipeTargetParameters(dict):
             pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
         if step_function_state_machine_parameters is not None:
             pulumi.set(__self__, "step_function_state_machine_parameters", step_function_state_machine_parameters)
+        if timestream_parameters is not None:
+            pulumi.set(__self__, "timestream_parameters", timestream_parameters)
 
     @property
     @pulumi.getter(name="batchJobParameters")
@@ -3531,6 +3720,11 @@ class PipeTargetParameters(dict):
         The parameters for using a Step Functions state machine as a target.
         """
         return pulumi.get(self, "step_function_state_machine_parameters")
+
+    @property
+    @pulumi.getter(name="timestreamParameters")
+    def timestream_parameters(self) -> Optional['outputs.PipeTargetTimestreamParameters']:
+        return pulumi.get(self, "timestream_parameters")
 
 
 @pulumi.output_type
@@ -3771,5 +3965,102 @@ class PipeTargetStateMachineParameters(dict):
         For more information, see [Invocation types](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation) in the *Amazon EventBridge User Guide* .
         """
         return pulumi.get(self, "invocation_type")
+
+
+@pulumi.output_type
+class PipeTargetTimestreamParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionMappings":
+            suggest = "dimension_mappings"
+        elif key == "timeValue":
+            suggest = "time_value"
+        elif key == "versionValue":
+            suggest = "version_value"
+        elif key == "epochTimeUnit":
+            suggest = "epoch_time_unit"
+        elif key == "multiMeasureMappings":
+            suggest = "multi_measure_mappings"
+        elif key == "singleMeasureMappings":
+            suggest = "single_measure_mappings"
+        elif key == "timeFieldType":
+            suggest = "time_field_type"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeTargetTimestreamParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeTargetTimestreamParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeTargetTimestreamParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_mappings: Sequence['outputs.PipeDimensionMapping'],
+                 time_value: str,
+                 version_value: str,
+                 epoch_time_unit: Optional['PipeEpochTimeUnit'] = None,
+                 multi_measure_mappings: Optional[Sequence['outputs.PipeMultiMeasureMapping']] = None,
+                 single_measure_mappings: Optional[Sequence['outputs.PipeSingleMeasureMapping']] = None,
+                 time_field_type: Optional['PipeTimeFieldType'] = None,
+                 timestamp_format: Optional[str] = None):
+        pulumi.set(__self__, "dimension_mappings", dimension_mappings)
+        pulumi.set(__self__, "time_value", time_value)
+        pulumi.set(__self__, "version_value", version_value)
+        if epoch_time_unit is not None:
+            pulumi.set(__self__, "epoch_time_unit", epoch_time_unit)
+        if multi_measure_mappings is not None:
+            pulumi.set(__self__, "multi_measure_mappings", multi_measure_mappings)
+        if single_measure_mappings is not None:
+            pulumi.set(__self__, "single_measure_mappings", single_measure_mappings)
+        if time_field_type is not None:
+            pulumi.set(__self__, "time_field_type", time_field_type)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+
+    @property
+    @pulumi.getter(name="dimensionMappings")
+    def dimension_mappings(self) -> Sequence['outputs.PipeDimensionMapping']:
+        return pulumi.get(self, "dimension_mappings")
+
+    @property
+    @pulumi.getter(name="timeValue")
+    def time_value(self) -> str:
+        return pulumi.get(self, "time_value")
+
+    @property
+    @pulumi.getter(name="versionValue")
+    def version_value(self) -> str:
+        return pulumi.get(self, "version_value")
+
+    @property
+    @pulumi.getter(name="epochTimeUnit")
+    def epoch_time_unit(self) -> Optional['PipeEpochTimeUnit']:
+        return pulumi.get(self, "epoch_time_unit")
+
+    @property
+    @pulumi.getter(name="multiMeasureMappings")
+    def multi_measure_mappings(self) -> Optional[Sequence['outputs.PipeMultiMeasureMapping']]:
+        return pulumi.get(self, "multi_measure_mappings")
+
+    @property
+    @pulumi.getter(name="singleMeasureMappings")
+    def single_measure_mappings(self) -> Optional[Sequence['outputs.PipeSingleMeasureMapping']]:
+        return pulumi.get(self, "single_measure_mappings")
+
+    @property
+    @pulumi.getter(name="timeFieldType")
+    def time_field_type(self) -> Optional['PipeTimeFieldType']:
+        return pulumi.get(self, "time_field_type")
+
+    @property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[str]:
+        return pulumi.get(self, "timestamp_format")
 
 

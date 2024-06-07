@@ -148,6 +148,7 @@ namespace Pulumi.AwsNative.B2bi
         public static CapabilityX12Version Version4010 { get; } = new CapabilityX12Version("VERSION_4010");
         public static CapabilityX12Version Version4030 { get; } = new CapabilityX12Version("VERSION_4030");
         public static CapabilityX12Version Version5010 { get; } = new CapabilityX12Version("VERSION_5010");
+        public static CapabilityX12Version Version5010Hipaa { get; } = new CapabilityX12Version("VERSION_5010_HIPAA");
 
         public static bool operator ==(CapabilityX12Version left, CapabilityX12Version right) => left.Equals(right);
         public static bool operator !=(CapabilityX12Version left, CapabilityX12Version right) => !left.Equals(right);
