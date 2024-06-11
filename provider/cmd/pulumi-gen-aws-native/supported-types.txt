@@ -264,6 +264,7 @@ AWS::Deadline::Farm
 AWS::Deadline::Fleet
 AWS::Deadline::LicenseEndpoint
 AWS::Deadline::MeteredProduct
+AWS::Deadline::Monitor
 AWS::Deadline::Queue
 AWS::Deadline::QueueEnvironment
 AWS::Deadline::QueueFleetAssociation

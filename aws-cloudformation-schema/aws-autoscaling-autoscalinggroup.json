@@ -33,7 +33,7 @@
     },
     "delete" : {
       "permissions" : [ "autoscaling:DeleteAutoScalingGroup", "autoscaling:UpdateAutoScalingGroup", "autoscaling:Describe*", "managed-fleets:Get*", "managed-fleets:DeleteAutoScalingGroup" ],
-      "timeoutInMinutes" : 180
+      "timeoutInMinutes" : 240
     }
   },
   "writeOnlyProperties" : [ "/properties/InstanceId" ],

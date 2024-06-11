@@ -2844,6 +2844,13 @@
       "kmsKeyArn": {
         "type": "string",
         "description": "The ARN for the KMS key."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -2884,6 +2891,13 @@
       "roleArn": {
         "type": "string",
         "description": "The IAM role that workers in the fleet use when processing jobs."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -2903,6 +2917,13 @@
           "type": "string"
         },
         "description": "Identifies the VPC subnets that can connect to a license endpoint."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       },
       "vpcId": {
         "type": "string",
@@ -2932,6 +2953,23 @@
       "vendor": {
         "type": "string",
         "description": "The vendor."
+      }
+    }
+  },
+  "aws-native:deadline:Monitor": {
+    "cfTypeName": "AWS::Deadline::Monitor",
+    "properties": {
+      "displayName": {
+        "type": "string"
+      },
+      "identityCenterInstanceArn": {
+        "type": "string"
+      },
+      "roleArn": {
+        "type": "string"
+      },
+      "subdomain": {
+        "type": "string"
       }
     }
   },
@@ -2979,6 +3017,13 @@
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
