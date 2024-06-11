@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,6 +38,8 @@ type Fleet struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The status of the fleet.
 	Status FleetStatusOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The number of workers in the fleet summary.
 	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
 }
@@ -111,6 +114,8 @@ type fleetArgs struct {
 	MinWorkerCount *int `pulumi:"minWorkerCount"`
 	// The IAM role that workers in the fleet use when processing jobs.
 	RoleArn string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
@@ -129,6 +134,8 @@ type FleetArgs struct {
 	MinWorkerCount pulumi.IntPtrInput
 	// The IAM role that workers in the fleet use when processing jobs.
 	RoleArn pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -220,6 +227,11 @@ func (o FleetOutput) RoleArn() pulumi.StringOutput {
 // The status of the fleet.
 func (o FleetOutput) Status() FleetStatusOutput {
 	return o.ApplyT(func(v *Fleet) FleetStatusOutput { return v.Status }).(FleetStatusOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o FleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Fleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The number of workers in the fleet summary.

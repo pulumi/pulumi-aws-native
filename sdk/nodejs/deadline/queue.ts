@@ -81,6 +81,10 @@ export class Queue extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -105,6 +109,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["jobRunAsUser"] = args ? args.jobRunAsUser : undefined;
             resourceInputs["requiredFileSystemLocationNames"] = args ? args.requiredFileSystemLocationNames : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
         } else {
@@ -119,6 +124,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["queueId"] = undefined /*out*/;
             resourceInputs["requiredFileSystemLocationNames"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["farmId"] };
@@ -167,4 +173,8 @@ export interface QueueArgs {
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

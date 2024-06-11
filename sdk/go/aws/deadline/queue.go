@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type Queue struct {
 	RequiredFileSystemLocationNames pulumi.StringArrayOutput `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +108,8 @@ type queueArgs struct {
 	RequiredFileSystemLocationNames []string `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 	RoleArn *string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -127,6 +132,8 @@ type QueueArgs struct {
 	RequiredFileSystemLocationNames pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 	RoleArn pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -219,6 +226,11 @@ func (o QueueOutput) RequiredFileSystemLocationNames() pulumi.StringArrayOutput 
 // The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 func (o QueueOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o QueueOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Queue) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

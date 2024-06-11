@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['LicenseEndpointArgs', 'LicenseEndpoint']
@@ -17,16 +19,20 @@ class LicenseEndpointArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 vpc_id: pulumi.Input[str]):
+                 vpc_id: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LicenseEndpoint resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
         :param pulumi.Input[str] vpc_id: The VCP(virtual private cloud) ID associated with the license endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -64,6 +70,18 @@ class LicenseEndpointArgs:
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class LicenseEndpoint(pulumi.CustomResource):
     @overload
@@ -72,6 +90,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -81,6 +100,7 @@ class LicenseEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_id: The VCP(virtual private cloud) ID associated with the license endpoint.
         """
         ...
@@ -109,6 +129,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -125,6 +146,7 @@ class LicenseEndpoint(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
@@ -164,6 +186,7 @@ class LicenseEndpoint(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["status_message"] = None
         __props__.__dict__["subnet_ids"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return LicenseEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -222,6 +245,14 @@ class LicenseEndpoint(pulumi.CustomResource):
         Identifies the VPC subnets that can connect to a license endpoint.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")

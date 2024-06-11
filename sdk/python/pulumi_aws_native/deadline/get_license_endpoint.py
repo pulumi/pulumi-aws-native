@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLicenseEndpointResult:
-    def __init__(__self__, arn=None, dns_name=None, license_endpoint_id=None, status=None, status_message=None):
+    def __init__(__self__, arn=None, dns_name=None, license_endpoint_id=None, status=None, status_message=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +36,9 @@ class GetLicenseEndpointResult:
         if status_message and not isinstance(status_message, str):
             raise TypeError("Expected argument 'status_message' to be a str")
         pulumi.set(__self__, "status_message", status_message)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -76,6 +80,14 @@ class GetLicenseEndpointResult:
         """
         return pulumi.get(self, "status_message")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetLicenseEndpointResult(GetLicenseEndpointResult):
     # pylint: disable=using-constant-test
@@ -87,7 +99,8 @@ class AwaitableGetLicenseEndpointResult(GetLicenseEndpointResult):
             dns_name=self.dns_name,
             license_endpoint_id=self.license_endpoint_id,
             status=self.status,
-            status_message=self.status_message)
+            status_message=self.status_message,
+            tags=self.tags)
 
 
 def get_license_endpoint(arn: Optional[str] = None,
@@ -108,7 +121,8 @@ def get_license_endpoint(arn: Optional[str] = None,
         dns_name=pulumi.get(__ret__, 'dns_name'),
         license_endpoint_id=pulumi.get(__ret__, 'license_endpoint_id'),
         status=pulumi.get(__ret__, 'status'),
-        status_message=pulumi.get(__ret__, 'status_message'))
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_license_endpoint)

@@ -165,7 +165,7 @@ func callPlainInner(
 func PkgResourceDefaultOpts(opts []pulumi.ResourceOption) []pulumi.ResourceOption {
 	defaults := []pulumi.ResourceOption{}
 
-	version := semver.MustParse("0.109.0-alpha.1717776645")
+	version := semver.MustParse("0.109.0-alpha.1717792588+4270409")
 	if !version.Equals(semver.Version{}) {
 		defaults = append(defaults, pulumi.Version(version.String()))
 	}
@@ -176,7 +176,7 @@ func PkgResourceDefaultOpts(opts []pulumi.ResourceOption) []pulumi.ResourceOptio
 func PkgInvokeDefaultOpts(opts []pulumi.InvokeOption) []pulumi.InvokeOption {
 	defaults := []pulumi.InvokeOption{}
 
-	version := semver.MustParse("0.109.0-alpha.1717776645")
+	version := semver.MustParse("0.109.0-alpha.1717792588+4270409")
 	if !version.Equals(semver.Version{}) {
 		defaults = append(defaults, pulumi.Version(version.String()))
 	}

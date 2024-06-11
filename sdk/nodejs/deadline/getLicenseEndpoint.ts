@@ -46,6 +46,10 @@ export interface GetLicenseEndpointResult {
      * The status message of the license endpoint.
      */
     readonly statusMessage?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::Deadline::LicenseEndpoint Resource Type

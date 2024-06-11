@@ -66,6 +66,10 @@ export class LicenseEndpoint extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The VCP(virtual private cloud) ID associated with the license endpoint.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class LicenseEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
@@ -106,6 +111,7 @@ export class LicenseEndpoint extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +133,10 @@ export interface LicenseEndpointArgs {
      * Identifies the VPC subnets that can connect to a license endpoint.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The VCP(virtual private cloud) ID associated with the license endpoint.
      */

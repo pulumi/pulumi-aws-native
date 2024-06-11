@@ -35,6 +35,11 @@ export const getMeteredProduct: typeof import("./getMeteredProduct").getMeteredP
 export const getMeteredProductOutput: typeof import("./getMeteredProduct").getMeteredProductOutput = null as any;
 utilities.lazyLoad(exports, ["getMeteredProduct","getMeteredProductOutput"], () => require("./getMeteredProduct"));
 
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
 export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
@@ -59,6 +64,11 @@ export { MeteredProductArgs } from "./meteredProduct";
 export type MeteredProduct = import("./meteredProduct").MeteredProduct;
 export const MeteredProduct: typeof import("./meteredProduct").MeteredProduct = null as any;
 utilities.lazyLoad(exports, ["MeteredProduct"], () => require("./meteredProduct"));
+
+export { MonitorArgs } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
 export { QueueArgs } from "./queue";
 export type Queue = import("./queue").Queue;
@@ -96,6 +106,8 @@ const _module = {
                 return new LicenseEndpoint(name, <any>undefined, { urn })
             case "aws-native:deadline:MeteredProduct":
                 return new MeteredProduct(name, <any>undefined, { urn })
+            case "aws-native:deadline:Monitor":
+                return new Monitor(name, <any>undefined, { urn })
             case "aws-native:deadline:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "aws-native:deadline:QueueEnvironment":

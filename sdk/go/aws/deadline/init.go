@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LicenseEndpoint{}
 	case "aws-native:deadline:MeteredProduct":
 		r = &MeteredProduct{}
+	case "aws-native:deadline:Monitor":
+		r = &Monitor{}
 	case "aws-native:deadline:Queue":
 		r = &Queue{}
 	case "aws-native:deadline:QueueEnvironment":

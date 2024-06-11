@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LicenseEndpoint struct {
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Identifies the VPC subnets that can connect to a license endpoint.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VCP(virtual private cloud) ID associated with the license endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -93,6 +96,8 @@ type licenseEndpointArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Identifies the VPC subnets that can connect to a license endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The VCP(virtual private cloud) ID associated with the license endpoint.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -103,6 +108,8 @@ type LicenseEndpointArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Identifies the VPC subnets that can connect to a license endpoint.
 	SubnetIds pulumi.StringArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 	// The VCP(virtual private cloud) ID associated with the license endpoint.
 	VpcId pulumi.StringInput
 }
@@ -177,6 +184,11 @@ func (o LicenseEndpointOutput) StatusMessage() pulumi.StringOutput {
 // Identifies the VPC subnets that can connect to a license endpoint.
 func (o LicenseEndpointOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LicenseEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LicenseEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VCP(virtual private cloud) ID associated with the license endpoint.

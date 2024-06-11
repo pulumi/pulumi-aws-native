@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupLicenseEndpointResult struct {
 	Status *LicenseEndpointStatus `pulumi:"status"`
 	// The status message of the license endpoint.
 	StatusMessage *string `pulumi:"statusMessage"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLicenseEndpointOutput(ctx *pulumi.Context, args LookupLicenseEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupLicenseEndpointResultOutput {
@@ -99,6 +102,11 @@ func (o LookupLicenseEndpointResultOutput) Status() LicenseEndpointStatusPtrOutp
 // The status message of the license endpoint.
 func (o LookupLicenseEndpointResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupLicenseEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLicenseEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

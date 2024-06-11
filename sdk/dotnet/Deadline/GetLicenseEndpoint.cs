@@ -77,6 +77,10 @@ namespace Pulumi.AwsNative.Deadline
         /// The status message of the license endpoint.
         /// </summary>
         public readonly string? StatusMessage;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLicenseEndpointResult(
@@ -88,13 +92,16 @@ namespace Pulumi.AwsNative.Deadline
 
             Pulumi.AwsNative.Deadline.LicenseEndpointStatus? status,
 
-            string? statusMessage)
+            string? statusMessage,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DnsName = dnsName;
             LicenseEndpointId = licenseEndpointId;
             Status = status;
             StatusMessage = statusMessage;
+            Tags = tags;
         }
     }
 }

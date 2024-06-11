@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,6 +57,10 @@ export class Farm extends pulumi.CustomResource {
      * The ARN for the KMS key.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Farm resource with the given unique name, arguments, and options.
@@ -72,6 +79,7 @@ export class Farm extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["farmId"] = undefined /*out*/;
         } else {
@@ -80,6 +88,7 @@ export class Farm extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["farmId"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn"] };
@@ -104,4 +113,8 @@ export interface FarmArgs {
      * The ARN for the KMS key.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

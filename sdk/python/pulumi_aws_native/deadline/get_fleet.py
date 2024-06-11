@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, worker_count=None):
+    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, tags=None, worker_count=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +52,9 @@ class GetFleetResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if worker_count and not isinstance(worker_count, int):
             raise TypeError("Expected argument 'worker_count' to be a int")
         pulumi.set(__self__, "worker_count", worker_count)
@@ -133,6 +137,14 @@ class GetFleetResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> Optional[int]:
         """
@@ -157,6 +169,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             min_worker_count=self.min_worker_count,
             role_arn=self.role_arn,
             status=self.status,
+            tags=self.tags,
             worker_count=self.worker_count)
 
 
@@ -184,6 +197,7 @@ def get_fleet(arn: Optional[str] = None,
         min_worker_count=pulumi.get(__ret__, 'min_worker_count'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'))
 
 

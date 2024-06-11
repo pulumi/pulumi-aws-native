@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,8 @@ class QueueArgs:
                  job_attachment_settings: Optional[pulumi.Input['QueueJobAttachmentSettingsArgs']] = None,
                  job_run_as_user: Optional[pulumi.Input['QueueJobRunAsUserArgs']] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None):
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[str] display_name: The display name of the queue summary to update.
@@ -37,6 +40,7 @@ class QueueArgs:
         :param pulumi.Input['QueueJobRunAsUserArgs'] job_run_as_user: Identifies the user for a job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] required_file_system_location_names: The file system location that the queue uses.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "display_name", display_name)
         if allowed_storage_profile_ids is not None:
@@ -55,6 +59,8 @@ class QueueArgs:
             pulumi.set(__self__, "required_file_system_location_names", required_file_system_location_names)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -164,6 +170,18 @@ class QueueArgs:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Queue(pulumi.CustomResource):
     @overload
@@ -179,6 +197,7 @@ class Queue(pulumi.CustomResource):
                  job_run_as_user: Optional[pulumi.Input[pulumi.InputType['QueueJobRunAsUserArgs']]] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Queue Resource Type
@@ -194,6 +213,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['QueueJobRunAsUserArgs']] job_run_as_user: Identifies the user for a job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] required_file_system_location_names: The file system location that the queue uses.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -228,6 +248,7 @@ class Queue(pulumi.CustomResource):
                  job_run_as_user: Optional[pulumi.Input[pulumi.InputType['QueueJobRunAsUserArgs']]] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,6 +269,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["job_run_as_user"] = job_run_as_user
             __props__.__dict__["required_file_system_location_names"] = required_file_system_location_names
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["queue_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["farmId"])
@@ -285,6 +307,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["queue_id"] = None
         __props__.__dict__["required_file_system_location_names"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,4 +397,12 @@ class Queue(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

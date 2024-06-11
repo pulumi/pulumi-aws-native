@@ -64,6 +64,10 @@ export interface GetFleetResult {
      */
     readonly status?: enums.deadline.FleetStatus;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The number of workers in the fleet summary.
      */
     readonly workerCount?: number;

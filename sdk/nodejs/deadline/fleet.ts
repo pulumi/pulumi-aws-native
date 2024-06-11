@@ -79,6 +79,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.deadline.FleetStatus>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The number of workers in the fleet summary.
      */
     public /*out*/ readonly workerCount!: pulumi.Output<number>;
@@ -113,6 +117,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["maxWorkerCount"] = args ? args.maxWorkerCount : undefined;
             resourceInputs["minWorkerCount"] = args ? args.minWorkerCount : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["minWorkerCount"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workerCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,4 +177,8 @@ export interface FleetArgs {
      * The IAM role that workers in the fleet use when processing jobs.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

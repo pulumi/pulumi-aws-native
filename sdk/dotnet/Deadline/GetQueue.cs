@@ -97,6 +97,10 @@ namespace Pulumi.AwsNative.Deadline
         /// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetQueueResult(
@@ -118,7 +122,9 @@ namespace Pulumi.AwsNative.Deadline
 
             ImmutableArray<string> requiredFileSystemLocationNames,
 
-            string? roleArn)
+            string? roleArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowedStorageProfileIds = allowedStorageProfileIds;
             Arn = arn;
@@ -130,6 +136,7 @@ namespace Pulumi.AwsNative.Deadline
             QueueId = queueId;
             RequiredFileSystemLocationNames = requiredFileSystemLocationNames;
             RoleArn = roleArn;
+            Tags = tags;
         }
     }
 }

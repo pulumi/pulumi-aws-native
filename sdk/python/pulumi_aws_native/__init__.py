@@ -1315,6 +1315,7 @@ _utilities.register(
    "aws-native:deadline:Fleet": "Fleet",
    "aws-native:deadline:LicenseEndpoint": "LicenseEndpoint",
    "aws-native:deadline:MeteredProduct": "MeteredProduct",
+   "aws-native:deadline:Monitor": "Monitor",
    "aws-native:deadline:Queue": "Queue",
    "aws-native:deadline:QueueEnvironment": "QueueEnvironment",
    "aws-native:deadline:QueueFleetAssociation": "QueueFleetAssociation",

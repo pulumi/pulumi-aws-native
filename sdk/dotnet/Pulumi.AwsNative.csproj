@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-aws-native</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
-    <Version>0.109.0-alpha.1717776645</Version>
+    <Version>0.109.0-alpha.1717792588+4270409</Version>
 
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

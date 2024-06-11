@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupFarmResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The farm ID.
 	FarmId *string `pulumi:"farmId"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFarmOutput(ctx *pulumi.Context, args LookupFarmOutputArgs, opts ...pulumi.InvokeOption) LookupFarmResultOutput {
@@ -92,6 +95,11 @@ func (o LookupFarmResultOutput) DisplayName() pulumi.StringPtrOutput {
 // The farm ID.
 func (o LookupFarmResultOutput) FarmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.FarmId }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupFarmResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFarmResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

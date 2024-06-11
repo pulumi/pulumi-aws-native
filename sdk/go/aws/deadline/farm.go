@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,6 +27,8 @@ type Farm struct {
 	FarmId pulumi.StringOutput `pulumi:"farmId"`
 	// The ARN for the KMS key.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFarm registers a new resource with the given unique name, arguments, and options.
@@ -81,6 +84,8 @@ type farmArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The ARN for the KMS key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Farm resource.
@@ -91,6 +96,8 @@ type FarmArgs struct {
 	DisplayName pulumi.StringInput
 	// The ARN for the KMS key.
 	KmsKeyArn pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (FarmArgs) ElementType() reflect.Type {
@@ -153,6 +160,11 @@ func (o FarmOutput) FarmId() pulumi.StringOutput {
 // The ARN for the KMS key.
 func (o FarmOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o FarmOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Farm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,6 +48,8 @@ type LookupFleetResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the fleet.
 	Status *FleetStatus `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The number of workers in the fleet summary.
 	WorkerCount *int `pulumi:"workerCount"`
 }
@@ -134,6 +137,11 @@ func (o LookupFleetResultOutput) RoleArn() pulumi.StringPtrOutput {
 // The status of the fleet.
 func (o LookupFleetResultOutput) Status() FleetStatusPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetStatus { return v.Status }).(FleetStatusPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The number of workers in the fleet summary.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,8 @@ type LookupQueueResult struct {
 	RequiredFileSystemLocationNames []string `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 	RoleArn *string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -134,6 +137,11 @@ func (o LookupQueueResultOutput) RequiredFileSystemLocationNames() pulumi.String
 // The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 func (o LookupQueueResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupQueueResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupQueueResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

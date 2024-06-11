@@ -73,6 +73,10 @@ namespace Pulumi.AwsNative.Deadline
         /// The farm ID.
         /// </summary>
         public readonly string? FarmId;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFarmResult(
@@ -82,12 +86,15 @@ namespace Pulumi.AwsNative.Deadline
 
             string? displayName,
 
-            string? farmId)
+            string? farmId,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;
             DisplayName = displayName;
             FarmId = farmId;
+            Tags = tags;
         }
     }
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,8 @@ class FleetArgs:
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  farm_id: Optional[pulumi.Input[str]] = None,
-                 min_worker_count: Optional[pulumi.Input[int]] = None):
+                 min_worker_count: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
@@ -33,6 +36,7 @@ class FleetArgs:
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "display_name", display_name)
@@ -44,6 +48,8 @@ class FleetArgs:
             pulumi.set(__self__, "farm_id", farm_id)
         if min_worker_count is not None:
             pulumi.set(__self__, "min_worker_count", min_worker_count)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -129,6 +135,18 @@ class FleetArgs:
     def min_worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_worker_count", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Fleet(pulumi.CustomResource):
     @overload
@@ -142,6 +160,7 @@ class Fleet(pulumi.CustomResource):
                  max_worker_count: Optional[pulumi.Input[int]] = None,
                  min_worker_count: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Fleet Resource Type
@@ -155,6 +174,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -187,6 +207,7 @@ class Fleet(pulumi.CustomResource):
                  max_worker_count: Optional[pulumi.Input[int]] = None,
                  min_worker_count: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -211,6 +232,7 @@ class Fleet(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["capabilities"] = None
             __props__.__dict__["fleet_id"] = None
@@ -251,6 +273,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["min_worker_count"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["worker_count"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
@@ -338,6 +361,14 @@ class Fleet(pulumi.CustomResource):
         The status of the fleet.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="workerCount")

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['FarmArgs', 'Farm']
 
@@ -16,18 +18,22 @@ class FarmArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Farm resource.
         :param pulumi.Input[str] display_name: The display name of the farm.
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "display_name", display_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -65,6 +71,18 @@ class FarmArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Farm(pulumi.CustomResource):
     @overload
@@ -74,6 +92,7 @@ class Farm(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Farm Resource Type
@@ -83,6 +102,7 @@ class Farm(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
         :param pulumi.Input[str] display_name: The display name of the farm.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -111,6 +131,7 @@ class Farm(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -125,6 +146,7 @@ class Farm(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["farm_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn"])
@@ -156,6 +178,7 @@ class Farm(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["farm_id"] = None
         __props__.__dict__["kms_key_arn"] = None
+        __props__.__dict__["tags"] = None
         return Farm(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -197,4 +220,12 @@ class Farm(pulumi.CustomResource):
         The ARN for the KMS key.
         """
         return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

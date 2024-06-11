@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, allowed_storage_profile_ids=None, arn=None, default_budget_action=None, description=None, display_name=None, job_attachment_settings=None, job_run_as_user=None, queue_id=None, required_file_system_location_names=None, role_arn=None):
+    def __init__(__self__, allowed_storage_profile_ids=None, arn=None, default_budget_action=None, description=None, display_name=None, job_attachment_settings=None, job_run_as_user=None, queue_id=None, required_file_system_location_names=None, role_arn=None, tags=None):
         if allowed_storage_profile_ids and not isinstance(allowed_storage_profile_ids, list):
             raise TypeError("Expected argument 'allowed_storage_profile_ids' to be a list")
         pulumi.set(__self__, "allowed_storage_profile_ids", allowed_storage_profile_ids)
@@ -51,6 +52,9 @@ class GetQueueResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="allowedStorageProfileIds")
@@ -132,6 +136,14 @@ class GetQueueResult:
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetQueueResult(GetQueueResult):
     # pylint: disable=using-constant-test
@@ -148,7 +160,8 @@ class AwaitableGetQueueResult(GetQueueResult):
             job_run_as_user=self.job_run_as_user,
             queue_id=self.queue_id,
             required_file_system_location_names=self.required_file_system_location_names,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            tags=self.tags)
 
 
 def get_queue(arn: Optional[str] = None,
@@ -174,7 +187,8 @@ def get_queue(arn: Optional[str] = None,
         job_run_as_user=pulumi.get(__ret__, 'job_run_as_user'),
         queue_id=pulumi.get(__ret__, 'queue_id'),
         required_file_system_location_names=pulumi.get(__ret__, 'required_file_system_location_names'),
-        role_arn=pulumi.get(__ret__, 'role_arn'))
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_queue)

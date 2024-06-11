@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Deadline
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The VCP(virtual private cloud) ID associated with the license endpoint.
         /// </summary>
         [Output("vpcId")]
@@ -136,6 +142,18 @@ namespace Pulumi.AwsNative.Deadline
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

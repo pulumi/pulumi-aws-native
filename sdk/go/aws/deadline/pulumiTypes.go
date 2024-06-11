@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type FarmTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type FleetAcceleratorCountRange struct {
 	Max *int `pulumi:"max"`
 	Min int  `pulumi:"min"`
@@ -1742,6 +1750,14 @@ func (o FleetServiceManagedEc2InstanceMarketOptionsPtrOutput) Type() FleetEc2Mar
 	}).(FleetEc2MarketTypePtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type FleetTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type FleetVCpuCountRange struct {
 	Max *int `pulumi:"max"`
 	Min int  `pulumi:"min"`
@@ -1837,6 +1853,14 @@ func (o FleetVCpuCountRangePtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return &v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LicenseEndpointTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 type QueueJobAttachmentSettings struct {
@@ -2324,6 +2348,14 @@ func (o QueuePosixUserPtrOutput) User() pulumi.StringPtrOutput {
 		}
 		return &v.User
 	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type QueueTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 type QueueWindowsUser struct {

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetFarmResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFarmResult:
-    def __init__(__self__, arn=None, description=None, display_name=None, farm_id=None):
+    def __init__(__self__, arn=None, description=None, display_name=None, farm_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -31,6 +32,9 @@ class GetFarmResult:
         if farm_id and not isinstance(farm_id, str):
             raise TypeError("Expected argument 'farm_id' to be a str")
         pulumi.set(__self__, "farm_id", farm_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -64,6 +68,14 @@ class GetFarmResult:
         """
         return pulumi.get(self, "farm_id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFarmResult(GetFarmResult):
     # pylint: disable=using-constant-test
@@ -74,7 +86,8 @@ class AwaitableGetFarmResult(GetFarmResult):
             arn=self.arn,
             description=self.description,
             display_name=self.display_name,
-            farm_id=self.farm_id)
+            farm_id=self.farm_id,
+            tags=self.tags)
 
 
 def get_farm(arn: Optional[str] = None,
@@ -94,7 +107,8 @@ def get_farm(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
-        farm_id=pulumi.get(__ret__, 'farm_id'))
+        farm_id=pulumi.get(__ret__, 'farm_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_farm)
