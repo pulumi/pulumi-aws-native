@@ -22,6 +22,7 @@ class GroupProfileArgs:
         The set of arguments for constructing a GroupProfile resource.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the group profile would be created.
         :param pulumi.Input[str] group_identifier: The ID of the group.
+        :param pulumi.Input['GroupProfileStatus'] status: The status of a group profile.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "group_identifier", group_identifier)
@@ -55,6 +56,9 @@ class GroupProfileArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['GroupProfileStatus']]:
+        """
+        The status of a group profile.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -78,6 +82,7 @@ class GroupProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the group profile would be created.
         :param pulumi.Input[str] group_identifier: The ID of the group.
+        :param pulumi.Input['GroupProfileStatus'] status: The status of a group profile.
         """
         ...
     @overload
@@ -200,5 +205,8 @@ class GroupProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['GroupProfileStatus']]:
+        """
+        The status of a group profile.
+        """
         return pulumi.get(self, "status")
 

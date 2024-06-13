@@ -23,6 +23,10 @@ class ProjectMembershipArgs:
                  project_identifier: pulumi.Input[str]):
         """
         The set of arguments for constructing a ProjectMembership resource.
+        :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
+        :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
+        :param pulumi.Input[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember1PropertiesArgs']] member: The details about a project member.
+        :param pulumi.Input[str] project_identifier: The ID of the project for which this project membership was created.
         """
         pulumi.set(__self__, "designation", designation)
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -32,6 +36,9 @@ class ProjectMembershipArgs:
     @property
     @pulumi.getter
     def designation(self) -> pulumi.Input['ProjectMembershipUserDesignation']:
+        """
+        The designated role of a project member.
+        """
         return pulumi.get(self, "designation")
 
     @designation.setter
@@ -41,6 +48,9 @@ class ProjectMembershipArgs:
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon DataZone domain in which project membership is created.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -50,6 +60,9 @@ class ProjectMembershipArgs:
     @property
     @pulumi.getter
     def member(self) -> pulumi.Input[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember1PropertiesArgs']]:
+        """
+        The details about a project member.
+        """
         return pulumi.get(self, "member")
 
     @member.setter
@@ -59,6 +72,9 @@ class ProjectMembershipArgs:
     @property
     @pulumi.getter(name="projectIdentifier")
     def project_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID of the project for which this project membership was created.
+        """
         return pulumi.get(self, "project_identifier")
 
     @project_identifier.setter
@@ -81,6 +97,10 @@ class ProjectMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
+        :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
+        :param pulumi.Input[Union[pulumi.InputType['ProjectMembershipMember0PropertiesArgs'], pulumi.InputType['ProjectMembershipMember1PropertiesArgs']]] member: The details about a project member.
+        :param pulumi.Input[str] project_identifier: The ID of the project for which this project membership was created.
         """
         ...
     @overload
@@ -164,20 +184,32 @@ class ProjectMembership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def designation(self) -> pulumi.Output['ProjectMembershipUserDesignation']:
+        """
+        The designated role of a project member.
+        """
         return pulumi.get(self, "designation")
 
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon DataZone domain in which project membership is created.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @property
     @pulumi.getter
     def member(self) -> pulumi.Output[Any]:
+        """
+        The details about a project member.
+        """
         return pulumi.get(self, "member")
 
     @property
     @pulumi.getter(name="projectIdentifier")
     def project_identifier(self) -> pulumi.Output[str]:
+        """
+        The ID of the project for which this project membership was created.
+        """
         return pulumi.get(self, "project_identifier")
 

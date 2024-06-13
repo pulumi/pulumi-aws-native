@@ -265,7 +265,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=90,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[root_ca_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
             certificate_authority_arn=subordinate_ca_one.id,
             certificate=subordinate_ca_one_ca_certificate.certificate,
@@ -317,7 +317,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=80,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
             certificate_authority_arn=subordinate_ca_two.id,
             certificate=subordinate_ca_two_ca_certificate.certificate,
@@ -354,7 +354,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=70,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
         pulumi.export("certificateArn", end_entity_certificate.arn)
 
@@ -465,7 +465,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=90,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[root_ca_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
             certificate_authority_arn=subordinate_ca_one.id,
             certificate=subordinate_ca_one_ca_certificate.certificate,
@@ -517,7 +517,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=80,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
             certificate_authority_arn=subordinate_ca_two.id,
             certificate=subordinate_ca_two_ca_certificate.certificate,
@@ -554,7 +554,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 type="DAYS",
                 value=70,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
+            opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
         pulumi.export("certificateArn", end_entity_certificate.arn)
 

@@ -262,7 +262,7 @@ class GameSessionQueue(pulumi.CustomResource):
             game_session_queue_arns=[queue_resource.arn],
             request_timeout_seconds=100,
             rule_set_name=matchmaking_rule_set_resource.id,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     queue_resource,
                     matchmaking_rule_set_resource,
                 ]))
@@ -366,7 +366,7 @@ class GameSessionQueue(pulumi.CustomResource):
             game_session_queue_arns=[queue_resource.arn],
             request_timeout_seconds=100,
             rule_set_name=matchmaking_rule_set_resource.id,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     queue_resource,
                     matchmaking_rule_set_resource,
                 ]))

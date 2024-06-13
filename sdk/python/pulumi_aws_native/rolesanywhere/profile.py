@@ -31,6 +31,7 @@ class ProfileArgs:
         """
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
         :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
         :param pulumi.Input[bool] enabled: The enabled status of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
@@ -72,6 +73,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="attributeMappings")
     def attribute_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]]:
+        """
+        A mapping applied to the authenticating end-entity certificate.
+        """
         return pulumi.get(self, "attribute_mappings")
 
     @attribute_mappings.setter
@@ -183,6 +187,7 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileAttributeMappingArgs']]]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
         :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
         :param pulumi.Input[bool] enabled: The enabled status of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
@@ -285,6 +290,9 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeMappings")
     def attribute_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.ProfileAttributeMapping']]]:
+        """
+        A mapping applied to the authenticating end-entity certificate.
+        """
         return pulumi.get(self, "attribute_mappings")
 
     @property

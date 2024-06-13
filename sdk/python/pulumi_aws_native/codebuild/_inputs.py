@@ -20,6 +20,11 @@ class FleetVpcConfigArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of one or more subnet IDs in your Amazon VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon VPC.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnets is not None:
@@ -30,6 +35,9 @@ class FleetVpcConfigArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -39,6 +47,9 @@ class FleetVpcConfigArgs:
     @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -48,6 +59,9 @@ class FleetVpcConfigArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter

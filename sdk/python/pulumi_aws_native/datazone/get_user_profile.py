@@ -61,11 +61,17 @@ class GetUserProfileResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['UserProfileStatus']:
+        """
+        The status of the user profile.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['UserProfileType']:
+        """
+        The type of the user profile.
+        """
         return pulumi.get(self, "type")
 
 

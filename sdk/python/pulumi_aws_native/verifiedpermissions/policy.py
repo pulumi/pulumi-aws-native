@@ -76,12 +76,12 @@ class Policy(pulumi.CustomResource):
         statement = config.require("statement")
         static_policy = aws_native.verifiedpermissions.Policy("staticPolicy",
             policy_store_id=policy_store_id,
-            definition={
-                "static": aws_native.verifiedpermissions.PolicyStaticPolicyDefinitionArgs(
+            definition=aws_native.verifiedpermissions.PolicyDefinition0PropertiesArgs(
+                static=aws_native.verifiedpermissions.PolicyStaticPolicyDefinitionArgs(
                     description=description,
                     statement=statement,
                 ),
-            })
+            ))
         pulumi.export("policyId", static_policy.policy_id)
 
         ```
@@ -100,8 +100,8 @@ class Policy(pulumi.CustomResource):
         resource_id = config.require("resourceId")
         template_linked_policy = aws_native.verifiedpermissions.Policy("templateLinkedPolicy",
             policy_store_id=policy_store_id,
-            definition={
-                "templateLinked": aws_native.verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs(
+            definition=aws_native.verifiedpermissions.PolicyDefinition0PropertiesArgs(
+                template_linked=aws_native.verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs(
                     policy_template_id=policy_template_id,
                     principal=aws_native.verifiedpermissions.PolicyEntityIdentifierArgs(
                         entity_type=principal_type,
@@ -112,7 +112,7 @@ class Policy(pulumi.CustomResource):
                         entity_id=resource_id,
                     ),
                 ),
-            })
+            ))
         pulumi.export("policyId", template_linked_policy.policy_id)
 
         ```
@@ -144,12 +144,12 @@ class Policy(pulumi.CustomResource):
         statement = config.require("statement")
         static_policy = aws_native.verifiedpermissions.Policy("staticPolicy",
             policy_store_id=policy_store_id,
-            definition={
-                "static": aws_native.verifiedpermissions.PolicyStaticPolicyDefinitionArgs(
+            definition=aws_native.verifiedpermissions.PolicyDefinition0PropertiesArgs(
+                static=aws_native.verifiedpermissions.PolicyStaticPolicyDefinitionArgs(
                     description=description,
                     statement=statement,
                 ),
-            })
+            ))
         pulumi.export("policyId", static_policy.policy_id)
 
         ```
@@ -168,8 +168,8 @@ class Policy(pulumi.CustomResource):
         resource_id = config.require("resourceId")
         template_linked_policy = aws_native.verifiedpermissions.Policy("templateLinkedPolicy",
             policy_store_id=policy_store_id,
-            definition={
-                "templateLinked": aws_native.verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs(
+            definition=aws_native.verifiedpermissions.PolicyDefinition0PropertiesArgs(
+                template_linked=aws_native.verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs(
                     policy_template_id=policy_template_id,
                     principal=aws_native.verifiedpermissions.PolicyEntityIdentifierArgs(
                         entity_type=principal_type,
@@ -180,7 +180,7 @@ class Policy(pulumi.CustomResource):
                         entity_id=resource_id,
                     ),
                 ),
-            })
+            ))
         pulumi.export("policyId", template_linked_policy.policy_id)
 
         ```

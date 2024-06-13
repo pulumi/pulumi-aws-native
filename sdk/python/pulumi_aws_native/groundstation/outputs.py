@@ -395,12 +395,18 @@ class ConfigDecodeConfig(dict):
 
     def __init__(__self__, *,
                  unvalidated_json: Optional[str] = None):
+        """
+        :param str unvalidated_json: The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+        """
         if unvalidated_json is not None:
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
     @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[str]:
+        """
+        The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+        """
         return pulumi.get(self, "unvalidated_json")
 
 
@@ -425,12 +431,18 @@ class ConfigDemodulationConfig(dict):
 
     def __init__(__self__, *,
                  unvalidated_json: Optional[str] = None):
+        """
+        :param str unvalidated_json: The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+        """
         if unvalidated_json is not None:
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
     @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[str]:
+        """
+        The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+        """
         return pulumi.get(self, "unvalidated_json")
 
 
@@ -886,6 +898,7 @@ class DataflowEndpointGroupConnectionDetails(dict):
         """
         Egress address of AgentEndpoint with an optional mtu.
         :param int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        :param 'DataflowEndpointGroupSocketAddress' socket_address: A socket address.
         """
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
@@ -903,6 +916,9 @@ class DataflowEndpointGroupConnectionDetails(dict):
     @property
     @pulumi.getter(name="socketAddress")
     def socket_address(self) -> Optional['outputs.DataflowEndpointGroupSocketAddress']:
+        """
+        A socket address.
+        """
         return pulumi.get(self, "socket_address")
 
 
@@ -914,6 +930,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
                  name: Optional[str] = None):
         """
         :param 'DataflowEndpointGroupSocketAddress' address: The address and port of an endpoint.
+        :param int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
         :param str name: The endpoint name.
                
                When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
@@ -936,6 +953,9 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
     @property
     @pulumi.getter
     def mtu(self) -> Optional[int]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+        """
         return pulumi.get(self, "mtu")
 
     @property
@@ -975,6 +995,7 @@ class DataflowEndpointGroupEndpointDetails(dict):
                  endpoint: Optional['outputs.DataflowEndpointGroupDataflowEndpoint'] = None,
                  security_details: Optional['outputs.DataflowEndpointGroupSecurityDetails'] = None):
         """
+        :param 'DataflowEndpointGroupAwsGroundStationAgentEndpoint' aws_ground_station_agent_endpoint: An agent endpoint.
         :param 'DataflowEndpointGroupDataflowEndpoint' endpoint: Information about the endpoint such as name and the endpoint address.
         :param 'DataflowEndpointGroupSecurityDetails' security_details: The role ARN, and IDs for security groups and subnets.
         """
@@ -988,6 +1009,9 @@ class DataflowEndpointGroupEndpointDetails(dict):
     @property
     @pulumi.getter(name="awsGroundStationAgentEndpoint")
     def aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupAwsGroundStationAgentEndpoint']:
+        """
+        An agent endpoint.
+        """
         return pulumi.get(self, "aws_ground_station_agent_endpoint")
 
     @property
@@ -1070,6 +1094,7 @@ class DataflowEndpointGroupRangedConnectionDetails(dict):
         """
         Ingress address of AgentEndpoint with a port range and an optional mtu.
         :param int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        :param 'DataflowEndpointGroupRangedSocketAddress' socket_address: A ranged socket address.
         """
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
@@ -1087,6 +1112,9 @@ class DataflowEndpointGroupRangedConnectionDetails(dict):
     @property
     @pulumi.getter(name="socketAddress")
     def socket_address(self) -> Optional['outputs.DataflowEndpointGroupRangedSocketAddress']:
+        """
+        A ranged socket address.
+        """
         return pulumi.get(self, "socket_address")
 
 

@@ -160,12 +160,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition={
-                "pipelineDefinitionS3Location": aws_native.sagemaker.PipelineS3LocationArgs(
+            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
+                pipeline_definition_s3_location=aws_native.sagemaker.PipelineS3LocationArgs(
                     bucket="<S3-bucket-location>",
                     key="<S3-bucket-key>",
                 ),
-            },
+            ),
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -179,9 +179,9 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition={
-                "pipelineDefinitionBody": "{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
-            },
+            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
+                pipeline_definition_body="{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
+            ),
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -216,12 +216,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition={
-                "pipelineDefinitionS3Location": aws_native.sagemaker.PipelineS3LocationArgs(
+            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
+                pipeline_definition_s3_location=aws_native.sagemaker.PipelineS3LocationArgs(
                     bucket="<S3-bucket-location>",
                     key="<S3-bucket-key>",
                 ),
-            },
+            ),
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -235,9 +235,9 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition={
-                "pipelineDefinitionBody": "{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
-            },
+            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
+                pipeline_definition_body="{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
+            ),
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```

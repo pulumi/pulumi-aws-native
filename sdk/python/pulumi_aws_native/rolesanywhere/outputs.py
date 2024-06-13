@@ -44,17 +44,27 @@ class ProfileAttributeMapping(dict):
     def __init__(__self__, *,
                  certificate_field: 'ProfileCertificateField',
                  mapping_rules: Sequence['outputs.ProfileMappingRule']):
+        """
+        :param 'ProfileCertificateField' certificate_field: Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        :param Sequence['ProfileMappingRule'] mapping_rules: A list of mapping entries for every supported specifier or sub-field.
+        """
         pulumi.set(__self__, "certificate_field", certificate_field)
         pulumi.set(__self__, "mapping_rules", mapping_rules)
 
     @property
     @pulumi.getter(name="certificateField")
     def certificate_field(self) -> 'ProfileCertificateField':
+        """
+        Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        """
         return pulumi.get(self, "certificate_field")
 
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Sequence['outputs.ProfileMappingRule']:
+        """
+        A list of mapping entries for every supported specifier or sub-field.
+        """
         return pulumi.get(self, "mapping_rules")
 
 
@@ -62,11 +72,17 @@ class ProfileAttributeMapping(dict):
 class ProfileMappingRule(dict):
     def __init__(__self__, *,
                  specifier: str):
+        """
+        :param str specifier: Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        """
         pulumi.set(__self__, "specifier", specifier)
 
     @property
     @pulumi.getter
     def specifier(self) -> str:
+        """
+        Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        """
         return pulumi.get(self, "specifier")
 
 
@@ -80,7 +96,7 @@ class TrustAnchorNotificationSetting(dict):
         """
         :param bool enabled: Indicates whether the notification setting is enabled.
         :param 'TrustAnchorNotificationEvent' event: The event to which this notification setting is applied.
-        :param 'TrustAnchorNotificationChannel' channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+        :param 'TrustAnchorNotificationChannel' channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
                
                > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         :param float threshold: The number of days before a notification event. This value is required for a notification setting that is enabled.
@@ -112,7 +128,7 @@ class TrustAnchorNotificationSetting(dict):
     @pulumi.getter
     def channel(self) -> Optional['TrustAnchorNotificationChannel']:
         """
-        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 
         > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         """

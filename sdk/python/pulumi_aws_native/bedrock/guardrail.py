@@ -33,10 +33,14 @@ class GuardrailArgs:
         The set of arguments for constructing a Guardrail resource.
         :param pulumi.Input[str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[str] blocked_outputs_messaging: Messaging for when violations are detected in text
+        :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: The content filter policies to configure for the guardrail.
         :param pulumi.Input[str] description: Description of the guardrail or its version
         :param pulumi.Input[str] kms_key_arn: The KMS key with which the guardrail was encrypted at rest
         :param pulumi.Input[str] name: Name of the guardrail
+        :param pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs'] sensitive_information_policy_config: The sensitive information policy to configure for the guardrail.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of Tags
+        :param pulumi.Input['GuardrailTopicPolicyConfigArgs'] topic_policy_config: The topic policies to configure for the guardrail.
+        :param pulumi.Input['GuardrailWordPolicyConfigArgs'] word_policy_config: The word policy you configure for the guardrail.
         """
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
         pulumi.set(__self__, "blocked_outputs_messaging", blocked_outputs_messaging)
@@ -84,6 +88,9 @@ class GuardrailArgs:
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]:
+        """
+        The content filter policies to configure for the guardrail.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @content_policy_config.setter
@@ -129,6 +136,9 @@ class GuardrailArgs:
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]:
+        """
+        The sensitive information policy to configure for the guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @sensitive_information_policy_config.setter
@@ -150,6 +160,9 @@ class GuardrailArgs:
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']]:
+        """
+        The topic policies to configure for the guardrail.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @topic_policy_config.setter
@@ -159,6 +172,9 @@ class GuardrailArgs:
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']]:
+        """
+        The word policy you configure for the guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 
     @word_policy_config.setter
@@ -189,10 +205,14 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[str] blocked_outputs_messaging: Messaging for when violations are detected in text
+        :param pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']] content_policy_config: The content filter policies to configure for the guardrail.
         :param pulumi.Input[str] description: Description of the guardrail or its version
         :param pulumi.Input[str] kms_key_arn: The KMS key with which the guardrail was encrypted at rest
         :param pulumi.Input[str] name: Name of the guardrail
+        :param pulumi.Input[pulumi.InputType['GuardrailSensitiveInformationPolicyConfigArgs']] sensitive_information_policy_config: The sensitive information policy to configure for the guardrail.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: List of Tags
+        :param pulumi.Input[pulumi.InputType['GuardrailTopicPolicyConfigArgs']] topic_policy_config: The topic policies to configure for the guardrail.
+        :param pulumi.Input[pulumi.InputType['GuardrailWordPolicyConfigArgs']] word_policy_config: The word policy you configure for the guardrail.
         """
         ...
     @overload
@@ -320,6 +340,9 @@ class Guardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailContentPolicyConfig']]:
+        """
+        The content filter policies to configure for the guardrail.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @property
@@ -381,11 +404,17 @@ class Guardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailSensitiveInformationPolicyConfig']]:
+        """
+        The sensitive information policy to configure for the guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['GuardrailStatus']:
+        """
+        The status of the guardrail.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -407,6 +436,9 @@ class Guardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailTopicPolicyConfig']]:
+        """
+        The topic policies to configure for the guardrail.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @property
@@ -428,5 +460,8 @@ class Guardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailWordPolicyConfig']]:
+        """
+        The word policy you configure for the guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 

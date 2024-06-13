@@ -78,7 +78,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
         module_default_version = aws_native.cloudformation.ModuleDefaultVersion("moduleDefaultVersion", arn=module_version2.id)
 
         ```
@@ -94,7 +94,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
         module_default_version = aws_native.cloudformation.ModuleDefaultVersion("moduleDefaultVersion", arn=module_version2.id)
 
         ```
@@ -132,7 +132,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
 
         ```
         ### Example
@@ -147,7 +147,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
 
         ```
 
@@ -180,7 +180,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
         module_default_version = aws_native.cloudformation.ModuleDefaultVersion("moduleDefaultVersion", arn=module_version2.id)
 
         ```
@@ -196,7 +196,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
         module_default_version = aws_native.cloudformation.ModuleDefaultVersion("moduleDefaultVersion", arn=module_version2.id)
 
         ```
@@ -234,7 +234,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
 
         ```
         ### Example
@@ -249,7 +249,7 @@ class ModuleVersion(pulumi.CustomResource):
         module_version2 = aws_native.cloudformation.ModuleVersion("moduleVersion2",
             module_name="My::Sample::Test::MODULE",
             module_package="s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
-            opts=pulumi.ResourceOptions(depends_on=[module_version1]))
+            opts = pulumi.ResourceOptions(depends_on=[module_version1]))
 
         ```
 

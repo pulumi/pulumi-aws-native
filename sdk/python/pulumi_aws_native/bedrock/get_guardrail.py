@@ -96,6 +96,9 @@ class GetGuardrailResult:
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> Optional['outputs.GuardrailContentPolicyConfig']:
+        """
+        The content filter policies to configure for the guardrail.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @property
@@ -157,11 +160,17 @@ class GetGuardrailResult:
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional['outputs.GuardrailSensitiveInformationPolicyConfig']:
+        """
+        The sensitive information policy to configure for the guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['GuardrailStatus']:
+        """
+        The status of the guardrail.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -183,6 +192,9 @@ class GetGuardrailResult:
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> Optional['outputs.GuardrailTopicPolicyConfig']:
+        """
+        The topic policies to configure for the guardrail.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @property
@@ -204,6 +216,9 @@ class GetGuardrailResult:
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> Optional['outputs.GuardrailWordPolicyConfig']:
+        """
+        The word policy you configure for the guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 
 

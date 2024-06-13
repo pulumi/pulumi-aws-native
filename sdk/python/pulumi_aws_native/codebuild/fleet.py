@@ -60,7 +60,15 @@ class FleetArgs:
                - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+        :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        :param pulumi.Input['FleetVpcConfigArgs'] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[str] name: The name of the compute fleet.
+        :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
+               
+               - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+               - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+               
+               > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -149,6 +157,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
@@ -158,6 +169,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="fleetVpcConfig")
     def fleet_vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
+        """
+        Information about the VPC configuration that AWS CodeBuild accesses.
+        """
         return pulumi.get(self, "fleet_vpc_config")
 
     @fleet_vpc_config.setter
@@ -179,6 +193,14 @@ class FleetArgs:
     @property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> Optional[pulumi.Input['FleetOverflowBehavior']]:
+        """
+        The compute fleet overflow behavior.
+
+        - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+        - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+
+        > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        """
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
@@ -250,7 +272,15 @@ class Fleet(pulumi.CustomResource):
                - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+        :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        :param pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[str] name: The name of the compute fleet.
+        :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
+               
+               - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+               - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+               
+               > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -401,11 +431,17 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        """
         return pulumi.get(self, "fleet_service_role")
 
     @property
     @pulumi.getter(name="fleetVpcConfig")
     def fleet_vpc_config(self) -> pulumi.Output[Optional['outputs.FleetVpcConfig']]:
+        """
+        Information about the VPC configuration that AWS CodeBuild accesses.
+        """
         return pulumi.get(self, "fleet_vpc_config")
 
     @property
@@ -419,6 +455,14 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> pulumi.Output[Optional['FleetOverflowBehavior']]:
+        """
+        The compute fleet overflow behavior.
+
+        - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+        - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+
+        > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        """
         return pulumi.get(self, "overflow_behavior")
 
     @property

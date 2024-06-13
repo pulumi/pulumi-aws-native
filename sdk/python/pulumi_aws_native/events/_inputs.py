@@ -414,6 +414,7 @@ class DeadLetterConfigPropertiesArgs:
                  arn: Optional[pulumi.Input[str]] = None):
         """
         Dead Letter Queue for the event bus.
+        :param pulumi.Input[str] arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -421,6 +422,9 @@ class DeadLetterConfigPropertiesArgs:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter

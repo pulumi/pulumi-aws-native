@@ -369,6 +369,7 @@ class ClusterConfigurationArgs:
         """
         The execute command configuration for the cluster.
         :param pulumi.Input['ClusterExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration.
+        :param pulumi.Input['ClusterManagedStorageConfigurationArgs'] managed_storage_configuration: The details of the managed storage configuration.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
@@ -390,6 +391,9 @@ class ClusterConfigurationArgs:
     @property
     @pulumi.getter(name="managedStorageConfiguration")
     def managed_storage_configuration(self) -> Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']]:
+        """
+        The details of the managed storage configuration.
+        """
         return pulumi.get(self, "managed_storage_configuration")
 
     @managed_storage_configuration.setter
@@ -556,6 +560,10 @@ class ClusterManagedStorageConfigurationArgs:
     def __init__(__self__, *,
                  fargate_ephemeral_storage_kms_key_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fargate_ephemeral_storage_kms_key_id: Specify the AWS Key Management Service key ID for the Fargate ephemeral storage.
+        :param pulumi.Input[str] kms_key_id: Specify a AWS Key Management Service key ID to encrypt the managed storage.
+        """
         if fargate_ephemeral_storage_kms_key_id is not None:
             pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
         if kms_key_id is not None:
@@ -564,6 +572,9 @@ class ClusterManagedStorageConfigurationArgs:
     @property
     @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
     def fargate_ephemeral_storage_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the AWS Key Management Service key ID for the Fargate ephemeral storage.
+        """
         return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
 
     @fargate_ephemeral_storage_kms_key_id.setter
@@ -573,6 +584,9 @@ class ClusterManagedStorageConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a AWS Key Management Service key ID to encrypt the managed storage.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

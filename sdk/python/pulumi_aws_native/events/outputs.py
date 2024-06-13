@@ -460,6 +460,7 @@ class DeadLetterConfigProperties(dict):
                  arn: Optional[str] = None):
         """
         Dead Letter Queue for the event bus.
+        :param str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -467,6 +468,9 @@ class DeadLetterConfigProperties(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
         return pulumi.get(self, "arn")
 
 

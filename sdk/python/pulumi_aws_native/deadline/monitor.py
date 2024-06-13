@@ -20,6 +20,10 @@ class MonitorArgs:
                  subdomain: pulumi.Input[str]):
         """
         The set of arguments for constructing a Monitor resource.
+        :param pulumi.Input[str] display_name: The name of the monitor that displays on the Deadline Cloud console.
+        :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        :param pulumi.Input[str] subdomain: The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
@@ -29,6 +33,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the monitor that displays on the Deadline Cloud console.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -38,6 +45,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @identity_center_instance_arn.setter
@@ -47,6 +57,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -56,6 +69,9 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def subdomain(self) -> pulumi.Input[str]:
+        """
+        The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
@@ -78,6 +94,10 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: The name of the monitor that displays on the Deadline Cloud console.
+        :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        :param pulumi.Input[str] subdomain: The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
         """
         ...
     @overload
@@ -174,35 +194,56 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the monitor that displays on the Deadline Cloud console.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @property
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the monitor.
+        """
         return pulumi.get(self, "monitor_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def subdomain(self) -> pulumi.Output[str]:
+        """
+        The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        """
         return pulumi.get(self, "subdomain")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        """
         return pulumi.get(self, "url")
 

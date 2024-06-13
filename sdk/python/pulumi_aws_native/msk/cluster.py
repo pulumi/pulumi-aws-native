@@ -35,7 +35,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Information about the broker nodes in the cluster.
         :param pulumi.Input[str] kafka_version: The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
         :param pulumi.Input[int] number_of_broker_nodes: The number of broker nodes in the cluster.
-        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: VPC connection control settings for brokers.
+        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Represents the configuration that you want MSK to use for the cluster.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
@@ -110,7 +110,7 @@ class ClusterArgs:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional[pulumi.Input['ClusterClientAuthenticationArgs']]:
         """
-        VPC connection control settings for brokers.
+        Includes all client authentication related information.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -252,7 +252,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Information about the broker nodes in the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: VPC connection control settings for brokers.
+        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Represents the configuration that you want MSK to use for the cluster.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
@@ -388,7 +388,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Output[Optional['outputs.ClusterClientAuthentication']]:
         """
-        VPC connection control settings for brokers.
+        Includes all client authentication related information.
         """
         return pulumi.get(self, "client_authentication")
 
