@@ -75,6 +75,7 @@ AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
+AWS::ApplicationSignals::ServiceLevelObjective
 AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
@@ -476,6 +477,7 @@ AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
 AWS::GuardDuty::Filter
 AWS::GuardDuty::IPSet
+AWS::GuardDuty::MalwareProtectionPlan
 AWS::GuardDuty::Master
 AWS::GuardDuty::Member
 AWS::GuardDuty::ThreatIntelSet
