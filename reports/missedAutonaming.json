@@ -2783,7 +2783,8 @@
         "description": "The ID of the group."
       },
       "status": {
-        "$ref": "#/types/aws-native:datazone:GroupProfileStatus"
+        "$ref": "#/types/aws-native:datazone:GroupProfileStatus",
+        "description": "The status of a group profile."
       }
     }
   },
@@ -2791,10 +2792,12 @@
     "cfTypeName": "AWS::DataZone::ProjectMembership",
     "properties": {
       "designation": {
-        "$ref": "#/types/aws-native:datazone:ProjectMembershipUserDesignation"
+        "$ref": "#/types/aws-native:datazone:ProjectMembershipUserDesignation",
+        "description": "The designated role of a project member."
       },
       "domainIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the Amazon DataZone domain in which project membership is created."
       },
       "member": {
         "oneOf": [
@@ -2804,10 +2807,12 @@
           {
             "$ref": "#/types/aws-native:datazone:ProjectMembershipMember1Properties"
           }
-        ]
+        ],
+        "description": "The details about a project member."
       },
       "projectIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the project for which this project membership was created."
       }
     }
   },
@@ -2819,14 +2824,16 @@
         "description": "The identifier of the Amazon DataZone domain in which the user profile would be created."
       },
       "status": {
-        "$ref": "#/types/aws-native:datazone:UserProfileStatus"
+        "$ref": "#/types/aws-native:datazone:UserProfileStatus",
+        "description": "The status of the user profile."
       },
       "userIdentifier": {
         "type": "string",
         "description": "The ID of the user."
       },
       "userType": {
-        "$ref": "#/types/aws-native:datazone:UserProfileUserType"
+        "$ref": "#/types/aws-native:datazone:UserProfileUserType",
+        "description": "The user type of the user for which the user profile is created."
       }
     }
   },
@@ -2960,16 +2967,20 @@
     "cfTypeName": "AWS::Deadline::Monitor",
     "properties": {
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of the monitor that displays on the Deadline Cloud console."
       },
       "identityCenterInstanceArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users."
       },
       "roleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources."
       },
       "subdomain": {
-        "type": "string"
+        "type": "string",
+        "description": "The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com."
       }
     }
   },
@@ -3044,7 +3055,7 @@
       },
       "template": {
         "type": "string",
-        "description": "A JSON or YAML template the describes the processing environment for the queue."
+        "description": "A JSON or YAML template that describes the processing environment for the queue."
       },
       "templateType": {
         "$ref": "#/types/aws-native:deadline:QueueEnvironmentEnvironmentTemplateType",
@@ -3282,7 +3293,7 @@
     "properties": {
       "allocationStrategy": {
         "type": "string",
-        "description": "The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.\n\nValid values: `prioritized`"
+        "description": "The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .\n\nValid values: `prioritized`"
       },
       "endDate": {
         "type": "string",
@@ -3320,7 +3331,7 @@
       },
       "totalTargetCapacity": {
         "type": "integer",
-        "description": "The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide."
+        "description": "The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the *Amazon EC2 User Guide* ."
       }
     }
   },
@@ -3348,7 +3359,8 @@
         "description": "For devices that support BGP, the customer gateway's BGP ASN.\n Default: 65000"
       },
       "bgpAsnExtended": {
-        "type": "number"
+        "type": "number",
+        "description": "For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .\n\nValid values: `2,147,483,648` to `4,294,967,295`"
       },
       "certificateArn": {
         "type": "string",
@@ -11218,7 +11230,8 @@
     "cfTypeName": "AWS::SecurityLake::SubscriberNotification",
     "properties": {
       "notificationConfiguration": {
-        "$ref": "#/types/aws-native:securitylake:SubscriberNotificationNotificationConfiguration"
+        "$ref": "#/types/aws-native:securitylake:SubscriberNotificationNotificationConfiguration",
+        "description": "Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake ."
       },
       "subscriberArn": {
         "type": "string",
@@ -12373,7 +12386,7 @@
       },
       "authenticationType": {
         "$ref": "#/types/aws-native:workspacesweb:PortalAuthenticationType",
-        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation."
+        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation."
       },
       "browserSettingsArn": {
         "type": "string",
