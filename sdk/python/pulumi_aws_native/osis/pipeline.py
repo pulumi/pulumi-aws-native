@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PipelineArgs', 'Pipeline']
@@ -253,6 +254,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["pipeline_arn"] = None
+            __props__.__dict__["vpc_endpoint_service"] = None
             __props__.__dict__["vpc_endpoints"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["pipelineName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -288,6 +290,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["pipeline_configuration_body"] = None
         __props__.__dict__["pipeline_name"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_endpoint_service"] = None
         __props__.__dict__["vpc_endpoints"] = None
         __props__.__dict__["vpc_options"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
@@ -371,6 +374,14 @@ class Pipeline(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcEndpointService")
+    def vpc_endpoint_service(self) -> pulumi.Output[str]:
+        """
+        The VPC endpoint service name for the pipeline.
+        """
+        return pulumi.get(self, "vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="vpcEndpoints")

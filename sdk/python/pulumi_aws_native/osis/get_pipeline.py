@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetPipelineResult',
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, buffer_options=None, encryption_at_rest_options=None, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, tags=None, vpc_endpoints=None):
+    def __init__(__self__, buffer_options=None, encryption_at_rest_options=None, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, tags=None, vpc_endpoint_service=None, vpc_endpoints=None):
         if buffer_options and not isinstance(buffer_options, dict):
             raise TypeError("Expected argument 'buffer_options' to be a dict")
         pulumi.set(__self__, "buffer_options", buffer_options)
@@ -48,6 +49,9 @@ class GetPipelineResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_service and not isinstance(vpc_endpoint_service, str):
+            raise TypeError("Expected argument 'vpc_endpoint_service' to be a str")
+        pulumi.set(__self__, "vpc_endpoint_service", vpc_endpoint_service)
         if vpc_endpoints and not isinstance(vpc_endpoints, list):
             raise TypeError("Expected argument 'vpc_endpoints' to be a list")
         pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
@@ -125,6 +129,14 @@ class GetPipelineResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="vpcEndpointService")
+    def vpc_endpoint_service(self) -> Optional[str]:
+        """
+        The VPC endpoint service name for the pipeline.
+        """
+        return pulumi.get(self, "vpc_endpoint_service")
+
+    @property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Optional[Sequence['outputs.PipelineVpcEndpoint']]:
         """
@@ -148,6 +160,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             pipeline_arn=self.pipeline_arn,
             pipeline_configuration_body=self.pipeline_configuration_body,
             tags=self.tags,
+            vpc_endpoint_service=self.vpc_endpoint_service,
             vpc_endpoints=self.vpc_endpoints)
 
 
@@ -174,6 +187,7 @@ def get_pipeline(pipeline_arn: Optional[str] = None,
         pipeline_arn=pulumi.get(__ret__, 'pipeline_arn'),
         pipeline_configuration_body=pulumi.get(__ret__, 'pipeline_configuration_body'),
         tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_service=pulumi.get(__ret__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
 
 

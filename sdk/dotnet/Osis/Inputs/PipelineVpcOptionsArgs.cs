@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Osis.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+        /// </summary>
+        [Input("vpcEndpointManagement")]
+        public Input<Pulumi.AwsNative.Osis.PipelineVpcOptionsVpcEndpointManagement>? VpcEndpointManagement { get; set; }
+
         public PipelineVpcOptionsArgs()
         {
         }

@@ -47,6 +47,8 @@ type LookupPipelineResult struct {
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC endpoint service name for the pipeline.
+	VpcEndpointService *string `pulumi:"vpcEndpointService"`
 	// The VPC interface endpoints that have access to the pipeline.
 	VpcEndpoints []PipelineVpcEndpoint `pulumi:"vpcEndpoints"`
 }
@@ -130,6 +132,11 @@ func (o LookupPipelineResultOutput) PipelineConfigurationBody() pulumi.StringPtr
 // An array of key-value pairs to apply to this resource.
 func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The VPC endpoint service name for the pipeline.
+func (o LookupPipelineResultOutput) VpcEndpointService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.VpcEndpointService }).(pulumi.StringPtrOutput)
 }
 
 // The VPC interface endpoints that have access to the pipeline.

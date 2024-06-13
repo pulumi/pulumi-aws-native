@@ -30,6 +30,11 @@ export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
 export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
 utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
 
+export { GetMalwareProtectionPlanArgs, GetMalwareProtectionPlanResult, GetMalwareProtectionPlanOutputArgs } from "./getMalwareProtectionPlan";
+export const getMalwareProtectionPlan: typeof import("./getMalwareProtectionPlan").getMalwareProtectionPlan = null as any;
+export const getMalwareProtectionPlanOutput: typeof import("./getMalwareProtectionPlan").getMalwareProtectionPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getMalwareProtectionPlan","getMalwareProtectionPlanOutput"], () => require("./getMalwareProtectionPlan"));
+
 export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
 export const getMember: typeof import("./getMember").getMember = null as any;
 export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
@@ -44,6 +49,11 @@ export { IpSetArgs } from "./ipSet";
 export type IpSet = import("./ipSet").IpSet;
 export const IpSet: typeof import("./ipSet").IpSet = null as any;
 utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
+
+export { MalwareProtectionPlanArgs } from "./malwareProtectionPlan";
+export type MalwareProtectionPlan = import("./malwareProtectionPlan").MalwareProtectionPlan;
+export const MalwareProtectionPlan: typeof import("./malwareProtectionPlan").MalwareProtectionPlan = null as any;
+utilities.lazyLoad(exports, ["MalwareProtectionPlan"], () => require("./malwareProtectionPlan"));
 
 export { MasterArgs } from "./master";
 export type Master = import("./master").Master;
@@ -74,6 +84,8 @@ const _module = {
                 return new Filter(name, <any>undefined, { urn })
             case "aws-native:guardduty:IpSet":
                 return new IpSet(name, <any>undefined, { urn })
+            case "aws-native:guardduty:MalwareProtectionPlan":
+                return new MalwareProtectionPlan(name, <any>undefined, { urn })
             case "aws-native:guardduty:Master":
                 return new Master(name, <any>undefined, { urn })
             case "aws-native:guardduty:Member":

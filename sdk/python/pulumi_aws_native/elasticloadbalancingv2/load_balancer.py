@@ -31,7 +31,10 @@ class LoadBalancerArgs:
         """
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
-        :param pulumi.Input[str] ip_address_type: The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+        :param pulumi.Input[str] ip_address_type: Note: Internal load balancers must use the ``ipv4`` IP address type.
+                [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+                [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+                [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -92,7 +95,10 @@ class LoadBalancerArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+        Note: Internal load balancers must use the ``ipv4`` IP address type.
+         [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+         [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+         [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -233,7 +239,10 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
-        :param pulumi.Input[str] ip_address_type: The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+        :param pulumi.Input[str] ip_address_type: Note: Internal load balancers must use the ``ipv4`` IP address type.
+                [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+                [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+                [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -384,7 +393,10 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+        Note: Internal load balancers must use the ``ipv4`` IP address type.
+         [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+         [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+         [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
         """
         return pulumi.get(self, "ip_address_type")
 

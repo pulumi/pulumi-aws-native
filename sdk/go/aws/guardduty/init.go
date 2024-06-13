@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Filter{}
 	case "aws-native:guardduty:IpSet":
 		r = &IpSet{}
+	case "aws-native:guardduty:MalwareProtectionPlan":
+		r = &MalwareProtectionPlan{}
 	case "aws-native:guardduty:Master":
 		r = &Master{}
 	case "aws-native:guardduty:Member":

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'PipelineBufferOptions',
@@ -266,6 +267,8 @@ class PipelineVpcOptions(dict):
             suggest = "subnet_ids"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "vpcEndpointManagement":
+            suggest = "vpc_endpoint_management"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineVpcOptions. Access the value via the '{suggest}' property getter instead.")
@@ -280,15 +283,19 @@ class PipelineVpcOptions(dict):
 
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
-                 security_group_ids: Optional[Sequence[str]] = None):
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 vpc_endpoint_management: Optional['PipelineVpcOptionsVpcEndpointManagement'] = None):
         """
         Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
         :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param Sequence[str] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param 'PipelineVpcOptionsVpcEndpointManagement' vpc_endpoint_management: Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_endpoint_management is not None:
+            pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -305,5 +312,13 @@ class PipelineVpcOptions(dict):
         A list of security groups associated with the VPC endpoint.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="vpcEndpointManagement")
+    def vpc_endpoint_management(self) -> Optional['PipelineVpcOptionsVpcEndpointManagement']:
+        """
+        Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+        """
+        return pulumi.get(self, "vpc_endpoint_management")
 
 

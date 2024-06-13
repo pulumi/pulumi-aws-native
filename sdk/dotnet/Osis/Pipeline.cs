@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Osis
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The VPC endpoint service name for the pipeline.
+        /// </summary>
+        [Output("vpcEndpointService")]
+        public Output<string> VpcEndpointService { get; private set; } = null!;
+
+        /// <summary>
         /// The VPC interface endpoints that have access to the pipeline.
         /// </summary>
         [Output("vpcEndpoints")]

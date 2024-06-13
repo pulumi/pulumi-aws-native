@@ -63,6 +63,10 @@ export interface GetPipelineResult {
      */
     readonly tags?: outputs.Tag[];
     /**
+     * The VPC endpoint service name for the pipeline.
+     */
+    readonly vpcEndpointService?: string;
+    /**
      * The VPC interface endpoints that have access to the pipeline.
      */
     readonly vpcEndpoints?: outputs.osis.PipelineVpcEndpoint[];

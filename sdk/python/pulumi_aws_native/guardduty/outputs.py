@@ -22,6 +22,11 @@ __all__ = [
     'DetectorCfns3LogsConfiguration',
     'FilterCondition',
     'FilterFindingCriteria',
+    'MalwareProtectionPlanCfnActions',
+    'MalwareProtectionPlanCfnProtectedResource',
+    'MalwareProtectionPlanCfnProtectedResourceS3BucketProperties',
+    'MalwareProtectionPlanCfnStatusReasons',
+    'MalwareProtectionPlanCfnTagging',
 ]
 
 @pulumi.output_type
@@ -661,5 +666,163 @@ class FilterFindingCriteria(dict):
         - resource.lambdaDetails.tags.value
         """
         return pulumi.get(self, "criterion")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanCfnActions(dict):
+    def __init__(__self__, *,
+                 tagging: Optional['outputs.MalwareProtectionPlanCfnTagging'] = None):
+        """
+        :param 'MalwareProtectionPlanCfnTagging' tagging: Indicates whether the scanned S3 object will have tags about the scan result.
+        """
+        if tagging is not None:
+            pulumi.set(__self__, "tagging", tagging)
+
+    @property
+    @pulumi.getter
+    def tagging(self) -> Optional['outputs.MalwareProtectionPlanCfnTagging']:
+        """
+        Indicates whether the scanned S3 object will have tags about the scan result.
+        """
+        return pulumi.get(self, "tagging")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanCfnProtectedResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MalwareProtectionPlanCfnProtectedResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MalwareProtectionPlanCfnProtectedResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MalwareProtectionPlanCfnProtectedResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: 'outputs.MalwareProtectionPlanCfnProtectedResourceS3BucketProperties'):
+        """
+        :param 'MalwareProtectionPlanCfnProtectedResourceS3BucketProperties' s3_bucket: Information about the protected S3 bucket resource.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> 'outputs.MalwareProtectionPlanCfnProtectedResourceS3BucketProperties':
+        """
+        Information about the protected S3 bucket resource.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanCfnProtectedResourceS3BucketProperties(dict):
+    """
+    Information about the protected S3 bucket resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "objectPrefixes":
+            suggest = "object_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MalwareProtectionPlanCfnProtectedResourceS3BucketProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MalwareProtectionPlanCfnProtectedResourceS3BucketProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MalwareProtectionPlanCfnProtectedResourceS3BucketProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[str] = None,
+                 object_prefixes: Optional[Sequence[str]] = None):
+        """
+        Information about the protected S3 bucket resource.
+        :param str bucket_name: Name of the S3 bucket.
+        :param Sequence[str] object_prefixes: Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if object_prefixes is not None:
+            pulumi.set(__self__, "object_prefixes", object_prefixes)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="objectPrefixes")
+    def object_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+        """
+        return pulumi.get(self, "object_prefixes")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanCfnStatusReasons(dict):
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        :param str code: Issue code.
+        :param str message: Issue message that specifies the reason.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Issue code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Issue message that specifies the reason.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanCfnTagging(dict):
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        :param str status: Indicates whether or not the tags will added.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether or not the tags will added.
+        """
+        return pulumi.get(self, "status")
 
 

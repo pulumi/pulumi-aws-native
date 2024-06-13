@@ -664,6 +664,8 @@ type PipelineVpcOptions struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+	VpcEndpointManagement *PipelineVpcOptionsVpcEndpointManagement `pulumi:"vpcEndpointManagement"`
 }
 
 // PipelineVpcOptionsInput is an input type that accepts PipelineVpcOptionsArgs and PipelineVpcOptionsOutput values.
@@ -683,6 +685,8 @@ type PipelineVpcOptionsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+	VpcEndpointManagement PipelineVpcOptionsVpcEndpointManagementPtrInput `pulumi:"vpcEndpointManagement"`
 }
 
 func (PipelineVpcOptionsArgs) ElementType() reflect.Type {
@@ -773,6 +777,11 @@ func (o PipelineVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+func (o PipelineVpcOptionsOutput) VpcEndpointManagement() PipelineVpcOptionsVpcEndpointManagementPtrOutput {
+	return o.ApplyT(func(v PipelineVpcOptions) *PipelineVpcOptionsVpcEndpointManagement { return v.VpcEndpointManagement }).(PipelineVpcOptionsVpcEndpointManagementPtrOutput)
+}
+
 type PipelineVpcOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineVpcOptionsPtrOutput) ElementType() reflect.Type {
@@ -815,6 +824,16 @@ func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+func (o PipelineVpcOptionsPtrOutput) VpcEndpointManagement() PipelineVpcOptionsVpcEndpointManagementPtrOutput {
+	return o.ApplyT(func(v *PipelineVpcOptions) *PipelineVpcOptionsVpcEndpointManagement {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointManagement
+	}).(PipelineVpcOptionsVpcEndpointManagementPtrOutput)
 }
 
 func init() {

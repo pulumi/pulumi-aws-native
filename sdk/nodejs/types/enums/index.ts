@@ -7,6 +7,7 @@ import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
+import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
 import * as arczonalshift from "./arczonalshift";
@@ -109,6 +110,7 @@ import * as oam from "./oam";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as organizations from "./organizations";
+import * as osis from "./osis";
 import * as panorama from "./panorama";
 import * as paymentcryptography from "./paymentcryptography";
 import * as pcaconnectorad from "./pcaconnectorad";
@@ -166,6 +168,7 @@ export {
     apigateway,
     appflow,
     applicationinsights,
+    applicationsignals,
     apprunner,
     appsync,
     arczonalshift,
@@ -268,6 +271,7 @@ export {
     omics,
     opensearchserverless,
     organizations,
+    osis,
     panorama,
     paymentcryptography,
     pcaconnectorad,

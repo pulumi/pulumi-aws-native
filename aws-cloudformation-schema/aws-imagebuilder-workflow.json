@@ -69,7 +69,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "kms:GenerateDataKey*", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetWorkflow", "imagebuilder:CreateWorkflow" ]
+      "permissions" : [ "iam:GetRole", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetWorkflow", "imagebuilder:CreateWorkflow" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetWorkflow" ]

@@ -37,6 +37,8 @@ type Pipeline struct {
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC endpoint service name for the pipeline.
+	VpcEndpointService pulumi.StringOutput `pulumi:"vpcEndpointService"`
 	// The VPC interface endpoints that have access to the pipeline.
 	VpcEndpoints PipelineVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
 	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
@@ -223,6 +225,11 @@ func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 func (o PipelineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The VPC endpoint service name for the pipeline.
+func (o PipelineOutput) VpcEndpointService() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.VpcEndpointService }).(pulumi.StringOutput)
 }
 
 // The VPC interface endpoints that have access to the pipeline.

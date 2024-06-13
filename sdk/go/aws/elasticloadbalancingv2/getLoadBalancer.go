@@ -35,7 +35,10 @@ type LookupLoadBalancerResult struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
-	// The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+	// Note: Internal load balancers must use the ``ipv4`` IP address type.
+	//  [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+	//  [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+	//  [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
@@ -118,7 +121,11 @@ func (o LookupLoadBalancerResultOutput) EnforceSecurityGroupInboundRulesOnPrivat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP address type. The possible values are “ipv4“ (for IPv4 addresses) and “dualstack“ (for IPv4 and IPv6 addresses). You can’t specify “dualstack“ for a load balancer with a UDP or TCP_UDP listener.
+// Note: Internal load balancers must use the “ipv4“ IP address type.
+//
+//	[Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+//	[Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
+//	[Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
 func (o LookupLoadBalancerResultOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }

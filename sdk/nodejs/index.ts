@@ -76,6 +76,7 @@ import * as appflow from "./appflow";
 import * as appintegrations from "./appintegrations";
 import * as applicationautoscaling from "./applicationautoscaling";
 import * as applicationinsights from "./applicationinsights";
+import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
@@ -291,6 +292,7 @@ export {
     appintegrations,
     applicationautoscaling,
     applicationinsights,
+    applicationsignals,
     apprunner,
     appstream,
     appsync,

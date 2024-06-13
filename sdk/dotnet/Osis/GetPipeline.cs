@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The VPC endpoint service name for the pipeline.
+        /// </summary>
+        public readonly string? VpcEndpointService;
+        /// <summary>
         /// The VPC interface endpoints that have access to the pipeline.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineVpcEndpoint> VpcEndpoints;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Osis
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? vpcEndpointService,
+
             ImmutableArray<Outputs.PipelineVpcEndpoint> vpcEndpoints)
         {
             BufferOptions = bufferOptions;
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.Osis
             PipelineArn = pipelineArn;
             PipelineConfigurationBody = pipelineConfigurationBody;
             Tags = tags;
+            VpcEndpointService = vpcEndpointService;
             VpcEndpoints = vpcEndpoints;
         }
     }

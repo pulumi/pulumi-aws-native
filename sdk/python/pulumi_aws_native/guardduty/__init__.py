@@ -11,9 +11,11 @@ from .filter import *
 from .get_detector import *
 from .get_filter import *
 from .get_ip_set import *
+from .get_malware_protection_plan import *
 from .get_member import *
 from .get_threat_intel_set import *
 from .ip_set import *
+from .malware_protection_plan import *
 from .master import *
 from .member import *
 from .threat_intel_set import *

@@ -4539,6 +4539,172 @@ export namespace applicationinsights {
 
 }
 
+export namespace applicationsignals {
+    /**
+     * If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
+     */
+    export interface ServiceLevelObjectiveCalendarInterval {
+        duration: number;
+        durationUnit: enums.applicationsignals.ServiceLevelObjectiveDurationUnit;
+        /**
+         * Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
+         * As soon as one calendar interval ends, another automatically begins.
+         */
+        startTime: number;
+    }
+
+    /**
+     * A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension. You can assign up to 30 dimensions to a metric.
+     */
+    export interface ServiceLevelObjectiveDimension {
+        /**
+         * The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:). ASCII control characters are not supported as part of dimension names.
+         */
+        name: string;
+        /**
+         * The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values
+         */
+        value: string;
+    }
+
+    /**
+     * A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
+     */
+    export interface ServiceLevelObjectiveGoal {
+        /**
+         * The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+         * If you omit this parameter, 99 is used to represent 99% as the attainment goal.
+         */
+        attainmentGoal?: number;
+        interval?: outputs.applicationsignals.ServiceLevelObjectiveInterval;
+        /**
+         * The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
+         */
+        warningThreshold?: number;
+    }
+
+    /**
+     * The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+     * If you omit this parameter, a rolling interval of 7 days is used.
+     */
+    export interface ServiceLevelObjectiveInterval {
+        calendarInterval?: outputs.applicationsignals.ServiceLevelObjectiveCalendarInterval;
+        rollingInterval?: outputs.applicationsignals.ServiceLevelObjectiveRollingInterval;
+    }
+
+    /**
+     * This structure defines the metric used for a service level indicator, including the metric name, namespace, and dimensions.
+     */
+    export interface ServiceLevelObjectiveMetric {
+        /**
+         * An array of one or more dimensions to use to define the metric that you want to use.
+         */
+        dimensions?: outputs.applicationsignals.ServiceLevelObjectiveDimension[];
+        /**
+         * The name of the metric to use.
+         */
+        metricName?: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace?: string;
+    }
+
+    /**
+     * Use this structure to define a metric or metric math expression that you want to use as for a service level objective.
+     * Each `MetricDataQuery` in the `MetricDataQueries` array specifies either a metric to retrieve, or a metric math expression to be performed on retrieved metrics. A single `MetricDataQueries` array can include as many as 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those Expression structures, exactly one must have true as the value for `ReturnData`. The result of this expression used for the SLO.
+     */
+    export interface ServiceLevelObjectiveMetricDataQuery {
+        /**
+         * The ID of the account where the metrics are located, if this is a cross-account alarm.
+         */
+        accountId?: string;
+        /**
+         * The math expression to be performed on the returned data.
+         */
+        expression?: string;
+        /**
+         * A short name used to tie this object to the results in the response.
+         */
+        id: string;
+        /**
+         * A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery, you must specify either Expression or MetricStat but not both.
+         */
+        metricStat?: outputs.applicationsignals.ServiceLevelObjectiveMetricStat;
+        /**
+         * This option indicates whether to return the timestamps and raw data values of this metric.
+         */
+        returnData?: boolean;
+    }
+
+    /**
+     * A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
+     */
+    export interface ServiceLevelObjectiveMetricStat {
+        metric: outputs.applicationsignals.ServiceLevelObjectiveMetric;
+        /**
+         * The granularity, in seconds, to be used for the metric.
+         */
+        period: number;
+        /**
+         * The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic.
+         */
+        stat: string;
+        /**
+         * If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
+         */
+        unit?: string;
+    }
+
+    /**
+     * If the interval is a calendar interval, this structure contains the interval specifications.
+     */
+    export interface ServiceLevelObjectiveRollingInterval {
+        duration: number;
+        durationUnit: enums.applicationsignals.ServiceLevelObjectiveDurationUnit;
+    }
+
+    /**
+     * This structure contains information about the performance metric that an SLO monitors.
+     */
+    export interface ServiceLevelObjectiveSli {
+        /**
+         * The arithmetic operation used when comparing the specified metric to the threshold.
+         */
+        comparisonOperator: enums.applicationsignals.ServiceLevelObjectiveSliComparisonOperator;
+        /**
+         * The value that the SLI metric is compared to.
+         */
+        metricThreshold: number;
+        sliMetric: outputs.applicationsignals.ServiceLevelObjectiveSliMetric;
+    }
+
+    /**
+     * A structure that contains information about the metric that the SLO monitors.
+     */
+    export interface ServiceLevelObjectiveSliMetric {
+        keyAttributes?: {[key: string]: string};
+        metricDataQueries?: outputs.applicationsignals.ServiceLevelObjectiveMetricDataQuery[];
+        /**
+         * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+         */
+        metricType?: enums.applicationsignals.ServiceLevelObjectiveSliMetricMetricType;
+        /**
+         * If the SLO monitors a specific operation of the service, this field displays that operation name.
+         */
+        operationName?: string;
+        /**
+         * The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
+         */
+        periodSeconds?: number;
+        /**
+         * The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
+         */
+        statistic?: string;
+    }
+
+}
+
 export namespace apprunner {
     /**
      * Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
@@ -29066,6 +29232,52 @@ export namespace guardduty {
         criterion?: {[key: string]: outputs.guardduty.FilterCondition};
     }
 
+    export interface MalwareProtectionPlanCfnActions {
+        /**
+         * Indicates whether the scanned S3 object will have tags about the scan result.
+         */
+        tagging?: outputs.guardduty.MalwareProtectionPlanCfnTagging;
+    }
+
+    export interface MalwareProtectionPlanCfnProtectedResource {
+        /**
+         * Information about the protected S3 bucket resource.
+         */
+        s3Bucket: outputs.guardduty.MalwareProtectionPlanCfnProtectedResourceS3BucketProperties;
+    }
+
+    /**
+     * Information about the protected S3 bucket resource.
+     */
+    export interface MalwareProtectionPlanCfnProtectedResourceS3BucketProperties {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucketName?: string;
+        /**
+         * Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+         */
+        objectPrefixes?: string[];
+    }
+
+    export interface MalwareProtectionPlanCfnStatusReasons {
+        /**
+         * Issue code.
+         */
+        code?: string;
+        /**
+         * Issue message that specifies the reason.
+         */
+        message?: string;
+    }
+
+    export interface MalwareProtectionPlanCfnTagging {
+        /**
+         * Indicates whether or not the tags will added.
+         */
+        status?: string;
+    }
+
 }
 
 export namespace healthlake {
@@ -45928,6 +46140,10 @@ export namespace osis {
          * A list of subnet IDs associated with the VPC endpoint.
          */
         subnetIds: string[];
+        /**
+         * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+         */
+        vpcEndpointManagement?: enums.osis.PipelineVpcOptionsVpcEndpointManagement;
     }
 
 }

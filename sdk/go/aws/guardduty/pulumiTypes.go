@@ -1765,6 +1765,532 @@ type IpSetTagItem struct {
 	Value string `pulumi:"value"`
 }
 
+type MalwareProtectionPlanCfnActions struct {
+	// Indicates whether the scanned S3 object will have tags about the scan result.
+	Tagging *MalwareProtectionPlanCfnTagging `pulumi:"tagging"`
+}
+
+// MalwareProtectionPlanCfnActionsInput is an input type that accepts MalwareProtectionPlanCfnActionsArgs and MalwareProtectionPlanCfnActionsOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnActionsInput` via:
+//
+//	MalwareProtectionPlanCfnActionsArgs{...}
+type MalwareProtectionPlanCfnActionsInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnActionsOutput() MalwareProtectionPlanCfnActionsOutput
+	ToMalwareProtectionPlanCfnActionsOutputWithContext(context.Context) MalwareProtectionPlanCfnActionsOutput
+}
+
+type MalwareProtectionPlanCfnActionsArgs struct {
+	// Indicates whether the scanned S3 object will have tags about the scan result.
+	Tagging MalwareProtectionPlanCfnTaggingPtrInput `pulumi:"tagging"`
+}
+
+func (MalwareProtectionPlanCfnActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnActions)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanCfnActionsArgs) ToMalwareProtectionPlanCfnActionsOutput() MalwareProtectionPlanCfnActionsOutput {
+	return i.ToMalwareProtectionPlanCfnActionsOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnActionsArgs) ToMalwareProtectionPlanCfnActionsOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnActionsOutput)
+}
+
+func (i MalwareProtectionPlanCfnActionsArgs) ToMalwareProtectionPlanCfnActionsPtrOutput() MalwareProtectionPlanCfnActionsPtrOutput {
+	return i.ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnActionsArgs) ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnActionsOutput).ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(ctx)
+}
+
+// MalwareProtectionPlanCfnActionsPtrInput is an input type that accepts MalwareProtectionPlanCfnActionsArgs, MalwareProtectionPlanCfnActionsPtr and MalwareProtectionPlanCfnActionsPtrOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnActionsPtrInput` via:
+//
+//	        MalwareProtectionPlanCfnActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MalwareProtectionPlanCfnActionsPtrInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnActionsPtrOutput() MalwareProtectionPlanCfnActionsPtrOutput
+	ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(context.Context) MalwareProtectionPlanCfnActionsPtrOutput
+}
+
+type malwareProtectionPlanCfnActionsPtrType MalwareProtectionPlanCfnActionsArgs
+
+func MalwareProtectionPlanCfnActionsPtr(v *MalwareProtectionPlanCfnActionsArgs) MalwareProtectionPlanCfnActionsPtrInput {
+	return (*malwareProtectionPlanCfnActionsPtrType)(v)
+}
+
+func (*malwareProtectionPlanCfnActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnActions)(nil)).Elem()
+}
+
+func (i *malwareProtectionPlanCfnActionsPtrType) ToMalwareProtectionPlanCfnActionsPtrOutput() MalwareProtectionPlanCfnActionsPtrOutput {
+	return i.ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *malwareProtectionPlanCfnActionsPtrType) ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnActionsPtrOutput)
+}
+
+type MalwareProtectionPlanCfnActionsOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnActions)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnActionsOutput) ToMalwareProtectionPlanCfnActionsOutput() MalwareProtectionPlanCfnActionsOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnActionsOutput) ToMalwareProtectionPlanCfnActionsOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnActionsOutput) ToMalwareProtectionPlanCfnActionsPtrOutput() MalwareProtectionPlanCfnActionsPtrOutput {
+	return o.ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(context.Background())
+}
+
+func (o MalwareProtectionPlanCfnActionsOutput) ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MalwareProtectionPlanCfnActions) *MalwareProtectionPlanCfnActions {
+		return &v
+	}).(MalwareProtectionPlanCfnActionsPtrOutput)
+}
+
+// Indicates whether the scanned S3 object will have tags about the scan result.
+func (o MalwareProtectionPlanCfnActionsOutput) Tagging() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnActions) *MalwareProtectionPlanCfnTagging { return v.Tagging }).(MalwareProtectionPlanCfnTaggingPtrOutput)
+}
+
+type MalwareProtectionPlanCfnActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnActions)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnActionsPtrOutput) ToMalwareProtectionPlanCfnActionsPtrOutput() MalwareProtectionPlanCfnActionsPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnActionsPtrOutput) ToMalwareProtectionPlanCfnActionsPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnActionsPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnActionsPtrOutput) Elem() MalwareProtectionPlanCfnActionsOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnActions) MalwareProtectionPlanCfnActions {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanCfnActions
+		return ret
+	}).(MalwareProtectionPlanCfnActionsOutput)
+}
+
+// Indicates whether the scanned S3 object will have tags about the scan result.
+func (o MalwareProtectionPlanCfnActionsPtrOutput) Tagging() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnActions) *MalwareProtectionPlanCfnTagging {
+		if v == nil {
+			return nil
+		}
+		return v.Tagging
+	}).(MalwareProtectionPlanCfnTaggingPtrOutput)
+}
+
+type MalwareProtectionPlanCfnProtectedResource struct {
+	// Information about the protected S3 bucket resource.
+	S3Bucket MalwareProtectionPlanCfnProtectedResourceS3BucketProperties `pulumi:"s3Bucket"`
+}
+
+// MalwareProtectionPlanCfnProtectedResourceInput is an input type that accepts MalwareProtectionPlanCfnProtectedResourceArgs and MalwareProtectionPlanCfnProtectedResourceOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnProtectedResourceInput` via:
+//
+//	MalwareProtectionPlanCfnProtectedResourceArgs{...}
+type MalwareProtectionPlanCfnProtectedResourceInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnProtectedResourceOutput() MalwareProtectionPlanCfnProtectedResourceOutput
+	ToMalwareProtectionPlanCfnProtectedResourceOutputWithContext(context.Context) MalwareProtectionPlanCfnProtectedResourceOutput
+}
+
+type MalwareProtectionPlanCfnProtectedResourceArgs struct {
+	// Information about the protected S3 bucket resource.
+	S3Bucket MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput `pulumi:"s3Bucket"`
+}
+
+func (MalwareProtectionPlanCfnProtectedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResource)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanCfnProtectedResourceArgs) ToMalwareProtectionPlanCfnProtectedResourceOutput() MalwareProtectionPlanCfnProtectedResourceOutput {
+	return i.ToMalwareProtectionPlanCfnProtectedResourceOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnProtectedResourceArgs) ToMalwareProtectionPlanCfnProtectedResourceOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnProtectedResourceOutput)
+}
+
+type MalwareProtectionPlanCfnProtectedResourceOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnProtectedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResource)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceOutput) ToMalwareProtectionPlanCfnProtectedResourceOutput() MalwareProtectionPlanCfnProtectedResourceOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceOutput) ToMalwareProtectionPlanCfnProtectedResourceOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourceOutput {
+	return o
+}
+
+// Information about the protected S3 bucket resource.
+func (o MalwareProtectionPlanCfnProtectedResourceOutput) S3Bucket() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnProtectedResource) MalwareProtectionPlanCfnProtectedResourceS3BucketProperties {
+		return v.S3Bucket
+	}).(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput)
+}
+
+type MalwareProtectionPlanCfnProtectedResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnProtectedResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnProtectedResource)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourcePtrOutput) ToMalwareProtectionPlanCfnProtectedResourcePtrOutput() MalwareProtectionPlanCfnProtectedResourcePtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourcePtrOutput) ToMalwareProtectionPlanCfnProtectedResourcePtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourcePtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourcePtrOutput) Elem() MalwareProtectionPlanCfnProtectedResourceOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnProtectedResource) MalwareProtectionPlanCfnProtectedResource {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanCfnProtectedResource
+		return ret
+	}).(MalwareProtectionPlanCfnProtectedResourceOutput)
+}
+
+// Information about the protected S3 bucket resource.
+func (o MalwareProtectionPlanCfnProtectedResourcePtrOutput) S3Bucket() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnProtectedResource) *MalwareProtectionPlanCfnProtectedResourceS3BucketProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput)
+}
+
+// Information about the protected S3 bucket resource.
+type MalwareProtectionPlanCfnProtectedResourceS3BucketProperties struct {
+	// Name of the S3 bucket.
+	BucketName *string `pulumi:"bucketName"`
+	// Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+	ObjectPrefixes []string `pulumi:"objectPrefixes"`
+}
+
+// MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput is an input type that accepts MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs and MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput` via:
+//
+//	MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs{...}
+type MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput
+	ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutputWithContext(context.Context) MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput
+}
+
+// Information about the protected S3 bucket resource.
+type MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs struct {
+	// Name of the S3 bucket.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+	ObjectPrefixes pulumi.StringArrayInput `pulumi:"objectPrefixes"`
+}
+
+func (MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResourceS3BucketProperties)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return i.ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput)
+}
+
+// Information about the protected S3 bucket resource.
+type MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResourceS3BucketProperties)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return o
+}
+
+// Name of the S3 bucket.
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnProtectedResourceS3BucketProperties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput) ObjectPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnProtectedResourceS3BucketProperties) []string { return v.ObjectPrefixes }).(pulumi.StringArrayOutput)
+}
+
+type MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnProtectedResourceS3BucketProperties)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) ToMalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) Elem() MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnProtectedResourceS3BucketProperties) MalwareProtectionPlanCfnProtectedResourceS3BucketProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanCfnProtectedResourceS3BucketProperties
+		return ret
+	}).(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput)
+}
+
+// Name of the S3 bucket.
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnProtectedResourceS3BucketProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) ObjectPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnProtectedResourceS3BucketProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+type MalwareProtectionPlanCfnStatusReasons struct {
+	// Issue code.
+	Code *string `pulumi:"code"`
+	// Issue message that specifies the reason.
+	Message *string `pulumi:"message"`
+}
+
+type MalwareProtectionPlanCfnStatusReasonsOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnStatusReasonsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnStatusReasons)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnStatusReasonsOutput) ToMalwareProtectionPlanCfnStatusReasonsOutput() MalwareProtectionPlanCfnStatusReasonsOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnStatusReasonsOutput) ToMalwareProtectionPlanCfnStatusReasonsOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnStatusReasonsOutput {
+	return o
+}
+
+// Issue code.
+func (o MalwareProtectionPlanCfnStatusReasonsOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnStatusReasons) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Issue message that specifies the reason.
+func (o MalwareProtectionPlanCfnStatusReasonsOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnStatusReasons) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+type MalwareProtectionPlanCfnStatusReasonsArrayOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnStatusReasonsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MalwareProtectionPlanCfnStatusReasons)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnStatusReasonsArrayOutput) ToMalwareProtectionPlanCfnStatusReasonsArrayOutput() MalwareProtectionPlanCfnStatusReasonsArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnStatusReasonsArrayOutput) ToMalwareProtectionPlanCfnStatusReasonsArrayOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnStatusReasonsArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnStatusReasonsArrayOutput) Index(i pulumi.IntInput) MalwareProtectionPlanCfnStatusReasonsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MalwareProtectionPlanCfnStatusReasons {
+		return vs[0].([]MalwareProtectionPlanCfnStatusReasons)[vs[1].(int)]
+	}).(MalwareProtectionPlanCfnStatusReasonsOutput)
+}
+
+type MalwareProtectionPlanCfnTagging struct {
+	// Indicates whether or not the tags will added.
+	Status *string `pulumi:"status"`
+}
+
+// MalwareProtectionPlanCfnTaggingInput is an input type that accepts MalwareProtectionPlanCfnTaggingArgs and MalwareProtectionPlanCfnTaggingOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnTaggingInput` via:
+//
+//	MalwareProtectionPlanCfnTaggingArgs{...}
+type MalwareProtectionPlanCfnTaggingInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnTaggingOutput() MalwareProtectionPlanCfnTaggingOutput
+	ToMalwareProtectionPlanCfnTaggingOutputWithContext(context.Context) MalwareProtectionPlanCfnTaggingOutput
+}
+
+type MalwareProtectionPlanCfnTaggingArgs struct {
+	// Indicates whether or not the tags will added.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (MalwareProtectionPlanCfnTaggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnTagging)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanCfnTaggingArgs) ToMalwareProtectionPlanCfnTaggingOutput() MalwareProtectionPlanCfnTaggingOutput {
+	return i.ToMalwareProtectionPlanCfnTaggingOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnTaggingArgs) ToMalwareProtectionPlanCfnTaggingOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnTaggingOutput)
+}
+
+func (i MalwareProtectionPlanCfnTaggingArgs) ToMalwareProtectionPlanCfnTaggingPtrOutput() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return i.ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanCfnTaggingArgs) ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnTaggingOutput).ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(ctx)
+}
+
+// MalwareProtectionPlanCfnTaggingPtrInput is an input type that accepts MalwareProtectionPlanCfnTaggingArgs, MalwareProtectionPlanCfnTaggingPtr and MalwareProtectionPlanCfnTaggingPtrOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanCfnTaggingPtrInput` via:
+//
+//	        MalwareProtectionPlanCfnTaggingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MalwareProtectionPlanCfnTaggingPtrInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanCfnTaggingPtrOutput() MalwareProtectionPlanCfnTaggingPtrOutput
+	ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(context.Context) MalwareProtectionPlanCfnTaggingPtrOutput
+}
+
+type malwareProtectionPlanCfnTaggingPtrType MalwareProtectionPlanCfnTaggingArgs
+
+func MalwareProtectionPlanCfnTaggingPtr(v *MalwareProtectionPlanCfnTaggingArgs) MalwareProtectionPlanCfnTaggingPtrInput {
+	return (*malwareProtectionPlanCfnTaggingPtrType)(v)
+}
+
+func (*malwareProtectionPlanCfnTaggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnTagging)(nil)).Elem()
+}
+
+func (i *malwareProtectionPlanCfnTaggingPtrType) ToMalwareProtectionPlanCfnTaggingPtrOutput() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return i.ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(context.Background())
+}
+
+func (i *malwareProtectionPlanCfnTaggingPtrType) ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanCfnTaggingPtrOutput)
+}
+
+type MalwareProtectionPlanCfnTaggingOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnTaggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanCfnTagging)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnTaggingOutput) ToMalwareProtectionPlanCfnTaggingOutput() MalwareProtectionPlanCfnTaggingOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnTaggingOutput) ToMalwareProtectionPlanCfnTaggingOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnTaggingOutput) ToMalwareProtectionPlanCfnTaggingPtrOutput() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o.ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(context.Background())
+}
+
+func (o MalwareProtectionPlanCfnTaggingOutput) ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MalwareProtectionPlanCfnTagging) *MalwareProtectionPlanCfnTagging {
+		return &v
+	}).(MalwareProtectionPlanCfnTaggingPtrOutput)
+}
+
+// Indicates whether or not the tags will added.
+func (o MalwareProtectionPlanCfnTaggingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanCfnTagging) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type MalwareProtectionPlanCfnTaggingPtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanCfnTaggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanCfnTagging)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanCfnTaggingPtrOutput) ToMalwareProtectionPlanCfnTaggingPtrOutput() MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnTaggingPtrOutput) ToMalwareProtectionPlanCfnTaggingPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanCfnTaggingPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanCfnTaggingPtrOutput) Elem() MalwareProtectionPlanCfnTaggingOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnTagging) MalwareProtectionPlanCfnTagging {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanCfnTagging
+		return ret
+	}).(MalwareProtectionPlanCfnTaggingOutput)
+}
+
+// Indicates whether or not the tags will added.
+func (o MalwareProtectionPlanCfnTaggingPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanCfnTagging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type MalwareProtectionPlanTagItem struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type ThreatIntelSetTagItem struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1790,6 +2316,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionMapInput)(nil)).Elem(), FilterConditionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnActionsInput)(nil)).Elem(), MalwareProtectionPlanCfnActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnActionsPtrInput)(nil)).Elem(), MalwareProtectionPlanCfnActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResourceInput)(nil)).Elem(), MalwareProtectionPlanCfnProtectedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput)(nil)).Elem(), MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnTaggingInput)(nil)).Elem(), MalwareProtectionPlanCfnTaggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnTaggingPtrInput)(nil)).Elem(), MalwareProtectionPlanCfnTaggingArgs{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsOutput{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCfnFeatureAdditionalConfigurationOutput{})
@@ -1810,4 +2342,14 @@ func init() {
 	pulumi.RegisterOutputType(FilterConditionMapOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnActionsOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnActionsPtrOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnProtectedResourceOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnProtectedResourcePtrOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnStatusReasonsOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnStatusReasonsArrayOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnTaggingOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanCfnTaggingPtrOutput{})
 }

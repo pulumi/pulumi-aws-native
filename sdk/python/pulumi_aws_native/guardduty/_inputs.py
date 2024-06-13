@@ -21,6 +21,10 @@ __all__ = [
     'DetectorCfns3LogsConfigurationArgs',
     'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
+    'MalwareProtectionPlanCfnActionsArgs',
+    'MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs',
+    'MalwareProtectionPlanCfnProtectedResourceArgs',
+    'MalwareProtectionPlanCfnTaggingArgs',
 ]
 
 @pulumi.input_type
@@ -652,5 +656,113 @@ class FilterFindingCriteriaArgs:
     @criterion.setter
     def criterion(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgs']]]]):
         pulumi.set(self, "criterion", value)
+
+
+@pulumi.input_type
+class MalwareProtectionPlanCfnActionsArgs:
+    def __init__(__self__, *,
+                 tagging: Optional[pulumi.Input['MalwareProtectionPlanCfnTaggingArgs']] = None):
+        """
+        :param pulumi.Input['MalwareProtectionPlanCfnTaggingArgs'] tagging: Indicates whether the scanned S3 object will have tags about the scan result.
+        """
+        if tagging is not None:
+            pulumi.set(__self__, "tagging", tagging)
+
+    @property
+    @pulumi.getter
+    def tagging(self) -> Optional[pulumi.Input['MalwareProtectionPlanCfnTaggingArgs']]:
+        """
+        Indicates whether the scanned S3 object will have tags about the scan result.
+        """
+        return pulumi.get(self, "tagging")
+
+    @tagging.setter
+    def tagging(self, value: Optional[pulumi.Input['MalwareProtectionPlanCfnTaggingArgs']]):
+        pulumi.set(self, "tagging", value)
+
+
+@pulumi.input_type
+class MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs:
+    def __init__(__self__, *,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 object_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Information about the protected S3 bucket resource.
+        :param pulumi.Input[str] bucket_name: Name of the S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_prefixes: Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if object_prefixes is not None:
+            pulumi.set(__self__, "object_prefixes", object_prefixes)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="objectPrefixes")
+    def object_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+        """
+        return pulumi.get(self, "object_prefixes")
+
+    @object_prefixes.setter
+    def object_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "object_prefixes", value)
+
+
+@pulumi.input_type
+class MalwareProtectionPlanCfnProtectedResourceArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs']):
+        """
+        :param pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs'] s3_bucket: Information about the protected S3 bucket resource.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs']:
+        """
+        Information about the protected S3 bucket resource.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs']):
+        pulumi.set(self, "s3_bucket", value)
+
+
+@pulumi.input_type
+class MalwareProtectionPlanCfnTaggingArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Indicates whether or not the tags will added.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or not the tags will added.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 

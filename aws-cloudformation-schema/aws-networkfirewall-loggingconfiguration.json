@@ -87,9 +87,6 @@
     },
     "delete" : {
       "permissions" : [ "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:GetLogDelivery", "network-firewall:UpdateLoggingConfiguration", "network-firewall:DescribeLoggingConfiguration" ]
-    },
-    "list" : {
-      "permissions" : [ "logs:GetLogDelivery", "logs:ListLogDeliveries", "network-firewall:DescribeLoggingConfiguration" ]
     }
   }
 }

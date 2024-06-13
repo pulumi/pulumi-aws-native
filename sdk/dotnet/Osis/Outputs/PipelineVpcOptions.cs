@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.Osis.Outputs
         /// A list of subnet IDs associated with the VPC endpoint.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Osis.PipelineVpcOptionsVpcEndpointManagement? VpcEndpointManagement;
 
         [OutputConstructor]
         private PipelineVpcOptions(
             ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            Pulumi.AwsNative.Osis.PipelineVpcOptionsVpcEndpointManagement? vpcEndpointManagement)
         {
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            VpcEndpointManagement = vpcEndpointManagement;
         }
     }
 }

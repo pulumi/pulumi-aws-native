@@ -7007,6 +7007,29 @@
       }
     }
   },
+  "aws-native:guardduty:MalwareProtectionPlan": {
+    "cfTypeName": "AWS::GuardDuty::MalwareProtectionPlan",
+    "properties": {
+      "actions": {
+        "$ref": "#/types/aws-native:guardduty:MalwareProtectionPlanCfnActions",
+        "description": "Information about whether the tags will be added to the S3 object after scanning."
+      },
+      "protectedResource": {
+        "$ref": "#/types/aws-native:guardduty:MalwareProtectionPlanCfnProtectedResource",
+        "description": "Information about the protected resource that is associated with the created Malware Protection plan. Presently, S3Bucket is the only supported protected resource."
+      },
+      "role": {
+        "type": "string",
+        "description": "IAM role that includes the permissions required to scan and add tags to the associated protected resource."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:guardduty:Master": {
     "cfTypeName": "AWS::GuardDuty::Master",
     "properties": {

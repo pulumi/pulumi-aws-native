@@ -44,6 +44,8 @@ if typing.TYPE_CHECKING:
     applicationautoscaling = __applicationautoscaling
     import pulumi_aws_native.applicationinsights as __applicationinsights
     applicationinsights = __applicationinsights
+    import pulumi_aws_native.applicationsignals as __applicationsignals
+    applicationsignals = __applicationsignals
     import pulumi_aws_native.apprunner as __apprunner
     apprunner = __apprunner
     import pulumi_aws_native.appstream as __appstream
@@ -458,6 +460,7 @@ else:
     appintegrations = _utilities.lazy_import('pulumi_aws_native.appintegrations')
     applicationautoscaling = _utilities.lazy_import('pulumi_aws_native.applicationautoscaling')
     applicationinsights = _utilities.lazy_import('pulumi_aws_native.applicationinsights')
+    applicationsignals = _utilities.lazy_import('pulumi_aws_native.applicationsignals')
     apprunner = _utilities.lazy_import('pulumi_aws_native.apprunner')
     appstream = _utilities.lazy_import('pulumi_aws_native.appstream')
     appsync = _utilities.lazy_import('pulumi_aws_native.appsync')
@@ -793,6 +796,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.applicationinsights",
   "classes": {
    "aws-native:applicationinsights:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "applicationsignals",
+  "fqn": "pulumi_aws_native.applicationsignals",
+  "classes": {
+   "aws-native:applicationsignals:ServiceLevelObjective": "ServiceLevelObjective"
   }
  },
  {
@@ -1774,6 +1785,7 @@ _utilities.register(
    "aws-native:guardduty:Detector": "Detector",
    "aws-native:guardduty:Filter": "Filter",
    "aws-native:guardduty:IpSet": "IpSet",
+   "aws-native:guardduty:MalwareProtectionPlan": "MalwareProtectionPlan",
    "aws-native:guardduty:Master": "Master",
    "aws-native:guardduty:Member": "Member",
    "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet"

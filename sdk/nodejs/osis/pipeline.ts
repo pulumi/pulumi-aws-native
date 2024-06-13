@@ -78,6 +78,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The VPC endpoint service name for the pipeline.
+     */
+    public /*out*/ readonly vpcEndpointService!: pulumi.Output<string>;
+    /**
      * The VPC interface endpoints that have access to the pipeline.
      */
     public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.osis.PipelineVpcEndpoint[]>;
@@ -117,6 +121,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["pipelineArn"] = undefined /*out*/;
+            resourceInputs["vpcEndpointService"] = undefined /*out*/;
             resourceInputs["vpcEndpoints"] = undefined /*out*/;
         } else {
             resourceInputs["bufferOptions"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineConfigurationBody"] = undefined /*out*/;
             resourceInputs["pipelineName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEndpointService"] = undefined /*out*/;
             resourceInputs["vpcEndpoints"] = undefined /*out*/;
             resourceInputs["vpcOptions"] = undefined /*out*/;
         }
