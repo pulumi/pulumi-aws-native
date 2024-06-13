@@ -78,7 +78,13 @@ namespace Pulumi.AwsNative.DataZone
         /// The ID of the Amazon DataZone user profile.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The status of the user profile.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.UserProfileStatus? Status;
+        /// <summary>
+        /// The type of the user profile.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.UserProfileType? Type;
 
         [OutputConstructor]

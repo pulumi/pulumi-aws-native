@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
         /// </summary>
         public readonly string? MetricName;
+        /// <summary>
+        /// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyTargetTrackingMetricDataQuery> Metrics;
         /// <summary>
         /// The namespace of the metric.

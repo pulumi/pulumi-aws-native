@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a group profile.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.DataZone.GroupProfileStatus?> Status { get; private set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("groupIdentifier", required: true)]
         public Input<string> GroupIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The status of a group profile.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.DataZone.GroupProfileStatus>? Status { get; set; }
 

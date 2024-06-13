@@ -102,6 +102,14 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The compute fleet overflow behavior.
+    /// 
+    /// - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+    /// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+    /// 
+    /// &gt; If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+    /// </summary>
     [EnumType]
     public readonly struct FleetOverflowBehavior : IEquatable<FleetOverflowBehavior>
     {

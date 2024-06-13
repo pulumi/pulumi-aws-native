@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+        /// </summary>
         [Input("iamParameters")]
         public Input<Inputs.DataSourceRedshiftIamParametersArgs>? IamParameters { get; set; }
 

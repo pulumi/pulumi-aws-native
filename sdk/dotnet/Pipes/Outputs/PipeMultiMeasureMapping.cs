@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeMultiMeasureMapping
     {
+        /// <summary>
+        /// Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeMultiMeasureAttributeMapping> MultiMeasureAttributeMappings;
+        /// <summary>
+        /// The name of the multiple measurements per record (multi-measure).
+        /// </summary>
         public readonly string MultiMeasureName;
 
         [OutputConstructor]

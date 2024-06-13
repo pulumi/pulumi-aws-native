@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigDecodeConfig
     {
+        /// <summary>
+        /// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+        /// </summary>
         public readonly string? UnvalidatedJson;
 
         [OutputConstructor]

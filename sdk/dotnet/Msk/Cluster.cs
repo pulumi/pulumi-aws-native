@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
         /// <summary>
-        /// VPC connection control settings for brokers.
+        /// Includes all client authentication related information.
         /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
         /// <summary>
-        /// VPC connection control settings for brokers.
+        /// Includes all client authentication related information.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }

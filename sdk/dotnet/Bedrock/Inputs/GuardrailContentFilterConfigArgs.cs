@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailContentFilterConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+        /// </summary>
         [Input("inputStrength", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailFilterStrength> InputStrength { get; set; } = null!;
 
+        /// <summary>
+        /// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+        /// </summary>
         [Input("outputStrength", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailFilterStrength> OutputStrength { get; set; } = null!;
 
+        /// <summary>
+        /// The harmful category that the content filter is applied to.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailContentFilterType> Type { get; set; } = null!;
 

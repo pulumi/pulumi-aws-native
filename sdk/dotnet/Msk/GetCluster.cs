@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
         /// <summary>
-        /// VPC connection control settings for brokers.
+        /// Includes all client authentication related information.
         /// </summary>
         public readonly Outputs.ClusterClientAuthentication? ClientAuthentication;
         /// <summary>

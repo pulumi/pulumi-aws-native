@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class NetworkInterfaceIpv4PrefixSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+        /// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("ipv4Prefix", required: true)]
         public Input<string> Ipv4Prefix { get; set; } = null!;

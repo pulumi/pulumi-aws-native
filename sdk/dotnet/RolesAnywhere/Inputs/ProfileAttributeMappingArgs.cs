@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.RolesAnywhere.Inputs
 
     public sealed class ProfileAttributeMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        /// </summary>
         [Input("certificateField", required: true)]
         public Input<Pulumi.AwsNative.RolesAnywhere.ProfileCertificateField> CertificateField { get; set; } = null!;
 
         [Input("mappingRules", required: true)]
         private InputList<Inputs.ProfileMappingRuleArgs>? _mappingRules;
+
+        /// <summary>
+        /// A list of mapping entries for every supported specifier or sub-field.
+        /// </summary>
         public InputList<Inputs.ProfileMappingRuleArgs> MappingRules
         {
             get => _mappingRules ?? (_mappingRules = new InputList<Inputs.ProfileMappingRuleArgs>());

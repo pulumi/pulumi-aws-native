@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeMultiMeasureAttributeMapping
     {
+        /// <summary>
+        /// Dynamic path to the measurement attribute in the source event.
+        /// </summary>
         public readonly string MeasureValue;
+        /// <summary>
+        /// Data type of the measurement attribute in the source event.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeMeasureValueType MeasureValueType;
+        /// <summary>
+        /// Target measure name to be used.
+        /// </summary>
         public readonly string MultiMeasureAttributeName;
 
         [OutputConstructor]

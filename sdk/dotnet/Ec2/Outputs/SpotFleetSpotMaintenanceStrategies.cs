@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class SpotFleetSpotMaintenanceStrategies
     {
         /// <summary>
-        /// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+        /// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         public readonly Outputs.SpotFleetSpotCapacityRebalance? CapacityRebalance;
 

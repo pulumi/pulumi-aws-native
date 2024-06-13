@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("blockedOutputsMessaging")]
         public Output<string> BlockedOutputsMessaging { get; private set; } = null!;
 
+        /// <summary>
+        /// The content filter policies to configure for the guardrail.
+        /// </summary>
         [Output("contentPolicyConfig")]
         public Output<Outputs.GuardrailContentPolicyConfig?> ContentPolicyConfig { get; private set; } = null!;
 
@@ -72,9 +75,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The sensitive information policy to configure for the guardrail.
+        /// </summary>
         [Output("sensitiveInformationPolicyConfig")]
         public Output<Outputs.GuardrailSensitiveInformationPolicyConfig?> SensitiveInformationPolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the guardrail.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.GuardrailStatus> Status { get; private set; } = null!;
 
@@ -90,6 +99,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The topic policies to configure for the guardrail.
+        /// </summary>
         [Output("topicPolicyConfig")]
         public Output<Outputs.GuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
 
@@ -105,6 +117,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The word policy you configure for the guardrail.
+        /// </summary>
         [Output("wordPolicyConfig")]
         public Output<Outputs.GuardrailWordPolicyConfig?> WordPolicyConfig { get; private set; } = null!;
 
@@ -165,6 +180,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("blockedOutputsMessaging", required: true)]
         public Input<string> BlockedOutputsMessaging { get; set; } = null!;
 
+        /// <summary>
+        /// The content filter policies to configure for the guardrail.
+        /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigArgs>? ContentPolicyConfig { get; set; }
 
@@ -186,6 +204,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The sensitive information policy to configure for the guardrail.
+        /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigArgs>? SensitiveInformationPolicyConfig { get; set; }
 
@@ -201,9 +222,15 @@ namespace Pulumi.AwsNative.Bedrock
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The topic policies to configure for the guardrail.
+        /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigArgs>? TopicPolicyConfig { get; set; }
 
+        /// <summary>
+        /// The word policy you configure for the guardrail.
+        /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.GuardrailWordPolicyConfigArgs>? WordPolicyConfig { get; set; }
 

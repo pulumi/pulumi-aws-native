@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailRegexConfig
     {
+        /// <summary>
+        /// The guardrail action to configure when matching regular expression is detected.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction Action;
         /// <summary>
         /// The regex description.

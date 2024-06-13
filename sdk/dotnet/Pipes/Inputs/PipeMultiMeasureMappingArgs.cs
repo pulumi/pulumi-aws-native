@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("multiMeasureAttributeMappings", required: true)]
         private InputList<Inputs.PipeMultiMeasureAttributeMappingArgs>? _multiMeasureAttributeMappings;
+
+        /// <summary>
+        /// Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
+        /// </summary>
         public InputList<Inputs.PipeMultiMeasureAttributeMappingArgs> MultiMeasureAttributeMappings
         {
             get => _multiMeasureAttributeMappings ?? (_multiMeasureAttributeMappings = new InputList<Inputs.PipeMultiMeasureAttributeMappingArgs>());
             set => _multiMeasureAttributeMappings = value;
         }
 
+        /// <summary>
+        /// The name of the multiple measurements per record (multi-measure).
+        /// </summary>
         [Input("multiMeasureName", required: true)]
         public Input<string> MultiMeasureName { get; set; } = null!;
 

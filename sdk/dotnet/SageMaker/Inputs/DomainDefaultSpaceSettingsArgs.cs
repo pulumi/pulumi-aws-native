@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         [Input("customFileSystemConfigs")]
         private InputList<Inputs.DomainCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+
+        /// <summary>
+        /// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public InputList<Inputs.DomainCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
             get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainCustomFileSystemConfigArgs>());

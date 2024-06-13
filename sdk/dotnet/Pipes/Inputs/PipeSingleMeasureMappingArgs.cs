@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeSingleMeasureMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Target measure name for the measurement attribute in the Timestream table.
+        /// </summary>
         [Input("measureName", required: true)]
         public Input<string> MeasureName { get; set; } = null!;
 
+        /// <summary>
+        /// Dynamic path of the source field to map to the measure in the record.
+        /// </summary>
         [Input("measureValue", required: true)]
         public Input<string> MeasureValue { get; set; } = null!;
 
+        /// <summary>
+        /// Data type of the source field.
+        /// </summary>
         [Input("measureValueType", required: true)]
         public Input<Pulumi.AwsNative.Pipes.PipeMeasureValueType> MeasureValueType { get; set; } = null!;
 

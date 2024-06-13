@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Ec2
     public partial class CapacityReservationFleet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+        /// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
         /// 
         /// Valid values: `prioritized`
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<Pulumi.AwsNative.Ec2.CapacityReservationFleetTenancy?> Tenancy { get; private set; } = null!;
 
         /// <summary>
-        /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Output("totalTargetCapacity")]
         public Output<int?> TotalTargetCapacity { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class CapacityReservationFleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+        /// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
         /// 
         /// Valid values: `prioritized`
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Pulumi.AwsNative.Ec2.CapacityReservationFleetTenancy>? Tenancy { get; set; }
 
         /// <summary>
-        /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("totalTargetCapacity")]
         public Input<int>? TotalTargetCapacity { get; set; }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [AwsNativeResourceType("aws-native:rolesanywhere:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A mapping applied to the authenticating end-entity certificate.
+        /// </summary>
         [Output("attributeMappings")]
         public Output<ImmutableArray<Outputs.ProfileAttributeMapping>> AttributeMappings { get; private set; } = null!;
 
@@ -125,6 +128,10 @@ namespace Pulumi.AwsNative.RolesAnywhere
     {
         [Input("attributeMappings")]
         private InputList<Inputs.ProfileAttributeMappingArgs>? _attributeMappings;
+
+        /// <summary>
+        /// A mapping applied to the authenticating end-entity certificate.
+        /// </summary>
         public InputList<Inputs.ProfileAttributeMappingArgs> AttributeMappings
         {
             get => _attributeMappings ?? (_attributeMappings = new InputList<Inputs.ProfileAttributeMappingArgs>());

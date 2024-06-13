@@ -36,9 +36,15 @@ namespace Pulumi.AwsNative.DataZone
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the user profile.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.DataZone.UserProfileStatus?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the user profile.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.DataZone.UserProfileType> Type { get; private set; } = null!;
 
@@ -48,6 +54,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("userIdentifier")]
         public Output<string> UserIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The user type of the user for which the user profile is created.
+        /// </summary>
         [Output("userType")]
         public Output<Pulumi.AwsNative.DataZone.UserProfileUserType?> UserType { get; private set; } = null!;
 
@@ -108,6 +117,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the user profile.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.DataZone.UserProfileStatus>? Status { get; set; }
 
@@ -117,6 +129,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("userIdentifier", required: true)]
         public Input<string> UserIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The user type of the user for which the user profile is created.
+        /// </summary>
         [Input("userType")]
         public Input<Pulumi.AwsNative.DataZone.UserProfileUserType>? UserType { get; set; }
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointDashUtcTiming
     {
+        /// <summary>
+        /// The UTC timing mode.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashUtcTimingMode? TimingMode;
         /// <summary>
         /// &lt;p&gt;The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.&lt;/p&gt;

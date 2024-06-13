@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies to deny the topic.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailTopicType> Type { get; set; } = null!;
 

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeMultiMeasureAttributeMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Dynamic path to the measurement attribute in the source event.
+        /// </summary>
         [Input("measureValue", required: true)]
         public Input<string> MeasureValue { get; set; } = null!;
 
+        /// <summary>
+        /// Data type of the measurement attribute in the source event.
+        /// </summary>
         [Input("measureValueType", required: true)]
         public Input<Pulumi.AwsNative.Pipes.PipeMeasureValueType> MeasureValueType { get; set; } = null!;
 
+        /// <summary>
+        /// Target measure name to be used.
+        /// </summary>
         [Input("multiMeasureAttributeName", required: true)]
         public Input<string> MultiMeasureAttributeName { get; set; } = null!;
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailRegexConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The guardrail action to configure when matching regular expression is detected.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction> Action { get; set; } = null!;
 

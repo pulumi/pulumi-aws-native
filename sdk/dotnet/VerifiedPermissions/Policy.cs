@@ -29,13 +29,13 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     ///     var staticPolicy = new AwsNative.VerifiedPermissions.Policy("staticPolicy", new()
     ///     {
     ///         PolicyStoreId = policyStoreId,
-    ///         Definition = 
+    ///         Definition = new AwsNative.VerifiedPermissions.Inputs.PolicyDefinition0PropertiesArgs
     ///         {
-    ///             { "static", new AwsNative.VerifiedPermissions.Inputs.PolicyStaticPolicyDefinitionArgs
+    ///             Static = new AwsNative.VerifiedPermissions.Inputs.PolicyStaticPolicyDefinitionArgs
     ///             {
     ///                 Description = description,
     ///                 Statement = statement,
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -66,9 +66,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     ///     var templateLinkedPolicy = new AwsNative.VerifiedPermissions.Policy("templateLinkedPolicy", new()
     ///     {
     ///         PolicyStoreId = policyStoreId,
-    ///         Definition = 
+    ///         Definition = new AwsNative.VerifiedPermissions.Inputs.PolicyDefinition0PropertiesArgs
     ///         {
-    ///             { "templateLinked", new AwsNative.VerifiedPermissions.Inputs.PolicyTemplateLinkedPolicyDefinitionArgs
+    ///             TemplateLinked = new AwsNative.VerifiedPermissions.Inputs.PolicyTemplateLinkedPolicyDefinitionArgs
     ///             {
     ///                 PolicyTemplateId = policyTemplateId,
     ///                 Principal = new AwsNative.VerifiedPermissions.Inputs.PolicyEntityIdentifierArgs
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     ///                     EntityType = resourceType,
     ///                     EntityId = resourceId,
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 

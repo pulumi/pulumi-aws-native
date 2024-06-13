@@ -51,15 +51,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// <summary>
         /// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
         /// 
-        /// &gt; If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. &gt; If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+        /// &gt; If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. &gt; If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("maxTotalPrice")]
         public Input<string>? MaxTotalPrice { get; set; }
 
         /// <summary>
-        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+        /// The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
         /// 
-        /// Supported only for fleets of type `instant` .
+        /// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
         /// 
         /// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
         /// </summary>

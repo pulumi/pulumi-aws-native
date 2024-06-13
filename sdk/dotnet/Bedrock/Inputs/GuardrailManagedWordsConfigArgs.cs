@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailManagedWordsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The managed word type to configure for the guardrail.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailManagedWordsType> Type { get; set; } = null!;
 

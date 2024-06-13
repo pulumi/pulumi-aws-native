@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
             set => _enabledStandardIdentifiers = value;
         }
 
+        /// <summary>
+        /// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+        /// </summary>
         [Input("securityControlsConfiguration")]
         public Input<Inputs.ConfigurationPolicySecurityControlsConfigurationArgs>? SecurityControlsConfiguration { get; set; }
 

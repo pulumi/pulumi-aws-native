@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.DataZone
         /// The ID of the Amazon DataZone group profile.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The status of a group profile.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.GroupProfileStatus? Status;
 
         [OutputConstructor]

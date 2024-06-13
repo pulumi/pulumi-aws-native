@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupEndpointDetails
     {
+        /// <summary>
+        /// An agent endpoint.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupAwsGroundStationAgentEndpoint? AwsGroundStationAgentEndpoint;
         /// <summary>
         /// Information about the endpoint such as name and the endpoint address.

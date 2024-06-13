@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         [Input("stepFunctionStateMachineParameters")]
         public Input<Inputs.PipeTargetStateMachineParametersArgs>? StepFunctionStateMachineParameters { get; set; }
 
+        /// <summary>
+        /// The parameters for using a Timestream for LiveAnalytics table as a target.
+        /// </summary>
         [Input("timestreamParameters")]
         public Input<Inputs.PipeTargetTimestreamParametersArgs>? TimestreamParameters { get; set; }
 

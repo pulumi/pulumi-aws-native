@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigDemodulationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+        /// </summary>
         [Input("unvalidatedJson")]
         public Input<string>? UnvalidatedJson { get; set; }
 
