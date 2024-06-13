@@ -43,6 +43,9 @@ export interface GetGroupProfileResult {
      * The ID of the Amazon DataZone group profile.
      */
     readonly id?: string;
+    /**
+     * The status of a group profile.
+     */
     readonly status?: enums.datazone.GroupProfileStatus;
 }
 /**

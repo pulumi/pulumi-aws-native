@@ -35,12 +35,33 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the monitor that displays on the Deadline Cloud console.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+     */
     public /*out*/ readonly identityCenterApplicationArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+     */
     public readonly identityCenterInstanceArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the monitor.
+     */
     public /*out*/ readonly monitorId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+     */
     public readonly subdomain!: pulumi.Output<string>;
+    /**
+     * The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -95,8 +116,20 @@ export class Monitor extends pulumi.CustomResource {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    /**
+     * The name of the monitor that displays on the Deadline Cloud console.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+     */
     identityCenterInstanceArn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+     */
     subdomain: pulumi.Input<string>;
 }

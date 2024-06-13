@@ -45,6 +45,9 @@ export class Guardrail extends pulumi.CustomResource {
      * Messaging for when violations are detected in text
      */
     public readonly blockedOutputsMessaging!: pulumi.Output<string>;
+    /**
+     * The content filter policies to configure for the guardrail.
+     */
     public readonly contentPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailContentPolicyConfig | undefined>;
     /**
      * Time Stamp
@@ -74,7 +77,13 @@ export class Guardrail extends pulumi.CustomResource {
      * Name of the guardrail
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The sensitive information policy to configure for the guardrail.
+     */
     public readonly sensitiveInformationPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
+    /**
+     * The status of the guardrail.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.GuardrailStatus>;
     /**
      * List of status reasons
@@ -84,6 +93,9 @@ export class Guardrail extends pulumi.CustomResource {
      * List of Tags
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The topic policies to configure for the guardrail.
+     */
     public readonly topicPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
      * Time Stamp
@@ -93,6 +105,9 @@ export class Guardrail extends pulumi.CustomResource {
      * Guardrail version
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
+    /**
+     * The word policy you configure for the guardrail.
+     */
     public readonly wordPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailWordPolicyConfig | undefined>;
 
     /**
@@ -167,6 +182,9 @@ export interface GuardrailArgs {
      * Messaging for when violations are detected in text
      */
     blockedOutputsMessaging: pulumi.Input<string>;
+    /**
+     * The content filter policies to configure for the guardrail.
+     */
     contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs>;
     /**
      * Description of the guardrail or its version
@@ -180,11 +198,20 @@ export interface GuardrailArgs {
      * Name of the guardrail
      */
     name?: pulumi.Input<string>;
+    /**
+     * The sensitive information policy to configure for the guardrail.
+     */
     sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigArgs>;
     /**
      * List of Tags
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The topic policies to configure for the guardrail.
+     */
     topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigArgs>;
+    /**
+     * The word policy you configure for the guardrail.
+     */
     wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigArgs>;
 }

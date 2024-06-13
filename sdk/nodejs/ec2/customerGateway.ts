@@ -42,6 +42,11 @@ export class CustomerGateway extends pulumi.CustomResource {
      *  Default: 65000
      */
     public readonly bgpAsn!: pulumi.Output<number | undefined>;
+    /**
+     * For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+     *
+     * Valid values: `2,147,483,648` to `4,294,967,295`
+     */
     public readonly bgpAsnExtended!: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -119,6 +124,11 @@ export interface CustomerGatewayArgs {
      *  Default: 65000
      */
     bgpAsn?: pulumi.Input<number>;
+    /**
+     * For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+     *
+     * Valid values: `2,147,483,648` to `4,294,967,295`
+     */
     bgpAsnExtended?: pulumi.Input<number>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.

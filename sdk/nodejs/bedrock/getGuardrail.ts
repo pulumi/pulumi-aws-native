@@ -34,6 +34,9 @@ export interface GetGuardrailResult {
      * Messaging for when violations are detected in text
      */
     readonly blockedOutputsMessaging?: string;
+    /**
+     * The content filter policies to configure for the guardrail.
+     */
     readonly contentPolicyConfig?: outputs.bedrock.GuardrailContentPolicyConfig;
     /**
      * Time Stamp
@@ -63,7 +66,13 @@ export interface GetGuardrailResult {
      * Name of the guardrail
      */
     readonly name?: string;
+    /**
+     * The sensitive information policy to configure for the guardrail.
+     */
     readonly sensitiveInformationPolicyConfig?: outputs.bedrock.GuardrailSensitiveInformationPolicyConfig;
+    /**
+     * The status of the guardrail.
+     */
     readonly status?: enums.bedrock.GuardrailStatus;
     /**
      * List of status reasons
@@ -73,6 +82,9 @@ export interface GetGuardrailResult {
      * List of Tags
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The topic policies to configure for the guardrail.
+     */
     readonly topicPolicyConfig?: outputs.bedrock.GuardrailTopicPolicyConfig;
     /**
      * Time Stamp
@@ -82,6 +94,9 @@ export interface GetGuardrailResult {
      * Guardrail version
      */
     readonly version?: string;
+    /**
+     * The word policy you configure for the guardrail.
+     */
     readonly wordPolicyConfig?: outputs.bedrock.GuardrailWordPolicyConfig;
 }
 /**

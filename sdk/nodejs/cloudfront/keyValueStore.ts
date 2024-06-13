@@ -57,6 +57,9 @@ export class KeyValueStore extends pulumi.CustomResource {
      * The name of the key value store.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**

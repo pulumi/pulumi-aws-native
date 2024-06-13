@@ -26,6 +26,9 @@ export interface GetSubscriberNotificationArgs {
 }
 
 export interface GetSubscriberNotificationResult {
+    /**
+     * Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+     */
     readonly notificationConfiguration?: outputs.securitylake.SubscriberNotificationNotificationConfiguration;
     /**
      * The endpoint the subscriber should listen to for notifications

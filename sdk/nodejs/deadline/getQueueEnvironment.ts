@@ -49,7 +49,7 @@ export interface GetQueueEnvironmentResult {
      */
     readonly queueEnvironmentId?: string;
     /**
-     * A JSON or YAML template the describes the processing environment for the queue.
+     * A JSON or YAML template that describes the processing environment for the queue.
      */
     readonly template?: string;
     /**

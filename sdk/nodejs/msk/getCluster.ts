@@ -29,7 +29,7 @@ export interface GetClusterResult {
      */
     readonly brokerNodeGroupInfo?: outputs.msk.ClusterBrokerNodeGroupInfo;
     /**
-     * VPC connection control settings for brokers.
+     * Includes all client authentication related information.
      */
     readonly clientAuthentication?: outputs.msk.ClusterClientAuthentication;
     /**

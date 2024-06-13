@@ -81,12 +81,26 @@ export class Fleet extends pulumi.CustomResource {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     public readonly environmentType!: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
+    /**
+     * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+     */
     public readonly fleetServiceRole!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the VPC configuration that AWS CodeBuild accesses.
+     */
     public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
     /**
      * The name of the compute fleet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The compute fleet overflow behavior.
+     *
+     * - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+     * - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+     *
+     * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+     */
     public readonly overflowBehavior!: pulumi.Output<enums.codebuild.FleetOverflowBehavior | undefined>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
@@ -175,12 +189,26 @@ export interface FleetArgs {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType>;
+    /**
+     * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+     */
     fleetServiceRole?: pulumi.Input<string>;
+    /**
+     * Information about the VPC configuration that AWS CodeBuild accesses.
+     */
     fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
     /**
      * The name of the compute fleet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The compute fleet overflow behavior.
+     *
+     * - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+     * - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+     *
+     * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+     */
     overflowBehavior?: pulumi.Input<enums.codebuild.FleetOverflowBehavior>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.

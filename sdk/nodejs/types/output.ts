@@ -6252,6 +6252,9 @@ export namespace autoscaling {
          * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
          */
         metricName?: string;
+        /**
+         * The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+         */
         metrics?: outputs.autoscaling.ScalingPolicyTargetTrackingMetricDataQuery[];
         /**
          * The namespace of the metric.
@@ -6567,16 +6570,50 @@ export namespace autoscaling {
     }
 
     export interface ScalingPolicyTargetTrackingMetricDataQuery {
+        /**
+         * The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+         *
+         * Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+         */
         expression?: string;
+        /**
+         * A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+         */
         id: string;
+        /**
+         * A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+         */
         label?: string;
+        /**
+         * Information about the metric data to return.
+         *
+         * Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+         */
         metricStat?: outputs.autoscaling.ScalingPolicyTargetTrackingMetricStat;
+        /**
+         * Indicates whether to return the timestamps and raw data values of this metric.
+         *
+         * If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+         *
+         * If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+         */
         returnData?: boolean;
     }
 
     export interface ScalingPolicyTargetTrackingMetricStat {
+        /**
+         * The metric to use.
+         */
         metric: outputs.autoscaling.ScalingPolicyMetric;
+        /**
+         * The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+         *
+         * The most commonly used metric for scaling is `Average` .
+         */
         stat: string;
+        /**
+         * The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+         */
         unit?: string;
     }
 
@@ -8593,8 +8630,17 @@ export namespace bedrock {
      * Content filter config in content policy.
      */
     export interface GuardrailContentFilterConfig {
+        /**
+         * The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+         */
         inputStrength: enums.bedrock.GuardrailFilterStrength;
+        /**
+         * The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+         */
         outputStrength: enums.bedrock.GuardrailFilterStrength;
+        /**
+         * The harmful category that the content filter is applied to.
+         */
         type: enums.bedrock.GuardrailContentFilterType;
     }
 
@@ -8612,6 +8658,9 @@ export namespace bedrock {
      * A managed words config.
      */
     export interface GuardrailManagedWordsConfig {
+        /**
+         * The managed word type to configure for the guardrail.
+         */
         type: enums.bedrock.GuardrailManagedWordsType;
     }
 
@@ -8619,7 +8668,130 @@ export namespace bedrock {
      * Pii entity configuration.
      */
     export interface GuardrailPiiEntityConfig {
+        /**
+         * Configure guardrail action when the PII entity is detected.
+         */
         action: enums.bedrock.GuardrailSensitiveInformationAction;
+        /**
+         * Configure guardrail type when the PII entity is detected.
+         *
+         * The following PIIs are used to block or mask sensitive information:
+         *
+         * - *General*
+         *
+         * - *ADDRESS*
+         *
+         * A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
+         * - *AGE*
+         *
+         * An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+         * - *NAME*
+         *
+         * An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
+         * - *EMAIL*
+         *
+         * An email address, such as *marymajor@email.com* .
+         * - *PHONE*
+         *
+         * A phone number. This entity type also includes fax and pager numbers.
+         * - *USERNAME*
+         *
+         * A user name that identifies an account, such as a login name, screen name, nick name, or handle.
+         * - *PASSWORD*
+         *
+         * An alphanumeric string that is used as a password, such as "* *very20special#pass** ".
+         * - *DRIVER_ID*
+         *
+         * The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
+         * - *LICENSE_PLATE*
+         *
+         * A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
+         * - *VEHICLE_IDENTIFICATION_NUMBER*
+         *
+         * A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
+         * - *Finance*
+         *
+         * - *REDIT_DEBIT_CARD_CVV*
+         *
+         * A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
+         * - *CREDIT_DEBIT_CARD_EXPIRY*
+         *
+         * The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY* . Guardrails recognizes expiration dates such as *01/21* , *01/2021* , and *Jan 2021* .
+         * - *CREDIT_DEBIT_CARD_NUMBER*
+         *
+         * The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
+         * - *PIN*
+         *
+         * A four-digit personal identification number (PIN) with which you can access your bank account.
+         * - *INTERNATIONAL_BANK_ACCOUNT_NUMBER*
+         *
+         * An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://docs.aws.amazon.com/https://www.iban.com/structure) .
+         * - *SWIFT_CODE*
+         *
+         * A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
+         *
+         * SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
+         * - *IT*
+         *
+         * - *IP_ADDRESS*
+         *
+         * An IPv4 address, such as *198.51.100.0* .
+         * - *MAC_ADDRESS*
+         *
+         * A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
+         * - *URL*
+         *
+         * A web address, such as *www.example.com* .
+         * - *AWS_ACCESS_KEY*
+         *
+         * A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+         * - *AWS_SECRET_KEY*
+         *
+         * A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+         * - *USA specific*
+         *
+         * - *US_BANK_ACCOUNT_NUMBER*
+         *
+         * A US bank account number, which is typically 10 to 12 digits long.
+         * - *US_BANK_ROUTING_NUMBER*
+         *
+         * A US bank account routing number. These are typically nine digits long,
+         * - *US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER*
+         *
+         * A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
+         * - *US_PASSPORT_NUMBER*
+         *
+         * A US passport number. Passport numbers range from six to nine alphanumeric characters.
+         * - *US_SOCIAL_SECURITY_NUMBER*
+         *
+         * A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
+         * - *Canada specific*
+         *
+         * - *CA_HEALTH_NUMBER*
+         *
+         * A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
+         * - *CA_SOCIAL_INSURANCE_NUMBER*
+         *
+         * A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
+         *
+         * The SIN is formatted as three groups of three digits, such as *123-456-789* . A SIN can be validated through a simple check-digit process called the [Luhn algorithm](https://docs.aws.amazon.com/https://www.wikipedia.org/wiki/Luhn_algorithm) .
+         * - *UK Specific*
+         *
+         * - *UK_NATIONAL_HEALTH_SERVICE_NUMBER*
+         *
+         * A UK National Health Service Number is a 10-17 digit number, such as *485 777 3456* . The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
+         * - *UK_NATIONAL_INSURANCE_NUMBER*
+         *
+         * A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
+         *
+         * The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
+         * - *UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER*
+         *
+         * A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+         * - *Custom*
+         *
+         * - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
+         */
         type: enums.bedrock.GuardrailPiiEntityType;
     }
 
@@ -8627,6 +8799,9 @@ export namespace bedrock {
      * A regex configuration.
      */
     export interface GuardrailRegexConfig {
+        /**
+         * The guardrail action to configure when matching regular expression is detected.
+         */
         action: enums.bedrock.GuardrailSensitiveInformationAction;
         /**
          * The regex description.
@@ -8672,6 +8847,9 @@ export namespace bedrock {
          * Name of topic in topic policy
          */
         name: string;
+        /**
+         * Specifies to deny the topic.
+         */
         type: enums.bedrock.GuardrailTopicType;
     }
 
@@ -11622,8 +11800,17 @@ export namespace codeartifact {
 
 export namespace codebuild {
     export interface FleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
         securityGroupIds?: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
         subnets?: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
         vpcId?: string;
     }
 
@@ -17380,7 +17567,7 @@ export namespace ec2 {
          */
         instanceType?: string;
         /**
-         * The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+         * The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
          */
         priority?: number;
         /**
@@ -17937,13 +18124,13 @@ export namespace ec2 {
         /**
          * The maximum amount per hour for On-Demand Instances that you're willing to pay.
          *
-         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
          */
         maxTotalPrice?: string;
         /**
-         * The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+         * The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
          *
-         * Supported only for fleets of type `instant` .
+         * Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
          *
          * At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
          */
@@ -18045,13 +18232,13 @@ export namespace ec2 {
         /**
          * The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
          *
-         * > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+         * > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
          */
         maxTotalPrice?: string;
         /**
-         * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+         * The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
          *
-         * Supported only for fleets of type `instant` .
+         * Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
          *
          * At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
          */
@@ -20220,7 +20407,7 @@ export namespace ec2 {
 
     export interface NetworkInterfaceIpv4PrefixSpecification {
         /**
-         * The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+         * The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
          */
         ipv4Prefix: string;
     }
@@ -21124,7 +21311,7 @@ export namespace ec2 {
         /**
          * The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
          *
-         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
          */
         onDemandMaxTotalPrice?: string;
         /**
@@ -21142,7 +21329,7 @@ export namespace ec2 {
         /**
          * The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
          *
-         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+         * > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
          */
         spotMaxTotalPrice?: string;
         /**
@@ -21206,7 +21393,7 @@ export namespace ec2 {
 
     export interface SpotFleetSpotMaintenanceStrategies {
         /**
-         * The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+         * The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
          */
         capacityRebalance?: outputs.ec2.SpotFleetSpotCapacityRebalance;
     }
@@ -21802,6 +21989,9 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: outputs.ecs.ClusterExecuteCommandConfiguration;
+        /**
+         * The details of the managed storage configuration.
+         */
         managedStorageConfiguration?: outputs.ecs.ClusterManagedStorageConfiguration;
     }
 
@@ -21855,7 +22045,13 @@ export namespace ecs {
     }
 
     export interface ClusterManagedStorageConfiguration {
+        /**
+         * Specify the AWS Key Management Service key ID for the Fargate ephemeral storage.
+         */
         fargateEphemeralStorageKmsKeyId?: string;
+        /**
+         * Specify a AWS Key Management Service key ID to encrypt the managed storage.
+         */
         kmsKeyId?: string;
     }
 
@@ -25488,6 +25684,9 @@ export namespace events {
      * Dead Letter Queue for the event bus.
      */
     export interface DeadLetterConfigProperties {
+        /**
+         * The ARN of the SQS queue specified as the target for the dead-letter queue.
+         */
         arn?: string;
     }
 
@@ -28408,10 +28607,16 @@ export namespace groundstation {
     }
 
     export interface ConfigDecodeConfig {
+        /**
+         * The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+         */
         unvalidatedJson?: string;
     }
 
     export interface ConfigDemodulationConfig {
+        /**
+         * The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+         */
         unvalidatedJson?: string;
     }
 
@@ -28536,6 +28741,9 @@ export namespace groundstation {
          * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
          */
         mtu?: number;
+        /**
+         * A socket address.
+         */
         socketAddress?: outputs.groundstation.DataflowEndpointGroupSocketAddress;
     }
 
@@ -28544,6 +28752,9 @@ export namespace groundstation {
          * The address and port of an endpoint.
          */
         address?: outputs.groundstation.DataflowEndpointGroupSocketAddress;
+        /**
+         * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+         */
         mtu?: number;
         /**
          * The endpoint name.
@@ -28554,6 +28765,9 @@ export namespace groundstation {
     }
 
     export interface DataflowEndpointGroupEndpointDetails {
+        /**
+         * An agent endpoint.
+         */
         awsGroundStationAgentEndpoint?: outputs.groundstation.DataflowEndpointGroupAwsGroundStationAgentEndpoint;
         /**
          * Information about the endpoint such as name and the endpoint address.
@@ -28587,6 +28801,9 @@ export namespace groundstation {
          * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
          */
         mtu?: number;
+        /**
+         * A ranged socket address.
+         */
         socketAddress?: outputs.groundstation.DataflowEndpointGroupRangedSocketAddress;
     }
 
@@ -40424,24 +40641,24 @@ export namespace location {
          *
          * Valid [Esri map styles](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) :
          *
-         * - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places, such as shops, services, restaurants, attractions, and other points of interest. Enable the `POI` layer by setting it in CustomLayers to leverage the additional places data.
+         * - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
          * - `RasterEsriImagery` – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.
          * - `VectorEsriLightGrayCanvas` – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content.
          * - `VectorEsriTopographic` – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.
          * - `VectorEsriStreets` – The Esri Street Map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.
-         * - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+         * - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.
          *
          * Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) :
          *
+         * - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
+         *
+         * > The `VectorHereContrast` style has been renamed from `VectorHereBerlin` . `VectorHereBerlin` has been deprecated, but will continue to work in applications that use it.
          * - `VectorHereExplore` – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.
+         * - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
          * - `RasterHereExploreSatellite` – A global map containing high resolution satellite imagery.
          * - `HybridHereExploreSatellite` – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.
          *
          * > Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.
-         * - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
-         *
-         * > The `VectorHereContrast` style has been renamed from `VectorHereBerlin` . `VectorHereBerlin` has been deprecated, but will continue to work in applications that use it.
-         * - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
          *
          * Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) :
          *
@@ -42619,6 +42836,9 @@ export namespace mediapackagev2 {
      * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
      */
     export interface OriginEndpointDashUtcTiming {
+        /**
+         * The UTC timing mode.
+         */
         timingMode?: enums.mediapackagev2.OriginEndpointDashUtcTimingMode;
         /**
          * <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
@@ -42792,6 +43012,14 @@ export namespace mediapackagev2 {
      * <p>The SCTE configuration.</p>
      */
     export interface OriginEndpointScteDash {
+        /**
+         * Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+         *
+         * Value description:
+         *
+         * - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+         * - `XML` - The SCTE marker is expressed fully in XML.
+         */
         adMarkerDash?: enums.mediapackagev2.OriginEndpointAdMarkerDash;
     }
 
@@ -45403,10 +45631,11 @@ export namespace opensearchservice {
          */
         enforceHttps?: boolean;
         /**
-         * The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+         * The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
          *
-         * - `Policy-Min-TLS-1-0-2019-07`
-         * - `Policy-Min-TLS-1-2-2019-07`
+         * - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+         * - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+         * - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
          */
         tlsSecurityPolicy?: string;
     }
@@ -46535,8 +46764,17 @@ export namespace pipes {
     }
 
     export interface PipeDimensionMapping {
+        /**
+         * The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+         */
         dimensionName: string;
+        /**
+         * Dynamic path to the dimension value in the source event.
+         */
         dimensionValue: string;
+        /**
+         * The data type of the dimension for the time-series data.
+         */
         dimensionValueType: enums.pipes.PipeDimensionValueType;
     }
 
@@ -46768,13 +47006,28 @@ export namespace pipes {
     }
 
     export interface PipeMultiMeasureAttributeMapping {
+        /**
+         * Dynamic path to the measurement attribute in the source event.
+         */
         measureValue: string;
+        /**
+         * Data type of the measurement attribute in the source event.
+         */
         measureValueType: enums.pipes.PipeMeasureValueType;
+        /**
+         * Target measure name to be used.
+         */
         multiMeasureAttributeName: string;
     }
 
     export interface PipeMultiMeasureMapping {
+        /**
+         * Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
+         */
         multiMeasureAttributeMappings: outputs.pipes.PipeMultiMeasureAttributeMapping[];
+        /**
+         * The name of the multiple measurements per record (multi-measure).
+         */
         multiMeasureName: string;
     }
 
@@ -46883,8 +47136,17 @@ export namespace pipes {
     }
 
     export interface PipeSingleMeasureMapping {
+        /**
+         * Target measure name for the measurement attribute in the Timestream table.
+         */
         measureName: string;
+        /**
+         * Dynamic path of the source field to map to the measure in the record.
+         */
         measureValue: string;
+        /**
+         * Data type of the source field.
+         */
         measureValueType: enums.pipes.PipeMeasureValueType;
     }
 
@@ -47354,6 +47616,9 @@ export namespace pipes {
          * The parameters for using a Step Functions state machine as a target.
          */
         stepFunctionStateMachineParameters?: outputs.pipes.PipeTargetStateMachineParameters;
+        /**
+         * The parameters for using a Timestream for LiveAnalytics table as a target.
+         */
         timestreamParameters?: outputs.pipes.PipeTargetTimestreamParameters;
     }
 
@@ -47419,13 +47684,55 @@ export namespace pipes {
     }
 
     export interface PipeTargetTimestreamParameters {
+        /**
+         * Map source data to dimensions in the target Timestream for LiveAnalytics table.
+         *
+         * For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
+         */
         dimensionMappings: outputs.pipes.PipeDimensionMapping[];
+        /**
+         * The granularity of the time units used. Default is `MILLISECONDS` .
+         *
+         * Required if `TimeFieldType` is specified as `EPOCH` .
+         */
         epochTimeUnit?: enums.pipes.PipeEpochTimeUnit;
+        /**
+         * Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
+         */
         multiMeasureMappings?: outputs.pipes.PipeMultiMeasureMapping[];
+        /**
+         * Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
+         */
         singleMeasureMappings?: outputs.pipes.PipeSingleMeasureMapping[];
+        /**
+         * The type of time value used.
+         *
+         * The default is `EPOCH` .
+         */
         timeFieldType?: enums.pipes.PipeTimeFieldType;
+        /**
+         * Dynamic path to the source data field that represents the time value for your data.
+         */
         timeValue: string;
+        /**
+         * How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+         *
+         * Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
+         */
         timestampFormat?: string;
+        /**
+         * 64 bit version value or source data field that represents the version value for your data.
+         *
+         * Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+         *
+         * Default value is 1.
+         *
+         * Timestream for LiveAnalytics does not support updating partial measure values in a record.
+         *
+         * Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+         *
+         * > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
+         */
         versionValue: string;
     }
 
@@ -65565,6 +65872,9 @@ export namespace quicksight {
          * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
          */
         host?: string;
+        /**
+         * An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+         */
         iamParameters?: outputs.quicksight.DataSourceRedshiftIamParameters;
         /**
          * An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
@@ -75509,7 +75819,7 @@ export namespace refactorspaces {
         /**
          * The type of endpoint to use for the API Gateway proxy. If no value is specified in the request, the value is set to `REGIONAL` by default.
          *
-         * If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud ( Amazon VPC ) interface endpoints for the Amazon API Gateway that has been granted access. For more information about creating a private connection with Refactor Spaces and interface endpoint ( AWS PrivateLink ) availability, see [Access Refactor Spaces using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html) .
+         * If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud (Amazon VPC) interface endpoints for the Amazon API Gateway that has been granted access. For more information about creating a private connection with Refactor Spaces and interface endpoint ( AWS PrivateLink ) availability, see [Access Refactor Spaces using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html) .
          */
         endpointType?: enums.refactorspaces.ApplicationApiGatewayEndpointType;
         /**
@@ -76020,17 +76330,26 @@ export namespace robomaker {
 
 export namespace rolesanywhere {
     export interface ProfileAttributeMapping {
+        /**
+         * Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+         */
         certificateField: enums.rolesanywhere.ProfileCertificateField;
+        /**
+         * A list of mapping entries for every supported specifier or sub-field.
+         */
         mappingRules: outputs.rolesanywhere.ProfileMappingRule[];
     }
 
     export interface ProfileMappingRule {
+        /**
+         * Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+         */
         specifier: string;
     }
 
     export interface TrustAnchorNotificationSetting {
         /**
-         * The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+         * The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
          *
          * > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
          */
@@ -78948,6 +79267,9 @@ export namespace sagemaker {
      * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
      */
     export interface DomainDefaultSpaceSettings {
+        /**
+         * The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+         */
         customFileSystemConfigs?: outputs.sagemaker.DomainCustomFileSystemConfig[];
         /**
          * The Jupyter lab's custom posix user configurations.
@@ -83299,6 +83621,9 @@ export namespace securityhub {
      * An object that defines how Security Hub is configured.
      */
     export interface ConfigurationPolicyPolicy {
+        /**
+         * The AWS service that the configuration policy applies to.
+         */
         securityHub?: outputs.securityhub.ConfigurationPolicySecurityHubPolicy;
     }
 
@@ -83342,6 +83667,9 @@ export namespace securityhub {
          * A list that defines which security standards are enabled in the configuration policy.
          */
         enabledStandardIdentifiers?: string[];
+        /**
+         * An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+         */
         securityControlsConfiguration?: outputs.securityhub.ConfigurationPolicySecurityControlsConfiguration;
         /**
          * Indicates whether Security Hub is enabled in the policy.
@@ -83929,7 +84257,17 @@ export namespace securityhub {
     }
 
     export interface SecurityControlParameterConfiguration {
+        /**
+         * The current value of a control parameter.
+         */
         value?: outputs.securityhub.SecurityControlParameterValue;
+        /**
+         * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+         *
+         * When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+         *
+         * When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
+         */
         valueType: enums.securityhub.SecurityControlParameterConfigurationValueType;
     }
 
@@ -84112,7 +84450,13 @@ export namespace securitylake {
     }
 
     export interface SubscriberNotificationNotificationConfiguration {
+        /**
+         * The configurations for HTTPS subscriber notification.
+         */
         httpsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationHttpsNotificationConfiguration;
+        /**
+         * The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+         */
         sqsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationSqsNotificationConfiguration;
     }
 
@@ -86810,7 +87154,7 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.RuleGroupHeaders;
         /**
-         * Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+         * Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
          *
          * > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
          *
@@ -88115,7 +88459,7 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclHeaders;
         /**
-         * Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+         * Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
          *
          * > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
          *

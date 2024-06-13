@@ -40,7 +40,13 @@ export interface GetUserProfileResult {
      * The ID of the Amazon DataZone user profile.
      */
     readonly id?: string;
+    /**
+     * The status of the user profile.
+     */
     readonly status?: enums.datazone.UserProfileStatus;
+    /**
+     * The type of the user profile.
+     */
     readonly type?: enums.datazone.UserProfileType;
 }
 /**

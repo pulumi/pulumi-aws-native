@@ -26,6 +26,9 @@ export interface GetProfileArgs {
 }
 
 export interface GetProfileResult {
+    /**
+     * A mapping applied to the authenticating end-entity certificate.
+     */
     readonly attributeMappings?: outputs.rolesanywhere.ProfileAttributeMapping[];
     /**
      * The number of seconds vended session credentials will be valid for

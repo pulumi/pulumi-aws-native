@@ -44,7 +44,7 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * The name of the rule.
      *
-     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     public readonly ruleName!: pulumi.Output<string | undefined>;
     /**
@@ -100,7 +100,7 @@ export interface TopicRuleArgs {
     /**
      * The name of the rule.
      *
-     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     ruleName?: pulumi.Input<string>;
     /**

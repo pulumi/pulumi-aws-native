@@ -21,11 +21,29 @@ export interface GetMonitorArgs {
 
 export interface GetMonitorResult {
     readonly arn?: string;
+    /**
+     * The name of the monitor that displays on the Deadline Cloud console.
+     */
     readonly displayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+     */
     readonly identityCenterApplicationArn?: string;
+    /**
+     * The unique identifier for the monitor.
+     */
     readonly monitorId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     */
     readonly roleArn?: string;
+    /**
+     * The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+     */
     readonly subdomain?: string;
+    /**
+     * The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+     */
     readonly url?: string;
 }
 /**
