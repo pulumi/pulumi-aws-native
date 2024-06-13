@@ -21,8 +21,10 @@ type CrlTag struct {
 }
 
 type ProfileAttributeMapping struct {
+	// Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
 	CertificateField ProfileCertificateField `pulumi:"certificateField"`
-	MappingRules     []ProfileMappingRule    `pulumi:"mappingRules"`
+	// A list of mapping entries for every supported specifier or sub-field.
+	MappingRules []ProfileMappingRule `pulumi:"mappingRules"`
 }
 
 // ProfileAttributeMappingInput is an input type that accepts ProfileAttributeMappingArgs and ProfileAttributeMappingOutput values.
@@ -37,8 +39,10 @@ type ProfileAttributeMappingInput interface {
 }
 
 type ProfileAttributeMappingArgs struct {
+	// Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
 	CertificateField ProfileCertificateFieldInput `pulumi:"certificateField"`
-	MappingRules     ProfileMappingRuleArrayInput `pulumi:"mappingRules"`
+	// A list of mapping entries for every supported specifier or sub-field.
+	MappingRules ProfileMappingRuleArrayInput `pulumi:"mappingRules"`
 }
 
 func (ProfileAttributeMappingArgs) ElementType() reflect.Type {
@@ -92,10 +96,12 @@ func (o ProfileAttributeMappingOutput) ToProfileAttributeMappingOutputWithContex
 	return o
 }
 
+// Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
 func (o ProfileAttributeMappingOutput) CertificateField() ProfileCertificateFieldOutput {
 	return o.ApplyT(func(v ProfileAttributeMapping) ProfileCertificateField { return v.CertificateField }).(ProfileCertificateFieldOutput)
 }
 
+// A list of mapping entries for every supported specifier or sub-field.
 func (o ProfileAttributeMappingOutput) MappingRules() ProfileMappingRuleArrayOutput {
 	return o.ApplyT(func(v ProfileAttributeMapping) []ProfileMappingRule { return v.MappingRules }).(ProfileMappingRuleArrayOutput)
 }
@@ -121,6 +127,7 @@ func (o ProfileAttributeMappingArrayOutput) Index(i pulumi.IntInput) ProfileAttr
 }
 
 type ProfileMappingRule struct {
+	// Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
 	Specifier string `pulumi:"specifier"`
 }
 
@@ -136,6 +143,7 @@ type ProfileMappingRuleInput interface {
 }
 
 type ProfileMappingRuleArgs struct {
+	// Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
 	Specifier pulumi.StringInput `pulumi:"specifier"`
 }
 
@@ -190,6 +198,7 @@ func (o ProfileMappingRuleOutput) ToProfileMappingRuleOutputWithContext(ctx cont
 	return o
 }
 
+// Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
 func (o ProfileMappingRuleOutput) Specifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileMappingRule) string { return v.Specifier }).(pulumi.StringOutput)
 }
@@ -222,7 +231,7 @@ type ProfileTag struct {
 }
 
 type TrustAnchorNotificationSetting struct {
-	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 	//
 	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 	Channel *TrustAnchorNotificationChannel `pulumi:"channel"`
@@ -246,7 +255,7 @@ type TrustAnchorNotificationSettingInput interface {
 }
 
 type TrustAnchorNotificationSettingArgs struct {
-	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 	//
 	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 	Channel TrustAnchorNotificationChannelPtrInput `pulumi:"channel"`
@@ -309,7 +318,7 @@ func (o TrustAnchorNotificationSettingOutput) ToTrustAnchorNotificationSettingOu
 	return o
 }
 
-// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 //
 // > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 func (o TrustAnchorNotificationSettingOutput) Channel() TrustAnchorNotificationChannelPtrOutput {

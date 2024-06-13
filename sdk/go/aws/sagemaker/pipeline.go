@@ -34,7 +34,7 @@ import (
 //				PipelineName:        pulumi.String("<pipeline-name>"),
 //				PipelineDisplayName: pulumi.String("<pipeline-display-name>"),
 //				PipelineDescription: pulumi.String("<pipeline-description>"),
-//				PipelineDefinition: pulumi.Any{
+//				PipelineDefinition: &sagemaker.PipelineDefinition0PropertiesArgs{
 //					PipelineDefinitionS3Location: &sagemaker.PipelineS3LocationArgs{
 //						Bucket: pulumi.String("<S3-bucket-location>"),
 //						Key:    pulumi.String("<S3-bucket-key>"),
@@ -68,7 +68,7 @@ import (
 //				PipelineName:        pulumi.String("<pipeline-name>"),
 //				PipelineDisplayName: pulumi.String("<pipeline-display-name>"),
 //				PipelineDescription: pulumi.String("<pipeline-description>"),
-//				PipelineDefinition: pulumi.Any{
+//				PipelineDefinition: &sagemaker.PipelineDefinition0PropertiesArgs{
 //					PipelineDefinitionBody: pulumi.String("{\"Version\":\"2020-12-01\",\"Parameters\":[{\"Name\":\"InputDataSource\",\"DefaultValue\":\"\"},{\"Name\":\"InstanceCount\",\"Type\":\"Integer\",\"DefaultValue\":1}],\"Steps\":[{\"Name\":\"Training1\",\"Type\":\"Training\",\"Arguments\":{\"InputDataConfig\":[{\"DataSource\":{\"S3DataSource\":{\"S3Uri\":{\"Get\":\"Parameters.InputDataSource\"}}}}],\"OutputDataConfig\":{\"S3OutputPath\":\"s3://my-s3-bucket/\"},\"ResourceConfig\":{\"InstanceType\":\"ml.m5.large\",\"InstanceCount\":{\"Get\":\"Parameters.InstanceCount\"},\"VolumeSizeInGB\":1024}}}]}"),
 //				},
 //				RoleArn: pulumi.String("arn:aws:iam::<account-id>:root"),

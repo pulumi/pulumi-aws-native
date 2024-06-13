@@ -16,6 +16,7 @@ import (
 type SubscriberNotification struct {
 	pulumi.CustomResourceState
 
+	// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 	NotificationConfiguration SubscriberNotificationNotificationConfigurationOutput `pulumi:"notificationConfiguration"`
 	// The ARN for the subscriber
 	SubscriberArn pulumi.StringOutput `pulumi:"subscriberArn"`
@@ -73,6 +74,7 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 }
 
 type subscriberNotificationArgs struct {
+	// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 	NotificationConfiguration SubscriberNotificationNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// The ARN for the subscriber
 	SubscriberArn string `pulumi:"subscriberArn"`
@@ -80,6 +82,7 @@ type subscriberNotificationArgs struct {
 
 // The set of arguments for constructing a SubscriberNotification resource.
 type SubscriberNotificationArgs struct {
+	// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 	NotificationConfiguration SubscriberNotificationNotificationConfigurationInput
 	// The ARN for the subscriber
 	SubscriberArn pulumi.StringInput
@@ -122,6 +125,7 @@ func (o SubscriberNotificationOutput) ToSubscriberNotificationOutputWithContext(
 	return o
 }
 
+// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 func (o SubscriberNotificationOutput) NotificationConfiguration() SubscriberNotificationNotificationConfigurationOutput {
 	return o.ApplyT(func(v *SubscriberNotification) SubscriberNotificationNotificationConfigurationOutput {
 		return v.NotificationConfiguration

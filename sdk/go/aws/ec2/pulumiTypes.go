@@ -24,7 +24,7 @@ type CapacityReservationFleetInstanceTypeSpecification struct {
 	InstancePlatform *string `pulumi:"instancePlatform"`
 	// The instance type for which the Capacity Reservation Fleet reserves capacity.
 	InstanceType *string `pulumi:"instanceType"`
-	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
 	Priority *int `pulumi:"priority"`
 	// The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
 	//
@@ -54,7 +54,7 @@ type CapacityReservationFleetInstanceTypeSpecificationArgs struct {
 	InstancePlatform pulumi.StringPtrInput `pulumi:"instancePlatform"`
 	// The instance type for which the Capacity Reservation Fleet reserves capacity.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+	// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
 	//
@@ -138,7 +138,7 @@ func (o CapacityReservationFleetInstanceTypeSpecificationOutput) InstanceType() 
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationFleetInstanceTypeSpecificationOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityReservationFleetInstanceTypeSpecification) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -4377,11 +4377,11 @@ type Ec2FleetOnDemandOptionsRequest struct {
 	CapacityReservationOptions *Ec2FleetCapacityReservationOptionsRequest `pulumi:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
-	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	// The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 	//
-	// Supported only for fleets of type `instant` .
+	// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
@@ -4421,11 +4421,11 @@ type Ec2FleetOnDemandOptionsRequestArgs struct {
 	CapacityReservationOptions Ec2FleetCapacityReservationOptionsRequestPtrInput `pulumi:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
-	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	// The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 	//
-	// Supported only for fleets of type `instant` .
+	// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
@@ -4538,14 +4538,14 @@ func (o Ec2FleetOnDemandOptionsRequestOutput) CapacityReservationOptions() Ec2Fl
 
 // The maximum amount per hour for On-Demand Instances that you're willing to pay.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetOnDemandOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
-// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+// The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 //
-// Supported only for fleets of type `instant` .
+// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 //
 // At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetOnDemandOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
@@ -4620,7 +4620,7 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) CapacityReservationOptions() Ec
 
 // The maximum amount per hour for On-Demand Instances that you're willing to pay.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetOnDemandOptionsRequest) *string {
 		if v == nil {
@@ -4630,9 +4630,9 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+// The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 //
-// Supported only for fleets of type `instant` .
+// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 //
 // At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetOnDemandOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
@@ -5025,11 +5025,11 @@ type Ec2FleetSpotOptionsRequest struct {
 	MaintenanceStrategies *Ec2FleetMaintenanceStrategies `pulumi:"maintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
-	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
-	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	// The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 	//
-	// Supported only for fleets of type `instant` .
+	// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
@@ -5077,11 +5077,11 @@ type Ec2FleetSpotOptionsRequestArgs struct {
 	MaintenanceStrategies Ec2FleetMaintenanceStrategiesPtrInput `pulumi:"maintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
-	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
-	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+	// The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 	//
-	// Supported only for fleets of type `instant` .
+	// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
@@ -5210,14 +5210,14 @@ func (o Ec2FleetSpotOptionsRequestOutput) MaintenanceStrategies() Ec2FleetMainte
 
 // The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 //
-// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetSpotOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetSpotOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
-// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+// The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 //
-// Supported only for fleets of type `instant` .
+// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 //
 // At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetSpotOptionsRequestOutput) MinTargetCapacity() pulumi.IntPtrOutput {
@@ -5316,7 +5316,7 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() Ec2FleetMai
 
 // The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 //
-// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequest) *string {
 		if v == nil {
@@ -5326,9 +5326,9 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+// The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 //
-// Supported only for fleets of type `instant` .
+// Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 //
 // At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
 func (o Ec2FleetSpotOptionsRequestPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
@@ -20410,7 +20410,7 @@ func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput)
 }
 
 type NetworkInterfaceIpv4PrefixSpecification struct {
-	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
 	Ipv4Prefix string `pulumi:"ipv4Prefix"`
 }
 
@@ -20426,7 +20426,7 @@ type NetworkInterfaceIpv4PrefixSpecificationInput interface {
 }
 
 type NetworkInterfaceIpv4PrefixSpecificationArgs struct {
-	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
 	Ipv4Prefix pulumi.StringInput `pulumi:"ipv4Prefix"`
 }
 
@@ -20481,7 +20481,7 @@ func (o NetworkInterfaceIpv4PrefixSpecificationOutput) ToNetworkInterfaceIpv4Pre
 	return o
 }
 
-// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
 func (o NetworkInterfaceIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpv4PrefixSpecification) string { return v.Ipv4Prefix }).(pulumi.StringOutput)
 }
@@ -26350,7 +26350,7 @@ type SpotFleetRequestConfigData struct {
 	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
@@ -26360,7 +26360,7 @@ type SpotFleetRequestConfigData struct {
 	SpotMaintenanceStrategies *SpotFleetSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	SpotMaxTotalPrice *string `pulumi:"spotMaxTotalPrice"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
@@ -26433,7 +26433,7 @@ type SpotFleetRequestConfigDataArgs struct {
 	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	OnDemandMaxTotalPrice pulumi.StringPtrInput `pulumi:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"onDemandTargetCapacity"`
@@ -26443,7 +26443,7 @@ type SpotFleetRequestConfigDataArgs struct {
 	SpotMaintenanceStrategies SpotFleetSpotMaintenanceStrategiesPtrInput `pulumi:"spotMaintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 	//
-	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+	// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 	SpotMaxTotalPrice pulumi.StringPtrInput `pulumi:"spotMaxTotalPrice"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
@@ -26566,7 +26566,7 @@ func (o SpotFleetRequestConfigDataOutput) OnDemandAllocationStrategy() pulumi.St
 
 // The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o SpotFleetRequestConfigDataOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.OnDemandMaxTotalPrice }).(pulumi.StringPtrOutput)
 }
@@ -26590,7 +26590,7 @@ func (o SpotFleetRequestConfigDataOutput) SpotMaintenanceStrategies() SpotFleetS
 
 // The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o SpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotMaxTotalPrice }).(pulumi.StringPtrOutput)
 }
@@ -26782,7 +26782,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi
 
 // The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -26824,7 +26824,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFle
 
 // The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 //
-// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
+// > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
 func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
 		if v == nil {
@@ -27117,7 +27117,7 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPt
 }
 
 type SpotFleetSpotMaintenanceStrategies struct {
-	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 	CapacityRebalance *SpotFleetSpotCapacityRebalance `pulumi:"capacityRebalance"`
 }
 
@@ -27133,7 +27133,7 @@ type SpotFleetSpotMaintenanceStrategiesInput interface {
 }
 
 type SpotFleetSpotMaintenanceStrategiesArgs struct {
-	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 	CapacityRebalance SpotFleetSpotCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
 }
 
@@ -27214,7 +27214,7 @@ func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStra
 	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
 }
 
-// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetSpotMaintenanceStrategiesOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance { return v.CapacityRebalance }).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
@@ -27243,7 +27243,7 @@ func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) Elem() SpotFleetSpotMainten
 	}).(SpotFleetSpotMaintenanceStrategiesOutput)
 }
 
-// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
+// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance {
 		if v == nil {

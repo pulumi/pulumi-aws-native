@@ -30,7 +30,7 @@ type LookupClusterResult struct {
 	Arn *string `pulumi:"arn"`
 	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo *ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
-	// VPC connection control settings for brokers.
+	// Includes all client authentication related information.
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
@@ -98,7 +98,7 @@ func (o LookupClusterResultOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupI
 	return o.ApplyT(func(v LookupClusterResult) *ClusterBrokerNodeGroupInfo { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
-// VPC connection control settings for brokers.
+// Includes all client authentication related information.
 func (o LookupClusterResultOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterClientAuthentication { return v.ClientAuthentication }).(ClusterClientAuthenticationPtrOutput)
 }

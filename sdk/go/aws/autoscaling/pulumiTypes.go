@@ -4932,8 +4932,9 @@ type ScalingPolicyCustomizedMetricSpecification struct {
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions []ScalingPolicyMetricDimension `pulumi:"dimensions"`
 	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-	MetricName *string                                      `pulumi:"metricName"`
-	Metrics    []ScalingPolicyTargetTrackingMetricDataQuery `pulumi:"metrics"`
+	MetricName *string `pulumi:"metricName"`
+	// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+	Metrics []ScalingPolicyTargetTrackingMetricDataQuery `pulumi:"metrics"`
 	// The namespace of the metric.
 	Namespace *string `pulumi:"namespace"`
 	// The statistic of the metric.
@@ -4959,8 +4960,9 @@ type ScalingPolicyCustomizedMetricSpecificationArgs struct {
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions ScalingPolicyMetricDimensionArrayInput `pulumi:"dimensions"`
 	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-	MetricName pulumi.StringPtrInput                                `pulumi:"metricName"`
-	Metrics    ScalingPolicyTargetTrackingMetricDataQueryArrayInput `pulumi:"metrics"`
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+	Metrics ScalingPolicyTargetTrackingMetricDataQueryArrayInput `pulumi:"metrics"`
 	// The namespace of the metric.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The statistic of the metric.
@@ -5058,6 +5060,7 @@ func (o ScalingPolicyCustomizedMetricSpecificationOutput) MetricName() pulumi.St
 	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
+// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
 func (o ScalingPolicyCustomizedMetricSpecificationOutput) Metrics() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyTargetTrackingMetricDataQuery {
 		return v.Metrics
@@ -5125,6 +5128,7 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) MetricName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Metrics() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyTargetTrackingMetricDataQuery {
 		if v == nil {
@@ -7802,11 +7806,24 @@ func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.
 }
 
 type ScalingPolicyTargetTrackingMetricDataQuery struct {
-	Expression *string                                `pulumi:"expression"`
-	Id         string                                 `pulumi:"id"`
-	Label      *string                                `pulumi:"label"`
+	// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+	//
+	// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+	Expression *string `pulumi:"expression"`
+	// A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+	Id string `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label *string `pulumi:"label"`
+	// Information about the metric data to return.
+	//
+	// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 	MetricStat *ScalingPolicyTargetTrackingMetricStat `pulumi:"metricStat"`
-	ReturnData *bool                                  `pulumi:"returnData"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	//
+	// If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+	//
+	// If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+	ReturnData *bool `pulumi:"returnData"`
 }
 
 // ScalingPolicyTargetTrackingMetricDataQueryInput is an input type that accepts ScalingPolicyTargetTrackingMetricDataQueryArgs and ScalingPolicyTargetTrackingMetricDataQueryOutput values.
@@ -7821,11 +7838,24 @@ type ScalingPolicyTargetTrackingMetricDataQueryInput interface {
 }
 
 type ScalingPolicyTargetTrackingMetricDataQueryArgs struct {
-	Expression pulumi.StringPtrInput                         `pulumi:"expression"`
-	Id         pulumi.StringInput                            `pulumi:"id"`
-	Label      pulumi.StringPtrInput                         `pulumi:"label"`
+	// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+	//
+	// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Information about the metric data to return.
+	//
+	// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 	MetricStat ScalingPolicyTargetTrackingMetricStatPtrInput `pulumi:"metricStat"`
-	ReturnData pulumi.BoolPtrInput                           `pulumi:"returnData"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	//
+	// If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+	//
+	// If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
 
 func (ScalingPolicyTargetTrackingMetricDataQueryArgs) ElementType() reflect.Type {
@@ -7879,24 +7909,37 @@ func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ToScalingPolicyTargetT
 	return o
 }
 
+// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+//
+// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
 func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
 func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Information about the metric data to return.
+//
+// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) MetricStat() ScalingPolicyTargetTrackingMetricStatPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *ScalingPolicyTargetTrackingMetricStat {
 		return v.MetricStat
 	}).(ScalingPolicyTargetTrackingMetricStatPtrOutput)
 }
 
+// Indicates whether to return the timestamps and raw data values of this metric.
+//
+// If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+//
+// If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
 func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
 }
@@ -7922,9 +7965,14 @@ func (o ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) Index(i pulumi.In
 }
 
 type ScalingPolicyTargetTrackingMetricStat struct {
+	// The metric to use.
 	Metric ScalingPolicyMetric `pulumi:"metric"`
-	Stat   string              `pulumi:"stat"`
-	Unit   *string             `pulumi:"unit"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+	//
+	// The most commonly used metric for scaling is `Average` .
+	Stat string `pulumi:"stat"`
+	// The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+	Unit *string `pulumi:"unit"`
 }
 
 // ScalingPolicyTargetTrackingMetricStatInput is an input type that accepts ScalingPolicyTargetTrackingMetricStatArgs and ScalingPolicyTargetTrackingMetricStatOutput values.
@@ -7939,9 +7987,14 @@ type ScalingPolicyTargetTrackingMetricStatInput interface {
 }
 
 type ScalingPolicyTargetTrackingMetricStatArgs struct {
+	// The metric to use.
 	Metric ScalingPolicyMetricInput `pulumi:"metric"`
-	Stat   pulumi.StringInput       `pulumi:"stat"`
-	Unit   pulumi.StringPtrInput    `pulumi:"unit"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+	//
+	// The most commonly used metric for scaling is `Average` .
+	Stat pulumi.StringInput `pulumi:"stat"`
+	// The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (ScalingPolicyTargetTrackingMetricStatArgs) ElementType() reflect.Type {
@@ -8021,14 +8074,19 @@ func (o ScalingPolicyTargetTrackingMetricStatOutput) ToScalingPolicyTargetTracki
 	}).(ScalingPolicyTargetTrackingMetricStatPtrOutput)
 }
 
+// The metric to use.
 func (o ScalingPolicyTargetTrackingMetricStatOutput) Metric() ScalingPolicyMetricOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) ScalingPolicyMetric { return v.Metric }).(ScalingPolicyMetricOutput)
 }
 
+// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+//
+// The most commonly used metric for scaling is `Average` .
 func (o ScalingPolicyTargetTrackingMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) string { return v.Stat }).(pulumi.StringOutput)
 }
 
+// The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
 func (o ScalingPolicyTargetTrackingMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -8057,6 +8115,7 @@ func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Elem() ScalingPolicyTarg
 	}).(ScalingPolicyTargetTrackingMetricStatOutput)
 }
 
+// The metric to use.
 func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Metric() ScalingPolicyMetricPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *ScalingPolicyMetric {
 		if v == nil {
@@ -8066,6 +8125,9 @@ func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Metric() ScalingPolicyMe
 	}).(ScalingPolicyMetricPtrOutput)
 }
 
+// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+//
+// The most commonly used metric for scaling is `Average` .
 func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *string {
 		if v == nil {
@@ -8075,6 +8137,7 @@ func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Stat() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
 func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *string {
 		if v == nil {

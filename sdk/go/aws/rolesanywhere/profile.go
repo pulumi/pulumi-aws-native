@@ -17,6 +17,7 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings ProfileAttributeMappingArrayOutput `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
 	DurationSeconds pulumi.Float64PtrOutput `pulumi:"durationSeconds"`
@@ -83,6 +84,7 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
+	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings []ProfileAttributeMapping `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
 	DurationSeconds *float64 `pulumi:"durationSeconds"`
@@ -104,6 +106,7 @@ type profileArgs struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings ProfileAttributeMappingArrayInput
 	// The number of seconds vended session credentials will be valid for
 	DurationSeconds pulumi.Float64PtrInput
@@ -160,6 +163,7 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// A mapping applied to the authenticating end-entity certificate.
 func (o ProfileOutput) AttributeMappings() ProfileAttributeMappingArrayOutput {
 	return o.ApplyT(func(v *Profile) ProfileAttributeMappingArrayOutput { return v.AttributeMappings }).(ProfileAttributeMappingArrayOutput)
 }

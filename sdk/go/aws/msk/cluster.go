@@ -19,7 +19,7 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
-	// VPC connection control settings for brokers.
+	// Includes all client authentication related information.
 	ClientAuthentication ClusterClientAuthenticationPtrOutput `pulumi:"clientAuthentication"`
 	// The name of the cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -105,7 +105,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
-	// VPC connection control settings for brokers.
+	// Includes all client authentication related information.
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the cluster.
 	ClusterName *string `pulumi:"clusterName"`
@@ -135,7 +135,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoInput
-	// VPC connection control settings for brokers.
+	// Includes all client authentication related information.
 	ClientAuthentication ClusterClientAuthenticationPtrInput
 	// The name of the cluster.
 	ClusterName pulumi.StringPtrInput
@@ -207,7 +207,7 @@ func (o ClusterOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupInfoOutput {
 	return o.ApplyT(func(v *Cluster) ClusterBrokerNodeGroupInfoOutput { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoOutput)
 }
 
-// VPC connection control settings for brokers.
+// Includes all client authentication related information.
 func (o ClusterOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClientAuthenticationPtrOutput { return v.ClientAuthentication }).(ClusterClientAuthenticationPtrOutput)
 }

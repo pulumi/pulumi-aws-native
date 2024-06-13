@@ -38,7 +38,7 @@ type LookupQueueEnvironmentResult struct {
 	Priority *int `pulumi:"priority"`
 	// The queue environment ID.
 	QueueEnvironmentId *string `pulumi:"queueEnvironmentId"`
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	Template *string `pulumi:"template"`
 	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType *QueueEnvironmentEnvironmentTemplateType `pulumi:"templateType"`
@@ -99,7 +99,7 @@ func (o LookupQueueEnvironmentResultOutput) QueueEnvironmentId() pulumi.StringPt
 	return o.ApplyT(func(v LookupQueueEnvironmentResult) *string { return v.QueueEnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// A JSON or YAML template the describes the processing environment for the queue.
+// A JSON or YAML template that describes the processing environment for the queue.
 func (o LookupQueueEnvironmentResultOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueEnvironmentResult) *string { return v.Template }).(pulumi.StringPtrOutput)
 }

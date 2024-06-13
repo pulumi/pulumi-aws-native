@@ -9135,7 +9135,8 @@ type DataSourceRedshiftParameters struct {
 	// <p>Database.</p>
 	Database string `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-	Host          *string                          `pulumi:"host"`
+	Host *string `pulumi:"host"`
+	// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 	IamParameters *DataSourceRedshiftIamParameters `pulumi:"iamParameters"`
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
@@ -9166,7 +9167,8 @@ type DataSourceRedshiftParametersArgs struct {
 	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-	Host          pulumi.StringPtrInput                   `pulumi:"host"`
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 	IamParameters DataSourceRedshiftIamParametersPtrInput `pulumi:"iamParameters"`
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
@@ -9273,6 +9275,7 @@ func (o DataSourceRedshiftParametersOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 func (o DataSourceRedshiftParametersOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters { return v.IamParameters }).(DataSourceRedshiftIamParametersPtrOutput)
 }
@@ -9347,6 +9350,7 @@ func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 func (o DataSourceRedshiftParametersPtrOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters {
 		if v == nil {

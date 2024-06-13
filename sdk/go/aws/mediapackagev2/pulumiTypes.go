@@ -263,6 +263,7 @@ func (o OriginEndpointDashManifestConfigurationArrayOutput) Index(i pulumi.IntIn
 
 // <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
 type OriginEndpointDashUtcTiming struct {
+	// The UTC timing mode.
 	TimingMode *OriginEndpointDashUtcTimingMode `pulumi:"timingMode"`
 	// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
 	TimingSource *string `pulumi:"timingSource"`
@@ -281,6 +282,7 @@ type OriginEndpointDashUtcTimingInput interface {
 
 // <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
 type OriginEndpointDashUtcTimingArgs struct {
+	// The UTC timing mode.
 	TimingMode OriginEndpointDashUtcTimingModePtrInput `pulumi:"timingMode"`
 	// <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
 	TimingSource pulumi.StringPtrInput `pulumi:"timingSource"`
@@ -364,6 +366,7 @@ func (o OriginEndpointDashUtcTimingOutput) ToOriginEndpointDashUtcTimingPtrOutpu
 	}).(OriginEndpointDashUtcTimingPtrOutput)
 }
 
+// The UTC timing mode.
 func (o OriginEndpointDashUtcTimingOutput) TimingMode() OriginEndpointDashUtcTimingModePtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashUtcTiming) *OriginEndpointDashUtcTimingMode { return v.TimingMode }).(OriginEndpointDashUtcTimingModePtrOutput)
 }
@@ -397,6 +400,7 @@ func (o OriginEndpointDashUtcTimingPtrOutput) Elem() OriginEndpointDashUtcTiming
 	}).(OriginEndpointDashUtcTimingOutput)
 }
 
+// The UTC timing mode.
 func (o OriginEndpointDashUtcTimingPtrOutput) TimingMode() OriginEndpointDashUtcTimingModePtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashUtcTiming) *OriginEndpointDashUtcTimingMode {
 		if v == nil {
@@ -1650,6 +1654,12 @@ func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayO
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteDash struct {
+	// Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+	//
+	// Value description:
+	//
+	// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+	// - `XML` - The SCTE marker is expressed fully in XML.
 	AdMarkerDash *OriginEndpointAdMarkerDash `pulumi:"adMarkerDash"`
 }
 
@@ -1666,6 +1676,12 @@ type OriginEndpointScteDashInput interface {
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteDashArgs struct {
+	// Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+	//
+	// Value description:
+	//
+	// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+	// - `XML` - The SCTE marker is expressed fully in XML.
 	AdMarkerDash OriginEndpointAdMarkerDashPtrInput `pulumi:"adMarkerDash"`
 }
 
@@ -1747,6 +1763,12 @@ func (o OriginEndpointScteDashOutput) ToOriginEndpointScteDashPtrOutputWithConte
 	}).(OriginEndpointScteDashPtrOutput)
 }
 
+// Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+//
+// Value description:
+//
+// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+// - `XML` - The SCTE marker is expressed fully in XML.
 func (o OriginEndpointScteDashOutput) AdMarkerDash() OriginEndpointAdMarkerDashPtrOutput {
 	return o.ApplyT(func(v OriginEndpointScteDash) *OriginEndpointAdMarkerDash { return v.AdMarkerDash }).(OriginEndpointAdMarkerDashPtrOutput)
 }
@@ -1775,6 +1797,12 @@ func (o OriginEndpointScteDashPtrOutput) Elem() OriginEndpointScteDashOutput {
 	}).(OriginEndpointScteDashOutput)
 }
 
+// Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+//
+// Value description:
+//
+// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+// - `XML` - The SCTE marker is expressed fully in XML.
 func (o OriginEndpointScteDashPtrOutput) AdMarkerDash() OriginEndpointAdMarkerDashPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointScteDash) *OriginEndpointAdMarkerDash {
 		if v == nil {

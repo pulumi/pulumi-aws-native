@@ -25,8 +25,9 @@ type GroupProfile struct {
 	// The ID of the group.
 	GroupIdentifier pulumi.StringOutput `pulumi:"groupIdentifier"`
 	// The group-name of the Group Profile.
-	GroupName pulumi.StringOutput         `pulumi:"groupName"`
-	Status    GroupProfileStatusPtrOutput `pulumi:"status"`
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The status of a group profile.
+	Status GroupProfileStatusPtrOutput `pulumi:"status"`
 }
 
 // NewGroupProfile registers a new resource with the given unique name, arguments, and options.
@@ -83,8 +84,9 @@ type groupProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the group profile would be created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// The ID of the group.
-	GroupIdentifier string              `pulumi:"groupIdentifier"`
-	Status          *GroupProfileStatus `pulumi:"status"`
+	GroupIdentifier string `pulumi:"groupIdentifier"`
+	// The status of a group profile.
+	Status *GroupProfileStatus `pulumi:"status"`
 }
 
 // The set of arguments for constructing a GroupProfile resource.
@@ -93,7 +95,8 @@ type GroupProfileArgs struct {
 	DomainIdentifier pulumi.StringInput
 	// The ID of the group.
 	GroupIdentifier pulumi.StringInput
-	Status          GroupProfileStatusPtrInput
+	// The status of a group profile.
+	Status GroupProfileStatusPtrInput
 }
 
 func (GroupProfileArgs) ElementType() reflect.Type {
@@ -158,6 +161,7 @@ func (o GroupProfileOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupProfile) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The status of a group profile.
 func (o GroupProfileOutput) Status() GroupProfileStatusPtrOutput {
 	return o.ApplyT(func(v *GroupProfile) GroupProfileStatusPtrOutput { return v.Status }).(GroupProfileStatusPtrOutput)
 }

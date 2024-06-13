@@ -1046,6 +1046,7 @@ func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParam
 
 // Dead Letter Queue for the event bus.
 type DeadLetterConfigProperties struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -1062,6 +1063,7 @@ type DeadLetterConfigPropertiesInput interface {
 
 // Dead Letter Queue for the event bus.
 type DeadLetterConfigPropertiesArgs struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -1143,6 +1145,7 @@ func (o DeadLetterConfigPropertiesOutput) ToDeadLetterConfigPropertiesPtrOutputW
 	}).(DeadLetterConfigPropertiesPtrOutput)
 }
 
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o DeadLetterConfigPropertiesOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeadLetterConfigProperties) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1171,6 +1174,7 @@ func (o DeadLetterConfigPropertiesPtrOutput) Elem() DeadLetterConfigPropertiesOu
 	}).(DeadLetterConfigPropertiesOutput)
 }
 
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o DeadLetterConfigPropertiesPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeadLetterConfigProperties) *string {
 		if v == nil {

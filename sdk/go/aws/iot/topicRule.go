@@ -21,7 +21,7 @@ type TopicRule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the rule.
 	//
-	// *Pattern* : `[a-zA-Z0-9:_-]+`
+	// *Pattern* : `^[a-zA-Z0-9_]+$`
 	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
 	// Metadata which can be used to manage the topic rule.
 	//
@@ -84,7 +84,7 @@ func (TopicRuleState) ElementType() reflect.Type {
 type topicRuleArgs struct {
 	// The name of the rule.
 	//
-	// *Pattern* : `[a-zA-Z0-9:_-]+`
+	// *Pattern* : `^[a-zA-Z0-9_]+$`
 	RuleName *string `pulumi:"ruleName"`
 	// Metadata which can be used to manage the topic rule.
 	//
@@ -102,7 +102,7 @@ type topicRuleArgs struct {
 type TopicRuleArgs struct {
 	// The name of the rule.
 	//
-	// *Pattern* : `[a-zA-Z0-9:_-]+`
+	// *Pattern* : `^[a-zA-Z0-9_]+$`
 	RuleName pulumi.StringPtrInput
 	// Metadata which can be used to manage the topic rule.
 	//
@@ -160,7 +160,7 @@ func (o TopicRuleOutput) Arn() pulumi.StringOutput {
 
 // The name of the rule.
 //
-// *Pattern* : `[a-zA-Z0-9:_-]+`
+// *Pattern* : `^[a-zA-Z0-9_]+$`
 func (o TopicRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }

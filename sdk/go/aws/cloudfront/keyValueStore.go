@@ -24,7 +24,8 @@ type KeyValueStore struct {
 	// The import source for the key value store.
 	ImportSource KeyValueStoreImportSourcePtrOutput `pulumi:"importSource"`
 	// The name of the key value store.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -152,6 +153,7 @@ func (o KeyValueStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 func (o KeyValueStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

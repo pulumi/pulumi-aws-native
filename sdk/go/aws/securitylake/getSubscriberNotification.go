@@ -28,6 +28,7 @@ type LookupSubscriberNotificationArgs struct {
 }
 
 type LookupSubscriberNotificationResult struct {
+	// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 	NotificationConfiguration *SubscriberNotificationNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// The endpoint the subscriber should listen to for notifications
 	SubscriberEndpoint *string `pulumi:"subscriberEndpoint"`
@@ -69,6 +70,7 @@ func (o LookupSubscriberNotificationResultOutput) ToLookupSubscriberNotification
 	return o
 }
 
+// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 func (o LookupSubscriberNotificationResultOutput) NotificationConfiguration() SubscriberNotificationNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSubscriberNotificationResult) *SubscriberNotificationNotificationConfiguration {
 		return v.NotificationConfiguration

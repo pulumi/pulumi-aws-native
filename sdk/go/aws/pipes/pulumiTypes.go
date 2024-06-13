@@ -1499,8 +1499,11 @@ func (o PipeDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type PipeDimensionMapping struct {
-	DimensionName      string                 `pulumi:"dimensionName"`
-	DimensionValue     string                 `pulumi:"dimensionValue"`
+	// The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+	DimensionName string `pulumi:"dimensionName"`
+	// Dynamic path to the dimension value in the source event.
+	DimensionValue string `pulumi:"dimensionValue"`
+	// The data type of the dimension for the time-series data.
 	DimensionValueType PipeDimensionValueType `pulumi:"dimensionValueType"`
 }
 
@@ -1516,8 +1519,11 @@ type PipeDimensionMappingInput interface {
 }
 
 type PipeDimensionMappingArgs struct {
-	DimensionName      pulumi.StringInput          `pulumi:"dimensionName"`
-	DimensionValue     pulumi.StringInput          `pulumi:"dimensionValue"`
+	// The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
+	// Dynamic path to the dimension value in the source event.
+	DimensionValue pulumi.StringInput `pulumi:"dimensionValue"`
+	// The data type of the dimension for the time-series data.
 	DimensionValueType PipeDimensionValueTypeInput `pulumi:"dimensionValueType"`
 }
 
@@ -1572,14 +1578,17 @@ func (o PipeDimensionMappingOutput) ToPipeDimensionMappingOutputWithContext(ctx 
 	return o
 }
 
+// The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
 func (o PipeDimensionMappingOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeDimensionMapping) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
+// Dynamic path to the dimension value in the source event.
 func (o PipeDimensionMappingOutput) DimensionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeDimensionMapping) string { return v.DimensionValue }).(pulumi.StringOutput)
 }
 
+// The data type of the dimension for the time-series data.
 func (o PipeDimensionMappingOutput) DimensionValueType() PipeDimensionValueTypeOutput {
 	return o.ApplyT(func(v PipeDimensionMapping) PipeDimensionValueType { return v.DimensionValueType }).(PipeDimensionValueTypeOutput)
 }
@@ -3978,9 +3987,12 @@ func (o PipeMskAccessCredentials1PropertiesPtrOutput) ClientCertificateTlsAuth()
 }
 
 type PipeMultiMeasureAttributeMapping struct {
-	MeasureValue              string               `pulumi:"measureValue"`
-	MeasureValueType          PipeMeasureValueType `pulumi:"measureValueType"`
-	MultiMeasureAttributeName string               `pulumi:"multiMeasureAttributeName"`
+	// Dynamic path to the measurement attribute in the source event.
+	MeasureValue string `pulumi:"measureValue"`
+	// Data type of the measurement attribute in the source event.
+	MeasureValueType PipeMeasureValueType `pulumi:"measureValueType"`
+	// Target measure name to be used.
+	MultiMeasureAttributeName string `pulumi:"multiMeasureAttributeName"`
 }
 
 // PipeMultiMeasureAttributeMappingInput is an input type that accepts PipeMultiMeasureAttributeMappingArgs and PipeMultiMeasureAttributeMappingOutput values.
@@ -3995,9 +4007,12 @@ type PipeMultiMeasureAttributeMappingInput interface {
 }
 
 type PipeMultiMeasureAttributeMappingArgs struct {
-	MeasureValue              pulumi.StringInput        `pulumi:"measureValue"`
-	MeasureValueType          PipeMeasureValueTypeInput `pulumi:"measureValueType"`
-	MultiMeasureAttributeName pulumi.StringInput        `pulumi:"multiMeasureAttributeName"`
+	// Dynamic path to the measurement attribute in the source event.
+	MeasureValue pulumi.StringInput `pulumi:"measureValue"`
+	// Data type of the measurement attribute in the source event.
+	MeasureValueType PipeMeasureValueTypeInput `pulumi:"measureValueType"`
+	// Target measure name to be used.
+	MultiMeasureAttributeName pulumi.StringInput `pulumi:"multiMeasureAttributeName"`
 }
 
 func (PipeMultiMeasureAttributeMappingArgs) ElementType() reflect.Type {
@@ -4051,14 +4066,17 @@ func (o PipeMultiMeasureAttributeMappingOutput) ToPipeMultiMeasureAttributeMappi
 	return o
 }
 
+// Dynamic path to the measurement attribute in the source event.
 func (o PipeMultiMeasureAttributeMappingOutput) MeasureValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) string { return v.MeasureValue }).(pulumi.StringOutput)
 }
 
+// Data type of the measurement attribute in the source event.
 func (o PipeMultiMeasureAttributeMappingOutput) MeasureValueType() PipeMeasureValueTypeOutput {
 	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) PipeMeasureValueType { return v.MeasureValueType }).(PipeMeasureValueTypeOutput)
 }
 
+// Target measure name to be used.
 func (o PipeMultiMeasureAttributeMappingOutput) MultiMeasureAttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeMultiMeasureAttributeMapping) string { return v.MultiMeasureAttributeName }).(pulumi.StringOutput)
 }
@@ -4084,8 +4102,10 @@ func (o PipeMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.IntInput) Pi
 }
 
 type PipeMultiMeasureMapping struct {
+	// Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
 	MultiMeasureAttributeMappings []PipeMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
-	MultiMeasureName              string                             `pulumi:"multiMeasureName"`
+	// The name of the multiple measurements per record (multi-measure).
+	MultiMeasureName string `pulumi:"multiMeasureName"`
 }
 
 // PipeMultiMeasureMappingInput is an input type that accepts PipeMultiMeasureMappingArgs and PipeMultiMeasureMappingOutput values.
@@ -4100,8 +4120,10 @@ type PipeMultiMeasureMappingInput interface {
 }
 
 type PipeMultiMeasureMappingArgs struct {
+	// Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
 	MultiMeasureAttributeMappings PipeMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
-	MultiMeasureName              pulumi.StringInput                         `pulumi:"multiMeasureName"`
+	// The name of the multiple measurements per record (multi-measure).
+	MultiMeasureName pulumi.StringInput `pulumi:"multiMeasureName"`
 }
 
 func (PipeMultiMeasureMappingArgs) ElementType() reflect.Type {
@@ -4155,12 +4177,14 @@ func (o PipeMultiMeasureMappingOutput) ToPipeMultiMeasureMappingOutputWithContex
 	return o
 }
 
+// Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
 func (o PipeMultiMeasureMappingOutput) MultiMeasureAttributeMappings() PipeMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v PipeMultiMeasureMapping) []PipeMultiMeasureAttributeMapping {
 		return v.MultiMeasureAttributeMappings
 	}).(PipeMultiMeasureAttributeMappingArrayOutput)
 }
 
+// The name of the multiple measurements per record (multi-measure).
 func (o PipeMultiMeasureMappingOutput) MultiMeasureName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeMultiMeasureMapping) string { return v.MultiMeasureName }).(pulumi.StringOutput)
 }
@@ -5569,8 +5593,11 @@ func (o PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput) Subnets() pulumi.St
 }
 
 type PipeSingleMeasureMapping struct {
-	MeasureName      string               `pulumi:"measureName"`
-	MeasureValue     string               `pulumi:"measureValue"`
+	// Target measure name for the measurement attribute in the Timestream table.
+	MeasureName string `pulumi:"measureName"`
+	// Dynamic path of the source field to map to the measure in the record.
+	MeasureValue string `pulumi:"measureValue"`
+	// Data type of the source field.
 	MeasureValueType PipeMeasureValueType `pulumi:"measureValueType"`
 }
 
@@ -5586,8 +5613,11 @@ type PipeSingleMeasureMappingInput interface {
 }
 
 type PipeSingleMeasureMappingArgs struct {
-	MeasureName      pulumi.StringInput        `pulumi:"measureName"`
-	MeasureValue     pulumi.StringInput        `pulumi:"measureValue"`
+	// Target measure name for the measurement attribute in the Timestream table.
+	MeasureName pulumi.StringInput `pulumi:"measureName"`
+	// Dynamic path of the source field to map to the measure in the record.
+	MeasureValue pulumi.StringInput `pulumi:"measureValue"`
+	// Data type of the source field.
 	MeasureValueType PipeMeasureValueTypeInput `pulumi:"measureValueType"`
 }
 
@@ -5642,14 +5672,17 @@ func (o PipeSingleMeasureMappingOutput) ToPipeSingleMeasureMappingOutputWithCont
 	return o
 }
 
+// Target measure name for the measurement attribute in the Timestream table.
 func (o PipeSingleMeasureMappingOutput) MeasureName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSingleMeasureMapping) string { return v.MeasureName }).(pulumi.StringOutput)
 }
 
+// Dynamic path of the source field to map to the measure in the record.
 func (o PipeSingleMeasureMappingOutput) MeasureValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSingleMeasureMapping) string { return v.MeasureValue }).(pulumi.StringOutput)
 }
 
+// Data type of the source field.
 func (o PipeSingleMeasureMappingOutput) MeasureValueType() PipeMeasureValueTypeOutput {
 	return o.ApplyT(func(v PipeSingleMeasureMapping) PipeMeasureValueType { return v.MeasureValueType }).(PipeMeasureValueTypeOutput)
 }
@@ -9284,7 +9317,8 @@ type PipeTargetParameters struct {
 	SqsQueueParameters *PipeTargetSqsQueueParameters `pulumi:"sqsQueueParameters"`
 	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters *PipeTargetStateMachineParameters `pulumi:"stepFunctionStateMachineParameters"`
-	TimestreamParameters               *PipeTargetTimestreamParameters   `pulumi:"timestreamParameters"`
+	// The parameters for using a Timestream for LiveAnalytics table as a target.
+	TimestreamParameters *PipeTargetTimestreamParameters `pulumi:"timestreamParameters"`
 }
 
 // PipeTargetParametersInput is an input type that accepts PipeTargetParametersArgs and PipeTargetParametersOutput values.
@@ -9325,7 +9359,8 @@ type PipeTargetParametersArgs struct {
 	SqsQueueParameters PipeTargetSqsQueueParametersPtrInput `pulumi:"sqsQueueParameters"`
 	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters PipeTargetStateMachineParametersPtrInput `pulumi:"stepFunctionStateMachineParameters"`
-	TimestreamParameters               PipeTargetTimestreamParametersPtrInput   `pulumi:"timestreamParameters"`
+	// The parameters for using a Timestream for LiveAnalytics table as a target.
+	TimestreamParameters PipeTargetTimestreamParametersPtrInput `pulumi:"timestreamParameters"`
 }
 
 func (PipeTargetParametersArgs) ElementType() reflect.Type {
@@ -9473,6 +9508,7 @@ func (o PipeTargetParametersOutput) StepFunctionStateMachineParameters() PipeTar
 	}).(PipeTargetStateMachineParametersPtrOutput)
 }
 
+// The parameters for using a Timestream for LiveAnalytics table as a target.
 func (o PipeTargetParametersOutput) TimestreamParameters() PipeTargetTimestreamParametersPtrOutput {
 	return o.ApplyT(func(v PipeTargetParameters) *PipeTargetTimestreamParameters { return v.TimestreamParameters }).(PipeTargetTimestreamParametersPtrOutput)
 }
@@ -9623,6 +9659,7 @@ func (o PipeTargetParametersPtrOutput) StepFunctionStateMachineParameters() Pipe
 	}).(PipeTargetStateMachineParametersPtrOutput)
 }
 
+// The parameters for using a Timestream for LiveAnalytics table as a target.
 func (o PipeTargetParametersPtrOutput) TimestreamParameters() PipeTargetTimestreamParametersPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParameters) *PipeTargetTimestreamParameters {
 		if v == nil {
@@ -10333,14 +10370,40 @@ func (o PipeTargetStateMachineParametersPtrOutput) InvocationType() PipeTargetIn
 }
 
 type PipeTargetTimestreamParameters struct {
-	DimensionMappings     []PipeDimensionMapping     `pulumi:"dimensionMappings"`
-	EpochTimeUnit         *PipeEpochTimeUnit         `pulumi:"epochTimeUnit"`
-	MultiMeasureMappings  []PipeMultiMeasureMapping  `pulumi:"multiMeasureMappings"`
+	// Map source data to dimensions in the target Timestream for LiveAnalytics table.
+	//
+	// For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
+	DimensionMappings []PipeDimensionMapping `pulumi:"dimensionMappings"`
+	// The granularity of the time units used. Default is `MILLISECONDS` .
+	//
+	// Required if `TimeFieldType` is specified as `EPOCH` .
+	EpochTimeUnit *PipeEpochTimeUnit `pulumi:"epochTimeUnit"`
+	// Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
+	MultiMeasureMappings []PipeMultiMeasureMapping `pulumi:"multiMeasureMappings"`
+	// Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
 	SingleMeasureMappings []PipeSingleMeasureMapping `pulumi:"singleMeasureMappings"`
-	TimeFieldType         *PipeTimeFieldType         `pulumi:"timeFieldType"`
-	TimeValue             string                     `pulumi:"timeValue"`
-	TimestampFormat       *string                    `pulumi:"timestampFormat"`
-	VersionValue          string                     `pulumi:"versionValue"`
+	// The type of time value used.
+	//
+	// The default is `EPOCH` .
+	TimeFieldType *PipeTimeFieldType `pulumi:"timeFieldType"`
+	// Dynamic path to the source data field that represents the time value for your data.
+	TimeValue string `pulumi:"timeValue"`
+	// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+	//
+	// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
+	TimestampFormat *string `pulumi:"timestampFormat"`
+	// 64 bit version value or source data field that represents the version value for your data.
+	//
+	// Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+	//
+	// Default value is 1.
+	//
+	// Timestream for LiveAnalytics does not support updating partial measure values in a record.
+	//
+	// Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+	//
+	// > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
+	VersionValue string `pulumi:"versionValue"`
 }
 
 // PipeTargetTimestreamParametersInput is an input type that accepts PipeTargetTimestreamParametersArgs and PipeTargetTimestreamParametersOutput values.
@@ -10355,14 +10418,40 @@ type PipeTargetTimestreamParametersInput interface {
 }
 
 type PipeTargetTimestreamParametersArgs struct {
-	DimensionMappings     PipeDimensionMappingArrayInput     `pulumi:"dimensionMappings"`
-	EpochTimeUnit         PipeEpochTimeUnitPtrInput          `pulumi:"epochTimeUnit"`
-	MultiMeasureMappings  PipeMultiMeasureMappingArrayInput  `pulumi:"multiMeasureMappings"`
+	// Map source data to dimensions in the target Timestream for LiveAnalytics table.
+	//
+	// For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
+	DimensionMappings PipeDimensionMappingArrayInput `pulumi:"dimensionMappings"`
+	// The granularity of the time units used. Default is `MILLISECONDS` .
+	//
+	// Required if `TimeFieldType` is specified as `EPOCH` .
+	EpochTimeUnit PipeEpochTimeUnitPtrInput `pulumi:"epochTimeUnit"`
+	// Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
+	MultiMeasureMappings PipeMultiMeasureMappingArrayInput `pulumi:"multiMeasureMappings"`
+	// Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
 	SingleMeasureMappings PipeSingleMeasureMappingArrayInput `pulumi:"singleMeasureMappings"`
-	TimeFieldType         PipeTimeFieldTypePtrInput          `pulumi:"timeFieldType"`
-	TimeValue             pulumi.StringInput                 `pulumi:"timeValue"`
-	TimestampFormat       pulumi.StringPtrInput              `pulumi:"timestampFormat"`
-	VersionValue          pulumi.StringInput                 `pulumi:"versionValue"`
+	// The type of time value used.
+	//
+	// The default is `EPOCH` .
+	TimeFieldType PipeTimeFieldTypePtrInput `pulumi:"timeFieldType"`
+	// Dynamic path to the source data field that represents the time value for your data.
+	TimeValue pulumi.StringInput `pulumi:"timeValue"`
+	// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+	//
+	// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
+	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
+	// 64 bit version value or source data field that represents the version value for your data.
+	//
+	// Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+	//
+	// Default value is 1.
+	//
+	// Timestream for LiveAnalytics does not support updating partial measure values in a record.
+	//
+	// Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+	//
+	// > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
+	VersionValue pulumi.StringInput `pulumi:"versionValue"`
 }
 
 func (PipeTargetTimestreamParametersArgs) ElementType() reflect.Type {
@@ -10442,34 +10531,60 @@ func (o PipeTargetTimestreamParametersOutput) ToPipeTargetTimestreamParametersPt
 	}).(PipeTargetTimestreamParametersPtrOutput)
 }
 
+// Map source data to dimensions in the target Timestream for LiveAnalytics table.
+//
+// For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
 func (o PipeTargetTimestreamParametersOutput) DimensionMappings() PipeDimensionMappingArrayOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeDimensionMapping { return v.DimensionMappings }).(PipeDimensionMappingArrayOutput)
 }
 
+// The granularity of the time units used. Default is `MILLISECONDS` .
+//
+// Required if `TimeFieldType` is specified as `EPOCH` .
 func (o PipeTargetTimestreamParametersOutput) EpochTimeUnit() PipeEpochTimeUnitPtrOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) *PipeEpochTimeUnit { return v.EpochTimeUnit }).(PipeEpochTimeUnitPtrOutput)
 }
 
+// Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
 func (o PipeTargetTimestreamParametersOutput) MultiMeasureMappings() PipeMultiMeasureMappingArrayOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeMultiMeasureMapping { return v.MultiMeasureMappings }).(PipeMultiMeasureMappingArrayOutput)
 }
 
+// Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
 func (o PipeTargetTimestreamParametersOutput) SingleMeasureMappings() PipeSingleMeasureMappingArrayOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) []PipeSingleMeasureMapping { return v.SingleMeasureMappings }).(PipeSingleMeasureMappingArrayOutput)
 }
 
+// The type of time value used.
+//
+// The default is `EPOCH` .
 func (o PipeTargetTimestreamParametersOutput) TimeFieldType() PipeTimeFieldTypePtrOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) *PipeTimeFieldType { return v.TimeFieldType }).(PipeTimeFieldTypePtrOutput)
 }
 
+// Dynamic path to the source data field that represents the time value for your data.
 func (o PipeTargetTimestreamParametersOutput) TimeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) string { return v.TimeValue }).(pulumi.StringOutput)
 }
 
+// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+//
+// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 func (o PipeTargetTimestreamParametersOutput) TimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
 }
 
+// 64 bit version value or source data field that represents the version value for your data.
+//
+// Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+//
+// Default value is 1.
+//
+// Timestream for LiveAnalytics does not support updating partial measure values in a record.
+//
+// Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+//
+// > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
 func (o PipeTargetTimestreamParametersOutput) VersionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) string { return v.VersionValue }).(pulumi.StringOutput)
 }
@@ -10498,6 +10613,9 @@ func (o PipeTargetTimestreamParametersPtrOutput) Elem() PipeTargetTimestreamPara
 	}).(PipeTargetTimestreamParametersOutput)
 }
 
+// Map source data to dimensions in the target Timestream for LiveAnalytics table.
+//
+// For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
 func (o PipeTargetTimestreamParametersPtrOutput) DimensionMappings() PipeDimensionMappingArrayOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeDimensionMapping {
 		if v == nil {
@@ -10507,6 +10625,9 @@ func (o PipeTargetTimestreamParametersPtrOutput) DimensionMappings() PipeDimensi
 	}).(PipeDimensionMappingArrayOutput)
 }
 
+// The granularity of the time units used. Default is `MILLISECONDS` .
+//
+// Required if `TimeFieldType` is specified as `EPOCH` .
 func (o PipeTargetTimestreamParametersPtrOutput) EpochTimeUnit() PipeEpochTimeUnitPtrOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *PipeEpochTimeUnit {
 		if v == nil {
@@ -10516,6 +10637,7 @@ func (o PipeTargetTimestreamParametersPtrOutput) EpochTimeUnit() PipeEpochTimeUn
 	}).(PipeEpochTimeUnitPtrOutput)
 }
 
+// Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
 func (o PipeTargetTimestreamParametersPtrOutput) MultiMeasureMappings() PipeMultiMeasureMappingArrayOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeMultiMeasureMapping {
 		if v == nil {
@@ -10525,6 +10647,7 @@ func (o PipeTargetTimestreamParametersPtrOutput) MultiMeasureMappings() PipeMult
 	}).(PipeMultiMeasureMappingArrayOutput)
 }
 
+// Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
 func (o PipeTargetTimestreamParametersPtrOutput) SingleMeasureMappings() PipeSingleMeasureMappingArrayOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) []PipeSingleMeasureMapping {
 		if v == nil {
@@ -10534,6 +10657,9 @@ func (o PipeTargetTimestreamParametersPtrOutput) SingleMeasureMappings() PipeSin
 	}).(PipeSingleMeasureMappingArrayOutput)
 }
 
+// The type of time value used.
+//
+// The default is `EPOCH` .
 func (o PipeTargetTimestreamParametersPtrOutput) TimeFieldType() PipeTimeFieldTypePtrOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *PipeTimeFieldType {
 		if v == nil {
@@ -10543,6 +10669,7 @@ func (o PipeTargetTimestreamParametersPtrOutput) TimeFieldType() PipeTimeFieldTy
 	}).(PipeTimeFieldTypePtrOutput)
 }
 
+// Dynamic path to the source data field that represents the time value for your data.
 func (o PipeTargetTimestreamParametersPtrOutput) TimeValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
 		if v == nil {
@@ -10552,6 +10679,9 @@ func (o PipeTargetTimestreamParametersPtrOutput) TimeValue() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+//
+// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 func (o PipeTargetTimestreamParametersPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
 		if v == nil {
@@ -10561,6 +10691,17 @@ func (o PipeTargetTimestreamParametersPtrOutput) TimestampFormat() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// 64 bit version value or source data field that represents the version value for your data.
+//
+// Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+//
+// Default value is 1.
+//
+// Timestream for LiveAnalytics does not support updating partial measure values in a record.
+//
+// Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+//
+// > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
 func (o PipeTargetTimestreamParametersPtrOutput) VersionValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetTimestreamParameters) *string {
 		if v == nil {

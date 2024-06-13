@@ -29,6 +29,7 @@ type LookupProfileArgs struct {
 }
 
 type LookupProfileResult struct {
+	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings []ProfileAttributeMapping `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
 	DurationSeconds *float64 `pulumi:"durationSeconds"`
@@ -88,6 +89,7 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx co
 	return o
 }
 
+// A mapping applied to the authenticating end-entity certificate.
 func (o LookupProfileResultOutput) AttributeMappings() ProfileAttributeMappingArrayOutput {
 	return o.ApplyT(func(v LookupProfileResult) []ProfileAttributeMapping { return v.AttributeMappings }).(ProfileAttributeMappingArrayOutput)
 }

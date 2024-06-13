@@ -26,7 +26,7 @@ type QueueEnvironment struct {
 	QueueEnvironmentId pulumi.StringOutput `pulumi:"queueEnvironmentId"`
 	// The unique identifier of the queue that contains the environment.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	Template pulumi.StringOutput `pulumi:"template"`
 	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType QueueEnvironmentEnvironmentTemplateTypeOutput `pulumi:"templateType"`
@@ -98,7 +98,7 @@ type queueEnvironmentArgs struct {
 	Priority int `pulumi:"priority"`
 	// The unique identifier of the queue that contains the environment.
 	QueueId string `pulumi:"queueId"`
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	Template string `pulumi:"template"`
 	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType QueueEnvironmentEnvironmentTemplateType `pulumi:"templateType"`
@@ -112,7 +112,7 @@ type QueueEnvironmentArgs struct {
 	Priority pulumi.IntInput
 	// The unique identifier of the queue that contains the environment.
 	QueueId pulumi.StringInput
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	Template pulumi.StringInput
 	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType QueueEnvironmentEnvironmentTemplateTypeInput
@@ -180,7 +180,7 @@ func (o QueueEnvironmentOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// A JSON or YAML template the describes the processing environment for the queue.
+// A JSON or YAML template that describes the processing environment for the queue.
 func (o QueueEnvironmentOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }

@@ -33,7 +33,8 @@ type LookupKeyValueStoreResult struct {
 	// A comment for the key value store.
 	Comment *string `pulumi:"comment"`
 	// The unique Id for the key value store.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 	Status *string `pulumi:"status"`
 }
 
@@ -88,6 +89,7 @@ func (o LookupKeyValueStoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 func (o LookupKeyValueStoreResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

@@ -1377,8 +1377,10 @@ func (o SubscriberNotificationHttpsNotificationConfigurationPtrOutput) TargetRol
 }
 
 type SubscriberNotificationNotificationConfiguration struct {
+	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration *SubscriberNotificationHttpsNotificationConfiguration `pulumi:"httpsNotificationConfiguration"`
-	SqsNotificationConfiguration   *SubscriberNotificationSqsNotificationConfiguration   `pulumi:"sqsNotificationConfiguration"`
+	// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+	SqsNotificationConfiguration *SubscriberNotificationSqsNotificationConfiguration `pulumi:"sqsNotificationConfiguration"`
 }
 
 // SubscriberNotificationNotificationConfigurationInput is an input type that accepts SubscriberNotificationNotificationConfigurationArgs and SubscriberNotificationNotificationConfigurationOutput values.
@@ -1393,8 +1395,10 @@ type SubscriberNotificationNotificationConfigurationInput interface {
 }
 
 type SubscriberNotificationNotificationConfigurationArgs struct {
+	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration SubscriberNotificationHttpsNotificationConfigurationPtrInput `pulumi:"httpsNotificationConfiguration"`
-	SqsNotificationConfiguration   SubscriberNotificationSqsNotificationConfigurationPtrInput   `pulumi:"sqsNotificationConfiguration"`
+	// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+	SqsNotificationConfiguration SubscriberNotificationSqsNotificationConfigurationPtrInput `pulumi:"sqsNotificationConfiguration"`
 }
 
 func (SubscriberNotificationNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -1423,12 +1427,14 @@ func (o SubscriberNotificationNotificationConfigurationOutput) ToSubscriberNotif
 	return o
 }
 
+// The configurations for HTTPS subscriber notification.
 func (o SubscriberNotificationNotificationConfigurationOutput) HttpsNotificationConfiguration() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfiguration {
 		return v.HttpsNotificationConfiguration
 	}).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
 }
 
+// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
 func (o SubscriberNotificationNotificationConfigurationOutput) SqsNotificationConfiguration() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationNotificationConfiguration) *SubscriberNotificationSqsNotificationConfiguration {
 		return v.SqsNotificationConfiguration
@@ -1459,6 +1465,7 @@ func (o SubscriberNotificationNotificationConfigurationPtrOutput) Elem() Subscri
 	}).(SubscriberNotificationNotificationConfigurationOutput)
 }
 
+// The configurations for HTTPS subscriber notification.
 func (o SubscriberNotificationNotificationConfigurationPtrOutput) HttpsNotificationConfiguration() SubscriberNotificationHttpsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationNotificationConfiguration) *SubscriberNotificationHttpsNotificationConfiguration {
 		if v == nil {
@@ -1468,6 +1475,7 @@ func (o SubscriberNotificationNotificationConfigurationPtrOutput) HttpsNotificat
 	}).(SubscriberNotificationHttpsNotificationConfigurationPtrOutput)
 }
 
+// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
 func (o SubscriberNotificationNotificationConfigurationPtrOutput) SqsNotificationConfiguration() SubscriberNotificationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationNotificationConfiguration) *SubscriberNotificationSqsNotificationConfiguration {
 		if v == nil {
