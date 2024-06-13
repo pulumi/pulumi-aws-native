@@ -37,6 +37,9 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
+    /**
+     * A mapping applied to the authenticating end-entity certificate.
+     */
     public readonly attributeMappings!: pulumi.Output<outputs.rolesanywhere.ProfileAttributeMapping[] | undefined>;
     /**
      * The number of seconds vended session credentials will be valid for
@@ -126,6 +129,9 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * A mapping applied to the authenticating end-entity certificate.
+     */
     attributeMappings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.ProfileAttributeMappingArgs>[]>;
     /**
      * The number of seconds vended session credentials will be valid for

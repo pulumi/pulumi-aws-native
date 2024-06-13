@@ -29,6 +29,9 @@ class CustomerGatewayArgs:
         :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
                 Default: 65000
+        :param pulumi.Input[float] bgp_asn_extended: For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+               
+               Valid values: `2,147,483,648` to `4,294,967,295`
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags for the customer gateway.
@@ -86,6 +89,11 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter(name="bgpAsnExtended")
     def bgp_asn_extended(self) -> Optional[pulumi.Input[float]]:
+        """
+        For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+
+        Valid values: `2,147,483,648` to `4,294,967,295`
+        """
         return pulumi.get(self, "bgp_asn_extended")
 
     @bgp_asn_extended.setter
@@ -149,6 +157,9 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
                 Default: 65000
+        :param pulumi.Input[float] bgp_asn_extended: For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+               
+               Valid values: `2,147,483,648` to `4,294,967,295`
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[str] ip_address: IPv4 address for the customer gateway device's outside interface. The address must be static.
@@ -253,6 +264,11 @@ class CustomerGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bgpAsnExtended")
     def bgp_asn_extended(self) -> pulumi.Output[Optional[float]]:
+        """
+        For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+
+        Valid values: `2,147,483,648` to `4,294,967,295`
+        """
         return pulumi.get(self, "bgp_asn_extended")
 
     @property

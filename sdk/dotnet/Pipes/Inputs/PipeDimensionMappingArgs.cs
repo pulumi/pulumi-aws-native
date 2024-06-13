@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeDimensionMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+        /// </summary>
         [Input("dimensionName", required: true)]
         public Input<string> DimensionName { get; set; } = null!;
 
+        /// <summary>
+        /// Dynamic path to the dimension value in the source event.
+        /// </summary>
         [Input("dimensionValue", required: true)]
         public Input<string> DimensionValue { get; set; } = null!;
 
+        /// <summary>
+        /// The data type of the dimension for the time-series data.
+        /// </summary>
         [Input("dimensionValueType", required: true)]
         public Input<Pulumi.AwsNative.Pipes.PipeDimensionValueType> DimensionValueType { get; set; } = null!;
 

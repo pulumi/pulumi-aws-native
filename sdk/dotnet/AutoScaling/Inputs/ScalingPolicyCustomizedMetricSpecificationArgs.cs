@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
         [Input("metrics")]
         private InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>? _metrics;
+
+        /// <summary>
+        /// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>());

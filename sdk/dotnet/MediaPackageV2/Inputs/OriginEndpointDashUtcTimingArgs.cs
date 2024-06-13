@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashUtcTimingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The UTC timing mode.
+        /// </summary>
         [Input("timingMode")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashUtcTimingMode>? TimingMode { get; set; }
 

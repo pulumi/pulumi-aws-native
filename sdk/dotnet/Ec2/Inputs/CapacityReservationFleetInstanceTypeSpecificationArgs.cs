@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+        /// The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

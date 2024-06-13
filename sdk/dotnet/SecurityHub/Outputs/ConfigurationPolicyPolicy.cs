@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class ConfigurationPolicyPolicy
     {
+        /// <summary>
+        /// The AWS service that the configuration policy applies to.
+        /// </summary>
         public readonly Outputs.ConfigurationPolicySecurityHubPolicy? SecurityHub;
 
         [OutputConstructor]

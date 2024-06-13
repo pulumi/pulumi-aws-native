@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeSingleMeasureMapping
     {
+        /// <summary>
+        /// Target measure name for the measurement attribute in the Timestream table.
+        /// </summary>
         public readonly string MeasureName;
+        /// <summary>
+        /// Dynamic path of the source field to map to the measure in the record.
+        /// </summary>
         public readonly string MeasureValue;
+        /// <summary>
+        /// Data type of the source field.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeMeasureValueType MeasureValueType;
 
         [OutputConstructor]

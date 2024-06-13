@@ -22,7 +22,7 @@ export interface GetTopicRuleArgs {
     /**
      * The name of the rule.
      *
-     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     ruleName: string;
 }
@@ -58,7 +58,7 @@ export interface GetTopicRuleOutputArgs {
     /**
      * The name of the rule.
      *
-     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     ruleName: pulumi.Input<string>;
 }

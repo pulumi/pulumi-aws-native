@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SecurityLake.Inputs
 
     public sealed class SubscriberNotificationNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configurations for HTTPS subscriber notification.
+        /// </summary>
         [Input("httpsNotificationConfiguration")]
         public Input<Inputs.SubscriberNotificationHttpsNotificationConfigurationArgs>? HttpsNotificationConfiguration { get; set; }
 
+        /// <summary>
+        /// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+        /// </summary>
         [Input("sqsNotificationConfiguration")]
         public Input<Inputs.SubscriberNotificationSqsNotificationConfigurationArgs>? SqsNotificationConfiguration { get; set; }
 

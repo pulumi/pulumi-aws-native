@@ -244,5 +244,12 @@ class PolicyAssociationTargetType(str, Enum):
 
 
 class SecurityControlParameterConfigurationValueType(str, Enum):
+    """
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+
+    When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+
+    When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
+    """
     DEFAULT = "DEFAULT"
     CUSTOM = "CUSTOM"

@@ -2134,6 +2134,7 @@ class DomainDefaultSpaceSettings(dict):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
         :param str execution_role: The execution role for the space.
+        :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
         :param 'DomainCustomPosixUserConfig' custom_posix_user_config: The Jupyter lab's custom posix user configurations.
         :param 'DomainJupyterLabAppSettings' jupyter_lab_app_settings: The Jupyter lab's app settings.
         :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
@@ -2168,6 +2169,9 @@ class DomainDefaultSpaceSettings(dict):
     @property
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.DomainCustomFileSystemConfig']]:
+        """
+        The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        """
         return pulumi.get(self, "custom_file_system_configs")
 
     @property

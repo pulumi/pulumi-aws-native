@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 

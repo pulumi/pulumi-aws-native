@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SecurityLake
     [AwsNativeResourceType("aws-native:securitylake:SubscriberNotification")]
     public partial class SubscriberNotification : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        /// </summary>
         [Output("notificationConfiguration")]
         public Output<Outputs.SubscriberNotificationNotificationConfiguration> NotificationConfiguration { get; private set; } = null!;
 
@@ -79,6 +82,9 @@ namespace Pulumi.AwsNative.SecurityLake
 
     public sealed class SubscriberNotificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        /// </summary>
         [Input("notificationConfiguration", required: true)]
         public Input<Inputs.SubscriberNotificationNotificationConfigurationArgs> NotificationConfiguration { get; set; } = null!;
 

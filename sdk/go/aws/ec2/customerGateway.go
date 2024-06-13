@@ -19,7 +19,10 @@ type CustomerGateway struct {
 
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         pulumi.IntPtrOutput     `pulumi:"bgpAsn"`
+	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+	//
+	// Valid values: `2,147,483,648` to `4,294,967,295`
 	BgpAsnExtended pulumi.Float64PtrOutput `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
@@ -92,7 +95,10 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         *int     `pulumi:"bgpAsn"`
+	BgpAsn *int `pulumi:"bgpAsn"`
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+	//
+	// Valid values: `2,147,483,648` to `4,294,967,295`
 	BgpAsnExtended *float64 `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
@@ -110,7 +116,10 @@ type customerGatewayArgs struct {
 type CustomerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         pulumi.IntPtrInput
+	BgpAsn pulumi.IntPtrInput
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+	//
+	// Valid values: `2,147,483,648` to `4,294,967,295`
 	BgpAsnExtended pulumi.Float64PtrInput
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
@@ -168,6 +177,9 @@ func (o CustomerGatewayOutput) BgpAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
 }
 
+// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+//
+// Valid values: `2,147,483,648` to `4,294,967,295`
 func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.Float64PtrOutput { return v.BgpAsnExtended }).(pulumi.Float64PtrOutput)
 }

@@ -45,6 +45,9 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
      * The universally unique identifier (UUID) of the configuration policy.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+     */
     public readonly configurationPolicy!: pulumi.Output<outputs.securityhub.ConfigurationPolicyPolicy>;
     /**
      * The date and time, in UTC and ISO 8601 format.
@@ -62,6 +65,9 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
      * Indicates whether the service that the configuration policy applies to is enabled in the policy.
      */
     public /*out*/ readonly serviceEnabled!: pulumi.Output<boolean>;
+    /**
+     * User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time, in UTC and ISO 8601 format.
@@ -111,6 +117,9 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationPolicy resource.
  */
 export interface ConfigurationPolicyArgs {
+    /**
+     * An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+     */
     configurationPolicy: pulumi.Input<inputs.securityhub.ConfigurationPolicyPolicyArgs>;
     /**
      * The description of the configuration policy.
@@ -120,5 +129,8 @@ export interface ConfigurationPolicyArgs {
      * The name of the configuration policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

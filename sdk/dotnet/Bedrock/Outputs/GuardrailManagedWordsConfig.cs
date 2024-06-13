@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailManagedWordsConfig
     {
+        /// <summary>
+        /// The managed word type to configure for the guardrail.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailManagedWordsType Type;
 
         [OutputConstructor]

@@ -27,13 +27,13 @@ namespace Pulumi.AwsNative.SageMaker
     ///         PipelineName = "&lt;pipeline-name&gt;",
     ///         PipelineDisplayName = "&lt;pipeline-display-name&gt;",
     ///         PipelineDescription = "&lt;pipeline-description&gt;",
-    ///         PipelineDefinition = 
+    ///         PipelineDefinition = new AwsNative.SageMaker.Inputs.PipelineDefinition0PropertiesArgs
     ///         {
-    ///             { "pipelineDefinitionS3Location", new AwsNative.SageMaker.Inputs.PipelineS3LocationArgs
+    ///             PipelineDefinitionS3Location = new AwsNative.SageMaker.Inputs.PipelineS3LocationArgs
     ///             {
     ///                 Bucket = "&lt;S3-bucket-location&gt;",
     ///                 Key = "&lt;S3-bucket-key&gt;",
-    ///             } },
+    ///             },
     ///         },
     ///         RoleArn = "arn:aws:iam::&lt;account-id&gt;:root",
     ///     });
@@ -56,9 +56,9 @@ namespace Pulumi.AwsNative.SageMaker
     ///         PipelineName = "&lt;pipeline-name&gt;",
     ///         PipelineDisplayName = "&lt;pipeline-display-name&gt;",
     ///         PipelineDescription = "&lt;pipeline-description&gt;",
-    ///         PipelineDefinition = 
+    ///         PipelineDefinition = new AwsNative.SageMaker.Inputs.PipelineDefinition0PropertiesArgs
     ///         {
-    ///             { "pipelineDefinitionBody", "{\"Version\":\"2020-12-01\",\"Parameters\":[{\"Name\":\"InputDataSource\",\"DefaultValue\":\"\"},{\"Name\":\"InstanceCount\",\"Type\":\"Integer\",\"DefaultValue\":1}],\"Steps\":[{\"Name\":\"Training1\",\"Type\":\"Training\",\"Arguments\":{\"InputDataConfig\":[{\"DataSource\":{\"S3DataSource\":{\"S3Uri\":{\"Get\":\"Parameters.InputDataSource\"}}}}],\"OutputDataConfig\":{\"S3OutputPath\":\"s3://my-s3-bucket/\"},\"ResourceConfig\":{\"InstanceType\":\"ml.m5.large\",\"InstanceCount\":{\"Get\":\"Parameters.InstanceCount\"},\"VolumeSizeInGB\":1024}}}]}" },
+    ///             PipelineDefinitionBody = "{\"Version\":\"2020-12-01\",\"Parameters\":[{\"Name\":\"InputDataSource\",\"DefaultValue\":\"\"},{\"Name\":\"InstanceCount\",\"Type\":\"Integer\",\"DefaultValue\":1}],\"Steps\":[{\"Name\":\"Training1\",\"Type\":\"Training\",\"Arguments\":{\"InputDataConfig\":[{\"DataSource\":{\"S3DataSource\":{\"S3Uri\":{\"Get\":\"Parameters.InputDataSource\"}}}}],\"OutputDataConfig\":{\"S3OutputPath\":\"s3://my-s3-bucket/\"},\"ResourceConfig\":{\"InstanceType\":\"ml.m5.large\",\"InstanceCount\":{\"Get\":\"Parameters.InstanceCount\"},\"VolumeSizeInGB\":1024}}}]}",
     ///         },
     ///         RoleArn = "arn:aws:iam::&lt;account-id&gt;:root",
     ///     });

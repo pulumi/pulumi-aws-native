@@ -49,31 +49,49 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the monitor that displays on the Deadline Cloud console.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> Optional[str]:
+        """
+        The unique identifier for the monitor.
+        """
         return pulumi.get(self, "monitor_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def subdomain(self) -> Optional[str]:
+        """
+        The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        """
         return pulumi.get(self, "subdomain")
 
     @property
     @pulumi.getter
     def url(self) -> Optional[str]:
+        """
+        The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        """
         return pulumi.get(self, "url")
 
 

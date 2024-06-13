@@ -27,7 +27,7 @@ class TopicRuleArgs:
         :param pulumi.Input['TopicRulePayloadArgs'] topic_rule_payload: The rule payload.
         :param pulumi.Input[str] rule_name: The name of the rule.
                
-               *Pattern* : `[a-zA-Z0-9:_-]+`
+               *Pattern* : `^[a-zA-Z0-9_]+$`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the topic rule.
                
                > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -60,7 +60,7 @@ class TopicRuleArgs:
         """
         The name of the rule.
 
-        *Pattern* : `[a-zA-Z0-9:_-]+`
+        *Pattern* : `^[a-zA-Z0-9_]+$`
         """
         return pulumi.get(self, "rule_name")
 
@@ -103,7 +103,7 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rule_name: The name of the rule.
                
-               *Pattern* : `[a-zA-Z0-9:_-]+`
+               *Pattern* : `^[a-zA-Z0-9_]+$`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the topic rule.
                
                > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -199,7 +199,7 @@ class TopicRule(pulumi.CustomResource):
         """
         The name of the rule.
 
-        *Pattern* : `[a-zA-Z0-9:_-]+`
+        *Pattern* : `^[a-zA-Z0-9_]+$`
         """
         return pulumi.get(self, "rule_name")
 

@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Messaging for when violations are detected in text
         /// </summary>
         public readonly string? BlockedOutputsMessaging;
+        /// <summary>
+        /// The content filter policies to configure for the guardrail.
+        /// </summary>
         public readonly Outputs.GuardrailContentPolicyConfig? ContentPolicyConfig;
         /// <summary>
         /// Time Stamp
@@ -94,7 +97,13 @@ namespace Pulumi.AwsNative.Bedrock
         /// Name of the guardrail
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The sensitive information policy to configure for the guardrail.
+        /// </summary>
         public readonly Outputs.GuardrailSensitiveInformationPolicyConfig? SensitiveInformationPolicyConfig;
+        /// <summary>
+        /// The status of the guardrail.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailStatus? Status;
         /// <summary>
         /// List of status reasons
@@ -104,6 +113,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// List of Tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The topic policies to configure for the guardrail.
+        /// </summary>
         public readonly Outputs.GuardrailTopicPolicyConfig? TopicPolicyConfig;
         /// <summary>
         /// Time Stamp
@@ -113,6 +125,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Guardrail version
         /// </summary>
         public readonly string? Version;
+        /// <summary>
+        /// The word policy you configure for the guardrail.
+        /// </summary>
         public readonly Outputs.GuardrailWordPolicyConfig? WordPolicyConfig;
 
         [OutputConstructor]

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.CloudFront
         /// The unique Id for the key value store.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

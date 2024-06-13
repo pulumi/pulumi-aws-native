@@ -144,7 +144,7 @@ class Collection(pulumi.CustomResource):
             name="test-collection",
             type=aws_native.opensearchserverless.CollectionType.SEARCH,
             description="Search collection",
-            opts=pulumi.ResourceOptions(depends_on=[encryption_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[encryption_policy]))
 
         ```
         ### Example
@@ -162,7 +162,7 @@ class Collection(pulumi.CustomResource):
             name="test-collection",
             type=aws_native.opensearchserverless.CollectionType.SEARCH,
             description="Search collection",
-            opts=pulumi.ResourceOptions(depends_on=[encryption_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[encryption_policy]))
 
         ```
 
@@ -205,7 +205,7 @@ class Collection(pulumi.CustomResource):
             name="test-collection",
             type=aws_native.opensearchserverless.CollectionType.SEARCH,
             description="Search collection",
-            opts=pulumi.ResourceOptions(depends_on=[encryption_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[encryption_policy]))
 
         ```
         ### Example
@@ -223,7 +223,7 @@ class Collection(pulumi.CustomResource):
             name="test-collection",
             type=aws_native.opensearchserverless.CollectionType.SEARCH,
             description="Search collection",
-            opts=pulumi.ResourceOptions(depends_on=[encryption_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[encryption_policy]))
 
         ```
 

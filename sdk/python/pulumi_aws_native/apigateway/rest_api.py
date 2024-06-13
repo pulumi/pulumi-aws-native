@@ -330,7 +330,7 @@ class RestApi(pulumi.CustomResource):
             description=description,
             documentation_version=version,
             rest_api_id=rest_api.id,
-            opts=pulumi.ResourceOptions(depends_on=[documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[documentation_part]))
 
         ```
         ### Example
@@ -356,7 +356,7 @@ class RestApi(pulumi.CustomResource):
             description=description,
             documentation_version=version,
             rest_api_id=rest_api.id,
-            opts=pulumi.ResourceOptions(depends_on=[documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[documentation_part]))
 
         ```
         ### Example
@@ -763,7 +763,7 @@ class RestApi(pulumi.CustomResource):
             description=description,
             documentation_version=version,
             rest_api_id=rest_api.id,
-            opts=pulumi.ResourceOptions(depends_on=[documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[documentation_part]))
 
         ```
         ### Example
@@ -789,7 +789,7 @@ class RestApi(pulumi.CustomResource):
             description=description,
             documentation_version=version,
             rest_api_id=rest_api.id,
-            opts=pulumi.ResourceOptions(depends_on=[documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[documentation_part]))
 
         ```
         ### Example

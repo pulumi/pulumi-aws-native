@@ -198,6 +198,7 @@ class OriginEndpointDashUtcTimingArgs:
                  timing_source: Optional[pulumi.Input[str]] = None):
         """
         <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+        :param pulumi.Input['OriginEndpointDashUtcTimingMode'] timing_mode: The UTC timing mode.
         :param pulumi.Input[str] timing_source: <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
         """
         if timing_mode is not None:
@@ -208,6 +209,9 @@ class OriginEndpointDashUtcTimingArgs:
     @property
     @pulumi.getter(name="timingMode")
     def timing_mode(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']]:
+        """
+        The UTC timing mode.
+        """
         return pulumi.get(self, "timing_mode")
 
     @timing_mode.setter
@@ -719,6 +723,12 @@ class OriginEndpointScteDashArgs:
                  ad_marker_dash: Optional[pulumi.Input['OriginEndpointAdMarkerDash']] = None):
         """
         <p>The SCTE configuration.</p>
+        :param pulumi.Input['OriginEndpointAdMarkerDash'] ad_marker_dash: Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+               
+               Value description:
+               
+               - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+               - `XML` - The SCTE marker is expressed fully in XML.
         """
         if ad_marker_dash is not None:
             pulumi.set(__self__, "ad_marker_dash", ad_marker_dash)
@@ -726,6 +736,14 @@ class OriginEndpointScteDashArgs:
     @property
     @pulumi.getter(name="adMarkerDash")
     def ad_marker_dash(self) -> Optional[pulumi.Input['OriginEndpointAdMarkerDash']]:
+        """
+        Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+
+        Value description:
+
+        - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+        - `XML` - The SCTE marker is expressed fully in XML.
+        """
         return pulumi.get(self, "ad_marker_dash")
 
     @ad_marker_dash.setter

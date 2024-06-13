@@ -57,6 +57,9 @@ export class GroupProfile extends pulumi.CustomResource {
      * The group-name of the Group Profile.
      */
     public /*out*/ readonly groupName!: pulumi.Output<string>;
+    /**
+     * The status of a group profile.
+     */
     public readonly status!: pulumi.Output<enums.datazone.GroupProfileStatus | undefined>;
 
     /**
@@ -109,5 +112,8 @@ export interface GroupProfileArgs {
      * The ID of the group.
      */
     groupIdentifier: pulumi.Input<string>;
+    /**
+     * The status of a group profile.
+     */
     status?: pulumi.Input<enums.datazone.GroupProfileStatus>;
 }

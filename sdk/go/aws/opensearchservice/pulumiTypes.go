@@ -1348,10 +1348,11 @@ type DomainEndpointOptions struct {
 	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	EnforceHttps *bool `pulumi:"enforceHttps"`
-	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+	// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 	//
-	// - `Policy-Min-TLS-1-0-2019-07`
-	// - `Policy-Min-TLS-1-2-2019-07`
+	// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+	// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+	// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1375,10 +1376,11 @@ type DomainEndpointOptionsArgs struct {
 	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
-	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+	// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 	//
-	// - `Policy-Min-TLS-1-0-2019-07`
-	// - `Policy-Min-TLS-1-2-2019-07`
+	// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+	// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+	// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1479,10 +1481,11 @@ func (o DomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
-// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 //
-// - `Policy-Min-TLS-1-0-2019-07`
-// - `Policy-Min-TLS-1-2-2019-07`
+// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
 func (o DomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1551,10 +1554,11 @@ func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 //
-// - `Policy-Min-TLS-1-0-2019-07`
-// - `Policy-Min-TLS-1-2-2019-07`
+// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
 func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {

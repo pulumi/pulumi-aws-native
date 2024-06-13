@@ -37,10 +37,11 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public Input<bool>? EnforceHttps { get; set; }
 
         /// <summary>
-        /// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+        /// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
         /// 
-        /// - `Policy-Min-TLS-1-0-2019-07`
-        /// - `Policy-Min-TLS-1-2-2019-07`
+        /// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+        /// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+        /// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
         /// </summary>
         [Input("tlsSecurityPolicy")]
         public Input<string>? TlsSecurityPolicy { get; set; }

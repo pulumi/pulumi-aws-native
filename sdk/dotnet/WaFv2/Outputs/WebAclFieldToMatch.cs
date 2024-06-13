@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Outputs.WebAclHeaders? Headers;
         /// <summary>
-        /// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+        /// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
         /// 
         /// &gt; You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
         /// 

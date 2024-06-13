@@ -58,7 +58,7 @@ export class QueueEnvironment extends pulumi.CustomResource {
      */
     public readonly queueId!: pulumi.Output<string>;
     /**
-     * A JSON or YAML template the describes the processing environment for the queue.
+     * A JSON or YAML template that describes the processing environment for the queue.
      */
     public readonly template!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export interface QueueEnvironmentArgs {
      */
     queueId: pulumi.Input<string>;
     /**
-     * A JSON or YAML template the describes the processing environment for the queue.
+     * A JSON or YAML template that describes the processing environment for the queue.
      */
     template: pulumi.Input<string>;
     /**

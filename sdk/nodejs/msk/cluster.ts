@@ -43,7 +43,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * VPC connection control settings for brokers.
+     * Includes all client authentication related information.
      */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface ClusterArgs {
      */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoArgs>;
     /**
-     * VPC connection control settings for brokers.
+     * Includes all client authentication related information.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
     /**

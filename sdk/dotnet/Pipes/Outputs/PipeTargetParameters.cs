@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// The parameters for using a Step Functions state machine as a target.
         /// </summary>
         public readonly Outputs.PipeTargetStateMachineParameters? StepFunctionStateMachineParameters;
+        /// <summary>
+        /// The parameters for using a Timestream for LiveAnalytics table as a target.
+        /// </summary>
         public readonly Outputs.PipeTargetTimestreamParameters? TimestreamParameters;
 
         [OutputConstructor]

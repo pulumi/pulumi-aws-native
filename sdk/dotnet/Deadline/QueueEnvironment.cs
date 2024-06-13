@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Deadline
         public Output<string> QueueId { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// A JSON or YAML template that describes the processing environment for the queue.
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Deadline
         public Input<string> QueueId { get; set; } = null!;
 
         /// <summary>
-        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// A JSON or YAML template that describes the processing environment for the queue.
         /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;

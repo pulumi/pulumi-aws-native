@@ -18,24 +18,45 @@ namespace Pulumi.AwsNative.Deadline
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the monitor that displays on the Deadline Cloud console.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        /// </summary>
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        /// </summary>
         [Output("identityCenterInstanceArn")]
         public Output<string> IdentityCenterInstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the monitor.
+        /// </summary>
         [Output("monitorId")]
         public Output<string> MonitorId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
 
+        /// <summary>
+        /// The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -88,15 +109,27 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the monitor that displays on the Deadline Cloud console.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        /// </summary>
         [Input("identityCenterInstanceArn", required: true)]
         public Input<string> IdentityCenterInstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        /// </summary>
         [Input("subdomain", required: true)]
         public Input<string> Subdomain { get; set; } = null!;
 

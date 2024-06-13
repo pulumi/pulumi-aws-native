@@ -3347,6 +3347,7 @@ func (o ConfigurationPolicyParameterValuePtrOutput) StringList() pulumi.StringAr
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicy struct {
+	// The AWS service that the configuration policy applies to.
 	SecurityHub *ConfigurationPolicySecurityHubPolicy `pulumi:"securityHub"`
 }
 
@@ -3363,6 +3364,7 @@ type ConfigurationPolicyPolicyInput interface {
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicyArgs struct {
+	// The AWS service that the configuration policy applies to.
 	SecurityHub ConfigurationPolicySecurityHubPolicyPtrInput `pulumi:"securityHub"`
 }
 
@@ -3393,6 +3395,7 @@ func (o ConfigurationPolicyPolicyOutput) ToConfigurationPolicyPolicyOutputWithCo
 	return o
 }
 
+// The AWS service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy { return v.SecurityHub }).(ConfigurationPolicySecurityHubPolicyPtrOutput)
 }
@@ -3421,6 +3424,7 @@ func (o ConfigurationPolicyPolicyPtrOutput) Elem() ConfigurationPolicyPolicyOutp
 	}).(ConfigurationPolicyPolicyOutput)
 }
 
+// The AWS service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyPtrOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy {
 		if v == nil {
@@ -3728,7 +3732,8 @@ func (o ConfigurationPolicySecurityControlsConfigurationPtrOutput) SecurityContr
 // An object that defines how AWS Security Hub is configured.
 type ConfigurationPolicySecurityHubPolicy struct {
 	// A list that defines which security standards are enabled in the configuration policy.
-	EnabledStandardIdentifiers    []string                                          `pulumi:"enabledStandardIdentifiers"`
+	EnabledStandardIdentifiers []string `pulumi:"enabledStandardIdentifiers"`
+	// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
 	SecurityControlsConfiguration *ConfigurationPolicySecurityControlsConfiguration `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled *bool `pulumi:"serviceEnabled"`
@@ -3748,7 +3753,8 @@ type ConfigurationPolicySecurityHubPolicyInput interface {
 // An object that defines how AWS Security Hub is configured.
 type ConfigurationPolicySecurityHubPolicyArgs struct {
 	// A list that defines which security standards are enabled in the configuration policy.
-	EnabledStandardIdentifiers    pulumi.StringArrayInput                                  `pulumi:"enabledStandardIdentifiers"`
+	EnabledStandardIdentifiers pulumi.StringArrayInput `pulumi:"enabledStandardIdentifiers"`
+	// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
 	SecurityControlsConfiguration ConfigurationPolicySecurityControlsConfigurationPtrInput `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled pulumi.BoolPtrInput `pulumi:"serviceEnabled"`
@@ -3837,6 +3843,7 @@ func (o ConfigurationPolicySecurityHubPolicyOutput) EnabledStandardIdentifiers()
 	return o.ApplyT(func(v ConfigurationPolicySecurityHubPolicy) []string { return v.EnabledStandardIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
 func (o ConfigurationPolicySecurityHubPolicyOutput) SecurityControlsConfiguration() ConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicySecurityHubPolicy) *ConfigurationPolicySecurityControlsConfiguration {
 		return v.SecurityControlsConfiguration
@@ -3882,6 +3889,7 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) EnabledStandardIdentifier
 	}).(pulumi.StringArrayOutput)
 }
 
+// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
 func (o ConfigurationPolicySecurityHubPolicyPtrOutput) SecurityControlsConfiguration() ConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicySecurityHubPolicy) *ConfigurationPolicySecurityControlsConfiguration {
 		if v == nil {
@@ -7043,7 +7051,13 @@ func (o InsightStringFilterArrayOutput) Index(i pulumi.IntInput) InsightStringFi
 }
 
 type SecurityControlParameterConfiguration struct {
-	Value     *SecurityControlParameterValue                 `pulumi:"value"`
+	// The current value of a control parameter.
+	Value *SecurityControlParameterValue `pulumi:"value"`
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+	//
+	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+	//
+	// When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 	ValueType SecurityControlParameterConfigurationValueType `pulumi:"valueType"`
 }
 
@@ -7059,7 +7073,13 @@ type SecurityControlParameterConfigurationInput interface {
 }
 
 type SecurityControlParameterConfigurationArgs struct {
-	Value     SecurityControlParameterValuePtrInput               `pulumi:"value"`
+	// The current value of a control parameter.
+	Value SecurityControlParameterValuePtrInput `pulumi:"value"`
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+	//
+	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+	//
+	// When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 	ValueType SecurityControlParameterConfigurationValueTypeInput `pulumi:"valueType"`
 }
 
@@ -7114,10 +7134,16 @@ func (o SecurityControlParameterConfigurationOutput) ToSecurityControlParameterC
 	return o
 }
 
+// The current value of a control parameter.
 func (o SecurityControlParameterConfigurationOutput) Value() SecurityControlParameterValuePtrOutput {
 	return o.ApplyT(func(v SecurityControlParameterConfiguration) *SecurityControlParameterValue { return v.Value }).(SecurityControlParameterValuePtrOutput)
 }
 
+// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+//
+// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+//
+// When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 func (o SecurityControlParameterConfigurationOutput) ValueType() SecurityControlParameterConfigurationValueTypeOutput {
 	return o.ApplyT(func(v SecurityControlParameterConfiguration) SecurityControlParameterConfigurationValueType {
 		return v.ValueType

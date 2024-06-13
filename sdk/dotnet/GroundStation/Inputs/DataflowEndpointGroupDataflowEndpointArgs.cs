@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         [Input("address")]
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? Address { get; set; }
 
+        /// <summary>
+        /// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+        /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 

@@ -32,8 +32,9 @@ type LookupGuardrailResult struct {
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging *string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging *string                       `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig     *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging *string `pulumi:"blockedOutputsMessaging"`
+	// The content filter policies to configure for the guardrail.
+	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
 	// Time Stamp
 	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the guardrail or its version
@@ -47,18 +48,22 @@ type LookupGuardrailResult struct {
 	// The KMS key with which the guardrail was encrypted at rest
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the guardrail
-	Name                             *string                                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The sensitive information policy to configure for the guardrail.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
-	Status                           *GuardrailStatus                           `pulumi:"status"`
+	// The status of the guardrail.
+	Status *GuardrailStatus `pulumi:"status"`
 	// List of status reasons
 	StatusReasons []string `pulumi:"statusReasons"`
 	// List of Tags
-	Tags              []aws.Tag                   `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The topic policies to configure for the guardrail.
 	TopicPolicyConfig *GuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
 	// Time Stamp
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// Guardrail version
-	Version          *string                    `pulumi:"version"`
+	Version *string `pulumi:"version"`
+	// The word policy you configure for the guardrail.
 	WordPolicyConfig *GuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
@@ -108,6 +113,7 @@ func (o LookupGuardrailResultOutput) BlockedOutputsMessaging() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupGuardrailResult) *string { return v.BlockedOutputsMessaging }).(pulumi.StringPtrOutput)
 }
 
+// The content filter policies to configure for the guardrail.
 func (o LookupGuardrailResultOutput) ContentPolicyConfig() GuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailContentPolicyConfig { return v.ContentPolicyConfig }).(GuardrailContentPolicyConfigPtrOutput)
 }
@@ -147,12 +153,14 @@ func (o LookupGuardrailResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The sensitive information policy to configure for the guardrail.
 func (o LookupGuardrailResultOutput) SensitiveInformationPolicyConfig() GuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailSensitiveInformationPolicyConfig {
 		return v.SensitiveInformationPolicyConfig
 	}).(GuardrailSensitiveInformationPolicyConfigPtrOutput)
 }
 
+// The status of the guardrail.
 func (o LookupGuardrailResultOutput) Status() GuardrailStatusPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailStatus { return v.Status }).(GuardrailStatusPtrOutput)
 }
@@ -167,6 +175,7 @@ func (o LookupGuardrailResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The topic policies to configure for the guardrail.
 func (o LookupGuardrailResultOutput) TopicPolicyConfig() GuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailTopicPolicyConfig { return v.TopicPolicyConfig }).(GuardrailTopicPolicyConfigPtrOutput)
 }
@@ -181,6 +190,7 @@ func (o LookupGuardrailResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
+// The word policy you configure for the guardrail.
 func (o LookupGuardrailResultOutput) WordPolicyConfig() GuardrailWordPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailWordPolicyConfig { return v.WordPolicyConfig }).(GuardrailWordPolicyConfigPtrOutput)
 }

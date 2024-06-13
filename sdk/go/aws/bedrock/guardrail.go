@@ -20,8 +20,9 @@ type Guardrail struct {
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging pulumi.StringOutput `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging pulumi.StringOutput                   `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig     GuardrailContentPolicyConfigPtrOutput `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging pulumi.StringOutput `pulumi:"blockedOutputsMessaging"`
+	// The content filter policies to configure for the guardrail.
+	ContentPolicyConfig GuardrailContentPolicyConfigPtrOutput `pulumi:"contentPolicyConfig"`
 	// Time Stamp
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the guardrail or its version
@@ -35,18 +36,22 @@ type Guardrail struct {
 	// The KMS key with which the guardrail was encrypted at rest
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the guardrail
-	Name                             pulumi.StringOutput                                `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The sensitive information policy to configure for the guardrail.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
-	Status                           GuardrailStatusOutput                              `pulumi:"status"`
+	// The status of the guardrail.
+	Status GuardrailStatusOutput `pulumi:"status"`
 	// List of status reasons
 	StatusReasons pulumi.StringArrayOutput `pulumi:"statusReasons"`
 	// List of Tags
-	Tags              aws.TagArrayOutput                  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The topic policies to configure for the guardrail.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrOutput `pulumi:"topicPolicyConfig"`
 	// Time Stamp
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// Guardrail version
-	Version          pulumi.StringOutput                `pulumi:"version"`
+	Version pulumi.StringOutput `pulumi:"version"`
+	// The word policy you configure for the guardrail.
 	WordPolicyConfig GuardrailWordPolicyConfigPtrOutput `pulumi:"wordPolicyConfig"`
 }
 
@@ -99,19 +104,23 @@ type guardrailArgs struct {
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging string                        `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig     *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging string `pulumi:"blockedOutputsMessaging"`
+	// The content filter policies to configure for the guardrail.
+	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
 	// Description of the guardrail or its version
 	Description *string `pulumi:"description"`
 	// The KMS key with which the guardrail was encrypted at rest
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the guardrail
-	Name                             *string                                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The sensitive information policy to configure for the guardrail.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// List of Tags
-	Tags              []aws.Tag                   `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The topic policies to configure for the guardrail.
 	TopicPolicyConfig *GuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
-	WordPolicyConfig  *GuardrailWordPolicyConfig  `pulumi:"wordPolicyConfig"`
+	// The word policy you configure for the guardrail.
+	WordPolicyConfig *GuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
 // The set of arguments for constructing a Guardrail resource.
@@ -120,18 +129,22 @@ type GuardrailArgs struct {
 	BlockedInputMessaging pulumi.StringInput
 	// Messaging for when violations are detected in text
 	BlockedOutputsMessaging pulumi.StringInput
-	ContentPolicyConfig     GuardrailContentPolicyConfigPtrInput
+	// The content filter policies to configure for the guardrail.
+	ContentPolicyConfig GuardrailContentPolicyConfigPtrInput
 	// Description of the guardrail or its version
 	Description pulumi.StringPtrInput
 	// The KMS key with which the guardrail was encrypted at rest
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the guardrail
-	Name                             pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The sensitive information policy to configure for the guardrail.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// List of Tags
-	Tags              aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The topic policies to configure for the guardrail.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrInput
-	WordPolicyConfig  GuardrailWordPolicyConfigPtrInput
+	// The word policy you configure for the guardrail.
+	WordPolicyConfig GuardrailWordPolicyConfigPtrInput
 }
 
 func (GuardrailArgs) ElementType() reflect.Type {
@@ -181,6 +194,7 @@ func (o GuardrailOutput) BlockedOutputsMessaging() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.BlockedOutputsMessaging }).(pulumi.StringOutput)
 }
 
+// The content filter policies to configure for the guardrail.
 func (o GuardrailOutput) ContentPolicyConfig() GuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailContentPolicyConfigPtrOutput { return v.ContentPolicyConfig }).(GuardrailContentPolicyConfigPtrOutput)
 }
@@ -220,12 +234,14 @@ func (o GuardrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The sensitive information policy to configure for the guardrail.
 func (o GuardrailOutput) SensitiveInformationPolicyConfig() GuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailSensitiveInformationPolicyConfigPtrOutput {
 		return v.SensitiveInformationPolicyConfig
 	}).(GuardrailSensitiveInformationPolicyConfigPtrOutput)
 }
 
+// The status of the guardrail.
 func (o GuardrailOutput) Status() GuardrailStatusOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailStatusOutput { return v.Status }).(GuardrailStatusOutput)
 }
@@ -240,6 +256,7 @@ func (o GuardrailOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Guardrail) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The topic policies to configure for the guardrail.
 func (o GuardrailOutput) TopicPolicyConfig() GuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailTopicPolicyConfigPtrOutput { return v.TopicPolicyConfig }).(GuardrailTopicPolicyConfigPtrOutput)
 }
@@ -254,6 +271,7 @@ func (o GuardrailOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
+// The word policy you configure for the guardrail.
 func (o GuardrailOutput) WordPolicyConfig() GuardrailWordPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailWordPolicyConfigPtrOutput { return v.WordPolicyConfig }).(GuardrailWordPolicyConfigPtrOutput)
 }

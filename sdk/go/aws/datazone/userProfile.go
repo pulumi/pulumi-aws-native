@@ -22,12 +22,15 @@ type UserProfile struct {
 	// The identifier of the Amazon DataZone domain in which the user profile is created.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
-	DomainIdentifier pulumi.StringOutput        `pulumi:"domainIdentifier"`
-	Status           UserProfileStatusPtrOutput `pulumi:"status"`
-	Type             UserProfileTypeOutput      `pulumi:"type"`
+	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// The status of the user profile.
+	Status UserProfileStatusPtrOutput `pulumi:"status"`
+	// The type of the user profile.
+	Type UserProfileTypeOutput `pulumi:"type"`
 	// The ID of the user.
-	UserIdentifier pulumi.StringOutput          `pulumi:"userIdentifier"`
-	UserType       UserProfileUserTypePtrOutput `pulumi:"userType"`
+	UserIdentifier pulumi.StringOutput `pulumi:"userIdentifier"`
+	// The user type of the user for which the user profile is created.
+	UserType UserProfileUserTypePtrOutput `pulumi:"userType"`
 }
 
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
@@ -83,21 +86,25 @@ func (UserProfileState) ElementType() reflect.Type {
 
 type userProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
-	DomainIdentifier string             `pulumi:"domainIdentifier"`
-	Status           *UserProfileStatus `pulumi:"status"`
+	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The status of the user profile.
+	Status *UserProfileStatus `pulumi:"status"`
 	// The ID of the user.
-	UserIdentifier string               `pulumi:"userIdentifier"`
-	UserType       *UserProfileUserType `pulumi:"userType"`
+	UserIdentifier string `pulumi:"userIdentifier"`
+	// The user type of the user for which the user profile is created.
+	UserType *UserProfileUserType `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a UserProfile resource.
 type UserProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
 	DomainIdentifier pulumi.StringInput
-	Status           UserProfileStatusPtrInput
+	// The status of the user profile.
+	Status UserProfileStatusPtrInput
 	// The ID of the user.
 	UserIdentifier pulumi.StringInput
-	UserType       UserProfileUserTypePtrInput
+	// The user type of the user for which the user profile is created.
+	UserType UserProfileUserTypePtrInput
 }
 
 func (UserProfileArgs) ElementType() reflect.Type {
@@ -156,10 +163,12 @@ func (o UserProfileOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
+// The status of the user profile.
 func (o UserProfileOutput) Status() UserProfileStatusPtrOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileStatusPtrOutput { return v.Status }).(UserProfileStatusPtrOutput)
 }
 
+// The type of the user profile.
 func (o UserProfileOutput) Type() UserProfileTypeOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileTypeOutput { return v.Type }).(UserProfileTypeOutput)
 }
@@ -169,6 +178,7 @@ func (o UserProfileOutput) UserIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserIdentifier }).(pulumi.StringOutput)
 }
 
+// The user type of the user for which the user profile is created.
 func (o UserProfileOutput) UserType() UserProfileUserTypePtrOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileUserTypePtrOutput { return v.UserType }).(UserProfileUserTypePtrOutput)
 }

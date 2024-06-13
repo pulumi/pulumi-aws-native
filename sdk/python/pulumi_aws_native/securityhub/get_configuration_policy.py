@@ -60,6 +60,9 @@ class GetConfigurationPolicyResult:
     @property
     @pulumi.getter(name="configurationPolicy")
     def configuration_policy(self) -> Optional['outputs.ConfigurationPolicyPolicy']:
+        """
+        An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+        """
         return pulumi.get(self, "configuration_policy")
 
     @property
@@ -105,6 +108,9 @@ class GetConfigurationPolicyResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property

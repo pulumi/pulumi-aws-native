@@ -59,6 +59,9 @@ class GetProfileResult:
     @property
     @pulumi.getter(name="attributeMappings")
     def attribute_mappings(self) -> Optional[Sequence['outputs.ProfileAttributeMapping']]:
+        """
+        A mapping applied to the authenticating end-entity certificate.
+        """
         return pulumi.get(self, "attribute_mappings")
 
     @property

@@ -37,9 +37,21 @@ export class ProjectMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectMembership.__pulumiType;
     }
 
+    /**
+     * The designated role of a project member.
+     */
     public readonly designation!: pulumi.Output<enums.datazone.ProjectMembershipUserDesignation>;
+    /**
+     * The ID of the Amazon DataZone domain in which project membership is created.
+     */
     public readonly domainIdentifier!: pulumi.Output<string>;
+    /**
+     * The details about a project member.
+     */
     public readonly member!: pulumi.Output<outputs.datazone.ProjectMembershipMember0Properties | outputs.datazone.ProjectMembershipMember1Properties>;
+    /**
+     * The ID of the project for which this project membership was created.
+     */
     public readonly projectIdentifier!: pulumi.Output<string>;
 
     /**
@@ -86,8 +98,20 @@ export class ProjectMembership extends pulumi.CustomResource {
  * The set of arguments for constructing a ProjectMembership resource.
  */
 export interface ProjectMembershipArgs {
+    /**
+     * The designated role of a project member.
+     */
     designation: pulumi.Input<enums.datazone.ProjectMembershipUserDesignation>;
+    /**
+     * The ID of the Amazon DataZone domain in which project membership is created.
+     */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * The details about a project member.
+     */
     member: pulumi.Input<inputs.datazone.ProjectMembershipMember0PropertiesArgs | inputs.datazone.ProjectMembershipMember1PropertiesArgs>;
+    /**
+     * The ID of the project for which this project membership was created.
+     */
     projectIdentifier: pulumi.Input<string>;
 }

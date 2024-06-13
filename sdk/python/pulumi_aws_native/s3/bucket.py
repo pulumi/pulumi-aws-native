@@ -424,11 +424,11 @@ class Bucket(pulumi.CustomResource):
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[s3_bucket]))
+            opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
             recording_configuration_arn=recording_configuration.id,
-            opts=pulumi.ResourceOptions(depends_on=[recording_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[recording_configuration]))
 
         ```
         ### Example
@@ -461,11 +461,11 @@ class Bucket(pulumi.CustomResource):
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[s3_bucket]))
+            opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
             recording_configuration_arn=recording_configuration.id,
-            opts=pulumi.ResourceOptions(depends_on=[recording_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[recording_configuration]))
 
         ```
         ### Example
@@ -667,7 +667,7 @@ class Bucket(pulumi.CustomResource):
         sudo service nginx start
         \"\"\"],
             },
-            opts=pulumi.ResourceOptions(depends_on=[ec2_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
         ```
@@ -873,7 +873,7 @@ class Bucket(pulumi.CustomResource):
                 key="tag:nginx",
                 values=["true"],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[ec2_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
         ```
@@ -952,11 +952,11 @@ class Bucket(pulumi.CustomResource):
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[s3_bucket]))
+            opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
             recording_configuration_arn=recording_configuration.id,
-            opts=pulumi.ResourceOptions(depends_on=[recording_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[recording_configuration]))
 
         ```
         ### Example
@@ -989,11 +989,11 @@ class Bucket(pulumi.CustomResource):
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[s3_bucket]))
+            opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
             recording_configuration_arn=recording_configuration.id,
-            opts=pulumi.ResourceOptions(depends_on=[recording_configuration]))
+            opts = pulumi.ResourceOptions(depends_on=[recording_configuration]))
 
         ```
         ### Example
@@ -1195,7 +1195,7 @@ class Bucket(pulumi.CustomResource):
         sudo service nginx start
         \"\"\"],
             },
-            opts=pulumi.ResourceOptions(depends_on=[ec2_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
         ```
@@ -1401,7 +1401,7 @@ class Bucket(pulumi.CustomResource):
                 key="tag:nginx",
                 values=["true"],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[ec2_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
         ```

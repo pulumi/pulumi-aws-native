@@ -25,7 +25,7 @@ class QueueEnvironmentArgs:
         :param pulumi.Input[str] farm_id: The identifier assigned to the farm that contains the queue.
         :param pulumi.Input[int] priority: The queue environment's priority.
         :param pulumi.Input[str] queue_id: The unique identifier of the queue that contains the environment.
-        :param pulumi.Input[str] template: A JSON or YAML template the describes the processing environment for the queue.
+        :param pulumi.Input[str] template: A JSON or YAML template that describes the processing environment for the queue.
         :param pulumi.Input['QueueEnvironmentEnvironmentTemplateType'] template_type: Specifies whether the template for the queue environment is JSON or YAML.
         """
         pulumi.set(__self__, "farm_id", farm_id)
@@ -74,7 +74,7 @@ class QueueEnvironmentArgs:
     @pulumi.getter
     def template(self) -> pulumi.Input[str]:
         """
-        A JSON or YAML template the describes the processing environment for the queue.
+        A JSON or YAML template that describes the processing environment for the queue.
         """
         return pulumi.get(self, "template")
 
@@ -114,7 +114,7 @@ class QueueEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] farm_id: The identifier assigned to the farm that contains the queue.
         :param pulumi.Input[int] priority: The queue environment's priority.
         :param pulumi.Input[str] queue_id: The unique identifier of the queue that contains the environment.
-        :param pulumi.Input[str] template: A JSON or YAML template the describes the processing environment for the queue.
+        :param pulumi.Input[str] template: A JSON or YAML template that describes the processing environment for the queue.
         :param pulumi.Input['QueueEnvironmentEnvironmentTemplateType'] template_type: Specifies whether the template for the queue environment is JSON or YAML.
         """
         ...
@@ -249,7 +249,7 @@ class QueueEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def template(self) -> pulumi.Output[str]:
         """
-        A JSON or YAML template the describes the processing environment for the queue.
+        A JSON or YAML template that describes the processing environment for the queue.
         """
         return pulumi.get(self, "template")
 

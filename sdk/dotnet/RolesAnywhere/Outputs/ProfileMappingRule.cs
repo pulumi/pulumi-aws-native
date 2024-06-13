@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.RolesAnywhere.Outputs
     [OutputType]
     public sealed class ProfileMappingRule
     {
+        /// <summary>
+        /// Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        /// </summary>
         public readonly string Specifier;
 
         [OutputConstructor]

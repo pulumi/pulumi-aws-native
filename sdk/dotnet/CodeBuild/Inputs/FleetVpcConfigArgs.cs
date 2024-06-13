@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// A list of one or more security groups IDs in your Amazon VPC.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
 
         [Input("subnets")]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// A list of one or more subnet IDs in your Amazon VPC.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
             set => _subnets = value;
         }
 
+        /// <summary>
+        /// The ID of the Amazon VPC.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

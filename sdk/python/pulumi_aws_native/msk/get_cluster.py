@@ -78,7 +78,7 @@ class GetClusterResult:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional['outputs.ClusterClientAuthentication']:
         """
-        VPC connection control settings for brokers.
+        Includes all client authentication related information.
         """
         return pulumi.get(self, "client_authentication")
 

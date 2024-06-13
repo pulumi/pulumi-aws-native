@@ -36,7 +36,7 @@ import (
 //			statement := cfg.Require("statement")
 //			staticPolicy, err := verifiedpermissions.NewPolicy(ctx, "staticPolicy", &verifiedpermissions.PolicyArgs{
 //				PolicyStoreId: pulumi.String(policyStoreId),
-//				Definition: pulumi.Any{
+//				Definition: &verifiedpermissions.PolicyDefinition0PropertiesArgs{
 //					Static: &verifiedpermissions.PolicyStaticPolicyDefinitionArgs{
 //						Description: pulumi.String(description),
 //						Statement:   pulumi.String(statement),
@@ -76,7 +76,7 @@ import (
 //			resourceId := cfg.Require("resourceId")
 //			templateLinkedPolicy, err := verifiedpermissions.NewPolicy(ctx, "templateLinkedPolicy", &verifiedpermissions.PolicyArgs{
 //				PolicyStoreId: pulumi.String(policyStoreId),
-//				Definition: pulumi.Any{
+//				Definition: &verifiedpermissions.PolicyDefinition0PropertiesArgs{
 //					TemplateLinked: &verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs{
 //						PolicyTemplateId: pulumi.String(policyTemplateId),
 //						Principal: &verifiedpermissions.PolicyEntityIdentifierArgs{

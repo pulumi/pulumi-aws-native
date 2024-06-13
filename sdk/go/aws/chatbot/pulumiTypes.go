@@ -10,12 +10,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type MicrosoftTeamsChannelConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: `aws:` .
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
 	Value string `pulumi:"value"`
 }
 
 type SlackChannelConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: `aws:` .
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
 	Value string `pulumi:"value"`
 }
 

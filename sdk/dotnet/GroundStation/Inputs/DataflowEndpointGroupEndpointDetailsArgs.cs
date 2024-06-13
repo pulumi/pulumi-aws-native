@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class DataflowEndpointGroupEndpointDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An agent endpoint.
+        /// </summary>
         [Input("awsGroundStationAgentEndpoint")]
         public Input<Inputs.DataflowEndpointGroupAwsGroundStationAgentEndpointArgs>? AwsGroundStationAgentEndpoint { get; set; }
 

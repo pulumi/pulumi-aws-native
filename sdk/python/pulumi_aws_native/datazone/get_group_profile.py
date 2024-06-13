@@ -60,6 +60,9 @@ class GetGroupProfileResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['GroupProfileStatus']:
+        """
+        The status of a group profile.
+        """
         return pulumi.get(self, "status")
 
 

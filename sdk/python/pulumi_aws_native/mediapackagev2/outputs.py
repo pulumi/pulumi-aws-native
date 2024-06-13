@@ -253,6 +253,7 @@ class OriginEndpointDashUtcTiming(dict):
                  timing_source: Optional[str] = None):
         """
         <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+        :param 'OriginEndpointDashUtcTimingMode' timing_mode: The UTC timing mode.
         :param str timing_source: <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
         """
         if timing_mode is not None:
@@ -263,6 +264,9 @@ class OriginEndpointDashUtcTiming(dict):
     @property
     @pulumi.getter(name="timingMode")
     def timing_mode(self) -> Optional['OriginEndpointDashUtcTimingMode']:
+        """
+        The UTC timing mode.
+        """
         return pulumi.get(self, "timing_mode")
 
     @property
@@ -874,6 +878,12 @@ class OriginEndpointScteDash(dict):
                  ad_marker_dash: Optional['OriginEndpointAdMarkerDash'] = None):
         """
         <p>The SCTE configuration.</p>
+        :param 'OriginEndpointAdMarkerDash' ad_marker_dash: Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+               
+               Value description:
+               
+               - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+               - `XML` - The SCTE marker is expressed fully in XML.
         """
         if ad_marker_dash is not None:
             pulumi.set(__self__, "ad_marker_dash", ad_marker_dash)
@@ -881,6 +891,14 @@ class OriginEndpointScteDash(dict):
     @property
     @pulumi.getter(name="adMarkerDash")
     def ad_marker_dash(self) -> Optional['OriginEndpointAdMarkerDash']:
+        """
+        Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+
+        Value description:
+
+        - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+        - `XML` - The SCTE marker is expressed fully in XML.
+        """
         return pulumi.get(self, "ad_marker_dash")
 
 

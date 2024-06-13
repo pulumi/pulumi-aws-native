@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [OutputType]
     public sealed class GetProfileResult
     {
+        /// <summary>
+        /// A mapping applied to the authenticating end-entity certificate.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProfileAttributeMapping> AttributeMappings;
         /// <summary>
         /// The number of seconds vended session credentials will be valid for

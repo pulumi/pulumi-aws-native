@@ -95,6 +95,11 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in `MaxWebserers` . As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
+        /// 
+        /// Valid values: Accepts between `2` and `5` . Defaults to `2` .
+        /// </summary>
         [Output("maxWebservers")]
         public Output<int?> MaxWebservers { get; private set; } = null!;
 
@@ -104,6 +109,11 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("maxWorkers")]
         public Output<int?> MaxWorkers { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
+        /// 
+        /// Valid values: Accepts between `2` and `5` . Defaults to `2` .
+        /// </summary>
         [Output("minWebservers")]
         public Output<int?> MinWebservers { get; private set; } = null!;
 
@@ -332,6 +342,11 @@ namespace Pulumi.AwsNative.Mwaa
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in `MaxWebserers` . As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
+        /// 
+        /// Valid values: Accepts between `2` and `5` . Defaults to `2` .
+        /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
 
@@ -341,6 +356,11 @@ namespace Pulumi.AwsNative.Mwaa
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
 
+        /// <summary>
+        /// The minimum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
+        /// 
+        /// Valid values: Accepts between `2` and `5` . Defaults to `2` .
+        /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
 

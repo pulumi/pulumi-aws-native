@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class ClusterManagedStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify the AWS Key Management Service key ID for the Fargate ephemeral storage.
+        /// </summary>
         [Input("fargateEphemeralStorageKmsKeyId")]
         public Input<string>? FargateEphemeralStorageKmsKeyId { get; set; }
 
+        /// <summary>
+        /// Specify a AWS Key Management Service key ID to encrypt the managed storage.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

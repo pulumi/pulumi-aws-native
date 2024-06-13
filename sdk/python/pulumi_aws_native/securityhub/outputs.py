@@ -1695,6 +1695,7 @@ class ConfigurationPolicyPolicy(dict):
                  security_hub: Optional['outputs.ConfigurationPolicySecurityHubPolicy'] = None):
         """
         An object that defines how Security Hub is configured.
+        :param 'ConfigurationPolicySecurityHubPolicy' security_hub: The AWS service that the configuration policy applies to.
         """
         if security_hub is not None:
             pulumi.set(__self__, "security_hub", security_hub)
@@ -1702,6 +1703,9 @@ class ConfigurationPolicyPolicy(dict):
     @property
     @pulumi.getter(name="securityHub")
     def security_hub(self) -> Optional['outputs.ConfigurationPolicySecurityHubPolicy']:
+        """
+        The AWS service that the configuration policy applies to.
+        """
         return pulumi.get(self, "security_hub")
 
 
@@ -1858,6 +1862,7 @@ class ConfigurationPolicySecurityHubPolicy(dict):
         """
         An object that defines how AWS Security Hub is configured.
         :param Sequence[str] enabled_standard_identifiers: A list that defines which security standards are enabled in the configuration policy.
+        :param 'ConfigurationPolicySecurityControlsConfiguration' security_controls_configuration: An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
         :param bool service_enabled: Indicates whether Security Hub is enabled in the policy.
         """
         if enabled_standard_identifiers is not None:
@@ -1878,6 +1883,9 @@ class ConfigurationPolicySecurityHubPolicy(dict):
     @property
     @pulumi.getter(name="securityControlsConfiguration")
     def security_controls_configuration(self) -> Optional['outputs.ConfigurationPolicySecurityControlsConfiguration']:
+        """
+        An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+        """
         return pulumi.get(self, "security_controls_configuration")
 
     @property
@@ -3752,6 +3760,14 @@ class SecurityControlParameterConfiguration(dict):
     def __init__(__self__, *,
                  value_type: 'SecurityControlParameterConfigurationValueType',
                  value: Optional['outputs.SecurityControlParameterValue'] = None):
+        """
+        :param 'SecurityControlParameterConfigurationValueType' value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+               
+               When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+               
+               When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
+        :param 'SecurityControlParameterValue' value: The current value of a control parameter.
+        """
         pulumi.set(__self__, "value_type", value_type)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -3759,11 +3775,21 @@ class SecurityControlParameterConfiguration(dict):
     @property
     @pulumi.getter(name="valueType")
     def value_type(self) -> 'SecurityControlParameterConfigurationValueType':
+        """
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+
+        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+
+        When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
+        """
         return pulumi.get(self, "value_type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional['outputs.SecurityControlParameterValue']:
+        """
+        The current value of a control parameter.
+        """
         return pulumi.get(self, "value")
 
 

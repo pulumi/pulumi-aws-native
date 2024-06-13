@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigDemodulationConfig
     {
+        /// <summary>
+        /// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+        /// </summary>
         public readonly string? UnvalidatedJson;
 
         [OutputConstructor]

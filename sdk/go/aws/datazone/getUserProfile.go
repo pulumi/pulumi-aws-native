@@ -34,9 +34,11 @@ type LookupUserProfileResult struct {
 	// The identifier of the Amazon DataZone domain in which the user profile is created.
 	DomainId *string `pulumi:"domainId"`
 	// The ID of the Amazon DataZone user profile.
-	Id     *string            `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// The status of the user profile.
 	Status *UserProfileStatus `pulumi:"status"`
-	Type   *UserProfileType   `pulumi:"type"`
+	// The type of the user profile.
+	Type *UserProfileType `pulumi:"type"`
 }
 
 func LookupUserProfileOutput(ctx *pulumi.Context, args LookupUserProfileOutputArgs, opts ...pulumi.InvokeOption) LookupUserProfileResultOutput {
@@ -91,10 +93,12 @@ func (o LookupUserProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The status of the user profile.
 func (o LookupUserProfileResultOutput) Status() UserProfileStatusPtrOutput {
 	return o.ApplyT(func(v LookupUserProfileResult) *UserProfileStatus { return v.Status }).(UserProfileStatusPtrOutput)
 }
 
+// The type of the user profile.
 func (o LookupUserProfileResultOutput) Type() UserProfileTypePtrOutput {
 	return o.ApplyT(func(v LookupUserProfileResult) *UserProfileType { return v.Type }).(UserProfileTypePtrOutput)
 }

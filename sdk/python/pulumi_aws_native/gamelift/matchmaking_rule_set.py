@@ -100,7 +100,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             flex_match_mode=aws_native.gamelift.MatchmakingConfigurationFlexMatchMode.STANDALONE,
             request_timeout_seconds=100,
             rule_set_name=matchmaking_rule_set_resource.id,
-            opts=pulumi.ResourceOptions(depends_on=[matchmaking_rule_set_resource]))
+            opts = pulumi.ResourceOptions(depends_on=[matchmaking_rule_set_resource]))
 
         ```
         ### Example
@@ -150,7 +150,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             flex_match_mode=aws_native.gamelift.MatchmakingConfigurationFlexMatchMode.STANDALONE,
             request_timeout_seconds=100,
             rule_set_name=matchmaking_rule_set_resource.id,
-            opts=pulumi.ResourceOptions(depends_on=[matchmaking_rule_set_resource]))
+            opts = pulumi.ResourceOptions(depends_on=[matchmaking_rule_set_resource]))
 
         ```
         ### Example

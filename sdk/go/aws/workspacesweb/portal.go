@@ -20,17 +20,17 @@ type Portal struct {
 	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
 	// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
 	//
-	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
 	//
 	// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
 	//
-	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.
 	//
 	// 3. Submit the data to your IdP.
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType PortalAuthenticationTypePtrOutput `pulumi:"authenticationType"`
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn pulumi.StringPtrOutput `pulumi:"browserSettingsArn"`
@@ -123,17 +123,17 @@ type portalArgs struct {
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
 	// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
 	//
-	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
 	//
 	// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
 	//
-	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.
 	//
 	// 3. Submit the data to your IdP.
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType *PortalAuthenticationType `pulumi:"authenticationType"`
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
@@ -167,17 +167,17 @@ type PortalArgs struct {
 	AdditionalEncryptionContext pulumi.StringMapInput
 	// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
 	//
-	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+	// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
 	//
 	// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
 	//
-	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+	// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.
 	//
 	// 3. Submit the data to your IdP.
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType PortalAuthenticationTypePtrInput
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn pulumi.StringPtrInput
@@ -249,17 +249,17 @@ func (o PortalOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 
 // The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
 //
-// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
 //
 // 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
 //
-// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.
 //
 // 3. Submit the data to your IdP.
 //
 // 4. Add an `IdentityProvider` resource to your CloudFormation template.
 //
-// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 func (o PortalOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *Portal) PortalAuthenticationTypePtrOutput { return v.AuthenticationType }).(PortalAuthenticationTypePtrOutput)
 }

@@ -857,6 +857,7 @@ func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointRegion() pulumi.S
 }
 
 type ConfigDecodeConfig struct {
+	// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
 	UnvalidatedJson *string `pulumi:"unvalidatedJson"`
 }
 
@@ -872,6 +873,7 @@ type ConfigDecodeConfigInput interface {
 }
 
 type ConfigDecodeConfigArgs struct {
+	// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
 	UnvalidatedJson pulumi.StringPtrInput `pulumi:"unvalidatedJson"`
 }
 
@@ -952,6 +954,7 @@ func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx c
 	}).(ConfigDecodeConfigPtrOutput)
 }
 
+// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
 func (o ConfigDecodeConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDecodeConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
@@ -980,6 +983,7 @@ func (o ConfigDecodeConfigPtrOutput) Elem() ConfigDecodeConfigOutput {
 	}).(ConfigDecodeConfigOutput)
 }
 
+// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
 func (o ConfigDecodeConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDecodeConfig) *string {
 		if v == nil {
@@ -990,6 +994,7 @@ func (o ConfigDecodeConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 }
 
 type ConfigDemodulationConfig struct {
+	// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
 	UnvalidatedJson *string `pulumi:"unvalidatedJson"`
 }
 
@@ -1005,6 +1010,7 @@ type ConfigDemodulationConfigInput interface {
 }
 
 type ConfigDemodulationConfigArgs struct {
+	// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
 	UnvalidatedJson pulumi.StringPtrInput `pulumi:"unvalidatedJson"`
 }
 
@@ -1085,6 +1091,7 @@ func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigPtrOutputWithC
 	}).(ConfigDemodulationConfigPtrOutput)
 }
 
+// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
 func (o ConfigDemodulationConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDemodulationConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
@@ -1113,6 +1120,7 @@ func (o ConfigDemodulationConfigPtrOutput) Elem() ConfigDemodulationConfigOutput
 	}).(ConfigDemodulationConfigOutput)
 }
 
+// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
 func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDemodulationConfig) *string {
 		if v == nil {
@@ -2641,7 +2649,8 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Name() pulu
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           *int                                `pulumi:"mtu"`
+	Mtu *int `pulumi:"mtu"`
+	// A socket address.
 	SocketAddress *DataflowEndpointGroupSocketAddress `pulumi:"socketAddress"`
 }
 
@@ -2659,7 +2668,8 @@ type DataflowEndpointGroupConnectionDetailsInput interface {
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           pulumi.IntPtrInput                         `pulumi:"mtu"`
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// A socket address.
 	SocketAddress DataflowEndpointGroupSocketAddressPtrInput `pulumi:"socketAddress"`
 }
 
@@ -2746,6 +2756,7 @@ func (o DataflowEndpointGroupConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// A socket address.
 func (o DataflowEndpointGroupConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		return v.SocketAddress
@@ -2786,6 +2797,7 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// A socket address.
 func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		if v == nil {
@@ -2798,7 +2810,8 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() Dataflo
 type DataflowEndpointGroupDataflowEndpoint struct {
 	// The address and port of an endpoint.
 	Address *DataflowEndpointGroupSocketAddress `pulumi:"address"`
-	Mtu     *int                                `pulumi:"mtu"`
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+	Mtu *int `pulumi:"mtu"`
 	// The endpoint name.
 	//
 	// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
@@ -2819,7 +2832,8 @@ type DataflowEndpointGroupDataflowEndpointInput interface {
 type DataflowEndpointGroupDataflowEndpointArgs struct {
 	// The address and port of an endpoint.
 	Address DataflowEndpointGroupSocketAddressPtrInput `pulumi:"address"`
-	Mtu     pulumi.IntPtrInput                         `pulumi:"mtu"`
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 	// The endpoint name.
 	//
 	// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
@@ -2908,6 +2922,7 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) Address() DataflowEndpointG
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress { return v.Address }).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
 func (o DataflowEndpointGroupDataflowEndpointOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
@@ -2953,6 +2968,7 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Address() DataflowEndpoi
 	}).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *int {
 		if v == nil {
@@ -2975,6 +2991,7 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 }
 
 type DataflowEndpointGroupEndpointDetails struct {
+	// An agent endpoint.
 	AwsGroundStationAgentEndpoint *DataflowEndpointGroupAwsGroundStationAgentEndpoint `pulumi:"awsGroundStationAgentEndpoint"`
 	// Information about the endpoint such as name and the endpoint address.
 	Endpoint *DataflowEndpointGroupDataflowEndpoint `pulumi:"endpoint"`
@@ -2994,6 +3011,7 @@ type DataflowEndpointGroupEndpointDetailsInput interface {
 }
 
 type DataflowEndpointGroupEndpointDetailsArgs struct {
+	// An agent endpoint.
 	AwsGroundStationAgentEndpoint DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput `pulumi:"awsGroundStationAgentEndpoint"`
 	// Information about the endpoint such as name and the endpoint address.
 	Endpoint DataflowEndpointGroupDataflowEndpointPtrInput `pulumi:"endpoint"`
@@ -3052,6 +3070,7 @@ func (o DataflowEndpointGroupEndpointDetailsOutput) ToDataflowEndpointGroupEndpo
 	return o
 }
 
+// An agent endpoint.
 func (o DataflowEndpointGroupEndpointDetailsOutput) AwsGroundStationAgentEndpoint() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupAwsGroundStationAgentEndpoint {
 		return v.AwsGroundStationAgentEndpoint
@@ -3252,7 +3271,8 @@ func (o DataflowEndpointGroupIntegerRangePtrOutput) Minimum() pulumi.IntPtrOutpu
 // Ingress address of AgentEndpoint with a port range and an optional mtu.
 type DataflowEndpointGroupRangedConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           *int                                      `pulumi:"mtu"`
+	Mtu *int `pulumi:"mtu"`
+	// A ranged socket address.
 	SocketAddress *DataflowEndpointGroupRangedSocketAddress `pulumi:"socketAddress"`
 }
 
@@ -3270,7 +3290,8 @@ type DataflowEndpointGroupRangedConnectionDetailsInput interface {
 // Ingress address of AgentEndpoint with a port range and an optional mtu.
 type DataflowEndpointGroupRangedConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           pulumi.IntPtrInput                               `pulumi:"mtu"`
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// A ranged socket address.
 	SocketAddress DataflowEndpointGroupRangedSocketAddressPtrInput `pulumi:"socketAddress"`
 }
 
@@ -3357,6 +3378,7 @@ func (o DataflowEndpointGroupRangedConnectionDetailsOutput) Mtu() pulumi.IntPtrO
 	return o.ApplyT(func(v DataflowEndpointGroupRangedConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// A ranged socket address.
 func (o DataflowEndpointGroupRangedConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupRangedSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupRangedConnectionDetails) *DataflowEndpointGroupRangedSocketAddress {
 		return v.SocketAddress
@@ -3397,6 +3419,7 @@ func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) Mtu() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// A ranged socket address.
 func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupRangedSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupRangedConnectionDetails) *DataflowEndpointGroupRangedSocketAddress {
 		if v == nil {

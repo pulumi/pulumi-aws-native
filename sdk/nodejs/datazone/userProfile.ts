@@ -50,12 +50,21 @@ export class UserProfile extends pulumi.CustomResource {
      * The identifier of the Amazon DataZone domain in which the user profile would be created.
      */
     public readonly domainIdentifier!: pulumi.Output<string>;
+    /**
+     * The status of the user profile.
+     */
     public readonly status!: pulumi.Output<enums.datazone.UserProfileStatus | undefined>;
+    /**
+     * The type of the user profile.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.datazone.UserProfileType>;
     /**
      * The ID of the user.
      */
     public readonly userIdentifier!: pulumi.Output<string>;
+    /**
+     * The user type of the user for which the user profile is created.
+     */
     public readonly userType!: pulumi.Output<enums.datazone.UserProfileUserType | undefined>;
 
     /**
@@ -108,10 +117,16 @@ export interface UserProfileArgs {
      * The identifier of the Amazon DataZone domain in which the user profile would be created.
      */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * The status of the user profile.
+     */
     status?: pulumi.Input<enums.datazone.UserProfileStatus>;
     /**
      * The ID of the user.
      */
     userIdentifier: pulumi.Input<string>;
+    /**
+     * The user type of the user for which the user profile is created.
+     */
     userType?: pulumi.Input<enums.datazone.UserProfileUserType>;
 }

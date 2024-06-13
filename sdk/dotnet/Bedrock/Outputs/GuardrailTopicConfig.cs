@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Name of topic in topic policy
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies to deny the topic.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailTopicType Type;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigDecodeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+        /// </summary>
         [Input("unvalidatedJson")]
         public Input<string>? UnvalidatedJson { get; set; }
 

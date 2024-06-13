@@ -4728,6 +4728,7 @@ func (o DomainDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb() pul
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettings struct {
+	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// The Jupyter lab's custom posix user configurations.
 	CustomPosixUserConfig *DomainCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
@@ -4758,6 +4759,7 @@ type DomainDefaultSpaceSettingsInput interface {
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsArgs struct {
+	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// The Jupyter lab's custom posix user configurations.
 	CustomPosixUserConfig DomainCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
@@ -4853,6 +4855,7 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 	}).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
+// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o DomainDefaultSpaceSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(DomainCustomFileSystemConfigArrayOutput)
 }
@@ -4916,6 +4919,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOu
 	}).(DomainDefaultSpaceSettingsOutput)
 }
 
+// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o DomainDefaultSpaceSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig {
 		if v == nil {

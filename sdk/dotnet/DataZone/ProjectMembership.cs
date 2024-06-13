@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.DataZone
     [AwsNativeResourceType("aws-native:datazone:ProjectMembership")]
     public partial class ProjectMembership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The designated role of a project member.
+        /// </summary>
         [Output("designation")]
         public Output<Pulumi.AwsNative.DataZone.ProjectMembershipUserDesignation> Designation { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Amazon DataZone domain in which project membership is created.
+        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The details about a project member.
+        /// </summary>
         [Output("member")]
         public Output<Union<Outputs.ProjectMembershipMember0Properties, Outputs.ProjectMembershipMember1Properties>> Member { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the project for which this project membership was created.
+        /// </summary>
         [Output("projectIdentifier")]
         public Output<string> ProjectIdentifier { get; private set; } = null!;
 
@@ -78,15 +90,27 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class ProjectMembershipArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The designated role of a project member.
+        /// </summary>
         [Input("designation", required: true)]
         public Input<Pulumi.AwsNative.DataZone.ProjectMembershipUserDesignation> Designation { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Amazon DataZone domain in which project membership is created.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The details about a project member.
+        /// </summary>
         [Input("member", required: true)]
         public InputUnion<Inputs.ProjectMembershipMember0PropertiesArgs, Inputs.ProjectMembershipMember1PropertiesArgs> Member { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the project for which this project membership was created.
+        /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
 

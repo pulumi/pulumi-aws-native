@@ -37,6 +37,9 @@ export class SubscriberNotification extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubscriberNotification.__pulumiType;
     }
 
+    /**
+     * Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+     */
     public readonly notificationConfiguration!: pulumi.Output<outputs.securitylake.SubscriberNotificationNotificationConfiguration>;
     /**
      * The ARN for the subscriber
@@ -83,6 +86,9 @@ export class SubscriberNotification extends pulumi.CustomResource {
  * The set of arguments for constructing a SubscriberNotification resource.
  */
 export interface SubscriberNotificationArgs {
+    /**
+     * Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+     */
     notificationConfiguration: pulumi.Input<inputs.securitylake.SubscriberNotificationNotificationConfigurationArgs>;
     /**
      * The ARN for the subscriber

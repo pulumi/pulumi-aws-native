@@ -24,6 +24,8 @@ class UserProfileArgs:
         The set of arguments for constructing a UserProfile resource.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
         :param pulumi.Input[str] user_identifier: The ID of the user.
+        :param pulumi.Input['UserProfileStatus'] status: The status of the user profile.
+        :param pulumi.Input['UserProfileUserType'] user_type: The user type of the user for which the user profile is created.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "user_identifier", user_identifier)
@@ -59,6 +61,9 @@ class UserProfileArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['UserProfileStatus']]:
+        """
+        The status of the user profile.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -68,6 +73,9 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input['UserProfileUserType']]:
+        """
+        The user type of the user for which the user profile is created.
+        """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
@@ -91,7 +99,9 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
+        :param pulumi.Input['UserProfileStatus'] status: The status of the user profile.
         :param pulumi.Input[str] user_identifier: The ID of the user.
+        :param pulumi.Input['UserProfileUserType'] user_type: The user type of the user for which the user profile is created.
         """
         ...
     @overload
@@ -208,11 +218,17 @@ class UserProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['UserProfileStatus']]:
+        """
+        The status of the user profile.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['UserProfileType']:
+        """
+        The type of the user profile.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -226,5 +242,8 @@ class UserProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional['UserProfileUserType']]:
+        """
+        The user type of the user for which the user profile is created.
+        """
         return pulumi.get(self, "user_type")
 

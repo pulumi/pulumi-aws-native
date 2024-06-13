@@ -21,6 +21,7 @@ class SubscriberNotificationArgs:
                  subscriber_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a SubscriberNotification resource.
+        :param pulumi.Input['SubscriberNotificationNotificationConfigurationArgs'] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
         :param pulumi.Input[str] subscriber_arn: The ARN for the subscriber
         """
         pulumi.set(__self__, "notification_configuration", notification_configuration)
@@ -29,6 +30,9 @@ class SubscriberNotificationArgs:
     @property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Input['SubscriberNotificationNotificationConfigurationArgs']:
+        """
+        Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
@@ -61,6 +65,7 @@ class SubscriberNotification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SubscriberNotificationNotificationConfigurationArgs']] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
         :param pulumi.Input[str] subscriber_arn: The ARN for the subscriber
         """
         ...
@@ -137,6 +142,9 @@ class SubscriberNotification(pulumi.CustomResource):
     @property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Output['outputs.SubscriberNotificationNotificationConfiguration']:
+        """
+        Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        """
         return pulumi.get(self, "notification_configuration")
 
     @property

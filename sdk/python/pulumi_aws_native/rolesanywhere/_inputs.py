@@ -24,12 +24,19 @@ class ProfileAttributeMappingArgs:
     def __init__(__self__, *,
                  certificate_field: pulumi.Input['ProfileCertificateField'],
                  mapping_rules: pulumi.Input[Sequence[pulumi.Input['ProfileMappingRuleArgs']]]):
+        """
+        :param pulumi.Input['ProfileCertificateField'] certificate_field: Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileMappingRuleArgs']]] mapping_rules: A list of mapping entries for every supported specifier or sub-field.
+        """
         pulumi.set(__self__, "certificate_field", certificate_field)
         pulumi.set(__self__, "mapping_rules", mapping_rules)
 
     @property
     @pulumi.getter(name="certificateField")
     def certificate_field(self) -> pulumi.Input['ProfileCertificateField']:
+        """
+        Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        """
         return pulumi.get(self, "certificate_field")
 
     @certificate_field.setter
@@ -39,6 +46,9 @@ class ProfileAttributeMappingArgs:
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> pulumi.Input[Sequence[pulumi.Input['ProfileMappingRuleArgs']]]:
+        """
+        A list of mapping entries for every supported specifier or sub-field.
+        """
         return pulumi.get(self, "mapping_rules")
 
     @mapping_rules.setter
@@ -50,11 +60,17 @@ class ProfileAttributeMappingArgs:
 class ProfileMappingRuleArgs:
     def __init__(__self__, *,
                  specifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] specifier: Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        """
         pulumi.set(__self__, "specifier", specifier)
 
     @property
     @pulumi.getter
     def specifier(self) -> pulumi.Input[str]:
+        """
+        Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        """
         return pulumi.get(self, "specifier")
 
     @specifier.setter
@@ -72,7 +88,7 @@ class TrustAnchorNotificationSettingArgs:
         """
         :param pulumi.Input[bool] enabled: Indicates whether the notification setting is enabled.
         :param pulumi.Input['TrustAnchorNotificationEvent'] event: The event to which this notification setting is applied.
-        :param pulumi.Input['TrustAnchorNotificationChannel'] channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+        :param pulumi.Input['TrustAnchorNotificationChannel'] channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
                
                > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         :param pulumi.Input[float] threshold: The number of days before a notification event. This value is required for a notification setting that is enabled.
@@ -112,7 +128,7 @@ class TrustAnchorNotificationSettingArgs:
     @pulumi.getter
     def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
         """
-        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 
         > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         """

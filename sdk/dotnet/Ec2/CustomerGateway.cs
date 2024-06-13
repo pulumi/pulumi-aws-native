@@ -22,6 +22,11 @@ namespace Pulumi.AwsNative.Ec2
         [Output("bgpAsn")]
         public Output<int?> BgpAsn { get; private set; } = null!;
 
+        /// <summary>
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+        /// 
+        /// Valid values: `2,147,483,648` to `4,294,967,295`
+        /// </summary>
         [Output("bgpAsnExtended")]
         public Output<double?> BgpAsnExtended { get; private set; } = null!;
 
@@ -122,6 +127,11 @@ namespace Pulumi.AwsNative.Ec2
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
 
+        /// <summary>
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+        /// 
+        /// Valid values: `2,147,483,648` to `4,294,967,295`
+        /// </summary>
         [Input("bgpAsnExtended")]
         public Input<double>? BgpAsnExtended { get; set; }
 

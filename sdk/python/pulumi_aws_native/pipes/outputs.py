@@ -584,6 +584,11 @@ class PipeDimensionMapping(dict):
                  dimension_name: str,
                  dimension_value: str,
                  dimension_value_type: 'PipeDimensionValueType'):
+        """
+        :param str dimension_name: The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+        :param str dimension_value: Dynamic path to the dimension value in the source event.
+        :param 'PipeDimensionValueType' dimension_value_type: The data type of the dimension for the time-series data.
+        """
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "dimension_value", dimension_value)
         pulumi.set(__self__, "dimension_value_type", dimension_value_type)
@@ -591,16 +596,25 @@ class PipeDimensionMapping(dict):
     @property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> str:
+        """
+        The metadata attributes of the time series. For example, the name and Availability Zone of an Amazon EC2 instance or the name of the manufacturer of a wind turbine are dimensions.
+        """
         return pulumi.get(self, "dimension_name")
 
     @property
     @pulumi.getter(name="dimensionValue")
     def dimension_value(self) -> str:
+        """
+        Dynamic path to the dimension value in the source event.
+        """
         return pulumi.get(self, "dimension_value")
 
     @property
     @pulumi.getter(name="dimensionValueType")
     def dimension_value_type(self) -> 'PipeDimensionValueType':
+        """
+        The data type of the dimension for the time-series data.
+        """
         return pulumi.get(self, "dimension_value_type")
 
 
@@ -1466,6 +1480,11 @@ class PipeMultiMeasureAttributeMapping(dict):
                  measure_value: str,
                  measure_value_type: 'PipeMeasureValueType',
                  multi_measure_attribute_name: str):
+        """
+        :param str measure_value: Dynamic path to the measurement attribute in the source event.
+        :param 'PipeMeasureValueType' measure_value_type: Data type of the measurement attribute in the source event.
+        :param str multi_measure_attribute_name: Target measure name to be used.
+        """
         pulumi.set(__self__, "measure_value", measure_value)
         pulumi.set(__self__, "measure_value_type", measure_value_type)
         pulumi.set(__self__, "multi_measure_attribute_name", multi_measure_attribute_name)
@@ -1473,16 +1492,25 @@ class PipeMultiMeasureAttributeMapping(dict):
     @property
     @pulumi.getter(name="measureValue")
     def measure_value(self) -> str:
+        """
+        Dynamic path to the measurement attribute in the source event.
+        """
         return pulumi.get(self, "measure_value")
 
     @property
     @pulumi.getter(name="measureValueType")
     def measure_value_type(self) -> 'PipeMeasureValueType':
+        """
+        Data type of the measurement attribute in the source event.
+        """
         return pulumi.get(self, "measure_value_type")
 
     @property
     @pulumi.getter(name="multiMeasureAttributeName")
     def multi_measure_attribute_name(self) -> str:
+        """
+        Target measure name to be used.
+        """
         return pulumi.get(self, "multi_measure_attribute_name")
 
 
@@ -1510,17 +1538,27 @@ class PipeMultiMeasureMapping(dict):
     def __init__(__self__, *,
                  multi_measure_attribute_mappings: Sequence['outputs.PipeMultiMeasureAttributeMapping'],
                  multi_measure_name: str):
+        """
+        :param Sequence['PipeMultiMeasureAttributeMapping'] multi_measure_attribute_mappings: Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
+        :param str multi_measure_name: The name of the multiple measurements per record (multi-measure).
+        """
         pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         pulumi.set(__self__, "multi_measure_name", multi_measure_name)
 
     @property
     @pulumi.getter(name="multiMeasureAttributeMappings")
     def multi_measure_attribute_mappings(self) -> Sequence['outputs.PipeMultiMeasureAttributeMapping']:
+        """
+        Mappings that represent multiple source event fields mapped to measures in the same Timestream for LiveAnalytics record.
+        """
         return pulumi.get(self, "multi_measure_attribute_mappings")
 
     @property
     @pulumi.getter(name="multiMeasureName")
     def multi_measure_name(self) -> str:
+        """
+        The name of the multiple measurements per record (multi-measure).
+        """
         return pulumi.get(self, "multi_measure_name")
 
 
@@ -1954,6 +1992,11 @@ class PipeSingleMeasureMapping(dict):
                  measure_name: str,
                  measure_value: str,
                  measure_value_type: 'PipeMeasureValueType'):
+        """
+        :param str measure_name: Target measure name for the measurement attribute in the Timestream table.
+        :param str measure_value: Dynamic path of the source field to map to the measure in the record.
+        :param 'PipeMeasureValueType' measure_value_type: Data type of the source field.
+        """
         pulumi.set(__self__, "measure_name", measure_name)
         pulumi.set(__self__, "measure_value", measure_value)
         pulumi.set(__self__, "measure_value_type", measure_value_type)
@@ -1961,16 +2004,25 @@ class PipeSingleMeasureMapping(dict):
     @property
     @pulumi.getter(name="measureName")
     def measure_name(self) -> str:
+        """
+        Target measure name for the measurement attribute in the Timestream table.
+        """
         return pulumi.get(self, "measure_name")
 
     @property
     @pulumi.getter(name="measureValue")
     def measure_value(self) -> str:
+        """
+        Dynamic path of the source field to map to the measure in the record.
+        """
         return pulumi.get(self, "measure_value")
 
     @property
     @pulumi.getter(name="measureValueType")
     def measure_value_type(self) -> 'PipeMeasureValueType':
+        """
+        Data type of the source field.
+        """
         return pulumi.get(self, "measure_value_type")
 
 
@@ -3595,6 +3647,7 @@ class PipeTargetParameters(dict):
         :param 'PipeTargetSageMakerPipelineParameters' sage_maker_pipeline_parameters: The parameters for using a SageMaker pipeline as a target.
         :param 'PipeTargetSqsQueueParameters' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target.
         :param 'PipeTargetStateMachineParameters' step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target.
+        :param 'PipeTargetTimestreamParameters' timestream_parameters: The parameters for using a Timestream for LiveAnalytics table as a target.
         """
         if batch_job_parameters is not None:
             pulumi.set(__self__, "batch_job_parameters", batch_job_parameters)
@@ -3724,6 +3777,9 @@ class PipeTargetParameters(dict):
     @property
     @pulumi.getter(name="timestreamParameters")
     def timestream_parameters(self) -> Optional['outputs.PipeTargetTimestreamParameters']:
+        """
+        The parameters for using a Timestream for LiveAnalytics table as a target.
+        """
         return pulumi.get(self, "timestream_parameters")
 
 
@@ -4009,6 +4065,34 @@ class PipeTargetTimestreamParameters(dict):
                  single_measure_mappings: Optional[Sequence['outputs.PipeSingleMeasureMapping']] = None,
                  time_field_type: Optional['PipeTimeFieldType'] = None,
                  timestamp_format: Optional[str] = None):
+        """
+        :param Sequence['PipeDimensionMapping'] dimension_mappings: Map source data to dimensions in the target Timestream for LiveAnalytics table.
+               
+               For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
+        :param str time_value: Dynamic path to the source data field that represents the time value for your data.
+        :param str version_value: 64 bit version value or source data field that represents the version value for your data.
+               
+               Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+               
+               Default value is 1.
+               
+               Timestream for LiveAnalytics does not support updating partial measure values in a record.
+               
+               Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+               
+               > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
+        :param 'PipeEpochTimeUnit' epoch_time_unit: The granularity of the time units used. Default is `MILLISECONDS` .
+               
+               Required if `TimeFieldType` is specified as `EPOCH` .
+        :param Sequence['PipeMultiMeasureMapping'] multi_measure_mappings: Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
+        :param Sequence['PipeSingleMeasureMapping'] single_measure_mappings: Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
+        :param 'PipeTimeFieldType' time_field_type: The type of time value used.
+               
+               The default is `EPOCH` .
+        :param str timestamp_format: How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+               
+               Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
+        """
         pulumi.set(__self__, "dimension_mappings", dimension_mappings)
         pulumi.set(__self__, "time_value", time_value)
         pulumi.set(__self__, "version_value", version_value)
@@ -4026,41 +4110,83 @@ class PipeTargetTimestreamParameters(dict):
     @property
     @pulumi.getter(name="dimensionMappings")
     def dimension_mappings(self) -> Sequence['outputs.PipeDimensionMapping']:
+        """
+        Map source data to dimensions in the target Timestream for LiveAnalytics table.
+
+        For more information, see [Amazon Timestream for LiveAnalytics concepts](https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html)
+        """
         return pulumi.get(self, "dimension_mappings")
 
     @property
     @pulumi.getter(name="timeValue")
     def time_value(self) -> str:
+        """
+        Dynamic path to the source data field that represents the time value for your data.
+        """
         return pulumi.get(self, "time_value")
 
     @property
     @pulumi.getter(name="versionValue")
     def version_value(self) -> str:
+        """
+        64 bit version value or source data field that represents the version value for your data.
+
+        Write requests with a higher version number will update the existing measure values of the record and version. In cases where the measure value is the same, the version will still be updated.
+
+        Default value is 1.
+
+        Timestream for LiveAnalytics does not support updating partial measure values in a record.
+
+        Write requests for duplicate data with a higher version number will update the existing measure value and version. In cases where the measure value is the same, `Version` will still be updated. Default value is `1` .
+
+        > `Version` must be `1` or greater, or you will receive a `ValidationException` error.
+        """
         return pulumi.get(self, "version_value")
 
     @property
     @pulumi.getter(name="epochTimeUnit")
     def epoch_time_unit(self) -> Optional['PipeEpochTimeUnit']:
+        """
+        The granularity of the time units used. Default is `MILLISECONDS` .
+
+        Required if `TimeFieldType` is specified as `EPOCH` .
+        """
         return pulumi.get(self, "epoch_time_unit")
 
     @property
     @pulumi.getter(name="multiMeasureMappings")
     def multi_measure_mappings(self) -> Optional[Sequence['outputs.PipeMultiMeasureMapping']]:
+        """
+        Maps multiple measures from the source event to the same record in the specified Timestream for LiveAnalytics table.
+        """
         return pulumi.get(self, "multi_measure_mappings")
 
     @property
     @pulumi.getter(name="singleMeasureMappings")
     def single_measure_mappings(self) -> Optional[Sequence['outputs.PipeSingleMeasureMapping']]:
+        """
+        Mappings of single source data fields to individual records in the specified Timestream for LiveAnalytics table.
+        """
         return pulumi.get(self, "single_measure_mappings")
 
     @property
     @pulumi.getter(name="timeFieldType")
     def time_field_type(self) -> Optional['PipeTimeFieldType']:
+        """
+        The type of time value used.
+
+        The default is `EPOCH` .
+        """
         return pulumi.get(self, "time_field_type")
 
     @property
     @pulumi.getter(name="timestampFormat")
     def timestamp_format(self) -> Optional[str]:
+        """
+        How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+
+        Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
+        """
         return pulumi.get(self, "timestamp_format")
 
 

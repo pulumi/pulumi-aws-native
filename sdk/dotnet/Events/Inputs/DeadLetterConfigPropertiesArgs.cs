@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Events.Inputs
     /// </summary>
     public sealed class DeadLetterConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the SQS queue specified as the target for the dead-letter queue.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

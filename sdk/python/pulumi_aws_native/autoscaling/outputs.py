@@ -2039,6 +2039,7 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
                
                Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
         :param str metric_name: The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+        :param Sequence['ScalingPolicyTargetTrackingMetricDataQuery'] metrics: The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
         :param str namespace: The namespace of the metric.
         :param str statistic: The statistic of the metric.
         :param str unit: The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
@@ -2077,6 +2078,9 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
     @property
     @pulumi.getter
     def metrics(self) -> Optional[Sequence['outputs.ScalingPolicyTargetTrackingMetricDataQuery']]:
+        """
+        The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+        """
         return pulumi.get(self, "metrics")
 
     @property
@@ -3157,6 +3161,21 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
                  label: Optional[str] = None,
                  metric_stat: Optional['outputs.ScalingPolicyTargetTrackingMetricStat'] = None,
                  return_data: Optional[bool] = None):
+        """
+        :param str id: A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+        :param str expression: The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+               
+               Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+        :param str label: A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        :param 'ScalingPolicyTargetTrackingMetricStat' metric_stat: Information about the metric data to return.
+               
+               Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+        :param bool return_data: Indicates whether to return the timestamps and raw data values of this metric.
+               
+               If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+               
+               If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+        """
         pulumi.set(__self__, "id", id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -3170,26 +3189,49 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
+        """
+        The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+
+        Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def label(self) -> Optional[str]:
+        """
+        A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional['outputs.ScalingPolicyTargetTrackingMetricStat']:
+        """
+        Information about the metric data to return.
+
+        Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+        """
         return pulumi.get(self, "metric_stat")
 
     @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
+        """
+        Indicates whether to return the timestamps and raw data values of this metric.
+
+        If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+
+        If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+        """
         return pulumi.get(self, "return_data")
 
 
@@ -3199,6 +3241,13 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
                  metric: 'outputs.ScalingPolicyMetric',
                  stat: str,
                  unit: Optional[str] = None):
+        """
+        :param 'ScalingPolicyMetric' metric: The metric to use.
+        :param str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+               
+               The most commonly used metric for scaling is `Average` .
+        :param str unit: The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
         if unit is not None:
@@ -3207,16 +3256,27 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
     @property
     @pulumi.getter
     def metric(self) -> 'outputs.ScalingPolicyMetric':
+        """
+        The metric to use.
+        """
         return pulumi.get(self, "metric")
 
     @property
     @pulumi.getter
     def stat(self) -> str:
+        """
+        The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+
+        The most commonly used metric for scaling is `Average` .
+        """
         return pulumi.get(self, "stat")
 
     @property
     @pulumi.getter
     def unit(self) -> Optional[str]:
+        """
+        The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+        """
         return pulumi.get(self, "unit")
 
 

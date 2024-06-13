@@ -52,11 +52,29 @@ namespace Pulumi.AwsNative.Deadline
     public sealed class GetMonitorResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// The name of the monitor that displays on the Deadline Cloud console.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        /// <summary>
+        /// The unique identifier for the monitor.
+        /// </summary>
         public readonly string? MonitorId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        /// </summary>
         public readonly string? Subdomain;
+        /// <summary>
+        /// The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

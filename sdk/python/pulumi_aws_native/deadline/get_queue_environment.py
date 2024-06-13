@@ -64,7 +64,7 @@ class GetQueueEnvironmentResult:
     @pulumi.getter
     def template(self) -> Optional[str]:
         """
-        A JSON or YAML template the describes the processing environment for the queue.
+        A JSON or YAML template that describes the processing environment for the queue.
         """
         return pulumi.get(self, "template")
 

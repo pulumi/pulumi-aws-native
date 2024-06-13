@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SecurityLake.Outputs
     [OutputType]
     public sealed class SubscriberNotificationNotificationConfiguration
     {
+        /// <summary>
+        /// The configurations for HTTPS subscriber notification.
+        /// </summary>
         public readonly Outputs.SubscriberNotificationHttpsNotificationConfiguration? HttpsNotificationConfiguration;
+        /// <summary>
+        /// The configurations for SQS subscriber notification. The members of this structure are context-dependent.
+        /// </summary>
         public readonly Outputs.SubscriberNotificationSqsNotificationConfiguration? SqsNotificationConfiguration;
 
         [OutputConstructor]

@@ -590,10 +590,11 @@ class DomainEndpointOptionsArgs:
         :param pulumi.Input[str] custom_endpoint_certificate_arn: The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
         :param pulumi.Input[bool] custom_endpoint_enabled: True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
         :param pulumi.Input[bool] enforce_https: True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
-        :param pulumi.Input[str] tls_security_policy: The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+        :param pulumi.Input[str] tls_security_policy: The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
                
-               - `Policy-Min-TLS-1-0-2019-07`
-               - `Policy-Min-TLS-1-2-2019-07`
+               - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+               - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+               - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
         """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
@@ -658,10 +659,11 @@ class DomainEndpointOptionsArgs:
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+        The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 
-        - `Policy-Min-TLS-1-0-2019-07`
-        - `Policy-Min-TLS-1-2-2019-07`
+        - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+        - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+        - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
         """
         return pulumi.get(self, "tls_security_policy")
 

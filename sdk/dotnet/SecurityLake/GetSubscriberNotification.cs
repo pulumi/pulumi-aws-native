@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.SecurityLake
     [OutputType]
     public sealed class GetSubscriberNotificationResult
     {
+        /// <summary>
+        /// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        /// </summary>
         public readonly Outputs.SubscriberNotificationNotificationConfiguration? NotificationConfiguration;
         /// <summary>
         /// The endpoint the subscriber should listen to for notifications

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.RolesAnywhere.Inputs
 
     public sealed class ProfileMappingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        /// </summary>
         [Input("specifier", required: true)]
         public Input<string> Specifier { get; set; } = null!;
 

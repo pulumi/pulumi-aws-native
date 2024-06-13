@@ -21,9 +21,12 @@ type FleetTag struct {
 }
 
 type FleetVpcConfig struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets          []string `pulumi:"subnets"`
-	VpcId            *string  `pulumi:"vpcId"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets []string `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
@@ -38,9 +41,12 @@ type FleetVpcConfigInput interface {
 }
 
 type FleetVpcConfigArgs struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
-	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (FleetVpcConfigArgs) ElementType() reflect.Type {
@@ -120,14 +126,17 @@ func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.C
 	}).(FleetVpcConfigPtrOutput)
 }
 
+// A list of one or more security groups IDs in your Amazon VPC.
 func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of one or more subnet IDs in your Amazon VPC.
 func (o FleetVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the Amazon VPC.
 func (o FleetVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -156,6 +165,7 @@ func (o FleetVpcConfigPtrOutput) Elem() FleetVpcConfigOutput {
 	}).(FleetVpcConfigOutput)
 }
 
+// A list of one or more security groups IDs in your Amazon VPC.
 func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetVpcConfig) []string {
 		if v == nil {
@@ -165,6 +175,7 @@ func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of one or more subnet IDs in your Amazon VPC.
 func (o FleetVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetVpcConfig) []string {
 		if v == nil {
@@ -174,6 +185,7 @@ func (o FleetVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the Amazon VPC.
 func (o FleetVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetVpcConfig) *string {
 		if v == nil {

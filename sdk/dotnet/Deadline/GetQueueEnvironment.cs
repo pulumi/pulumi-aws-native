@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public readonly string? QueueEnvironmentId;
         /// <summary>
-        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// A JSON or YAML template that describes the processing environment for the queue.
         /// </summary>
         public readonly string? Template;
         /// <summary>

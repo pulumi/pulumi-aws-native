@@ -67,9 +67,15 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("environmentType")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType?> EnvironmentType { get; private set; } = null!;
 
+        /// <summary>
+        /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        /// </summary>
         [Output("fleetServiceRole")]
         public Output<string?> FleetServiceRole { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the VPC configuration that AWS CodeBuild accesses.
+        /// </summary>
         [Output("fleetVpcConfig")]
         public Output<Outputs.FleetVpcConfig?> FleetVpcConfig { get; private set; } = null!;
 
@@ -79,6 +85,14 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The compute fleet overflow behavior.
+        /// 
+        /// - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+        /// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+        /// 
+        /// &gt; If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        /// </summary>
         [Output("overflowBehavior")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior?> OverflowBehavior { get; private set; } = null!;
 
@@ -181,9 +195,15 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("environmentType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType>? EnvironmentType { get; set; }
 
+        /// <summary>
+        /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
+        /// </summary>
         [Input("fleetServiceRole")]
         public Input<string>? FleetServiceRole { get; set; }
 
+        /// <summary>
+        /// Information about the VPC configuration that AWS CodeBuild accesses.
+        /// </summary>
         [Input("fleetVpcConfig")]
         public Input<Inputs.FleetVpcConfigArgs>? FleetVpcConfig { get; set; }
 
@@ -193,6 +213,14 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The compute fleet overflow behavior.
+        /// 
+        /// - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
+        /// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
+        /// 
+        /// &gt; If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        /// </summary>
         [Input("overflowBehavior")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior>? OverflowBehavior { get; set; }
 
