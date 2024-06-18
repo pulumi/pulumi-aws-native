@@ -411,6 +411,10 @@
       "description" : "Specify the name of the IAM role to be used when making API calls to the Directory Service.",
       "type" : "string"
     },
+    "EngineLifecycleSupport" : {
+      "description" : "The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.",
+      "type" : "string"
+    },
     "DBClusterInstanceClass" : {
       "description" : "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.",
       "type" : "string"

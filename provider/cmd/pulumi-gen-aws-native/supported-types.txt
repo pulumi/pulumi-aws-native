@@ -37,6 +37,7 @@ AWS::ApiGatewayV2::ApiMapping
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
 AWS::ApiGatewayV2::DomainName
+AWS::ApiGatewayV2::Integration
 AWS::ApiGatewayV2::IntegrationResponse
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
