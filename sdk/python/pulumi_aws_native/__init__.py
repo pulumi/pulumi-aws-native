@@ -741,6 +741,7 @@ _utilities.register(
    "aws-native:apigatewayv2:Authorizer": "Authorizer",
    "aws-native:apigatewayv2:Deployment": "Deployment",
    "aws-native:apigatewayv2:DomainName": "DomainName",
+   "aws-native:apigatewayv2:Integration": "Integration",
    "aws-native:apigatewayv2:IntegrationResponse": "IntegrationResponse",
    "aws-native:apigatewayv2:Model": "Model",
    "aws-native:apigatewayv2:Route": "Route",

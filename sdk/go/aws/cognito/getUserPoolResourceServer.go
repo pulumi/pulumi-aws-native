@@ -23,13 +23,13 @@ func LookupUserPoolResourceServer(ctx *pulumi.Context, args *LookupUserPoolResou
 }
 
 type LookupUserPoolResourceServerArgs struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
+	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	Identifier string `pulumi:"identifier"`
+	// The user pool ID for the user pool.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolResourceServerResult struct {
-	// The resource ID.
-	Id *string `pulumi:"id"`
 	// A friendly name for the resource server.
 	Name *string `pulumi:"name"`
 	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
@@ -50,8 +50,10 @@ func LookupUserPoolResourceServerOutput(ctx *pulumi.Context, args LookupUserPool
 }
 
 type LookupUserPoolResourceServerOutputArgs struct {
-	// The resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolResourceServerOutputArgs) ElementType() reflect.Type {
@@ -70,11 +72,6 @@ func (o LookupUserPoolResourceServerResultOutput) ToLookupUserPoolResourceServer
 
 func (o LookupUserPoolResourceServerResultOutput) ToLookupUserPoolResourceServerResultOutputWithContext(ctx context.Context) LookupUserPoolResourceServerResultOutput {
 	return o
-}
-
-// The resource ID.
-func (o LookupUserPoolResourceServerResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolResourceServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name for the resource server.

@@ -65,6 +65,8 @@ type DbCluster struct {
 	Endpoint                        DbClusterEndpointOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
+	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport pulumi.StringPtrOutput `pulumi:"engineLifecycleSupport"`
 	// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
 	EngineMode pulumi.StringPtrOutput `pulumi:"engineMode"`
 	// The version number of the database engine to use.
@@ -250,6 +252,8 @@ type dbClusterArgs struct {
 	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
+	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
 	EngineMode *string `pulumi:"engineMode"`
 	// The version number of the database engine to use.
@@ -377,6 +381,8 @@ type DbClusterArgs struct {
 	EnableIamDatabaseAuthentication pulumi.BoolPtrInput
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrInput
+	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport pulumi.StringPtrInput
 	// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
 	EngineMode pulumi.StringPtrInput
 	// The version number of the database engine to use.
@@ -617,6 +623,11 @@ func (o DbClusterOutput) Endpoint() DbClusterEndpointOutput {
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 func (o DbClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+func (o DbClusterOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
 
 // The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.

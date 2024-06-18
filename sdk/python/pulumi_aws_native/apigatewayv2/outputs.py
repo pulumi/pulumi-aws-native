@@ -15,6 +15,7 @@ __all__ = [
     'AuthorizerJwtConfiguration',
     'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
+    'IntegrationTlsConfig',
     'RouteParameterConstraints',
     'RouteResponseParameterConstraints',
 ]
@@ -373,6 +374,42 @@ class DomainNameMutualTlsAuthentication(dict):
         The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
+
+
+@pulumi.output_type
+class IntegrationTlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverNameToVerify":
+            suggest = "server_name_to_verify"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationTlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationTlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationTlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_name_to_verify: Optional[str] = None):
+        """
+        :param str server_name_to_verify: If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+        """
+        if server_name_to_verify is not None:
+            pulumi.set(__self__, "server_name_to_verify", server_name_to_verify)
+
+    @property
+    @pulumi.getter(name="serverNameToVerify")
+    def server_name_to_verify(self) -> Optional[str]:
+        """
+        If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+        """
+        return pulumi.get(self, "server_name_to_verify")
 
 
 @pulumi.output_type

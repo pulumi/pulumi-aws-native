@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -78,6 +78,9 @@ class GetDbClusterResult:
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support and not isinstance(engine_lifecycle_support, str):
+            raise TypeError("Expected argument 'engine_lifecycle_support' to be a str")
+        pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -298,6 +301,14 @@ class GetDbClusterResult:
         return pulumi.get(self, "engine")
 
     @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[str]:
+        """
+        The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[str]:
         """
@@ -515,6 +526,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             enable_iam_database_authentication=self.enable_iam_database_authentication,
             endpoint=self.endpoint,
             engine=self.engine,
+            engine_lifecycle_support=self.engine_lifecycle_support,
             engine_version=self.engine_version,
             global_cluster_identifier=self.global_cluster_identifier,
             iops=self.iops,
@@ -573,6 +585,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         enable_iam_database_authentication=pulumi.get(__ret__, 'enable_iam_database_authentication'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine=pulumi.get(__ret__, 'engine'),
+        engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         global_cluster_identifier=pulumi.get(__ret__, 'global_cluster_identifier'),
         iops=pulumi.get(__ret__, 'iops'),

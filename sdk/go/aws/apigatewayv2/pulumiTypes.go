@@ -905,6 +905,143 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationTlsConfig struct {
+	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+	ServerNameToVerify *string `pulumi:"serverNameToVerify"`
+}
+
+// IntegrationTlsConfigInput is an input type that accepts IntegrationTlsConfigArgs and IntegrationTlsConfigOutput values.
+// You can construct a concrete instance of `IntegrationTlsConfigInput` via:
+//
+//	IntegrationTlsConfigArgs{...}
+type IntegrationTlsConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput
+	ToIntegrationTlsConfigOutputWithContext(context.Context) IntegrationTlsConfigOutput
+}
+
+type IntegrationTlsConfigArgs struct {
+	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+	ServerNameToVerify pulumi.StringPtrInput `pulumi:"serverNameToVerify"`
+}
+
+func (IntegrationTlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput {
+	return i.ToIntegrationTlsConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutputWithContext(ctx context.Context) IntegrationTlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput)
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return i.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput).ToIntegrationTlsConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationTlsConfigPtrInput is an input type that accepts IntegrationTlsConfigArgs, IntegrationTlsConfigPtr and IntegrationTlsConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationTlsConfigPtrInput` via:
+//
+//	        IntegrationTlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationTlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput
+	ToIntegrationTlsConfigPtrOutputWithContext(context.Context) IntegrationTlsConfigPtrOutput
+}
+
+type integrationTlsConfigPtrType IntegrationTlsConfigArgs
+
+func IntegrationTlsConfigPtr(v *IntegrationTlsConfigArgs) IntegrationTlsConfigPtrInput {
+	return (*integrationTlsConfigPtrType)(v)
+}
+
+func (*integrationTlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return i.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigPtrOutput)
+}
+
+type IntegrationTlsConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigOutputWithContext(ctx context.Context) IntegrationTlsConfigOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return o.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTlsConfig) *IntegrationTlsConfig {
+		return &v
+	}).(IntegrationTlsConfigPtrOutput)
+}
+
+// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+func (o IntegrationTlsConfigOutput) ServerNameToVerify() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTlsConfig) *string { return v.ServerNameToVerify }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
+	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationTlsConfig
+		return ret
+	}).(IntegrationTlsConfigOutput)
+}
+
+// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationTlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerNameToVerify
+	}).(pulumi.StringPtrOutput)
+}
+
 type RouteParameterConstraints struct {
 	Required bool `pulumi:"required"`
 }
@@ -1110,6 +1247,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameConfigurationArrayInput)(nil)).Elem(), DomainNameConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsInput)(nil)).Elem(), RouteParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsArrayInput)(nil)).Elem(), RouteParameterConstraintsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsInput)(nil)).Elem(), RouteResponseParameterConstraintsArgs{})
@@ -1124,6 +1263,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(RouteParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteParameterConstraintsArrayOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsOutput{})

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("dashManifestUrls")]
+        public Output<ImmutableArray<string>> DashManifestUrls { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
         /// </summary>
@@ -57,11 +60,17 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("hlsManifestUrls")]
+        public Output<ImmutableArray<string>> HlsManifestUrls { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;An HTTP live streaming (HLS) manifest configuration.&lt;/p&gt;
         /// </summary>
         [Output("hlsManifests")]
         public Output<ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration>> HlsManifests { get; private set; } = null!;
+
+        [Output("lowLatencyHlsManifestUrls")]
+        public Output<ImmutableArray<string>> LowLatencyHlsManifestUrls { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;A low-latency HLS manifest configuration.&lt;/p&gt;

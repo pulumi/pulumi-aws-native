@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Deployment{}
 	case "aws-native:apigatewayv2:DomainName":
 		r = &DomainName{}
+	case "aws-native:apigatewayv2:Integration":
+		r = &Integration{}
 	case "aws-native:apigatewayv2:IntegrationResponse":
 		r = &IntegrationResponse{}
 	case "aws-native:apigatewayv2:Model":

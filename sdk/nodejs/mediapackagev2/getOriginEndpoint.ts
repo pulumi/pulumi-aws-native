@@ -38,6 +38,7 @@ export interface GetOriginEndpointResult {
      * <p>The date and time the origin endpoint was created.</p>
      */
     readonly createdAt?: string;
+    readonly dashManifestUrls?: string[];
     /**
      * <p>A DASH manifest configuration.</p>
      */
@@ -46,10 +47,12 @@ export interface GetOriginEndpointResult {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     readonly description?: string;
+    readonly hlsManifestUrls?: string[];
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
     readonly hlsManifests?: outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[];
+    readonly lowLatencyHlsManifestUrls?: string[];
     /**
      * <p>A low-latency HLS manifest configuration.</p>
      */

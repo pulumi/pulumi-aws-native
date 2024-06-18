@@ -135,6 +135,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
+     * The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+     */
+    public readonly engineLifecycleSupport!: pulumi.Output<string | undefined>;
+    /**
      * The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
@@ -317,6 +321,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = args ? args.engineMode : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
@@ -380,6 +385,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["enableIamDatabaseAuthentication"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineLifecycleSupport"] = undefined /*out*/;
             resourceInputs["engineMode"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
@@ -514,6 +520,10 @@ export interface DbClusterArgs {
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
      */
     engine?: pulumi.Input<string>;
+    /**
+     * The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
      */

@@ -19,6 +19,7 @@ __all__ = [
     'AgentApiSchema1PropertiesArgs',
     'AgentFunctionSchemaArgs',
     'AgentFunctionArgs',
+    'AgentGuardrailConfigurationArgs',
     'AgentInferenceConfigurationArgs',
     'AgentKnowledgeBaseArgs',
     'AgentParameterDetailArgs',
@@ -374,6 +375,46 @@ class AgentFunctionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class AgentGuardrailConfigurationArgs:
+    def __init__(__self__, *,
+                 guardrail_identifier: Optional[pulumi.Input[str]] = None,
+                 guardrail_version: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration for a guardrail.
+        :param pulumi.Input[str] guardrail_identifier: Identifier for the guardrail, could be the id or the arn
+        :param pulumi.Input[str] guardrail_version: Version of the guardrail
+        """
+        if guardrail_identifier is not None:
+            pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        if guardrail_version is not None:
+            pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @guardrail_identifier.setter
+    def guardrail_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the guardrail
+        """
+        return pulumi.get(self, "guardrail_version")
+
+    @guardrail_version.setter
+    def guardrail_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guardrail_version", value)
 
 
 @pulumi.input_type

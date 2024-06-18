@@ -17,12 +17,12 @@ import (
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
-	// For devices that support BGP, the customer gateway's BGP ASN.
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
 	//  Default: 65000
+	//  Valid values: ``1`` to ``2,147,483,647``
 	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
-	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
-	//
-	// Valid values: `2,147,483,648` to `4,294,967,295`
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
+	//  Valid values: ``2,147,483,648`` to ``4,294,967,295``
 	BgpAsnExtended pulumi.Float64PtrOutput `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
@@ -30,7 +30,7 @@ type CustomerGateway struct {
 	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// IPv4 address for the customer gateway device's outside interface. The address must be static.
+	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -93,18 +93,18 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 }
 
 type customerGatewayArgs struct {
-	// For devices that support BGP, the customer gateway's BGP ASN.
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
 	//  Default: 65000
+	//  Valid values: ``1`` to ``2,147,483,647``
 	BgpAsn *int `pulumi:"bgpAsn"`
-	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
-	//
-	// Valid values: `2,147,483,648` to `4,294,967,295`
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
+	//  Valid values: ``2,147,483,648`` to ``4,294,967,295``
 	BgpAsnExtended *float64 `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
-	// IPv4 address for the customer gateway device's outside interface. The address must be static.
+	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
 	IpAddress string `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -114,18 +114,18 @@ type customerGatewayArgs struct {
 
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
-	// For devices that support BGP, the customer gateway's BGP ASN.
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
 	//  Default: 65000
+	//  Valid values: ``1`` to ``2,147,483,647``
 	BgpAsn pulumi.IntPtrInput
-	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
-	//
-	// Valid values: `2,147,483,648` to `4,294,967,295`
+	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
+	//  Valid values: ``2,147,483,648`` to ``4,294,967,295``
 	BgpAsnExtended pulumi.Float64PtrInput
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrInput
-	// IPv4 address for the customer gateway device's outside interface. The address must be static.
+	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
 	IpAddress pulumi.StringInput
 	// One or more tags for the customer gateway.
 	Tags aws.TagArrayInput
@@ -170,16 +170,17 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
-// For devices that support BGP, the customer gateway's BGP ASN.
+// For customer gateway devices that support BGP, specify the device's ASN. You must specify either “BgpAsn“ or “BgpAsnExtended“ when creating the customer gateway. If the ASN is larger than “2,147,483,647“, you must use “BgpAsnExtended“.
 //
 //	Default: 65000
+//	Valid values: ``1`` to ``2,147,483,647``
 func (o CustomerGatewayOutput) BgpAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
 }
 
-// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+// For customer gateway devices that support BGP, specify the device's ASN. You must specify either “BgpAsn“ or “BgpAsnExtended“ when creating the customer gateway. If the ASN is larger than “2,147,483,647“, you must use “BgpAsnExtended“.
 //
-// Valid values: `2,147,483,648` to `4,294,967,295`
+//	Valid values: ``2,147,483,648`` to ``4,294,967,295``
 func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.Float64PtrOutput { return v.BgpAsnExtended }).(pulumi.Float64PtrOutput)
 }
@@ -199,7 +200,7 @@ func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// IPv4 address for the customer gateway device's outside interface. The address must be static.
+// IPv4 address for the customer gateway device's outside interface. The address must be static. If “OutsideIpAddressType“ in your VPN connection options is set to “PrivateIpv4“, you can use an RFC6598 or RFC1918 private IPv4 address. If “OutsideIpAddressType“ is set to “PublicIpv4“, you can use a public IPv4 address.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }

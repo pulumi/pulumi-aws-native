@@ -323,6 +323,7 @@ export interface GetDbInstanceResult {
      *   +   ``sqlserver-web``
      */
     readonly engine?: string;
+    readonly engineLifecycleSupport?: string;
     /**
      * The version number of the database engine to use.
      *  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.

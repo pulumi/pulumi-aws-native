@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentResult:
-    def __init__(__self__, action_groups=None, agent_arn=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, test_alias_tags=None, updated_at=None):
+    def __init__(__self__, action_groups=None, agent_arn=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, guardrail_configuration=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, test_alias_tags=None, updated_at=None):
         if action_groups and not isinstance(action_groups, list):
             raise TypeError("Expected argument 'action_groups' to be a list")
         pulumi.set(__self__, "action_groups", action_groups)
@@ -57,6 +57,9 @@ class GetAgentResult:
         if foundation_model and not isinstance(foundation_model, str):
             raise TypeError("Expected argument 'foundation_model' to be a str")
         pulumi.set(__self__, "foundation_model", foundation_model)
+        if guardrail_configuration and not isinstance(guardrail_configuration, dict):
+            raise TypeError("Expected argument 'guardrail_configuration' to be a dict")
+        pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if idle_session_ttl_in_seconds and not isinstance(idle_session_ttl_in_seconds, float):
             raise TypeError("Expected argument 'idle_session_ttl_in_seconds' to be a float")
         pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
@@ -190,6 +193,11 @@ class GetAgentResult:
         return pulumi.get(self, "foundation_model")
 
     @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional['outputs.AgentGuardrailConfiguration']:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[float]:
         """
@@ -286,6 +294,7 @@ class AwaitableGetAgentResult(GetAgentResult):
             description=self.description,
             failure_reasons=self.failure_reasons,
             foundation_model=self.foundation_model,
+            guardrail_configuration=self.guardrail_configuration,
             idle_session_ttl_in_seconds=self.idle_session_ttl_in_seconds,
             instruction=self.instruction,
             knowledge_bases=self.knowledge_bases,
@@ -323,6 +332,7 @@ def get_agent(agent_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         failure_reasons=pulumi.get(__ret__, 'failure_reasons'),
         foundation_model=pulumi.get(__ret__, 'foundation_model'),
+        guardrail_configuration=pulumi.get(__ret__, 'guardrail_configuration'),
         idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
         instruction=pulumi.get(__ret__, 'instruction'),
         knowledge_bases=pulumi.get(__ret__, 'knowledge_bases'),

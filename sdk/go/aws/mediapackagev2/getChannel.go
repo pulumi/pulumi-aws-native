@@ -34,7 +34,8 @@ type LookupChannelResult struct {
 	// <p>The date and time the channel was created.</p>
 	CreatedAt *string `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description *string `pulumi:"description"`
+	Description        *string  `pulumi:"description"`
+	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
 	// <p>The date and time the channel was modified.</p>
@@ -92,6 +93,10 @@ func (o LookupChannelResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // <p>Enter any descriptive text that helps you to identify the channel.</p>
 func (o LookupChannelResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupChannelResultOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []string { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
 // <p>The list of ingest endpoints.</p>

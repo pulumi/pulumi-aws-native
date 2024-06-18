@@ -45,8 +45,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         /// </summary>
-        [Input("hecToken", required: true)]
-        public Input<string> HecToken { get; set; } = null!;
+        [Input("hecToken")]
+        public Input<string>? HecToken { get; set; }
 
         /// <summary>
         /// The data processing configuration.
@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
+
+        [Input("secretsManagerConfiguration")]
+        public Input<Inputs.DeliveryStreamSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
 
         public DeliveryStreamSplunkDestinationConfigurationArgs()
         {

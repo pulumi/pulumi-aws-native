@@ -28,10 +28,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolResourceServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("identifier", required: true)]
+        public string Identifier { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolResourceServerArgs()
         {
@@ -42,10 +48,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolResourceServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("identifier", required: true)]
+        public Input<string> Identifier { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolResourceServerInvokeArgs()
         {
@@ -58,10 +70,6 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolResourceServerResult
     {
         /// <summary>
-        /// The resource ID.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// A friendly name for the resource server.
         /// </summary>
         public readonly string? Name;
@@ -72,13 +80,10 @@ namespace Pulumi.AwsNative.Cognito
 
         [OutputConstructor]
         private GetUserPoolResourceServerResult(
-            string? id,
-
             string? name,
 
             ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType> scopes)
         {
-            Id = id;
             Name = name;
             Scopes = scopes;
         }

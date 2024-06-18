@@ -48,7 +48,8 @@ type Agent struct {
 	// Failure Reasons for Error.
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
 	// ARN or name of a Bedrock model.
-	FoundationModel pulumi.StringPtrOutput `pulumi:"foundationModel"`
+	FoundationModel        pulumi.StringPtrOutput               `pulumi:"foundationModel"`
+	GuardrailConfiguration AgentGuardrailConfigurationPtrOutput `pulumi:"guardrailConfiguration"`
 	// Max Session Time.
 	IdleSessionTtlInSeconds pulumi.Float64PtrOutput `pulumi:"idleSessionTtlInSeconds"`
 	// Instruction for the agent.
@@ -130,7 +131,8 @@ type agentArgs struct {
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// ARN or name of a Bedrock model.
-	FoundationModel *string `pulumi:"foundationModel"`
+	FoundationModel        *string                      `pulumi:"foundationModel"`
+	GuardrailConfiguration *AgentGuardrailConfiguration `pulumi:"guardrailConfiguration"`
 	// Max Session Time.
 	IdleSessionTtlInSeconds *float64 `pulumi:"idleSessionTtlInSeconds"`
 	// Instruction for the agent.
@@ -168,7 +170,8 @@ type AgentArgs struct {
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
 	// ARN or name of a Bedrock model.
-	FoundationModel pulumi.StringPtrInput
+	FoundationModel        pulumi.StringPtrInput
+	GuardrailConfiguration AgentGuardrailConfigurationPtrInput
 	// Max Session Time.
 	IdleSessionTtlInSeconds pulumi.Float64PtrInput
 	// Instruction for the agent.
@@ -299,6 +302,10 @@ func (o AgentOutput) FailureReasons() pulumi.StringArrayOutput {
 // ARN or name of a Bedrock model.
 func (o AgentOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.FoundationModel }).(pulumi.StringPtrOutput)
+}
+
+func (o AgentOutput) GuardrailConfiguration() AgentGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *Agent) AgentGuardrailConfigurationPtrOutput { return v.GuardrailConfiguration }).(AgentGuardrailConfigurationPtrOutput)
 }
 
 // Max Session Time.

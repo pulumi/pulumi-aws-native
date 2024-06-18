@@ -412,6 +412,7 @@ const (
 	KeyUsageEncryptDecrypt    = KeyUsage("ENCRYPT_DECRYPT")
 	KeyUsageSignVerify        = KeyUsage("SIGN_VERIFY")
 	KeyUsageGenerateVerifyMac = KeyUsage("GENERATE_VERIFY_MAC")
+	KeyUsageKeyAgreement      = KeyUsage("KEY_AGREEMENT")
 )
 
 func (KeyUsage) ElementType() reflect.Type {
@@ -539,6 +540,7 @@ func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 //	KeyUsageEncryptDecrypt
 //	KeyUsageSignVerify
 //	KeyUsageGenerateVerifyMac
+//	KeyUsageKeyAgreement
 type KeyUsageInput interface {
 	pulumi.Input
 

@@ -113,6 +113,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// ARN or name of a Bedrock model.
         /// </summary>
         public readonly string? FoundationModel;
+        public readonly Outputs.AgentGuardrailConfiguration? GuardrailConfiguration;
         /// <summary>
         /// Max Session Time.
         /// </summary>
@@ -182,6 +183,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? foundationModel,
 
+            Outputs.AgentGuardrailConfiguration? guardrailConfiguration,
+
             double? idleSessionTtlInSeconds,
 
             string? instruction,
@@ -212,6 +215,7 @@ namespace Pulumi.AwsNative.Bedrock
             Description = description;
             FailureReasons = failureReasons;
             FoundationModel = foundationModel;
+            GuardrailConfiguration = guardrailConfiguration;
             IdleSessionTtlInSeconds = idleSessionTtlInSeconds;
             Instruction = instruction;
             KnowledgeBases = knowledgeBases;

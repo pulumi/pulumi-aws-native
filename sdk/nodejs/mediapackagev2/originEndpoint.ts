@@ -57,6 +57,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The date and time the origin endpoint was created.</p>
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly dashManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>A DASH manifest configuration.</p>
      */
@@ -65,10 +66,12 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hlsManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
     public readonly hlsManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[] | undefined>;
+    public /*out*/ readonly lowLatencyHlsManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>A low-latency HLS manifest configuration.</p>
      */
@@ -124,6 +127,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dashManifestUrls"] = undefined /*out*/;
+            resourceInputs["hlsManifestUrls"] = undefined /*out*/;
+            resourceInputs["lowLatencyHlsManifestUrls"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -131,9 +137,12 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["containerType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dashManifestUrls"] = undefined /*out*/;
             resourceInputs["dashManifests"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["hlsManifestUrls"] = undefined /*out*/;
             resourceInputs["hlsManifests"] = undefined /*out*/;
+            resourceInputs["lowLatencyHlsManifestUrls"] = undefined /*out*/;
             resourceInputs["lowLatencyHlsManifests"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["originEndpointName"] = undefined /*out*/;

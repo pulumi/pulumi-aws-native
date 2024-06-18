@@ -40,6 +40,7 @@ class DbClusterArgs:
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -97,6 +98,7 @@ class DbClusterArgs:
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use.
         :param pulumi.Input[str] global_cluster_identifier: If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.
@@ -188,6 +190,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_mode is not None:
             pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
@@ -518,6 +522,18 @@ class DbClusterArgs:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
 
     @property
     @pulumi.getter(name="engineMode")
@@ -956,6 +972,7 @@ class DbCluster(pulumi.CustomResource):
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -1017,6 +1034,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use.
         :param pulumi.Input[str] global_cluster_identifier: If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.
@@ -1110,6 +1128,7 @@ class DbCluster(pulumi.CustomResource):
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -1174,6 +1193,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_mode"] = engine_mode
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
@@ -1260,6 +1280,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["enable_iam_database_authentication"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine"] = None
+        __props__.__dict__["engine_lifecycle_support"] = None
         __props__.__dict__["engine_mode"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_cluster_identifier"] = None
@@ -1492,6 +1513,14 @@ class DbCluster(pulumi.CustomResource):
         The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineMode")

@@ -24,6 +24,7 @@ class AgentArgs:
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configuration: Optional[pulumi.Input['AgentGuardrailConfigurationArgs']] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]] = None,
@@ -68,6 +69,8 @@ class AgentArgs:
             pulumi.set(__self__, "description", description)
         if foundation_model is not None:
             pulumi.set(__self__, "foundation_model", foundation_model)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if idle_session_ttl_in_seconds is not None:
             pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if instruction is not None:
@@ -166,6 +169,15 @@ class AgentArgs:
     @foundation_model.setter
     def foundation_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "foundation_model", value)
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional[pulumi.Input['AgentGuardrailConfigurationArgs']]:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @guardrail_configuration.setter
+    def guardrail_configuration(self, value: Optional[pulumi.Input['AgentGuardrailConfigurationArgs']]):
+        pulumi.set(self, "guardrail_configuration", value)
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
@@ -270,6 +282,7 @@ class Agent(pulumi.CustomResource):
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configuration: Optional[pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]]] = None,
@@ -335,6 +348,7 @@ class Agent(pulumi.CustomResource):
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configuration: Optional[pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]]] = None,
@@ -358,6 +372,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["customer_encryption_key_arn"] = customer_encryption_key_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["foundation_model"] = foundation_model
+            __props__.__dict__["guardrail_configuration"] = guardrail_configuration
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
             __props__.__dict__["instruction"] = instruction
             __props__.__dict__["knowledge_bases"] = knowledge_bases
@@ -409,6 +424,7 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["failure_reasons"] = None
         __props__.__dict__["foundation_model"] = None
+        __props__.__dict__["guardrail_configuration"] = None
         __props__.__dict__["idle_session_ttl_in_seconds"] = None
         __props__.__dict__["instruction"] = None
         __props__.__dict__["knowledge_bases"] = None
@@ -532,6 +548,11 @@ class Agent(pulumi.CustomResource):
         ARN or name of a Bedrock model.
         """
         return pulumi.get(self, "foundation_model")
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> pulumi.Output[Optional['outputs.AgentGuardrailConfiguration']]:
+        return pulumi.get(self, "guardrail_configuration")
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")

@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolResourceServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
-        /// <summary>
         /// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
         /// </summary>
         [Output("identifier")]

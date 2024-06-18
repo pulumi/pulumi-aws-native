@@ -1,7 +1,6 @@
 AWS::Batch::JobDefinition
 AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolIdentityProvider
-AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup

@@ -82,6 +82,7 @@ export interface GetAgentResult {
      * ARN or name of a Bedrock model.
      */
     readonly foundationModel?: string;
+    readonly guardrailConfiguration?: outputs.bedrock.AgentGuardrailConfiguration;
     /**
      * Max Session Time.
      */

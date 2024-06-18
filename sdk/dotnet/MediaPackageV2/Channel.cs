@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("ingestEndpointUrls")]
+        public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
         /// </summary>

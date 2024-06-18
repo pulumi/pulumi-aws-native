@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// <summary>
         /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         /// </summary>
-        public readonly string PrivateKey;
+        public readonly string? PrivateKey;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
         /// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         /// </summary>
         public readonly string Schema;
+        public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
         /// Optionally configure a Snowflake role. Otherwise the default user role will be used.
         /// </summary>
@@ -75,7 +76,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// <summary>
         /// User login name for the Snowflake account.
         /// </summary>
-        public readonly string User;
+        public readonly string? User;
 
         [OutputConstructor]
         private DeliveryStreamSnowflakeDestinationConfiguration(
@@ -93,7 +94,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string? metaDataColumnName,
 
-            string privateKey,
+            string? privateKey,
 
             Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
@@ -107,13 +108,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string schema,
 
+            Outputs.DeliveryStreamSecretsManagerConfiguration? secretsManagerConfiguration,
+
             Outputs.DeliveryStreamSnowflakeRoleConfiguration? snowflakeRoleConfiguration,
 
             Outputs.DeliveryStreamSnowflakeVpcConfiguration? snowflakeVpcConfiguration,
 
             string table,
 
-            string user)
+            string? user)
         {
             AccountUrl = accountUrl;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
             Schema = schema;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
             SnowflakeRoleConfiguration = snowflakeRoleConfiguration;
             SnowflakeVpcConfiguration = snowflakeVpcConfiguration;
             Table = table;

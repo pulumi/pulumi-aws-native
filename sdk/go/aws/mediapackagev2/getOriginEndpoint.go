@@ -34,13 +34,16 @@ type LookupOriginEndpointResult struct {
 	// The container type associated with the origin endpoint configuration.
 	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt        *string  `pulumi:"createdAt"`
+	DashManifestUrls []string `pulumi:"dashManifestUrls"`
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description *string `pulumi:"description"`
+	Description     *string  `pulumi:"description"`
+	HlsManifestUrls []string `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
-	HlsManifests []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
+	HlsManifests              []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
+	LowLatencyHlsManifestUrls []string                                 `pulumi:"lowLatencyHlsManifestUrls"`
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
@@ -104,6 +107,10 @@ func (o LookupOriginEndpointResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupOriginEndpointResultOutput) DashManifestUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []string { return v.DashManifestUrls }).(pulumi.StringArrayOutput)
+}
+
 // <p>A DASH manifest configuration.</p>
 func (o LookupOriginEndpointResultOutput) DashManifests() OriginEndpointDashManifestConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointDashManifestConfiguration { return v.DashManifests }).(OriginEndpointDashManifestConfigurationArrayOutput)
@@ -114,9 +121,17 @@ func (o LookupOriginEndpointResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupOriginEndpointResultOutput) HlsManifestUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []string { return v.HlsManifestUrls }).(pulumi.StringArrayOutput)
+}
+
 // <p>An HTTP live streaming (HLS) manifest configuration.</p>
 func (o LookupOriginEndpointResultOutput) HlsManifests() OriginEndpointHlsManifestConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointHlsManifestConfiguration { return v.HlsManifests }).(OriginEndpointHlsManifestConfigurationArrayOutput)
+}
+
+func (o LookupOriginEndpointResultOutput) LowLatencyHlsManifestUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []string { return v.LowLatencyHlsManifestUrls }).(pulumi.StringArrayOutput)
 }
 
 // <p>A low-latency HLS manifest configuration.</p>

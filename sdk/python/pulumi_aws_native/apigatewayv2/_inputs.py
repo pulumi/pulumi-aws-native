@@ -15,6 +15,7 @@ __all__ = [
     'AuthorizerJwtConfigurationArgs',
     'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'IntegrationTlsConfigArgs',
     'RouteParameterConstraintsArgs',
     'RouteResponseParameterConstraintsArgs',
 ]
@@ -362,6 +363,29 @@ class DomainNameMutualTlsAuthenticationArgs:
     @truststore_version.setter
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
+
+
+@pulumi.input_type
+class IntegrationTlsConfigArgs:
+    def __init__(__self__, *,
+                 server_name_to_verify: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] server_name_to_verify: If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+        """
+        if server_name_to_verify is not None:
+            pulumi.set(__self__, "server_name_to_verify", server_name_to_verify)
+
+    @property
+    @pulumi.getter(name="serverNameToVerify")
+    def server_name_to_verify(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+        """
+        return pulumi.get(self, "server_name_to_verify")
+
+    @server_name_to_verify.setter
+    def server_name_to_verify(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name_to_verify", value)
 
 
 @pulumi.input_type

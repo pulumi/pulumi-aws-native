@@ -268,7 +268,8 @@ type LookupDbInstanceResult struct {
 	//   +   ``sqlserver-se``
 	//   +   ``sqlserver-ex``
 	//   +   ``sqlserver-web``
-	Engine *string `pulumi:"engine"`
+	Engine                 *string `pulumi:"engine"`
+	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use.
 	//  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
 	//  The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.
@@ -787,6 +788,10 @@ func (o LookupDbInstanceResultOutput) Endpoint() DbInstanceEndpointPtrOutput {
 //	 +   ``sqlserver-web``
 func (o LookupDbInstanceResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the database engine to use.

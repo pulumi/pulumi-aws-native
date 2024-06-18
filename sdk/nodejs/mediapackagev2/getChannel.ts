@@ -38,6 +38,7 @@ export interface GetChannelResult {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     readonly description?: string;
+    readonly ingestEndpointUrls?: string[];
     /**
      * <p>The list of ingest endpoints.</p>
      */

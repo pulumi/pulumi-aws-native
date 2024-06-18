@@ -163,6 +163,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
+        /// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        /// </summary>
+        [Output("engineLifecycleSupport")]
+        public Output<string?> EngineLifecycleSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
         /// </summary>
         [Output("engineMode")]
@@ -591,6 +597,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
         /// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.

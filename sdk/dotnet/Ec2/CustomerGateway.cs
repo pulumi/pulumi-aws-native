@@ -16,16 +16,16 @@ namespace Pulumi.AwsNative.Ec2
     public partial class CustomerGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// For devices that support BGP, the customer gateway's BGP ASN.
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
         ///  Default: 65000
+        ///  Valid values: ``1`` to ``2,147,483,647``
         /// </summary>
         [Output("bgpAsn")]
         public Output<int?> BgpAsn { get; private set; } = null!;
 
         /// <summary>
-        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
-        /// 
-        /// Valid values: `2,147,483,648` to `4,294,967,295`
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
+        ///  Valid values: ``2,147,483,648`` to ``4,294,967,295``
         /// </summary>
         [Output("bgpAsnExtended")]
         public Output<double?> BgpAsnExtended { get; private set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// IPv4 address for the customer gateway device's outside interface. The address must be static.
+        /// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -121,16 +121,16 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class CustomerGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For devices that support BGP, the customer gateway's BGP ASN.
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
         ///  Default: 65000
+        ///  Valid values: ``1`` to ``2,147,483,647``
         /// </summary>
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
 
         /// <summary>
-        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
-        /// 
-        /// Valid values: `2,147,483,648` to `4,294,967,295`
+        /// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
+        ///  Valid values: ``2,147,483,648`` to ``4,294,967,295``
         /// </summary>
         [Input("bgpAsnExtended")]
         public Input<double>? BgpAsnExtended { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// IPv4 address for the customer gateway device's outside interface. The address must be static.
+        /// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;

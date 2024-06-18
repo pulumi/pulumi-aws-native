@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// <summary>
         /// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         /// </summary>
-        public readonly string HecToken;
+        public readonly string? HecToken;
         /// <summary>
         /// The data processing configuration.
         /// </summary>
@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// The configuration for the backup Amazon S3 location.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]
         private DeliveryStreamSplunkDestinationConfiguration(
@@ -68,7 +69,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHecEndpointType hecEndpointType,
 
-            string hecToken,
+            string? hecToken,
 
             Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
@@ -76,7 +77,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
+
+            Outputs.DeliveryStreamSecretsManagerConfiguration? secretsManagerConfiguration)
         {
             BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             RetryOptions = retryOptions;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
         }
     }
 }

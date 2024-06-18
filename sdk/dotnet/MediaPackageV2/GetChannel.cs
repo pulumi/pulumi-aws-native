@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        public readonly ImmutableArray<string> IngestEndpointUrls;
         /// <summary>
         /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
         /// </summary>
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? description,
 
+            ImmutableArray<string> ingestEndpointUrls,
+
             ImmutableArray<Outputs.ChannelIngestEndpoint> ingestEndpoints,
 
             string? modifiedAt,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Arn = arn;
             CreatedAt = createdAt;
             Description = description;
+            IngestEndpointUrls = ingestEndpointUrls;
             IngestEndpoints = ingestEndpoints;
             ModifiedAt = modifiedAt;
             Tags = tags;

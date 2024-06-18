@@ -97,6 +97,7 @@ export class Agent extends pulumi.CustomResource {
      * ARN or name of a Bedrock model.
      */
     public readonly foundationModel!: pulumi.Output<string | undefined>;
+    public readonly guardrailConfiguration!: pulumi.Output<outputs.bedrock.AgentGuardrailConfiguration | undefined>;
     /**
      * Max Session Time.
      */
@@ -162,6 +163,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["foundationModel"] = args ? args.foundationModel : undefined;
+            resourceInputs["guardrailConfiguration"] = args ? args.guardrailConfiguration : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = args ? args.instruction : undefined;
             resourceInputs["knowledgeBases"] = args ? args.knowledgeBases : undefined;
@@ -192,6 +194,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;
             resourceInputs["foundationModel"] = undefined /*out*/;
+            resourceInputs["guardrailConfiguration"] = undefined /*out*/;
             resourceInputs["idleSessionTtlInSeconds"] = undefined /*out*/;
             resourceInputs["instruction"] = undefined /*out*/;
             resourceInputs["knowledgeBases"] = undefined /*out*/;
@@ -240,6 +243,7 @@ export interface AgentArgs {
      * ARN or name of a Bedrock model.
      */
     foundationModel?: pulumi.Input<string>;
+    guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentGuardrailConfigurationArgs>;
     /**
      * Max Session Time.
      */

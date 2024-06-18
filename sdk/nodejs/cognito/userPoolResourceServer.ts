@@ -38,10 +38,6 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID.
-     */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    /**
      * A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
      */
     public readonly identifier!: pulumi.Output<string>;
@@ -79,9 +75,7 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;

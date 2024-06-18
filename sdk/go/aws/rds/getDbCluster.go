@@ -66,6 +66,8 @@ type LookupDbClusterResult struct {
 	Endpoint                        *DbClusterEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
+	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.
@@ -250,6 +252,11 @@ func (o LookupDbClusterResultOutput) Endpoint() DbClusterEndpointPtrOutput {
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 func (o LookupDbClusterResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+func (o LookupDbClusterResultOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the database engine to use.

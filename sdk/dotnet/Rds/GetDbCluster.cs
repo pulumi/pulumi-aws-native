@@ -131,6 +131,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? Engine;
         /// <summary>
+        /// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        /// </summary>
+        public readonly string? EngineLifecycleSupport;
+        /// <summary>
         /// The version number of the database engine to use.
         /// </summary>
         public readonly string? EngineVersion;
@@ -271,6 +275,8 @@ namespace Pulumi.AwsNative.Rds
 
             string? engine,
 
+            string? engineLifecycleSupport,
+
             string? engineVersion,
 
             string? globalClusterIdentifier,
@@ -336,6 +342,7 @@ namespace Pulumi.AwsNative.Rds
             EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
             Endpoint = endpoint;
             Engine = engine;
+            EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
             GlobalClusterIdentifier = globalClusterIdentifier;
             Iops = iops;

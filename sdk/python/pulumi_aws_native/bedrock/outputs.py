@@ -21,6 +21,7 @@ __all__ = [
     'AgentApiSchema1Properties',
     'AgentFunction',
     'AgentFunctionSchema',
+    'AgentGuardrailConfiguration',
     'AgentInferenceConfiguration',
     'AgentKnowledgeBase',
     'AgentParameterDetail',
@@ -480,6 +481,60 @@ class AgentFunctionSchema(dict):
         List of Function definitions
         """
         return pulumi.get(self, "functions")
+
+
+@pulumi.output_type
+class AgentGuardrailConfiguration(dict):
+    """
+    Configuration for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailIdentifier":
+            suggest = "guardrail_identifier"
+        elif key == "guardrailVersion":
+            suggest = "guardrail_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentGuardrailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentGuardrailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentGuardrailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_identifier: Optional[str] = None,
+                 guardrail_version: Optional[str] = None):
+        """
+        Configuration for a guardrail.
+        :param str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
+        :param str guardrail_version: Version of the guardrail
+        """
+        if guardrail_identifier is not None:
+            pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        if guardrail_version is not None:
+            pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> Optional[str]:
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> Optional[str]:
+        """
+        Version of the guardrail
+        """
+        return pulumi.get(self, "guardrail_version")
 
 
 @pulumi.output_type

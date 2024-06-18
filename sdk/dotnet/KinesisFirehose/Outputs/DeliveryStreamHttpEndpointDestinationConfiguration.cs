@@ -49,6 +49,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// Describes the configuration of a destination in Amazon S3.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointDestinationConfiguration(
@@ -68,7 +69,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
+
+            Outputs.DeliveryStreamSecretsManagerConfiguration? secretsManagerConfiguration)
         {
             BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
@@ -79,6 +82,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
         }
     }
 }

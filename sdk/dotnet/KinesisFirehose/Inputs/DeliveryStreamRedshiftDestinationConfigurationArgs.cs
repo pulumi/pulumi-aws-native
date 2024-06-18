@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// The password for the Amazon Redshift user that you specified in the `Username` property.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The data processing configuration for the Kinesis Data Firehose delivery stream.
@@ -72,11 +72,14 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 
+        [Input("secretsManagerConfiguration")]
+        public Input<Inputs.DeliveryStreamSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
+
         /// <summary>
         /// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public DeliveryStreamRedshiftDestinationConfigurationArgs()
         {

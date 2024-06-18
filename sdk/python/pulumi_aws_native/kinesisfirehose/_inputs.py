@@ -52,6 +52,7 @@ __all__ = [
     'DeliveryStreamRetryOptionsArgs',
     'DeliveryStreamS3DestinationConfigurationArgs',
     'DeliveryStreamSchemaConfigurationArgs',
+    'DeliveryStreamSecretsManagerConfigurationArgs',
     'DeliveryStreamSerializerArgs',
     'DeliveryStreamSnowflakeDestinationConfigurationArgs',
     'DeliveryStreamSnowflakeRetryOptionsArgs',
@@ -1684,7 +1685,8 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
                  request_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']] = None):
         """
         :param pulumi.Input['DeliveryStreamHttpEndpointConfigurationArgs'] endpoint_configuration: The configuration of the HTTP endpoint selected as the destination.
         :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_configuration: Describes the configuration of a destination in Amazon S3.
@@ -1712,6 +1714,8 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
 
     @property
     @pulumi.getter(name="endpointConfiguration")
@@ -1820,6 +1824,15 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
 
 
 @pulumi.input_type
@@ -2474,36 +2487,37 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
     def __init__(__self__, *,
                  cluster_jdbcurl: pulumi.Input[str],
                  copy_command: pulumi.Input['DeliveryStreamCopyCommandArgs'],
-                 password: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
-                 username: pulumi.Input[str],
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgs']] = None,
                  s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']] = None):
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_jdbcurl: The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
         :param pulumi.Input['DeliveryStreamCopyCommandArgs'] copy_command: Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
-        :param pulumi.Input[str] password: The password for the Amazon Redshift user that you specified in the `Username` property.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
         :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_configuration: The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-        :param pulumi.Input[str] username: The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
         :param pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs'] cloud_watch_logging_options: The CloudWatch logging options for your delivery stream.
+        :param pulumi.Input[str] password: The password for the Amazon Redshift user that you specified in the `Username` property.
         :param pulumi.Input['DeliveryStreamProcessingConfigurationArgs'] processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
         :param pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgs'] retry_options: The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
         :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3.
         :param pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        :param pulumi.Input[str] username: The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
         """
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
         pulumi.set(__self__, "copy_command", copy_command)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
-        pulumi.set(__self__, "username", username)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
@@ -2512,6 +2526,10 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
             pulumi.set(__self__, "s3_backup_configuration", s3_backup_configuration)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="clusterJdbcurl")
@@ -2538,18 +2556,6 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
         pulumi.set(self, "copy_command", value)
 
     @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password for the Amazon Redshift user that you specified in the `Username` property.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
@@ -2574,18 +2580,6 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
     @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
-
-    @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]:
         """
@@ -2596,6 +2590,18 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
     @cloud_watch_logging_options.setter
     def cloud_watch_logging_options(self, value: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]):
         pulumi.set(self, "cloud_watch_logging_options", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the Amazon Redshift user that you specified in the `Username` property.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="processingConfiguration")
@@ -2644,6 +2650,27 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -2941,6 +2968,46 @@ class DeliveryStreamSchemaConfigurationArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamSecretsManagerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
 class DeliveryStreamSerializerArgs:
     def __init__(__self__, *,
                  orc_ser_de: Optional[pulumi.Input['DeliveryStreamOrcSerDeArgs']] = None,
@@ -2984,47 +3051,46 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     def __init__(__self__, *,
                  account_url: pulumi.Input[str],
                  database: pulumi.Input[str],
-                 private_key: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  schema: pulumi.Input[str],
                  table: pulumi.Input[str],
-                 user: pulumi.Input[str],
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  content_column_name: Optional[pulumi.Input[str]] = None,
                  data_loading_option: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']] = None,
                  key_passphrase: Optional[pulumi.Input[str]] = None,
                  meta_data_column_name: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']] = None,
                  snowflake_role_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs']] = None,
-                 snowflake_vpc_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']] = None):
+                 snowflake_vpc_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']] = None,
+                 user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] account_url: URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
         :param pulumi.Input[str] database: All data in Snowflake is maintained in databases.
-        :param pulumi.Input[str] private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the Snowflake role
         :param pulumi.Input[str] schema: Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         :param pulumi.Input[str] table: All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
-        :param pulumi.Input[str] user: User login name for the Snowflake account.
         :param pulumi.Input[str] content_column_name: The name of the record content column
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption'] data_loading_option: Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
         :param pulumi.Input[str] key_passphrase: Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param pulumi.Input[str] meta_data_column_name: The name of the record metadata column
+        :param pulumi.Input[str] private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs'] retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode'] s3_backup_mode: Choose an S3 backup mode
         :param pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs'] snowflake_role_configuration: Optionally configure a Snowflake role. Otherwise the default user role will be used.
         :param pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs'] snowflake_vpc_configuration: The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
+        :param pulumi.Input[str] user: User login name for the Snowflake account.
         """
         pulumi.set(__self__, "account_url", account_url)
         pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "private_key", private_key)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "user", user)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if content_column_name is not None:
@@ -3035,16 +3101,22 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
             pulumi.set(__self__, "key_passphrase", key_passphrase)
         if meta_data_column_name is not None:
             pulumi.set(__self__, "meta_data_column_name", meta_data_column_name)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
             pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
         if snowflake_role_configuration is not None:
             pulumi.set(__self__, "snowflake_role_configuration", snowflake_role_configuration)
         if snowflake_vpc_configuration is not None:
             pulumi.set(__self__, "snowflake_vpc_configuration", snowflake_vpc_configuration)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -3069,18 +3141,6 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @database.setter
     def database(self, value: pulumi.Input[str]):
         pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Input[str]:
-        """
-        The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-        """
-        return pulumi.get(self, "private_key")
-
-    @private_key.setter
-    def private_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "private_key", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3126,18 +3186,6 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @table.setter
     def table(self, value: pulumi.Input[str]):
         pulumi.set(self, "table", value)
-
-    @property
-    @pulumi.getter
-    def user(self) -> pulumi.Input[str]:
-        """
-        User login name for the Snowflake account.
-        """
-        return pulumi.get(self, "user")
-
-    @user.setter
-    def user(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user", value)
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
@@ -3197,6 +3245,18 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         pulumi.set(self, "meta_data_column_name", value)
 
     @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
         return pulumi.get(self, "processing_configuration")
@@ -3230,6 +3290,15 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         pulumi.set(self, "s3_backup_mode", value)
 
     @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
+
+    @property
     @pulumi.getter(name="snowflakeRoleConfiguration")
     def snowflake_role_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs']]:
         """
@@ -3252,6 +3321,18 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @snowflake_vpc_configuration.setter
     def snowflake_vpc_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']]):
         pulumi.set(self, "snowflake_vpc_configuration", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        User login name for the Snowflake account.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 @pulumi.input_type
@@ -3382,22 +3463,23 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     def __init__(__self__, *,
                  hec_endpoint: pulumi.Input[str],
                  hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType'],
-                 hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  buffering_hints: Optional[pulumi.Input['DeliveryStreamSplunkBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  hec_acknowledgment_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 hec_token: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamSplunkRetryOptionsArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.
         :param pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType'] hec_endpoint_type: This type can be either `Raw` or `Event` .
-        :param pulumi.Input[str] hec_token: This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_configuration: The configuration for the backup Amazon S3 location.
         :param pulumi.Input['DeliveryStreamSplunkBufferingHintsArgs'] buffering_hints: The buffering options. If no value is specified, the default values for Splunk are used.
         :param pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs'] cloud_watch_logging_options: The Amazon CloudWatch logging options for your delivery stream.
         :param pulumi.Input[int] hec_acknowledgment_timeout_in_seconds: The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
+        :param pulumi.Input[str] hec_token: This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param pulumi.Input['DeliveryStreamProcessingConfigurationArgs'] processing_configuration: The data processing configuration.
         :param pulumi.Input['DeliveryStreamSplunkRetryOptionsArgs'] retry_options: The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
@@ -3406,7 +3488,6 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         """
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
         pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
-        pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
@@ -3414,12 +3495,16 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if hec_acknowledgment_timeout_in_seconds is not None:
             pulumi.set(__self__, "hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
+        if hec_token is not None:
+            pulumi.set(__self__, "hec_token", hec_token)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
             pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
 
     @property
     @pulumi.getter(name="hecEndpoint")
@@ -3444,18 +3529,6 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     @hec_endpoint_type.setter
     def hec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType']):
         pulumi.set(self, "hec_endpoint_type", value)
-
-    @property
-    @pulumi.getter(name="hecToken")
-    def hec_token(self) -> pulumi.Input[str]:
-        """
-        This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        """
-        return pulumi.get(self, "hec_token")
-
-    @hec_token.setter
-    def hec_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "hec_token", value)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -3506,6 +3579,18 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         pulumi.set(self, "hec_acknowledgment_timeout_in_seconds", value)
 
     @property
+    @pulumi.getter(name="hecToken")
+    def hec_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+        """
+        return pulumi.get(self, "hec_token")
+
+    @hec_token.setter
+    def hec_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hec_token", value)
+
+    @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
         """
@@ -3542,6 +3627,15 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
 
 
 @pulumi.input_type

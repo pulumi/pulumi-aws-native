@@ -293,6 +293,9 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["dash_manifest_urls"] = None
+            __props__.__dict__["hls_manifest_urls"] = None
+            __props__.__dict__["low_latency_hls_manifest_urls"] = None
             __props__.__dict__["modified_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "originEndpointName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -323,9 +326,12 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["container_type"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["dash_manifest_urls"] = None
         __props__.__dict__["dash_manifests"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["hls_manifest_urls"] = None
         __props__.__dict__["hls_manifests"] = None
+        __props__.__dict__["low_latency_hls_manifest_urls"] = None
         __props__.__dict__["low_latency_hls_manifests"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["origin_endpoint_name"] = None
@@ -375,6 +381,11 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="dashManifestUrls")
+    def dash_manifest_urls(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "dash_manifest_urls")
+
+    @property
     @pulumi.getter(name="dashManifests")
     def dash_manifests(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointDashManifestConfiguration']]]:
         """
@@ -391,12 +402,22 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="hlsManifestUrls")
+    def hls_manifest_urls(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "hls_manifest_urls")
+
+    @property
     @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointHlsManifestConfiguration']]]:
         """
         <p>An HTTP live streaming (HLS) manifest configuration.</p>
         """
         return pulumi.get(self, "hls_manifests")
+
+    @property
+    @pulumi.getter(name="lowLatencyHlsManifestUrls")
+    def low_latency_hls_manifest_urls(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "low_latency_hls_manifest_urls")
 
     @property
     @pulumi.getter(name="lowLatencyHlsManifests")

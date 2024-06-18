@@ -148,7 +148,6 @@ class UserPoolResourceServer(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identifier", "userPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolResourceServer, __self__).__init__(
@@ -173,20 +172,11 @@ class UserPoolResourceServer(pulumi.CustomResource):
 
         __props__ = UserPoolResourceServerArgs.__new__(UserPoolResourceServerArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["identifier"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolResourceServer(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -14,22 +14,23 @@ export function getUserPoolResourceServer(args: GetUserPoolResourceServerArgs, o
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolResourceServer", {
-        "id": args.id,
+        "identifier": args.identifier,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolResourceServerArgs {
     /**
-     * The resource ID.
+     * A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
      */
-    id: string;
+    identifier: string;
+    /**
+     * The user pool ID for the user pool.
+     */
+    userPoolId: string;
 }
 
 export interface GetUserPoolResourceServerResult {
-    /**
-     * The resource ID.
-     */
-    readonly id?: string;
     /**
      * A friendly name for the resource server.
      */
@@ -48,7 +49,11 @@ export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerO
 
 export interface GetUserPoolResourceServerOutputArgs {
     /**
-     * The resource ID.
+     * A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
      */
-    id: pulumi.Input<string>;
+    identifier: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
+    userPoolId: pulumi.Input<string>;
 }

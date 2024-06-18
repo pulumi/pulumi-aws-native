@@ -150,6 +150,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["ingest_endpoints"] = None
             __props__.__dict__["modified_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName"])
@@ -181,6 +182,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["ingest_endpoint_urls"] = None
         __props__.__dict__["ingest_endpoints"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["tags"] = None
@@ -225,6 +227,11 @@ class Channel(pulumi.CustomResource):
         <p>Enter any descriptive text that helps you to identify the channel.</p>
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ingestEndpointUrls")
+    def ingest_endpoint_urls(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "ingest_endpoint_urls")
 
     @property
     @pulumi.getter(name="ingestEndpoints")

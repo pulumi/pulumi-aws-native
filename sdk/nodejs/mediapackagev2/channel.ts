@@ -57,6 +57,7 @@ export class Channel extends pulumi.CustomResource {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
     /**
      * <p>The list of ingest endpoints.</p>
      */
@@ -90,6 +91,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
@@ -98,6 +100,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

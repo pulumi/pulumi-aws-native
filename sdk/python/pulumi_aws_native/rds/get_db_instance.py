@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -109,6 +109,9 @@ class GetDbInstanceResult:
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support and not isinstance(engine_lifecycle_support, str):
+            raise TypeError("Expected argument 'engine_lifecycle_support' to be a str")
+        pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -577,6 +580,11 @@ class GetDbInstanceResult:
         return pulumi.get(self, "engine")
 
     @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[str]:
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[str]:
         """
@@ -915,6 +923,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             enable_performance_insights=self.enable_performance_insights,
             endpoint=self.endpoint,
             engine=self.engine,
+            engine_lifecycle_support=self.engine_lifecycle_support,
             engine_version=self.engine_version,
             iops=self.iops,
             license_model=self.license_model,
@@ -1007,6 +1016,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         enable_performance_insights=pulumi.get(__ret__, 'enable_performance_insights'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine=pulumi.get(__ret__, 'engine'),
+        engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         iops=pulumi.get(__ret__, 'iops'),
         license_model=pulumi.get(__ret__, 'license_model'),

@@ -4554,7 +4554,8 @@ type DeliveryStreamHttpEndpointDestinationConfiguration struct {
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
 // DeliveryStreamHttpEndpointDestinationConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointDestinationConfigurationArgs and DeliveryStreamHttpEndpointDestinationConfigurationOutput values.
@@ -4586,7 +4587,8 @@ type DeliveryStreamHttpEndpointDestinationConfigurationArgs struct {
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
 func (DeliveryStreamHttpEndpointDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -4725,6 +4727,12 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3Configuratio
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
 type DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4837,6 +4845,15 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configura
 		}
 		return &v.S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
 }
 
 type DeliveryStreamHttpEndpointRequestConfiguration struct {
@@ -6858,7 +6875,7 @@ type DeliveryStreamRedshiftDestinationConfiguration struct {
 	// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 	CopyCommand DeliveryStreamCopyCommand `pulumi:"copyCommand"`
 	// The password for the Amazon Redshift user that you specified in the `Username` property.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
@@ -6870,9 +6887,10 @@ type DeliveryStreamRedshiftDestinationConfiguration struct {
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // DeliveryStreamRedshiftDestinationConfigurationInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationArgs and DeliveryStreamRedshiftDestinationConfigurationOutput values.
@@ -6894,7 +6912,7 @@ type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
 	// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 	CopyCommand DeliveryStreamCopyCommandInput `pulumi:"copyCommand"`
 	// The password for the Amazon Redshift user that you specified in the `Username` property.
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
@@ -6906,9 +6924,10 @@ type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (DeliveryStreamRedshiftDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -7006,8 +7025,8 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) CopyCommand() Deli
 }
 
 // The password for the Amazon Redshift user that you specified in the `Username` property.
-func (o DeliveryStreamRedshiftDestinationConfigurationOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) string { return v.Password }).(pulumi.StringOutput)
+func (o DeliveryStreamRedshiftDestinationConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The data processing configuration for the Kinesis Data Firehose delivery stream.
@@ -7050,9 +7069,15 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3Configuration() 
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+func (o DeliveryStreamRedshiftDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
 // The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-func (o DeliveryStreamRedshiftDestinationConfigurationOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) string { return v.Username }).(pulumi.StringOutput)
+func (o DeliveryStreamRedshiftDestinationConfigurationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7115,7 +7140,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Password() pulu
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7179,13 +7204,22 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
 // The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7997,6 +8031,169 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeliveryStreamSecretsManagerConfiguration struct {
+	Enabled   bool    `pulumi:"enabled"`
+	RoleArn   *string `pulumi:"roleArn"`
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// DeliveryStreamSecretsManagerConfigurationInput is an input type that accepts DeliveryStreamSecretsManagerConfigurationArgs and DeliveryStreamSecretsManagerConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamSecretsManagerConfigurationInput` via:
+//
+//	DeliveryStreamSecretsManagerConfigurationArgs{...}
+type DeliveryStreamSecretsManagerConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSecretsManagerConfigurationOutput() DeliveryStreamSecretsManagerConfigurationOutput
+	ToDeliveryStreamSecretsManagerConfigurationOutputWithContext(context.Context) DeliveryStreamSecretsManagerConfigurationOutput
+}
+
+type DeliveryStreamSecretsManagerConfigurationArgs struct {
+	Enabled   pulumi.BoolInput      `pulumi:"enabled"`
+	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (DeliveryStreamSecretsManagerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamSecretsManagerConfigurationArgs) ToDeliveryStreamSecretsManagerConfigurationOutput() DeliveryStreamSecretsManagerConfigurationOutput {
+	return i.ToDeliveryStreamSecretsManagerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSecretsManagerConfigurationArgs) ToDeliveryStreamSecretsManagerConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSecretsManagerConfigurationOutput)
+}
+
+func (i DeliveryStreamSecretsManagerConfigurationArgs) ToDeliveryStreamSecretsManagerConfigurationPtrOutput() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return i.ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSecretsManagerConfigurationArgs) ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSecretsManagerConfigurationOutput).ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSecretsManagerConfigurationPtrInput is an input type that accepts DeliveryStreamSecretsManagerConfigurationArgs, DeliveryStreamSecretsManagerConfigurationPtr and DeliveryStreamSecretsManagerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSecretsManagerConfigurationPtrInput` via:
+//
+//	        DeliveryStreamSecretsManagerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSecretsManagerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSecretsManagerConfigurationPtrOutput() DeliveryStreamSecretsManagerConfigurationPtrOutput
+	ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(context.Context) DeliveryStreamSecretsManagerConfigurationPtrOutput
+}
+
+type deliveryStreamSecretsManagerConfigurationPtrType DeliveryStreamSecretsManagerConfigurationArgs
+
+func DeliveryStreamSecretsManagerConfigurationPtr(v *DeliveryStreamSecretsManagerConfigurationArgs) DeliveryStreamSecretsManagerConfigurationPtrInput {
+	return (*deliveryStreamSecretsManagerConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamSecretsManagerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamSecretsManagerConfigurationPtrType) ToDeliveryStreamSecretsManagerConfigurationPtrOutput() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return i.ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSecretsManagerConfigurationPtrType) ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
+type DeliveryStreamSecretsManagerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSecretsManagerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecretsManagerConfigurationOutput() DeliveryStreamSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecretsManagerConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecretsManagerConfigurationPtrOutput() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSecretsManagerConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		return &v
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSecretsManagerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSecretsManagerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) ToDeliveryStreamSecretsManagerConfigurationPtrOutput() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) ToDeliveryStreamSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Elem() DeliveryStreamSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) DeliveryStreamSecretsManagerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSecretsManagerConfiguration
+		return ret
+	}).(DeliveryStreamSecretsManagerConfigurationOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamSerializer struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 	OrcSerDe *DeliveryStreamOrcSerDe `pulumi:"orcSerDe"`
@@ -8168,7 +8365,7 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// The name of the record metadata column
 	MetaDataColumnName *string `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey              string                                 `pulumi:"privateKey"`
+	PrivateKey              *string                                `pulumi:"privateKey"`
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions *DeliveryStreamSnowflakeRetryOptions `pulumi:"retryOptions"`
@@ -8178,7 +8375,8 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	S3BackupMode    *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfiguration                     `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
-	Schema string `pulumi:"schema"`
+	Schema                      string                                     `pulumi:"schema"`
+	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration *DeliveryStreamSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
 	// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
@@ -8186,7 +8384,7 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
 	Table string `pulumi:"table"`
 	// User login name for the Snowflake account.
-	User string `pulumi:"user"`
+	User *string `pulumi:"user"`
 }
 
 // DeliveryStreamSnowflakeDestinationConfigurationInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationArgs and DeliveryStreamSnowflakeDestinationConfigurationOutput values.
@@ -8215,7 +8413,7 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// The name of the record metadata column
 	MetaDataColumnName pulumi.StringPtrInput `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey              pulumi.StringInput                            `pulumi:"privateKey"`
+	PrivateKey              pulumi.StringPtrInput                         `pulumi:"privateKey"`
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions DeliveryStreamSnowflakeRetryOptionsPtrInput `pulumi:"retryOptions"`
@@ -8225,7 +8423,8 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	S3BackupMode    DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput                       `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema                      pulumi.StringInput                                `pulumi:"schema"`
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration DeliveryStreamSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
 	// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
@@ -8233,7 +8432,7 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
 	Table pulumi.StringInput `pulumi:"table"`
 	// User login name for the Snowflake account.
-	User pulumi.StringInput `pulumi:"user"`
+	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
 func (DeliveryStreamSnowflakeDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -8352,8 +8551,8 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) MetaDataColumnNam
 }
 
 // The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
@@ -8392,6 +8591,12 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Schema() pulumi.S
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
 // Optionally configure a Snowflake role. Otherwise the default user role will be used.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SnowflakeRoleConfiguration() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRoleConfiguration {
@@ -8412,8 +8617,8 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Table() pulumi.St
 }
 
 // User login name for the Snowflake account.
-func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.User }).(pulumi.StringOutput)
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 type DeliveryStreamSnowflakeDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -8515,7 +8720,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) PrivateKey() p
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateKey
+		return v.PrivateKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8577,6 +8782,15 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Schema() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
 // Optionally configure a Snowflake role. Otherwise the default user role will be used.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SnowflakeRoleConfiguration() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRoleConfiguration {
@@ -8613,7 +8827,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) User() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.User
+		return v.User
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9215,7 +9429,7 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 	// This type can be either `Raw` or `Event` .
 	HecEndpointType DeliveryStreamSplunkDestinationConfigurationHecEndpointType `pulumi:"hecEndpointType"`
 	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	HecToken string `pulumi:"hecToken"`
+	HecToken *string `pulumi:"hecToken"`
 	// The data processing configuration.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
@@ -9225,7 +9439,8 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The configuration for the backup Amazon S3 location.
-	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
 // DeliveryStreamSplunkDestinationConfigurationInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationArgs and DeliveryStreamSplunkDestinationConfigurationOutput values.
@@ -9251,7 +9466,7 @@ type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	// This type can be either `Raw` or `Event` .
 	HecEndpointType DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput `pulumi:"hecEndpointType"`
 	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	HecToken pulumi.StringInput `pulumi:"hecToken"`
+	HecToken pulumi.StringPtrInput `pulumi:"hecToken"`
 	// The data processing configuration.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
@@ -9261,7 +9476,8 @@ type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The configuration for the backup Amazon S3 location.
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
 func (DeliveryStreamSplunkDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -9373,8 +9589,8 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecEndpointType() De
 }
 
 // This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecToken() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) string { return v.HecToken }).(pulumi.StringOutput)
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *string { return v.HecToken }).(pulumi.StringPtrOutput)
 }
 
 // The data processing configuration.
@@ -9403,6 +9619,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) S3Configuration() De
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
 }
 
 type DeliveryStreamSplunkDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -9485,7 +9707,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecToken() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.HecToken
+		return v.HecToken
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9529,6 +9751,15 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) S3Configuration()
 		}
 		return &v.S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
 }
 
 type DeliveryStreamSplunkRetryOptions struct {
@@ -9985,6 +10216,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSecretsManagerConfigurationInput)(nil)).Elem(), DeliveryStreamSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSecretsManagerConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerPtrInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationArgs{})
@@ -10085,6 +10318,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSecretsManagerConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationOutput{})

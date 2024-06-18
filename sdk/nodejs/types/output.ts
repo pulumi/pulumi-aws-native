@@ -2137,6 +2137,13 @@ export namespace apigatewayv2 {
         truststoreVersion?: string;
     }
 
+    export interface IntegrationTlsConfig {
+        /**
+         * If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+         */
+        serverNameToVerify?: string;
+    }
+
     export interface RouteParameterConstraints {
         required: boolean;
     }
@@ -8582,6 +8589,20 @@ export namespace bedrock {
          * List of Function definitions
          */
         functions: outputs.bedrock.AgentFunction[];
+    }
+
+    /**
+     * Configuration for a guardrail.
+     */
+    export interface AgentGuardrailConfiguration {
+        /**
+         * Identifier for the guardrail, could be the id or the arn
+         */
+        guardrailIdentifier?: string;
+        /**
+         * Version of the guardrail
+         */
+        guardrailVersion?: string;
     }
 
     /**
@@ -37422,6 +37443,7 @@ export namespace kinesisfirehose {
          * Describes the configuration of a destination in Amazon S3.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
     }
 
     export interface DeliveryStreamHttpEndpointRequestConfiguration {
@@ -37622,7 +37644,7 @@ export namespace kinesisfirehose {
         /**
          * The password for the Amazon Redshift user that you specified in the `Username` property.
          */
-        password: string;
+        password?: string;
         /**
          * The data processing configuration for the Kinesis Data Firehose delivery stream.
          */
@@ -37647,10 +37669,11 @@ export namespace kinesisfirehose {
          * The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
         /**
          * The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
          */
-        username: string;
+        username?: string;
     }
 
     export interface DeliveryStreamRedshiftRetryOptions {
@@ -37735,6 +37758,12 @@ export namespace kinesisfirehose {
         versionId?: string;
     }
 
+    export interface DeliveryStreamSecretsManagerConfiguration {
+        enabled: boolean;
+        roleArn?: string;
+        secretArn?: string;
+    }
+
     export interface DeliveryStreamSerializer {
         /**
          * A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
@@ -37775,7 +37804,7 @@ export namespace kinesisfirehose {
         /**
          * The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
          */
-        privateKey: string;
+        privateKey?: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         /**
          * The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -37794,6 +37823,7 @@ export namespace kinesisfirehose {
          * Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
          */
         schema: string;
+        secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
         /**
          * Optionally configure a Snowflake role. Otherwise the default user role will be used.
          */
@@ -37809,7 +37839,7 @@ export namespace kinesisfirehose {
         /**
          * User login name for the Snowflake account.
          */
-        user: string;
+        user?: string;
     }
 
     export interface DeliveryStreamSnowflakeRetryOptions {
@@ -37872,7 +37902,7 @@ export namespace kinesisfirehose {
         /**
          * This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
          */
-        hecToken: string;
+        hecToken?: string;
         /**
          * The data processing configuration.
          */
@@ -37891,6 +37921,7 @@ export namespace kinesisfirehose {
          * The configuration for the backup Amazon S3 location.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
     }
 
     export interface DeliveryStreamSplunkRetryOptions {

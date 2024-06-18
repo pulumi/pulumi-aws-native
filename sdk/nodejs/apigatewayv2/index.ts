@@ -55,6 +55,11 @@ export const getDomainName: typeof import("./getDomainName").getDomainName = nul
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetIntegrationResponseArgs, GetIntegrationResponseResult, GetIntegrationResponseOutputArgs } from "./getIntegrationResponse";
 export const getIntegrationResponse: typeof import("./getIntegrationResponse").getIntegrationResponse = null as any;
 export const getIntegrationResponseOutput: typeof import("./getIntegrationResponse").getIntegrationResponseOutput = null as any;
@@ -79,6 +84,11 @@ export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpc
 export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
 export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcLink","getVpcLinkOutput"], () => require("./getVpcLink"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { IntegrationResponseArgs } from "./integrationResponse";
 export type IntegrationResponse = import("./integrationResponse").IntegrationResponse;
@@ -120,6 +130,8 @@ const _module = {
                 return new Deployment(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:IntegrationResponse":
                 return new IntegrationResponse(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:Model":

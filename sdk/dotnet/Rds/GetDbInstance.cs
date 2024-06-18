@@ -376,6 +376,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``sqlserver-web``
         /// </summary>
         public readonly string? Engine;
+        public readonly string? EngineLifecycleSupport;
         /// <summary>
         /// The version number of the database engine to use.
         ///  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
@@ -640,6 +641,8 @@ namespace Pulumi.AwsNative.Rds
 
             string? engine,
 
+            string? engineLifecycleSupport,
+
             string? engineVersion,
 
             int? iops,
@@ -719,6 +722,7 @@ namespace Pulumi.AwsNative.Rds
             EnablePerformanceInsights = enablePerformanceInsights;
             Endpoint = endpoint;
             Engine = engine;
+            EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
             Iops = iops;
             LicenseModel = licenseModel;

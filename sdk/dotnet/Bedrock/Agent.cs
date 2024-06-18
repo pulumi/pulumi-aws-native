@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("foundationModel")]
         public Output<string?> FoundationModel { get; private set; } = null!;
 
+        [Output("guardrailConfiguration")]
+        public Output<Outputs.AgentGuardrailConfiguration?> GuardrailConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Max Session Time.
         /// </summary>
@@ -259,6 +262,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
+
+        [Input("guardrailConfiguration")]
+        public Input<Inputs.AgentGuardrailConfigurationArgs>? GuardrailConfiguration { get; set; }
 
         /// <summary>
         /// Max Session Time.

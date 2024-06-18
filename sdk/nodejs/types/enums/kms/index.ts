@@ -68,6 +68,7 @@ export const KeyUsage = {
     EncryptDecrypt: "ENCRYPT_DECRYPT",
     SignVerify: "SIGN_VERIFY",
     GenerateVerifyMac: "GENERATE_VERIFY_MAC",
+    KeyAgreement: "KEY_AGREEMENT",
 } as const;
 
 /**

@@ -54,8 +54,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         /// </summary>
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        [Input("privateKey")]
+        public Input<string>? PrivateKey { get; set; }
 
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        [Input("secretsManagerConfiguration")]
+        public Input<Inputs.DeliveryStreamSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
+
         /// <summary>
         /// Optionally configure a Snowflake role. Otherwise the default user role will be used.
         /// </summary>
@@ -108,8 +111,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// User login name for the Snowflake account.
         /// </summary>
-        [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        [Input("user")]
+        public Input<string>? User { get; set; }
 
         public DeliveryStreamSnowflakeDestinationConfigurationArgs()
         {

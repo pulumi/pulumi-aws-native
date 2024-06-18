@@ -16,8 +16,6 @@ import (
 type UserPoolResourceServer struct {
 	pulumi.CustomResourceState
 
-	// The resource ID.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// A friendly name for the resource server.
@@ -136,11 +134,6 @@ func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutput() UserPoolR
 
 func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(ctx context.Context) UserPoolResourceServerOutput {
 	return o
-}
-
-// The resource ID.
-func (o UserPoolResourceServerOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .

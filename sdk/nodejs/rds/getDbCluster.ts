@@ -100,6 +100,10 @@ export interface GetDbClusterResult {
      */
     readonly engine?: string;
     /**
+     * The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+     */
+    readonly engineLifecycleSupport?: string;
+    /**
      * The version number of the database engine to use.
      */
     readonly engineVersion?: string;

@@ -15,11 +15,13 @@ from .get_api_mapping import *
 from .get_authorizer import *
 from .get_deployment import *
 from .get_domain_name import *
+from .get_integration import *
 from .get_integration_response import *
 from .get_model import *
 from .get_route import *
 from .get_route_response import *
 from .get_vpc_link import *
+from .integration import *
 from .integration_response import *
 from .model import *
 from .route import *

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, ingest_endpoints=None, modified_at=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, ingest_endpoint_urls=None, ingest_endpoints=None, modified_at=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,6 +30,9 @@ class GetChannelResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if ingest_endpoint_urls and not isinstance(ingest_endpoint_urls, list):
+            raise TypeError("Expected argument 'ingest_endpoint_urls' to be a list")
+        pulumi.set(__self__, "ingest_endpoint_urls", ingest_endpoint_urls)
         if ingest_endpoints and not isinstance(ingest_endpoints, list):
             raise TypeError("Expected argument 'ingest_endpoints' to be a list")
         pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
@@ -65,6 +68,11 @@ class GetChannelResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="ingestEndpointUrls")
+    def ingest_endpoint_urls(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ingest_endpoint_urls")
+
+    @property
     @pulumi.getter(name="ingestEndpoints")
     def ingest_endpoints(self) -> Optional[Sequence['outputs.ChannelIngestEndpoint']]:
         """
@@ -98,6 +106,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             arn=self.arn,
             created_at=self.created_at,
             description=self.description,
+            ingest_endpoint_urls=self.ingest_endpoint_urls,
             ingest_endpoints=self.ingest_endpoints,
             modified_at=self.modified_at,
             tags=self.tags)
@@ -120,6 +129,7 @@ def get_channel(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        ingest_endpoint_urls=pulumi.get(__ret__, 'ingest_endpoint_urls'),
         ingest_endpoints=pulumi.get(__ret__, 'ingest_endpoints'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         tags=pulumi.get(__ret__, 'tags'))

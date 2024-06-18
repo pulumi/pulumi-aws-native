@@ -134,6 +134,7 @@ namespace Pulumi.AwsNative.Kms
         public static KeyUsage EncryptDecrypt { get; } = new KeyUsage("ENCRYPT_DECRYPT");
         public static KeyUsage SignVerify { get; } = new KeyUsage("SIGN_VERIFY");
         public static KeyUsage GenerateVerifyMac { get; } = new KeyUsage("GENERATE_VERIFY_MAC");
+        public static KeyUsage KeyAgreement { get; } = new KeyUsage("KEY_AGREEMENT");
 
         public static bool operator ==(KeyUsage left, KeyUsage right) => left.Equals(right);
         public static bool operator !=(KeyUsage left, KeyUsage right) => !left.Equals(right);

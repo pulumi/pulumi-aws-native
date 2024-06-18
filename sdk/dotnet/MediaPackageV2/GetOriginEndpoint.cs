@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the origin endpoint was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly ImmutableArray<string> DashManifestUrls;
         /// <summary>
         /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
         /// </summary>
@@ -77,10 +78,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        public readonly ImmutableArray<string> HlsManifestUrls;
         /// <summary>
         /// &lt;p&gt;An HTTP live streaming (HLS) manifest configuration.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration> HlsManifests;
+        public readonly ImmutableArray<string> LowLatencyHlsManifestUrls;
         /// <summary>
         /// &lt;p&gt;A low-latency HLS manifest configuration.&lt;/p&gt;
         /// </summary>
@@ -110,11 +113,17 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? createdAt,
 
+            ImmutableArray<string> dashManifestUrls,
+
             ImmutableArray<Outputs.OriginEndpointDashManifestConfiguration> dashManifests,
 
             string? description,
 
+            ImmutableArray<string> hlsManifestUrls,
+
             ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration> hlsManifests,
+
+            ImmutableArray<string> lowLatencyHlsManifestUrls,
 
             ImmutableArray<Outputs.OriginEndpointLowLatencyHlsManifestConfiguration> lowLatencyHlsManifests,
 
@@ -129,9 +138,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Arn = arn;
             ContainerType = containerType;
             CreatedAt = createdAt;
+            DashManifestUrls = dashManifestUrls;
             DashManifests = dashManifests;
             Description = description;
+            HlsManifestUrls = hlsManifestUrls;
             HlsManifests = hlsManifests;
+            LowLatencyHlsManifestUrls = lowLatencyHlsManifestUrls;
             LowLatencyHlsManifests = lowLatencyHlsManifests;
             ModifiedAt = modifiedAt;
             Segment = segment;

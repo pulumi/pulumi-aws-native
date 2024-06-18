@@ -1152,6 +1152,165 @@ func (o AgentFunctionSchemaPtrOutput) Functions() AgentFunctionArrayOutput {
 	}).(AgentFunctionArrayOutput)
 }
 
+// Configuration for a guardrail.
+type AgentGuardrailConfiguration struct {
+	// Identifier for the guardrail, could be the id or the arn
+	GuardrailIdentifier *string `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail
+	GuardrailVersion *string `pulumi:"guardrailVersion"`
+}
+
+// AgentGuardrailConfigurationInput is an input type that accepts AgentGuardrailConfigurationArgs and AgentGuardrailConfigurationOutput values.
+// You can construct a concrete instance of `AgentGuardrailConfigurationInput` via:
+//
+//	AgentGuardrailConfigurationArgs{...}
+type AgentGuardrailConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentGuardrailConfigurationOutput() AgentGuardrailConfigurationOutput
+	ToAgentGuardrailConfigurationOutputWithContext(context.Context) AgentGuardrailConfigurationOutput
+}
+
+// Configuration for a guardrail.
+type AgentGuardrailConfigurationArgs struct {
+	// Identifier for the guardrail, could be the id or the arn
+	GuardrailIdentifier pulumi.StringPtrInput `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail
+	GuardrailVersion pulumi.StringPtrInput `pulumi:"guardrailVersion"`
+}
+
+func (AgentGuardrailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i AgentGuardrailConfigurationArgs) ToAgentGuardrailConfigurationOutput() AgentGuardrailConfigurationOutput {
+	return i.ToAgentGuardrailConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentGuardrailConfigurationArgs) ToAgentGuardrailConfigurationOutputWithContext(ctx context.Context) AgentGuardrailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentGuardrailConfigurationOutput)
+}
+
+func (i AgentGuardrailConfigurationArgs) ToAgentGuardrailConfigurationPtrOutput() AgentGuardrailConfigurationPtrOutput {
+	return i.ToAgentGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentGuardrailConfigurationArgs) ToAgentGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentGuardrailConfigurationOutput).ToAgentGuardrailConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentGuardrailConfigurationPtrInput is an input type that accepts AgentGuardrailConfigurationArgs, AgentGuardrailConfigurationPtr and AgentGuardrailConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentGuardrailConfigurationPtrInput` via:
+//
+//	        AgentGuardrailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentGuardrailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentGuardrailConfigurationPtrOutput() AgentGuardrailConfigurationPtrOutput
+	ToAgentGuardrailConfigurationPtrOutputWithContext(context.Context) AgentGuardrailConfigurationPtrOutput
+}
+
+type agentGuardrailConfigurationPtrType AgentGuardrailConfigurationArgs
+
+func AgentGuardrailConfigurationPtr(v *AgentGuardrailConfigurationArgs) AgentGuardrailConfigurationPtrInput {
+	return (*agentGuardrailConfigurationPtrType)(v)
+}
+
+func (*agentGuardrailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i *agentGuardrailConfigurationPtrType) ToAgentGuardrailConfigurationPtrOutput() AgentGuardrailConfigurationPtrOutput {
+	return i.ToAgentGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentGuardrailConfigurationPtrType) ToAgentGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentGuardrailConfigurationPtrOutput)
+}
+
+// Configuration for a guardrail.
+type AgentGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentGuardrailConfigurationOutput) ToAgentGuardrailConfigurationOutput() AgentGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentGuardrailConfigurationOutput) ToAgentGuardrailConfigurationOutputWithContext(ctx context.Context) AgentGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentGuardrailConfigurationOutput) ToAgentGuardrailConfigurationPtrOutput() AgentGuardrailConfigurationPtrOutput {
+	return o.ToAgentGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentGuardrailConfigurationOutput) ToAgentGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentGuardrailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentGuardrailConfiguration) *AgentGuardrailConfiguration {
+		return &v
+	}).(AgentGuardrailConfigurationPtrOutput)
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o AgentGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentGuardrailConfiguration) *string { return v.GuardrailIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o AgentGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentGuardrailConfiguration) *string { return v.GuardrailVersion }).(pulumi.StringPtrOutput)
+}
+
+type AgentGuardrailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentGuardrailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentGuardrailConfigurationPtrOutput) ToAgentGuardrailConfigurationPtrOutput() AgentGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentGuardrailConfigurationPtrOutput) ToAgentGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentGuardrailConfigurationPtrOutput) Elem() AgentGuardrailConfigurationOutput {
+	return o.ApplyT(func(v *AgentGuardrailConfiguration) AgentGuardrailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentGuardrailConfiguration
+		return ret
+	}).(AgentGuardrailConfigurationOutput)
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o AgentGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o AgentGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration for inference in prompt configuration
 type AgentInferenceConfiguration struct {
 	// Maximum length of output
@@ -5922,6 +6081,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionArrayInput)(nil)).Elem(), AgentFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionSchemaInput)(nil)).Elem(), AgentFunctionSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionSchemaPtrInput)(nil)).Elem(), AgentFunctionSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentGuardrailConfigurationInput)(nil)).Elem(), AgentGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentGuardrailConfigurationPtrInput)(nil)).Elem(), AgentGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentInferenceConfigurationInput)(nil)).Elem(), AgentInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentInferenceConfigurationPtrInput)(nil)).Elem(), AgentInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseInput)(nil)).Elem(), AgentKnowledgeBaseArgs{})
@@ -5997,6 +6158,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentFunctionArrayOutput{})
 	pulumi.RegisterOutputType(AgentFunctionSchemaOutput{})
 	pulumi.RegisterOutputType(AgentFunctionSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentGuardrailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseOutput{})
