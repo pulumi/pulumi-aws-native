@@ -11,6 +11,12 @@
       "type" : "string",
       "pattern" : "^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$"
     },
+    "ProfileName" : {
+      "type" : "string",
+      "minLength" : 2,
+      "maxLength" : 64,
+      "pattern" : "^[0-9a-zA-Z_]$"
+    },
     "ProfileVersion" : {
       "type" : "string",
       "pattern" : "^[0-9a-zA-Z]{10}$"
@@ -48,8 +54,8 @@
   },
   "properties" : {
     "ProfileName" : {
-      "description" : "A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. ",
-      "type" : "string"
+      "description" : "A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. ",
+      "$ref" : "#/definitions/ProfileName"
     },
     "ProfileVersion" : {
       "description" : "A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.",
@@ -81,7 +87,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "PlatformId" ],
-  "createOnlyProperties" : [ "/properties/PlatformId", "/properties/SignatureValidityPeriod" ],
+  "createOnlyProperties" : [ "/properties/ProfileName", "/properties/PlatformId", "/properties/SignatureValidityPeriod" ],
   "readOnlyProperties" : [ "/properties/ProfileName", "/properties/ProfileVersion", "/properties/Arn", "/properties/ProfileVersionArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/ProfileName" ], [ "/properties/ProfileVersionArn" ] ],
