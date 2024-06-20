@@ -2059,37 +2059,37 @@
     "properties": {
       "description": {
         "type": "string",
-        "description": "The description of the evaluation form."
+        "description": "The description of the evaluation form.\n  *Length Constraints*: Minimum length of 0. Maximum length of 1024."
       },
       "instanceArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the instance."
+        "description": "The identifier of the Amazon Connect instance."
       },
       "items": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:connect:EvaluationFormBaseItem"
         },
-        "description": "The list of evaluation form items."
+        "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n  *Minimum size*: 1\n  *Maximum size*: 100"
       },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
-        "description": "The scoring strategy."
+        "description": "A scoring strategy of the evaluation form."
       },
       "status": {
         "$ref": "#/types/aws-native:connect:EvaluationFormStatus",
-        "description": "The status of the evaluation form."
+        "description": "The status of the evaluation form.\n  *Allowed values*: ``DRAFT`` | ``ACTIVE``"
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "One or more tags."
+        "description": "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
       },
       "title": {
         "type": "string",
-        "description": "The title of the evaluation form."
+        "description": "A title of the evaluation form."
       }
     }
   },
@@ -9917,6 +9917,10 @@
         "type": "boolean",
         "description": "A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled."
       },
+      "enableLocalWriteForwarding": {
+        "type": "boolean",
+        "description": "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances."
+      },
       "engine": {
         "type": "string",
         "description": "The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql"
@@ -11618,26 +11622,6 @@
       "statementId": {
         "type": "string",
         "description": "A unique identifier for the cross-account permission statement."
-      }
-    }
-  },
-  "aws-native:signer:SigningProfile": {
-    "cfTypeName": "AWS::Signer::SigningProfile",
-    "properties": {
-      "platformId": {
-        "$ref": "#/types/aws-native:signer:SigningProfilePlatformId",
-        "description": "The ID of the target signing platform."
-      },
-      "signatureValidityPeriod": {
-        "$ref": "#/types/aws-native:signer:SigningProfileSignatureValidityPeriod",
-        "description": "Signature validity period of the profile."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "A list of tags associated with the signing profile."
       }
     }
   },
