@@ -97,6 +97,9 @@ export class Agent extends pulumi.CustomResource {
      * ARN or name of a Bedrock model.
      */
     public readonly foundationModel!: pulumi.Output<string | undefined>;
+    /**
+     * Details about the guardrail associated with the agent.
+     */
     public readonly guardrailConfiguration!: pulumi.Output<outputs.bedrock.AgentGuardrailConfiguration | undefined>;
     /**
      * Max Session Time.
@@ -243,6 +246,9 @@ export interface AgentArgs {
      * ARN or name of a Bedrock model.
      */
     foundationModel?: pulumi.Input<string>;
+    /**
+     * Details about the guardrail associated with the agent.
+     */
     guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentGuardrailConfigurationArgs>;
     /**
      * Max Session Time.

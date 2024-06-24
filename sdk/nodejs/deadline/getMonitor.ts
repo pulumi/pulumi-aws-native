@@ -16,10 +16,16 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetMonitorArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the monitor.
+     */
     arn: string;
 }
 
 export interface GetMonitorResult {
+    /**
+     * The Amazon Resource Name (ARN) of the monitor.
+     */
     readonly arn?: string;
     /**
      * The name of the monitor that displays on the Deadline Cloud console.
@@ -54,5 +60,8 @@ export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetMonitorOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the monitor.
+     */
     arn: pulumi.Input<string>;
 }
