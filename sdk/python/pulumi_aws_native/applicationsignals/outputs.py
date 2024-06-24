@@ -54,6 +54,8 @@ class ServiceLevelObjectiveCalendarInterval(dict):
                  start_time: int):
         """
         If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
+        :param int duration: Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+        :param 'ServiceLevelObjectiveDurationUnit' duration_unit: Specifies the calendar interval unit.
         :param int start_time: Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
                As soon as one calendar interval ends, another automatically begins.
         """
@@ -64,11 +66,17 @@ class ServiceLevelObjectiveCalendarInterval(dict):
     @property
     @pulumi.getter
     def duration(self) -> int:
+        """
+        Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="durationUnit")
     def duration_unit(self) -> 'ServiceLevelObjectiveDurationUnit':
+        """
+        Specifies the calendar interval unit.
+        """
         return pulumi.get(self, "duration_unit")
 
     @property
@@ -146,6 +154,9 @@ class ServiceLevelObjectiveGoal(dict):
         A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
         :param float attainment_goal: The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
                If you omit this parameter, 99 is used to represent 99% as the attainment goal.
+        :param 'ServiceLevelObjectiveInterval' interval: The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+               
+               If you omit this parameter, a rolling interval of 7 days is used.
         :param float warning_threshold: The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
         """
         if attainment_goal is not None:
@@ -167,6 +178,11 @@ class ServiceLevelObjectiveGoal(dict):
     @property
     @pulumi.getter
     def interval(self) -> Optional['outputs.ServiceLevelObjectiveInterval']:
+        """
+        The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+
+        If you omit this parameter, a rolling interval of 7 days is used.
+        """
         return pulumi.get(self, "interval")
 
     @property
@@ -209,6 +225,8 @@ class ServiceLevelObjectiveInterval(dict):
         """
         The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
         If you omit this parameter, a rolling interval of 7 days is used.
+        :param 'ServiceLevelObjectiveCalendarInterval' calendar_interval: If the interval is a calendar interval, this structure contains the interval specifications.
+        :param 'ServiceLevelObjectiveRollingInterval' rolling_interval: If the interval is a rolling interval, this structure contains the interval specifications.
         """
         if calendar_interval is not None:
             pulumi.set(__self__, "calendar_interval", calendar_interval)
@@ -218,11 +236,17 @@ class ServiceLevelObjectiveInterval(dict):
     @property
     @pulumi.getter(name="calendarInterval")
     def calendar_interval(self) -> Optional['outputs.ServiceLevelObjectiveCalendarInterval']:
+        """
+        If the interval is a calendar interval, this structure contains the interval specifications.
+        """
         return pulumi.get(self, "calendar_interval")
 
     @property
     @pulumi.getter(name="rollingInterval")
     def rolling_interval(self) -> Optional['outputs.ServiceLevelObjectiveRollingInterval']:
+        """
+        If the interval is a rolling interval, this structure contains the interval specifications.
+        """
         return pulumi.get(self, "rolling_interval")
 
 
@@ -462,6 +486,8 @@ class ServiceLevelObjectiveRollingInterval(dict):
                  duration_unit: 'ServiceLevelObjectiveDurationUnit'):
         """
         If the interval is a calendar interval, this structure contains the interval specifications.
+        :param int duration: Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+        :param 'ServiceLevelObjectiveDurationUnit' duration_unit: Specifies the rolling interval unit.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "duration_unit", duration_unit)
@@ -469,11 +495,17 @@ class ServiceLevelObjectiveRollingInterval(dict):
     @property
     @pulumi.getter
     def duration(self) -> int:
+        """
+        Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="durationUnit")
     def duration_unit(self) -> 'ServiceLevelObjectiveDurationUnit':
+        """
+        Specifies the rolling interval unit.
+        """
         return pulumi.get(self, "duration_unit")
 
 
@@ -511,6 +543,7 @@ class ServiceLevelObjectiveSli(dict):
         This structure contains information about the performance metric that an SLO monitors.
         :param 'ServiceLevelObjectiveSliComparisonOperator' comparison_operator: The arithmetic operation used when comparing the specified metric to the threshold.
         :param float metric_threshold: The value that the SLI metric is compared to.
+        :param 'ServiceLevelObjectiveSliMetric' sli_metric: Use this structure to specify the metric to be used for the SLO.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "metric_threshold", metric_threshold)
@@ -535,6 +568,9 @@ class ServiceLevelObjectiveSli(dict):
     @property
     @pulumi.getter(name="sliMetric")
     def sli_metric(self) -> 'outputs.ServiceLevelObjectiveSliMetric':
+        """
+        Use this structure to specify the metric to be used for the SLO.
+        """
         return pulumi.get(self, "sli_metric")
 
 
@@ -577,6 +613,16 @@ class ServiceLevelObjectiveSliMetric(dict):
                  statistic: Optional[str] = None):
         """
         A structure that contains information about the metric that the SLO monitors.
+        :param Mapping[str, str] key_attributes: If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+               
+               This is a string-to-string map. It can include the following fields.
+               
+               - `Type` designates the type of object this is.
+               - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+               - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        :param Sequence['ServiceLevelObjectiveMetricDataQuery'] metric_data_queries: If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
         :param 'ServiceLevelObjectiveSliMetricMetricType' metric_type: If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         :param str operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
         :param int period_seconds: The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
@@ -598,11 +644,25 @@ class ServiceLevelObjectiveSliMetric(dict):
     @property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+
+        This is a string-to-string map. It can include the following fields.
+
+        - `Type` designates the type of object this is.
+        - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        """
         return pulumi.get(self, "key_attributes")
 
     @property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveMetricDataQuery']]:
+        """
+        If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
+        """
         return pulumi.get(self, "metric_data_queries")
 
     @property

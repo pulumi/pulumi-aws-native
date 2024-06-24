@@ -44,6 +44,9 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the monitor.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -114,6 +117,9 @@ def get_monitor(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Definition of AWS::Deadline::Monitor Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the monitor.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -135,5 +141,8 @@ def get_monitor_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Definition of AWS::Deadline::Monitor Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the monitor.
     """
     ...

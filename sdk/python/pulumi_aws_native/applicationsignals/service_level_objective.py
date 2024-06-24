@@ -26,8 +26,13 @@ class ServiceLevelObjectiveArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
+        :param pulumi.Input['ServiceLevelObjectiveSliArgs'] sli: A structure containing information about the performance metric that this SLO monitors.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
+        :param pulumi.Input['ServiceLevelObjectiveGoalArgs'] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+               
+               Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         """
         pulumi.set(__self__, "sli", sli)
         if description is not None:
@@ -42,6 +47,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def sli(self) -> pulumi.Input['ServiceLevelObjectiveSliArgs']:
+        """
+        A structure containing information about the performance metric that this SLO monitors.
+        """
         return pulumi.get(self, "sli")
 
     @sli.setter
@@ -63,6 +71,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def goal(self) -> Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']]:
+        """
+        This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+        """
         return pulumi.get(self, "goal")
 
     @goal.setter
@@ -84,6 +95,11 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+
+        Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,7 +124,12 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveGoalArgs']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliArgs']] sli: A structure containing information about the performance metric that this SLO monitors.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+               
+               Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         """
         ...
     @overload
@@ -219,6 +240,9 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @property
     @pulumi.getter
     def goal(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveGoal']]:
+        """
+        This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+        """
         return pulumi.get(self, "goal")
 
     @property
@@ -240,10 +264,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @property
     @pulumi.getter
     def sli(self) -> pulumi.Output['outputs.ServiceLevelObjectiveSli']:
+        """
+        A structure containing information about the performance metric that this SLO monitors.
+        """
         return pulumi.get(self, "sli")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+
+        Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        """
         return pulumi.get(self, "tags")
 

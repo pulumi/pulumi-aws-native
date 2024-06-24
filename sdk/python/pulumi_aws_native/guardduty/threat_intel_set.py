@@ -239,6 +239,9 @@ class ThreatIntelSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the `threatIntelSet` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
