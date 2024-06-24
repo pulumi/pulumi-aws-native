@@ -7103,7 +7103,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "The tags to be added to the created Malware Protection plan resource. Each tag consists of a key and an optional value, both of which you need to specify."
       }
     }
   },
@@ -10229,7 +10230,8 @@
         "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +   ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web``"
       },
       "engineLifecycleSupport": {
-        "type": "string"
+        "type": "string",
+        "description": "The life cycle type for this DB instance.\n\n\u003e By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date. \n\nThis setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.\n\nYou can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .\n\nValid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`\n\nDefault: `open-source-rds-extended-support`"
       },
       "engineVersion": {
         "type": "string",
