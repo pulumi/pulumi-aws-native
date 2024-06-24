@@ -185,7 +185,7 @@
         "Value" : {
           "description" : "String which you can use to describe or define the tag.",
           "type" : "string",
-          "minLength" : 1,
+          "minLength" : 0,
           "maxLength" : 256
         }
       },
@@ -209,18 +209,11 @@
       "permissions" : [ "cloudwatch:GetMetricStream" ]
     }
   },
-  "required" : [ "FirehoseArn", "RoleArn", "OutputFormat" ],
-  "anyOf" : [ {
+  "allOf" : [ {
     "required" : [ "FirehoseArn", "RoleArn", "OutputFormat" ]
   }, {
-    "allOf" : [ {
-      "required" : [ "FirehoseArn", "RoleArn", "OutputFormat" ]
-    } ]
-  }, {
-    "oneOf" : [ {
-      "required" : [ "IncludeFilters" ]
-    }, {
-      "required" : [ "ExcludeFilters" ]
+    "oneOf" : [ { }, {
+      "required" : [ "IncludeFilters", "ExcludeFilters" ]
     } ]
   } ],
   "createOnlyProperties" : [ "/properties/Name" ],
