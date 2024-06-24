@@ -16,6 +16,7 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the monitor that displays on the Deadline Cloud console.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -148,6 +149,7 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the monitor.
 func (o MonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -15,7 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 // If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveCalendarInterval struct {
-	Duration     int                               `pulumi:"duration"`
+	// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+	Duration int `pulumi:"duration"`
+	// Specifies the calendar interval unit.
 	DurationUnit ServiceLevelObjectiveDurationUnit `pulumi:"durationUnit"`
 	// Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
 	// As soon as one calendar interval ends, another automatically begins.
@@ -35,7 +37,9 @@ type ServiceLevelObjectiveCalendarIntervalInput interface {
 
 // If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveCalendarIntervalArgs struct {
-	Duration     pulumi.IntInput                        `pulumi:"duration"`
+	// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Specifies the calendar interval unit.
 	DurationUnit ServiceLevelObjectiveDurationUnitInput `pulumi:"durationUnit"`
 	// Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
 	// As soon as one calendar interval ends, another automatically begins.
@@ -120,10 +124,12 @@ func (o ServiceLevelObjectiveCalendarIntervalOutput) ToServiceLevelObjectiveCale
 	}).(ServiceLevelObjectiveCalendarIntervalPtrOutput)
 }
 
+// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
 func (o ServiceLevelObjectiveCalendarIntervalOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveCalendarInterval) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Specifies the calendar interval unit.
 func (o ServiceLevelObjectiveCalendarIntervalOutput) DurationUnit() ServiceLevelObjectiveDurationUnitOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveCalendarInterval) ServiceLevelObjectiveDurationUnit { return v.DurationUnit }).(ServiceLevelObjectiveDurationUnitOutput)
 }
@@ -158,6 +164,7 @@ func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) Elem() ServiceLevelObjec
 	}).(ServiceLevelObjectiveCalendarIntervalOutput)
 }
 
+// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
 func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveCalendarInterval) *int {
 		if v == nil {
@@ -167,6 +174,7 @@ func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) Duration() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the calendar interval unit.
 func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) DurationUnit() ServiceLevelObjectiveDurationUnitPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveCalendarInterval) *ServiceLevelObjectiveDurationUnit {
 		if v == nil {
@@ -300,8 +308,11 @@ func (o ServiceLevelObjectiveDimensionArrayOutput) Index(i pulumi.IntInput) Serv
 type ServiceLevelObjectiveGoal struct {
 	// The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
 	// If you omit this parameter, 99 is used to represent 99% as the attainment goal.
-	AttainmentGoal *float64                       `pulumi:"attainmentGoal"`
-	Interval       *ServiceLevelObjectiveInterval `pulumi:"interval"`
+	AttainmentGoal *float64 `pulumi:"attainmentGoal"`
+	// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+	//
+	// If you omit this parameter, a rolling interval of 7 days is used.
+	Interval *ServiceLevelObjectiveInterval `pulumi:"interval"`
 	// The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
 	WarningThreshold *float64 `pulumi:"warningThreshold"`
 }
@@ -321,8 +332,11 @@ type ServiceLevelObjectiveGoalInput interface {
 type ServiceLevelObjectiveGoalArgs struct {
 	// The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
 	// If you omit this parameter, 99 is used to represent 99% as the attainment goal.
-	AttainmentGoal pulumi.Float64PtrInput                `pulumi:"attainmentGoal"`
-	Interval       ServiceLevelObjectiveIntervalPtrInput `pulumi:"interval"`
+	AttainmentGoal pulumi.Float64PtrInput `pulumi:"attainmentGoal"`
+	// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+	//
+	// If you omit this parameter, a rolling interval of 7 days is used.
+	Interval ServiceLevelObjectiveIntervalPtrInput `pulumi:"interval"`
 	// The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
 	WarningThreshold pulumi.Float64PtrInput `pulumi:"warningThreshold"`
 }
@@ -411,6 +425,9 @@ func (o ServiceLevelObjectiveGoalOutput) AttainmentGoal() pulumi.Float64PtrOutpu
 	return o.ApplyT(func(v ServiceLevelObjectiveGoal) *float64 { return v.AttainmentGoal }).(pulumi.Float64PtrOutput)
 }
 
+// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+//
+// If you omit this parameter, a rolling interval of 7 days is used.
 func (o ServiceLevelObjectiveGoalOutput) Interval() ServiceLevelObjectiveIntervalPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveGoal) *ServiceLevelObjectiveInterval { return v.Interval }).(ServiceLevelObjectiveIntervalPtrOutput)
 }
@@ -455,6 +472,9 @@ func (o ServiceLevelObjectiveGoalPtrOutput) AttainmentGoal() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+//
+// If you omit this parameter, a rolling interval of 7 days is used.
 func (o ServiceLevelObjectiveGoalPtrOutput) Interval() ServiceLevelObjectiveIntervalPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveGoal) *ServiceLevelObjectiveInterval {
 		if v == nil {
@@ -477,8 +497,10 @@ func (o ServiceLevelObjectiveGoalPtrOutput) WarningThreshold() pulumi.Float64Ptr
 // The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
 // If you omit this parameter, a rolling interval of 7 days is used.
 type ServiceLevelObjectiveInterval struct {
+	// If the interval is a calendar interval, this structure contains the interval specifications.
 	CalendarInterval *ServiceLevelObjectiveCalendarInterval `pulumi:"calendarInterval"`
-	RollingInterval  *ServiceLevelObjectiveRollingInterval  `pulumi:"rollingInterval"`
+	// If the interval is a rolling interval, this structure contains the interval specifications.
+	RollingInterval *ServiceLevelObjectiveRollingInterval `pulumi:"rollingInterval"`
 }
 
 // ServiceLevelObjectiveIntervalInput is an input type that accepts ServiceLevelObjectiveIntervalArgs and ServiceLevelObjectiveIntervalOutput values.
@@ -495,8 +517,10 @@ type ServiceLevelObjectiveIntervalInput interface {
 // The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
 // If you omit this parameter, a rolling interval of 7 days is used.
 type ServiceLevelObjectiveIntervalArgs struct {
+	// If the interval is a calendar interval, this structure contains the interval specifications.
 	CalendarInterval ServiceLevelObjectiveCalendarIntervalPtrInput `pulumi:"calendarInterval"`
-	RollingInterval  ServiceLevelObjectiveRollingIntervalPtrInput  `pulumi:"rollingInterval"`
+	// If the interval is a rolling interval, this structure contains the interval specifications.
+	RollingInterval ServiceLevelObjectiveRollingIntervalPtrInput `pulumi:"rollingInterval"`
 }
 
 func (ServiceLevelObjectiveIntervalArgs) ElementType() reflect.Type {
@@ -578,12 +602,14 @@ func (o ServiceLevelObjectiveIntervalOutput) ToServiceLevelObjectiveIntervalPtrO
 	}).(ServiceLevelObjectiveIntervalPtrOutput)
 }
 
+// If the interval is a calendar interval, this structure contains the interval specifications.
 func (o ServiceLevelObjectiveIntervalOutput) CalendarInterval() ServiceLevelObjectiveCalendarIntervalPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveInterval) *ServiceLevelObjectiveCalendarInterval {
 		return v.CalendarInterval
 	}).(ServiceLevelObjectiveCalendarIntervalPtrOutput)
 }
 
+// If the interval is a rolling interval, this structure contains the interval specifications.
 func (o ServiceLevelObjectiveIntervalOutput) RollingInterval() ServiceLevelObjectiveRollingIntervalPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveInterval) *ServiceLevelObjectiveRollingInterval { return v.RollingInterval }).(ServiceLevelObjectiveRollingIntervalPtrOutput)
 }
@@ -612,6 +638,7 @@ func (o ServiceLevelObjectiveIntervalPtrOutput) Elem() ServiceLevelObjectiveInte
 	}).(ServiceLevelObjectiveIntervalOutput)
 }
 
+// If the interval is a calendar interval, this structure contains the interval specifications.
 func (o ServiceLevelObjectiveIntervalPtrOutput) CalendarInterval() ServiceLevelObjectiveCalendarIntervalPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveInterval) *ServiceLevelObjectiveCalendarInterval {
 		if v == nil {
@@ -621,6 +648,7 @@ func (o ServiceLevelObjectiveIntervalPtrOutput) CalendarInterval() ServiceLevelO
 	}).(ServiceLevelObjectiveCalendarIntervalPtrOutput)
 }
 
+// If the interval is a rolling interval, this structure contains the interval specifications.
 func (o ServiceLevelObjectiveIntervalPtrOutput) RollingInterval() ServiceLevelObjectiveRollingIntervalPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveInterval) *ServiceLevelObjectiveRollingInterval {
 		if v == nil {
@@ -1142,7 +1170,9 @@ func (o ServiceLevelObjectiveMetricStatPtrOutput) Unit() pulumi.StringPtrOutput 
 
 // If the interval is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveRollingInterval struct {
-	Duration     int                               `pulumi:"duration"`
+	// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+	Duration int `pulumi:"duration"`
+	// Specifies the rolling interval unit.
 	DurationUnit ServiceLevelObjectiveDurationUnit `pulumi:"durationUnit"`
 }
 
@@ -1159,7 +1189,9 @@ type ServiceLevelObjectiveRollingIntervalInput interface {
 
 // If the interval is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveRollingIntervalArgs struct {
-	Duration     pulumi.IntInput                        `pulumi:"duration"`
+	// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Specifies the rolling interval unit.
 	DurationUnit ServiceLevelObjectiveDurationUnitInput `pulumi:"durationUnit"`
 }
 
@@ -1241,10 +1273,12 @@ func (o ServiceLevelObjectiveRollingIntervalOutput) ToServiceLevelObjectiveRolli
 	}).(ServiceLevelObjectiveRollingIntervalPtrOutput)
 }
 
+// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
 func (o ServiceLevelObjectiveRollingIntervalOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRollingInterval) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Specifies the rolling interval unit.
 func (o ServiceLevelObjectiveRollingIntervalOutput) DurationUnit() ServiceLevelObjectiveDurationUnitOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRollingInterval) ServiceLevelObjectiveDurationUnit { return v.DurationUnit }).(ServiceLevelObjectiveDurationUnitOutput)
 }
@@ -1273,6 +1307,7 @@ func (o ServiceLevelObjectiveRollingIntervalPtrOutput) Elem() ServiceLevelObject
 	}).(ServiceLevelObjectiveRollingIntervalOutput)
 }
 
+// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
 func (o ServiceLevelObjectiveRollingIntervalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveRollingInterval) *int {
 		if v == nil {
@@ -1282,6 +1317,7 @@ func (o ServiceLevelObjectiveRollingIntervalPtrOutput) Duration() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the rolling interval unit.
 func (o ServiceLevelObjectiveRollingIntervalPtrOutput) DurationUnit() ServiceLevelObjectiveDurationUnitPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveRollingInterval) *ServiceLevelObjectiveDurationUnit {
 		if v == nil {
@@ -1296,8 +1332,9 @@ type ServiceLevelObjectiveSli struct {
 	// The arithmetic operation used when comparing the specified metric to the threshold.
 	ComparisonOperator ServiceLevelObjectiveSliComparisonOperator `pulumi:"comparisonOperator"`
 	// The value that the SLI metric is compared to.
-	MetricThreshold float64                        `pulumi:"metricThreshold"`
-	SliMetric       ServiceLevelObjectiveSliMetric `pulumi:"sliMetric"`
+	MetricThreshold float64 `pulumi:"metricThreshold"`
+	// Use this structure to specify the metric to be used for the SLO.
+	SliMetric ServiceLevelObjectiveSliMetric `pulumi:"sliMetric"`
 }
 
 // ServiceLevelObjectiveSliInput is an input type that accepts ServiceLevelObjectiveSliArgs and ServiceLevelObjectiveSliOutput values.
@@ -1316,8 +1353,9 @@ type ServiceLevelObjectiveSliArgs struct {
 	// The arithmetic operation used when comparing the specified metric to the threshold.
 	ComparisonOperator ServiceLevelObjectiveSliComparisonOperatorInput `pulumi:"comparisonOperator"`
 	// The value that the SLI metric is compared to.
-	MetricThreshold pulumi.Float64Input                 `pulumi:"metricThreshold"`
-	SliMetric       ServiceLevelObjectiveSliMetricInput `pulumi:"sliMetric"`
+	MetricThreshold pulumi.Float64Input `pulumi:"metricThreshold"`
+	// Use this structure to specify the metric to be used for the SLO.
+	SliMetric ServiceLevelObjectiveSliMetricInput `pulumi:"sliMetric"`
 }
 
 func (ServiceLevelObjectiveSliArgs) ElementType() reflect.Type {
@@ -1359,6 +1397,7 @@ func (o ServiceLevelObjectiveSliOutput) MetricThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ServiceLevelObjectiveSli) float64 { return v.MetricThreshold }).(pulumi.Float64Output)
 }
 
+// Use this structure to specify the metric to be used for the SLO.
 func (o ServiceLevelObjectiveSliOutput) SliMetric() ServiceLevelObjectiveSliMetricOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSli) ServiceLevelObjectiveSliMetric { return v.SliMetric }).(ServiceLevelObjectiveSliMetricOutput)
 }
@@ -1407,6 +1446,7 @@ func (o ServiceLevelObjectiveSliPtrOutput) MetricThreshold() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Use this structure to specify the metric to be used for the SLO.
 func (o ServiceLevelObjectiveSliPtrOutput) SliMetric() ServiceLevelObjectiveSliMetricPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSli) *ServiceLevelObjectiveSliMetric {
 		if v == nil {
@@ -1418,7 +1458,17 @@ func (o ServiceLevelObjectiveSliPtrOutput) SliMetric() ServiceLevelObjectiveSliM
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetric struct {
-	KeyAttributes     map[string]string                      `pulumi:"keyAttributes"`
+	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+	//
+	// This is a string-to-string map. It can include the following fields.
+	//
+	// - `Type` designates the type of object this is.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	KeyAttributes map[string]string `pulumi:"keyAttributes"`
+	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 	MetricDataQueries []ServiceLevelObjectiveMetricDataQuery `pulumi:"metricDataQueries"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType *ServiceLevelObjectiveSliMetricMetricType `pulumi:"metricType"`
@@ -1443,7 +1493,17 @@ type ServiceLevelObjectiveSliMetricInput interface {
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetricArgs struct {
-	KeyAttributes     pulumi.StringMapInput                          `pulumi:"keyAttributes"`
+	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+	//
+	// This is a string-to-string map. It can include the following fields.
+	//
+	// - `Type` designates the type of object this is.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	KeyAttributes pulumi.StringMapInput `pulumi:"keyAttributes"`
+	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 	MetricDataQueries ServiceLevelObjectiveMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType ServiceLevelObjectiveSliMetricMetricTypePtrInput `pulumi:"metricType"`
@@ -1482,10 +1542,20 @@ func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricOu
 	return o
 }
 
+// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+//
+// This is a string-to-string map. It can include the following fields.
+//
+// - `Type` designates the type of object this is.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 func (o ServiceLevelObjectiveSliMetricOutput) KeyAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) map[string]string { return v.KeyAttributes }).(pulumi.StringMapOutput)
 }
 
+// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 func (o ServiceLevelObjectiveSliMetricOutput) MetricDataQueries() ServiceLevelObjectiveMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) []ServiceLevelObjectiveMetricDataQuery {
 		return v.MetricDataQueries
@@ -1536,6 +1606,15 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) Elem() ServiceLevelObjectiveSli
 	}).(ServiceLevelObjectiveSliMetricOutput)
 }
 
+// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+//
+// This is a string-to-string map. It can include the following fields.
+//
+// - `Type` designates the type of object this is.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 func (o ServiceLevelObjectiveSliMetricPtrOutput) KeyAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) map[string]string {
 		if v == nil {
@@ -1545,6 +1624,7 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) KeyAttributes() pulumi.StringMa
 	}).(pulumi.StringMapOutput)
 }
 
+// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 func (o ServiceLevelObjectiveSliMetricPtrOutput) MetricDataQueries() ServiceLevelObjectiveMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) []ServiceLevelObjectiveMetricDataQuery {
 		if v == nil {

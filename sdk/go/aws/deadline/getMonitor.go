@@ -23,10 +23,12 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 }
 
 type LookupMonitorArgs struct {
+	// The Amazon Resource Name (ARN) of the monitor.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupMonitorResult struct {
+	// The Amazon Resource Name (ARN) of the monitor.
 	Arn *string `pulumi:"arn"`
 	// The name of the monitor that displays on the Deadline Cloud console.
 	DisplayName *string `pulumi:"displayName"`
@@ -56,6 +58,7 @@ func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts
 }
 
 type LookupMonitorOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the monitor.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -77,6 +80,7 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the monitor.
 func (o LookupMonitorResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

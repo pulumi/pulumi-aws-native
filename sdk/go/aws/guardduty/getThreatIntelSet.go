@@ -26,10 +26,12 @@ func LookupThreatIntelSet(ctx *pulumi.Context, args *LookupThreatIntelSetArgs, o
 type LookupThreatIntelSetArgs struct {
 	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
 	DetectorId string `pulumi:"detectorId"`
-	Id         string `pulumi:"id"`
+	// The unique ID of the `threatIntelSet` .
+	Id string `pulumi:"id"`
 }
 
 type LookupThreatIntelSetResult struct {
+	// The unique ID of the `threatIntelSet` .
 	Id *string `pulumi:"id"`
 	// The URI of the file that contains the ThreatIntelSet.
 	Location *string `pulumi:"location"`
@@ -57,7 +59,8 @@ func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOu
 type LookupThreatIntelSetOutputArgs struct {
 	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
 	DetectorId pulumi.StringInput `pulumi:"detectorId"`
-	Id         pulumi.StringInput `pulumi:"id"`
+	// The unique ID of the `threatIntelSet` .
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThreatIntelSetOutputArgs) ElementType() reflect.Type {
@@ -78,6 +81,7 @@ func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutputWith
 	return o
 }
 
+// The unique ID of the `threatIntelSet` .
 func (o LookupThreatIntelSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
