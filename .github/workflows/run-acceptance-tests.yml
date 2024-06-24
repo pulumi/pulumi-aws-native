@@ -81,8 +81,12 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/pulumictl
+    - name: Set Pulumi Version
+      run: echo "PULUMI_VERSION=$(cat .pulumi.version)" >> $GITHUB_ENV
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
+      with:
+        pulumi-version: ${{ env.PULUMI_VERSION }}
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.11.0
