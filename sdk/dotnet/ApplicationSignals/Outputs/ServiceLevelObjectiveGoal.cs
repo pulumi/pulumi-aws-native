@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
         /// If you omit this parameter, 99 is used to represent 99% as the attainment goal.
         /// </summary>
         public readonly double? AttainmentGoal;
+        /// <summary>
+        /// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+        /// 
+        /// If you omit this parameter, a rolling interval of 7 days is used.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveInterval? Interval;
         /// <summary>
         /// The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.

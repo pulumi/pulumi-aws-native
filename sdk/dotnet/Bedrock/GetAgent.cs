@@ -113,6 +113,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// ARN or name of a Bedrock model.
         /// </summary>
         public readonly string? FoundationModel;
+        /// <summary>
+        /// Details about the guardrail associated with the agent.
+        /// </summary>
         public readonly Outputs.AgentGuardrailConfiguration? GuardrailConfiguration;
         /// <summary>
         /// Max Session Time.

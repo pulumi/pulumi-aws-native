@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that defines how you access secrets for Snowflake.
+        /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.DeliveryStreamSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
 

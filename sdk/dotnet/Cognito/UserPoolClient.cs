@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The default redirect URI. Must be in the `CallbackURLs` list.
+        /// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         /// 
         /// A redirect URI must:
         /// 
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Cognito
         /// - Be registered with the authorization server.
         /// - Not include a fragment component.
         /// 
-        /// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+        /// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
         /// 
         /// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
         /// 
@@ -379,7 +379,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? ClientName { get; set; }
 
         /// <summary>
-        /// The default redirect URI. Must be in the `CallbackURLs` list.
+        /// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         /// 
         /// A redirect URI must:
         /// 
@@ -387,7 +387,7 @@ namespace Pulumi.AwsNative.Cognito
         /// - Be registered with the authorization server.
         /// - Not include a fragment component.
         /// 
-        /// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+        /// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
         /// 
         /// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
         /// 
