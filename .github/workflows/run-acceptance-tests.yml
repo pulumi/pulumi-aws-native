@@ -82,11 +82,16 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Set Pulumi Version
-      run: echo "PULUMI_VERSION=$(cat .pulumi.version)" >> $GITHUB_ENV
+      run: |
+        if [ -s .pulumi.version ]; then
+          echo "PULUMI_CLI_VERSION=$(cat .pulumi.version)" >> $GITHUB_ENV
+        else
+          echo "PULUMI_CLI_VERSION=^3" >> $GITHUB_ENV
+        fi
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: ${{ env.PULUMI_VERSION }}
+        pulumi-version: ${{ env.PULUMI_CLI_VERSION }}
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.11.0
@@ -193,8 +198,17 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/pulumictl
+    - name: Set Pulumi Version
+      run: |
+        if [ -s .pulumi.version ]; then
+          echo "PULUMI_CLI_VERSION=$(cat .pulumi.version)" >> $GITHUB_ENV
+        else
+          echo "PULUMI_CLI_VERSION=^3" >> $GITHUB_ENV
+        fi
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
+      with:
+        pulumi-version: ${{ env.PULUMI_CLI_VERSION }}
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
@@ -299,8 +313,17 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/pulumictl
+    - name: Set Pulumi Version
+      run: |
+        if [ -s .pulumi.version ]; then
+          echo "PULUMI_CLI_VERSION=$(cat .pulumi.version)" >> $GITHUB_ENV
+        else
+          echo "PULUMI_CLI_VERSION=^3" >> $GITHUB_ENV
+        fi
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
+      with:
+        pulumi-version: ${{ env.PULUMI_CLI_VERSION }}
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
