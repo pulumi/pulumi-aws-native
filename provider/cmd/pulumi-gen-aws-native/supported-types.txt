@@ -995,6 +995,7 @@ AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings
 AWS::WorkSpacesWeb::IdentityProvider

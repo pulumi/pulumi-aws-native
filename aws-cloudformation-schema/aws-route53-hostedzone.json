@@ -120,7 +120,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/NameServers" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "propertyTransform" : {
-    "/properties/Name" : "$join([Name, \".\"])"
+    "/properties/Name" : "Name $OR $join([Name, \".\"])"
   },
   "handlers" : {
     "create" : {
