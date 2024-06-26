@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     /// </summary>
     public sealed class ServiceLevelObjectiveCalendarIntervalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+        /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the calendar interval unit.
+        /// </summary>
         [Input("durationUnit", required: true)]
         public Input<Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveDurationUnit> DurationUnit { get; set; } = null!;
 

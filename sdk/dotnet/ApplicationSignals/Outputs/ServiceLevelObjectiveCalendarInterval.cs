@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveCalendarInterval
     {
+        /// <summary>
+        /// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+        /// </summary>
         public readonly int Duration;
+        /// <summary>
+        /// Specifies the calendar interval unit.
+        /// </summary>
         public readonly Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveDurationUnit DurationUnit;
         /// <summary>
         /// Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.

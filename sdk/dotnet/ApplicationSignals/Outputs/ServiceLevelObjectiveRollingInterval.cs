@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveRollingInterval
     {
+        /// <summary>
+        /// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+        /// </summary>
         public readonly int Duration;
+        /// <summary>
+        /// Specifies the rolling interval unit.
+        /// </summary>
         public readonly Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveDurationUnit DurationUnit;
 
         [OutputConstructor]

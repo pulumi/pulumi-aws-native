@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// Describes the configuration of a destination in Amazon S3.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The configuration that defines how you access secrets for HTTP Endpoint destination.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]

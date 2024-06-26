@@ -19,7 +19,8 @@ type ThreatIntelSet struct {
 
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
-	AwsId    pulumi.StringOutput  `pulumi:"awsId"`
+	// The unique ID of the `threatIntelSet` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet.
@@ -161,6 +162,7 @@ func (o ThreatIntelSetOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
 
+// The unique ID of the `threatIntelSet` .
 func (o ThreatIntelSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

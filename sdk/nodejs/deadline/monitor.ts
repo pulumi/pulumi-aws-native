@@ -34,6 +34,9 @@ export class Monitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === Monitor.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the monitor.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the monitor that displays on the Deadline Cloud console.

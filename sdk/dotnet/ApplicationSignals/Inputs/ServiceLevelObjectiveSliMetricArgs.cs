@@ -17,6 +17,18 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     {
         [Input("keyAttributes")]
         private InputMap<string>? _keyAttributes;
+
+        /// <summary>
+        /// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+        /// 
+        /// This is a string-to-string map. It can include the following fields.
+        /// 
+        /// - `Type` designates the type of object this is.
+        /// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        /// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        /// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        /// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        /// </summary>
         public InputMap<string> KeyAttributes
         {
             get => _keyAttributes ?? (_keyAttributes = new InputMap<string>());
@@ -25,6 +37,10 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
 
         [Input("metricDataQueries")]
         private InputList<Inputs.ServiceLevelObjectiveMetricDataQueryArgs>? _metricDataQueries;
+
+        /// <summary>
+        /// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
+        /// </summary>
         public InputList<Inputs.ServiceLevelObjectiveMetricDataQueryArgs> MetricDataQueries
         {
             get => _metricDataQueries ?? (_metricDataQueries = new InputList<Inputs.ServiceLevelObjectiveMetricDataQueryArgs>());

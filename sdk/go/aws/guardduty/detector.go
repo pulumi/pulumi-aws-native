@@ -17,6 +17,7 @@ import (
 type Detector struct {
 	pulumi.CustomResourceState
 
+	// The unique ID of the detector.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Describes which data sources will be enabled for the detector.
 	DataSources DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
@@ -148,6 +149,7 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 	return o
 }
 
+// The unique ID of the detector.
 func (o DetectorOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

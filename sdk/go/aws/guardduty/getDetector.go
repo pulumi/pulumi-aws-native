@@ -24,6 +24,7 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 }
 
 type LookupDetectorArgs struct {
+	// The unique ID of the detector.
 	Id string `pulumi:"id"`
 }
 
@@ -36,7 +37,8 @@ type LookupDetectorResult struct {
 	Features []DetectorCfnFeatureConfiguration `pulumi:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
-	Id                         *string `pulumi:"id"`
+	// The unique ID of the detector.
+	Id *string `pulumi:"id"`
 	// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
 	//
 	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
@@ -59,6 +61,7 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 }
 
 type LookupDetectorOutputArgs struct {
+	// The unique ID of the detector.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -100,6 +103,7 @@ func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringPt
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the detector.
 func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

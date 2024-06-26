@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     /// </summary>
     public sealed class ServiceLevelObjectiveRollingIntervalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+        /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the rolling interval unit.
+        /// </summary>
         [Input("durationUnit", required: true)]
         public Input<Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveDurationUnit> DurationUnit { get; set; } = null!;
 

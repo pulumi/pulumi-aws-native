@@ -299,7 +299,7 @@ func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.Int
 type DetectorCfnFeatureConfiguration struct {
 	// Information about the additional configuration of a feature in your account.
 	AdditionalConfiguration []DetectorCfnFeatureAdditionalConfiguration `pulumi:"additionalConfiguration"`
-	// Name of the feature.
+	// Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
 	Name string `pulumi:"name"`
 	// Status of the feature configuration.
 	Status DetectorCfnFeatureConfigurationStatus `pulumi:"status"`
@@ -319,7 +319,7 @@ type DetectorCfnFeatureConfigurationInput interface {
 type DetectorCfnFeatureConfigurationArgs struct {
 	// Information about the additional configuration of a feature in your account.
 	AdditionalConfiguration DetectorCfnFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfiguration"`
-	// Name of the feature.
+	// Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
 	Name pulumi.StringInput `pulumi:"name"`
 	// Status of the feature configuration.
 	Status DetectorCfnFeatureConfigurationStatusInput `pulumi:"status"`
@@ -383,7 +383,7 @@ func (o DetectorCfnFeatureConfigurationOutput) AdditionalConfiguration() Detecto
 	}).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
 }
 
-// Name of the feature.
+// Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
 func (o DetectorCfnFeatureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1103,9 +1103,9 @@ func (o DetectorCfns3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorTagItem struct {
-	// The tag value.
-	Key string `pulumi:"key"`
 	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -1279,17 +1279,17 @@ type FilterFindingCriteria struct {
 	// - region
 	// - severity
 	//
-	// To filter on the basis of severity, API and CFN use the following input list for the condition:
+	// To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
 	//
 	// - *Low* : `["1", "2", "3"]`
 	// - *Medium* : `["4", "5", "6"]`
 	// - *High* : `["7", "8", "9"]`
 	//
-	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
 	// - type
 	// - updatedAt
 	//
-	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+	// Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
 	// - resource.accessKeyDetails.accessKeyId
 	// - resource.accessKeyDetails.principalId
 	// - resource.accessKeyDetails.userName
@@ -1321,10 +1321,12 @@ type FilterFindingCriteria struct {
 	// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
 	// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
 	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
 	// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
 	// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
 	// - service.action.awsApiCallAction.serviceName
 	// - service.action.dnsRequestAction.domain
+	// - service.action.dnsRequestAction.domainWithSuffix
 	// - service.action.networkConnectionAction.blocked
 	// - service.action.networkConnectionAction.connectionDirection
 	// - service.action.networkConnectionAction.localPortDetails.port
@@ -1332,13 +1334,19 @@ type FilterFindingCriteria struct {
 	// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
 	// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
 	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
 	// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
 	// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
 	// - service.action.networkConnectionAction.remotePortDetails.port
 	// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
 	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+	// - service.action.kubernetesApiCallAction.namespace
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
 	// - service.action.kubernetesApiCallAction.requestUri
+	// - service.action.kubernetesApiCallAction.statusCode
 	// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.localIpDetails.ipAddressV6
 	// - service.action.networkConnectionAction.protocol
 	// - service.action.awsApiCallAction.serviceName
 	// - service.action.awsApiCallAction.remoteAccountDetails.accountId
@@ -1354,6 +1362,7 @@ type FilterFindingCriteria struct {
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+	// - service.malwareScanDetails.threats.name
 	// - resource.ecsClusterDetails.name
 	// - resource.ecsClusterDetails.taskDetails.containers.image
 	// - resource.ecsClusterDetails.taskDetails.definitionArn
@@ -1395,17 +1404,17 @@ type FilterFindingCriteriaArgs struct {
 	// - region
 	// - severity
 	//
-	// To filter on the basis of severity, API and CFN use the following input list for the condition:
+	// To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
 	//
 	// - *Low* : `["1", "2", "3"]`
 	// - *Medium* : `["4", "5", "6"]`
 	// - *High* : `["7", "8", "9"]`
 	//
-	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
 	// - type
 	// - updatedAt
 	//
-	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+	// Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
 	// - resource.accessKeyDetails.accessKeyId
 	// - resource.accessKeyDetails.principalId
 	// - resource.accessKeyDetails.userName
@@ -1437,10 +1446,12 @@ type FilterFindingCriteriaArgs struct {
 	// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
 	// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
 	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
 	// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
 	// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
 	// - service.action.awsApiCallAction.serviceName
 	// - service.action.dnsRequestAction.domain
+	// - service.action.dnsRequestAction.domainWithSuffix
 	// - service.action.networkConnectionAction.blocked
 	// - service.action.networkConnectionAction.connectionDirection
 	// - service.action.networkConnectionAction.localPortDetails.port
@@ -1448,13 +1459,19 @@ type FilterFindingCriteriaArgs struct {
 	// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
 	// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
 	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
 	// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
 	// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
 	// - service.action.networkConnectionAction.remotePortDetails.port
 	// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
 	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+	// - service.action.kubernetesApiCallAction.namespace
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
 	// - service.action.kubernetesApiCallAction.requestUri
+	// - service.action.kubernetesApiCallAction.statusCode
 	// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.localIpDetails.ipAddressV6
 	// - service.action.networkConnectionAction.protocol
 	// - service.action.awsApiCallAction.serviceName
 	// - service.action.awsApiCallAction.remoteAccountDetails.accountId
@@ -1470,6 +1487,7 @@ type FilterFindingCriteriaArgs struct {
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
 	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+	// - service.malwareScanDetails.threats.name
 	// - resource.ecsClusterDetails.name
 	// - resource.ecsClusterDetails.taskDetails.containers.image
 	// - resource.ecsClusterDetails.taskDetails.definitionArn
@@ -1525,17 +1543,17 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 // - region
 // - severity
 //
-// To filter on the basis of severity, API and CFN use the following input list for the condition:
+// To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
 //
 // - *Low* : `["1", "2", "3"]`
 // - *Medium* : `["4", "5", "6"]`
 // - *High* : `["7", "8", "9"]`
 //
-// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
 // - type
 // - updatedAt
 //
-// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+// Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
 // - resource.accessKeyDetails.accessKeyId
 // - resource.accessKeyDetails.principalId
 // - resource.accessKeyDetails.userName
@@ -1567,10 +1585,12 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 // - service.action.awsApiCallAction.remoteIpDetails.city.cityName
 // - service.action.awsApiCallAction.remoteIpDetails.country.countryName
 // - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
 // - service.action.awsApiCallAction.remoteIpDetails.organization.asn
 // - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
 // - service.action.awsApiCallAction.serviceName
 // - service.action.dnsRequestAction.domain
+// - service.action.dnsRequestAction.domainWithSuffix
 // - service.action.networkConnectionAction.blocked
 // - service.action.networkConnectionAction.connectionDirection
 // - service.action.networkConnectionAction.localPortDetails.port
@@ -1578,13 +1598,19 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 // - service.action.networkConnectionAction.remoteIpDetails.city.cityName
 // - service.action.networkConnectionAction.remoteIpDetails.country.countryName
 // - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
 // - service.action.networkConnectionAction.remoteIpDetails.organization.asn
 // - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
 // - service.action.networkConnectionAction.remotePortDetails.port
 // - service.action.awsApiCallAction.remoteAccountDetails.affiliated
 // - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+// - service.action.kubernetesApiCallAction.namespace
+// - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
 // - service.action.kubernetesApiCallAction.requestUri
+// - service.action.kubernetesApiCallAction.statusCode
 // - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.localIpDetails.ipAddressV6
 // - service.action.networkConnectionAction.protocol
 // - service.action.awsApiCallAction.serviceName
 // - service.action.awsApiCallAction.remoteAccountDetails.accountId
@@ -1600,6 +1626,7 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+// - service.malwareScanDetails.threats.name
 // - resource.ecsClusterDetails.name
 // - resource.ecsClusterDetails.taskDetails.containers.image
 // - resource.ecsClusterDetails.taskDetails.definitionArn
@@ -1654,17 +1681,17 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 // - region
 // - severity
 //
-// To filter on the basis of severity, API and CFN use the following input list for the condition:
+// To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
 //
 // - *Low* : `["1", "2", "3"]`
 // - *Medium* : `["4", "5", "6"]`
 // - *High* : `["7", "8", "9"]`
 //
-// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
 // - type
 // - updatedAt
 //
-// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+// Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
 // - resource.accessKeyDetails.accessKeyId
 // - resource.accessKeyDetails.principalId
 // - resource.accessKeyDetails.userName
@@ -1696,10 +1723,12 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 // - service.action.awsApiCallAction.remoteIpDetails.city.cityName
 // - service.action.awsApiCallAction.remoteIpDetails.country.countryName
 // - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
 // - service.action.awsApiCallAction.remoteIpDetails.organization.asn
 // - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
 // - service.action.awsApiCallAction.serviceName
 // - service.action.dnsRequestAction.domain
+// - service.action.dnsRequestAction.domainWithSuffix
 // - service.action.networkConnectionAction.blocked
 // - service.action.networkConnectionAction.connectionDirection
 // - service.action.networkConnectionAction.localPortDetails.port
@@ -1707,13 +1736,19 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 // - service.action.networkConnectionAction.remoteIpDetails.city.cityName
 // - service.action.networkConnectionAction.remoteIpDetails.country.countryName
 // - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
 // - service.action.networkConnectionAction.remoteIpDetails.organization.asn
 // - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
 // - service.action.networkConnectionAction.remotePortDetails.port
 // - service.action.awsApiCallAction.remoteAccountDetails.affiliated
 // - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+// - service.action.kubernetesApiCallAction.namespace
+// - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
 // - service.action.kubernetesApiCallAction.requestUri
+// - service.action.kubernetesApiCallAction.statusCode
 // - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.localIpDetails.ipAddressV6
 // - service.action.networkConnectionAction.protocol
 // - service.action.awsApiCallAction.serviceName
 // - service.action.awsApiCallAction.remoteAccountDetails.accountId
@@ -1729,6 +1764,7 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
 // - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+// - service.malwareScanDetails.threats.name
 // - resource.ecsClusterDetails.name
 // - resource.ecsClusterDetails.taskDetails.containers.image
 // - resource.ecsClusterDetails.taskDetails.definitionArn
@@ -1756,12 +1792,16 @@ func (o FilterFindingCriteriaPtrOutput) Criterion() FilterConditionMapOutput {
 }
 
 type FilterTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type IpSetTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -2287,12 +2327,16 @@ func (o MalwareProtectionPlanCfnTaggingPtrOutput) Status() pulumi.StringPtrOutpu
 }
 
 type MalwareProtectionPlanTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type ThreatIntelSetTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

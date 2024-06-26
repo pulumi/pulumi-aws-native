@@ -36,6 +36,9 @@ class GetThreatIntelSetResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique ID of the `threatIntelSet` .
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -85,6 +88,7 @@ def get_threat_intel_set(detector_id: Optional[str] = None,
 
 
     :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+    :param str id: The unique ID of the `threatIntelSet` .
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -108,5 +112,6 @@ def get_threat_intel_set_output(detector_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+    :param str id: The unique ID of the `threatIntelSet` .
     """
     ...

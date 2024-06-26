@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The configuration that defines how you access secrets for Amazon Redshift.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
         /// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.

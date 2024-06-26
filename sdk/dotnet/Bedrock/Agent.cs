@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("foundationModel")]
         public Output<string?> FoundationModel { get; private set; } = null!;
 
+        /// <summary>
+        /// Details about the guardrail associated with the agent.
+        /// </summary>
         [Output("guardrailConfiguration")]
         public Output<Outputs.AgentGuardrailConfiguration?> GuardrailConfiguration { get; private set; } = null!;
 
@@ -263,6 +266,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
 
+        /// <summary>
+        /// Details about the guardrail associated with the agent.
+        /// </summary>
         [Input("guardrailConfiguration")]
         public Input<Inputs.AgentGuardrailConfigurationArgs>? GuardrailConfiguration { get; set; }
 

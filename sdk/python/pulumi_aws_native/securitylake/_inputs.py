@@ -405,7 +405,7 @@ class SubscriberNotificationNotificationConfigurationArgs:
                  https_notification_configuration: Optional[pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationArgs']] = None,
                  sqs_notification_configuration: Optional[pulumi.Input['SubscriberNotificationSqsNotificationConfigurationArgs']] = None):
         """
-        :param pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationArgs'] https_notification_configuration: The configurations for HTTPS subscriber notification.
+        :param pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationArgs'] https_notification_configuration: The configurations used for HTTPS subscriber notification.
         :param pulumi.Input['SubscriberNotificationSqsNotificationConfigurationArgs'] sqs_notification_configuration: The configurations for SQS subscriber notification. The members of this structure are context-dependent.
         """
         if https_notification_configuration is not None:
@@ -417,7 +417,7 @@ class SubscriberNotificationNotificationConfigurationArgs:
     @pulumi.getter(name="httpsNotificationConfiguration")
     def https_notification_configuration(self) -> Optional[pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationArgs']]:
         """
-        The configurations for HTTPS subscriber notification.
+        The configurations used for HTTPS subscriber notification.
         """
         return pulumi.get(self, "https_notification_configuration")
 

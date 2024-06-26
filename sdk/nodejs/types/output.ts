@@ -4551,7 +4551,13 @@ export namespace applicationsignals {
      * If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
      */
     export interface ServiceLevelObjectiveCalendarInterval {
+        /**
+         * Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+         */
         duration: number;
+        /**
+         * Specifies the calendar interval unit.
+         */
         durationUnit: enums.applicationsignals.ServiceLevelObjectiveDurationUnit;
         /**
          * Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
@@ -4583,6 +4589,11 @@ export namespace applicationsignals {
          * If you omit this parameter, 99 is used to represent 99% as the attainment goal.
          */
         attainmentGoal?: number;
+        /**
+         * The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+         *
+         * If you omit this parameter, a rolling interval of 7 days is used.
+         */
         interval?: outputs.applicationsignals.ServiceLevelObjectiveInterval;
         /**
          * The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
@@ -4595,7 +4606,13 @@ export namespace applicationsignals {
      * If you omit this parameter, a rolling interval of 7 days is used.
      */
     export interface ServiceLevelObjectiveInterval {
+        /**
+         * If the interval is a calendar interval, this structure contains the interval specifications.
+         */
         calendarInterval?: outputs.applicationsignals.ServiceLevelObjectiveCalendarInterval;
+        /**
+         * If the interval is a rolling interval, this structure contains the interval specifications.
+         */
         rollingInterval?: outputs.applicationsignals.ServiceLevelObjectiveRollingInterval;
     }
 
@@ -4667,7 +4684,13 @@ export namespace applicationsignals {
      * If the interval is a calendar interval, this structure contains the interval specifications.
      */
     export interface ServiceLevelObjectiveRollingInterval {
+        /**
+         * Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+         */
         duration: number;
+        /**
+         * Specifies the rolling interval unit.
+         */
         durationUnit: enums.applicationsignals.ServiceLevelObjectiveDurationUnit;
     }
 
@@ -4683,6 +4706,9 @@ export namespace applicationsignals {
          * The value that the SLI metric is compared to.
          */
         metricThreshold: number;
+        /**
+         * Use this structure to specify the metric to be used for the SLO.
+         */
         sliMetric: outputs.applicationsignals.ServiceLevelObjectiveSliMetric;
     }
 
@@ -4690,7 +4716,21 @@ export namespace applicationsignals {
      * A structure that contains information about the metric that the SLO monitors.
      */
     export interface ServiceLevelObjectiveSliMetric {
+        /**
+         * If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+         *
+         * This is a string-to-string map. It can include the following fields.
+         *
+         * - `Type` designates the type of object this is.
+         * - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+         * - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+         * - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+         * - `Environment` specifies the location where this object is hosted, or what it belongs to.
+         */
         keyAttributes?: {[key: string]: string};
+        /**
+         * If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
+         */
         metricDataQueries?: outputs.applicationsignals.ServiceLevelObjectiveMetricDataQuery[];
         /**
          * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -18165,7 +18205,7 @@ export namespace ec2 {
          *
          * The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
          *
-         * If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+         * If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
          *
          * > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
          */
@@ -21148,7 +21188,7 @@ export namespace ec2 {
          *
          * The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
          *
-         * If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+         * If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
          *
          * > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
          */
@@ -21464,7 +21504,7 @@ export namespace ec2 {
          */
         excessCapacityTerminationPolicy?: enums.ec2.SpotFleetRequestConfigDataExcessCapacityTerminationPolicy;
         /**
-         * The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
+         * The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
          */
         iamFleetRole: string;
         /**
@@ -29087,7 +29127,7 @@ export namespace guardduty {
          */
         additionalConfiguration?: outputs.guardduty.DetectorCfnFeatureAdditionalConfiguration[];
         /**
-         * Name of the feature.
+         * Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
          */
         name: string;
         /**
@@ -29157,17 +29197,17 @@ export namespace guardduty {
          * - region
          * - severity
          *
-         * To filter on the basis of severity, API and CFN use the following input list for the condition:
+         * To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
          *
          * - *Low* : `["1", "2", "3"]`
          * - *Medium* : `["4", "5", "6"]`
          * - *High* : `["7", "8", "9"]`
          *
-         * For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+         * For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
          * - type
          * - updatedAt
          *
-         * Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+         * Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
          * - resource.accessKeyDetails.accessKeyId
          * - resource.accessKeyDetails.principalId
          * - resource.accessKeyDetails.userName
@@ -29199,10 +29239,12 @@ export namespace guardduty {
          * - service.action.awsApiCallAction.remoteIpDetails.city.cityName
          * - service.action.awsApiCallAction.remoteIpDetails.country.countryName
          * - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+         * - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
          * - service.action.awsApiCallAction.remoteIpDetails.organization.asn
          * - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
          * - service.action.awsApiCallAction.serviceName
          * - service.action.dnsRequestAction.domain
+         * - service.action.dnsRequestAction.domainWithSuffix
          * - service.action.networkConnectionAction.blocked
          * - service.action.networkConnectionAction.connectionDirection
          * - service.action.networkConnectionAction.localPortDetails.port
@@ -29210,13 +29252,19 @@ export namespace guardduty {
          * - service.action.networkConnectionAction.remoteIpDetails.city.cityName
          * - service.action.networkConnectionAction.remoteIpDetails.country.countryName
          * - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+         * - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
          * - service.action.networkConnectionAction.remoteIpDetails.organization.asn
          * - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
          * - service.action.networkConnectionAction.remotePortDetails.port
          * - service.action.awsApiCallAction.remoteAccountDetails.affiliated
          * - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+         * - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+         * - service.action.kubernetesApiCallAction.namespace
+         * - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
          * - service.action.kubernetesApiCallAction.requestUri
+         * - service.action.kubernetesApiCallAction.statusCode
          * - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+         * - service.action.networkConnectionAction.localIpDetails.ipAddressV6
          * - service.action.networkConnectionAction.protocol
          * - service.action.awsApiCallAction.serviceName
          * - service.action.awsApiCallAction.remoteAccountDetails.accountId
@@ -29232,6 +29280,7 @@ export namespace guardduty {
          * - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
          * - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
          * - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+         * - service.malwareScanDetails.threats.name
          * - resource.ecsClusterDetails.name
          * - resource.ecsClusterDetails.taskDetails.containers.image
          * - resource.ecsClusterDetails.taskDetails.definitionArn
@@ -37443,6 +37492,9 @@ export namespace kinesisfirehose {
          * Describes the configuration of a destination in Amazon S3.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        /**
+         * The configuration that defines how you access secrets for HTTP Endpoint destination.
+         */
         secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
     }
 
@@ -37669,6 +37721,9 @@ export namespace kinesisfirehose {
          * The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        /**
+         * The configuration that defines how you access secrets for Amazon Redshift.
+         */
         secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
         /**
          * The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
@@ -37759,8 +37814,17 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamSecretsManagerConfiguration {
+        /**
+         * Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+         */
         enabled: boolean;
+        /**
+         * Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+         */
         roleArn?: string;
+        /**
+         * The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+         */
         secretArn?: string;
     }
 
@@ -37823,6 +37887,9 @@ export namespace kinesisfirehose {
          * Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
          */
         schema: string;
+        /**
+         * The configuration that defines how you access secrets for Snowflake.
+         */
         secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
         /**
          * Optionally configure a Snowflake role. Otherwise the default user role will be used.
@@ -37921,6 +37988,9 @@ export namespace kinesisfirehose {
          * The configuration for the backup Amazon S3 location.
          */
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        /**
+         * The configuration that defines how you access secrets for Splunk.
+         */
         secretsManagerConfiguration?: outputs.kinesisfirehose.DeliveryStreamSecretsManagerConfiguration;
     }
 
@@ -84698,7 +84768,7 @@ export namespace securitylake {
 
     export interface SubscriberNotificationNotificationConfiguration {
         /**
-         * The configurations for HTTPS subscriber notification.
+         * The configurations used for HTTPS subscriber notification.
          */
         httpsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationHttpsNotificationConfiguration;
         /**

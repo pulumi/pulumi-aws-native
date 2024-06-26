@@ -106,7 +106,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     public readonly clientName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
-     * The default redirect URI. Must be in the `CallbackURLs` list.
+     * The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
      *
      * A redirect URI must:
      *
@@ -114,7 +114,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * - Be registered with the authorization server.
      * - Not include a fragment component.
      *
-     * See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+     * For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
      *
      * Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
      *
@@ -345,7 +345,7 @@ export interface UserPoolClientArgs {
      */
     clientName?: pulumi.Input<string>;
     /**
-     * The default redirect URI. Must be in the `CallbackURLs` list.
+     * The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
      *
      * A redirect URI must:
      *
@@ -353,7 +353,7 @@ export interface UserPoolClientArgs {
      * - Be registered with the authorization server.
      * - Not include a fragment component.
      *
-     * See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+     * For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
      *
      * Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
      *

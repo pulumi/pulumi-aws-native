@@ -34,12 +34,17 @@ type LookupServiceLevelObjectiveResult struct {
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime *int `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
-	Description *string                    `pulumi:"description"`
-	Goal        *ServiceLevelObjectiveGoal `pulumi:"goal"`
+	Description *string `pulumi:"description"`
+	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
 	// Epoch time in seconds of the time that this SLO was most recently updated
-	LastUpdatedTime *int                      `pulumi:"lastUpdatedTime"`
-	Sli             *ServiceLevelObjectiveSli `pulumi:"sli"`
-	Tags            []aws.Tag                 `pulumi:"tags"`
+	LastUpdatedTime *int `pulumi:"lastUpdatedTime"`
+	// A structure containing information about the performance metric that this SLO monitors.
+	Sli *ServiceLevelObjectiveSli `pulumi:"sli"`
+	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceLevelObjectiveOutput(ctx *pulumi.Context, args LookupServiceLevelObjectiveOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLevelObjectiveResultOutput {
@@ -93,6 +98,7 @@ func (o LookupServiceLevelObjectiveResultOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 func (o LookupServiceLevelObjectiveResultOutput) Goal() ServiceLevelObjectiveGoalPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveGoal { return v.Goal }).(ServiceLevelObjectiveGoalPtrOutput)
 }
@@ -102,10 +108,14 @@ func (o LookupServiceLevelObjectiveResultOutput) LastUpdatedTime() pulumi.IntPtr
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *int { return v.LastUpdatedTime }).(pulumi.IntPtrOutput)
 }
 
+// A structure containing information about the performance metric that this SLO monitors.
 func (o LookupServiceLevelObjectiveResultOutput) Sli() ServiceLevelObjectiveSliPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveSli { return v.Sli }).(ServiceLevelObjectiveSliPtrOutput)
 }
 
+// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 func (o LookupServiceLevelObjectiveResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

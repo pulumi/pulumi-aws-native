@@ -59,7 +59,8 @@ type LookupAgentResult struct {
 	// Failure Reasons for Error.
 	FailureReasons []string `pulumi:"failureReasons"`
 	// ARN or name of a Bedrock model.
-	FoundationModel        *string                      `pulumi:"foundationModel"`
+	FoundationModel *string `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration *AgentGuardrailConfiguration `pulumi:"guardrailConfiguration"`
 	// Max Session Time.
 	IdleSessionTtlInSeconds *float64 `pulumi:"idleSessionTtlInSeconds"`
@@ -191,6 +192,7 @@ func (o LookupAgentResultOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }
 
+// Details about the guardrail associated with the agent.
 func (o LookupAgentResultOutput) GuardrailConfiguration() AgentGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentGuardrailConfiguration { return v.GuardrailConfiguration }).(AgentGuardrailConfigurationPtrOutput)
 }

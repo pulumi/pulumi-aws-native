@@ -41,6 +41,9 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
     public readonly activate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The unique ID of the `threatIntelSet` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.

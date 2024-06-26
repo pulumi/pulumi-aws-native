@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
         [Input("metricThreshold", required: true)]
         public Input<double> MetricThreshold { get; set; } = null!;
 
+        /// <summary>
+        /// Use this structure to specify the metric to be used for the SLO.
+        /// </summary>
         [Input("sliMetric", required: true)]
         public Input<Inputs.ServiceLevelObjectiveSliMetricArgs> SliMetric { get; set; } = null!;
 

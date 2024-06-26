@@ -24,10 +24,16 @@ export interface GetThreatIntelSetArgs {
      * The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
      */
     detectorId: string;
+    /**
+     * The unique ID of the `threatIntelSet` .
+     */
     id: string;
 }
 
 export interface GetThreatIntelSetResult {
+    /**
+     * The unique ID of the `threatIntelSet` .
+     */
     readonly id?: string;
     /**
      * The URI of the file that contains the ThreatIntelSet.
@@ -56,5 +62,8 @@ export interface GetThreatIntelSetOutputArgs {
      * The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
      */
     detectorId: pulumi.Input<string>;
+    /**
+     * The unique ID of the `threatIntelSet` .
+     */
     id: pulumi.Input<string>;
 }

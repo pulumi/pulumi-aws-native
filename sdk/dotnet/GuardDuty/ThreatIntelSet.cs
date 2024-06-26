@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the `threatIntelSet` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

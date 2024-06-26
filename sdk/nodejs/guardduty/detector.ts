@@ -37,6 +37,9 @@ export class Detector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detector.__pulumiType;
     }
 
+    /**
+     * The unique ID of the detector.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Describes which data sources will be enabled for the detector.

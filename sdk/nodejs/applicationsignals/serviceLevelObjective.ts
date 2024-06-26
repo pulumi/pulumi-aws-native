@@ -49,6 +49,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * An optional description for this SLO. Default is 'No description'
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+     */
     public readonly goal!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveGoal | undefined>;
     /**
      * Epoch time in seconds of the time that this SLO was most recently updated
@@ -58,7 +61,15 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * The name of this SLO.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A structure containing information about the performance metric that this SLO monitors.
+     */
     public readonly sli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveSli>;
+    /**
+     * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -108,11 +119,22 @@ export interface ServiceLevelObjectiveArgs {
      * An optional description for this SLO. Default is 'No description'
      */
     description?: pulumi.Input<string>;
+    /**
+     * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+     */
     goal?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveGoalArgs>;
     /**
      * The name of this SLO.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A structure containing information about the performance metric that this SLO monitors.
+     */
     sli: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveSliArgs>;
+    /**
+     * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }
