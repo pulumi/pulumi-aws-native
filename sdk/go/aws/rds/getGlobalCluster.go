@@ -30,6 +30,8 @@ type LookupGlobalClusterArgs struct {
 type LookupGlobalClusterResult struct {
 	// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 }
@@ -73,6 +75,11 @@ func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutputWithCo
 // The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
 func (o LookupGlobalClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalClusterResult) *string { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

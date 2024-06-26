@@ -28,13 +28,17 @@ class EvaluationFormArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EvaluationForm resource.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]] items: The list of evaluation form items.
+        :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+                 *Minimum size*: 1
+                 *Maximum size*: 100
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
-        :param pulumi.Input[str] title: The title of the evaluation form.
+                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
+        :param pulumi.Input[str] title: A title of the evaluation form.
         :param pulumi.Input[str] description: The description of the evaluation form.
-        :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: The scoring strategy.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
+                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: A scoring strategy of the evaluation form.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "items", items)
@@ -51,7 +55,7 @@ class EvaluationFormArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the instance.
+        The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -63,7 +67,9 @@ class EvaluationFormArgs:
     @pulumi.getter
     def items(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]]:
         """
-        The list of evaluation form items.
+        Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+          *Minimum size*: 1
+          *Maximum size*: 100
         """
         return pulumi.get(self, "items")
 
@@ -76,6 +82,7 @@ class EvaluationFormArgs:
     def status(self) -> pulumi.Input['EvaluationFormStatus']:
         """
         The status of the evaluation form.
+          *Allowed values*: ``DRAFT`` | ``ACTIVE``
         """
         return pulumi.get(self, "status")
 
@@ -87,7 +94,7 @@ class EvaluationFormArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        The title of the evaluation form.
+        A title of the evaluation form.
         """
         return pulumi.get(self, "title")
 
@@ -100,6 +107,7 @@ class EvaluationFormArgs:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description of the evaluation form.
+          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -111,7 +119,7 @@ class EvaluationFormArgs:
     @pulumi.getter(name="scoringStrategy")
     def scoring_strategy(self) -> Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']]:
         """
-        The scoring strategy.
+        A scoring strategy of the evaluation form.
         """
         return pulumi.get(self, "scoring_strategy")
 
@@ -123,7 +131,7 @@ class EvaluationFormArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        One or more tags.
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
@@ -146,17 +154,21 @@ class EvaluationForm(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Connect::EvaluationForm
+        Creates an evaluation form for the specified CON instance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the evaluation form.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]] items: The list of evaluation form items.
-        :param pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']] scoring_strategy: The scoring strategy.
+                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+                 *Minimum size*: 1
+                 *Maximum size*: 100
+        :param pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
-        :param pulumi.Input[str] title: The title of the evaluation form.
+                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[str] title: A title of the evaluation form.
         """
         ...
     @overload
@@ -165,7 +177,7 @@ class EvaluationForm(pulumi.CustomResource):
                  args: EvaluationFormArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Connect::EvaluationForm
+        Creates an evaluation form for the specified CON instance.
 
         :param str resource_name: The name of the resource.
         :param EvaluationFormArgs args: The arguments to use to populate this resource's properties.
@@ -251,6 +263,7 @@ class EvaluationForm(pulumi.CustomResource):
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the evaluation form.
+          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -258,7 +271,7 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter(name="evaluationFormArn")
     def evaluation_form_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) for the evaluation form.
+        The Amazon Resource Name (ARN) of the evaluation form.
         """
         return pulumi.get(self, "evaluation_form_arn")
 
@@ -266,7 +279,7 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the instance.
+        The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -274,7 +287,9 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter
     def items(self) -> pulumi.Output[Sequence['outputs.EvaluationFormBaseItem']]:
         """
-        The list of evaluation form items.
+        Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+          *Minimum size*: 1
+          *Maximum size*: 100
         """
         return pulumi.get(self, "items")
 
@@ -282,7 +297,7 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter(name="scoringStrategy")
     def scoring_strategy(self) -> pulumi.Output[Optional['outputs.EvaluationFormScoringStrategy']]:
         """
-        The scoring strategy.
+        A scoring strategy of the evaluation form.
         """
         return pulumi.get(self, "scoring_strategy")
 
@@ -291,6 +306,7 @@ class EvaluationForm(pulumi.CustomResource):
     def status(self) -> pulumi.Output['EvaluationFormStatus']:
         """
         The status of the evaluation form.
+          *Allowed values*: ``DRAFT`` | ``ACTIVE``
         """
         return pulumi.get(self, "status")
 
@@ -298,7 +314,7 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        One or more tags.
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
@@ -306,7 +322,7 @@ class EvaluationForm(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        The title of the evaluation form.
+        A title of the evaluation form.
         """
         return pulumi.get(self, "title")
 

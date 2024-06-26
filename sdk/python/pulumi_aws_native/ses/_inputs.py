@@ -14,6 +14,7 @@ __all__ = [
     'ConfigurationSetDeliveryOptionsArgs',
     'ConfigurationSetEventDestinationCloudWatchDestinationArgs',
     'ConfigurationSetEventDestinationDimensionConfigurationArgs',
+    'ConfigurationSetEventDestinationEventBridgeDestinationArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs',
     'ConfigurationSetEventDestinationSnsDestinationArgs',
@@ -175,11 +176,31 @@ class ConfigurationSetEventDestinationDimensionConfigurationArgs:
 
 
 @pulumi.input_type
+class ConfigurationSetEventDestinationEventBridgeDestinationArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
+
+
+@pulumi.input_type
 class ConfigurationSetEventDestinationEventDestinationArgs:
     def __init__(__self__, *,
                  matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_bridge_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']] = None,
                  kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
@@ -187,6 +208,7 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param pulumi.Input[bool] enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        :param pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs'] event_bridge_destination: An object that contains Event bus ARN associated with the event bridge destination.
         :param pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param pulumi.Input[str] name: The name of the event destination set.
         :param pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs'] sns_destination: An object that contains SNS topic ARN associated event destination.
@@ -196,6 +218,8 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
             pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_bridge_destination is not None:
+            pulumi.set(__self__, "event_bridge_destination", event_bridge_destination)
         if kinesis_firehose_destination is not None:
             pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
         if name is not None:
@@ -238,6 +262,18 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventBridgeDestination")
+    def event_bridge_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]:
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        return pulumi.get(self, "event_bridge_destination")
+
+    @event_bridge_destination.setter
+    def event_bridge_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]):
+        pulumi.set(self, "event_bridge_destination", value)
 
     @property
     @pulumi.getter(name="kinesisFirehoseDestination")
@@ -439,24 +475,23 @@ class ConfigurationSetSuppressionOptionsArgs:
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[pulumi.Input[str]] = None):
+                 custom_redirect_domain: pulumi.Input[str]):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        if custom_redirect_domain is not None:
-            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> Optional[pulumi.Input[str]]:
+    def custom_redirect_domain(self) -> pulumi.Input[str]:
         """
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
     @custom_redirect_domain.setter
-    def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
+    def custom_redirect_domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "custom_redirect_domain", value)
 
 

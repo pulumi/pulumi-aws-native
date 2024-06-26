@@ -207,9 +207,9 @@ type ContactFlowTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The evaluation form base item.
+// An item at the root level. All items must be sections.
 type EvaluationFormBaseItem struct {
-	// The evaluation form section item
+	// A subsection or inner section of an item.
 	Section EvaluationFormSection `pulumi:"section"`
 }
 
@@ -224,9 +224,9 @@ type EvaluationFormBaseItemInput interface {
 	ToEvaluationFormBaseItemOutputWithContext(context.Context) EvaluationFormBaseItemOutput
 }
 
-// The evaluation form base item.
+// An item at the root level. All items must be sections.
 type EvaluationFormBaseItemArgs struct {
-	// The evaluation form section item
+	// A subsection or inner section of an item.
 	Section EvaluationFormSectionInput `pulumi:"section"`
 }
 
@@ -267,7 +267,7 @@ func (i EvaluationFormBaseItemArray) ToEvaluationFormBaseItemArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormBaseItemArrayOutput)
 }
 
-// The evaluation form base item.
+// An item at the root level. All items must be sections.
 type EvaluationFormBaseItemOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormBaseItemOutput) ElementType() reflect.Type {
@@ -282,7 +282,7 @@ func (o EvaluationFormBaseItemOutput) ToEvaluationFormBaseItemOutputWithContext(
 	return o
 }
 
-// The evaluation form section item
+// A subsection or inner section of an item.
 func (o EvaluationFormBaseItemOutput) Section() EvaluationFormSectionOutput {
 	return o.ApplyT(func(v EvaluationFormBaseItem) EvaluationFormSection { return v.Section }).(EvaluationFormSectionOutput)
 }
@@ -307,11 +307,11 @@ func (o EvaluationFormBaseItemArrayOutput) Index(i pulumi.IntInput) EvaluationFo
 	}).(EvaluationFormBaseItemOutput)
 }
 
-// The evaluation form item.
+// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 type EvaluationFormItem struct {
-	// The evaluation form question item
+	// The information of the question.
 	Question *EvaluationFormQuestion `pulumi:"question"`
-	// The evaluation form section item
+	// The information of the section.
 	Section *EvaluationFormSection `pulumi:"section"`
 }
 
@@ -326,11 +326,11 @@ type EvaluationFormItemInput interface {
 	ToEvaluationFormItemOutputWithContext(context.Context) EvaluationFormItemOutput
 }
 
-// The evaluation form item.
+// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 type EvaluationFormItemArgs struct {
-	// The evaluation form question item
+	// The information of the question.
 	Question EvaluationFormQuestionPtrInput `pulumi:"question"`
-	// The evaluation form section item
+	// The information of the section.
 	Section EvaluationFormSectionPtrInput `pulumi:"section"`
 }
 
@@ -371,7 +371,7 @@ func (i EvaluationFormItemArray) ToEvaluationFormItemArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormItemArrayOutput)
 }
 
-// The evaluation form item.
+// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 type EvaluationFormItemOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormItemOutput) ElementType() reflect.Type {
@@ -386,12 +386,12 @@ func (o EvaluationFormItemOutput) ToEvaluationFormItemOutputWithContext(ctx cont
 	return o
 }
 
-// The evaluation form question item
+// The information of the question.
 func (o EvaluationFormItemOutput) Question() EvaluationFormQuestionPtrOutput {
 	return o.ApplyT(func(v EvaluationFormItem) *EvaluationFormQuestion { return v.Question }).(EvaluationFormQuestionPtrOutput)
 }
 
-// The evaluation form section item
+// The information of the section.
 func (o EvaluationFormItemOutput) Section() EvaluationFormSectionPtrOutput {
 	return o.ApplyT(func(v EvaluationFormItem) *EvaluationFormSection { return v.Section }).(EvaluationFormSectionPtrOutput)
 }
@@ -416,9 +416,9 @@ func (o EvaluationFormItemArrayOutput) Index(i pulumi.IntInput) EvaluationFormIt
 	}).(EvaluationFormItemOutput)
 }
 
-// The automation properties for the numeric question.
+// Information about the automation configuration in numeric questions.
 type EvaluationFormNumericQuestionAutomation struct {
-	// The automation property name of the question.
+	// The property value of the automation.
 	PropertyValue EvaluationFormNumericQuestionPropertyValueAutomation `pulumi:"propertyValue"`
 }
 
@@ -433,9 +433,9 @@ type EvaluationFormNumericQuestionAutomationInput interface {
 	ToEvaluationFormNumericQuestionAutomationOutputWithContext(context.Context) EvaluationFormNumericQuestionAutomationOutput
 }
 
-// The automation properties for the numeric question.
+// Information about the automation configuration in numeric questions.
 type EvaluationFormNumericQuestionAutomationArgs struct {
-	// The automation property name of the question.
+	// The property value of the automation.
 	PropertyValue EvaluationFormNumericQuestionPropertyValueAutomationInput `pulumi:"propertyValue"`
 }
 
@@ -492,7 +492,7 @@ func (i *evaluationFormNumericQuestionAutomationPtrType) ToEvaluationFormNumeric
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionAutomationPtrOutput)
 }
 
-// The automation properties for the numeric question.
+// Information about the automation configuration in numeric questions.
 type EvaluationFormNumericQuestionAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormNumericQuestionAutomationOutput) ElementType() reflect.Type {
@@ -517,7 +517,7 @@ func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQu
 	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
 }
 
-// The automation property name of the question.
+// The property value of the automation.
 func (o EvaluationFormNumericQuestionAutomationOutput) PropertyValue() EvaluationFormNumericQuestionPropertyValueAutomationOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionAutomation) EvaluationFormNumericQuestionPropertyValueAutomation {
 		return v.PropertyValue
@@ -548,7 +548,7 @@ func (o EvaluationFormNumericQuestionAutomationPtrOutput) Elem() EvaluationFormN
 	}).(EvaluationFormNumericQuestionAutomationOutput)
 }
 
-// The automation property name of the question.
+// The property value of the automation.
 func (o EvaluationFormNumericQuestionAutomationPtrOutput) PropertyValue() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionAutomation) *EvaluationFormNumericQuestionPropertyValueAutomation {
 		if v == nil {
@@ -558,15 +558,17 @@ func (o EvaluationFormNumericQuestionAutomationPtrOutput) PropertyValue() Evalua
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
 }
 
-// The option ranges used for scoring in numeric questions.
+// Information about the option range used for scoring in numeric questions.
 type EvaluationFormNumericQuestionOption struct {
-	// The flag to mark the option as automatic fail.
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail *bool `pulumi:"automaticFail"`
-	// The maximum value of the option range.
+	// The maximum answer value of the range option.
 	MaxValue int `pulumi:"maxValue"`
-	// The minimum value of the option range.
+	// The minimum answer value of the range option.
 	MinValue int `pulumi:"minValue"`
-	// The score of the option range.
+	// The score assigned to answer values within the range option.
+	//   *Minimum*: 0
+	//   *Maximum*: 10
 	Score *int `pulumi:"score"`
 }
 
@@ -581,15 +583,17 @@ type EvaluationFormNumericQuestionOptionInput interface {
 	ToEvaluationFormNumericQuestionOptionOutputWithContext(context.Context) EvaluationFormNumericQuestionOptionOutput
 }
 
-// The option ranges used for scoring in numeric questions.
+// Information about the option range used for scoring in numeric questions.
 type EvaluationFormNumericQuestionOptionArgs struct {
-	// The flag to mark the option as automatic fail.
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
-	// The maximum value of the option range.
+	// The maximum answer value of the range option.
 	MaxValue pulumi.IntInput `pulumi:"maxValue"`
-	// The minimum value of the option range.
+	// The minimum answer value of the range option.
 	MinValue pulumi.IntInput `pulumi:"minValue"`
-	// The score of the option range.
+	// The score assigned to answer values within the range option.
+	//   *Minimum*: 0
+	//   *Maximum*: 10
 	Score pulumi.IntPtrInput `pulumi:"score"`
 }
 
@@ -630,7 +634,7 @@ func (i EvaluationFormNumericQuestionOptionArray) ToEvaluationFormNumericQuestio
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionOptionArrayOutput)
 }
 
-// The option ranges used for scoring in numeric questions.
+// Information about the option range used for scoring in numeric questions.
 type EvaluationFormNumericQuestionOptionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormNumericQuestionOptionOutput) ElementType() reflect.Type {
@@ -645,22 +649,25 @@ func (o EvaluationFormNumericQuestionOptionOutput) ToEvaluationFormNumericQuesti
 	return o
 }
 
-// The flag to mark the option as automatic fail.
+// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 func (o EvaluationFormNumericQuestionOptionOutput) AutomaticFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) *bool { return v.AutomaticFail }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum value of the option range.
+// The maximum answer value of the range option.
 func (o EvaluationFormNumericQuestionOptionOutput) MaxValue() pulumi.IntOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) int { return v.MaxValue }).(pulumi.IntOutput)
 }
 
-// The minimum value of the option range.
+// The minimum answer value of the range option.
 func (o EvaluationFormNumericQuestionOptionOutput) MinValue() pulumi.IntOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) int { return v.MinValue }).(pulumi.IntOutput)
 }
 
-// The score of the option range.
+// The score assigned to answer values within the range option.
+//
+//	*Minimum*: 0
+//	*Maximum*: 10
 func (o EvaluationFormNumericQuestionOptionOutput) Score() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) *int { return v.Score }).(pulumi.IntPtrOutput)
 }
@@ -685,15 +692,15 @@ func (o EvaluationFormNumericQuestionOptionArrayOutput) Index(i pulumi.IntInput)
 	}).(EvaluationFormNumericQuestionOptionOutput)
 }
 
-// The properties of the numeric question.
+// Information about properties for a numeric question in an evaluation form.
 type EvaluationFormNumericQuestionProperties struct {
-	// The automation properties for the numeric question.
+	// The automation properties of the numeric question.
 	Automation *EvaluationFormNumericQuestionAutomation `pulumi:"automation"`
-	// The maximum value for answers of the question.
+	// The maximum answer value.
 	MaxValue int `pulumi:"maxValue"`
-	// The minimum value for answers of the question.
+	// The minimum answer value.
 	MinValue int `pulumi:"minValue"`
-	// The list of option ranges used for scoring.
+	// The scoring options of the numeric question.
 	Options []EvaluationFormNumericQuestionOption `pulumi:"options"`
 }
 
@@ -708,15 +715,15 @@ type EvaluationFormNumericQuestionPropertiesInput interface {
 	ToEvaluationFormNumericQuestionPropertiesOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertiesOutput
 }
 
-// The properties of the numeric question.
+// Information about properties for a numeric question in an evaluation form.
 type EvaluationFormNumericQuestionPropertiesArgs struct {
-	// The automation properties for the numeric question.
+	// The automation properties of the numeric question.
 	Automation EvaluationFormNumericQuestionAutomationPtrInput `pulumi:"automation"`
-	// The maximum value for answers of the question.
+	// The maximum answer value.
 	MaxValue pulumi.IntInput `pulumi:"maxValue"`
-	// The minimum value for answers of the question.
+	// The minimum answer value.
 	MinValue pulumi.IntInput `pulumi:"minValue"`
-	// The list of option ranges used for scoring.
+	// The scoring options of the numeric question.
 	Options EvaluationFormNumericQuestionOptionArrayInput `pulumi:"options"`
 }
 
@@ -773,7 +780,7 @@ func (i *evaluationFormNumericQuestionPropertiesPtrType) ToEvaluationFormNumeric
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertiesPtrOutput)
 }
 
-// The properties of the numeric question.
+// Information about properties for a numeric question in an evaluation form.
 type EvaluationFormNumericQuestionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormNumericQuestionPropertiesOutput) ElementType() reflect.Type {
@@ -798,24 +805,24 @@ func (o EvaluationFormNumericQuestionPropertiesOutput) ToEvaluationFormNumericQu
 	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
 }
 
-// The automation properties for the numeric question.
+// The automation properties of the numeric question.
 func (o EvaluationFormNumericQuestionPropertiesOutput) Automation() EvaluationFormNumericQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) *EvaluationFormNumericQuestionAutomation {
 		return v.Automation
 	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
 }
 
-// The maximum value for answers of the question.
+// The maximum answer value.
 func (o EvaluationFormNumericQuestionPropertiesOutput) MaxValue() pulumi.IntOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) int { return v.MaxValue }).(pulumi.IntOutput)
 }
 
-// The minimum value for answers of the question.
+// The minimum answer value.
 func (o EvaluationFormNumericQuestionPropertiesOutput) MinValue() pulumi.IntOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) int { return v.MinValue }).(pulumi.IntOutput)
 }
 
-// The list of option ranges used for scoring.
+// The scoring options of the numeric question.
 func (o EvaluationFormNumericQuestionPropertiesOutput) Options() EvaluationFormNumericQuestionOptionArrayOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) []EvaluationFormNumericQuestionOption {
 		return v.Options
@@ -846,7 +853,7 @@ func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Elem() EvaluationFormN
 	}).(EvaluationFormNumericQuestionPropertiesOutput)
 }
 
-// The automation properties for the numeric question.
+// The automation properties of the numeric question.
 func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Automation() EvaluationFormNumericQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *EvaluationFormNumericQuestionAutomation {
 		if v == nil {
@@ -856,7 +863,7 @@ func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Automation() Evaluatio
 	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
 }
 
-// The maximum value for answers of the question.
+// The maximum answer value.
 func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MaxValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *int {
 		if v == nil {
@@ -866,7 +873,7 @@ func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MaxValue() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum value for answers of the question.
+// The minimum answer value.
 func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MinValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *int {
 		if v == nil {
@@ -876,7 +883,7 @@ func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MinValue() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The list of option ranges used for scoring.
+// The scoring options of the numeric question.
 func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Options() EvaluationFormNumericQuestionOptionArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) []EvaluationFormNumericQuestionOption {
 		if v == nil {
@@ -886,9 +893,9 @@ func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Options() EvaluationFo
 	}).(EvaluationFormNumericQuestionOptionArrayOutput)
 }
 
-// The automation property name of the question.
+// Information about the property value used in automation of a numeric questions.
 type EvaluationFormNumericQuestionPropertyValueAutomation struct {
-	// The automation property label.
+	// The property label of the automation.
 	Label EvaluationFormNumericQuestionPropertyValueAutomationLabel `pulumi:"label"`
 }
 
@@ -903,9 +910,9 @@ type EvaluationFormNumericQuestionPropertyValueAutomationInput interface {
 	ToEvaluationFormNumericQuestionPropertyValueAutomationOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertyValueAutomationOutput
 }
 
-// The automation property name of the question.
+// Information about the property value used in automation of a numeric questions.
 type EvaluationFormNumericQuestionPropertyValueAutomationArgs struct {
-	// The automation property label.
+	// The property label of the automation.
 	Label EvaluationFormNumericQuestionPropertyValueAutomationLabelInput `pulumi:"label"`
 }
 
@@ -962,7 +969,7 @@ func (i *evaluationFormNumericQuestionPropertyValueAutomationPtrType) ToEvaluati
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
 }
 
-// The automation property name of the question.
+// Information about the property value used in automation of a numeric questions.
 type EvaluationFormNumericQuestionPropertyValueAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormNumericQuestionPropertyValueAutomationOutput) ElementType() reflect.Type {
@@ -987,7 +994,7 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) ToEvaluation
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
 }
 
-// The automation property label.
+// The property label of the automation.
 func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) Label() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionPropertyValueAutomation) EvaluationFormNumericQuestionPropertyValueAutomationLabel {
 		return v.Label
@@ -1018,7 +1025,7 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Elem() Ev
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationOutput)
 }
 
-// The automation property label.
+// The property label of the automation.
 func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Label() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionPropertyValueAutomation) *EvaluationFormNumericQuestionPropertyValueAutomationLabel {
 		if v == nil {
@@ -1028,21 +1035,27 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Label() E
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
 }
 
-// The evaluation form question.
+// Information about a question from an evaluation form.
 type EvaluationFormQuestion struct {
-	// The instructions for the question.
+	// The instructions of the section.
+	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Instructions *string `pulumi:"instructions"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled *bool `pulumi:"notApplicableEnabled"`
 	// The type of the question.
+	//   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 	QuestionType EvaluationFormQuestionQuestionType `pulumi:"questionType"`
-	// The properties of the question
+	// The properties of the type of question. Text questions do not have to define question type properties.
 	QuestionTypeProperties *EvaluationFormQuestionTypeProperties `pulumi:"questionTypeProperties"`
-	// The identifier used to reference the question.
+	// The identifier of the question. An identifier must be unique within the evaluation form.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
 	// The title of the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title string `pulumi:"title"`
-	// The question weight used for scoring.
+	// The scoring weight of the section.
+	//   *Minimum*: 0
+	//   *Maximum*: 100
 	Weight *float64 `pulumi:"weight"`
 }
 
@@ -1057,21 +1070,27 @@ type EvaluationFormQuestionInput interface {
 	ToEvaluationFormQuestionOutputWithContext(context.Context) EvaluationFormQuestionOutput
 }
 
-// The evaluation form question.
+// Information about a question from an evaluation form.
 type EvaluationFormQuestionArgs struct {
-	// The instructions for the question.
+	// The instructions of the section.
+	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled pulumi.BoolPtrInput `pulumi:"notApplicableEnabled"`
 	// The type of the question.
+	//   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 	QuestionType EvaluationFormQuestionQuestionTypeInput `pulumi:"questionType"`
-	// The properties of the question
+	// The properties of the type of question. Text questions do not have to define question type properties.
 	QuestionTypeProperties EvaluationFormQuestionTypePropertiesPtrInput `pulumi:"questionTypeProperties"`
-	// The identifier used to reference the question.
+	// The identifier of the question. An identifier must be unique within the evaluation form.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
 	// The title of the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title pulumi.StringInput `pulumi:"title"`
-	// The question weight used for scoring.
+	// The scoring weight of the section.
+	//   *Minimum*: 0
+	//   *Maximum*: 100
 	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
@@ -1128,7 +1147,7 @@ func (i *evaluationFormQuestionPtrType) ToEvaluationFormQuestionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionPtrOutput)
 }
 
-// The evaluation form question.
+// Information about a question from an evaluation form.
 type EvaluationFormQuestionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormQuestionOutput) ElementType() reflect.Type {
@@ -1153,7 +1172,9 @@ func (o EvaluationFormQuestionOutput) ToEvaluationFormQuestionPtrOutputWithConte
 	}).(EvaluationFormQuestionPtrOutput)
 }
 
-// The instructions for the question.
+// The instructions of the section.
+//
+//	*Length Constraints*: Minimum length of 0. Maximum length of 1024.
 func (o EvaluationFormQuestionOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
@@ -1164,26 +1185,35 @@ func (o EvaluationFormQuestionOutput) NotApplicableEnabled() pulumi.BoolPtrOutpu
 }
 
 // The type of the question.
+//
+//	*Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 func (o EvaluationFormQuestionOutput) QuestionType() EvaluationFormQuestionQuestionTypeOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) EvaluationFormQuestionQuestionType { return v.QuestionType }).(EvaluationFormQuestionQuestionTypeOutput)
 }
 
-// The properties of the question
+// The properties of the type of question. Text questions do not have to define question type properties.
 func (o EvaluationFormQuestionOutput) QuestionTypeProperties() EvaluationFormQuestionTypePropertiesPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *EvaluationFormQuestionTypeProperties { return v.QuestionTypeProperties }).(EvaluationFormQuestionTypePropertiesPtrOutput)
 }
 
-// The identifier used to reference the question.
+// The identifier of the question. An identifier must be unique within the evaluation form.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormQuestionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) string { return v.RefId }).(pulumi.StringOutput)
 }
 
 // The title of the question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 350.
 func (o EvaluationFormQuestionOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// The question weight used for scoring.
+// The scoring weight of the section.
+//
+//	*Minimum*: 0
+//	*Maximum*: 100
 func (o EvaluationFormQuestionOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
@@ -1212,7 +1242,9 @@ func (o EvaluationFormQuestionPtrOutput) Elem() EvaluationFormQuestionOutput {
 	}).(EvaluationFormQuestionOutput)
 }
 
-// The instructions for the question.
+// The instructions of the section.
+//
+//	*Length Constraints*: Minimum length of 0. Maximum length of 1024.
 func (o EvaluationFormQuestionPtrOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
 		if v == nil {
@@ -1233,6 +1265,8 @@ func (o EvaluationFormQuestionPtrOutput) NotApplicableEnabled() pulumi.BoolPtrOu
 }
 
 // The type of the question.
+//
+//	*Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 func (o EvaluationFormQuestionPtrOutput) QuestionType() EvaluationFormQuestionQuestionTypePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormQuestionQuestionType {
 		if v == nil {
@@ -1242,7 +1276,7 @@ func (o EvaluationFormQuestionPtrOutput) QuestionType() EvaluationFormQuestionQu
 	}).(EvaluationFormQuestionQuestionTypePtrOutput)
 }
 
-// The properties of the question
+// The properties of the type of question. Text questions do not have to define question type properties.
 func (o EvaluationFormQuestionPtrOutput) QuestionTypeProperties() EvaluationFormQuestionTypePropertiesPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormQuestionTypeProperties {
 		if v == nil {
@@ -1252,7 +1286,9 @@ func (o EvaluationFormQuestionPtrOutput) QuestionTypeProperties() EvaluationForm
 	}).(EvaluationFormQuestionTypePropertiesPtrOutput)
 }
 
-// The identifier used to reference the question.
+// The identifier of the question. An identifier must be unique within the evaluation form.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormQuestionPtrOutput) RefId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
 		if v == nil {
@@ -1263,6 +1299,8 @@ func (o EvaluationFormQuestionPtrOutput) RefId() pulumi.StringPtrOutput {
 }
 
 // The title of the question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 350.
 func (o EvaluationFormQuestionPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
 		if v == nil {
@@ -1272,7 +1310,10 @@ func (o EvaluationFormQuestionPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The question weight used for scoring.
+// The scoring weight of the section.
+//
+//	*Minimum*: 0
+//	*Maximum*: 100
 func (o EvaluationFormQuestionPtrOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *float64 {
 		if v == nil {
@@ -1282,11 +1323,11 @@ func (o EvaluationFormQuestionPtrOutput) Weight() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The properties of the question.
+// Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
 type EvaluationFormQuestionTypeProperties struct {
 	// The properties of the numeric question.
 	Numeric *EvaluationFormNumericQuestionProperties `pulumi:"numeric"`
-	// The properties of the single-select question.
+	// The properties of the numeric question.
 	SingleSelect *EvaluationFormSingleSelectQuestionProperties `pulumi:"singleSelect"`
 }
 
@@ -1301,11 +1342,11 @@ type EvaluationFormQuestionTypePropertiesInput interface {
 	ToEvaluationFormQuestionTypePropertiesOutputWithContext(context.Context) EvaluationFormQuestionTypePropertiesOutput
 }
 
-// The properties of the question.
+// Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
 type EvaluationFormQuestionTypePropertiesArgs struct {
 	// The properties of the numeric question.
 	Numeric EvaluationFormNumericQuestionPropertiesPtrInput `pulumi:"numeric"`
-	// The properties of the single-select question.
+	// The properties of the numeric question.
 	SingleSelect EvaluationFormSingleSelectQuestionPropertiesPtrInput `pulumi:"singleSelect"`
 }
 
@@ -1362,7 +1403,7 @@ func (i *evaluationFormQuestionTypePropertiesPtrType) ToEvaluationFormQuestionTy
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionTypePropertiesPtrOutput)
 }
 
-// The properties of the question.
+// Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
 type EvaluationFormQuestionTypePropertiesOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormQuestionTypePropertiesOutput) ElementType() reflect.Type {
@@ -1394,7 +1435,7 @@ func (o EvaluationFormQuestionTypePropertiesOutput) Numeric() EvaluationFormNume
 	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
 }
 
-// The properties of the single-select question.
+// The properties of the numeric question.
 func (o EvaluationFormQuestionTypePropertiesOutput) SingleSelect() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestionTypeProperties) *EvaluationFormSingleSelectQuestionProperties {
 		return v.SingleSelect
@@ -1435,7 +1476,7 @@ func (o EvaluationFormQuestionTypePropertiesPtrOutput) Numeric() EvaluationFormN
 	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
 }
 
-// The properties of the single-select question.
+// The properties of the numeric question.
 func (o EvaluationFormQuestionTypePropertiesPtrOutput) SingleSelect() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestionTypeProperties) *EvaluationFormSingleSelectQuestionProperties {
 		if v == nil {
@@ -1445,11 +1486,13 @@ func (o EvaluationFormQuestionTypePropertiesPtrOutput) SingleSelect() Evaluation
 	}).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
 }
 
-// The scoring strategy.
+// A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategy struct {
-	// The scoring mode.
+	// The scoring mode of the evaluation form.
+	//   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 	Mode EvaluationFormScoringStrategyMode `pulumi:"mode"`
-	// The scoring status.
+	// The scoring status of the evaluation form.
+	//   *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatus `pulumi:"status"`
 }
 
@@ -1464,11 +1507,13 @@ type EvaluationFormScoringStrategyInput interface {
 	ToEvaluationFormScoringStrategyOutputWithContext(context.Context) EvaluationFormScoringStrategyOutput
 }
 
-// The scoring strategy.
+// A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategyArgs struct {
-	// The scoring mode.
+	// The scoring mode of the evaluation form.
+	//   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 	Mode EvaluationFormScoringStrategyModeInput `pulumi:"mode"`
-	// The scoring status.
+	// The scoring status of the evaluation form.
+	//   *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatusInput `pulumi:"status"`
 }
 
@@ -1525,7 +1570,7 @@ func (i *evaluationFormScoringStrategyPtrType) ToEvaluationFormScoringStrategyPt
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoringStrategyPtrOutput)
 }
 
-// The scoring strategy.
+// A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategyOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormScoringStrategyOutput) ElementType() reflect.Type {
@@ -1550,12 +1595,16 @@ func (o EvaluationFormScoringStrategyOutput) ToEvaluationFormScoringStrategyPtrO
 	}).(EvaluationFormScoringStrategyPtrOutput)
 }
 
-// The scoring mode.
+// The scoring mode of the evaluation form.
+//
+//	*Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 func (o EvaluationFormScoringStrategyOutput) Mode() EvaluationFormScoringStrategyModeOutput {
 	return o.ApplyT(func(v EvaluationFormScoringStrategy) EvaluationFormScoringStrategyMode { return v.Mode }).(EvaluationFormScoringStrategyModeOutput)
 }
 
-// The scoring status.
+// The scoring status of the evaluation form.
+//
+//	*Allowed values*: ``ENABLED`` | ``DISABLED``
 func (o EvaluationFormScoringStrategyOutput) Status() EvaluationFormScoringStrategyStatusOutput {
 	return o.ApplyT(func(v EvaluationFormScoringStrategy) EvaluationFormScoringStrategyStatus { return v.Status }).(EvaluationFormScoringStrategyStatusOutput)
 }
@@ -1584,7 +1633,9 @@ func (o EvaluationFormScoringStrategyPtrOutput) Elem() EvaluationFormScoringStra
 	}).(EvaluationFormScoringStrategyOutput)
 }
 
-// The scoring mode.
+// The scoring mode of the evaluation form.
+//
+//	*Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 func (o EvaluationFormScoringStrategyPtrOutput) Mode() EvaluationFormScoringStrategyModePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormScoringStrategy) *EvaluationFormScoringStrategyMode {
 		if v == nil {
@@ -1594,7 +1645,9 @@ func (o EvaluationFormScoringStrategyPtrOutput) Mode() EvaluationFormScoringStra
 	}).(EvaluationFormScoringStrategyModePtrOutput)
 }
 
-// The scoring status.
+// The scoring status of the evaluation form.
+//
+//	*Allowed values*: ``ENABLED`` | ``DISABLED``
 func (o EvaluationFormScoringStrategyPtrOutput) Status() EvaluationFormScoringStrategyStatusPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormScoringStrategy) *EvaluationFormScoringStrategyStatus {
 		if v == nil {
@@ -1604,17 +1657,22 @@ func (o EvaluationFormScoringStrategyPtrOutput) Status() EvaluationFormScoringSt
 	}).(EvaluationFormScoringStrategyStatusPtrOutput)
 }
 
-// The evaluation form section.
+// Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
 type EvaluationFormSection struct {
-	// The instructions for the section.
+	// The instructions of the section.
 	Instructions *string `pulumi:"instructions"`
-	// The list of section items.
+	// The items of the section.
+	//   *Minimum*: 1
 	Items []EvaluationFormItem `pulumi:"items"`
-	// The identifier to reference the section.
+	// The identifier of the section. An identifier must be unique within the evaluation form.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
 	// The title of the section.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title string `pulumi:"title"`
-	// The item weight used for scoring.
+	// The scoring weight of the section.
+	//   *Minimum*: 0
+	//   *Maximum*: 100
 	Weight *float64 `pulumi:"weight"`
 }
 
@@ -1629,17 +1687,22 @@ type EvaluationFormSectionInput interface {
 	ToEvaluationFormSectionOutputWithContext(context.Context) EvaluationFormSectionOutput
 }
 
-// The evaluation form section.
+// Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
 type EvaluationFormSectionArgs struct {
-	// The instructions for the section.
+	// The instructions of the section.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
-	// The list of section items.
+	// The items of the section.
+	//   *Minimum*: 1
 	Items EvaluationFormItemArrayInput `pulumi:"items"`
-	// The identifier to reference the section.
+	// The identifier of the section. An identifier must be unique within the evaluation form.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
 	// The title of the section.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title pulumi.StringInput `pulumi:"title"`
-	// The item weight used for scoring.
+	// The scoring weight of the section.
+	//   *Minimum*: 0
+	//   *Maximum*: 100
 	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
@@ -1696,7 +1759,7 @@ func (i *evaluationFormSectionPtrType) ToEvaluationFormSectionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSectionPtrOutput)
 }
 
-// The evaluation form section.
+// Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
 type EvaluationFormSectionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSectionOutput) ElementType() reflect.Type {
@@ -1721,27 +1784,36 @@ func (o EvaluationFormSectionOutput) ToEvaluationFormSectionPtrOutputWithContext
 	}).(EvaluationFormSectionPtrOutput)
 }
 
-// The instructions for the section.
+// The instructions of the section.
 func (o EvaluationFormSectionOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSection) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
 
-// The list of section items.
+// The items of the section.
+//
+//	*Minimum*: 1
 func (o EvaluationFormSectionOutput) Items() EvaluationFormItemArrayOutput {
 	return o.ApplyT(func(v EvaluationFormSection) []EvaluationFormItem { return v.Items }).(EvaluationFormItemArrayOutput)
 }
 
-// The identifier to reference the section.
+// The identifier of the section. An identifier must be unique within the evaluation form.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSectionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSection) string { return v.RefId }).(pulumi.StringOutput)
 }
 
 // The title of the section.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 128.
 func (o EvaluationFormSectionOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSection) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// The item weight used for scoring.
+// The scoring weight of the section.
+//
+//	*Minimum*: 0
+//	*Maximum*: 100
 func (o EvaluationFormSectionOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EvaluationFormSection) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
@@ -1770,7 +1842,7 @@ func (o EvaluationFormSectionPtrOutput) Elem() EvaluationFormSectionOutput {
 	}).(EvaluationFormSectionOutput)
 }
 
-// The instructions for the section.
+// The instructions of the section.
 func (o EvaluationFormSectionPtrOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSection) *string {
 		if v == nil {
@@ -1780,7 +1852,9 @@ func (o EvaluationFormSectionPtrOutput) Instructions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of section items.
+// The items of the section.
+//
+//	*Minimum*: 1
 func (o EvaluationFormSectionPtrOutput) Items() EvaluationFormItemArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormSection) []EvaluationFormItem {
 		if v == nil {
@@ -1790,7 +1864,9 @@ func (o EvaluationFormSectionPtrOutput) Items() EvaluationFormItemArrayOutput {
 	}).(EvaluationFormItemArrayOutput)
 }
 
-// The identifier to reference the section.
+// The identifier of the section. An identifier must be unique within the evaluation form.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSectionPtrOutput) RefId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSection) *string {
 		if v == nil {
@@ -1801,6 +1877,8 @@ func (o EvaluationFormSectionPtrOutput) RefId() pulumi.StringPtrOutput {
 }
 
 // The title of the section.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 128.
 func (o EvaluationFormSectionPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSection) *string {
 		if v == nil {
@@ -1810,7 +1888,10 @@ func (o EvaluationFormSectionPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The item weight used for scoring.
+// The scoring weight of the section.
+//
+//	*Minimum*: 0
+//	*Maximum*: 100
 func (o EvaluationFormSectionPtrOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSection) *float64 {
 		if v == nil {
@@ -1820,11 +1901,14 @@ func (o EvaluationFormSectionPtrOutput) Weight() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The automation properties for the single-select question.
+// Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 type EvaluationFormSingleSelectQuestionAutomation struct {
-	// The option reference identifier of the default answer.
+	// The identifier of the default answer option, when none of the automation options match the criteria.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	DefaultOptionRefId *string `pulumi:"defaultOptionRefId"`
-	// The answer options for the automation.
+	// The automation options of the single select question.
+	//   *Minimum*: 1
+	//   *Maximum*: 20
 	Options []EvaluationFormSingleSelectQuestionAutomationOption `pulumi:"options"`
 }
 
@@ -1839,11 +1923,14 @@ type EvaluationFormSingleSelectQuestionAutomationInput interface {
 	ToEvaluationFormSingleSelectQuestionAutomationOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationOutput
 }
 
-// The automation properties for the single-select question.
+// Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 type EvaluationFormSingleSelectQuestionAutomationArgs struct {
-	// The option reference identifier of the default answer.
+	// The identifier of the default answer option, when none of the automation options match the criteria.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	DefaultOptionRefId pulumi.StringPtrInput `pulumi:"defaultOptionRefId"`
-	// The answer options for the automation.
+	// The automation options of the single select question.
+	//   *Minimum*: 1
+	//   *Maximum*: 20
 	Options EvaluationFormSingleSelectQuestionAutomationOptionArrayInput `pulumi:"options"`
 }
 
@@ -1900,7 +1987,7 @@ func (i *evaluationFormSingleSelectQuestionAutomationPtrType) ToEvaluationFormSi
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
 }
 
-// The automation properties for the single-select question.
+// Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 type EvaluationFormSingleSelectQuestionAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSingleSelectQuestionAutomationOutput) ElementType() reflect.Type {
@@ -1925,12 +2012,17 @@ func (o EvaluationFormSingleSelectQuestionAutomationOutput) ToEvaluationFormSing
 	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
 }
 
-// The option reference identifier of the default answer.
+// The identifier of the default answer option, when none of the automation options match the criteria.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSingleSelectQuestionAutomationOutput) DefaultOptionRefId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomation) *string { return v.DefaultOptionRefId }).(pulumi.StringPtrOutput)
 }
 
-// The answer options for the automation.
+// The automation options of the single select question.
+//
+//	*Minimum*: 1
+//	*Maximum*: 20
 func (o EvaluationFormSingleSelectQuestionAutomationOutput) Options() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomation) []EvaluationFormSingleSelectQuestionAutomationOption {
 		return v.Options
@@ -1961,7 +2053,9 @@ func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) Elem() Evaluation
 	}).(EvaluationFormSingleSelectQuestionAutomationOutput)
 }
 
-// The option reference identifier of the default answer.
+// The identifier of the default answer option, when none of the automation options match the criteria.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) DefaultOptionRefId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionAutomation) *string {
 		if v == nil {
@@ -1971,7 +2065,10 @@ func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) DefaultOptionRefI
 	}).(pulumi.StringPtrOutput)
 }
 
-// The answer options for the automation.
+// The automation options of the single select question.
+//
+//	*Minimum*: 1
+//	*Maximum*: 20
 func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) Options() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionAutomation) []EvaluationFormSingleSelectQuestionAutomationOption {
 		if v == nil {
@@ -1981,9 +2078,9 @@ func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) Options() Evaluat
 	}).(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput)
 }
 
-// The automation option for the single-select question.
+// The automation options of the single select question.
 type EvaluationFormSingleSelectQuestionAutomationOption struct {
-	// The automation option based on Rules categories.
+	// The automation option based on a rule category for the single select question.
 	RuleCategory EvaluationFormSingleSelectQuestionRuleCategoryAutomation `pulumi:"ruleCategory"`
 }
 
@@ -1998,9 +2095,9 @@ type EvaluationFormSingleSelectQuestionAutomationOptionInput interface {
 	ToEvaluationFormSingleSelectQuestionAutomationOptionOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationOptionOutput
 }
 
-// The automation option for the single-select question.
+// The automation options of the single select question.
 type EvaluationFormSingleSelectQuestionAutomationOptionArgs struct {
-	// The automation option based on Rules categories.
+	// The automation option based on a rule category for the single select question.
 	RuleCategory EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput `pulumi:"ruleCategory"`
 }
 
@@ -2041,7 +2138,7 @@ func (i EvaluationFormSingleSelectQuestionAutomationOptionArray) ToEvaluationFor
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput)
 }
 
-// The automation option for the single-select question.
+// The automation options of the single select question.
 type EvaluationFormSingleSelectQuestionAutomationOptionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSingleSelectQuestionAutomationOptionOutput) ElementType() reflect.Type {
@@ -2056,7 +2153,7 @@ func (o EvaluationFormSingleSelectQuestionAutomationOptionOutput) ToEvaluationFo
 	return o
 }
 
-// The automation option based on Rules categories.
+// The automation option based on a rule category for the single select question.
 func (o EvaluationFormSingleSelectQuestionAutomationOptionOutput) RuleCategory() EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomationOption) EvaluationFormSingleSelectQuestionRuleCategoryAutomation {
 		return v.RuleCategory
@@ -2083,15 +2180,19 @@ func (o EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput) Index(i p
 	}).(EvaluationFormSingleSelectQuestionAutomationOptionOutput)
 }
 
-// The option for a question.
+// Information about the automation configuration in single select questions.
 type EvaluationFormSingleSelectQuestionOption struct {
-	// The flag to mark the option as automatic fail.
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail *bool `pulumi:"automaticFail"`
-	// The identifier used to reference the option.
+	// The identifier of the answer option. An identifier must be unique within the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
-	// The score of the option.
+	// The score assigned to the answer option.
+	//   *Minimum*: 0
+	//   *Maximum*: 10
 	Score *int `pulumi:"score"`
-	// The title of the option.
+	// The title of the answer option.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Text string `pulumi:"text"`
 }
 
@@ -2106,15 +2207,19 @@ type EvaluationFormSingleSelectQuestionOptionInput interface {
 	ToEvaluationFormSingleSelectQuestionOptionOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionOptionOutput
 }
 
-// The option for a question.
+// Information about the automation configuration in single select questions.
 type EvaluationFormSingleSelectQuestionOptionArgs struct {
-	// The flag to mark the option as automatic fail.
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
-	// The identifier used to reference the option.
+	// The identifier of the answer option. An identifier must be unique within the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
-	// The score of the option.
+	// The score assigned to the answer option.
+	//   *Minimum*: 0
+	//   *Maximum*: 10
 	Score pulumi.IntPtrInput `pulumi:"score"`
-	// The title of the option.
+	// The title of the answer option.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -2155,7 +2260,7 @@ func (i EvaluationFormSingleSelectQuestionOptionArray) ToEvaluationFormSingleSel
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionOptionArrayOutput)
 }
 
-// The option for a question.
+// Information about the automation configuration in single select questions.
 type EvaluationFormSingleSelectQuestionOptionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSingleSelectQuestionOptionOutput) ElementType() reflect.Type {
@@ -2170,22 +2275,29 @@ func (o EvaluationFormSingleSelectQuestionOptionOutput) ToEvaluationFormSingleSe
 	return o
 }
 
-// The flag to mark the option as automatic fail.
+// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 func (o EvaluationFormSingleSelectQuestionOptionOutput) AutomaticFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *bool { return v.AutomaticFail }).(pulumi.BoolPtrOutput)
 }
 
-// The identifier used to reference the option.
+// The identifier of the answer option. An identifier must be unique within the question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSingleSelectQuestionOptionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) string { return v.RefId }).(pulumi.StringOutput)
 }
 
-// The score of the option.
+// The score assigned to the answer option.
+//
+//	*Minimum*: 0
+//	*Maximum*: 10
 func (o EvaluationFormSingleSelectQuestionOptionOutput) Score() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *int { return v.Score }).(pulumi.IntPtrOutput)
 }
 
-// The title of the option.
+// The title of the answer option.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 128.
 func (o EvaluationFormSingleSelectQuestionOptionOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) string { return v.Text }).(pulumi.StringOutput)
 }
@@ -2210,13 +2322,16 @@ func (o EvaluationFormSingleSelectQuestionOptionArrayOutput) Index(i pulumi.IntI
 	}).(EvaluationFormSingleSelectQuestionOptionOutput)
 }
 
-// The properties of the single-select question.
+// Information about the options in single select questions.
 type EvaluationFormSingleSelectQuestionProperties struct {
-	// The automation properties for the single-select question.
+	// The display mode of the single select question.
 	Automation *EvaluationFormSingleSelectQuestionAutomation `pulumi:"automation"`
-	// The display mode of the single-select question.
+	// The display mode of the single select question.
+	//   *Allowed values*: ``DROPDOWN`` | ``RADIO``
 	DisplayAs *EvaluationFormSingleSelectQuestionPropertiesDisplayAs `pulumi:"displayAs"`
-	// The list of options for the question.
+	// The answer options of the single select question.
+	//   *Minimum*: 2
+	//   *Maximum*: 256
 	Options []EvaluationFormSingleSelectQuestionOption `pulumi:"options"`
 }
 
@@ -2231,13 +2346,16 @@ type EvaluationFormSingleSelectQuestionPropertiesInput interface {
 	ToEvaluationFormSingleSelectQuestionPropertiesOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionPropertiesOutput
 }
 
-// The properties of the single-select question.
+// Information about the options in single select questions.
 type EvaluationFormSingleSelectQuestionPropertiesArgs struct {
-	// The automation properties for the single-select question.
+	// The display mode of the single select question.
 	Automation EvaluationFormSingleSelectQuestionAutomationPtrInput `pulumi:"automation"`
-	// The display mode of the single-select question.
+	// The display mode of the single select question.
+	//   *Allowed values*: ``DROPDOWN`` | ``RADIO``
 	DisplayAs EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput `pulumi:"displayAs"`
-	// The list of options for the question.
+	// The answer options of the single select question.
+	//   *Minimum*: 2
+	//   *Maximum*: 256
 	Options EvaluationFormSingleSelectQuestionOptionArrayInput `pulumi:"options"`
 }
 
@@ -2294,7 +2412,7 @@ func (i *evaluationFormSingleSelectQuestionPropertiesPtrType) ToEvaluationFormSi
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
 }
 
-// The properties of the single-select question.
+// Information about the options in single select questions.
 type EvaluationFormSingleSelectQuestionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSingleSelectQuestionPropertiesOutput) ElementType() reflect.Type {
@@ -2319,21 +2437,26 @@ func (o EvaluationFormSingleSelectQuestionPropertiesOutput) ToEvaluationFormSing
 	}).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
 }
 
-// The automation properties for the single-select question.
+// The display mode of the single select question.
 func (o EvaluationFormSingleSelectQuestionPropertiesOutput) Automation() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionAutomation {
 		return v.Automation
 	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
 }
 
-// The display mode of the single-select question.
+// The display mode of the single select question.
+//
+//	*Allowed values*: ``DROPDOWN`` | ``RADIO``
 func (o EvaluationFormSingleSelectQuestionPropertiesOutput) DisplayAs() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
 		return v.DisplayAs
 	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The list of options for the question.
+// The answer options of the single select question.
+//
+//	*Minimum*: 2
+//	*Maximum*: 256
 func (o EvaluationFormSingleSelectQuestionPropertiesOutput) Options() EvaluationFormSingleSelectQuestionOptionArrayOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) []EvaluationFormSingleSelectQuestionOption {
 		return v.Options
@@ -2364,7 +2487,7 @@ func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Elem() Evaluation
 	}).(EvaluationFormSingleSelectQuestionPropertiesOutput)
 }
 
-// The automation properties for the single-select question.
+// The display mode of the single select question.
 func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Automation() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionAutomation {
 		if v == nil {
@@ -2374,7 +2497,9 @@ func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Automation() Eval
 	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
 }
 
-// The display mode of the single-select question.
+// The display mode of the single select question.
+//
+//	*Allowed values*: ``DROPDOWN`` | ``RADIO``
 func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) DisplayAs() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
 		if v == nil {
@@ -2384,7 +2509,10 @@ func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) DisplayAs() Evalu
 	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The list of options for the question.
+// The answer options of the single select question.
+//
+//	*Minimum*: 2
+//	*Maximum*: 256
 func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Options() EvaluationFormSingleSelectQuestionOptionArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) []EvaluationFormSingleSelectQuestionOption {
 		if v == nil {
@@ -2394,13 +2522,20 @@ func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Options() Evaluat
 	}).(EvaluationFormSingleSelectQuestionOptionArrayOutput)
 }
 
-// The automation option based on Rules categories.
+// Information about the automation option based on a rule category for a single select question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 50.
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomation struct {
-	// The category name as defined in Rules.
+	// The category name, as defined in Rules.
+	//   *Minimum*: 1
+	//   *Maximum*: 50
 	Category string `pulumi:"category"`
-	// The automation condition applied on contact categories.
+	// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+	//   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+	//   *Maximum*: 50
 	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition `pulumi:"condition"`
-	// The option identifier referencing the option to be selected when the automation option is triggered.
+	// The identifier of the answer option. An identifier must be unique within the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	OptionRefId string `pulumi:"optionRefId"`
 }
 
@@ -2415,13 +2550,20 @@ type EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput interface {
 	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput
 }
 
-// The automation option based on Rules categories.
+// Information about the automation option based on a rule category for a single select question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 50.
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs struct {
-	// The category name as defined in Rules.
+	// The category name, as defined in Rules.
+	//   *Minimum*: 1
+	//   *Maximum*: 50
 	Category pulumi.StringInput `pulumi:"category"`
-	// The automation condition applied on contact categories.
+	// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+	//   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+	//   *Maximum*: 50
 	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput `pulumi:"condition"`
-	// The option identifier referencing the option to be selected when the automation option is triggered.
+	// The identifier of the answer option. An identifier must be unique within the question.
+	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	OptionRefId pulumi.StringInput `pulumi:"optionRefId"`
 }
 
@@ -2437,7 +2579,9 @@ func (i EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs) ToEvaluati
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput)
 }
 
-// The automation option based on Rules categories.
+// Information about the automation option based on a rule category for a single select question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 50.
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) ElementType() reflect.Type {
@@ -2452,28 +2596,36 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) ToEvalua
 	return o
 }
 
-// The category name as defined in Rules.
+// The category name, as defined in Rules.
+//
+//	*Minimum*: 1
+//	*Maximum*: 50
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// The automation condition applied on contact categories.
+// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+//
+//	*Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+//	*Maximum*: 50
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) Condition() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition {
 		return v.Condition
 	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
 }
 
-// The option identifier referencing the option to be selected when the automation option is triggered.
+// The identifier of the answer option. An identifier must be unique within the question.
+//
+//	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) OptionRefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) string { return v.OptionRefId }).(pulumi.StringOutput)
 }
 
 // A key-value pair to associate with a resource.
 type EvaluationFormTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
 	Value string `pulumi:"value"`
 }
 

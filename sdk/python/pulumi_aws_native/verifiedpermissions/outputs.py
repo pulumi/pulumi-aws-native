@@ -14,8 +14,15 @@ from ._enums import *
 __all__ = [
     'IdentitySourceCognitoGroupConfiguration',
     'IdentitySourceCognitoUserPoolConfiguration',
-    'IdentitySourceConfigurationProperties',
+    'IdentitySourceConfiguration0Properties',
+    'IdentitySourceConfiguration1Properties',
     'IdentitySourceDetails',
+    'IdentitySourceOpenIdConnectAccessTokenConfiguration',
+    'IdentitySourceOpenIdConnectConfiguration',
+    'IdentitySourceOpenIdConnectGroupConfiguration',
+    'IdentitySourceOpenIdConnectIdentityTokenConfiguration',
+    'IdentitySourceOpenIdConnectTokenSelection0Properties',
+    'IdentitySourceOpenIdConnectTokenSelection1Properties',
     'PolicyDefinition0Properties',
     'PolicyDefinition1Properties',
     'PolicyEntityIdentifier',
@@ -104,7 +111,7 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
 
 
 @pulumi.output_type
-class IdentitySourceConfigurationProperties(dict):
+class IdentitySourceConfiguration0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -112,14 +119,14 @@ class IdentitySourceConfigurationProperties(dict):
             suggest = "cognito_user_pool_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IdentitySourceConfigurationProperties.__key_warning(key)
+        IdentitySourceConfiguration0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IdentitySourceConfigurationProperties.__key_warning(key)
+        IdentitySourceConfiguration0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -130,6 +137,35 @@ class IdentitySourceConfigurationProperties(dict):
     @pulumi.getter(name="cognitoUserPoolConfiguration")
     def cognito_user_pool_configuration(self) -> 'outputs.IdentitySourceCognitoUserPoolConfiguration':
         return pulumi.get(self, "cognito_user_pool_configuration")
+
+
+@pulumi.output_type
+class IdentitySourceConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "openIdConnectConfiguration":
+            suggest = "open_id_connect_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 open_id_connect_configuration: 'outputs.IdentitySourceOpenIdConnectConfiguration'):
+        pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> 'outputs.IdentitySourceOpenIdConnectConfiguration':
+        return pulumi.get(self, "open_id_connect_configuration")
 
 
 @pulumi.output_type
@@ -190,6 +226,236 @@ class IdentitySourceDetails(dict):
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_arn")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectAccessTokenConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalIdClaim":
+            suggest = "principal_id_claim"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectAccessTokenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectAccessTokenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectAccessTokenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audiences: Optional[Sequence[str]] = None,
+                 principal_id_claim: Optional[str] = None):
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id_claim")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenSelection":
+            suggest = "token_selection"
+        elif key == "entityIdPrefix":
+            suggest = "entity_id_prefix"
+        elif key == "groupConfiguration":
+            suggest = "group_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: str,
+                 token_selection: Any,
+                 entity_id_prefix: Optional[str] = None,
+                 group_configuration: Optional['outputs.IdentitySourceOpenIdConnectGroupConfiguration'] = None):
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_selection", token_selection)
+        if entity_id_prefix is not None:
+            pulumi.set(__self__, "entity_id_prefix", entity_id_prefix)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="tokenSelection")
+    def token_selection(self) -> Any:
+        return pulumi.get(self, "token_selection")
+
+    @property
+    @pulumi.getter(name="entityIdPrefix")
+    def entity_id_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "entity_id_prefix")
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional['outputs.IdentitySourceOpenIdConnectGroupConfiguration']:
+        return pulumi.get(self, "group_configuration")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectGroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupClaim":
+            suggest = "group_claim"
+        elif key == "groupEntityType":
+            suggest = "group_entity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_claim: str,
+                 group_entity_type: str):
+        pulumi.set(__self__, "group_claim", group_claim)
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupClaim")
+    def group_claim(self) -> str:
+        return pulumi.get(self, "group_claim")
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> str:
+        return pulumi.get(self, "group_entity_type")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectIdentityTokenConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientIds":
+            suggest = "client_ids"
+        elif key == "principalIdClaim":
+            suggest = "principal_id_claim"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectIdentityTokenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectIdentityTokenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectIdentityTokenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_ids: Optional[Sequence[str]] = None,
+                 principal_id_claim: Optional[str] = None):
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "client_ids")
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id_claim")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectTokenSelection0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessTokenOnly":
+            suggest = "access_token_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectTokenSelection0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectTokenSelection0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectTokenSelection0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token_only: 'outputs.IdentitySourceOpenIdConnectAccessTokenConfiguration'):
+        pulumi.set(__self__, "access_token_only", access_token_only)
+
+    @property
+    @pulumi.getter(name="accessTokenOnly")
+    def access_token_only(self) -> 'outputs.IdentitySourceOpenIdConnectAccessTokenConfiguration':
+        return pulumi.get(self, "access_token_only")
+
+
+@pulumi.output_type
+class IdentitySourceOpenIdConnectTokenSelection1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityTokenOnly":
+            suggest = "identity_token_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceOpenIdConnectTokenSelection1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceOpenIdConnectTokenSelection1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceOpenIdConnectTokenSelection1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_token_only: 'outputs.IdentitySourceOpenIdConnectIdentityTokenConfiguration'):
+        pulumi.set(__self__, "identity_token_only", identity_token_only)
+
+    @property
+    @pulumi.getter(name="identityTokenOnly")
+    def identity_token_only(self) -> 'outputs.IdentitySourceOpenIdConnectIdentityTokenConfiguration':
+        return pulumi.get(self, "identity_token_only")
 
 
 @pulumi.output_type

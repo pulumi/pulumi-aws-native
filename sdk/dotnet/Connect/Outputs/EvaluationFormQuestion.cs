@@ -11,13 +11,14 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The evaluation form question.
+    /// Information about a question from an evaluation form.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormQuestion
     {
         /// <summary>
-        /// The instructions for the question.
+        /// The instructions of the section.
+        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Instructions;
         /// <summary>
@@ -26,22 +27,27 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly bool? NotApplicableEnabled;
         /// <summary>
         /// The type of the question.
+        ///   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormQuestionQuestionType QuestionType;
         /// <summary>
-        /// The properties of the question
+        /// The properties of the type of question. Text questions do not have to define question type properties.
         /// </summary>
         public readonly Outputs.EvaluationFormQuestionTypeProperties? QuestionTypeProperties;
         /// <summary>
-        /// The identifier used to reference the question.
+        /// The identifier of the question. An identifier must be unique within the evaluation form.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         public readonly string RefId;
         /// <summary>
         /// The title of the question.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 350.
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// The question weight used for scoring.
+        /// The scoring weight of the section.
+        ///   *Minimum*: 0
+        ///   *Maximum*: 100
         /// </summary>
         public readonly double? Weight;
 

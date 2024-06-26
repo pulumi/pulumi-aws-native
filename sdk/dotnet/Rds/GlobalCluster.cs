@@ -29,6 +29,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<Pulumi.AwsNative.Rds.GlobalClusterEngine?> Engine { get; private set; } = null!;
 
         /// <summary>
+        /// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        /// </summary>
+        [Output("engineLifecycleSupport")]
+        public Output<string?> EngineLifecycleSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Output("engineVersion")]
@@ -117,6 +123,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("engine")]
         public Input<Pulumi.AwsNative.Rds.GlobalClusterEngine>? Engine { get; set; }
+
+        /// <summary>
+        /// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

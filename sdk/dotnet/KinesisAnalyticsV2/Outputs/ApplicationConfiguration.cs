@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
         /// <summary>
+        /// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
+        public readonly Outputs.ApplicationSystemRollbackConfiguration? ApplicationSystemRollbackConfiguration;
+        /// <summary>
         /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
         /// </summary>
         public readonly Outputs.ApplicationEnvironmentProperties? EnvironmentProperties;
@@ -51,6 +55,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 
             Outputs.ApplicationSnapshotConfiguration? applicationSnapshotConfiguration,
 
+            Outputs.ApplicationSystemRollbackConfiguration? applicationSystemRollbackConfiguration,
+
             Outputs.ApplicationEnvironmentProperties? environmentProperties,
 
             Outputs.ApplicationFlinkApplicationConfiguration? flinkApplicationConfiguration,
@@ -63,6 +69,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         {
             ApplicationCodeConfiguration = applicationCodeConfiguration;
             ApplicationSnapshotConfiguration = applicationSnapshotConfiguration;
+            ApplicationSystemRollbackConfiguration = applicationSystemRollbackConfiguration;
             EnvironmentProperties = environmentProperties;
             FlinkApplicationConfiguration = flinkApplicationConfiguration;
             SqlApplicationConfiguration = sqlApplicationConfiguration;

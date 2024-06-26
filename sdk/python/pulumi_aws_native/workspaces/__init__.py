@@ -8,4 +8,7 @@ import typing
 from ._enums import *
 from .connection_alias import *
 from .get_connection_alias import *
+from .get_workspaces_pool import *
+from .workspaces_pool import *
+from ._inputs import *
 from . import outputs

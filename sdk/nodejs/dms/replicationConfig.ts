@@ -44,7 +44,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Replication Config
      */
-    public readonly replicationConfigArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly replicationConfigArn!: pulumi.Output<string>;
     /**
      * A unique identifier of replication configuration
      */
@@ -100,7 +100,6 @@ export class ReplicationConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["replicationConfigArn"] = args ? args.replicationConfigArn : undefined;
             resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
             resourceInputs["replicationType"] = args ? args.replicationType : undefined;
@@ -110,6 +109,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
             resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["replicationConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeConfig"] = undefined /*out*/;
             resourceInputs["replicationConfigArn"] = undefined /*out*/;
@@ -138,10 +138,6 @@ export interface ReplicationConfigArgs {
      * Configuration parameters for provisioning an AWS DMS Serverless replication.
      */
     computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfigArgs>;
-    /**
-     * The Amazon Resource Name (ARN) of the Replication Config
-     */
-    replicationConfigArn?: pulumi.Input<string>;
     /**
      * A unique identifier of replication configuration
      */

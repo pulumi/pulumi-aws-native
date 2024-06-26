@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationSnapshotConfigurationArgs>? ApplicationSnapshotConfiguration { get; set; }
 
         /// <summary>
+        /// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
+        [Input("applicationSystemRollbackConfiguration")]
+        public Input<Inputs.ApplicationSystemRollbackConfigurationArgs>? ApplicationSystemRollbackConfiguration { get; set; }
+
+        /// <summary>
         /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
         /// </summary>
         [Input("environmentProperties")]

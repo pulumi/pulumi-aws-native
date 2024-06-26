@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The automation property name of the question.
+    /// Information about the property value used in automation of a numeric questions.
     /// </summary>
     public sealed class EvaluationFormNumericQuestionPropertyValueAutomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation property label.
+        /// The property label of the automation.
         /// </summary>
         [Input("label", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormNumericQuestionPropertyValueAutomationLabel> Label { get; set; } = null!;

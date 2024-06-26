@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The automation option for the single-select question.
+    /// The automation options of the single select question.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormSingleSelectQuestionAutomationOption
     {
         /// <summary>
-        /// The automation option based on Rules categories.
+        /// The automation option based on a rule category for the single select question.
         /// </summary>
         public readonly Outputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomation RuleCategory;
 

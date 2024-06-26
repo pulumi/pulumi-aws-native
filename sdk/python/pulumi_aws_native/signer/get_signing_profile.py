@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSigningProfileResult:
-    def __init__(__self__, arn=None, profile_name=None, profile_version=None, profile_version_arn=None, tags=None):
+    def __init__(__self__, arn=None, profile_version=None, profile_version_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if profile_name and not isinstance(profile_name, str):
-            raise TypeError("Expected argument 'profile_name' to be a str")
-        pulumi.set(__self__, "profile_name", profile_name)
         if profile_version and not isinstance(profile_version, str):
             raise TypeError("Expected argument 'profile_version' to be a str")
         pulumi.set(__self__, "profile_version", profile_version)
@@ -43,14 +40,6 @@ class GetSigningProfileResult:
         The Amazon Resource Name (ARN) of the specified signing profile.
         """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[str]:
-        """
-        A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
-        """
-        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="profileVersion")
@@ -84,7 +73,6 @@ class AwaitableGetSigningProfileResult(GetSigningProfileResult):
             yield self
         return GetSigningProfileResult(
             arn=self.arn,
-            profile_name=self.profile_name,
             profile_version=self.profile_version,
             profile_version_arn=self.profile_version_arn,
             tags=self.tags)
@@ -105,7 +93,6 @@ def get_signing_profile(arn: Optional[str] = None,
 
     return AwaitableGetSigningProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
-        profile_name=pulumi.get(__ret__, 'profile_name'),
         profile_version=pulumi.get(__ret__, 'profile_version'),
         profile_version_arn=pulumi.get(__ret__, 'profile_version_arn'),
         tags=pulumi.get(__ret__, 'tags'))

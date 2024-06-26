@@ -570,16 +570,20 @@ class ApplicationWorkerConfigurationArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[str],
                  memory: pulumi.Input[str],
-                 disk: Optional[pulumi.Input[str]] = None):
+                 disk: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cpu: Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
         :param pulumi.Input[str] memory: Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         :param pulumi.Input[str] disk: Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+        :param pulumi.Input[str] disk_type: Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
 
     @property
     @pulumi.getter
@@ -616,6 +620,18 @@ class ApplicationWorkerConfigurationArgs:
     @disk.setter
     def disk(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk", value)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_type", value)
 
 
 @pulumi.input_type

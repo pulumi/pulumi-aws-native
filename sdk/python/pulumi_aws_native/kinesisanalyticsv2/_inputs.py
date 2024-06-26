@@ -45,6 +45,7 @@ __all__ = [
     'ApplicationS3ContentLocationArgs',
     'ApplicationSnapshotConfigurationArgs',
     'ApplicationSqlApplicationConfigurationArgs',
+    'ApplicationSystemRollbackConfigurationArgs',
     'ApplicationVpcConfigurationArgs',
     'ApplicationZeppelinApplicationConfigurationArgs',
     'ApplicationZeppelinMonitoringConfigurationArgs',
@@ -244,6 +245,7 @@ class ApplicationConfigurationArgs:
     def __init__(__self__, *,
                  application_code_configuration: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']] = None,
                  application_snapshot_configuration: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']] = None,
+                 application_system_rollback_configuration: Optional[pulumi.Input['ApplicationSystemRollbackConfigurationArgs']] = None,
                  environment_properties: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']] = None,
                  flink_application_configuration: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']] = None,
                  sql_application_configuration: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']] = None,
@@ -253,6 +255,7 @@ class ApplicationConfigurationArgs:
         Specifies the creation parameters for a Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationCodeConfigurationArgs'] application_code_configuration: The code location and type parameters for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationSnapshotConfigurationArgs'] application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        :param pulumi.Input['ApplicationSystemRollbackConfigurationArgs'] application_system_rollback_configuration: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationFlinkApplicationConfigurationArgs'] flink_application_configuration: The creation and update parameters for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationSqlApplicationConfigurationArgs'] sql_application_configuration: The creation and update parameters for a SQL-based Kinesis Data Analytics application.
@@ -263,6 +266,8 @@ class ApplicationConfigurationArgs:
             pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
+        if application_system_rollback_configuration is not None:
+            pulumi.set(__self__, "application_system_rollback_configuration", application_system_rollback_configuration)
         if environment_properties is not None:
             pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
@@ -297,6 +302,18 @@ class ApplicationConfigurationArgs:
     @application_snapshot_configuration.setter
     def application_snapshot_configuration(self, value: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']]):
         pulumi.set(self, "application_snapshot_configuration", value)
+
+    @property
+    @pulumi.getter(name="applicationSystemRollbackConfiguration")
+    def application_system_rollback_configuration(self) -> Optional[pulumi.Input['ApplicationSystemRollbackConfigurationArgs']]:
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "application_system_rollback_configuration")
+
+    @application_system_rollback_configuration.setter
+    def application_system_rollback_configuration(self, value: Optional[pulumi.Input['ApplicationSystemRollbackConfigurationArgs']]):
+        pulumi.set(self, "application_system_rollback_configuration", value)
 
     @property
     @pulumi.getter(name="environmentProperties")
@@ -1494,6 +1511,29 @@ class ApplicationSqlApplicationConfigurationArgs:
     @inputs.setter
     def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]]]):
         pulumi.set(self, "inputs", value)
+
+
+@pulumi.input_type
+class ApplicationSystemRollbackConfigurationArgs:
+    def __init__(__self__, *,
+                 rollback_enabled: pulumi.Input[bool]):
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        :param pulumi.Input[bool] rollback_enabled: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        pulumi.set(__self__, "rollback_enabled", rollback_enabled)
+
+    @property
+    @pulumi.getter(name="rollbackEnabled")
+    def rollback_enabled(self) -> pulumi.Input[bool]:
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "rollback_enabled")
+
+    @rollback_enabled.setter
+    def rollback_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "rollback_enabled", value)
 
 
 @pulumi.input_type

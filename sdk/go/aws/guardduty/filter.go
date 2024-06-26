@@ -22,11 +22,11 @@ type Filter struct {
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
+	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
 	//
 	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
@@ -44,6 +44,9 @@ func NewFilter(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
@@ -90,7 +93,7 @@ type filterArgs struct {
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description *string `pulumi:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	DetectorId *string `pulumi:"detectorId"`
+	DetectorId string `pulumi:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
@@ -112,7 +115,7 @@ type FilterArgs struct {
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description pulumi.StringPtrInput
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	DetectorId pulumi.StringPtrInput
+	DetectorId pulumi.StringInput
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaInput
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
@@ -175,8 +178,8 @@ func (o FilterOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-func (o FilterOutput) DetectorId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
+func (o FilterOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
 // Represents the criteria to be used in the filter for querying findings.
@@ -185,8 +188,8 @@ func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
 }
 
 // The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
-func (o FilterOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o FilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.

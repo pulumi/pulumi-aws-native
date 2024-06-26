@@ -13405,99 +13405,102 @@ export namespace connect {
     }
 
     /**
-     * The evaluation form base item.
+     * An item at the root level. All items must be sections.
      */
     export interface EvaluationFormBaseItem {
         /**
-         * The evaluation form section item
+         * A subsection or inner section of an item.
          */
         section: outputs.connect.EvaluationFormSection;
     }
 
     /**
-     * The evaluation form item.
+     * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
      */
     export interface EvaluationFormItem {
         /**
-         * The evaluation form question item
+         * The information of the question.
          */
         question?: outputs.connect.EvaluationFormQuestion;
         /**
-         * The evaluation form section item
+         * The information of the section.
          */
         section?: outputs.connect.EvaluationFormSection;
     }
 
     /**
-     * The automation properties for the numeric question.
+     * Information about the automation configuration in numeric questions.
      */
     export interface EvaluationFormNumericQuestionAutomation {
         /**
-         * The automation property name of the question.
+         * The property value of the automation.
          */
         propertyValue: outputs.connect.EvaluationFormNumericQuestionPropertyValueAutomation;
     }
 
     /**
-     * The option ranges used for scoring in numeric questions.
+     * Information about the option range used for scoring in numeric questions.
      */
     export interface EvaluationFormNumericQuestionOption {
         /**
-         * The flag to mark the option as automatic fail.
+         * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
          */
         automaticFail?: boolean;
         /**
-         * The maximum value of the option range.
+         * The maximum answer value of the range option.
          */
         maxValue: number;
         /**
-         * The minimum value of the option range.
+         * The minimum answer value of the range option.
          */
         minValue: number;
         /**
-         * The score of the option range.
+         * The score assigned to answer values within the range option.
+         *   *Minimum*: 0
+         *   *Maximum*: 10
          */
         score?: number;
     }
 
     /**
-     * The properties of the numeric question.
+     * Information about properties for a numeric question in an evaluation form.
      */
     export interface EvaluationFormNumericQuestionProperties {
         /**
-         * The automation properties for the numeric question.
+         * The automation properties of the numeric question.
          */
         automation?: outputs.connect.EvaluationFormNumericQuestionAutomation;
         /**
-         * The maximum value for answers of the question.
+         * The maximum answer value.
          */
         maxValue: number;
         /**
-         * The minimum value for answers of the question.
+         * The minimum answer value.
          */
         minValue: number;
         /**
-         * The list of option ranges used for scoring.
+         * The scoring options of the numeric question.
          */
         options?: outputs.connect.EvaluationFormNumericQuestionOption[];
     }
 
     /**
-     * The automation property name of the question.
+     * Information about the property value used in automation of a numeric questions.
      */
     export interface EvaluationFormNumericQuestionPropertyValueAutomation {
         /**
-         * The automation property label.
+         * The property label of the automation.
          */
         label: enums.connect.EvaluationFormNumericQuestionPropertyValueAutomationLabel;
     }
 
     /**
-     * The evaluation form question.
+     * Information about a question from an evaluation form.
      */
     export interface EvaluationFormQuestion {
         /**
-         * The instructions for the question.
+         * The instructions of the section.
+         *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
          */
         instructions?: string;
         /**
@@ -13506,28 +13509,33 @@ export namespace connect {
         notApplicableEnabled?: boolean;
         /**
          * The type of the question.
+         *   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
          */
         questionType: enums.connect.EvaluationFormQuestionQuestionType;
         /**
-         * The properties of the question
+         * The properties of the type of question. Text questions do not have to define question type properties.
          */
         questionTypeProperties?: outputs.connect.EvaluationFormQuestionTypeProperties;
         /**
-         * The identifier used to reference the question.
+         * The identifier of the question. An identifier must be unique within the evaluation form.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 40.
          */
         refId: string;
         /**
          * The title of the question.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 350.
          */
         title: string;
         /**
-         * The question weight used for scoring.
+         * The scoring weight of the section.
+         *   *Minimum*: 0
+         *   *Maximum*: 100
          */
         weight?: number;
     }
 
     /**
-     * The properties of the question.
+     * Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
      */
     export interface EvaluationFormQuestionTypeProperties {
         /**
@@ -13535,129 +13543,152 @@ export namespace connect {
          */
         numeric?: outputs.connect.EvaluationFormNumericQuestionProperties;
         /**
-         * The properties of the single-select question.
+         * The properties of the numeric question.
          */
         singleSelect?: outputs.connect.EvaluationFormSingleSelectQuestionProperties;
     }
 
     /**
-     * The scoring strategy.
+     * A scoring strategy of the evaluation form.
      */
     export interface EvaluationFormScoringStrategy {
         /**
-         * The scoring mode.
+         * The scoring mode of the evaluation form.
+         *   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
          */
         mode: enums.connect.EvaluationFormScoringStrategyMode;
         /**
-         * The scoring status.
+         * The scoring status of the evaluation form.
+         *   *Allowed values*: ``ENABLED`` | ``DISABLED``
          */
         status: enums.connect.EvaluationFormScoringStrategyStatus;
     }
 
     /**
-     * The evaluation form section.
+     * Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
      */
     export interface EvaluationFormSection {
         /**
-         * The instructions for the section.
+         * The instructions of the section.
          */
         instructions?: string;
         /**
-         * The list of section items.
+         * The items of the section.
+         *   *Minimum*: 1
          */
         items?: outputs.connect.EvaluationFormItem[];
         /**
-         * The identifier to reference the section.
+         * The identifier of the section. An identifier must be unique within the evaluation form.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 40.
          */
         refId: string;
         /**
          * The title of the section.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 128.
          */
         title: string;
         /**
-         * The item weight used for scoring.
+         * The scoring weight of the section.
+         *   *Minimum*: 0 
+         *   *Maximum*: 100
          */
         weight?: number;
     }
 
     /**
-     * The automation properties for the single-select question.
+     * Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
      */
     export interface EvaluationFormSingleSelectQuestionAutomation {
         /**
-         * The option reference identifier of the default answer.
+         * The identifier of the default answer option, when none of the automation options match the criteria.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 40.
          */
         defaultOptionRefId?: string;
         /**
-         * The answer options for the automation.
+         * The automation options of the single select question.
+         *   *Minimum*: 1
+         *   *Maximum*: 20
          */
         options: outputs.connect.EvaluationFormSingleSelectQuestionAutomationOption[];
     }
 
     /**
-     * The automation option for the single-select question.
+     * The automation options of the single select question.
      */
     export interface EvaluationFormSingleSelectQuestionAutomationOption {
         /**
-         * The automation option based on Rules categories.
+         * The automation option based on a rule category for the single select question.
          */
         ruleCategory: outputs.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomation;
     }
 
     /**
-     * The option for a question.
+     * Information about the automation configuration in single select questions.
      */
     export interface EvaluationFormSingleSelectQuestionOption {
         /**
-         * The flag to mark the option as automatic fail.
+         * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
          */
         automaticFail?: boolean;
         /**
-         * The identifier used to reference the option.
+         * The identifier of the answer option. An identifier must be unique within the question.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 40.
          */
         refId: string;
         /**
-         * The score of the option.
+         * The score assigned to the answer option.
+         *   *Minimum*: 0
+         *   *Maximum*: 10
          */
         score?: number;
         /**
-         * The title of the option.
+         * The title of the answer option.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 128.
          */
         text: string;
     }
 
     /**
-     * The properties of the single-select question.
+     * Information about the options in single select questions.
      */
     export interface EvaluationFormSingleSelectQuestionProperties {
         /**
-         * The automation properties for the single-select question.
+         * The display mode of the single select question.
          */
         automation?: outputs.connect.EvaluationFormSingleSelectQuestionAutomation;
         /**
-         * The display mode of the single-select question.
+         * The display mode of the single select question.
+         *   *Allowed values*: ``DROPDOWN`` | ``RADIO``
          */
         displayAs?: enums.connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs;
         /**
-         * The list of options for the question.
+         * The answer options of the single select question.
+         *   *Minimum*: 2
+         *   *Maximum*: 256
          */
         options: outputs.connect.EvaluationFormSingleSelectQuestionOption[];
     }
 
     /**
-     * The automation option based on Rules categories.
+     * Information about the automation option based on a rule category for a single select question.
+     *   *Length Constraints*: Minimum length of 1. Maximum length of 50.
      */
     export interface EvaluationFormSingleSelectQuestionRuleCategoryAutomation {
         /**
-         * The category name as defined in Rules.
+         * The category name, as defined in Rules.
+         *   *Minimum*: 1
+         *   *Maximum*: 50
          */
         category: string;
         /**
-         * The automation condition applied on contact categories.
+         * The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+         *   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+         *   *Maximum*: 50
          */
         condition: enums.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition;
         /**
-         * The option identifier referencing the option to be selected when the automation option is triggered.
+         * The identifier of the answer option. An identifier must be unique within the question.
+         *   *Length Constraints*: Minimum length of 1. Maximum length of 40.
          */
         optionRefId: string;
     }
@@ -23591,13 +23622,13 @@ export namespace ecs {
      */
     export interface TaskDefinitionResourceRequirement {
         /**
-         * The type of resource to assign to a container. The supported values are ``GPU`` or ``InferenceAccelerator``.
+         * The type of resource to assign to a container.
          */
         type: string;
         /**
          * The value for the specified resource type.
-         *  If the ``GPU`` type is used, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
-         *  If the ``InferenceAccelerator`` type is used, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
+         *  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+         *  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
          */
         value: string;
     }
@@ -25573,6 +25604,10 @@ export namespace emrserverless {
          * Per worker Disk resource. GB is the only supported unit and specifying GB is optional
          */
         disk?: string;
+        /**
+         * Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+         */
+        diskType?: string;
         /**
          * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
          */
@@ -29304,7 +29339,7 @@ export namespace guardduty {
 
     export interface MalwareProtectionPlanCfnActions {
         /**
-         * Indicates whether the scanned S3 object will have tags about the scan result.
+         * Contains information about tagging status of the Malware Protection plan resource.
          */
         tagging?: outputs.guardduty.MalwareProtectionPlanCfnTagging;
     }
@@ -29332,7 +29367,7 @@ export namespace guardduty {
 
     export interface MalwareProtectionPlanCfnStatusReasons {
         /**
-         * Issue code.
+         * The status code of the Malware Protection plan.
          */
         code?: string;
         /**
@@ -29343,7 +29378,7 @@ export namespace guardduty {
 
     export interface MalwareProtectionPlanCfnTagging {
         /**
-         * Indicates whether or not the tags will added.
+         * Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
          */
         status?: string;
     }
@@ -36541,6 +36576,10 @@ export namespace kinesisanalyticsv2 {
          */
         applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationSnapshotConfiguration;
         /**
+         * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+         */
+        applicationSystemRollbackConfiguration?: outputs.kinesisanalyticsv2.ApplicationSystemRollbackConfiguration;
+        /**
          * Describes execution properties for a Flink-based Kinesis Data Analytics application.
          */
         environmentProperties?: outputs.kinesisanalyticsv2.ApplicationEnvironmentProperties;
@@ -36969,6 +37008,16 @@ export namespace kinesisanalyticsv2 {
          * The array of Input objects describing the input streams used by the application.
          */
         inputs?: outputs.kinesisanalyticsv2.ApplicationInput[];
+    }
+
+    /**
+     * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+     */
+    export interface ApplicationSystemRollbackConfiguration {
+        /**
+         * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+         */
+        rollbackEnabled: boolean;
     }
 
     /**
@@ -84943,6 +84992,13 @@ export namespace ses {
         dimensionValueSource: string;
     }
 
+    /**
+     * An object that contains Event bus ARN associated with the event bridge destination.
+     */
+    export interface ConfigurationSetEventDestinationEventBridgeDestination {
+        eventBusArn: string;
+    }
+
     export interface ConfigurationSetEventDestinationEventDestination {
         /**
          * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
@@ -84952,6 +85008,10 @@ export namespace ses {
          * Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
          */
         enabled?: boolean;
+        /**
+         * An object that contains Event bus ARN associated with the event bridge destination.
+         */
+        eventBridgeDestination?: outputs.ses.ConfigurationSetEventDestinationEventBridgeDestination;
         /**
          * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
          */
@@ -85043,7 +85103,7 @@ export namespace ses {
         /**
          * The domain to use for tracking open and click events.
          */
-        customRedirectDomain?: string;
+        customRedirectDomain: string;
     }
 
     /**
@@ -86736,8 +86796,12 @@ export namespace verifiedpermissions {
         userPoolArn: string;
     }
 
-    export interface IdentitySourceConfigurationProperties {
+    export interface IdentitySourceConfiguration0Properties {
         cognitoUserPoolConfiguration: outputs.verifiedpermissions.IdentitySourceCognitoUserPoolConfiguration;
+    }
+
+    export interface IdentitySourceConfiguration1Properties {
+        openIdConnectConfiguration: outputs.verifiedpermissions.IdentitySourceOpenIdConnectConfiguration;
     }
 
     export interface IdentitySourceDetails {
@@ -86745,6 +86809,36 @@ export namespace verifiedpermissions {
         discoveryUrl?: string;
         openIdIssuer?: enums.verifiedpermissions.IdentitySourceOpenIdIssuer;
         userPoolArn?: string;
+    }
+
+    export interface IdentitySourceOpenIdConnectAccessTokenConfiguration {
+        audiences?: string[];
+        principalIdClaim?: string;
+    }
+
+    export interface IdentitySourceOpenIdConnectConfiguration {
+        entityIdPrefix?: string;
+        groupConfiguration?: outputs.verifiedpermissions.IdentitySourceOpenIdConnectGroupConfiguration;
+        issuer: string;
+        tokenSelection: outputs.verifiedpermissions.IdentitySourceOpenIdConnectTokenSelection0Properties | outputs.verifiedpermissions.IdentitySourceOpenIdConnectTokenSelection1Properties;
+    }
+
+    export interface IdentitySourceOpenIdConnectGroupConfiguration {
+        groupClaim: string;
+        groupEntityType: string;
+    }
+
+    export interface IdentitySourceOpenIdConnectIdentityTokenConfiguration {
+        clientIds?: string[];
+        principalIdClaim?: string;
+    }
+
+    export interface IdentitySourceOpenIdConnectTokenSelection0Properties {
+        accessTokenOnly: outputs.verifiedpermissions.IdentitySourceOpenIdConnectAccessTokenConfiguration;
+    }
+
+    export interface IdentitySourceOpenIdConnectTokenSelection1Properties {
+        identityTokenOnly: outputs.verifiedpermissions.IdentitySourceOpenIdConnectIdentityTokenConfiguration;
     }
 
     export interface PolicyDefinition0Properties {
@@ -90105,6 +90199,21 @@ export namespace workspaces {
          * The identifier of the directory associated with a connection alias.
          */
         resourceId?: string;
+    }
+
+    export interface WorkspacesPoolApplicationSettings {
+        settingsGroup?: string;
+        status: enums.workspaces.WorkspacesPoolApplicationSettingsStatus;
+    }
+
+    export interface WorkspacesPoolCapacity {
+        desiredUserSessions: number;
+    }
+
+    export interface WorkspacesPoolTimeoutSettings {
+        disconnectTimeoutInSeconds?: number;
+        idleDisconnectTimeoutInSeconds?: number;
+        maxUserDurationInSeconds?: number;
     }
 
 }

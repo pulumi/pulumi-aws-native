@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
         public Input<string>? Disk { get; set; }
 
         /// <summary>
+        /// Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+        /// </summary>
+        [Input("diskType")]
+        public Input<string>? DiskType { get; set; }
+
+        /// <summary>
         /// Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         /// </summary>
         [Input("memory", required: true)]

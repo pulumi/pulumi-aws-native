@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The evaluation form section.
+    /// Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
     /// </summary>
     public sealed class EvaluationFormSectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The instructions for the section.
+        /// The instructions of the section.
         /// </summary>
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
@@ -25,7 +25,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormItemArgs>? _items;
 
         /// <summary>
-        /// The list of section items.
+        /// The items of the section.
+        ///   *Minimum*: 1
         /// </summary>
         public InputList<Inputs.EvaluationFormItemArgs> Items
         {
@@ -34,19 +35,23 @@ namespace Pulumi.AwsNative.Connect.Inputs
         }
 
         /// <summary>
-        /// The identifier to reference the section.
+        /// The identifier of the section. An identifier must be unique within the evaluation form.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
         /// The title of the section.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The item weight used for scoring.
+        /// The scoring weight of the section.
+        ///   *Minimum*: 0 
+        ///   *Maximum*: 100
         /// </summary>
         [Input("weight")]
         public Input<double>? Weight { get; set; }

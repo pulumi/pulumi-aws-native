@@ -136,7 +136,7 @@
       }
     }
   },
-  "required" : [ "FindingCriteria" ],
+  "required" : [ "DetectorId", "Name", "FindingCriteria" ],
   "primaryIdentifier" : [ "/properties/DetectorId", "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/DetectorId", "/properties/Name" ],
   "handlers" : {

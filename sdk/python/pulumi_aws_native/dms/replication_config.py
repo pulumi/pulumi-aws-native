@@ -20,7 +20,6 @@ __all__ = ['ReplicationConfigArgs', 'ReplicationConfig']
 class ReplicationConfigArgs:
     def __init__(__self__, *,
                  compute_config: Optional[pulumi.Input['ReplicationConfigComputeConfigArgs']] = None,
-                 replication_config_arn: Optional[pulumi.Input[str]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[Any] = None,
                  replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
@@ -33,7 +32,6 @@ class ReplicationConfigArgs:
         """
         The set of arguments for constructing a ReplicationConfig resource.
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
-        :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
                
@@ -52,8 +50,6 @@ class ReplicationConfigArgs:
         """
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
-        if replication_config_arn is not None:
-            pulumi.set(__self__, "replication_config_arn", replication_config_arn)
         if replication_config_identifier is not None:
             pulumi.set(__self__, "replication_config_identifier", replication_config_identifier)
         if replication_settings is not None:
@@ -84,18 +80,6 @@ class ReplicationConfigArgs:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ReplicationConfigComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
-
-    @property
-    @pulumi.getter(name="replicationConfigArn")
-    def replication_config_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Replication Config
-        """
-        return pulumi.get(self, "replication_config_arn")
-
-    @replication_config_arn.setter
-    def replication_config_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "replication_config_arn", value)
 
     @property
     @pulumi.getter(name="replicationConfigIdentifier")
@@ -218,7 +202,6 @@ class ReplicationConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
-                 replication_config_arn: Optional[pulumi.Input[str]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[Any] = None,
                  replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
@@ -235,7 +218,6 @@ class ReplicationConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
-        :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
                
@@ -277,7 +259,6 @@ class ReplicationConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
-                 replication_config_arn: Optional[pulumi.Input[str]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[Any] = None,
                  replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
@@ -297,7 +278,6 @@ class ReplicationConfig(pulumi.CustomResource):
             __props__ = ReplicationConfigArgs.__new__(ReplicationConfigArgs)
 
             __props__.__dict__["compute_config"] = compute_config
-            __props__.__dict__["replication_config_arn"] = replication_config_arn
             __props__.__dict__["replication_config_identifier"] = replication_config_identifier
             __props__.__dict__["replication_settings"] = replication_settings
             __props__.__dict__["replication_type"] = replication_type
@@ -307,6 +287,7 @@ class ReplicationConfig(pulumi.CustomResource):
             __props__.__dict__["table_mappings"] = table_mappings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
+            __props__.__dict__["replication_config_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationConfig, __self__).__init__(
@@ -354,7 +335,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationConfigArn")
-    def replication_config_arn(self) -> pulumi.Output[Optional[str]]:
+    def replication_config_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the Replication Config
         """

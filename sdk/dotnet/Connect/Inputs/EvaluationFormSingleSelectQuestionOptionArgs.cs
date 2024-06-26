@@ -11,30 +11,34 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The option for a question.
+    /// Information about the automation configuration in single select questions.
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flag to mark the option as automatic fail.
+        /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         [Input("automaticFail")]
         public Input<bool>? AutomaticFail { get; set; }
 
         /// <summary>
-        /// The identifier used to reference the option.
+        /// The identifier of the answer option. An identifier must be unique within the question.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
-        /// The score of the option.
+        /// The score assigned to the answer option.
+        ///   *Minimum*: 0
+        ///   *Maximum*: 10
         /// </summary>
         [Input("score")]
         public Input<int>? Score { get; set; }
 
         /// <summary>
-        /// The title of the option.
+        /// The title of the answer option.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;

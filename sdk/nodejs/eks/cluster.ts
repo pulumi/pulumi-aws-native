@@ -50,6 +50,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
+     * Set this value to false to avoid creating the default networking addons when the cluster is created.
+     */
+    public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
+    /**
      * The certificate-authority-data for your cluster.
      */
     public /*out*/ readonly certificateAuthorityData!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
+            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
@@ -144,6 +149,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["bootstrapSelfManagedAddons"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
@@ -160,7 +166,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -174,6 +180,10 @@ export interface ClusterArgs {
      * The access configuration for the cluster.
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs>;
+    /**
+     * Set this value to false to avoid creating the default networking addons when the cluster is created.
+     */
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     /**
      * The encryption configuration for the cluster.
      */

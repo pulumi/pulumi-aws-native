@@ -572,11 +572,149 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) Index
 	}).(ConfigurationSetEventDestinationDimensionConfigurationOutput)
 }
 
+// An object that contains Event bus ARN associated with the event bridge destination.
+type ConfigurationSetEventDestinationEventBridgeDestination struct {
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// ConfigurationSetEventDestinationEventBridgeDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventBridgeDestinationArgs and ConfigurationSetEventDestinationEventBridgeDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventBridgeDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventBridgeDestinationArgs{...}
+type ConfigurationSetEventDestinationEventBridgeDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventBridgeDestinationOutput
+	ToConfigurationSetEventDestinationEventBridgeDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventBridgeDestinationOutput
+}
+
+// An object that contains Event bus ARN associated with the event bridge destination.
+type ConfigurationSetEventDestinationEventBridgeDestinationArgs struct {
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (ConfigurationSetEventDestinationEventBridgeDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventBridgeDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventBridgeDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventBridgeDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventBridgeDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventBridgeDestinationOutput).ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventBridgeDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventBridgeDestinationArgs, ConfigurationSetEventDestinationEventBridgeDestinationPtr and ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventBridgeDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventBridgeDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventBridgeDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventBridgeDestinationPtrType ConfigurationSetEventDestinationEventBridgeDestinationArgs
+
+func ConfigurationSetEventDestinationEventBridgeDestinationPtr(v *ConfigurationSetEventDestinationEventBridgeDestinationArgs) ConfigurationSetEventDestinationEventBridgeDestinationPtrInput {
+	return (*configurationSetEventDestinationEventBridgeDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventBridgeDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventBridgeDestinationPtrType) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventBridgeDestinationPtrType) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+// An object that contains Event bus ARN associated with the event bridge destination.
+type ConfigurationSetEventDestinationEventBridgeDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventBridgeDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventBridgeDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventBridgeDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventBridgeDestination) *ConfigurationSetEventDestinationEventBridgeDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventBridgeDestination) string { return v.EventBusArn }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) ToConfigurationSetEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventBridgeDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventBridgeDestination) ConfigurationSetEventDestinationEventBridgeDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventBridgeDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventBridgeDestinationOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventBridgeDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventBusArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetEventDestinationEventDestination struct {
 	// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 	CloudWatchDestination *ConfigurationSetEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
 	// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
 	Enabled *bool `pulumi:"enabled"`
+	// An object that contains Event bus ARN associated with the event bridge destination.
+	EventBridgeDestination *ConfigurationSetEventDestinationEventBridgeDestination `pulumi:"eventBridgeDestination"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
@@ -603,6 +741,8 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	CloudWatchDestination ConfigurationSetEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
 	// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// An object that contains Event bus ARN associated with the event bridge destination.
+	EventBridgeDestination ConfigurationSetEventDestinationEventBridgeDestinationPtrInput `pulumi:"eventBridgeDestination"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
@@ -649,6 +789,13 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestin
 // Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// An object that contains Event bus ARN associated with the event bridge destination.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventBridgeDestination {
+		return v.EventBridgeDestination
+	}).(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput)
 }
 
 // An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -717,6 +864,16 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pul
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that contains Event bus ARN associated with the event bridge destination.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventBridgeDestination {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgeDestination
+	}).(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput)
 }
 
 // An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -1629,7 +1786,7 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 type ConfigurationSetTrackingOptions struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
 }
 
 // ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
@@ -1646,7 +1803,7 @@ type ConfigurationSetTrackingOptionsInput interface {
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 type ConfigurationSetTrackingOptionsArgs struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
 }
 
 func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
@@ -1728,8 +1885,8 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 }
 
 // The domain to use for tracking open and click events.
-func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
+func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
 }
 
 type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1762,7 +1919,7 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 		if v == nil {
 			return nil
 		}
-		return v.CustomRedirectDomain
+		return &v.CustomRedirectDomain
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3297,6 +3454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationCloudWatchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfigurationInput)(nil)).Elem(), ConfigurationSetEventDestinationDimensionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfigurationArrayInput)(nil)).Elem(), ConfigurationSetEventDestinationDimensionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventBridgeDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventBridgeDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventBridgeDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventBridgeDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
@@ -3340,6 +3499,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventBridgeDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput{})

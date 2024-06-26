@@ -144,13 +144,13 @@ class ConstraintsProperties(dict):
 @pulumi.output_type
 class EvaluationFormBaseItem(dict):
     """
-    The evaluation form base item.
+    An item at the root level. All items must be sections.
     """
     def __init__(__self__, *,
                  section: 'outputs.EvaluationFormSection'):
         """
-        The evaluation form base item.
-        :param 'EvaluationFormSection' section: The evaluation form section item
+        An item at the root level. All items must be sections.
+        :param 'EvaluationFormSection' section: A subsection or inner section of an item.
         """
         pulumi.set(__self__, "section", section)
 
@@ -158,7 +158,7 @@ class EvaluationFormBaseItem(dict):
     @pulumi.getter
     def section(self) -> 'outputs.EvaluationFormSection':
         """
-        The evaluation form section item
+        A subsection or inner section of an item.
         """
         return pulumi.get(self, "section")
 
@@ -166,15 +166,15 @@ class EvaluationFormBaseItem(dict):
 @pulumi.output_type
 class EvaluationFormItem(dict):
     """
-    The evaluation form item.
+    Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
     """
     def __init__(__self__, *,
                  question: Optional['outputs.EvaluationFormQuestion'] = None,
                  section: Optional['outputs.EvaluationFormSection'] = None):
         """
-        The evaluation form item.
-        :param 'EvaluationFormQuestion' question: The evaluation form question item
-        :param 'EvaluationFormSection' section: The evaluation form section item
+        Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        :param 'EvaluationFormQuestion' question: The information of the question.
+        :param 'EvaluationFormSection' section: The information of the section.
         """
         if question is not None:
             pulumi.set(__self__, "question", question)
@@ -185,7 +185,7 @@ class EvaluationFormItem(dict):
     @pulumi.getter
     def question(self) -> Optional['outputs.EvaluationFormQuestion']:
         """
-        The evaluation form question item
+        The information of the question.
         """
         return pulumi.get(self, "question")
 
@@ -193,7 +193,7 @@ class EvaluationFormItem(dict):
     @pulumi.getter
     def section(self) -> Optional['outputs.EvaluationFormSection']:
         """
-        The evaluation form section item
+        The information of the section.
         """
         return pulumi.get(self, "section")
 
@@ -201,7 +201,7 @@ class EvaluationFormItem(dict):
 @pulumi.output_type
 class EvaluationFormNumericQuestionAutomation(dict):
     """
-    The automation properties for the numeric question.
+    Information about the automation configuration in numeric questions.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -223,8 +223,8 @@ class EvaluationFormNumericQuestionAutomation(dict):
     def __init__(__self__, *,
                  property_value: 'outputs.EvaluationFormNumericQuestionPropertyValueAutomation'):
         """
-        The automation properties for the numeric question.
-        :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The automation property name of the question.
+        Information about the automation configuration in numeric questions.
+        :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The property value of the automation.
         """
         pulumi.set(__self__, "property_value", property_value)
 
@@ -232,7 +232,7 @@ class EvaluationFormNumericQuestionAutomation(dict):
     @pulumi.getter(name="propertyValue")
     def property_value(self) -> 'outputs.EvaluationFormNumericQuestionPropertyValueAutomation':
         """
-        The automation property name of the question.
+        The property value of the automation.
         """
         return pulumi.get(self, "property_value")
 
@@ -240,7 +240,7 @@ class EvaluationFormNumericQuestionAutomation(dict):
 @pulumi.output_type
 class EvaluationFormNumericQuestionOption(dict):
     """
-    The option ranges used for scoring in numeric questions.
+    Information about the option range used for scoring in numeric questions.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -269,11 +269,13 @@ class EvaluationFormNumericQuestionOption(dict):
                  automatic_fail: Optional[bool] = None,
                  score: Optional[int] = None):
         """
-        The option ranges used for scoring in numeric questions.
-        :param int max_value: The maximum value of the option range.
-        :param int min_value: The minimum value of the option range.
-        :param bool automatic_fail: The flag to mark the option as automatic fail.
-        :param int score: The score of the option range.
+        Information about the option range used for scoring in numeric questions.
+        :param int max_value: The maximum answer value of the range option.
+        :param int min_value: The minimum answer value of the range option.
+        :param bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param int score: The score assigned to answer values within the range option.
+                 *Minimum*: 0
+                 *Maximum*: 10
         """
         pulumi.set(__self__, "max_value", max_value)
         pulumi.set(__self__, "min_value", min_value)
@@ -286,7 +288,7 @@ class EvaluationFormNumericQuestionOption(dict):
     @pulumi.getter(name="maxValue")
     def max_value(self) -> int:
         """
-        The maximum value of the option range.
+        The maximum answer value of the range option.
         """
         return pulumi.get(self, "max_value")
 
@@ -294,7 +296,7 @@ class EvaluationFormNumericQuestionOption(dict):
     @pulumi.getter(name="minValue")
     def min_value(self) -> int:
         """
-        The minimum value of the option range.
+        The minimum answer value of the range option.
         """
         return pulumi.get(self, "min_value")
 
@@ -302,7 +304,7 @@ class EvaluationFormNumericQuestionOption(dict):
     @pulumi.getter(name="automaticFail")
     def automatic_fail(self) -> Optional[bool]:
         """
-        The flag to mark the option as automatic fail.
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         """
         return pulumi.get(self, "automatic_fail")
 
@@ -310,7 +312,9 @@ class EvaluationFormNumericQuestionOption(dict):
     @pulumi.getter
     def score(self) -> Optional[int]:
         """
-        The score of the option range.
+        The score assigned to answer values within the range option.
+          *Minimum*: 0
+          *Maximum*: 10
         """
         return pulumi.get(self, "score")
 
@@ -318,7 +322,7 @@ class EvaluationFormNumericQuestionOption(dict):
 @pulumi.output_type
 class EvaluationFormNumericQuestionProperties(dict):
     """
-    The properties of the numeric question.
+    Information about properties for a numeric question in an evaluation form.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -345,11 +349,11 @@ class EvaluationFormNumericQuestionProperties(dict):
                  automation: Optional['outputs.EvaluationFormNumericQuestionAutomation'] = None,
                  options: Optional[Sequence['outputs.EvaluationFormNumericQuestionOption']] = None):
         """
-        The properties of the numeric question.
-        :param int max_value: The maximum value for answers of the question.
-        :param int min_value: The minimum value for answers of the question.
-        :param 'EvaluationFormNumericQuestionAutomation' automation: The automation properties for the numeric question.
-        :param Sequence['EvaluationFormNumericQuestionOption'] options: The list of option ranges used for scoring.
+        Information about properties for a numeric question in an evaluation form.
+        :param int max_value: The maximum answer value.
+        :param int min_value: The minimum answer value.
+        :param 'EvaluationFormNumericQuestionAutomation' automation: The automation properties of the numeric question.
+        :param Sequence['EvaluationFormNumericQuestionOption'] options: The scoring options of the numeric question.
         """
         pulumi.set(__self__, "max_value", max_value)
         pulumi.set(__self__, "min_value", min_value)
@@ -362,7 +366,7 @@ class EvaluationFormNumericQuestionProperties(dict):
     @pulumi.getter(name="maxValue")
     def max_value(self) -> int:
         """
-        The maximum value for answers of the question.
+        The maximum answer value.
         """
         return pulumi.get(self, "max_value")
 
@@ -370,7 +374,7 @@ class EvaluationFormNumericQuestionProperties(dict):
     @pulumi.getter(name="minValue")
     def min_value(self) -> int:
         """
-        The minimum value for answers of the question.
+        The minimum answer value.
         """
         return pulumi.get(self, "min_value")
 
@@ -378,7 +382,7 @@ class EvaluationFormNumericQuestionProperties(dict):
     @pulumi.getter
     def automation(self) -> Optional['outputs.EvaluationFormNumericQuestionAutomation']:
         """
-        The automation properties for the numeric question.
+        The automation properties of the numeric question.
         """
         return pulumi.get(self, "automation")
 
@@ -386,7 +390,7 @@ class EvaluationFormNumericQuestionProperties(dict):
     @pulumi.getter
     def options(self) -> Optional[Sequence['outputs.EvaluationFormNumericQuestionOption']]:
         """
-        The list of option ranges used for scoring.
+        The scoring options of the numeric question.
         """
         return pulumi.get(self, "options")
 
@@ -394,13 +398,13 @@ class EvaluationFormNumericQuestionProperties(dict):
 @pulumi.output_type
 class EvaluationFormNumericQuestionPropertyValueAutomation(dict):
     """
-    The automation property name of the question.
+    Information about the property value used in automation of a numeric questions.
     """
     def __init__(__self__, *,
                  label: 'EvaluationFormNumericQuestionPropertyValueAutomationLabel'):
         """
-        The automation property name of the question.
-        :param 'EvaluationFormNumericQuestionPropertyValueAutomationLabel' label: The automation property label.
+        Information about the property value used in automation of a numeric questions.
+        :param 'EvaluationFormNumericQuestionPropertyValueAutomationLabel' label: The property label of the automation.
         """
         pulumi.set(__self__, "label", label)
 
@@ -408,7 +412,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomation(dict):
     @pulumi.getter
     def label(self) -> 'EvaluationFormNumericQuestionPropertyValueAutomationLabel':
         """
-        The automation property label.
+        The property label of the automation.
         """
         return pulumi.get(self, "label")
 
@@ -416,7 +420,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomation(dict):
 @pulumi.output_type
 class EvaluationFormQuestion(dict):
     """
-    The evaluation form question.
+    Information about a question from an evaluation form.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -450,14 +454,20 @@ class EvaluationFormQuestion(dict):
                  question_type_properties: Optional['outputs.EvaluationFormQuestionTypeProperties'] = None,
                  weight: Optional[float] = None):
         """
-        The evaluation form question.
+        Information about a question from an evaluation form.
         :param 'EvaluationFormQuestionQuestionType' question_type: The type of the question.
-        :param str ref_id: The identifier used to reference the question.
+                 *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+        :param str ref_id: The identifier of the question. An identifier must be unique within the evaluation form.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param str title: The title of the question.
-        :param str instructions: The instructions for the question.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 350.
+        :param str instructions: The instructions of the section.
+                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param bool not_applicable_enabled: The flag to enable not applicable answers to the question.
-        :param 'EvaluationFormQuestionTypeProperties' question_type_properties: The properties of the question
-        :param float weight: The question weight used for scoring.
+        :param 'EvaluationFormQuestionTypeProperties' question_type_properties: The properties of the type of question. Text questions do not have to define question type properties.
+        :param float weight: The scoring weight of the section.
+                 *Minimum*: 0
+                 *Maximum*: 100
         """
         pulumi.set(__self__, "question_type", question_type)
         pulumi.set(__self__, "ref_id", ref_id)
@@ -476,6 +486,7 @@ class EvaluationFormQuestion(dict):
     def question_type(self) -> 'EvaluationFormQuestionQuestionType':
         """
         The type of the question.
+          *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         """
         return pulumi.get(self, "question_type")
 
@@ -483,7 +494,8 @@ class EvaluationFormQuestion(dict):
     @pulumi.getter(name="refId")
     def ref_id(self) -> str:
         """
-        The identifier used to reference the question.
+        The identifier of the question. An identifier must be unique within the evaluation form.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "ref_id")
 
@@ -492,6 +504,7 @@ class EvaluationFormQuestion(dict):
     def title(self) -> str:
         """
         The title of the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 350.
         """
         return pulumi.get(self, "title")
 
@@ -499,7 +512,8 @@ class EvaluationFormQuestion(dict):
     @pulumi.getter
     def instructions(self) -> Optional[str]:
         """
-        The instructions for the question.
+        The instructions of the section.
+          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         """
         return pulumi.get(self, "instructions")
 
@@ -515,7 +529,7 @@ class EvaluationFormQuestion(dict):
     @pulumi.getter(name="questionTypeProperties")
     def question_type_properties(self) -> Optional['outputs.EvaluationFormQuestionTypeProperties']:
         """
-        The properties of the question
+        The properties of the type of question. Text questions do not have to define question type properties.
         """
         return pulumi.get(self, "question_type_properties")
 
@@ -523,7 +537,9 @@ class EvaluationFormQuestion(dict):
     @pulumi.getter
     def weight(self) -> Optional[float]:
         """
-        The question weight used for scoring.
+        The scoring weight of the section.
+          *Minimum*: 0
+          *Maximum*: 100
         """
         return pulumi.get(self, "weight")
 
@@ -531,7 +547,7 @@ class EvaluationFormQuestion(dict):
 @pulumi.output_type
 class EvaluationFormQuestionTypeProperties(dict):
     """
-    The properties of the question.
+    Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -554,9 +570,9 @@ class EvaluationFormQuestionTypeProperties(dict):
                  numeric: Optional['outputs.EvaluationFormNumericQuestionProperties'] = None,
                  single_select: Optional['outputs.EvaluationFormSingleSelectQuestionProperties'] = None):
         """
-        The properties of the question.
+        Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
         :param 'EvaluationFormNumericQuestionProperties' numeric: The properties of the numeric question.
-        :param 'EvaluationFormSingleSelectQuestionProperties' single_select: The properties of the single-select question.
+        :param 'EvaluationFormSingleSelectQuestionProperties' single_select: The properties of the numeric question.
         """
         if numeric is not None:
             pulumi.set(__self__, "numeric", numeric)
@@ -575,7 +591,7 @@ class EvaluationFormQuestionTypeProperties(dict):
     @pulumi.getter(name="singleSelect")
     def single_select(self) -> Optional['outputs.EvaluationFormSingleSelectQuestionProperties']:
         """
-        The properties of the single-select question.
+        The properties of the numeric question.
         """
         return pulumi.get(self, "single_select")
 
@@ -583,15 +599,17 @@ class EvaluationFormQuestionTypeProperties(dict):
 @pulumi.output_type
 class EvaluationFormScoringStrategy(dict):
     """
-    The scoring strategy.
+    A scoring strategy of the evaluation form.
     """
     def __init__(__self__, *,
                  mode: 'EvaluationFormScoringStrategyMode',
                  status: 'EvaluationFormScoringStrategyStatus'):
         """
-        The scoring strategy.
-        :param 'EvaluationFormScoringStrategyMode' mode: The scoring mode.
-        :param 'EvaluationFormScoringStrategyStatus' status: The scoring status.
+        A scoring strategy of the evaluation form.
+        :param 'EvaluationFormScoringStrategyMode' mode: The scoring mode of the evaluation form.
+                 *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+        :param 'EvaluationFormScoringStrategyStatus' status: The scoring status of the evaluation form.
+                 *Allowed values*: ``ENABLED`` | ``DISABLED``
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "status", status)
@@ -600,7 +618,8 @@ class EvaluationFormScoringStrategy(dict):
     @pulumi.getter
     def mode(self) -> 'EvaluationFormScoringStrategyMode':
         """
-        The scoring mode.
+        The scoring mode of the evaluation form.
+          *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         """
         return pulumi.get(self, "mode")
 
@@ -608,7 +627,8 @@ class EvaluationFormScoringStrategy(dict):
     @pulumi.getter
     def status(self) -> 'EvaluationFormScoringStrategyStatus':
         """
-        The scoring status.
+        The scoring status of the evaluation form.
+          *Allowed values*: ``ENABLED`` | ``DISABLED``
         """
         return pulumi.get(self, "status")
 
@@ -616,7 +636,7 @@ class EvaluationFormScoringStrategy(dict):
 @pulumi.output_type
 class EvaluationFormSection(dict):
     """
-    The evaluation form section.
+    Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -642,12 +662,17 @@ class EvaluationFormSection(dict):
                  items: Optional[Sequence['outputs.EvaluationFormItem']] = None,
                  weight: Optional[float] = None):
         """
-        The evaluation form section.
-        :param str ref_id: The identifier to reference the section.
+        Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
+        :param str ref_id: The identifier of the section. An identifier must be unique within the evaluation form.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param str title: The title of the section.
-        :param str instructions: The instructions for the section.
-        :param Sequence['EvaluationFormItem'] items: The list of section items.
-        :param float weight: The item weight used for scoring.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        :param str instructions: The instructions of the section.
+        :param Sequence['EvaluationFormItem'] items: The items of the section.
+                 *Minimum*: 1
+        :param float weight: The scoring weight of the section.
+                 *Minimum*: 0 
+                 *Maximum*: 100
         """
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "title", title)
@@ -662,7 +687,8 @@ class EvaluationFormSection(dict):
     @pulumi.getter(name="refId")
     def ref_id(self) -> str:
         """
-        The identifier to reference the section.
+        The identifier of the section. An identifier must be unique within the evaluation form.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "ref_id")
 
@@ -671,6 +697,7 @@ class EvaluationFormSection(dict):
     def title(self) -> str:
         """
         The title of the section.
+          *Length Constraints*: Minimum length of 1. Maximum length of 128.
         """
         return pulumi.get(self, "title")
 
@@ -678,7 +705,7 @@ class EvaluationFormSection(dict):
     @pulumi.getter
     def instructions(self) -> Optional[str]:
         """
-        The instructions for the section.
+        The instructions of the section.
         """
         return pulumi.get(self, "instructions")
 
@@ -686,7 +713,8 @@ class EvaluationFormSection(dict):
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.EvaluationFormItem']]:
         """
-        The list of section items.
+        The items of the section.
+          *Minimum*: 1
         """
         return pulumi.get(self, "items")
 
@@ -694,7 +722,9 @@ class EvaluationFormSection(dict):
     @pulumi.getter
     def weight(self) -> Optional[float]:
         """
-        The item weight used for scoring.
+        The scoring weight of the section.
+          *Minimum*: 0 
+          *Maximum*: 100
         """
         return pulumi.get(self, "weight")
 
@@ -702,7 +732,7 @@ class EvaluationFormSection(dict):
 @pulumi.output_type
 class EvaluationFormSingleSelectQuestionAutomation(dict):
     """
-    The automation properties for the single-select question.
+    Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -725,9 +755,12 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
                  options: Sequence['outputs.EvaluationFormSingleSelectQuestionAutomationOption'],
                  default_option_ref_id: Optional[str] = None):
         """
-        The automation properties for the single-select question.
-        :param Sequence['EvaluationFormSingleSelectQuestionAutomationOption'] options: The answer options for the automation.
-        :param str default_option_ref_id: The option reference identifier of the default answer.
+        Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
+        :param Sequence['EvaluationFormSingleSelectQuestionAutomationOption'] options: The automation options of the single select question.
+                 *Minimum*: 1
+                 *Maximum*: 20
+        :param str default_option_ref_id: The identifier of the default answer option, when none of the automation options match the criteria.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         pulumi.set(__self__, "options", options)
         if default_option_ref_id is not None:
@@ -737,7 +770,9 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
     @pulumi.getter
     def options(self) -> Sequence['outputs.EvaluationFormSingleSelectQuestionAutomationOption']:
         """
-        The answer options for the automation.
+        The automation options of the single select question.
+          *Minimum*: 1
+          *Maximum*: 20
         """
         return pulumi.get(self, "options")
 
@@ -745,7 +780,8 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
     @pulumi.getter(name="defaultOptionRefId")
     def default_option_ref_id(self) -> Optional[str]:
         """
-        The option reference identifier of the default answer.
+        The identifier of the default answer option, when none of the automation options match the criteria.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "default_option_ref_id")
 
@@ -753,7 +789,7 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
 @pulumi.output_type
 class EvaluationFormSingleSelectQuestionAutomationOption(dict):
     """
-    The automation option for the single-select question.
+    The automation options of the single select question.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -775,8 +811,8 @@ class EvaluationFormSingleSelectQuestionAutomationOption(dict):
     def __init__(__self__, *,
                  rule_category: 'outputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomation'):
         """
-        The automation option for the single-select question.
-        :param 'EvaluationFormSingleSelectQuestionRuleCategoryAutomation' rule_category: The automation option based on Rules categories.
+        The automation options of the single select question.
+        :param 'EvaluationFormSingleSelectQuestionRuleCategoryAutomation' rule_category: The automation option based on a rule category for the single select question.
         """
         pulumi.set(__self__, "rule_category", rule_category)
 
@@ -784,7 +820,7 @@ class EvaluationFormSingleSelectQuestionAutomationOption(dict):
     @pulumi.getter(name="ruleCategory")
     def rule_category(self) -> 'outputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomation':
         """
-        The automation option based on Rules categories.
+        The automation option based on a rule category for the single select question.
         """
         return pulumi.get(self, "rule_category")
 
@@ -792,7 +828,7 @@ class EvaluationFormSingleSelectQuestionAutomationOption(dict):
 @pulumi.output_type
 class EvaluationFormSingleSelectQuestionOption(dict):
     """
-    The option for a question.
+    Information about the automation configuration in single select questions.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -819,11 +855,15 @@ class EvaluationFormSingleSelectQuestionOption(dict):
                  automatic_fail: Optional[bool] = None,
                  score: Optional[int] = None):
         """
-        The option for a question.
-        :param str ref_id: The identifier used to reference the option.
-        :param str text: The title of the option.
-        :param bool automatic_fail: The flag to mark the option as automatic fail.
-        :param int score: The score of the option.
+        Information about the automation configuration in single select questions.
+        :param str ref_id: The identifier of the answer option. An identifier must be unique within the question.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        :param str text: The title of the answer option.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        :param bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param int score: The score assigned to the answer option.
+                 *Minimum*: 0
+                 *Maximum*: 10
         """
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "text", text)
@@ -836,7 +876,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
     @pulumi.getter(name="refId")
     def ref_id(self) -> str:
         """
-        The identifier used to reference the option.
+        The identifier of the answer option. An identifier must be unique within the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "ref_id")
 
@@ -844,7 +885,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
     @pulumi.getter
     def text(self) -> str:
         """
-        The title of the option.
+        The title of the answer option.
+          *Length Constraints*: Minimum length of 1. Maximum length of 128.
         """
         return pulumi.get(self, "text")
 
@@ -852,7 +894,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
     @pulumi.getter(name="automaticFail")
     def automatic_fail(self) -> Optional[bool]:
         """
-        The flag to mark the option as automatic fail.
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         """
         return pulumi.get(self, "automatic_fail")
 
@@ -860,7 +902,9 @@ class EvaluationFormSingleSelectQuestionOption(dict):
     @pulumi.getter
     def score(self) -> Optional[int]:
         """
-        The score of the option.
+        The score assigned to the answer option.
+          *Minimum*: 0
+          *Maximum*: 10
         """
         return pulumi.get(self, "score")
 
@@ -868,7 +912,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
 @pulumi.output_type
 class EvaluationFormSingleSelectQuestionProperties(dict):
     """
-    The properties of the single-select question.
+    Information about the options in single select questions.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -892,10 +936,13 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
                  automation: Optional['outputs.EvaluationFormSingleSelectQuestionAutomation'] = None,
                  display_as: Optional['EvaluationFormSingleSelectQuestionPropertiesDisplayAs'] = None):
         """
-        The properties of the single-select question.
-        :param Sequence['EvaluationFormSingleSelectQuestionOption'] options: The list of options for the question.
-        :param 'EvaluationFormSingleSelectQuestionAutomation' automation: The automation properties for the single-select question.
-        :param 'EvaluationFormSingleSelectQuestionPropertiesDisplayAs' display_as: The display mode of the single-select question.
+        Information about the options in single select questions.
+        :param Sequence['EvaluationFormSingleSelectQuestionOption'] options: The answer options of the single select question.
+                 *Minimum*: 2
+                 *Maximum*: 256
+        :param 'EvaluationFormSingleSelectQuestionAutomation' automation: The display mode of the single select question.
+        :param 'EvaluationFormSingleSelectQuestionPropertiesDisplayAs' display_as: The display mode of the single select question.
+                 *Allowed values*: ``DROPDOWN`` | ``RADIO``
         """
         pulumi.set(__self__, "options", options)
         if automation is not None:
@@ -907,7 +954,9 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
     @pulumi.getter
     def options(self) -> Sequence['outputs.EvaluationFormSingleSelectQuestionOption']:
         """
-        The list of options for the question.
+        The answer options of the single select question.
+          *Minimum*: 2
+          *Maximum*: 256
         """
         return pulumi.get(self, "options")
 
@@ -915,7 +964,7 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
     @pulumi.getter
     def automation(self) -> Optional['outputs.EvaluationFormSingleSelectQuestionAutomation']:
         """
-        The automation properties for the single-select question.
+        The display mode of the single select question.
         """
         return pulumi.get(self, "automation")
 
@@ -923,7 +972,8 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
     @pulumi.getter(name="displayAs")
     def display_as(self) -> Optional['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']:
         """
-        The display mode of the single-select question.
+        The display mode of the single select question.
+          *Allowed values*: ``DROPDOWN`` | ``RADIO``
         """
         return pulumi.get(self, "display_as")
 
@@ -931,7 +981,8 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
 @pulumi.output_type
 class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
     """
-    The automation option based on Rules categories.
+    Information about the automation option based on a rule category for a single select question.
+      *Length Constraints*: Minimum length of 1. Maximum length of 50.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -955,10 +1006,16 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
                  condition: 'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition',
                  option_ref_id: str):
         """
-        The automation option based on Rules categories.
-        :param str category: The category name as defined in Rules.
-        :param 'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition' condition: The automation condition applied on contact categories.
-        :param str option_ref_id: The option identifier referencing the option to be selected when the automation option is triggered.
+        Information about the automation option based on a rule category for a single select question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 50.
+        :param str category: The category name, as defined in Rules.
+                 *Minimum*: 1
+                 *Maximum*: 50
+        :param 'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition' condition: The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+                 *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+                 *Maximum*: 50
+        :param str option_ref_id: The identifier of the answer option. An identifier must be unique within the question.
+                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "condition", condition)
@@ -968,7 +1025,9 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter
     def category(self) -> str:
         """
-        The category name as defined in Rules.
+        The category name, as defined in Rules.
+          *Minimum*: 1
+          *Maximum*: 50
         """
         return pulumi.get(self, "category")
 
@@ -976,7 +1035,9 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter
     def condition(self) -> 'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition':
         """
-        The automation condition applied on contact categories.
+        The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+          *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+          *Maximum*: 50
         """
         return pulumi.get(self, "condition")
 
@@ -984,7 +1045,8 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter(name="optionRefId")
     def option_ref_id(self) -> str:
         """
-        The option identifier referencing the option to be selected when the automation option is triggered.
+        The identifier of the answer option. An identifier must be unique within the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "option_ref_id")
 

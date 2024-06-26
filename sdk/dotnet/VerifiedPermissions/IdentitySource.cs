@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     ///     var identitySource = new AwsNative.VerifiedPermissions.IdentitySource("identitySource", new()
     ///     {
     ///         PolicyStoreId = policyStoreId,
-    ///         Configuration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceConfigurationPropertiesArgs
+    ///         Configuration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceConfiguration0PropertiesArgs
     ///         {
     ///             CognitoUserPoolConfiguration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceCognitoUserPoolConfigurationArgs
     ///             {
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Contains configuration information about an identity source.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.IdentitySourceConfigurationProperties> Configuration { get; private set; } = null!;
+        public Output<Union<Outputs.IdentitySourceConfiguration0Properties, Outputs.IdentitySourceConfiguration1Properties>> Configuration { get; private set; } = null!;
 
         [Output("details")]
         public Output<Outputs.IdentitySourceDetails> Details { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Contains configuration information about an identity source.
         /// </summary>
         [Input("configuration", required: true)]
-        public Input<Inputs.IdentitySourceConfigurationPropertiesArgs> Configuration { get; set; } = null!;
+        public InputUnion<Inputs.IdentitySourceConfiguration0PropertiesArgs, Inputs.IdentitySourceConfiguration1PropertiesArgs> Configuration { get; set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.

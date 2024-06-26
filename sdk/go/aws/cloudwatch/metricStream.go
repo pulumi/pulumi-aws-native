@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -61,7 +60,7 @@ type MetricStream struct {
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters MetricStreamFilterArrayOutput `pulumi:"excludeFilters"`
 	// The ARN of the Kinesis Firehose where to stream the data.
-	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
+	FirehoseArn pulumi.StringPtrOutput `pulumi:"firehoseArn"`
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters MetricStreamFilterArrayOutput `pulumi:"includeFilters"`
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
@@ -71,9 +70,9 @@ type MetricStream struct {
 	// Name of the metric stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The output format of the data streamed to the Kinesis Firehose.
-	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
+	OutputFormat pulumi.StringPtrOutput `pulumi:"outputFormat"`
 	// The ARN of the role that provides access to the Kinesis Firehose.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Displays the state of the Metric Stream.
 	State pulumi.StringOutput `pulumi:"state"`
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
@@ -86,18 +85,9 @@ type MetricStream struct {
 func NewMetricStream(ctx *pulumi.Context,
 	name string, args *MetricStreamArgs, opts ...pulumi.ResourceOption) (*MetricStream, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &MetricStreamArgs{}
 	}
 
-	if args.FirehoseArn == nil {
-		return nil, errors.New("invalid value for required argument 'FirehoseArn'")
-	}
-	if args.OutputFormat == nil {
-		return nil, errors.New("invalid value for required argument 'OutputFormat'")
-	}
-	if args.RoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'RoleArn'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 	})
@@ -138,7 +128,7 @@ type metricStreamArgs struct {
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters []MetricStreamFilter `pulumi:"excludeFilters"`
 	// The ARN of the Kinesis Firehose where to stream the data.
-	FirehoseArn string `pulumi:"firehoseArn"`
+	FirehoseArn *string `pulumi:"firehoseArn"`
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters []MetricStreamFilter `pulumi:"includeFilters"`
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
@@ -146,9 +136,9 @@ type metricStreamArgs struct {
 	// Name of the metric stream.
 	Name *string `pulumi:"name"`
 	// The output format of the data streamed to the Kinesis Firehose.
-	OutputFormat string `pulumi:"outputFormat"`
+	OutputFormat *string `pulumi:"outputFormat"`
 	// The ARN of the role that provides access to the Kinesis Firehose.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
 	// A set of tags to assign to the delivery stream.
@@ -160,7 +150,7 @@ type MetricStreamArgs struct {
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters MetricStreamFilterArrayInput
 	// The ARN of the Kinesis Firehose where to stream the data.
-	FirehoseArn pulumi.StringInput
+	FirehoseArn pulumi.StringPtrInput
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters MetricStreamFilterArrayInput
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
@@ -168,9 +158,9 @@ type MetricStreamArgs struct {
 	// Name of the metric stream.
 	Name pulumi.StringPtrInput
 	// The output format of the data streamed to the Kinesis Firehose.
-	OutputFormat pulumi.StringInput
+	OutputFormat pulumi.StringPtrInput
 	// The ARN of the role that provides access to the Kinesis Firehose.
-	RoleArn pulumi.StringInput
+	RoleArn pulumi.StringPtrInput
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
 	// A set of tags to assign to the delivery stream.
@@ -230,8 +220,8 @@ func (o MetricStreamOutput) ExcludeFilters() MetricStreamFilterArrayOutput {
 }
 
 // The ARN of the Kinesis Firehose where to stream the data.
-func (o MetricStreamOutput) FirehoseArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.FirehoseArn }).(pulumi.StringOutput)
+func (o MetricStreamOutput) FirehoseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.FirehoseArn }).(pulumi.StringPtrOutput)
 }
 
 // Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
@@ -255,13 +245,13 @@ func (o MetricStreamOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The output format of the data streamed to the Kinesis Firehose.
-func (o MetricStreamOutput) OutputFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.OutputFormat }).(pulumi.StringOutput)
+func (o MetricStreamOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the role that provides access to the Kinesis Firehose.
-func (o MetricStreamOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+func (o MetricStreamOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Displays the state of the Metric Stream.

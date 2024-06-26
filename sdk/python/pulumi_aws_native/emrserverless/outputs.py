@@ -615,19 +615,40 @@ class ApplicationS3MonitoringConfiguration(dict):
 
 @pulumi.output_type
 class ApplicationWorkerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskType":
+            suggest = "disk_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationWorkerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationWorkerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationWorkerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: str,
                  memory: str,
-                 disk: Optional[str] = None):
+                 disk: Optional[str] = None,
+                 disk_type: Optional[str] = None):
         """
         :param str cpu: Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
         :param str memory: Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         :param str disk: Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+        :param str disk_type: Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
 
     @property
     @pulumi.getter
@@ -652,6 +673,14 @@ class ApplicationWorkerConfiguration(dict):
         Per worker Disk resource. GB is the only supported unit and specifying GB is optional
         """
         return pulumi.get(self, "disk")
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[str]:
+        """
+        Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+        """
+        return pulumi.get(self, "disk_type")
 
 
 @pulumi.output_type

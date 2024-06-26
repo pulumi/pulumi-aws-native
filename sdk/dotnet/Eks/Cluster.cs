@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// Set this value to false to avoid creating the default networking addons when the cluster is created.
+        /// </summary>
+        [Output("bootstrapSelfManagedAddons")]
+        public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
+
+        /// <summary>
         /// The certificate-authority-data for your cluster.
         /// </summary>
         [Output("certificateAuthorityData")]
@@ -143,6 +149,7 @@ namespace Pulumi.AwsNative.Eks
                 ReplaceOnChanges =
                 {
                     "accessConfig.bootstrapClusterCreatorAdminPermissions",
+                    "bootstrapSelfManagedAddons",
                     "encryptionConfig[*]",
                     "kubernetesNetworkConfig",
                     "name",
@@ -176,6 +183,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
+
+        /// <summary>
+        /// Set this value to false to avoid creating the default networking addons when the cluster is created.
+        /// </summary>
+        [Input("bootstrapSelfManagedAddons")]
+        public Input<bool>? BootstrapSelfManagedAddons { get; set; }
 
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;

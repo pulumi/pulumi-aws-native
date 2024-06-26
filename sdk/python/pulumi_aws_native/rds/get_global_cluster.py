@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalClusterResult:
-    def __init__(__self__, deletion_protection=None, engine_version=None):
+    def __init__(__self__, deletion_protection=None, engine_lifecycle_support=None, engine_version=None):
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if engine_lifecycle_support and not isinstance(engine_lifecycle_support, str):
+            raise TypeError("Expected argument 'engine_lifecycle_support' to be a str")
+        pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -33,6 +36,14 @@ class GetGlobalClusterResult:
         The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[str]:
+        """
+        The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -50,6 +61,7 @@ class AwaitableGetGlobalClusterResult(GetGlobalClusterResult):
             yield self
         return GetGlobalClusterResult(
             deletion_protection=self.deletion_protection,
+            engine_lifecycle_support=self.engine_lifecycle_support,
             engine_version=self.engine_version)
 
 
@@ -68,6 +80,7 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
 
     return AwaitableGetGlobalClusterResult(
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
+        engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__ret__, 'engine_version'))
 
 

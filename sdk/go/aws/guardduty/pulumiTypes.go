@@ -1806,7 +1806,7 @@ type IpSetTagItem struct {
 }
 
 type MalwareProtectionPlanCfnActions struct {
-	// Indicates whether the scanned S3 object will have tags about the scan result.
+	// Contains information about tagging status of the Malware Protection plan resource.
 	Tagging *MalwareProtectionPlanCfnTagging `pulumi:"tagging"`
 }
 
@@ -1822,7 +1822,7 @@ type MalwareProtectionPlanCfnActionsInput interface {
 }
 
 type MalwareProtectionPlanCfnActionsArgs struct {
-	// Indicates whether the scanned S3 object will have tags about the scan result.
+	// Contains information about tagging status of the Malware Protection plan resource.
 	Tagging MalwareProtectionPlanCfnTaggingPtrInput `pulumi:"tagging"`
 }
 
@@ -1903,7 +1903,7 @@ func (o MalwareProtectionPlanCfnActionsOutput) ToMalwareProtectionPlanCfnActions
 	}).(MalwareProtectionPlanCfnActionsPtrOutput)
 }
 
-// Indicates whether the scanned S3 object will have tags about the scan result.
+// Contains information about tagging status of the Malware Protection plan resource.
 func (o MalwareProtectionPlanCfnActionsOutput) Tagging() MalwareProtectionPlanCfnTaggingPtrOutput {
 	return o.ApplyT(func(v MalwareProtectionPlanCfnActions) *MalwareProtectionPlanCfnTagging { return v.Tagging }).(MalwareProtectionPlanCfnTaggingPtrOutput)
 }
@@ -1932,7 +1932,7 @@ func (o MalwareProtectionPlanCfnActionsPtrOutput) Elem() MalwareProtectionPlanCf
 	}).(MalwareProtectionPlanCfnActionsOutput)
 }
 
-// Indicates whether the scanned S3 object will have tags about the scan result.
+// Contains information about tagging status of the Malware Protection plan resource.
 func (o MalwareProtectionPlanCfnActionsPtrOutput) Tagging() MalwareProtectionPlanCfnTaggingPtrOutput {
 	return o.ApplyT(func(v *MalwareProtectionPlanCfnActions) *MalwareProtectionPlanCfnTagging {
 		if v == nil {
@@ -2139,7 +2139,7 @@ func (o MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesPtrOutput) Ob
 }
 
 type MalwareProtectionPlanCfnStatusReasons struct {
-	// Issue code.
+	// The status code of the Malware Protection plan.
 	Code *string `pulumi:"code"`
 	// Issue message that specifies the reason.
 	Message *string `pulumi:"message"`
@@ -2159,7 +2159,7 @@ func (o MalwareProtectionPlanCfnStatusReasonsOutput) ToMalwareProtectionPlanCfnS
 	return o
 }
 
-// Issue code.
+// The status code of the Malware Protection plan.
 func (o MalwareProtectionPlanCfnStatusReasonsOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MalwareProtectionPlanCfnStatusReasons) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
@@ -2190,7 +2190,7 @@ func (o MalwareProtectionPlanCfnStatusReasonsArrayOutput) Index(i pulumi.IntInpu
 }
 
 type MalwareProtectionPlanCfnTagging struct {
-	// Indicates whether or not the tags will added.
+	// Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
 	Status *string `pulumi:"status"`
 }
 
@@ -2206,7 +2206,7 @@ type MalwareProtectionPlanCfnTaggingInput interface {
 }
 
 type MalwareProtectionPlanCfnTaggingArgs struct {
-	// Indicates whether or not the tags will added.
+	// Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -2287,7 +2287,7 @@ func (o MalwareProtectionPlanCfnTaggingOutput) ToMalwareProtectionPlanCfnTagging
 	}).(MalwareProtectionPlanCfnTaggingPtrOutput)
 }
 
-// Indicates whether or not the tags will added.
+// Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
 func (o MalwareProtectionPlanCfnTaggingOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MalwareProtectionPlanCfnTagging) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2316,7 +2316,7 @@ func (o MalwareProtectionPlanCfnTaggingPtrOutput) Elem() MalwareProtectionPlanCf
 	}).(MalwareProtectionPlanCfnTaggingOutput)
 }
 
-// Indicates whether or not the tags will added.
+// Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
 func (o MalwareProtectionPlanCfnTaggingPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MalwareProtectionPlanCfnTagging) *string {
 		if v == nil {

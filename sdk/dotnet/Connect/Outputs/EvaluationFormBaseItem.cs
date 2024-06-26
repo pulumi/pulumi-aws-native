@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The evaluation form base item.
+    /// An item at the root level. All items must be sections.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormBaseItem
     {
         /// <summary>
-        /// The evaluation form section item
+        /// A subsection or inner section of an item.
         /// </summary>
         public readonly Outputs.EvaluationFormSection Section;
 

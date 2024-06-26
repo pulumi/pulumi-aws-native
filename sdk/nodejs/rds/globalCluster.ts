@@ -47,6 +47,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<enums.rds.GlobalClusterEngine | undefined>;
     /**
+     * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+     */
+    public readonly engineLifecycleSupport!: pulumi.Output<string | undefined>;
+    /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
@@ -77,6 +81,7 @@ export class GlobalCluster extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
@@ -84,6 +89,7 @@ export class GlobalCluster extends pulumi.CustomResource {
         } else {
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineLifecycleSupport"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
@@ -109,6 +115,10 @@ export interface GlobalClusterArgs {
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     engine?: pulumi.Input<enums.rds.GlobalClusterEngine>;
+    /**
+     * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */

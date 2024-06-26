@@ -31,10 +31,6 @@ export interface GetSigningProfileResult {
      */
     readonly arn?: string;
     /**
-     * A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
-     */
-    readonly profileName?: string;
-    /**
      * A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
      */
     readonly profileVersion?: string;

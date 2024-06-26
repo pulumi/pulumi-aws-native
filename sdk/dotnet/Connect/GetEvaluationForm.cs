@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Connect
     public static class GetEvaluationForm
     {
         /// <summary>
-        /// Resource Type definition for AWS::Connect::EvaluationForm
+        /// Creates an evaluation form for the specified CON instance.
         /// </summary>
         public static Task<GetEvaluationFormResult> InvokeAsync(GetEvaluationFormArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEvaluationFormResult>("aws-native:connect:getEvaluationForm", args ?? new GetEvaluationFormArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Connect::EvaluationForm
+        /// Creates an evaluation form for the specified CON instance.
         /// </summary>
         public static Output<GetEvaluationFormResult> Invoke(GetEvaluationFormInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEvaluationFormResult>("aws-native:connect:getEvaluationForm", args ?? new GetEvaluationFormInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetEvaluationFormArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the evaluation form.
+        /// The Amazon Resource Name (ARN) of the evaluation form.
         /// </summary>
         [Input("evaluationFormArn", required: true)]
         public string EvaluationFormArn { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetEvaluationFormInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the evaluation form.
+        /// The Amazon Resource Name (ARN) of the evaluation form.
         /// </summary>
         [Input("evaluationFormArn", required: true)]
         public Input<string> EvaluationFormArn { get; set; } = null!;
@@ -59,34 +59,38 @@ namespace Pulumi.AwsNative.Connect
     {
         /// <summary>
         /// The description of the evaluation form.
+        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the evaluation form.
+        /// The Amazon Resource Name (ARN) of the evaluation form.
         /// </summary>
         public readonly string? EvaluationFormArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance.
+        /// The identifier of the Amazon Connect instance.
         /// </summary>
         public readonly string? InstanceArn;
         /// <summary>
-        /// The list of evaluation form items.
+        /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        ///   *Minimum size*: 1
+        ///   *Maximum size*: 100
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormBaseItem> Items;
         /// <summary>
-        /// The scoring strategy.
+        /// A scoring strategy of the evaluation form.
         /// </summary>
         public readonly Outputs.EvaluationFormScoringStrategy? ScoringStrategy;
         /// <summary>
         /// The status of the evaluation form.
+        ///   *Allowed values*: ``DRAFT`` | ``ACTIVE``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormStatus? Status;
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The title of the evaluation form.
+        /// A title of the evaluation form.
         /// </summary>
         public readonly string? Title;
 

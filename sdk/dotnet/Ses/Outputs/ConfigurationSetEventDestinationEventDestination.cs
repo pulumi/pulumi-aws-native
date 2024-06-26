@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// An object that contains Event bus ARN associated with the event bridge destination.
+        /// </summary>
+        public readonly Outputs.ConfigurationSetEventDestinationEventBridgeDestination? EventBridgeDestination;
+        /// <summary>
         /// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination? KinesisFirehoseDestination;
@@ -44,6 +48,8 @@ namespace Pulumi.AwsNative.Ses.Outputs
 
             bool? enabled,
 
+            Outputs.ConfigurationSetEventDestinationEventBridgeDestination? eventBridgeDestination,
+
             Outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination? kinesisFirehoseDestination,
 
             ImmutableArray<string> matchingEventTypes,
@@ -54,6 +60,7 @@ namespace Pulumi.AwsNative.Ses.Outputs
         {
             CloudWatchDestination = cloudWatchDestination;
             Enabled = enabled;
+            EventBridgeDestination = eventBridgeDestination;
             KinesisFirehoseDestination = kinesisFirehoseDestination;
             MatchingEventTypes = matchingEventTypes;
             Name = name;

@@ -3128,7 +3128,8 @@ _utilities.register(
   "mod": "workspaces",
   "fqn": "pulumi_aws_native.workspaces",
   "classes": {
-   "aws-native:workspaces:ConnectionAlias": "ConnectionAlias"
+   "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
+   "aws-native:workspaces:WorkspacesPool": "WorkspacesPool"
   }
  },
  {

@@ -125,6 +125,10 @@ namespace Pulumi.AwsNative.Rds
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
         public readonly bool? EnableIamDatabaseAuthentication;
+        /// <summary>
+        /// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        /// </summary>
+        public readonly bool? EnableLocalWriteForwarding;
         public readonly Outputs.DbClusterEndpoint? Endpoint;
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -271,6 +275,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? enableIamDatabaseAuthentication,
 
+            bool? enableLocalWriteForwarding,
+
             Outputs.DbClusterEndpoint? endpoint,
 
             string? engine,
@@ -340,6 +346,7 @@ namespace Pulumi.AwsNative.Rds
             EnableGlobalWriteForwarding = enableGlobalWriteForwarding;
             EnableHttpEndpoint = enableHttpEndpoint;
             EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
+            EnableLocalWriteForwarding = enableLocalWriteForwarding;
             Endpoint = endpoint;
             Engine = engine;
             EngineLifecycleSupport = engineLifecycleSupport;

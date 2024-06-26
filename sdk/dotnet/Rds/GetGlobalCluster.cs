@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? DeletionProtection;
         /// <summary>
+        /// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        /// </summary>
+        public readonly string? EngineLifecycleSupport;
+        /// <summary>
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         public readonly string? EngineVersion;
@@ -70,9 +74,12 @@ namespace Pulumi.AwsNative.Rds
         private GetGlobalClusterResult(
             bool? deletionProtection,
 
+            string? engineLifecycleSupport,
+
             string? engineVersion)
         {
             DeletionProtection = deletionProtection;
+            EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
         }
     }

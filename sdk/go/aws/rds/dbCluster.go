@@ -61,8 +61,10 @@ type DbCluster struct {
 	// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput    `pulumi:"enableIamDatabaseAuthentication"`
-	Endpoint                        DbClusterEndpointOutput `pulumi:"endpoint"`
+	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput `pulumi:"enableIamDatabaseAuthentication"`
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+	EnableLocalWriteForwarding pulumi.BoolPtrOutput    `pulumi:"enableLocalWriteForwarding"`
+	Endpoint                   DbClusterEndpointOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
@@ -250,6 +252,8 @@ type dbClusterArgs struct {
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
 	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
@@ -379,6 +383,8 @@ type DbClusterArgs struct {
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 	EnableIamDatabaseAuthentication pulumi.BoolPtrInput
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+	EnableLocalWriteForwarding pulumi.BoolPtrInput
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrInput
 	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
@@ -614,6 +620,11 @@ func (o DbClusterOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 func (o DbClusterOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+func (o DbClusterOutput) EnableLocalWriteForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.EnableLocalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
 func (o DbClusterOutput) Endpoint() DbClusterEndpointOutput {

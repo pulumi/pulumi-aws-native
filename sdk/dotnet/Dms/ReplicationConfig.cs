@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Dms
         /// The Amazon Resource Name (ARN) of the Replication Config
         /// </summary>
         [Output("replicationConfigArn")]
-        public Output<string?> ReplicationConfigArn { get; private set; } = null!;
+        public Output<string> ReplicationConfigArn { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier of replication configuration
@@ -141,12 +141,6 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ReplicationConfigComputeConfigArgs>? ComputeConfig { get; set; }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Replication Config
-        /// </summary>
-        [Input("replicationConfigArn")]
-        public Input<string>? ReplicationConfigArn { get; set; }
 
         /// <summary>
         /// A unique identifier of replication configuration

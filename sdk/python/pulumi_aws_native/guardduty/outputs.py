@@ -691,7 +691,7 @@ class MalwareProtectionPlanCfnActions(dict):
     def __init__(__self__, *,
                  tagging: Optional['outputs.MalwareProtectionPlanCfnTagging'] = None):
         """
-        :param 'MalwareProtectionPlanCfnTagging' tagging: Indicates whether the scanned S3 object will have tags about the scan result.
+        :param 'MalwareProtectionPlanCfnTagging' tagging: Contains information about tagging status of the Malware Protection plan resource.
         """
         if tagging is not None:
             pulumi.set(__self__, "tagging", tagging)
@@ -700,7 +700,7 @@ class MalwareProtectionPlanCfnActions(dict):
     @pulumi.getter
     def tagging(self) -> Optional['outputs.MalwareProtectionPlanCfnTagging']:
         """
-        Indicates whether the scanned S3 object will have tags about the scan result.
+        Contains information about tagging status of the Malware Protection plan resource.
         """
         return pulumi.get(self, "tagging")
 
@@ -800,7 +800,7 @@ class MalwareProtectionPlanCfnStatusReasons(dict):
                  code: Optional[str] = None,
                  message: Optional[str] = None):
         """
-        :param str code: Issue code.
+        :param str code: The status code of the Malware Protection plan.
         :param str message: Issue message that specifies the reason.
         """
         if code is not None:
@@ -812,7 +812,7 @@ class MalwareProtectionPlanCfnStatusReasons(dict):
     @pulumi.getter
     def code(self) -> Optional[str]:
         """
-        Issue code.
+        The status code of the Malware Protection plan.
         """
         return pulumi.get(self, "code")
 
@@ -830,7 +830,7 @@ class MalwareProtectionPlanCfnTagging(dict):
     def __init__(__self__, *,
                  status: Optional[str] = None):
         """
-        :param str status: Indicates whether or not the tags will added.
+        :param str status: Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -839,7 +839,7 @@ class MalwareProtectionPlanCfnTagging(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Indicates whether or not the tags will added.
+        Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
         """
         return pulumi.get(self, "status")
 

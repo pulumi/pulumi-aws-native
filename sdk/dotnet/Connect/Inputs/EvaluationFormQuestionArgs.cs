@@ -11,12 +11,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The evaluation form question.
+    /// Information about a question from an evaluation form.
     /// </summary>
     public sealed class EvaluationFormQuestionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The instructions for the question.
+        /// The instructions of the section.
+        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
@@ -29,30 +30,35 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The type of the question.
+        ///   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         /// </summary>
         [Input("questionType", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormQuestionQuestionType> QuestionType { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the question
+        /// The properties of the type of question. Text questions do not have to define question type properties.
         /// </summary>
         [Input("questionTypeProperties")]
         public Input<Inputs.EvaluationFormQuestionTypePropertiesArgs>? QuestionTypeProperties { get; set; }
 
         /// <summary>
-        /// The identifier used to reference the question.
+        /// The identifier of the question. An identifier must be unique within the evaluation form.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
         /// The title of the question.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 350.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The question weight used for scoring.
+        /// The scoring weight of the section.
+        ///   *Minimum*: 0
+        ///   *Maximum*: 100
         /// </summary>
         [Input("weight")]
         public Input<double>? Weight { get; set; }

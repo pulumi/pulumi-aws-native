@@ -20,6 +20,8 @@ type GlobalCluster struct {
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	Engine GlobalClusterEnginePtrOutput `pulumi:"engine"`
+	// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport pulumi.StringPtrOutput `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -83,6 +85,8 @@ type globalClusterArgs struct {
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	Engine *GlobalClusterEngine `pulumi:"engine"`
+	// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -101,6 +105,8 @@ type GlobalClusterArgs struct {
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	Engine GlobalClusterEnginePtrInput
+	// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+	EngineLifecycleSupport pulumi.StringPtrInput
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion pulumi.StringPtrInput
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -158,6 +164,11 @@ func (o GlobalClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 // If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 func (o GlobalClusterOutput) Engine() GlobalClusterEnginePtrOutput {
 	return o.ApplyT(func(v *GlobalCluster) GlobalClusterEnginePtrOutput { return v.Engine }).(GlobalClusterEnginePtrOutput)
+}
+
+// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+func (o GlobalClusterOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

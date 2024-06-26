@@ -120,13 +120,13 @@
   "primaryIdentifier" : [ "/properties/Prefix" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecr:CreateRepositoryCreationTemplate", "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy" ]
+      "permissions" : [ "ecr:CreateRepositoryCreationTemplate", "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy", "ecr:CreateRepository", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "ecr:DescribeRepositoryCreationTemplates" ]
     },
     "update" : {
-      "permissions" : [ "ecr:DescribeRepositoryCreationTemplates", "ecr:UpdateRepositoryCreationTemplate", "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy" ]
+      "permissions" : [ "ecr:DescribeRepositoryCreationTemplates", "ecr:UpdateRepositoryCreationTemplate", "ecr:PutLifecyclePolicy", "ecr:SetRepositoryPolicy", "ecr:CreateRepository", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
       "permissions" : [ "ecr:DeleteRepositoryCreationTemplate" ]

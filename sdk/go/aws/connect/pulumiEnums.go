@@ -356,7 +356,7 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowTypePtrOutput)
 }
 
-// The automation property label.
+// The property label of the automation.
 type EvaluationFormNumericQuestionPropertyValueAutomationLabel string
 
 const (
@@ -535,6 +535,8 @@ func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToEvalua
 }
 
 // The type of the question.
+//
+//	*Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 type EvaluationFormQuestionQuestionType string
 
 const (
@@ -702,7 +704,9 @@ func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestio
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormQuestionQuestionTypePtrOutput)
 }
 
-// The scoring mode.
+// The scoring mode of the evaluation form.
+//
+//	*Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 type EvaluationFormScoringStrategyMode string
 
 const (
@@ -868,7 +872,9 @@ func (in *evaluationFormScoringStrategyModePtr) ToEvaluationFormScoringStrategyM
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyModePtrOutput)
 }
 
-// The scoring status.
+// The scoring status of the evaluation form.
+//
+//	*Allowed values*: ``ENABLED`` | ``DISABLED``
 type EvaluationFormScoringStrategyStatus string
 
 const (
@@ -1034,7 +1040,9 @@ func (in *evaluationFormScoringStrategyStatusPtr) ToEvaluationFormScoringStrateg
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyStatusPtrOutput)
 }
 
-// The display mode of the single-select question.
+// The display mode of the single select question.
+//
+//	*Allowed values*: ``DROPDOWN`` | ``RADIO``
 type EvaluationFormSingleSelectQuestionPropertiesDisplayAs string
 
 const (
@@ -1200,7 +1208,10 @@ func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToEvaluation
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The automation condition applied on contact categories.
+// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+//
+//	*Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+//	*Maximum*: 50
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition string
 
 const (
@@ -1367,6 +1378,8 @@ func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) 
 }
 
 // The status of the evaluation form.
+//
+//	*Allowed values*: ``DRAFT`` | ``ACTIVE``
 type EvaluationFormStatus string
 
 const (

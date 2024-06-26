@@ -15,6 +15,16 @@ export const getConnectionAlias: typeof import("./getConnectionAlias").getConnec
 export const getConnectionAliasOutput: typeof import("./getConnectionAlias").getConnectionAliasOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
 
+export { GetWorkspacesPoolArgs, GetWorkspacesPoolResult, GetWorkspacesPoolOutputArgs } from "./getWorkspacesPool";
+export const getWorkspacesPool: typeof import("./getWorkspacesPool").getWorkspacesPool = null as any;
+export const getWorkspacesPoolOutput: typeof import("./getWorkspacesPool").getWorkspacesPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspacesPool","getWorkspacesPoolOutput"], () => require("./getWorkspacesPool"));
+
+export { WorkspacesPoolArgs } from "./workspacesPool";
+export type WorkspacesPool = import("./workspacesPool").WorkspacesPool;
+export const WorkspacesPool: typeof import("./workspacesPool").WorkspacesPool = null as any;
+utilities.lazyLoad(exports, ["WorkspacesPool"], () => require("./workspacesPool"));
+
 
 // Export enums:
 export * from "../types/enums/workspaces";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:workspaces:ConnectionAlias":
                 return new ConnectionAlias(name, <any>undefined, { urn })
+            case "aws-native:workspaces:WorkspacesPool":
+                return new WorkspacesPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

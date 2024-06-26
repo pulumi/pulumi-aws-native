@@ -41,7 +41,7 @@ export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
 } as const;
 
 /**
- * The automation property label.
+ * The property label of the automation.
  */
 export type EvaluationFormNumericQuestionPropertyValueAutomationLabel = (typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel)[keyof typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel];
 
@@ -53,6 +53,7 @@ export const EvaluationFormQuestionQuestionType = {
 
 /**
  * The type of the question.
+ *   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
  */
 export type EvaluationFormQuestionQuestionType = (typeof EvaluationFormQuestionQuestionType)[keyof typeof EvaluationFormQuestionQuestionType];
 
@@ -62,7 +63,8 @@ export const EvaluationFormScoringStrategyMode = {
 } as const;
 
 /**
- * The scoring mode.
+ * The scoring mode of the evaluation form.
+ *   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
  */
 export type EvaluationFormScoringStrategyMode = (typeof EvaluationFormScoringStrategyMode)[keyof typeof EvaluationFormScoringStrategyMode];
 
@@ -72,7 +74,8 @@ export const EvaluationFormScoringStrategyStatus = {
 } as const;
 
 /**
- * The scoring status.
+ * The scoring status of the evaluation form.
+ *   *Allowed values*: ``ENABLED`` | ``DISABLED``
  */
 export type EvaluationFormScoringStrategyStatus = (typeof EvaluationFormScoringStrategyStatus)[keyof typeof EvaluationFormScoringStrategyStatus];
 
@@ -82,7 +85,8 @@ export const EvaluationFormSingleSelectQuestionPropertiesDisplayAs = {
 } as const;
 
 /**
- * The display mode of the single-select question.
+ * The display mode of the single select question.
+ *   *Allowed values*: ``DROPDOWN`` | ``RADIO``
  */
 export type EvaluationFormSingleSelectQuestionPropertiesDisplayAs = (typeof EvaluationFormSingleSelectQuestionPropertiesDisplayAs)[keyof typeof EvaluationFormSingleSelectQuestionPropertiesDisplayAs];
 
@@ -92,7 +96,9 @@ export const EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition =
 } as const;
 
 /**
- * The automation condition applied on contact categories.
+ * The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+ *   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+ *   *Maximum*: 50
  */
 export type EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition = (typeof EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)[keyof typeof EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition];
 
@@ -103,6 +109,7 @@ export const EvaluationFormStatus = {
 
 /**
  * The status of the evaluation form.
+ *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
  */
 export type EvaluationFormStatus = (typeof EvaluationFormStatus)[keyof typeof EvaluationFormStatus];
 

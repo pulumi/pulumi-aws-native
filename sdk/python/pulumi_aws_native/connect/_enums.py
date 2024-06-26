@@ -64,7 +64,7 @@ class ContactFlowType(str, Enum):
 
 class EvaluationFormNumericQuestionPropertyValueAutomationLabel(str, Enum):
     """
-    The automation property label.
+    The property label of the automation.
     """
     OVERALL_CUSTOMER_SENTIMENT_SCORE = "OVERALL_CUSTOMER_SENTIMENT_SCORE"
     OVERALL_AGENT_SENTIMENT_SCORE = "OVERALL_AGENT_SENTIMENT_SCORE"
@@ -79,6 +79,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomationLabel(str, Enum):
 class EvaluationFormQuestionQuestionType(str, Enum):
     """
     The type of the question.
+      *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
     """
     NUMERIC = "NUMERIC"
     SINGLESELECT = "SINGLESELECT"
@@ -87,7 +88,8 @@ class EvaluationFormQuestionQuestionType(str, Enum):
 
 class EvaluationFormScoringStrategyMode(str, Enum):
     """
-    The scoring mode.
+    The scoring mode of the evaluation form.
+      *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
     """
     QUESTION_ONLY = "QUESTION_ONLY"
     SECTION_ONLY = "SECTION_ONLY"
@@ -95,7 +97,8 @@ class EvaluationFormScoringStrategyMode(str, Enum):
 
 class EvaluationFormScoringStrategyStatus(str, Enum):
     """
-    The scoring status.
+    The scoring status of the evaluation form.
+      *Allowed values*: ``ENABLED`` | ``DISABLED``
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
@@ -103,7 +106,8 @@ class EvaluationFormScoringStrategyStatus(str, Enum):
 
 class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(str, Enum):
     """
-    The display mode of the single-select question.
+    The display mode of the single select question.
+      *Allowed values*: ``DROPDOWN`` | ``RADIO``
     """
     DROPDOWN = "DROPDOWN"
     RADIO = "RADIO"
@@ -111,7 +115,9 @@ class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(str, Enum):
 
 class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(str, Enum):
     """
-    The automation condition applied on contact categories.
+    The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+      *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+      *Maximum*: 50
     """
     PRESENT = "PRESENT"
     NOT_PRESENT = "NOT_PRESENT"
@@ -120,6 +126,7 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(str, Enu
 class EvaluationFormStatus(str, Enum):
     """
     The status of the evaluation form.
+      *Allowed values*: ``DRAFT`` | ``ACTIVE``
     """
     DRAFT = "DRAFT"
     ACTIVE = "ACTIVE"

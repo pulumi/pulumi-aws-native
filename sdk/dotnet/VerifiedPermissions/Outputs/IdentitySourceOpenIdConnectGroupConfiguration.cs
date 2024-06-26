@@ -11,14 +11,19 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
 {
 
     [OutputType]
-    public sealed class IdentitySourceConfigurationProperties
+    public sealed class IdentitySourceOpenIdConnectGroupConfiguration
     {
-        public readonly Outputs.IdentitySourceCognitoUserPoolConfiguration CognitoUserPoolConfiguration;
+        public readonly string GroupClaim;
+        public readonly string GroupEntityType;
 
         [OutputConstructor]
-        private IdentitySourceConfigurationProperties(Outputs.IdentitySourceCognitoUserPoolConfiguration cognitoUserPoolConfiguration)
+        private IdentitySourceOpenIdConnectGroupConfiguration(
+            string groupClaim,
+
+            string groupEntityType)
         {
-            CognitoUserPoolConfiguration = cognitoUserPoolConfiguration;
+            GroupClaim = groupClaim;
+            GroupEntityType = groupEntityType;
         }
     }
 }

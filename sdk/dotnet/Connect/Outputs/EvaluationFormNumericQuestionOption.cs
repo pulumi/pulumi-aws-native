@@ -11,25 +11,27 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The option ranges used for scoring in numeric questions.
+    /// Information about the option range used for scoring in numeric questions.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormNumericQuestionOption
     {
         /// <summary>
-        /// The flag to mark the option as automatic fail.
+        /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         public readonly bool? AutomaticFail;
         /// <summary>
-        /// The maximum value of the option range.
+        /// The maximum answer value of the range option.
         /// </summary>
         public readonly int MaxValue;
         /// <summary>
-        /// The minimum value of the option range.
+        /// The minimum answer value of the range option.
         /// </summary>
         public readonly int MinValue;
         /// <summary>
-        /// The score of the option range.
+        /// The score assigned to answer values within the range option.
+        ///   *Minimum*: 0
+        ///   *Maximum*: 10
         /// </summary>
         public readonly int? Score;
 

@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// <summary>
         /// The domain to use for tracking open and click events.
         /// </summary>
-        public readonly string? CustomRedirectDomain;
+        public readonly string CustomRedirectDomain;
 
         [OutputConstructor]
-        private ConfigurationSetTrackingOptions(string? customRedirectDomain)
+        private ConfigurationSetTrackingOptions(string customRedirectDomain)
         {
             CustomRedirectDomain = customRedirectDomain;
         }

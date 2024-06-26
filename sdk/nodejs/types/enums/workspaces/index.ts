@@ -25,3 +25,10 @@ export const ConnectionAliasState = {
  * The current state of the connection alias, returned as a string.
  */
 export type ConnectionAliasState = (typeof ConnectionAliasState)[keyof typeof ConnectionAliasState];
+
+export const WorkspacesPoolApplicationSettingsStatus = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+export type WorkspacesPoolApplicationSettingsStatus = (typeof WorkspacesPoolApplicationSettingsStatus)[keyof typeof WorkspacesPoolApplicationSettingsStatus];

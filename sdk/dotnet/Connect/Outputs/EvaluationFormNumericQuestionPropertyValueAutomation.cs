@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The automation property name of the question.
+    /// Information about the property value used in automation of a numeric questions.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormNumericQuestionPropertyValueAutomation
     {
         /// <summary>
-        /// The automation property label.
+        /// The property label of the automation.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormNumericQuestionPropertyValueAutomationLabel Label;
 

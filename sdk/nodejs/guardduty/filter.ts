@@ -48,7 +48,7 @@ export class Filter extends pulumi.CustomResource {
     /**
      * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
      */
-    public readonly detectorId!: pulumi.Output<string | undefined>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * Represents the criteria to be used in the filter for querying findings.
      */
@@ -56,7 +56,7 @@ export class Filter extends pulumi.CustomResource {
     /**
      * The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
      *
@@ -81,6 +81,9 @@ export class Filter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'detectorId'");
+            }
             if ((!args || args.findingCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
@@ -122,7 +125,7 @@ export interface FilterArgs {
     /**
      * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
      */
-    detectorId?: pulumi.Input<string>;
+    detectorId: pulumi.Input<string>;
     /**
      * Represents the criteria to be used in the filter for querying findings.
      */

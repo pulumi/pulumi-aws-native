@@ -1876,6 +1876,8 @@ type ApplicationWorkerConfiguration struct {
 	Cpu string `pulumi:"cpu"`
 	// Per worker Disk resource. GB is the only supported unit and specifying GB is optional
 	Disk *string `pulumi:"disk"`
+	// Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+	DiskType *string `pulumi:"diskType"`
 	// Per worker memory resource. GB is the only supported unit and specifying GB is optional.
 	Memory string `pulumi:"memory"`
 }
@@ -1896,6 +1898,8 @@ type ApplicationWorkerConfigurationArgs struct {
 	Cpu pulumi.StringInput `pulumi:"cpu"`
 	// Per worker Disk resource. GB is the only supported unit and specifying GB is optional
 	Disk pulumi.StringPtrInput `pulumi:"disk"`
+	// Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
 	// Per worker memory resource. GB is the only supported unit and specifying GB is optional.
 	Memory pulumi.StringInput `pulumi:"memory"`
 }
@@ -1934,6 +1938,11 @@ func (o ApplicationWorkerConfigurationOutput) Cpu() pulumi.StringOutput {
 // Per worker Disk resource. GB is the only supported unit and specifying GB is optional
 func (o ApplicationWorkerConfigurationOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationWorkerConfiguration) *string { return v.Disk }).(pulumi.StringPtrOutput)
+}
+
+// Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+func (o ApplicationWorkerConfigurationOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationWorkerConfiguration) *string { return v.DiskType }).(pulumi.StringPtrOutput)
 }
 
 // Per worker memory resource. GB is the only supported unit and specifying GB is optional.

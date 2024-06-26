@@ -21,7 +21,7 @@ type SigningProfile struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the target signing platform.
 	PlatformId SigningProfilePlatformIdOutput `pulumi:"platformId"`
-	// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+	// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
 	ProfileVersion pulumi.StringOutput `pulumi:"profileVersion"`
@@ -45,6 +45,7 @@ func NewSigningProfile(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"platformId",
+		"profileName",
 		"signatureValidityPeriod",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -83,6 +84,8 @@ func (SigningProfileState) ElementType() reflect.Type {
 type signingProfileArgs struct {
 	// The ID of the target signing platform.
 	PlatformId SigningProfilePlatformId `pulumi:"platformId"`
+	// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+	ProfileName *string `pulumi:"profileName"`
 	// Signature validity period of the profile.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
@@ -93,6 +96,8 @@ type signingProfileArgs struct {
 type SigningProfileArgs struct {
 	// The ID of the target signing platform.
 	PlatformId SigningProfilePlatformIdInput
+	// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+	ProfileName pulumi.StringPtrInput
 	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// A list of tags associated with the signing profile.
@@ -146,7 +151,7 @@ func (o SigningProfileOutput) PlatformId() SigningProfilePlatformIdOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfilePlatformIdOutput { return v.PlatformId }).(SigningProfilePlatformIdOutput)
 }
 
-// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
 func (o SigningProfileOutput) ProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }

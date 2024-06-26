@@ -18,78 +18,45 @@ __all__ = ['MetricStreamArgs', 'MetricStream']
 @pulumi.input_type
 class MetricStreamArgs:
     def __init__(__self__, *,
-                 firehose_arn: pulumi.Input[str],
-                 output_format: pulumi.Input[str],
-                 role_arn: pulumi.Input[str],
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+                 firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
                  include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
-        :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
-        :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
-        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
         :param pulumi.Input[str] name: Name of the metric stream.
+        :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags to assign to the delivery stream.
         """
-        pulumi.set(__self__, "firehose_arn", firehose_arn)
-        pulumi.set(__self__, "output_format", output_format)
-        pulumi.set(__self__, "role_arn", role_arn)
         if exclude_filters is not None:
             pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if firehose_arn is not None:
+            pulumi.set(__self__, "firehose_arn", firehose_arn)
         if include_filters is not None:
             pulumi.set(__self__, "include_filters", include_filters)
         if include_linked_accounts_metrics is not None:
             pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if statistics_configurations is not None:
             pulumi.set(__self__, "statistics_configurations", statistics_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="firehoseArn")
-    def firehose_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the Kinesis Firehose where to stream the data.
-        """
-        return pulumi.get(self, "firehose_arn")
-
-    @firehose_arn.setter
-    def firehose_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firehose_arn", value)
-
-    @property
-    @pulumi.getter(name="outputFormat")
-    def output_format(self) -> pulumi.Input[str]:
-        """
-        The output format of the data streamed to the Kinesis Firehose.
-        """
-        return pulumi.get(self, "output_format")
-
-    @output_format.setter
-    def output_format(self, value: pulumi.Input[str]):
-        pulumi.set(self, "output_format", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the role that provides access to the Kinesis Firehose.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter(name="excludeFilters")
@@ -102,6 +69,18 @@ class MetricStreamArgs:
     @exclude_filters.setter
     def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
         pulumi.set(self, "exclude_filters", value)
+
+    @property
+    @pulumi.getter(name="firehoseArn")
+    def firehose_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Kinesis Firehose where to stream the data.
+        """
+        return pulumi.get(self, "firehose_arn")
+
+    @firehose_arn.setter
+    def firehose_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firehose_arn", value)
 
     @property
     @pulumi.getter(name="includeFilters")
@@ -138,6 +117,30 @@ class MetricStreamArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The output format of the data streamed to the Kinesis Firehose.
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role that provides access to the Kinesis Firehose.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter(name="statisticsConfigurations")
@@ -220,7 +223,7 @@ class MetricStream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricStreamArgs,
+                 args: Optional[MetricStreamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for Metric Stream
@@ -281,17 +284,11 @@ class MetricStream(pulumi.CustomResource):
             __props__ = MetricStreamArgs.__new__(MetricStreamArgs)
 
             __props__.__dict__["exclude_filters"] = exclude_filters
-            if firehose_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'firehose_arn'")
             __props__.__dict__["firehose_arn"] = firehose_arn
             __props__.__dict__["include_filters"] = include_filters
             __props__.__dict__["include_linked_accounts_metrics"] = include_linked_accounts_metrics
             __props__.__dict__["name"] = name
-            if output_format is None and not opts.urn:
-                raise TypeError("Missing required property 'output_format'")
             __props__.__dict__["output_format"] = output_format
-            if role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["statistics_configurations"] = statistics_configurations
             __props__.__dict__["tags"] = tags
@@ -364,7 +361,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firehoseArn")
-    def firehose_arn(self) -> pulumi.Output[str]:
+    def firehose_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Kinesis Firehose where to stream the data.
         """
@@ -404,7 +401,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> pulumi.Output[str]:
+    def output_format(self) -> pulumi.Output[Optional[str]]:
         """
         The output format of the data streamed to the Kinesis Firehose.
         """
@@ -412,7 +409,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the role that provides access to the Kinesis Firehose.
         """

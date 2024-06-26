@@ -11,29 +11,34 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The evaluation form section.
+    /// Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormSection
     {
         /// <summary>
-        /// The instructions for the section.
+        /// The instructions of the section.
         /// </summary>
         public readonly string? Instructions;
         /// <summary>
-        /// The list of section items.
+        /// The items of the section.
+        ///   *Minimum*: 1
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormItem> Items;
         /// <summary>
-        /// The identifier to reference the section.
+        /// The identifier of the section. An identifier must be unique within the evaluation form.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         public readonly string RefId;
         /// <summary>
         /// The title of the section.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// The item weight used for scoring.
+        /// The scoring weight of the section.
+        ///   *Minimum*: 0 
+        ///   *Maximum*: 100
         /// </summary>
         public readonly double? Weight;
 

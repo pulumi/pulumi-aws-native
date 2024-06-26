@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.Signer
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
-        /// </summary>
-        public readonly string? ProfileName;
-        /// <summary>
         /// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
         /// </summary>
         public readonly string? ProfileVersion;
@@ -82,8 +78,6 @@ namespace Pulumi.AwsNative.Signer
         private GetSigningProfileResult(
             string? arn,
 
-            string? profileName,
-
             string? profileVersion,
 
             string? profileVersionArn,
@@ -91,7 +85,6 @@ namespace Pulumi.AwsNative.Signer
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
-            ProfileName = profileName;
             ProfileVersion = profileVersion;
             ProfileVersionArn = profileVersionArn;
             Tags = tags;

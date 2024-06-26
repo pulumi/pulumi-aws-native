@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.Ses.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// An object that contains Event bus ARN associated with the event bridge destination.
+        /// </summary>
+        [Input("eventBridgeDestination")]
+        public Input<Inputs.ConfigurationSetEventDestinationEventBridgeDestinationArgs>? EventBridgeDestination { get; set; }
+
+        /// <summary>
         /// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         /// </summary>
         [Input("kinesisFirehoseDestination")]

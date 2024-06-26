@@ -19,7 +19,7 @@ type ReplicationConfig struct {
 	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrOutput `pulumi:"computeConfig"`
 	// The Amazon Resource Name (ARN) of the Replication Config
-	ReplicationConfigArn pulumi.StringPtrOutput `pulumi:"replicationConfigArn"`
+	ReplicationConfigArn pulumi.StringOutput `pulumi:"replicationConfigArn"`
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier pulumi.StringPtrOutput `pulumi:"replicationConfigIdentifier"`
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -92,8 +92,6 @@ func (ReplicationConfigState) ElementType() reflect.Type {
 type replicationConfigArgs struct {
 	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
-	// The Amazon Resource Name (ARN) of the Replication Config
-	ReplicationConfigArn *string `pulumi:"replicationConfigArn"`
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier *string `pulumi:"replicationConfigIdentifier"`
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -124,8 +122,6 @@ type replicationConfigArgs struct {
 type ReplicationConfigArgs struct {
 	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrInput
-	// The Amazon Resource Name (ARN) of the Replication Config
-	ReplicationConfigArn pulumi.StringPtrInput
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier pulumi.StringPtrInput
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -195,8 +191,8 @@ func (o ReplicationConfigOutput) ComputeConfig() ReplicationConfigComputeConfigP
 }
 
 // The Amazon Resource Name (ARN) of the Replication Config
-func (o ReplicationConfigOutput) ReplicationConfigArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringPtrOutput { return v.ReplicationConfigArn }).(pulumi.StringPtrOutput)
+func (o ReplicationConfigOutput) ReplicationConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.ReplicationConfigArn }).(pulumi.StringOutput)
 }
 
 // A unique identifier of replication configuration

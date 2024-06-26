@@ -15,6 +15,7 @@ __all__ = [
     'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationCloudWatchDestination',
     'ConfigurationSetEventDestinationDimensionConfiguration',
+    'ConfigurationSetEventDestinationEventBridgeDestination',
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationKinesisFirehoseDestination',
     'ConfigurationSetEventDestinationSnsDestination',
@@ -234,6 +235,41 @@ class ConfigurationSetEventDestinationDimensionConfiguration(dict):
 
 
 @pulumi.output_type
+class ConfigurationSetEventDestinationEventBridgeDestination(dict):
+    """
+    An object that contains Event bus ARN associated with the event bridge destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventBridgeDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventBridgeDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventBridgeDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        return pulumi.get(self, "event_bus_arn")
+
+
+@pulumi.output_type
 class ConfigurationSetEventDestinationEventDestination(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -242,6 +278,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
             suggest = "matching_event_types"
         elif key == "cloudWatchDestination":
             suggest = "cloud_watch_destination"
+        elif key == "eventBridgeDestination":
+            suggest = "event_bridge_destination"
         elif key == "kinesisFirehoseDestination":
             suggest = "kinesis_firehose_destination"
         elif key == "snsDestination":
@@ -262,6 +300,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  matching_event_types: Sequence[str],
                  cloud_watch_destination: Optional['outputs.ConfigurationSetEventDestinationCloudWatchDestination'] = None,
                  enabled: Optional[bool] = None,
+                 event_bridge_destination: Optional['outputs.ConfigurationSetEventDestinationEventBridgeDestination'] = None,
                  kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination'] = None,
                  name: Optional[str] = None,
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationSnsDestination'] = None):
@@ -269,6 +308,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         :param Sequence[str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param 'ConfigurationSetEventDestinationCloudWatchDestination' cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        :param 'ConfigurationSetEventDestinationEventBridgeDestination' event_bridge_destination: An object that contains Event bus ARN associated with the event bridge destination.
         :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param str name: The name of the event destination set.
         :param 'ConfigurationSetEventDestinationSnsDestination' sns_destination: An object that contains SNS topic ARN associated event destination.
@@ -278,6 +318,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
             pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_bridge_destination is not None:
+            pulumi.set(__self__, "event_bridge_destination", event_bridge_destination)
         if kinesis_firehose_destination is not None:
             pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
         if name is not None:
@@ -308,6 +350,14 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="eventBridgeDestination")
+    def event_bridge_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventBridgeDestination']:
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        return pulumi.get(self, "event_bridge_destination")
 
     @property
     @pulumi.getter(name="kinesisFirehoseDestination")
@@ -611,17 +661,16 @@ class ConfigurationSetTrackingOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[str] = None):
+                 custom_redirect_domain: str):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        if custom_redirect_domain is not None:
-            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> Optional[str]:
+    def custom_redirect_domain(self) -> str:
         """
         The domain to use for tracking open and click events.
         """

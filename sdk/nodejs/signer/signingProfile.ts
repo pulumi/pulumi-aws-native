@@ -46,9 +46,9 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     public readonly platformId!: pulumi.Output<enums.signer.SigningProfilePlatformId>;
     /**
-     * A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+     * A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
      */
-    public /*out*/ readonly profileName!: pulumi.Output<string>;
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
      */
@@ -81,10 +81,10 @@ export class SigningProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'platformId'");
             }
             resourceInputs["platformId"] = args ? args.platformId : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["profileVersion"] = undefined /*out*/;
             resourceInputs["profileVersionArn"] = undefined /*out*/;
         } else {
@@ -97,7 +97,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["platformId", "signatureValidityPeriod"] };
+        const replaceOnChanges = { replaceOnChanges: ["platformId", "profileName", "signatureValidityPeriod"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SigningProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,6 +111,10 @@ export interface SigningProfileArgs {
      * The ID of the target signing platform.
      */
     platformId: pulumi.Input<enums.signer.SigningProfilePlatformId>;
+    /**
+     * A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+     */
+    profileName?: pulumi.Input<string>;
     /**
      * Signature validity period of the profile.
      */

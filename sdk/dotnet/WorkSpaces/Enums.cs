@@ -72,4 +72,32 @@ namespace Pulumi.AwsNative.WorkSpaces
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct WorkspacesPoolApplicationSettingsStatus : IEquatable<WorkspacesPoolApplicationSettingsStatus>
+    {
+        private readonly string _value;
+
+        private WorkspacesPoolApplicationSettingsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkspacesPoolApplicationSettingsStatus Disabled { get; } = new WorkspacesPoolApplicationSettingsStatus("DISABLED");
+        public static WorkspacesPoolApplicationSettingsStatus Enabled { get; } = new WorkspacesPoolApplicationSettingsStatus("ENABLED");
+
+        public static bool operator ==(WorkspacesPoolApplicationSettingsStatus left, WorkspacesPoolApplicationSettingsStatus right) => left.Equals(right);
+        public static bool operator !=(WorkspacesPoolApplicationSettingsStatus left, WorkspacesPoolApplicationSettingsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WorkspacesPoolApplicationSettingsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkspacesPoolApplicationSettingsStatus other && Equals(other);
+        public bool Equals(WorkspacesPoolApplicationSettingsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

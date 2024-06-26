@@ -18,15 +18,15 @@
       "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:DescribeConfigurationSettings", "elasticbeanstalk:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:CreateEnvironment", "iam:PassRole" ],
+      "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:CreateEnvironment", "elasticbeanstalk:AddTags", "elasticbeanstalk:ListTagsForResource", "iam:PassRole" ],
       "timeoutInMinutes" : 120
     },
     "update" : {
-      "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:UpdateEnvironment", "elasticbeanstalk:UpdateTagsForResource", "elasticbeanstalk:AssociateEnvironmentOperationsRole", "elasticbeanstalk:DisassociateEnvironmentOperationsRole", "iam:PassRole" ],
+      "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:UpdateEnvironment", "elasticbeanstalk:UpdateTagsForResource", "elasticbeanstalk:AssociateEnvironmentOperationsRole", "elasticbeanstalk:DisassociateEnvironmentOperationsRole", "elasticbeanstalk:AddTags", "elasticbeanstalk:ListTagsForResource", "iam:PassRole" ],
       "timeoutInMinutes" : 300
     },
     "list" : {
-      "permissions" : [ "elasticbeanstalk:DescribeEnvironments" ]
+      "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "elasticbeanstalk:DescribeEnvironments", "elasticbeanstalk:TerminateEnvironment" ],

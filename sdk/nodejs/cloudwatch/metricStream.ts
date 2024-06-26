@@ -75,7 +75,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
-    public readonly firehoseArn!: pulumi.Output<string>;
+    public readonly firehoseArn!: pulumi.Output<string | undefined>;
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
@@ -95,11 +95,11 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * The output format of the data streamed to the Kinesis Firehose.
      */
-    public readonly outputFormat!: pulumi.Output<string>;
+    public readonly outputFormat!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the role that provides access to the Kinesis Firehose.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * Displays the state of the Metric Stream.
      */
@@ -120,19 +120,10 @@ export class MetricStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MetricStreamArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MetricStreamArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firehoseArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'firehoseArn'");
-            }
-            if ((!args || args.outputFormat === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'outputFormat'");
-            }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleArn'");
-            }
             resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
             resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
             resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
@@ -179,7 +170,7 @@ export interface MetricStreamArgs {
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
-    firehoseArn: pulumi.Input<string>;
+    firehoseArn?: pulumi.Input<string>;
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
@@ -195,11 +186,11 @@ export interface MetricStreamArgs {
     /**
      * The output format of the data streamed to the Kinesis Firehose.
      */
-    outputFormat: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string>;
     /**
      * The ARN of the role that provides access to the Kinesis Firehose.
      */
-    roleArn: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
      */

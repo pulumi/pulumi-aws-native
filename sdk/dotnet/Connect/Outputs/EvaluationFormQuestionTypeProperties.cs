@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The properties of the question.
+    /// Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormQuestionTypeProperties
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly Outputs.EvaluationFormNumericQuestionProperties? Numeric;
         /// <summary>
-        /// The properties of the single-select question.
+        /// The properties of the numeric question.
         /// </summary>
         public readonly Outputs.EvaluationFormSingleSelectQuestionProperties? SingleSelect;
 

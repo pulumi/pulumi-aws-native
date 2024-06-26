@@ -10,55 +10,59 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect
 {
     /// <summary>
-    /// Resource Type definition for AWS::Connect::EvaluationForm
+    /// Creates an evaluation form for the specified CON instance.
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:EvaluationForm")]
     public partial class EvaluationForm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the evaluation form.
+        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the evaluation form.
+        /// The Amazon Resource Name (ARN) of the evaluation form.
         /// </summary>
         [Output("evaluationFormArn")]
         public Output<string> EvaluationFormArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance.
+        /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The list of evaluation form items.
+        /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        ///   *Minimum size*: 1
+        ///   *Maximum size*: 100
         /// </summary>
         [Output("items")]
         public Output<ImmutableArray<Outputs.EvaluationFormBaseItem>> Items { get; private set; } = null!;
 
         /// <summary>
-        /// The scoring strategy.
+        /// A scoring strategy of the evaluation form.
         /// </summary>
         [Output("scoringStrategy")]
         public Output<Outputs.EvaluationFormScoringStrategy?> ScoringStrategy { get; private set; } = null!;
 
         /// <summary>
         /// The status of the evaluation form.
+        ///   *Allowed values*: ``DRAFT`` | ``ACTIVE``
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Connect.EvaluationFormStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The title of the evaluation form.
+        /// A title of the evaluation form.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
@@ -110,12 +114,13 @@ namespace Pulumi.AwsNative.Connect
     {
         /// <summary>
         /// The description of the evaluation form.
+        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance.
+        /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
@@ -124,7 +129,9 @@ namespace Pulumi.AwsNative.Connect
         private InputList<Inputs.EvaluationFormBaseItemArgs>? _items;
 
         /// <summary>
-        /// The list of evaluation form items.
+        /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        ///   *Minimum size*: 1
+        ///   *Maximum size*: 100
         /// </summary>
         public InputList<Inputs.EvaluationFormBaseItemArgs> Items
         {
@@ -133,13 +140,14 @@ namespace Pulumi.AwsNative.Connect
         }
 
         /// <summary>
-        /// The scoring strategy.
+        /// A scoring strategy of the evaluation form.
         /// </summary>
         [Input("scoringStrategy")]
         public Input<Inputs.EvaluationFormScoringStrategyArgs>? ScoringStrategy { get; set; }
 
         /// <summary>
         /// The status of the evaluation form.
+        ///   *Allowed values*: ``DRAFT`` | ``ACTIVE``
         /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormStatus> Status { get; set; } = null!;
@@ -148,7 +156,7 @@ namespace Pulumi.AwsNative.Connect
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -157,7 +165,7 @@ namespace Pulumi.AwsNative.Connect
         }
 
         /// <summary>
-        /// The title of the evaluation form.
+        /// A title of the evaluation form.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;

@@ -12,6 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ConnectionAliasAssociation',
+    'WorkspacesPoolApplicationSettings',
+    'WorkspacesPoolCapacity',
+    'WorkspacesPoolTimeoutSettings',
 ]
 
 @pulumi.output_type
@@ -90,5 +93,121 @@ class ConnectionAliasAssociation(dict):
         The identifier of the directory associated with a connection alias.
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class WorkspacesPoolApplicationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "settingsGroup":
+            suggest = "settings_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacesPoolApplicationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacesPoolApplicationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacesPoolApplicationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'WorkspacesPoolApplicationSettingsStatus',
+                 settings_group: Optional[str] = None):
+        pulumi.set(__self__, "status", status)
+        if settings_group is not None:
+            pulumi.set(__self__, "settings_group", settings_group)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'WorkspacesPoolApplicationSettingsStatus':
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="settingsGroup")
+    def settings_group(self) -> Optional[str]:
+        return pulumi.get(self, "settings_group")
+
+
+@pulumi.output_type
+class WorkspacesPoolCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredUserSessions":
+            suggest = "desired_user_sessions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacesPoolCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacesPoolCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacesPoolCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_user_sessions: int):
+        pulumi.set(__self__, "desired_user_sessions", desired_user_sessions)
+
+    @property
+    @pulumi.getter(name="desiredUserSessions")
+    def desired_user_sessions(self) -> int:
+        return pulumi.get(self, "desired_user_sessions")
+
+
+@pulumi.output_type
+class WorkspacesPoolTimeoutSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disconnectTimeoutInSeconds":
+            suggest = "disconnect_timeout_in_seconds"
+        elif key == "idleDisconnectTimeoutInSeconds":
+            suggest = "idle_disconnect_timeout_in_seconds"
+        elif key == "maxUserDurationInSeconds":
+            suggest = "max_user_duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacesPoolTimeoutSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacesPoolTimeoutSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacesPoolTimeoutSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disconnect_timeout_in_seconds: Optional[int] = None,
+                 idle_disconnect_timeout_in_seconds: Optional[int] = None,
+                 max_user_duration_in_seconds: Optional[int] = None):
+        if disconnect_timeout_in_seconds is not None:
+            pulumi.set(__self__, "disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
+        if idle_disconnect_timeout_in_seconds is not None:
+            pulumi.set(__self__, "idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
+        if max_user_duration_in_seconds is not None:
+            pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="disconnectTimeoutInSeconds")
+    def disconnect_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "disconnect_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
+    def idle_disconnect_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="maxUserDurationInSeconds")
+    def max_user_duration_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "max_user_duration_in_seconds")
 
 

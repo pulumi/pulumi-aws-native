@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -72,6 +72,9 @@ class GetDbClusterResult:
         if enable_iam_database_authentication and not isinstance(enable_iam_database_authentication, bool):
             raise TypeError("Expected argument 'enable_iam_database_authentication' to be a bool")
         pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
+        if enable_local_write_forwarding and not isinstance(enable_local_write_forwarding, bool):
+            raise TypeError("Expected argument 'enable_local_write_forwarding' to be a bool")
+        pulumi.set(__self__, "enable_local_write_forwarding", enable_local_write_forwarding)
         if endpoint and not isinstance(endpoint, dict):
             raise TypeError("Expected argument 'endpoint' to be a dict")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -286,6 +289,14 @@ class GetDbClusterResult:
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         """
         return pulumi.get(self, "enable_iam_database_authentication")
+
+    @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> Optional[bool]:
+        """
+        Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
 
     @property
     @pulumi.getter
@@ -524,6 +535,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             enable_global_write_forwarding=self.enable_global_write_forwarding,
             enable_http_endpoint=self.enable_http_endpoint,
             enable_iam_database_authentication=self.enable_iam_database_authentication,
+            enable_local_write_forwarding=self.enable_local_write_forwarding,
             endpoint=self.endpoint,
             engine=self.engine,
             engine_lifecycle_support=self.engine_lifecycle_support,
@@ -583,6 +595,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         enable_global_write_forwarding=pulumi.get(__ret__, 'enable_global_write_forwarding'),
         enable_http_endpoint=pulumi.get(__ret__, 'enable_http_endpoint'),
         enable_iam_database_authentication=pulumi.get(__ret__, 'enable_iam_database_authentication'),
+        enable_local_write_forwarding=pulumi.get(__ret__, 'enable_local_write_forwarding'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine=pulumi.get(__ret__, 'engine'),
         engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),

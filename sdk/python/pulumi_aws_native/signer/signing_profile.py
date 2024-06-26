@@ -20,15 +20,19 @@ __all__ = ['SigningProfileArgs', 'SigningProfile']
 class SigningProfileArgs:
     def __init__(__self__, *,
                  platform_id: pulumi.Input['SigningProfilePlatformId'],
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
+        :param pulumi.Input[str] profile_name: A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags associated with the signing profile.
         """
         pulumi.set(__self__, "platform_id", platform_id)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
         if signature_validity_period is not None:
             pulumi.set(__self__, "signature_validity_period", signature_validity_period)
         if tags is not None:
@@ -45,6 +49,18 @@ class SigningProfileArgs:
     @platform_id.setter
     def platform_id(self, value: pulumi.Input['SigningProfilePlatformId']):
         pulumi.set(self, "platform_id", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_name", value)
 
     @property
     @pulumi.getter(name="signatureValidityPeriod")
@@ -77,6 +93,7 @@ class SigningProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -86,6 +103,7 @@ class SigningProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
+        :param pulumi.Input[str] profile_name: A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
         :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: Signature validity period of the profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags associated with the signing profile.
         """
@@ -114,6 +132,7 @@ class SigningProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -128,13 +147,13 @@ class SigningProfile(pulumi.CustomResource):
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
+            __props__.__dict__["profile_name"] = profile_name
             __props__.__dict__["signature_validity_period"] = signature_validity_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["profile_name"] = None
             __props__.__dict__["profile_version"] = None
             __props__.__dict__["profile_version_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["platformId", "signatureValidityPeriod"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["platformId", "profileName", "signatureValidityPeriod"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SigningProfile, __self__).__init__(
             'aws-native:signer:SigningProfile',
@@ -187,7 +206,7 @@ class SigningProfile(pulumi.CustomResource):
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
         """
-        A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
         """
         return pulumi.get(self, "profile_name")
 

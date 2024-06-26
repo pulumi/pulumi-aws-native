@@ -28,6 +28,10 @@ export interface GetGlobalClusterResult {
      */
     readonly deletionProtection?: boolean;
     /**
+     * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+     */
+    readonly engineLifecycleSupport?: string;
+    /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     readonly engineVersion?: string;

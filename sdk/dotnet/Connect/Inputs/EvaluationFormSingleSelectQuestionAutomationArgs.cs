@@ -11,12 +11,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The automation properties for the single-select question.
+    /// Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionAutomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The option reference identifier of the default answer.
+        /// The identifier of the default answer option, when none of the automation options match the criteria.
+        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("defaultOptionRefId")]
         public Input<string>? DefaultOptionRefId { get; set; }
@@ -25,7 +26,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormSingleSelectQuestionAutomationOptionArgs>? _options;
 
         /// <summary>
-        /// The answer options for the automation.
+        /// The automation options of the single select question.
+        ///   *Minimum*: 1
+        ///   *Maximum*: 20
         /// </summary>
         public InputList<Inputs.EvaluationFormSingleSelectQuestionAutomationOptionArgs> Options
         {

@@ -18,19 +18,19 @@ __all__ = ['FilterArgs', 'Filter']
 @pulumi.input_type
 class FilterArgs:
     def __init__(__self__, *,
+                 detector_id: pulumi.Input[str],
                  finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
                  action: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
         :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
-        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
         :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
                
@@ -39,19 +39,30 @@ class FilterArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
+        pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "finding_criteria", finding_criteria)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rank is not None:
             pulumi.set(__self__, "rank", rank)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        """
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter(name="findingCriteria")
@@ -88,18 +99,6 @@ class FilterArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-        """
-        return pulumi.get(self, "detector_id")
-
-    @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter
@@ -214,6 +213,8 @@ class Filter(pulumi.CustomResource):
 
             __props__.__dict__["action"] = action
             __props__.__dict__["description"] = description
+            if detector_id is None and not opts.urn:
+                raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
@@ -272,7 +273,7 @@ class Filter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> pulumi.Output[Optional[str]]:
+    def detector_id(self) -> pulumi.Output[str]:
         """
         The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
         """
@@ -288,7 +289,7 @@ class Filter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         """

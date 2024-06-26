@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ConnectionAliasAssociationAssociationStatus',
     'ConnectionAliasState',
+    'WorkspacesPoolApplicationSettingsStatus',
 ]
 
 
@@ -28,3 +29,8 @@ class ConnectionAliasState(str, Enum):
     CREATING = "CREATING"
     CREATED = "CREATED"
     DELETING = "DELETING"
+
+
+class WorkspacesPoolApplicationSettingsStatus(str, Enum):
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"

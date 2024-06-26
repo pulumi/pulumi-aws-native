@@ -62,8 +62,10 @@ type LookupDbClusterResult struct {
 	// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIamDatabaseAuthentication *bool              `pulumi:"enableIamDatabaseAuthentication"`
-	Endpoint                        *DbClusterEndpoint `pulumi:"endpoint"`
+	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+	EnableLocalWriteForwarding *bool              `pulumi:"enableLocalWriteForwarding"`
+	Endpoint                   *DbClusterEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
 	// The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
@@ -243,6 +245,11 @@ func (o LookupDbClusterResultOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 func (o LookupDbClusterResultOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+func (o LookupDbClusterResultOutput) EnableLocalWriteForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.EnableLocalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDbClusterResultOutput) Endpoint() DbClusterEndpointPtrOutput {

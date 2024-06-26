@@ -11,17 +11,19 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The scoring strategy.
+    /// A scoring strategy of the evaluation form.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormScoringStrategy
     {
         /// <summary>
-        /// The scoring mode.
+        /// The scoring mode of the evaluation form.
+        ///   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyMode Mode;
         /// <summary>
-        /// The scoring status.
+        /// The scoring status of the evaluation form.
+        ///   *Allowed values*: ``ENABLED`` | ``DISABLED``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyStatus Status;
 

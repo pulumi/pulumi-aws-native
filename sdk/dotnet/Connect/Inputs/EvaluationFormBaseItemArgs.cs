@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The evaluation form base item.
+    /// An item at the root level. All items must be sections.
     /// </summary>
     public sealed class EvaluationFormBaseItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The evaluation form section item
+        /// A subsection or inner section of an item.
         /// </summary>
         [Input("section", required: true)]
         public Input<Inputs.EvaluationFormSectionArgs> Section { get; set; } = null!;

@@ -129,6 +129,10 @@ export class DbCluster extends pulumi.CustomResource {
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
     public readonly enableIamDatabaseAuthentication!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+     */
+    public readonly enableLocalWriteForwarding!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<outputs.rds.DbClusterEndpoint>;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -320,6 +324,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
+            resourceInputs["enableLocalWriteForwarding"] = args ? args.enableLocalWriteForwarding : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = args ? args.engineMode : undefined;
@@ -383,6 +388,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["enableGlobalWriteForwarding"] = undefined /*out*/;
             resourceInputs["enableHttpEndpoint"] = undefined /*out*/;
             resourceInputs["enableIamDatabaseAuthentication"] = undefined /*out*/;
+            resourceInputs["enableLocalWriteForwarding"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineLifecycleSupport"] = undefined /*out*/;
@@ -516,6 +522,10 @@ export interface DbClusterArgs {
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
     enableIamDatabaseAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+     */
+    enableLocalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
      */

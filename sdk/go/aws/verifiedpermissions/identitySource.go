@@ -37,7 +37,7 @@ import (
 //			principalEntityType := cfg.Require("principalEntityType")
 //			identitySource, err := verifiedpermissions.NewIdentitySource(ctx, "identitySource", &verifiedpermissions.IdentitySourceArgs{
 //				PolicyStoreId: pulumi.String(policyStoreId),
-//				Configuration: &verifiedpermissions.IdentitySourceConfigurationPropertiesArgs{
+//				Configuration: &verifiedpermissions.IdentitySourceConfiguration0PropertiesArgs{
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs{
 //						UserPoolArn: pulumi.String(userPoolArn),
 //						ClientIds:   clientIds,
@@ -58,8 +58,8 @@ type IdentitySource struct {
 	pulumi.CustomResourceState
 
 	// Contains configuration information about an identity source.
-	Configuration IdentitySourceConfigurationPropertiesOutput `pulumi:"configuration"`
-	Details       IdentitySourceDetailsOutput                 `pulumi:"details"`
+	Configuration pulumi.AnyOutput            `pulumi:"configuration"`
+	Details       IdentitySourceDetailsOutput `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
 	IdentitySourceId pulumi.StringOutput `pulumi:"identitySourceId"`
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
@@ -119,7 +119,7 @@ func (IdentitySourceState) ElementType() reflect.Type {
 
 type identitySourceArgs struct {
 	// Contains configuration information about an identity source.
-	Configuration IdentitySourceConfigurationProperties `pulumi:"configuration"`
+	Configuration interface{} `pulumi:"configuration"`
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -129,7 +129,7 @@ type identitySourceArgs struct {
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
 	// Contains configuration information about an identity source.
-	Configuration IdentitySourceConfigurationPropertiesInput
+	Configuration pulumi.Input
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId pulumi.StringInput
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -174,8 +174,8 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 }
 
 // Contains configuration information about an identity source.
-func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationPropertiesOutput { return v.Configuration }).(IdentitySourceConfigurationPropertiesOutput)
+func (o IdentitySourceOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentitySource) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
 func (o IdentitySourceOutput) Details() IdentitySourceDetailsOutput {

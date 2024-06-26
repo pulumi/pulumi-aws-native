@@ -17,6 +17,7 @@ class GlobalClusterArgs:
     def __init__(__self__, *,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class GlobalClusterArgs:
         :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         :param pulumi.Input['GlobalClusterEngine'] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
@@ -36,6 +38,8 @@ class GlobalClusterArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_cluster_identifier is not None:
@@ -69,6 +73,18 @@ class GlobalClusterArgs:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input['GlobalClusterEngine']]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -127,6 +143,7 @@ class GlobalCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -140,6 +157,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         :param pulumi.Input['GlobalClusterEngine'] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
@@ -172,6 +190,7 @@ class GlobalCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -187,6 +206,7 @@ class GlobalCluster(pulumi.CustomResource):
 
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
@@ -217,6 +237,7 @@ class GlobalCluster(pulumi.CustomResource):
 
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["engine"] = None
+        __props__.__dict__["engine_lifecycle_support"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_cluster_identifier"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
@@ -239,6 +260,14 @@ class GlobalCluster(pulumi.CustomResource):
         If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineVersion")

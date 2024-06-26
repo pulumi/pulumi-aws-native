@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The automation properties for the numeric question.
+    /// Information about the automation configuration in numeric questions.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormNumericQuestionAutomation
     {
         /// <summary>
-        /// The automation property name of the question.
+        /// The property value of the automation.
         /// </summary>
         public readonly Outputs.EvaluationFormNumericQuestionPropertyValueAutomation PropertyValue;
 

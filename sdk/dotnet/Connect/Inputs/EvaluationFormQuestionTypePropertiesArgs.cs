@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The properties of the question.
+    /// Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
     /// </summary>
     public sealed class EvaluationFormQuestionTypePropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<Inputs.EvaluationFormNumericQuestionPropertiesArgs>? Numeric { get; set; }
 
         /// <summary>
-        /// The properties of the single-select question.
+        /// The properties of the numeric question.
         /// </summary>
         [Input("singleSelect")]
         public Input<Inputs.EvaluationFormSingleSelectQuestionPropertiesArgs>? SingleSelect { get; set; }

@@ -23,6 +23,8 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique ID given to your cluster.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	BootstrapSelfManagedAddons pulumi.BoolPtrOutput `pulumi:"bootstrapSelfManagedAddons"`
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
@@ -68,6 +70,7 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"accessConfig.bootstrapClusterCreatorAdminPermissions",
+		"bootstrapSelfManagedAddons",
 		"encryptionConfig[*]",
 		"kubernetesNetworkConfig",
 		"name",
@@ -110,6 +113,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
+	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// The Kubernetes network configuration for the cluster.
@@ -134,6 +139,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig ClusterAccessConfigPtrInput
+	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
 	// The Kubernetes network configuration for the cluster.
@@ -204,6 +211,11 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 // The unique ID given to your cluster.
 func (o ClusterOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// Set this value to false to avoid creating the default networking addons when the cluster is created.
+func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.BootstrapSelfManagedAddons }).(pulumi.BoolPtrOutput)
 }
 
 // The certificate-authority-data for your cluster.

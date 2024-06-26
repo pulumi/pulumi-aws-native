@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The properties of the numeric question.
+    /// Information about properties for a numeric question in an evaluation form.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormNumericQuestionProperties
     {
         /// <summary>
-        /// The automation properties for the numeric question.
+        /// The automation properties of the numeric question.
         /// </summary>
         public readonly Outputs.EvaluationFormNumericQuestionAutomation? Automation;
         /// <summary>
-        /// The maximum value for answers of the question.
+        /// The maximum answer value.
         /// </summary>
         public readonly int MaxValue;
         /// <summary>
-        /// The minimum value for answers of the question.
+        /// The minimum answer value.
         /// </summary>
         public readonly int MinValue;
         /// <summary>
-        /// The list of option ranges used for scoring.
+        /// The scoring options of the numeric question.
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormNumericQuestionOption> Options;
 

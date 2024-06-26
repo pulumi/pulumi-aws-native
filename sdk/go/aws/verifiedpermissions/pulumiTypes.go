@@ -264,88 +264,168 @@ type IdentitySourceConfiguration0Properties struct {
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
 }
 
-type IdentitySourceConfigurationProperties struct {
-	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
-}
-
-// IdentitySourceConfigurationPropertiesInput is an input type that accepts IdentitySourceConfigurationPropertiesArgs and IdentitySourceConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `IdentitySourceConfigurationPropertiesInput` via:
+// IdentitySourceConfiguration0PropertiesInput is an input type that accepts IdentitySourceConfiguration0PropertiesArgs and IdentitySourceConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `IdentitySourceConfiguration0PropertiesInput` via:
 //
-//	IdentitySourceConfigurationPropertiesArgs{...}
-type IdentitySourceConfigurationPropertiesInput interface {
+//	IdentitySourceConfiguration0PropertiesArgs{...}
+type IdentitySourceConfiguration0PropertiesInput interface {
 	pulumi.Input
 
-	ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput
-	ToIdentitySourceConfigurationPropertiesOutputWithContext(context.Context) IdentitySourceConfigurationPropertiesOutput
+	ToIdentitySourceConfiguration0PropertiesOutput() IdentitySourceConfiguration0PropertiesOutput
+	ToIdentitySourceConfiguration0PropertiesOutputWithContext(context.Context) IdentitySourceConfiguration0PropertiesOutput
 }
 
-type IdentitySourceConfigurationPropertiesArgs struct {
+type IdentitySourceConfiguration0PropertiesArgs struct {
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfigurationInput `pulumi:"cognitoUserPoolConfiguration"`
 }
 
-func (IdentitySourceConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentitySourceConfigurationProperties)(nil)).Elem()
+func (IdentitySourceConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (i IdentitySourceConfigurationPropertiesArgs) ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput {
-	return i.ToIdentitySourceConfigurationPropertiesOutputWithContext(context.Background())
+func (i IdentitySourceConfiguration0PropertiesArgs) ToIdentitySourceConfiguration0PropertiesOutput() IdentitySourceConfiguration0PropertiesOutput {
+	return i.ToIdentitySourceConfiguration0PropertiesOutputWithContext(context.Background())
 }
 
-func (i IdentitySourceConfigurationPropertiesArgs) ToIdentitySourceConfigurationPropertiesOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationPropertiesOutput)
+func (i IdentitySourceConfiguration0PropertiesArgs) ToIdentitySourceConfiguration0PropertiesOutputWithContext(ctx context.Context) IdentitySourceConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfiguration0PropertiesOutput)
 }
 
-type IdentitySourceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type IdentitySourceConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (IdentitySourceConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentitySourceConfigurationProperties)(nil)).Elem()
+func (IdentitySourceConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (o IdentitySourceConfigurationPropertiesOutput) ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput {
+func (o IdentitySourceConfiguration0PropertiesOutput) ToIdentitySourceConfiguration0PropertiesOutput() IdentitySourceConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPropertiesOutput) ToIdentitySourceConfigurationPropertiesOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesOutput {
+func (o IdentitySourceConfiguration0PropertiesOutput) ToIdentitySourceConfiguration0PropertiesOutputWithContext(ctx context.Context) IdentitySourceConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPropertiesOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
-	return o.ApplyT(func(v IdentitySourceConfigurationProperties) IdentitySourceCognitoUserPoolConfiguration {
+func (o IdentitySourceConfiguration0PropertiesOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
+	return o.ApplyT(func(v IdentitySourceConfiguration0Properties) IdentitySourceCognitoUserPoolConfiguration {
 		return v.CognitoUserPoolConfiguration
 	}).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
-type IdentitySourceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type IdentitySourceConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (IdentitySourceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentitySourceConfigurationProperties)(nil)).Elem()
+func (IdentitySourceConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (o IdentitySourceConfigurationPropertiesPtrOutput) ToIdentitySourceConfigurationPropertiesPtrOutput() IdentitySourceConfigurationPropertiesPtrOutput {
+func (o IdentitySourceConfiguration0PropertiesPtrOutput) ToIdentitySourceConfiguration0PropertiesPtrOutput() IdentitySourceConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPropertiesPtrOutput) ToIdentitySourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesPtrOutput {
+func (o IdentitySourceConfiguration0PropertiesPtrOutput) ToIdentitySourceConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPropertiesPtrOutput) Elem() IdentitySourceConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *IdentitySourceConfigurationProperties) IdentitySourceConfigurationProperties {
+func (o IdentitySourceConfiguration0PropertiesPtrOutput) Elem() IdentitySourceConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration0Properties) IdentitySourceConfiguration0Properties {
 		if v != nil {
 			return *v
 		}
-		var ret IdentitySourceConfigurationProperties
+		var ret IdentitySourceConfiguration0Properties
 		return ret
-	}).(IdentitySourceConfigurationPropertiesOutput)
+	}).(IdentitySourceConfiguration0PropertiesOutput)
 }
 
-func (o IdentitySourceConfigurationPropertiesPtrOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationPtrOutput {
-	return o.ApplyT(func(v *IdentitySourceConfigurationProperties) *IdentitySourceCognitoUserPoolConfiguration {
+func (o IdentitySourceConfiguration0PropertiesPtrOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration0Properties) *IdentitySourceCognitoUserPoolConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.CognitoUserPoolConfiguration
 	}).(IdentitySourceCognitoUserPoolConfigurationPtrOutput)
+}
+
+type IdentitySourceConfiguration1Properties struct {
+	OpenIdConnectConfiguration IdentitySourceOpenIdConnectConfiguration `pulumi:"openIdConnectConfiguration"`
+}
+
+// IdentitySourceConfiguration1PropertiesInput is an input type that accepts IdentitySourceConfiguration1PropertiesArgs and IdentitySourceConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `IdentitySourceConfiguration1PropertiesInput` via:
+//
+//	IdentitySourceConfiguration1PropertiesArgs{...}
+type IdentitySourceConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfiguration1PropertiesOutput() IdentitySourceConfiguration1PropertiesOutput
+	ToIdentitySourceConfiguration1PropertiesOutputWithContext(context.Context) IdentitySourceConfiguration1PropertiesOutput
+}
+
+type IdentitySourceConfiguration1PropertiesArgs struct {
+	OpenIdConnectConfiguration IdentitySourceOpenIdConnectConfigurationInput `pulumi:"openIdConnectConfiguration"`
+}
+
+func (IdentitySourceConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (i IdentitySourceConfiguration1PropertiesArgs) ToIdentitySourceConfiguration1PropertiesOutput() IdentitySourceConfiguration1PropertiesOutput {
+	return i.ToIdentitySourceConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfiguration1PropertiesArgs) ToIdentitySourceConfiguration1PropertiesOutputWithContext(ctx context.Context) IdentitySourceConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfiguration1PropertiesOutput)
+}
+
+type IdentitySourceConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceConfiguration1PropertiesOutput) ToIdentitySourceConfiguration1PropertiesOutput() IdentitySourceConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceConfiguration1PropertiesOutput) ToIdentitySourceConfiguration1PropertiesOutputWithContext(ctx context.Context) IdentitySourceConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceConfiguration1PropertiesOutput) OpenIdConnectConfiguration() IdentitySourceOpenIdConnectConfigurationOutput {
+	return o.ApplyT(func(v IdentitySourceConfiguration1Properties) IdentitySourceOpenIdConnectConfiguration {
+		return v.OpenIdConnectConfiguration
+	}).(IdentitySourceOpenIdConnectConfigurationOutput)
+}
+
+type IdentitySourceConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceConfiguration1PropertiesPtrOutput) ToIdentitySourceConfiguration1PropertiesPtrOutput() IdentitySourceConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfiguration1PropertiesPtrOutput) ToIdentitySourceConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfiguration1PropertiesPtrOutput) Elem() IdentitySourceConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration1Properties) IdentitySourceConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfiguration1Properties
+		return ret
+	}).(IdentitySourceConfiguration1PropertiesOutput)
+}
+
+func (o IdentitySourceConfiguration1PropertiesPtrOutput) OpenIdConnectConfiguration() IdentitySourceOpenIdConnectConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration1Properties) *IdentitySourceOpenIdConnectConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.OpenIdConnectConfiguration
+	}).(IdentitySourceOpenIdConnectConfigurationPtrOutput)
 }
 
 type IdentitySourceDetails struct {
@@ -443,6 +523,645 @@ func (o IdentitySourceDetailsPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 		}
 		return v.UserPoolArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectAccessTokenConfiguration struct {
+	Audiences        []string `pulumi:"audiences"`
+	PrincipalIdClaim *string  `pulumi:"principalIdClaim"`
+}
+
+// IdentitySourceOpenIdConnectAccessTokenConfigurationInput is an input type that accepts IdentitySourceOpenIdConnectAccessTokenConfigurationArgs and IdentitySourceOpenIdConnectAccessTokenConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectAccessTokenConfigurationInput` via:
+//
+//	IdentitySourceOpenIdConnectAccessTokenConfigurationArgs{...}
+type IdentitySourceOpenIdConnectAccessTokenConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutput() IdentitySourceOpenIdConnectAccessTokenConfigurationOutput
+	ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutputWithContext(context.Context) IdentitySourceOpenIdConnectAccessTokenConfigurationOutput
+}
+
+type IdentitySourceOpenIdConnectAccessTokenConfigurationArgs struct {
+	Audiences        pulumi.StringArrayInput `pulumi:"audiences"`
+	PrincipalIdClaim pulumi.StringPtrInput   `pulumi:"principalIdClaim"`
+}
+
+func (IdentitySourceOpenIdConnectAccessTokenConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectAccessTokenConfigurationArgs) ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutput() IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return i.ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectAccessTokenConfigurationArgs) ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectAccessTokenConfigurationOutput)
+}
+
+type IdentitySourceOpenIdConnectAccessTokenConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectAccessTokenConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationOutput) ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutput() IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationOutput) ToIdentitySourceOpenIdConnectAccessTokenConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectAccessTokenConfiguration) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectAccessTokenConfiguration) *string { return v.PrincipalIdClaim }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectAccessTokenConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) ToIdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput() IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) ToIdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) Elem() IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectAccessTokenConfiguration) IdentitySourceOpenIdConnectAccessTokenConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectAccessTokenConfiguration
+		return ret
+	}).(IdentitySourceOpenIdConnectAccessTokenConfigurationOutput)
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectAccessTokenConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Audiences
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectAccessTokenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectConfiguration struct {
+	EntityIdPrefix     *string                                        `pulumi:"entityIdPrefix"`
+	GroupConfiguration *IdentitySourceOpenIdConnectGroupConfiguration `pulumi:"groupConfiguration"`
+	Issuer             string                                         `pulumi:"issuer"`
+	TokenSelection     interface{}                                    `pulumi:"tokenSelection"`
+}
+
+// IdentitySourceOpenIdConnectConfigurationInput is an input type that accepts IdentitySourceOpenIdConnectConfigurationArgs and IdentitySourceOpenIdConnectConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectConfigurationInput` via:
+//
+//	IdentitySourceOpenIdConnectConfigurationArgs{...}
+type IdentitySourceOpenIdConnectConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectConfigurationOutput() IdentitySourceOpenIdConnectConfigurationOutput
+	ToIdentitySourceOpenIdConnectConfigurationOutputWithContext(context.Context) IdentitySourceOpenIdConnectConfigurationOutput
+}
+
+type IdentitySourceOpenIdConnectConfigurationArgs struct {
+	EntityIdPrefix     pulumi.StringPtrInput                                 `pulumi:"entityIdPrefix"`
+	GroupConfiguration IdentitySourceOpenIdConnectGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
+	Issuer             pulumi.StringInput                                    `pulumi:"issuer"`
+	TokenSelection     pulumi.Input                                          `pulumi:"tokenSelection"`
+}
+
+func (IdentitySourceOpenIdConnectConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectConfigurationArgs) ToIdentitySourceOpenIdConnectConfigurationOutput() IdentitySourceOpenIdConnectConfigurationOutput {
+	return i.ToIdentitySourceOpenIdConnectConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectConfigurationArgs) ToIdentitySourceOpenIdConnectConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectConfigurationOutput)
+}
+
+type IdentitySourceOpenIdConnectConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) ToIdentitySourceOpenIdConnectConfigurationOutput() IdentitySourceOpenIdConnectConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) ToIdentitySourceOpenIdConnectConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) EntityIdPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectConfiguration) *string { return v.EntityIdPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) GroupConfiguration() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectConfiguration) *IdentitySourceOpenIdConnectGroupConfiguration {
+		return v.GroupConfiguration
+	}).(IdentitySourceOpenIdConnectGroupConfigurationPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationOutput) TokenSelection() pulumi.AnyOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectConfiguration) interface{} { return v.TokenSelection }).(pulumi.AnyOutput)
+}
+
+type IdentitySourceOpenIdConnectConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) ToIdentitySourceOpenIdConnectConfigurationPtrOutput() IdentitySourceOpenIdConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) ToIdentitySourceOpenIdConnectConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) Elem() IdentitySourceOpenIdConnectConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectConfiguration) IdentitySourceOpenIdConnectConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectConfiguration
+		return ret
+	}).(IdentitySourceOpenIdConnectConfigurationOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) EntityIdPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityIdPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) GroupConfiguration() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectConfiguration) *IdentitySourceOpenIdConnectGroupConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupConfiguration
+	}).(IdentitySourceOpenIdConnectGroupConfigurationPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectConfigurationPtrOutput) TokenSelection() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TokenSelection
+	}).(pulumi.AnyOutput)
+}
+
+type IdentitySourceOpenIdConnectGroupConfiguration struct {
+	GroupClaim      string `pulumi:"groupClaim"`
+	GroupEntityType string `pulumi:"groupEntityType"`
+}
+
+// IdentitySourceOpenIdConnectGroupConfigurationInput is an input type that accepts IdentitySourceOpenIdConnectGroupConfigurationArgs and IdentitySourceOpenIdConnectGroupConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectGroupConfigurationInput` via:
+//
+//	IdentitySourceOpenIdConnectGroupConfigurationArgs{...}
+type IdentitySourceOpenIdConnectGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectGroupConfigurationOutput() IdentitySourceOpenIdConnectGroupConfigurationOutput
+	ToIdentitySourceOpenIdConnectGroupConfigurationOutputWithContext(context.Context) IdentitySourceOpenIdConnectGroupConfigurationOutput
+}
+
+type IdentitySourceOpenIdConnectGroupConfigurationArgs struct {
+	GroupClaim      pulumi.StringInput `pulumi:"groupClaim"`
+	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
+}
+
+func (IdentitySourceOpenIdConnectGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectGroupConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectGroupConfigurationArgs) ToIdentitySourceOpenIdConnectGroupConfigurationOutput() IdentitySourceOpenIdConnectGroupConfigurationOutput {
+	return i.ToIdentitySourceOpenIdConnectGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectGroupConfigurationArgs) ToIdentitySourceOpenIdConnectGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectGroupConfigurationOutput)
+}
+
+func (i IdentitySourceOpenIdConnectGroupConfigurationArgs) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutput() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectGroupConfigurationArgs) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectGroupConfigurationOutput).ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceOpenIdConnectGroupConfigurationPtrInput is an input type that accepts IdentitySourceOpenIdConnectGroupConfigurationArgs, IdentitySourceOpenIdConnectGroupConfigurationPtr and IdentitySourceOpenIdConnectGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectGroupConfigurationPtrInput` via:
+//
+//	        IdentitySourceOpenIdConnectGroupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceOpenIdConnectGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutput() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput
+	ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(context.Context) IdentitySourceOpenIdConnectGroupConfigurationPtrOutput
+}
+
+type identitySourceOpenIdConnectGroupConfigurationPtrType IdentitySourceOpenIdConnectGroupConfigurationArgs
+
+func IdentitySourceOpenIdConnectGroupConfigurationPtr(v *IdentitySourceOpenIdConnectGroupConfigurationArgs) IdentitySourceOpenIdConnectGroupConfigurationPtrInput {
+	return (*identitySourceOpenIdConnectGroupConfigurationPtrType)(v)
+}
+
+func (*identitySourceOpenIdConnectGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectGroupConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceOpenIdConnectGroupConfigurationPtrType) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutput() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceOpenIdConnectGroupConfigurationPtrType) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectGroupConfigurationPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) ToIdentitySourceOpenIdConnectGroupConfigurationOutput() IdentitySourceOpenIdConnectGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) ToIdentitySourceOpenIdConnectGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutput() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o.ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceOpenIdConnectGroupConfiguration) *IdentitySourceOpenIdConnectGroupConfiguration {
+		return &v
+	}).(IdentitySourceOpenIdConnectGroupConfigurationPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) GroupClaim() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectGroupConfiguration) string { return v.GroupClaim }).(pulumi.StringOutput)
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectGroupConfiguration) string { return v.GroupEntityType }).(pulumi.StringOutput)
+}
+
+type IdentitySourceOpenIdConnectGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutput() IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) ToIdentitySourceOpenIdConnectGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) Elem() IdentitySourceOpenIdConnectGroupConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectGroupConfiguration) IdentitySourceOpenIdConnectGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectGroupConfiguration
+		return ret
+	}).(IdentitySourceOpenIdConnectGroupConfigurationOutput)
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) GroupClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IdentitySourceOpenIdConnectGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupEntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectIdentityTokenConfiguration struct {
+	ClientIds        []string `pulumi:"clientIds"`
+	PrincipalIdClaim *string  `pulumi:"principalIdClaim"`
+}
+
+// IdentitySourceOpenIdConnectIdentityTokenConfigurationInput is an input type that accepts IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs and IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectIdentityTokenConfigurationInput` via:
+//
+//	IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs{...}
+type IdentitySourceOpenIdConnectIdentityTokenConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutput() IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput
+	ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutputWithContext(context.Context) IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput
+}
+
+type IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs struct {
+	ClientIds        pulumi.StringArrayInput `pulumi:"clientIds"`
+	PrincipalIdClaim pulumi.StringPtrInput   `pulumi:"principalIdClaim"`
+}
+
+func (IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectIdentityTokenConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutput() IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return i.ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput)
+}
+
+type IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectIdentityTokenConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutput() IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectIdentityTokenConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectIdentityTokenConfiguration) *string { return v.PrincipalIdClaim }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectIdentityTokenConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput() IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) ToIdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) Elem() IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectIdentityTokenConfiguration) IdentitySourceOpenIdConnectIdentityTokenConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectIdentityTokenConfiguration
+		return ret
+	}).(IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput)
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectIdentityTokenConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectIdentityTokenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection0Properties struct {
+	AccessTokenOnly IdentitySourceOpenIdConnectAccessTokenConfiguration `pulumi:"accessTokenOnly"`
+}
+
+// IdentitySourceOpenIdConnectTokenSelection0PropertiesInput is an input type that accepts IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs and IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectTokenSelection0PropertiesInput` via:
+//
+//	IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs{...}
+type IdentitySourceOpenIdConnectTokenSelection0PropertiesInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput
+	ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutputWithContext(context.Context) IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput
+}
+
+type IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs struct {
+	AccessTokenOnly IdentitySourceOpenIdConnectAccessTokenConfigurationInput `pulumi:"accessTokenOnly"`
+}
+
+func (IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection0Properties)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput {
+	return i.ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection0Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput) AccessTokenOnly() IdentitySourceOpenIdConnectAccessTokenConfigurationOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectTokenSelection0Properties) IdentitySourceOpenIdConnectAccessTokenConfiguration {
+		return v.AccessTokenOnly
+	}).(IdentitySourceOpenIdConnectAccessTokenConfigurationOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectTokenSelection0Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput() IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput) ToIdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput) Elem() IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectTokenSelection0Properties) IdentitySourceOpenIdConnectTokenSelection0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectTokenSelection0Properties
+		return ret
+	}).(IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput)
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput) AccessTokenOnly() IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectTokenSelection0Properties) *IdentitySourceOpenIdConnectAccessTokenConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessTokenOnly
+	}).(IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection1Properties struct {
+	IdentityTokenOnly IdentitySourceOpenIdConnectIdentityTokenConfiguration `pulumi:"identityTokenOnly"`
+}
+
+// IdentitySourceOpenIdConnectTokenSelection1PropertiesInput is an input type that accepts IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs and IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput values.
+// You can construct a concrete instance of `IdentitySourceOpenIdConnectTokenSelection1PropertiesInput` via:
+//
+//	IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs{...}
+type IdentitySourceOpenIdConnectTokenSelection1PropertiesInput interface {
+	pulumi.Input
+
+	ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput
+	ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutputWithContext(context.Context) IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput
+}
+
+type IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs struct {
+	IdentityTokenOnly IdentitySourceOpenIdConnectIdentityTokenConfigurationInput `pulumi:"identityTokenOnly"`
+}
+
+func (IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection1Properties)(nil)).Elem()
+}
+
+func (i IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput {
+	return i.ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection1Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutput() IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput) IdentityTokenOnly() IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput {
+	return o.ApplyT(func(v IdentitySourceOpenIdConnectTokenSelection1Properties) IdentitySourceOpenIdConnectIdentityTokenConfiguration {
+		return v.IdentityTokenOnly
+	}).(IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput)
+}
+
+type IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceOpenIdConnectTokenSelection1Properties)(nil)).Elem()
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput() IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput) ToIdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput {
+	return o
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput) Elem() IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectTokenSelection1Properties) IdentitySourceOpenIdConnectTokenSelection1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceOpenIdConnectTokenSelection1Properties
+		return ret
+	}).(IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput)
+}
+
+func (o IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput) IdentityTokenOnly() IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceOpenIdConnectTokenSelection1Properties) *IdentitySourceOpenIdConnectIdentityTokenConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityTokenOnly
+	}).(IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput)
 }
 
 type PolicyDefinition0Properties struct {
@@ -1221,7 +1940,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceCognitoUserPoolConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationPropertiesInput)(nil)).Elem(), IdentitySourceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfiguration0PropertiesInput)(nil)).Elem(), IdentitySourceConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfiguration1PropertiesInput)(nil)).Elem(), IdentitySourceConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectAccessTokenConfigurationInput)(nil)).Elem(), IdentitySourceOpenIdConnectAccessTokenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectConfigurationInput)(nil)).Elem(), IdentitySourceOpenIdConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectGroupConfigurationInput)(nil)).Elem(), IdentitySourceOpenIdConnectGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceOpenIdConnectGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectIdentityTokenConfigurationInput)(nil)).Elem(), IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection0PropertiesInput)(nil)).Elem(), IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceOpenIdConnectTokenSelection1PropertiesInput)(nil)).Elem(), IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition0PropertiesInput)(nil)).Elem(), PolicyDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition1PropertiesInput)(nil)).Elem(), PolicyDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
@@ -1235,10 +1962,24 @@ func init() {
 	pulumi.RegisterOutputType(IdentitySourceCognitoGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(IdentitySourceConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(IdentitySourceConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectAccessTokenConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectAccessTokenConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectGroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectIdentityTokenConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectIdentityTokenConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectTokenSelection0PropertiesOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectTokenSelection0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectTokenSelection1PropertiesOutput{})
+	pulumi.RegisterOutputType(IdentitySourceOpenIdConnectTokenSelection1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinition0PropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinition1PropertiesOutput{})

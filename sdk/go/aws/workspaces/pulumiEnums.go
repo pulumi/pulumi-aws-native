@@ -196,9 +196,178 @@ func (o ConnectionAliasStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspacesPoolApplicationSettingsStatus string
+
+const (
+	WorkspacesPoolApplicationSettingsStatusDisabled = WorkspacesPoolApplicationSettingsStatus("DISABLED")
+	WorkspacesPoolApplicationSettingsStatusEnabled  = WorkspacesPoolApplicationSettingsStatus("ENABLED")
+)
+
+func (WorkspacesPoolApplicationSettingsStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatus)(nil)).Elem()
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToWorkspacesPoolApplicationSettingsStatusOutput() WorkspacesPoolApplicationSettingsStatusOutput {
+	return pulumi.ToOutput(e).(WorkspacesPoolApplicationSettingsStatusOutput)
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToWorkspacesPoolApplicationSettingsStatusOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspacesPoolApplicationSettingsStatusOutput)
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToWorkspacesPoolApplicationSettingsStatusPtrOutput() WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return e.ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return WorkspacesPoolApplicationSettingsStatus(e).ToWorkspacesPoolApplicationSettingsStatusOutputWithContext(ctx).ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(ctx)
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacesPoolApplicationSettingsStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspacesPoolApplicationSettingsStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkspacesPoolApplicationSettingsStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatus)(nil)).Elem()
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToWorkspacesPoolApplicationSettingsStatusOutput() WorkspacesPoolApplicationSettingsStatusOutput {
+	return o
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToWorkspacesPoolApplicationSettingsStatusOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusOutput {
+	return o
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToWorkspacesPoolApplicationSettingsStatusPtrOutput() WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return o.ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacesPoolApplicationSettingsStatus) *WorkspacesPoolApplicationSettingsStatus {
+		return &v
+	}).(WorkspacesPoolApplicationSettingsStatusPtrOutput)
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacesPoolApplicationSettingsStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacesPoolApplicationSettingsStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacesPoolApplicationSettingsStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacesPoolApplicationSettingsStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacesPoolApplicationSettingsStatus)(nil)).Elem()
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusPtrOutput) ToWorkspacesPoolApplicationSettingsStatusPtrOutput() WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return o
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusPtrOutput) ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return o
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusPtrOutput) Elem() WorkspacesPoolApplicationSettingsStatusOutput {
+	return o.ApplyT(func(v *WorkspacesPoolApplicationSettingsStatus) WorkspacesPoolApplicationSettingsStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacesPoolApplicationSettingsStatus
+		return ret
+	}).(WorkspacesPoolApplicationSettingsStatusOutput)
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolApplicationSettingsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspacesPoolApplicationSettingsStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkspacesPoolApplicationSettingsStatusInput is an input type that accepts values of the WorkspacesPoolApplicationSettingsStatus enum
+// A concrete instance of `WorkspacesPoolApplicationSettingsStatusInput` can be one of the following:
+//
+//	WorkspacesPoolApplicationSettingsStatusDisabled
+//	WorkspacesPoolApplicationSettingsStatusEnabled
+type WorkspacesPoolApplicationSettingsStatusInput interface {
+	pulumi.Input
+
+	ToWorkspacesPoolApplicationSettingsStatusOutput() WorkspacesPoolApplicationSettingsStatusOutput
+	ToWorkspacesPoolApplicationSettingsStatusOutputWithContext(context.Context) WorkspacesPoolApplicationSettingsStatusOutput
+}
+
+var workspacesPoolApplicationSettingsStatusPtrType = reflect.TypeOf((**WorkspacesPoolApplicationSettingsStatus)(nil)).Elem()
+
+type WorkspacesPoolApplicationSettingsStatusPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacesPoolApplicationSettingsStatusPtrOutput() WorkspacesPoolApplicationSettingsStatusPtrOutput
+	ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(context.Context) WorkspacesPoolApplicationSettingsStatusPtrOutput
+}
+
+type workspacesPoolApplicationSettingsStatusPtr string
+
+func WorkspacesPoolApplicationSettingsStatusPtr(v string) WorkspacesPoolApplicationSettingsStatusPtrInput {
+	return (*workspacesPoolApplicationSettingsStatusPtr)(&v)
+}
+
+func (*workspacesPoolApplicationSettingsStatusPtr) ElementType() reflect.Type {
+	return workspacesPoolApplicationSettingsStatusPtrType
+}
+
+func (in *workspacesPoolApplicationSettingsStatusPtr) ToWorkspacesPoolApplicationSettingsStatusPtrOutput() WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return pulumi.ToOutput(in).(WorkspacesPoolApplicationSettingsStatusPtrOutput)
+}
+
+func (in *workspacesPoolApplicationSettingsStatusPtr) ToWorkspacesPoolApplicationSettingsStatusPtrOutputWithContext(ctx context.Context) WorkspacesPoolApplicationSettingsStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspacesPoolApplicationSettingsStatusPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusPtrInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusOutput{})
+	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusPtrOutput{})
 }

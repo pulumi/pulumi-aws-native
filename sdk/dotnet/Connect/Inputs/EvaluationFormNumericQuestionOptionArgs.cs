@@ -11,30 +11,32 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The option ranges used for scoring in numeric questions.
+    /// Information about the option range used for scoring in numeric questions.
     /// </summary>
     public sealed class EvaluationFormNumericQuestionOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flag to mark the option as automatic fail.
+        /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         [Input("automaticFail")]
         public Input<bool>? AutomaticFail { get; set; }
 
         /// <summary>
-        /// The maximum value of the option range.
+        /// The maximum answer value of the range option.
         /// </summary>
         [Input("maxValue", required: true)]
         public Input<int> MaxValue { get; set; } = null!;
 
         /// <summary>
-        /// The minimum value of the option range.
+        /// The minimum answer value of the range option.
         /// </summary>
         [Input("minValue", required: true)]
         public Input<int> MinValue { get; set; } = null!;
 
         /// <summary>
-        /// The score of the option range.
+        /// The score assigned to answer values within the range option.
+        ///   *Minimum*: 0
+        ///   *Maximum*: 10
         /// </summary>
         [Input("score")]
         public Input<int>? Score { get; set; }

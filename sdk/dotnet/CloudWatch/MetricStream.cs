@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The ARN of the Kinesis Firehose where to stream the data.
         /// </summary>
         [Output("firehoseArn")]
-        public Output<string> FirehoseArn { get; private set; } = null!;
+        public Output<string?> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
         /// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
@@ -100,13 +100,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
         [Output("outputFormat")]
-        public Output<string> OutputFormat { get; private set; } = null!;
+        public Output<string?> OutputFormat { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the role that provides access to the Kinesis Firehose.
         /// </summary>
         [Output("roleArn")]
-        public Output<string> RoleArn { get; private set; } = null!;
+        public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Displays the state of the Metric Stream.
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public MetricStream(string name, MetricStreamArgs args, CustomResourceOptions? options = null)
+        public MetricStream(string name, MetricStreamArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:cloudwatch:MetricStream", name, args ?? new MetricStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -190,8 +190,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The ARN of the Kinesis Firehose where to stream the data.
         /// </summary>
-        [Input("firehoseArn", required: true)]
-        public Input<string> FirehoseArn { get; set; } = null!;
+        [Input("firehoseArn")]
+        public Input<string>? FirehoseArn { get; set; }
 
         [Input("includeFilters")]
         private InputList<Inputs.MetricStreamFilterArgs>? _includeFilters;
@@ -220,14 +220,14 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
-        [Input("outputFormat", required: true)]
-        public Input<string> OutputFormat { get; set; } = null!;
+        [Input("outputFormat")]
+        public Input<string>? OutputFormat { get; set; }
 
         /// <summary>
         /// The ARN of the role that provides access to the Kinesis Firehose.
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         [Input("statisticsConfigurations")]
         private InputList<Inputs.MetricStreamStatisticsConfigurationArgs>? _statisticsConfigurations;

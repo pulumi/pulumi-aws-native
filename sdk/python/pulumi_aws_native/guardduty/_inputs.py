@@ -681,7 +681,7 @@ class MalwareProtectionPlanCfnActionsArgs:
     def __init__(__self__, *,
                  tagging: Optional[pulumi.Input['MalwareProtectionPlanCfnTaggingArgs']] = None):
         """
-        :param pulumi.Input['MalwareProtectionPlanCfnTaggingArgs'] tagging: Indicates whether the scanned S3 object will have tags about the scan result.
+        :param pulumi.Input['MalwareProtectionPlanCfnTaggingArgs'] tagging: Contains information about tagging status of the Malware Protection plan resource.
         """
         if tagging is not None:
             pulumi.set(__self__, "tagging", tagging)
@@ -690,7 +690,7 @@ class MalwareProtectionPlanCfnActionsArgs:
     @pulumi.getter
     def tagging(self) -> Optional[pulumi.Input['MalwareProtectionPlanCfnTaggingArgs']]:
         """
-        Indicates whether the scanned S3 object will have tags about the scan result.
+        Contains information about tagging status of the Malware Protection plan resource.
         """
         return pulumi.get(self, "tagging")
 
@@ -766,7 +766,7 @@ class MalwareProtectionPlanCfnTaggingArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] status: Indicates whether or not the tags will added.
+        :param pulumi.Input[str] status: Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -775,7 +775,7 @@ class MalwareProtectionPlanCfnTaggingArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether or not the tags will added.
+        Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
         """
         return pulumi.get(self, "status")
 

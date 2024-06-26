@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The evaluation form item.
+    /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
     /// </summary>
     public sealed class EvaluationFormItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The evaluation form question item
+        /// The information of the question.
         /// </summary>
         [Input("question")]
         public Input<Inputs.EvaluationFormQuestionArgs>? Question { get; set; }
 
         /// <summary>
-        /// The evaluation form section item
+        /// The information of the section.
         /// </summary>
         [Input("section")]
         public Input<Inputs.EvaluationFormSectionArgs>? Section { get; set; }

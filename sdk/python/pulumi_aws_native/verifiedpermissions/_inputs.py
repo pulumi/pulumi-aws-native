@@ -13,7 +13,14 @@ from ._enums import *
 __all__ = [
     'IdentitySourceCognitoGroupConfigurationArgs',
     'IdentitySourceCognitoUserPoolConfigurationArgs',
-    'IdentitySourceConfigurationPropertiesArgs',
+    'IdentitySourceConfiguration0PropertiesArgs',
+    'IdentitySourceConfiguration1PropertiesArgs',
+    'IdentitySourceOpenIdConnectAccessTokenConfigurationArgs',
+    'IdentitySourceOpenIdConnectConfigurationArgs',
+    'IdentitySourceOpenIdConnectGroupConfigurationArgs',
+    'IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs',
+    'IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs',
+    'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs',
     'PolicyDefinition0PropertiesArgs',
     'PolicyDefinition1PropertiesArgs',
     'PolicyEntityIdentifierArgs',
@@ -80,7 +87,7 @@ class IdentitySourceCognitoUserPoolConfigurationArgs:
 
 
 @pulumi.input_type
-class IdentitySourceConfigurationPropertiesArgs:
+class IdentitySourceConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  cognito_user_pool_configuration: pulumi.Input['IdentitySourceCognitoUserPoolConfigurationArgs']):
         pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
@@ -93,6 +100,190 @@ class IdentitySourceConfigurationPropertiesArgs:
     @cognito_user_pool_configuration.setter
     def cognito_user_pool_configuration(self, value: pulumi.Input['IdentitySourceCognitoUserPoolConfigurationArgs']):
         pulumi.set(self, "cognito_user_pool_configuration", value)
+
+
+@pulumi.input_type
+class IdentitySourceConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 open_id_connect_configuration: pulumi.Input['IdentitySourceOpenIdConnectConfigurationArgs']):
+        pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> pulumi.Input['IdentitySourceOpenIdConnectConfigurationArgs']:
+        return pulumi.get(self, "open_id_connect_configuration")
+
+    @open_id_connect_configuration.setter
+    def open_id_connect_configuration(self, value: pulumi.Input['IdentitySourceOpenIdConnectConfigurationArgs']):
+        pulumi.set(self, "open_id_connect_configuration", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectAccessTokenConfigurationArgs:
+    def __init__(__self__, *,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id_claim: Optional[pulumi.Input[str]] = None):
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audiences", value)
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id_claim")
+
+    @principal_id_claim.setter
+    def principal_id_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id_claim", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectConfigurationArgs:
+    def __init__(__self__, *,
+                 issuer: pulumi.Input[str],
+                 token_selection: pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs']],
+                 entity_id_prefix: Optional[pulumi.Input[str]] = None,
+                 group_configuration: Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']] = None):
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_selection", token_selection)
+        if entity_id_prefix is not None:
+            pulumi.set(__self__, "entity_id_prefix", entity_id_prefix)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="tokenSelection")
+    def token_selection(self) -> pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs']]:
+        return pulumi.get(self, "token_selection")
+
+    @token_selection.setter
+    def token_selection(self, value: pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs']]):
+        pulumi.set(self, "token_selection", value)
+
+    @property
+    @pulumi.getter(name="entityIdPrefix")
+    def entity_id_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "entity_id_prefix")
+
+    @entity_id_prefix.setter
+    def entity_id_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_id_prefix", value)
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']]:
+        return pulumi.get(self, "group_configuration")
+
+    @group_configuration.setter
+    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']]):
+        pulumi.set(self, "group_configuration", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 group_claim: pulumi.Input[str],
+                 group_entity_type: pulumi.Input[str]):
+        pulumi.set(__self__, "group_claim", group_claim)
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupClaim")
+    def group_claim(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "group_claim")
+
+    @group_claim.setter
+    def group_claim(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_claim", value)
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "group_entity_type")
+
+    @group_entity_type.setter
+    def group_entity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_entity_type", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs:
+    def __init__(__self__, *,
+                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id_claim: Optional[pulumi.Input[str]] = None):
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "client_ids")
+
+    @client_ids.setter
+    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_ids", value)
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id_claim")
+
+    @principal_id_claim.setter
+    def principal_id_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id_claim", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs:
+    def __init__(__self__, *,
+                 access_token_only: pulumi.Input['IdentitySourceOpenIdConnectAccessTokenConfigurationArgs']):
+        pulumi.set(__self__, "access_token_only", access_token_only)
+
+    @property
+    @pulumi.getter(name="accessTokenOnly")
+    def access_token_only(self) -> pulumi.Input['IdentitySourceOpenIdConnectAccessTokenConfigurationArgs']:
+        return pulumi.get(self, "access_token_only")
+
+    @access_token_only.setter
+    def access_token_only(self, value: pulumi.Input['IdentitySourceOpenIdConnectAccessTokenConfigurationArgs']):
+        pulumi.set(self, "access_token_only", value)
+
+
+@pulumi.input_type
+class IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs:
+    def __init__(__self__, *,
+                 identity_token_only: pulumi.Input['IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs']):
+        pulumi.set(__self__, "identity_token_only", identity_token_only)
+
+    @property
+    @pulumi.getter(name="identityTokenOnly")
+    def identity_token_only(self) -> pulumi.Input['IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs']:
+        return pulumi.get(self, "identity_token_only")
+
+    @identity_token_only.setter
+    def identity_token_only(self, value: pulumi.Input['IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs']):
+        pulumi.set(self, "identity_token_only", value)
 
 
 @pulumi.input_type

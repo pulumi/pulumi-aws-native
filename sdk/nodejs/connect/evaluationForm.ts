@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Connect::EvaluationForm
+ * Creates an evaluation form for the specified CON instance.
  */
 export class EvaluationForm extends pulumi.CustomResource {
     /**
@@ -39,34 +39,38 @@ export class EvaluationForm extends pulumi.CustomResource {
 
     /**
      * The description of the evaluation form.
+     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the evaluation form.
+     * The Amazon Resource Name (ARN) of the evaluation form.
      */
     public /*out*/ readonly evaluationFormArn!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the instance.
+     * The identifier of the Amazon Connect instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
-     * The list of evaluation form items.
+     * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+     *   *Minimum size*: 1
+     *   *Maximum size*: 100
      */
     public readonly items!: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
     /**
-     * The scoring strategy.
+     * A scoring strategy of the evaluation form.
      */
     public readonly scoringStrategy!: pulumi.Output<outputs.connect.EvaluationFormScoringStrategy | undefined>;
     /**
      * The status of the evaluation form.
+     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     public readonly status!: pulumi.Output<enums.connect.EvaluationFormStatus>;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The title of the evaluation form.
+     * A title of the evaluation form.
      */
     public readonly title!: pulumi.Output<string>;
 
@@ -122,30 +126,34 @@ export class EvaluationForm extends pulumi.CustomResource {
 export interface EvaluationFormArgs {
     /**
      * The description of the evaluation form.
+     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     description?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the instance.
+     * The identifier of the Amazon Connect instance.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The list of evaluation form items.
+     * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+     *   *Minimum size*: 1
+     *   *Maximum size*: 100
      */
     items: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormBaseItemArgs>[]>;
     /**
-     * The scoring strategy.
+     * A scoring strategy of the evaluation form.
      */
     scoringStrategy?: pulumi.Input<inputs.connect.EvaluationFormScoringStrategyArgs>;
     /**
      * The status of the evaluation form.
+     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     status: pulumi.Input<enums.connect.EvaluationFormStatus>;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The title of the evaluation form.
+     * A title of the evaluation form.
      */
     title: pulumi.Input<string>;
 }

@@ -153,6 +153,12 @@ namespace Pulumi.AwsNative.Rds
         [Output("enableIamDatabaseAuthentication")]
         public Output<bool?> EnableIamDatabaseAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        /// </summary>
+        [Output("enableLocalWriteForwarding")]
+        public Output<bool?> EnableLocalWriteForwarding { get; private set; } = null!;
+
         [Output("endpoint")]
         public Output<Outputs.DbClusterEndpoint> Endpoint { get; private set; } = null!;
 
@@ -591,6 +597,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("enableIamDatabaseAuthentication")]
         public Input<bool>? EnableIamDatabaseAuthentication { get; set; }
+
+        /// <summary>
+        /// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        /// </summary>
+        [Input("enableLocalWriteForwarding")]
+        public Input<bool>? EnableLocalWriteForwarding { get; set; }
 
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql

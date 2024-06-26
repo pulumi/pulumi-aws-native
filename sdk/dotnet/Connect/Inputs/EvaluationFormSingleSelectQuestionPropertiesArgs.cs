@@ -11,18 +11,19 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The properties of the single-select question.
+    /// Information about the options in single select questions.
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation properties for the single-select question.
+        /// The display mode of the single select question.
         /// </summary>
         [Input("automation")]
         public Input<Inputs.EvaluationFormSingleSelectQuestionAutomationArgs>? Automation { get; set; }
 
         /// <summary>
-        /// The display mode of the single-select question.
+        /// The display mode of the single select question.
+        ///   *Allowed values*: ``DROPDOWN`` | ``RADIO``
         /// </summary>
         [Input("displayAs")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs>? DisplayAs { get; set; }
@@ -31,7 +32,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormSingleSelectQuestionOptionArgs>? _options;
 
         /// <summary>
-        /// The list of options for the question.
+        /// The answer options of the single select question.
+        ///   *Minimum*: 2
+        ///   *Maximum*: 256
         /// </summary>
         public InputList<Inputs.EvaluationFormSingleSelectQuestionOptionArgs> Options
         {

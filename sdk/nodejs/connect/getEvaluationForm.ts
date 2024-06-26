@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Connect::EvaluationForm
+ * Creates an evaluation form for the specified CON instance.
  */
 export function getEvaluationForm(args: GetEvaluationFormArgs, opts?: pulumi.InvokeOptions): Promise<GetEvaluationFormResult> {
 
@@ -20,7 +20,7 @@ export function getEvaluationForm(args: GetEvaluationFormArgs, opts?: pulumi.Inv
 
 export interface GetEvaluationFormArgs {
     /**
-     * The Amazon Resource Name (ARN) for the evaluation form.
+     * The Amazon Resource Name (ARN) of the evaluation form.
      */
     evaluationFormArn: string;
 }
@@ -28,39 +28,43 @@ export interface GetEvaluationFormArgs {
 export interface GetEvaluationFormResult {
     /**
      * The description of the evaluation form.
+     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     readonly description?: string;
     /**
-     * The Amazon Resource Name (ARN) for the evaluation form.
+     * The Amazon Resource Name (ARN) of the evaluation form.
      */
     readonly evaluationFormArn?: string;
     /**
-     * The Amazon Resource Name (ARN) of the instance.
+     * The identifier of the Amazon Connect instance.
      */
     readonly instanceArn?: string;
     /**
-     * The list of evaluation form items.
+     * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+     *   *Minimum size*: 1
+     *   *Maximum size*: 100
      */
     readonly items?: outputs.connect.EvaluationFormBaseItem[];
     /**
-     * The scoring strategy.
+     * A scoring strategy of the evaluation form.
      */
     readonly scoringStrategy?: outputs.connect.EvaluationFormScoringStrategy;
     /**
      * The status of the evaluation form.
+     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     readonly status?: enums.connect.EvaluationFormStatus;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The title of the evaluation form.
+     * A title of the evaluation form.
      */
     readonly title?: string;
 }
 /**
- * Resource Type definition for AWS::Connect::EvaluationForm
+ * Creates an evaluation form for the specified CON instance.
  */
 export function getEvaluationFormOutput(args: GetEvaluationFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEvaluationFormResult> {
     return pulumi.output(args).apply((a: any) => getEvaluationForm(a, opts))
@@ -68,7 +72,7 @@ export function getEvaluationFormOutput(args: GetEvaluationFormOutputArgs, opts?
 
 export interface GetEvaluationFormOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) for the evaluation form.
+     * The Amazon Resource Name (ARN) of the evaluation form.
      */
     evaluationFormArn: pulumi.Input<string>;
 }

@@ -31,8 +31,6 @@ type LookupSigningProfileArgs struct {
 type LookupSigningProfileResult struct {
 	// The Amazon Resource Name (ARN) of the specified signing profile.
 	Arn *string `pulumi:"arn"`
-	// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
-	ProfileName *string `pulumi:"profileName"`
 	// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
 	ProfileVersion *string `pulumi:"profileVersion"`
 	// The Amazon Resource Name (ARN) of the specified signing profile version.
@@ -80,11 +78,6 @@ func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutputWith
 // The Amazon Resource Name (ARN) of the specified signing profile.
 func (o LookupSigningProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
-func (o LookupSigningProfileResultOutput) ProfileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) *string { return v.ProfileName }).(pulumi.StringPtrOutput)
 }
 
 // A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.

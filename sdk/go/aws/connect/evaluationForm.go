@@ -13,25 +13,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Connect::EvaluationForm
+// Creates an evaluation form for the specified CON instance.
 type EvaluationForm struct {
 	pulumi.CustomResourceState
 
 	// The description of the evaluation form.
+	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the evaluation form.
+	// The Amazon Resource Name (ARN) of the evaluation form.
 	EvaluationFormArn pulumi.StringOutput `pulumi:"evaluationFormArn"`
-	// The Amazon Resource Name (ARN) of the instance.
+	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The list of evaluation form items.
+	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+	//   *Minimum size*: 1
+	//   *Maximum size*: 100
 	Items EvaluationFormBaseItemArrayOutput `pulumi:"items"`
-	// The scoring strategy.
+	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrOutput `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
+	//   *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusOutput `pulumi:"status"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The title of the evaluation form.
+	// A title of the evaluation form.
 	Title pulumi.StringOutput `pulumi:"title"`
 }
 
@@ -88,36 +92,44 @@ func (EvaluationFormState) ElementType() reflect.Type {
 
 type evaluationFormArgs struct {
 	// The description of the evaluation form.
+	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the instance.
+	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The list of evaluation form items.
+	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+	//   *Minimum size*: 1
+	//   *Maximum size*: 100
 	Items []EvaluationFormBaseItem `pulumi:"items"`
-	// The scoring strategy.
+	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
+	//   *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatus `pulumi:"status"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The title of the evaluation form.
+	// A title of the evaluation form.
 	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a EvaluationForm resource.
 type EvaluationFormArgs struct {
 	// The description of the evaluation form.
+	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the instance.
+	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
-	// The list of evaluation form items.
+	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+	//   *Minimum size*: 1
+	//   *Maximum size*: 100
 	Items EvaluationFormBaseItemArrayInput
-	// The scoring strategy.
+	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrInput
 	// The status of the evaluation form.
+	//   *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusInput
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayInput
-	// The title of the evaluation form.
+	// A title of the evaluation form.
 	Title pulumi.StringInput
 }
 
@@ -159,41 +171,48 @@ func (o EvaluationFormOutput) ToEvaluationFormOutputWithContext(ctx context.Cont
 }
 
 // The description of the evaluation form.
+//
+//	*Length Constraints*: Minimum length of 0. Maximum length of 1024.
 func (o EvaluationFormOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the evaluation form.
+// The Amazon Resource Name (ARN) of the evaluation form.
 func (o EvaluationFormOutput) EvaluationFormArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvaluationForm) pulumi.StringOutput { return v.EvaluationFormArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance.
+// The identifier of the Amazon Connect instance.
 func (o EvaluationFormOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvaluationForm) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The list of evaluation form items.
+// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+//
+//	*Minimum size*: 1
+//	*Maximum size*: 100
 func (o EvaluationFormOutput) Items() EvaluationFormBaseItemArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormBaseItemArrayOutput { return v.Items }).(EvaluationFormBaseItemArrayOutput)
 }
 
-// The scoring strategy.
+// A scoring strategy of the evaluation form.
 func (o EvaluationFormOutput) ScoringStrategy() EvaluationFormScoringStrategyPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormScoringStrategyPtrOutput { return v.ScoringStrategy }).(EvaluationFormScoringStrategyPtrOutput)
 }
 
 // The status of the evaluation form.
+//
+//	*Allowed values*: ``DRAFT`` | ``ACTIVE``
 func (o EvaluationFormOutput) Status() EvaluationFormStatusOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormStatusOutput { return v.Status }).(EvaluationFormStatusOutput)
 }
 
-// One or more tags.
+// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o EvaluationFormOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The title of the evaluation form.
+// A title of the evaluation form.
 func (o EvaluationFormOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvaluationForm) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

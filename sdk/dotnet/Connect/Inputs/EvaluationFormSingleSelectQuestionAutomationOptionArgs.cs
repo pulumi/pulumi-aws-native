@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The automation option for the single-select question.
+    /// The automation options of the single select question.
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionAutomationOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation option based on Rules categories.
+        /// The automation option based on a rule category for the single select question.
         /// </summary>
         [Input("ruleCategory", required: true)]
         public Input<Inputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs> RuleCategory { get; set; } = null!;

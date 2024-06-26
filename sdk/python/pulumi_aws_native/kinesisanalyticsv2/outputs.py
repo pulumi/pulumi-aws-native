@@ -46,6 +46,7 @@ __all__ = [
     'ApplicationS3ContentLocation',
     'ApplicationSnapshotConfiguration',
     'ApplicationSqlApplicationConfiguration',
+    'ApplicationSystemRollbackConfiguration',
     'ApplicationVpcConfiguration',
     'ApplicationZeppelinApplicationConfiguration',
     'ApplicationZeppelinMonitoringConfiguration',
@@ -304,6 +305,8 @@ class ApplicationConfiguration(dict):
             suggest = "application_code_configuration"
         elif key == "applicationSnapshotConfiguration":
             suggest = "application_snapshot_configuration"
+        elif key == "applicationSystemRollbackConfiguration":
+            suggest = "application_system_rollback_configuration"
         elif key == "environmentProperties":
             suggest = "environment_properties"
         elif key == "flinkApplicationConfiguration":
@@ -329,6 +332,7 @@ class ApplicationConfiguration(dict):
     def __init__(__self__, *,
                  application_code_configuration: Optional['outputs.ApplicationCodeConfiguration'] = None,
                  application_snapshot_configuration: Optional['outputs.ApplicationSnapshotConfiguration'] = None,
+                 application_system_rollback_configuration: Optional['outputs.ApplicationSystemRollbackConfiguration'] = None,
                  environment_properties: Optional['outputs.ApplicationEnvironmentProperties'] = None,
                  flink_application_configuration: Optional['outputs.ApplicationFlinkApplicationConfiguration'] = None,
                  sql_application_configuration: Optional['outputs.ApplicationSqlApplicationConfiguration'] = None,
@@ -338,6 +342,7 @@ class ApplicationConfiguration(dict):
         Specifies the creation parameters for a Kinesis Data Analytics application.
         :param 'ApplicationCodeConfiguration' application_code_configuration: The code location and type parameters for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationSnapshotConfiguration' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        :param 'ApplicationSystemRollbackConfiguration' application_system_rollback_configuration: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationEnvironmentProperties' environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationFlinkApplicationConfiguration' flink_application_configuration: The creation and update parameters for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationSqlApplicationConfiguration' sql_application_configuration: The creation and update parameters for a SQL-based Kinesis Data Analytics application.
@@ -348,6 +353,8 @@ class ApplicationConfiguration(dict):
             pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
+        if application_system_rollback_configuration is not None:
+            pulumi.set(__self__, "application_system_rollback_configuration", application_system_rollback_configuration)
         if environment_properties is not None:
             pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
@@ -374,6 +381,14 @@ class ApplicationConfiguration(dict):
         Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         """
         return pulumi.get(self, "application_snapshot_configuration")
+
+    @property
+    @pulumi.getter(name="applicationSystemRollbackConfiguration")
+    def application_system_rollback_configuration(self) -> Optional['outputs.ApplicationSystemRollbackConfiguration']:
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "application_system_rollback_configuration")
 
     @property
     @pulumi.getter(name="environmentProperties")
@@ -1918,6 +1933,45 @@ class ApplicationSqlApplicationConfiguration(dict):
         The array of Input objects describing the input streams used by the application.
         """
         return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class ApplicationSystemRollbackConfiguration(dict):
+    """
+    Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rollbackEnabled":
+            suggest = "rollback_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSystemRollbackConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSystemRollbackConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSystemRollbackConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rollback_enabled: bool):
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        :param bool rollback_enabled: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        pulumi.set(__self__, "rollback_enabled", rollback_enabled)
+
+    @property
+    @pulumi.getter(name="rollbackEnabled")
+    def rollback_enabled(self) -> bool:
+        """
+        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "rollback_enabled")
 
 
 @pulumi.output_type

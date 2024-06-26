@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The properties of the numeric question.
+    /// Information about properties for a numeric question in an evaluation form.
     /// </summary>
     public sealed class EvaluationFormNumericQuestionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation properties for the numeric question.
+        /// The automation properties of the numeric question.
         /// </summary>
         [Input("automation")]
         public Input<Inputs.EvaluationFormNumericQuestionAutomationArgs>? Automation { get; set; }
 
         /// <summary>
-        /// The maximum value for answers of the question.
+        /// The maximum answer value.
         /// </summary>
         [Input("maxValue", required: true)]
         public Input<int> MaxValue { get; set; } = null!;
 
         /// <summary>
-        /// The minimum value for answers of the question.
+        /// The minimum answer value.
         /// </summary>
         [Input("minValue", required: true)]
         public Input<int> MinValue { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormNumericQuestionOptionArgs>? _options;
 
         /// <summary>
-        /// The list of option ranges used for scoring.
+        /// The scoring options of the numeric question.
         /// </summary>
         public InputList<Inputs.EvaluationFormNumericQuestionOptionArgs> Options
         {

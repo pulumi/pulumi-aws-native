@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         /// </summary>
         public readonly string? Disk;
         /// <summary>
+        /// Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+        /// </summary>
+        public readonly string? DiskType;
+        /// <summary>
         /// Per worker memory resource. GB is the only supported unit and specifying GB is optional.
         /// </summary>
         public readonly string Memory;
@@ -32,10 +36,13 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
 
             string? disk,
 
+            string? diskType,
+
             string memory)
         {
             Cpu = cpu;
             Disk = disk;
+            DiskType = diskType;
             Memory = memory;
         }
     }

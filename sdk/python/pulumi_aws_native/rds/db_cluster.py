@@ -39,6 +39,7 @@ class DbClusterArgs:
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
@@ -97,6 +98,7 @@ class DbClusterArgs:
         :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -188,6 +190,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enable_iam_database_authentication is not None:
             pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
+        if enable_local_write_forwarding is not None:
+            pulumi.set(__self__, "enable_local_write_forwarding", enable_local_write_forwarding)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_lifecycle_support is not None:
@@ -510,6 +514,18 @@ class DbClusterArgs:
     @enable_iam_database_authentication.setter
     def enable_iam_database_authentication(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_iam_database_authentication", value)
+
+    @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
+
+    @enable_local_write_forwarding.setter
+    def enable_local_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_local_write_forwarding", value)
 
     @property
     @pulumi.getter
@@ -971,6 +987,7 @@ class DbCluster(pulumi.CustomResource):
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
@@ -1033,6 +1050,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -1127,6 +1145,7 @@ class DbCluster(pulumi.CustomResource):
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[str]] = None,
@@ -1192,6 +1211,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
+            __props__.__dict__["enable_local_write_forwarding"] = enable_local_write_forwarding
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_mode"] = engine_mode
@@ -1278,6 +1298,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["enable_global_write_forwarding"] = None
         __props__.__dict__["enable_http_endpoint"] = None
         __props__.__dict__["enable_iam_database_authentication"] = None
+        __props__.__dict__["enable_local_write_forwarding"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_lifecycle_support"] = None
@@ -1500,6 +1521,14 @@ class DbCluster(pulumi.CustomResource):
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         """
         return pulumi.get(self, "enable_iam_database_authentication")
+
+    @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
 
     @property
     @pulumi.getter

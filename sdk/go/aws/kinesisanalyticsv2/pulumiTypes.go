@@ -699,6 +699,8 @@ type ApplicationConfiguration struct {
 	ApplicationCodeConfiguration *ApplicationCodeConfiguration `pulumi:"applicationCodeConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
+	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+	ApplicationSystemRollbackConfiguration *ApplicationSystemRollbackConfiguration `pulumi:"applicationSystemRollbackConfiguration"`
 	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 	EnvironmentProperties *ApplicationEnvironmentProperties `pulumi:"environmentProperties"`
 	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
@@ -728,6 +730,8 @@ type ApplicationConfigurationArgs struct {
 	ApplicationCodeConfiguration ApplicationCodeConfigurationPtrInput `pulumi:"applicationCodeConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	ApplicationSnapshotConfiguration ApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
+	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+	ApplicationSystemRollbackConfiguration ApplicationSystemRollbackConfigurationPtrInput `pulumi:"applicationSystemRollbackConfiguration"`
 	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 	EnvironmentProperties ApplicationEnvironmentPropertiesPtrInput `pulumi:"environmentProperties"`
 	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
@@ -830,6 +834,13 @@ func (o ApplicationConfigurationOutput) ApplicationSnapshotConfiguration() Appli
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationConfigurationOutput) ApplicationSystemRollbackConfiguration() ApplicationSystemRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSystemRollbackConfiguration {
+		return v.ApplicationSystemRollbackConfiguration
+	}).(ApplicationSystemRollbackConfigurationPtrOutput)
+}
+
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationEnvironmentProperties { return v.EnvironmentProperties }).(ApplicationEnvironmentPropertiesPtrOutput)
@@ -903,6 +914,16 @@ func (o ApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() Ap
 		}
 		return v.ApplicationSnapshotConfiguration
 	}).(ApplicationSnapshotConfigurationPtrOutput)
+}
+
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationConfigurationPtrOutput) ApplicationSystemRollbackConfiguration() ApplicationSystemRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSystemRollbackConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSystemRollbackConfiguration
+	}).(ApplicationSystemRollbackConfigurationPtrOutput)
 }
 
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
@@ -5143,6 +5164,146 @@ func (o ApplicationSqlApplicationConfigurationPtrOutput) Inputs() ApplicationInp
 	}).(ApplicationInputTypeArrayOutput)
 }
 
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+type ApplicationSystemRollbackConfiguration struct {
+	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+	RollbackEnabled bool `pulumi:"rollbackEnabled"`
+}
+
+// ApplicationSystemRollbackConfigurationInput is an input type that accepts ApplicationSystemRollbackConfigurationArgs and ApplicationSystemRollbackConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationSystemRollbackConfigurationInput` via:
+//
+//	ApplicationSystemRollbackConfigurationArgs{...}
+type ApplicationSystemRollbackConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationSystemRollbackConfigurationOutput() ApplicationSystemRollbackConfigurationOutput
+	ToApplicationSystemRollbackConfigurationOutputWithContext(context.Context) ApplicationSystemRollbackConfigurationOutput
+}
+
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+type ApplicationSystemRollbackConfigurationArgs struct {
+	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+	RollbackEnabled pulumi.BoolInput `pulumi:"rollbackEnabled"`
+}
+
+func (ApplicationSystemRollbackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSystemRollbackConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationSystemRollbackConfigurationArgs) ToApplicationSystemRollbackConfigurationOutput() ApplicationSystemRollbackConfigurationOutput {
+	return i.ToApplicationSystemRollbackConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationSystemRollbackConfigurationArgs) ToApplicationSystemRollbackConfigurationOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSystemRollbackConfigurationOutput)
+}
+
+func (i ApplicationSystemRollbackConfigurationArgs) ToApplicationSystemRollbackConfigurationPtrOutput() ApplicationSystemRollbackConfigurationPtrOutput {
+	return i.ToApplicationSystemRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSystemRollbackConfigurationArgs) ToApplicationSystemRollbackConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSystemRollbackConfigurationOutput).ToApplicationSystemRollbackConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationSystemRollbackConfigurationPtrInput is an input type that accepts ApplicationSystemRollbackConfigurationArgs, ApplicationSystemRollbackConfigurationPtr and ApplicationSystemRollbackConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationSystemRollbackConfigurationPtrInput` via:
+//
+//	        ApplicationSystemRollbackConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSystemRollbackConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSystemRollbackConfigurationPtrOutput() ApplicationSystemRollbackConfigurationPtrOutput
+	ToApplicationSystemRollbackConfigurationPtrOutputWithContext(context.Context) ApplicationSystemRollbackConfigurationPtrOutput
+}
+
+type applicationSystemRollbackConfigurationPtrType ApplicationSystemRollbackConfigurationArgs
+
+func ApplicationSystemRollbackConfigurationPtr(v *ApplicationSystemRollbackConfigurationArgs) ApplicationSystemRollbackConfigurationPtrInput {
+	return (*applicationSystemRollbackConfigurationPtrType)(v)
+}
+
+func (*applicationSystemRollbackConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSystemRollbackConfiguration)(nil)).Elem()
+}
+
+func (i *applicationSystemRollbackConfigurationPtrType) ToApplicationSystemRollbackConfigurationPtrOutput() ApplicationSystemRollbackConfigurationPtrOutput {
+	return i.ToApplicationSystemRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSystemRollbackConfigurationPtrType) ToApplicationSystemRollbackConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSystemRollbackConfigurationPtrOutput)
+}
+
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+type ApplicationSystemRollbackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSystemRollbackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSystemRollbackConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSystemRollbackConfigurationOutput) ToApplicationSystemRollbackConfigurationOutput() ApplicationSystemRollbackConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSystemRollbackConfigurationOutput) ToApplicationSystemRollbackConfigurationOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSystemRollbackConfigurationOutput) ToApplicationSystemRollbackConfigurationPtrOutput() ApplicationSystemRollbackConfigurationPtrOutput {
+	return o.ToApplicationSystemRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSystemRollbackConfigurationOutput) ToApplicationSystemRollbackConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSystemRollbackConfiguration) *ApplicationSystemRollbackConfiguration {
+		return &v
+	}).(ApplicationSystemRollbackConfigurationPtrOutput)
+}
+
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationSystemRollbackConfigurationOutput) RollbackEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationSystemRollbackConfiguration) bool { return v.RollbackEnabled }).(pulumi.BoolOutput)
+}
+
+type ApplicationSystemRollbackConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSystemRollbackConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSystemRollbackConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSystemRollbackConfigurationPtrOutput) ToApplicationSystemRollbackConfigurationPtrOutput() ApplicationSystemRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSystemRollbackConfigurationPtrOutput) ToApplicationSystemRollbackConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSystemRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSystemRollbackConfigurationPtrOutput) Elem() ApplicationSystemRollbackConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationSystemRollbackConfiguration) ApplicationSystemRollbackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSystemRollbackConfiguration
+		return ret
+	}).(ApplicationSystemRollbackConfigurationOutput)
+}
+
+// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationSystemRollbackConfigurationPtrOutput) RollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSystemRollbackConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RollbackEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair that identifies an application.
 type ApplicationTag struct {
 	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -5674,6 +5835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationPtrInput)(nil)).Elem(), ApplicationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlApplicationConfigurationInput)(nil)).Elem(), ApplicationSqlApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationSqlApplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSystemRollbackConfigurationInput)(nil)).Elem(), ApplicationSystemRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSystemRollbackConfigurationPtrInput)(nil)).Elem(), ApplicationSystemRollbackConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVpcConfigurationInput)(nil)).Elem(), ApplicationVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVpcConfigurationArrayInput)(nil)).Elem(), ApplicationVpcConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinApplicationConfigurationInput)(nil)).Elem(), ApplicationZeppelinApplicationConfigurationArgs{})
@@ -5746,6 +5909,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSystemRollbackConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationSystemRollbackConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationVpcConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinApplicationConfigurationOutput{})

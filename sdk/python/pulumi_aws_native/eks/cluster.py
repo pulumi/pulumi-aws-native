@@ -22,6 +22,7 @@ class ClusterArgs:
                  resources_vpc_config: pulumi.Input['ClusterResourcesVpcConfigArgs'],
                  role_arn: pulumi.Input[str],
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingArgs']] = None,
@@ -34,6 +35,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterResourcesVpcConfigArgs'] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking addons when the cluster is created.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input['LoggingArgs'] logging: The logging configuration for your cluster.
@@ -46,6 +48,8 @@ class ClusterArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if access_config is not None:
             pulumi.set(__self__, "access_config", access_config)
+        if bootstrap_self_managed_addons is not None:
+            pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if kubernetes_network_config is not None:
@@ -96,6 +100,18 @@ class ClusterArgs:
     @access_config.setter
     def access_config(self, value: Optional[pulumi.Input['ClusterAccessConfigArgs']]):
         pulumi.set(self, "access_config", value)
+
+    @property
+    @pulumi.getter(name="bootstrapSelfManagedAddons")
+    def bootstrap_self_managed_addons(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this value to false to avoid creating the default networking addons when the cluster is created.
+        """
+        return pulumi.get(self, "bootstrap_self_managed_addons")
+
+    @bootstrap_self_managed_addons.setter
+    def bootstrap_self_managed_addons(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bootstrap_self_managed_addons", value)
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -188,6 +204,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
@@ -204,6 +221,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']] access_config: The access configuration for the cluster.
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking addons when the cluster is created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input[pulumi.InputType['LoggingArgs']] logging: The logging configuration for your cluster.
@@ -239,6 +257,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
@@ -258,6 +277,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["access_config"] = access_config
+            __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
@@ -278,7 +298,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',
@@ -305,6 +325,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["access_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["bootstrap_self_managed_addons"] = None
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
         __props__.__dict__["encryption_config"] = None
@@ -344,6 +365,14 @@ class Cluster(pulumi.CustomResource):
         The unique ID given to your cluster.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="bootstrapSelfManagedAddons")
+    def bootstrap_self_managed_addons(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this value to false to avoid creating the default networking addons when the cluster is created.
+        """
+        return pulumi.get(self, "bootstrap_self_managed_addons")
 
     @property
     @pulumi.getter(name="certificateAuthorityData")

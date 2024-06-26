@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The evaluation form item.
+    /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
     /// </summary>
     [OutputType]
     public sealed class EvaluationFormItem
     {
         /// <summary>
-        /// The evaluation form question item
+        /// The information of the question.
         /// </summary>
         public readonly Outputs.EvaluationFormQuestion? Question;
         /// <summary>
-        /// The evaluation form section item
+        /// The information of the section.
         /// </summary>
         public readonly Outputs.EvaluationFormSection? Section;
 
