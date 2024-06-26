@@ -35,7 +35,7 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
 jobs:
   release:
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
