@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
         /// The value that the SLI metric is compared to.
         /// </summary>
         public readonly double MetricThreshold;
+        /// <summary>
+        /// Use this structure to specify the metric to be used for the SLO.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSliMetric SliMetric;
 
         [OutputConstructor]

@@ -71,6 +71,9 @@ class GetServiceLevelObjectiveResult:
     @property
     @pulumi.getter
     def goal(self) -> Optional['outputs.ServiceLevelObjectiveGoal']:
+        """
+        This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+        """
         return pulumi.get(self, "goal")
 
     @property
@@ -84,11 +87,19 @@ class GetServiceLevelObjectiveResult:
     @property
     @pulumi.getter
     def sli(self) -> Optional['outputs.ServiceLevelObjectiveSli']:
+        """
+        A structure containing information about the performance metric that this SLO monitors.
+        """
         return pulumi.get(self, "sli")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+
+        Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        """
         return pulumi.get(self, "tags")
 
 

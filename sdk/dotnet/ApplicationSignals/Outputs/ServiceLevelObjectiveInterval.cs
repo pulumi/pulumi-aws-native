@@ -17,7 +17,13 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveInterval
     {
+        /// <summary>
+        /// If the interval is a calendar interval, this structure contains the interval specifications.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveCalendarInterval? CalendarInterval;
+        /// <summary>
+        /// If the interval is a rolling interval, this structure contains the interval specifications.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveRollingInterval? RollingInterval;
 
         [OutputConstructor]

@@ -19,6 +19,9 @@ export function getDetector(args: GetDetectorArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetDetectorArgs {
+    /**
+     * The unique ID of the detector.
+     */
     id: string;
 }
 
@@ -39,6 +42,9 @@ export interface GetDetectorResult {
      * Specifies how frequently updated findings are exported.
      */
     readonly findingPublishingFrequency?: string;
+    /**
+     * The unique ID of the detector.
+     */
     readonly id?: string;
     /**
      * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
@@ -57,5 +63,8 @@ export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetDetectorOutputArgs {
+    /**
+     * The unique ID of the detector.
+     */
     id: pulumi.Input<string>;
 }

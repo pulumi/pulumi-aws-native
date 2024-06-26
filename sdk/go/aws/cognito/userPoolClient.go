@@ -66,7 +66,7 @@ type UserPoolClient struct {
 	// The client name for the user pool client you would like to create.
 	ClientName   pulumi.StringPtrOutput `pulumi:"clientName"`
 	ClientSecret pulumi.StringOutput    `pulumi:"clientSecret"`
-	// The default redirect URI. Must be in the `CallbackURLs` list.
+	// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 	//
 	// A redirect URI must:
 	//
@@ -74,7 +74,7 @@ type UserPoolClient struct {
 	// - Be registered with the authorization server.
 	// - Not include a fragment component.
 	//
-	// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+	// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 	//
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
@@ -233,7 +233,7 @@ type userPoolClientArgs struct {
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// The client name for the user pool client you would like to create.
 	ClientName *string `pulumi:"clientName"`
-	// The default redirect URI. Must be in the `CallbackURLs` list.
+	// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 	//
 	// A redirect URI must:
 	//
@@ -241,7 +241,7 @@ type userPoolClientArgs struct {
 	// - Be registered with the authorization server.
 	// - Not include a fragment component.
 	//
-	// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+	// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 	//
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
@@ -353,7 +353,7 @@ type UserPoolClientArgs struct {
 	CallbackUrls pulumi.StringArrayInput
 	// The client name for the user pool client you would like to create.
 	ClientName pulumi.StringPtrInput
-	// The default redirect URI. Must be in the `CallbackURLs` list.
+	// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 	//
 	// A redirect URI must:
 	//
@@ -361,7 +361,7 @@ type UserPoolClientArgs struct {
 	// - Be registered with the authorization server.
 	// - Not include a fragment component.
 	//
-	// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+	// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 	//
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
@@ -541,7 +541,7 @@ func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// The default redirect URI. Must be in the `CallbackURLs` list.
+// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 //
 // A redirect URI must:
 //
@@ -549,7 +549,7 @@ func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
 // - Be registered with the authorization server.
 // - Not include a fragment component.
 //
-// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 //
 // Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 //

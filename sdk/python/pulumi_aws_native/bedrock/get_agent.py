@@ -195,6 +195,9 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional['outputs.AgentGuardrailConfiguration']:
+        """
+        Details about the guardrail associated with the agent.
+        """
         return pulumi.get(self, "guardrail_configuration")
 
     @property

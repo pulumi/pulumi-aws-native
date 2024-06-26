@@ -216,6 +216,9 @@ class Detector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the detector.
+        """
         return pulumi.get(self, "aws_id")
 
     @property

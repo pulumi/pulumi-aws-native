@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         /// </summary>
         public readonly string Schema;
+        /// <summary>
+        /// The configuration that defines how you access secrets for Snowflake.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
         /// Optionally configure a Snowflake role. Otherwise the default user role will be used.

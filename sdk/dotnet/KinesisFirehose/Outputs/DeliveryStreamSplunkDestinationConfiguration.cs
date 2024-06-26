@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// The configuration for the backup Amazon S3 location.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The configuration that defines how you access secrets for Splunk.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]

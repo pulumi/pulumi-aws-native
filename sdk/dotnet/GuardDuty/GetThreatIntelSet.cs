@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the `threatIntelSet` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the `threatIntelSet` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetThreatIntelSetResult
     {
+        /// <summary>
+        /// The unique ID of the `threatIntelSet` .
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The URI of the file that contains the ThreatIntelSet.

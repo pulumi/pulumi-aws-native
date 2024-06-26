@@ -69,12 +69,23 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// An optional description for this SLO. Default is 'No description'
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveGoal? Goal;
         /// <summary>
         /// Epoch time in seconds of the time that this SLO was most recently updated
         /// </summary>
         public readonly int? LastUpdatedTime;
+        /// <summary>
+        /// A structure containing information about the performance metric that this SLO monitors.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSli? Sli;
+        /// <summary>
+        /// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

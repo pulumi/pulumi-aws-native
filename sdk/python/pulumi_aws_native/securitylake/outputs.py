@@ -499,7 +499,7 @@ class SubscriberNotificationNotificationConfiguration(dict):
                  https_notification_configuration: Optional['outputs.SubscriberNotificationHttpsNotificationConfiguration'] = None,
                  sqs_notification_configuration: Optional['outputs.SubscriberNotificationSqsNotificationConfiguration'] = None):
         """
-        :param 'SubscriberNotificationHttpsNotificationConfiguration' https_notification_configuration: The configurations for HTTPS subscriber notification.
+        :param 'SubscriberNotificationHttpsNotificationConfiguration' https_notification_configuration: The configurations used for HTTPS subscriber notification.
         :param 'SubscriberNotificationSqsNotificationConfiguration' sqs_notification_configuration: The configurations for SQS subscriber notification. The members of this structure are context-dependent.
         """
         if https_notification_configuration is not None:
@@ -511,7 +511,7 @@ class SubscriberNotificationNotificationConfiguration(dict):
     @pulumi.getter(name="httpsNotificationConfiguration")
     def https_notification_configuration(self) -> Optional['outputs.SubscriberNotificationHttpsNotificationConfiguration']:
         """
-        The configurations for HTTPS subscriber notification.
+        The configurations used for HTTPS subscriber notification.
         """
         return pulumi.get(self, "https_notification_configuration")
 

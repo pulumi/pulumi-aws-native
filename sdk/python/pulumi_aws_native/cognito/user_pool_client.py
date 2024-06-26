@@ -80,7 +80,7 @@ class UserPoolClientArgs:
                
                App callback URLs such as myapp://example are also supported.
         :param pulumi.Input[str] client_name: The client name for the user pool client you would like to create.
-        :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the `CallbackURLs` list.
+        :param pulumi.Input[str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
                
                A redirect URI must:
                
@@ -88,7 +88,7 @@ class UserPoolClientArgs:
                - Be registered with the authorization server.
                - Not include a fragment component.
                
-               See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+               For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
                
                Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
                
@@ -322,7 +322,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The default redirect URI. Must be in the `CallbackURLs` list.
+        The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 
         A redirect URI must:
 
@@ -330,7 +330,7 @@ class UserPoolClientArgs:
         - Be registered with the authorization server.
         - Not include a fragment component.
 
-        See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+        For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 
         Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 
@@ -588,7 +588,7 @@ class UserPoolClient(pulumi.CustomResource):
                
                App callback URLs such as myapp://example are also supported.
         :param pulumi.Input[str] client_name: The client name for the user pool client you would like to create.
-        :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the `CallbackURLs` list.
+        :param pulumi.Input[str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
                
                A redirect URI must:
                
@@ -596,7 +596,7 @@ class UserPoolClient(pulumi.CustomResource):
                - Be registered with the authorization server.
                - Not include a fragment component.
                
-               See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+               For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
                
                Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
                
@@ -889,7 +889,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The default redirect URI. Must be in the `CallbackURLs` list.
+        The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
 
         A redirect URI must:
 
@@ -897,7 +897,7 @@ class UserPoolClient(pulumi.CustomResource):
         - Be registered with the authorization server.
         - Not include a fragment component.
 
-        See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
+        For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
 
         Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 

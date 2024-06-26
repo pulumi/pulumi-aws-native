@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that defines how you access secrets for Splunk.
+        /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.DeliveryStreamSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
 

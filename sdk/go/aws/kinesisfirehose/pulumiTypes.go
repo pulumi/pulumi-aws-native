@@ -4554,7 +4554,8 @@ type DeliveryStreamHttpEndpointDestinationConfiguration struct {
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for HTTP Endpoint destination.
 	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -4587,7 +4588,8 @@ type DeliveryStreamHttpEndpointDestinationConfigurationArgs struct {
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for HTTP Endpoint destination.
 	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -4727,6 +4729,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3Configuratio
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+// The configuration that defines how you access secrets for HTTP Endpoint destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
@@ -4847,6 +4850,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configura
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+// The configuration that defines how you access secrets for HTTP Endpoint destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		if v == nil {
@@ -6887,7 +6891,8 @@ type DeliveryStreamRedshiftDestinationConfiguration struct {
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for Amazon Redshift.
 	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
 	Username *string `pulumi:"username"`
@@ -6924,7 +6929,8 @@ type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for Amazon Redshift.
 	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -7069,6 +7075,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3Configuration() 
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+// The configuration that defines how you access secrets for Amazon Redshift.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
@@ -7204,6 +7211,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+// The configuration that defines how you access secrets for Amazon Redshift.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		if v == nil {
@@ -8032,8 +8040,11 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 }
 
 type DeliveryStreamSecretsManagerConfiguration struct {
-	Enabled   bool    `pulumi:"enabled"`
-	RoleArn   *string `pulumi:"roleArn"`
+	// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+	Enabled bool `pulumi:"enabled"`
+	// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -8049,8 +8060,11 @@ type DeliveryStreamSecretsManagerConfigurationInput interface {
 }
 
 type DeliveryStreamSecretsManagerConfigurationArgs struct {
-	Enabled   pulumi.BoolInput      `pulumi:"enabled"`
-	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
+	// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -8131,14 +8145,17 @@ func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecrets
 	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
 }
 
+// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 func (o DeliveryStreamSecretsManagerConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
 func (o DeliveryStreamSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 func (o DeliveryStreamSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -8167,6 +8184,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Elem() DeliveryStrea
 	}).(DeliveryStreamSecretsManagerConfigurationOutput)
 }
 
+// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *bool {
 		if v == nil {
@@ -8176,6 +8194,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
 func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -8185,6 +8204,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -8375,7 +8395,8 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	S3BackupMode    *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfiguration                     `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
-	Schema                      string                                     `pulumi:"schema"`
+	Schema string `pulumi:"schema"`
+	// The configuration that defines how you access secrets for Snowflake.
 	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration *DeliveryStreamSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
@@ -8423,7 +8444,8 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	S3BackupMode    DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput                       `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
-	Schema                      pulumi.StringInput                                `pulumi:"schema"`
+	Schema pulumi.StringInput `pulumi:"schema"`
+	// The configuration that defines how you access secrets for Snowflake.
 	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration DeliveryStreamSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
@@ -8591,6 +8613,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Schema() pulumi.S
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+// The configuration that defines how you access secrets for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
@@ -8782,6 +8805,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Schema() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how you access secrets for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		if v == nil {
@@ -9439,7 +9463,8 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The configuration for the backup Amazon S3 location.
-	S3Configuration             DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for Splunk.
 	SecretsManagerConfiguration *DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -9476,7 +9501,8 @@ type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The configuration for the backup Amazon S3 location.
-	S3Configuration             DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	// The configuration that defines how you access secrets for Splunk.
 	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -9621,6 +9647,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) S3Configuration() De
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+// The configuration that defines how you access secrets for Splunk.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
@@ -9753,6 +9780,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) S3Configuration()
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+// The configuration that defines how you access secrets for Splunk.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
 		if v == nil {

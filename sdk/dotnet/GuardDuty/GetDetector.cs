@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetDetectorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the detector.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the detector.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.GuardDuty
         /// Specifies how frequently updated findings are exported.
         /// </summary>
         public readonly string? FindingPublishingFrequency;
+        /// <summary>
+        /// The unique ID of the detector.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.

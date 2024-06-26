@@ -22,14 +22,19 @@ type ServiceLevelObjective struct {
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
-	Description pulumi.StringPtrOutput             `pulumi:"description"`
-	Goal        ServiceLevelObjectiveGoalPtrOutput `pulumi:"goal"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+	Goal ServiceLevelObjectiveGoalPtrOutput `pulumi:"goal"`
 	// Epoch time in seconds of the time that this SLO was most recently updated
 	LastUpdatedTime pulumi.IntOutput `pulumi:"lastUpdatedTime"`
 	// The name of this SLO.
-	Name pulumi.StringOutput            `pulumi:"name"`
-	Sli  ServiceLevelObjectiveSliOutput `pulumi:"sli"`
-	Tags aws.TagArrayOutput             `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A structure containing information about the performance metric that this SLO monitors.
+	Sli ServiceLevelObjectiveSliOutput `pulumi:"sli"`
+	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceLevelObjective registers a new resource with the given unique name, arguments, and options.
@@ -80,22 +85,32 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 
 type serviceLevelObjectiveArgs struct {
 	// An optional description for this SLO. Default is 'No description'
-	Description *string                    `pulumi:"description"`
-	Goal        *ServiceLevelObjectiveGoal `pulumi:"goal"`
+	Description *string `pulumi:"description"`
+	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
 	// The name of this SLO.
-	Name *string                  `pulumi:"name"`
-	Sli  ServiceLevelObjectiveSli `pulumi:"sli"`
-	Tags []aws.Tag                `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// A structure containing information about the performance metric that this SLO monitors.
+	Sli ServiceLevelObjectiveSli `pulumi:"sli"`
+	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
 	// An optional description for this SLO. Default is 'No description'
 	Description pulumi.StringPtrInput
-	Goal        ServiceLevelObjectiveGoalPtrInput
+	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+	Goal ServiceLevelObjectiveGoalPtrInput
 	// The name of this SLO.
 	Name pulumi.StringPtrInput
-	Sli  ServiceLevelObjectiveSliInput
+	// A structure containing information about the performance metric that this SLO monitors.
+	Sli ServiceLevelObjectiveSliInput
+	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 	Tags aws.TagArrayInput
 }
 
@@ -151,6 +166,7 @@ func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 func (o ServiceLevelObjectiveOutput) Goal() ServiceLevelObjectiveGoalPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveGoalPtrOutput { return v.Goal }).(ServiceLevelObjectiveGoalPtrOutput)
 }
@@ -165,10 +181,14 @@ func (o ServiceLevelObjectiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A structure containing information about the performance metric that this SLO monitors.
 func (o ServiceLevelObjectiveOutput) Sli() ServiceLevelObjectiveSliOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveSliOutput { return v.Sli }).(ServiceLevelObjectiveSliOutput)
 }
 
+// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 func (o ServiceLevelObjectiveOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

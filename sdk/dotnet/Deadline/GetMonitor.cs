@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the monitor.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the monitor.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the monitor.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The name of the monitor that displays on the Deadline Cloud console.

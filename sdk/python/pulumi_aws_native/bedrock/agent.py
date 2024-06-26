@@ -41,6 +41,7 @@ class AgentArgs:
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] foundation_model: ARN or name of a Bedrock model.
+        :param pulumi.Input['AgentGuardrailConfigurationArgs'] guardrail_configuration: Details about the guardrail associated with the agent.
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]] knowledge_bases: List of Agent Knowledge Bases
@@ -173,6 +174,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional[pulumi.Input['AgentGuardrailConfigurationArgs']]:
+        """
+        Details about the guardrail associated with the agent.
+        """
         return pulumi.get(self, "guardrail_configuration")
 
     @guardrail_configuration.setter
@@ -303,6 +307,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] foundation_model: ARN or name of a Bedrock model.
+        :param pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']] guardrail_configuration: Details about the guardrail associated with the agent.
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]] knowledge_bases: List of Agent Knowledge Bases
@@ -552,6 +557,9 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> pulumi.Output[Optional['outputs.AgentGuardrailConfiguration']]:
+        """
+        Details about the guardrail associated with the agent.
+        """
         return pulumi.get(self, "guardrail_configuration")
 
     @property

@@ -1697,6 +1697,7 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
         :param pulumi.Input['DeliveryStreamRetryOptionsArgs'] retry_options: Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
         :param pulumi.Input[str] role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
         :param pulumi.Input[str] s3_backup_mode: Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
+        :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for HTTP Endpoint destination.
         """
         pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -1828,6 +1829,9 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="secretsManagerConfiguration")
     def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        """
+        The configuration that defines how you access secrets for HTTP Endpoint destination.
+        """
         return pulumi.get(self, "secrets_manager_configuration")
 
     @secrets_manager_configuration.setter
@@ -2508,6 +2512,7 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
         :param pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgs'] retry_options: The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
         :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3.
         :param pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for Amazon Redshift.
         :param pulumi.Input[str] username: The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
         """
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
@@ -2654,6 +2659,9 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="secretsManagerConfiguration")
     def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        """
+        The configuration that defines how you access secrets for Amazon Redshift.
+        """
         return pulumi.get(self, "secrets_manager_configuration")
 
     @secrets_manager_configuration.setter
@@ -2973,6 +2981,11 @@ class DeliveryStreamSecretsManagerConfigurationArgs:
                  enabled: pulumi.Input[bool],
                  role_arn: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+        :param pulumi.Input[str] role_arn: Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+        :param pulumi.Input[str] secret_arn: The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+        """
         pulumi.set(__self__, "enabled", enabled)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -2982,6 +2995,9 @@ class DeliveryStreamSecretsManagerConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2991,6 +3007,9 @@ class DeliveryStreamSecretsManagerConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -3000,6 +3019,9 @@ class DeliveryStreamSecretsManagerConfigurationArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -3081,6 +3103,7 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         :param pulumi.Input[str] private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs'] retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode'] s3_backup_mode: Choose an S3 backup mode
+        :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for Snowflake.
         :param pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs'] snowflake_role_configuration: Optionally configure a Snowflake role. Otherwise the default user role will be used.
         :param pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs'] snowflake_vpc_configuration: The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
         :param pulumi.Input[str] user: User login name for the Snowflake account.
@@ -3292,6 +3315,9 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="secretsManagerConfiguration")
     def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        """
+        The configuration that defines how you access secrets for Snowflake.
+        """
         return pulumi.get(self, "secrets_manager_configuration")
 
     @secrets_manager_configuration.setter
@@ -3485,6 +3511,7 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
                
                You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
+        :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for Splunk.
         """
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
         pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
@@ -3631,6 +3658,9 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="secretsManagerConfiguration")
     def secrets_manager_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']]:
+        """
+        The configuration that defines how you access secrets for Splunk.
+        """
         return pulumi.get(self, "secrets_manager_configuration")
 
     @secrets_manager_configuration.setter

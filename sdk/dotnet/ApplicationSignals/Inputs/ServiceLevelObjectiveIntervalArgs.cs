@@ -16,9 +16,15 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     /// </summary>
     public sealed class ServiceLevelObjectiveIntervalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If the interval is a calendar interval, this structure contains the interval specifications.
+        /// </summary>
         [Input("calendarInterval")]
         public Input<Inputs.ServiceLevelObjectiveCalendarIntervalArgs>? CalendarInterval { get; set; }
 
+        /// <summary>
+        /// If the interval is a rolling interval, this structure contains the interval specifications.
+        /// </summary>
         [Input("rollingInterval")]
         public Input<Inputs.ServiceLevelObjectiveRollingIntervalArgs>? RollingInterval { get; set; }
 

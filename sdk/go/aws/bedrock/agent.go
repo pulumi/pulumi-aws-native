@@ -48,7 +48,8 @@ type Agent struct {
 	// Failure Reasons for Error.
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
 	// ARN or name of a Bedrock model.
-	FoundationModel        pulumi.StringPtrOutput               `pulumi:"foundationModel"`
+	FoundationModel pulumi.StringPtrOutput `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration AgentGuardrailConfigurationPtrOutput `pulumi:"guardrailConfiguration"`
 	// Max Session Time.
 	IdleSessionTtlInSeconds pulumi.Float64PtrOutput `pulumi:"idleSessionTtlInSeconds"`
@@ -131,7 +132,8 @@ type agentArgs struct {
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// ARN or name of a Bedrock model.
-	FoundationModel        *string                      `pulumi:"foundationModel"`
+	FoundationModel *string `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration *AgentGuardrailConfiguration `pulumi:"guardrailConfiguration"`
 	// Max Session Time.
 	IdleSessionTtlInSeconds *float64 `pulumi:"idleSessionTtlInSeconds"`
@@ -170,7 +172,8 @@ type AgentArgs struct {
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
 	// ARN or name of a Bedrock model.
-	FoundationModel        pulumi.StringPtrInput
+	FoundationModel pulumi.StringPtrInput
+	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration AgentGuardrailConfigurationPtrInput
 	// Max Session Time.
 	IdleSessionTtlInSeconds pulumi.Float64PtrInput
@@ -304,6 +307,7 @@ func (o AgentOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }
 
+// Details about the guardrail associated with the agent.
 func (o AgentOutput) GuardrailConfiguration() AgentGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v *Agent) AgentGuardrailConfigurationPtrOutput { return v.GuardrailConfiguration }).(AgentGuardrailConfigurationPtrOutput)
 }

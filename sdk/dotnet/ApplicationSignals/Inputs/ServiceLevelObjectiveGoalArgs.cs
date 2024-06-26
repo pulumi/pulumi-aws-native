@@ -22,6 +22,11 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
         [Input("attainmentGoal")]
         public Input<double>? AttainmentGoal { get; set; }
 
+        /// <summary>
+        /// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+        /// 
+        /// If you omit this parameter, a rolling interval of 7 days is used.
+        /// </summary>
         [Input("interval")]
         public Input<Inputs.ServiceLevelObjectiveIntervalArgs>? Interval { get; set; }
 

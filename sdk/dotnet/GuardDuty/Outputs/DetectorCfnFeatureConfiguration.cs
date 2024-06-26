@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureAdditionalConfiguration> AdditionalConfiguration;
         /// <summary>
-        /// Name of the feature.
+        /// Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
         /// </summary>
         public readonly string Name;
         /// <summary>

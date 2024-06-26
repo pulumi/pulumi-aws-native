@@ -16,7 +16,21 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveSliMetric
     {
+        /// <summary>
+        /// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+        /// 
+        /// This is a string-to-string map. It can include the following fields.
+        /// 
+        /// - `Type` designates the type of object this is.
+        /// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        /// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        /// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        /// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? KeyAttributes;
+        /// <summary>
+        /// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> MetricDataQueries;
         /// <summary>
         /// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.

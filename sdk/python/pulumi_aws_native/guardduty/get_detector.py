@@ -76,6 +76,9 @@ class GetDetectorResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique ID of the detector.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -109,6 +112,9 @@ def get_detector(id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDetectorResult:
     """
     Resource Type definition for AWS::GuardDuty::Detector
+
+
+    :param str id: The unique ID of the detector.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -129,5 +135,8 @@ def get_detector_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Resource Type definition for AWS::GuardDuty::Detector
+
+
+    :param str id: The unique ID of the detector.
     """
     ...
