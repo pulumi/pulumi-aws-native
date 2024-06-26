@@ -360,7 +360,7 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
   publish:
-    runs-on: macos-11
+    runs-on: macos-latest
     needs: test
     name: publish
     steps:
