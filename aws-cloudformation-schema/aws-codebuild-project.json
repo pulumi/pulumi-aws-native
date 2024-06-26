@@ -152,6 +152,16 @@
       },
       "required" : [ "Type" ]
     },
+    "ScopeConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Name" ]
+    },
     "RegistryCredential" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -430,6 +440,9 @@
         },
         "Webhook" : {
           "type" : "boolean"
+        },
+        "ScopeConfiguration" : {
+          "$ref" : "#/definitions/ScopeConfiguration"
         }
       }
     },
