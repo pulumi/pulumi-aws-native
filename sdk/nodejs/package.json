@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/aws-native",
-    "version": "0.110.0-alpha.1719423904+329aaba",
+    "version": "1.0.0-alpha.0+dev",
     "keywords": [
         "pulumi",
         "aws",
@@ -24,6 +24,6 @@
     "pulumi": {
         "resource": true,
         "name": "aws-native",
-        "version": "0.110.0-alpha.1719423904+329aaba"
+        "version": "1.0.0-alpha.0+dev"
     }
 }
