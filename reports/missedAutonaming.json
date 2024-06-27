@@ -12440,7 +12440,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tags to add to the browser settings resource. A tag is a key-value pair."
+        "description": "The tags to add to the IP access settings resource. A tag is a key-value pair."
       }
     }
   },
