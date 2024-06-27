@@ -33,7 +33,7 @@ class IpAccessSettingsArgs:
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
         :param pulumi.Input[str] description: The description of the IP access settings.
         :param pulumi.Input[str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the IP access settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "ip_rules", ip_rules)
         if additional_encryption_context is not None:
@@ -113,7 +113,7 @@ class IpAccessSettingsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags to add to the browser settings resource. A tag is a key-value pair.
+        The tags to add to the IP access settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ class IpAccessSettings(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the IP access settings.
         :param pulumi.Input[str] display_name: The display name of the IP access settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAccessSettingsIpRuleArgs']]]] ip_rules: The IP rules of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the IP access settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -303,7 +303,7 @@ class IpAccessSettings(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags to add to the browser settings resource. A tag is a key-value pair.
+        The tags to add to the IP access settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

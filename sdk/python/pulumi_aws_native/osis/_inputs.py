@@ -15,6 +15,7 @@ __all__ = [
     'PipelineEncryptionAtRestOptionsArgs',
     'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs',
     'PipelineLogPublishingOptionsArgs',
+    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs',
     'PipelineVpcOptionsArgs',
 ]
 
@@ -124,20 +125,62 @@ class PipelineLogPublishingOptionsArgs:
 
 
 @pulumi.input_type
+class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 attach_to_vpc: pulumi.Input[bool],
+                 cidr_block: pulumi.Input[str]):
+        """
+        Options for attaching a VPC to the pipeline.
+        :param pulumi.Input[bool] attach_to_vpc: Whether the pipeline should be attached to the provided VPC
+        :param pulumi.Input[str] cidr_block: The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+        """
+        pulumi.set(__self__, "attach_to_vpc", attach_to_vpc)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+
+    @property
+    @pulumi.getter(name="attachToVpc")
+    def attach_to_vpc(self) -> pulumi.Input[bool]:
+        """
+        Whether the pipeline should be attached to the provided VPC
+        """
+        return pulumi.get(self, "attach_to_vpc")
+
+    @attach_to_vpc.setter
+    def attach_to_vpc(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "attach_to_vpc", value)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+
+@pulumi.input_type
 class PipelineVpcOptionsArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_attachment_options: Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']] = None,
                  vpc_endpoint_management: Optional[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']] = None):
         """
         Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs'] vpc_attachment_options: Options for attaching a VPC to the pipeline.
         :param pulumi.Input['PipelineVpcOptionsVpcEndpointManagement'] vpc_endpoint_management: Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_attachment_options is not None:
+            pulumi.set(__self__, "vpc_attachment_options", vpc_attachment_options)
         if vpc_endpoint_management is not None:
             pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
 
@@ -164,6 +207,18 @@ class PipelineVpcOptionsArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcAttachmentOptions")
+    def vpc_attachment_options(self) -> Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]:
+        """
+        Options for attaching a VPC to the pipeline.
+        """
+        return pulumi.get(self, "vpc_attachment_options")
+
+    @vpc_attachment_options.setter
+    def vpc_attachment_options(self, value: Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]):
+        pulumi.set(self, "vpc_attachment_options", value)
 
     @property
     @pulumi.getter(name="vpcEndpointManagement")

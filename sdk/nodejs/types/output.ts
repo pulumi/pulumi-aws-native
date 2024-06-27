@@ -46291,9 +46291,27 @@ export namespace osis {
          */
         subnetIds: string[];
         /**
+         * Options for attaching a VPC to the pipeline.
+         */
+        vpcAttachmentOptions?: outputs.osis.PipelineVpcOptionsVpcAttachmentOptionsProperties;
+        /**
          * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
          */
         vpcEndpointManagement?: enums.osis.PipelineVpcOptionsVpcEndpointManagement;
+    }
+
+    /**
+     * Options for attaching a VPC to the pipeline.
+     */
+    export interface PipelineVpcOptionsVpcAttachmentOptionsProperties {
+        /**
+         * Whether the pipeline should be attached to the provided VPC
+         */
+        attachToVpc: boolean;
+        /**
+         * The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+         */
+        cidrBlock: string;
     }
 
 }

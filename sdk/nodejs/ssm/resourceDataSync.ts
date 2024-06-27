@@ -226,7 +226,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
      */
     public readonly syncFormat!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource data sync.
+     * A name for the resource data sync.
      */
     public readonly syncName!: pulumi.Output<string>;
     /**
@@ -305,7 +305,7 @@ export interface ResourceDataSyncArgs {
      */
     syncFormat?: pulumi.Input<string>;
     /**
-     * The name of the resource data sync.
+     * A name for the resource data sync.
      */
     syncName?: pulumi.Input<string>;
     /**

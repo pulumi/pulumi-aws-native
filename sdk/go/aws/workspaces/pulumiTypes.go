@@ -318,7 +318,9 @@ func (o WorkspacesPoolCapacityPtrOutput) DesiredUserSessions() pulumi.IntPtrOutp
 }
 
 type WorkspacesPoolTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

@@ -20,7 +20,7 @@ export function getResourceDataSync(args: GetResourceDataSyncArgs, opts?: pulumi
 
 export interface GetResourceDataSyncArgs {
     /**
-     * The name of the resource data sync.
+     * A name for the resource data sync.
      */
     syncName: string;
 }
@@ -40,7 +40,7 @@ export function getResourceDataSyncOutput(args: GetResourceDataSyncOutputArgs, o
 
 export interface GetResourceDataSyncOutputArgs {
     /**
-     * The name of the resource data sync.
+     * A name for the resource data sync.
      */
     syncName: pulumi.Input<string>;
 }

@@ -23,7 +23,7 @@ func LookupResourceDataSync(ctx *pulumi.Context, args *LookupResourceDataSyncArg
 }
 
 type LookupResourceDataSyncArgs struct {
-	// The name of the resource data sync.
+	// A name for the resource data sync.
 	SyncName string `pulumi:"syncName"`
 }
 
@@ -46,7 +46,7 @@ func LookupResourceDataSyncOutput(ctx *pulumi.Context, args LookupResourceDataSy
 }
 
 type LookupResourceDataSyncOutputArgs struct {
-	// The name of the resource data sync.
+	// A name for the resource data sync.
 	SyncName pulumi.StringInput `pulumi:"syncName"`
 }
 

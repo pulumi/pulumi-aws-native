@@ -118,7 +118,7 @@ def get_server(server_name: Optional[str] = None,
     Resource Type definition for AWS::OpsWorksCM::Server
 
 
-    :param str server_name: The name of the server.
+    :param str server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
     """
     __args__ = dict()
     __args__['serverName'] = server_name
@@ -141,6 +141,6 @@ def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::OpsWorksCM::Server
 
 
-    :param str server_name: The name of the server.
+    :param str server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
     """
     ...

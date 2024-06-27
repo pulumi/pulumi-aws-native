@@ -18,6 +18,7 @@ __all__ = [
     'PipelineLogPublishingOptionsCloudWatchLogDestinationProperties',
     'PipelineVpcEndpoint',
     'PipelineVpcOptions',
+    'PipelineVpcOptionsVpcAttachmentOptionsProperties',
 ]
 
 @pulumi.output_type
@@ -267,6 +268,8 @@ class PipelineVpcOptions(dict):
             suggest = "subnet_ids"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "vpcAttachmentOptions":
+            suggest = "vpc_attachment_options"
         elif key == "vpcEndpointManagement":
             suggest = "vpc_endpoint_management"
 
@@ -284,16 +287,20 @@ class PipelineVpcOptions(dict):
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  security_group_ids: Optional[Sequence[str]] = None,
+                 vpc_attachment_options: Optional['outputs.PipelineVpcOptionsVpcAttachmentOptionsProperties'] = None,
                  vpc_endpoint_management: Optional['PipelineVpcOptionsVpcEndpointManagement'] = None):
         """
         Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
         :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param Sequence[str] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param 'PipelineVpcOptionsVpcAttachmentOptionsProperties' vpc_attachment_options: Options for attaching a VPC to the pipeline.
         :param 'PipelineVpcOptionsVpcEndpointManagement' vpc_endpoint_management: Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_attachment_options is not None:
+            pulumi.set(__self__, "vpc_attachment_options", vpc_attachment_options)
         if vpc_endpoint_management is not None:
             pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
 
@@ -314,11 +321,71 @@ class PipelineVpcOptions(dict):
         return pulumi.get(self, "security_group_ids")
 
     @property
+    @pulumi.getter(name="vpcAttachmentOptions")
+    def vpc_attachment_options(self) -> Optional['outputs.PipelineVpcOptionsVpcAttachmentOptionsProperties']:
+        """
+        Options for attaching a VPC to the pipeline.
+        """
+        return pulumi.get(self, "vpc_attachment_options")
+
+    @property
     @pulumi.getter(name="vpcEndpointManagement")
     def vpc_endpoint_management(self) -> Optional['PipelineVpcOptionsVpcEndpointManagement']:
         """
         Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         """
         return pulumi.get(self, "vpc_endpoint_management")
+
+
+@pulumi.output_type
+class PipelineVpcOptionsVpcAttachmentOptionsProperties(dict):
+    """
+    Options for attaching a VPC to the pipeline.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachToVpc":
+            suggest = "attach_to_vpc"
+        elif key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineVpcOptionsVpcAttachmentOptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineVpcOptionsVpcAttachmentOptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineVpcOptionsVpcAttachmentOptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attach_to_vpc: bool,
+                 cidr_block: str):
+        """
+        Options for attaching a VPC to the pipeline.
+        :param bool attach_to_vpc: Whether the pipeline should be attached to the provided VPC
+        :param str cidr_block: The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+        """
+        pulumi.set(__self__, "attach_to_vpc", attach_to_vpc)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+
+    @property
+    @pulumi.getter(name="attachToVpc")
+    def attach_to_vpc(self) -> bool:
+        """
+        Whether the pipeline should be attached to the provided VPC
+        """
+        return pulumi.get(self, "attach_to_vpc")
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> str:
+        """
+        The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+        """
+        return pulumi.get(self, "cidr_block")
 
 

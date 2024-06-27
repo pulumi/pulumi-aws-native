@@ -21,7 +21,7 @@ type BackupVault struct {
 	AccessPolicy pulumi.AnyOutput `pulumi:"accessPolicy"`
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
 	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
-	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The tags to assign to the backup vault.
 	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
@@ -84,7 +84,7 @@ type backupVaultArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy interface{} `pulumi:"accessPolicy"`
-	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
 	BackupVaultName *string `pulumi:"backupVaultName"`
 	// The tags to assign to the backup vault.
 	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
@@ -104,7 +104,7 @@ type BackupVaultArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy pulumi.Input
-	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
 	BackupVaultName pulumi.StringPtrInput
 	// The tags to assign to the backup vault.
 	BackupVaultTags pulumi.StringMapInput
@@ -167,7 +167,7 @@ func (o BackupVaultOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
-// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
 func (o BackupVaultOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }

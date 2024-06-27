@@ -315,7 +315,7 @@ type ResourceDataSync struct {
 	S3Destination ResourceDataSyncS3DestinationPtrOutput `pulumi:"s3Destination"`
 	// A supported sync format. The following format is currently supported: JsonSerDe
 	SyncFormat pulumi.StringPtrOutput `pulumi:"syncFormat"`
-	// The name of the resource data sync.
+	// A name for the resource data sync.
 	SyncName pulumi.StringOutput `pulumi:"syncName"`
 	// Information about the source where the data was synchronized.
 	SyncSource ResourceDataSyncSyncSourcePtrOutput `pulumi:"syncSource"`
@@ -386,7 +386,7 @@ type resourceDataSyncArgs struct {
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
 	// A supported sync format. The following format is currently supported: JsonSerDe
 	SyncFormat *string `pulumi:"syncFormat"`
-	// The name of the resource data sync.
+	// A name for the resource data sync.
 	SyncName *string `pulumi:"syncName"`
 	// Information about the source where the data was synchronized.
 	SyncSource *ResourceDataSyncSyncSource `pulumi:"syncSource"`
@@ -408,7 +408,7 @@ type ResourceDataSyncArgs struct {
 	S3Destination ResourceDataSyncS3DestinationPtrInput
 	// A supported sync format. The following format is currently supported: JsonSerDe
 	SyncFormat pulumi.StringPtrInput
-	// The name of the resource data sync.
+	// A name for the resource data sync.
 	SyncName pulumi.StringPtrInput
 	// Information about the source where the data was synchronized.
 	SyncSource ResourceDataSyncSyncSourcePtrInput
@@ -483,7 +483,7 @@ func (o ResourceDataSyncOutput) SyncFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.SyncFormat }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource data sync.
+// A name for the resource data sync.
 func (o ResourceDataSyncOutput) SyncName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.SyncName }).(pulumi.StringOutput)
 }

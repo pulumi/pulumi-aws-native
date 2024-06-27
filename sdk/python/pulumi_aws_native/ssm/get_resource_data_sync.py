@@ -48,7 +48,7 @@ def get_resource_data_sync(sync_name: Optional[str] = None,
     Resource Type definition for AWS::SSM::ResourceDataSync
 
 
-    :param str sync_name: The name of the resource data sync.
+    :param str sync_name: A name for the resource data sync.
     """
     __args__ = dict()
     __args__['syncName'] = sync_name
@@ -66,6 +66,6 @@ def get_resource_data_sync_output(sync_name: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::SSM::ResourceDataSync
 
 
-    :param str sync_name: The name of the resource data sync.
+    :param str sync_name: A name for the resource data sync.
     """
     ...

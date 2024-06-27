@@ -51,7 +51,7 @@ export interface GetIpAccessSettingsResult {
      */
     readonly ipRules?: outputs.workspacesweb.IpAccessSettingsIpRule[];
     /**
-     * The tags to add to the browser settings resource. A tag is a key-value pair.
+     * The tags to add to the IP access settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
 }
