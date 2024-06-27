@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from .alarm import *
 from .composite_alarm import *
+from .dashboard import *
 from .get_alarm import *
 from .get_composite_alarm import *
+from .get_dashboard import *
 from .get_metric_stream import *
 from .metric_stream import *
 from ._inputs import *

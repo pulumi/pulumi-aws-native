@@ -158,6 +158,7 @@ AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
 AWS::CloudWatch::Alarm
 AWS::CloudWatch::CompositeAlarm
+AWS::CloudWatch::Dashboard
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup

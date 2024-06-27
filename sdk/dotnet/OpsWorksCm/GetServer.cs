@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.OpsWorksCm
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the server.
+        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         /// </summary>
         [Input("serverName", required: true)]
         public string ServerName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.OpsWorksCm
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the server.
+        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;

@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Osis.Inputs
         }
 
         /// <summary>
+        /// Options for attaching a VPC to the pipeline.
+        /// </summary>
+        [Input("vpcAttachmentOptions")]
+        public Input<Inputs.PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs>? VpcAttachmentOptions { get; set; }
+
+        /// <summary>
         /// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         /// </summary>
         [Input("vpcEndpointManagement")]

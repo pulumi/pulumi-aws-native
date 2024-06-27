@@ -98,7 +98,7 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
     Resource Type definition for AWS::Backup::BackupVault
 
 
-    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name
@@ -120,6 +120,6 @@ def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = Non
     Resource Type definition for AWS::Backup::BackupVault
 
 
-    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+    :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
     """
     ...

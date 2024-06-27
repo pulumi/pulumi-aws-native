@@ -664,6 +664,8 @@ type PipelineVpcOptions struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Options for attaching a VPC to the pipeline.
+	VpcAttachmentOptions *PipelineVpcOptionsVpcAttachmentOptionsProperties `pulumi:"vpcAttachmentOptions"`
 	// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
 	VpcEndpointManagement *PipelineVpcOptionsVpcEndpointManagement `pulumi:"vpcEndpointManagement"`
 }
@@ -685,6 +687,8 @@ type PipelineVpcOptionsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Options for attaching a VPC to the pipeline.
+	VpcAttachmentOptions PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput `pulumi:"vpcAttachmentOptions"`
 	// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
 	VpcEndpointManagement PipelineVpcOptionsVpcEndpointManagementPtrInput `pulumi:"vpcEndpointManagement"`
 }
@@ -777,6 +781,13 @@ func (o PipelineVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Options for attaching a VPC to the pipeline.
+func (o PipelineVpcOptionsOutput) VpcAttachmentOptions() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineVpcOptions) *PipelineVpcOptionsVpcAttachmentOptionsProperties {
+		return v.VpcAttachmentOptions
+	}).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput)
+}
+
 // Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
 func (o PipelineVpcOptionsOutput) VpcEndpointManagement() PipelineVpcOptionsVpcEndpointManagementPtrOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) *PipelineVpcOptionsVpcEndpointManagement { return v.VpcEndpointManagement }).(PipelineVpcOptionsVpcEndpointManagementPtrOutput)
@@ -826,6 +837,16 @@ func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Options for attaching a VPC to the pipeline.
+func (o PipelineVpcOptionsPtrOutput) VpcAttachmentOptions() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipelineVpcOptions) *PipelineVpcOptionsVpcAttachmentOptionsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.VpcAttachmentOptions
+	}).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput)
+}
+
 // Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
 func (o PipelineVpcOptionsPtrOutput) VpcEndpointManagement() PipelineVpcOptionsVpcEndpointManagementPtrOutput {
 	return o.ApplyT(func(v *PipelineVpcOptions) *PipelineVpcOptionsVpcEndpointManagement {
@@ -834,6 +855,165 @@ func (o PipelineVpcOptionsPtrOutput) VpcEndpointManagement() PipelineVpcOptionsV
 		}
 		return v.VpcEndpointManagement
 	}).(PipelineVpcOptionsVpcEndpointManagementPtrOutput)
+}
+
+// Options for attaching a VPC to the pipeline.
+type PipelineVpcOptionsVpcAttachmentOptionsProperties struct {
+	// Whether the pipeline should be attached to the provided VPC
+	AttachToVpc bool `pulumi:"attachToVpc"`
+	// The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+	CidrBlock string `pulumi:"cidrBlock"`
+}
+
+// PipelineVpcOptionsVpcAttachmentOptionsPropertiesInput is an input type that accepts PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs and PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput values.
+// You can construct a concrete instance of `PipelineVpcOptionsVpcAttachmentOptionsPropertiesInput` via:
+//
+//	PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs{...}
+type PipelineVpcOptionsVpcAttachmentOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput
+	ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutputWithContext(context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput
+}
+
+// Options for attaching a VPC to the pipeline.
+type PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs struct {
+	// Whether the pipeline should be attached to the provided VPC
+	AttachToVpc pulumi.BoolInput `pulumi:"attachToVpc"`
+	// The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+}
+
+func (PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVpcOptionsVpcAttachmentOptionsProperties)(nil)).Elem()
+}
+
+func (i PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput {
+	return i.ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput)
+}
+
+func (i PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return i.ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput).ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput is an input type that accepts PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs, PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtr and PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput` via:
+//
+//	        PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput
+	ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput
+}
+
+type pipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrType PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs
+
+func PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtr(v *PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput {
+	return (*pipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrType)(v)
+}
+
+func (*pipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineVpcOptionsVpcAttachmentOptionsProperties)(nil)).Elem()
+}
+
+func (i *pipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrType) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return i.ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrType) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput)
+}
+
+// Options for attaching a VPC to the pipeline.
+type PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVpcOptionsVpcAttachmentOptionsProperties)(nil)).Elem()
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput {
+	return o
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput {
+	return o
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o.ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineVpcOptionsVpcAttachmentOptionsProperties) *PipelineVpcOptionsVpcAttachmentOptionsProperties {
+		return &v
+	}).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput)
+}
+
+// Whether the pipeline should be attached to the provided VPC
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) AttachToVpc() pulumi.BoolOutput {
+	return o.ApplyT(func(v PipelineVpcOptionsVpcAttachmentOptionsProperties) bool { return v.AttachToVpc }).(pulumi.BoolOutput)
+}
+
+// The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineVpcOptionsVpcAttachmentOptionsProperties) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+type PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineVpcOptionsVpcAttachmentOptionsProperties)(nil)).Elem()
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput() PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) ToPipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutputWithContext(ctx context.Context) PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) Elem() PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput {
+	return o.ApplyT(func(v *PipelineVpcOptionsVpcAttachmentOptionsProperties) PipelineVpcOptionsVpcAttachmentOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineVpcOptionsVpcAttachmentOptionsProperties
+		return ret
+	}).(PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput)
+}
+
+// Whether the pipeline should be attached to the provided VPC
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) AttachToVpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PipelineVpcOptionsVpcAttachmentOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AttachToVpc
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+func (o PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineVpcOptionsVpcAttachmentOptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CidrBlock
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -847,6 +1027,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsPtrInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsVpcAttachmentOptionsPropertiesInput)(nil)).Elem(), PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrInput)(nil)).Elem(), PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs{})
 	pulumi.RegisterOutputType(PipelineBufferOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineBufferOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsOutput{})
@@ -859,4 +1041,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineVpcOptionsVpcAttachmentOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(PipelineVpcOptionsVpcAttachmentOptionsPropertiesPtrOutput{})
 }

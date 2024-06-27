@@ -56,7 +56,7 @@
   "required" : [ "Name", "EgressCidrBlocks", "Networks" ],
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/GatewayArn", "/properties/GatewayState" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/EgressCidrBlocks", "/properties/Networks", "/properties/Networks/*/Name", "/properties/Networks/*/CidrBlock" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/EgressCidrBlocks", "/properties/Networks" ],
   "primaryIdentifier" : [ "/properties/GatewayArn" ],
   "handlers" : {
     "create" : {

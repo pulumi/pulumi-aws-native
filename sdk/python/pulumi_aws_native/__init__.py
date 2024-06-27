@@ -1076,6 +1076,7 @@ _utilities.register(
   "classes": {
    "aws-native:cloudwatch:Alarm": "Alarm",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
+   "aws-native:cloudwatch:Dashboard": "Dashboard",
    "aws-native:cloudwatch:MetricStream": "MetricStream"
   }
  },

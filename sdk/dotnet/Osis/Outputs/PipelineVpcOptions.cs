@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Osis.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
+        /// Options for attaching a VPC to the pipeline.
+        /// </summary>
+        public readonly Outputs.PipelineVpcOptionsVpcAttachmentOptionsProperties? VpcAttachmentOptions;
+        /// <summary>
         /// Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
         /// </summary>
         public readonly Pulumi.AwsNative.Osis.PipelineVpcOptionsVpcEndpointManagement? VpcEndpointManagement;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.Osis.Outputs
 
             ImmutableArray<string> subnetIds,
 
+            Outputs.PipelineVpcOptionsVpcAttachmentOptionsProperties? vpcAttachmentOptions,
+
             Pulumi.AwsNative.Osis.PipelineVpcOptionsVpcEndpointManagement? vpcEndpointManagement)
         {
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            VpcAttachmentOptions = vpcAttachmentOptions;
             VpcEndpointManagement = vpcEndpointManagement;
         }
     }

@@ -304,7 +304,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string?> SyncFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource data sync.
+        /// A name for the resource data sync.
         /// </summary>
         [Output("syncName")]
         public Output<string> SyncName { get; private set; } = null!;
@@ -414,7 +414,7 @@ namespace Pulumi.AwsNative.Ssm
         public Input<string>? SyncFormat { get; set; }
 
         /// <summary>
-        /// The name of the resource data sync.
+        /// A name for the resource data sync.
         /// </summary>
         [Input("syncName")]
         public Input<string>? SyncName { get; set; }

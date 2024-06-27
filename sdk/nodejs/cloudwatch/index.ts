@@ -15,6 +15,11 @@ export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
 export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
 utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
 
+export { DashboardArgs } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
 export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
 export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
 export const getAlarmOutput: typeof import("./getAlarm").getAlarmOutput = null as any;
@@ -24,6 +29,11 @@ export { GetCompositeAlarmArgs, GetCompositeAlarmResult, GetCompositeAlarmOutput
 export const getCompositeAlarm: typeof import("./getCompositeAlarm").getCompositeAlarm = null as any;
 export const getCompositeAlarmOutput: typeof import("./getCompositeAlarm").getCompositeAlarmOutput = null as any;
 utilities.lazyLoad(exports, ["getCompositeAlarm","getCompositeAlarmOutput"], () => require("./getCompositeAlarm"));
+
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
 export { GetMetricStreamArgs, GetMetricStreamResult, GetMetricStreamOutputArgs } from "./getMetricStream";
 export const getMetricStream: typeof import("./getMetricStream").getMetricStream = null as any;
@@ -44,6 +54,8 @@ const _module = {
                 return new Alarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             default:

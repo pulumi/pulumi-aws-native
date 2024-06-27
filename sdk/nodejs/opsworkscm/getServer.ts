@@ -17,7 +17,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetServerArgs {
     /**
-     * The name of the server.
+     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
     serverName: string;
 }
@@ -68,7 +68,7 @@ export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetServerOutputArgs {
     /**
-     * The name of the server.
+     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
     serverName: pulumi.Input<string>;
 }

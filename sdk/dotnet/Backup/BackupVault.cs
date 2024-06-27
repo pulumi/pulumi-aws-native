@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
         /// </summary>
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Backup
         public Input<object>? AccessPolicy { get; set; }
 
         /// <summary>
-        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
         /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
