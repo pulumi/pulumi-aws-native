@@ -42,7 +42,7 @@ docs:: .docs.version
 	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -docs-url https://github.com/cdklabs/awscdk-service-spec/raw/${DOCS_VERSION}/sources/CloudFormationDocumentation/CloudFormationDocumentation.json docs
 
 discovery:: update_submodules codegen
-	git ls-remote https://github.com/cdklabs/awscdk-service-spec refs/heads/main | awk '{print $1}' > .docs.version
+	git ls-remote https://github.com/cdklabs/awscdk-service-spec refs/heads/main | awk '{print $$1}' > .docs.version
 	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -schema-urls https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip discovery
 
 ensure:: init_submodules
