@@ -12136,7 +12136,7 @@
             "$ref": "#/types/aws-native:verifiedpermissions:IdentitySourceConfiguration1Properties"
           }
         ],
-        "description": "Contains configuration information about an identity source."
+        "description": "Contains configuration information used when creating a new identity source."
       },
       "policyStoreId": {
         "type": "string",

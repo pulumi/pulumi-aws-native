@@ -70,7 +70,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -102,8 +102,6 @@ export class SafetyRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["controlPanelArn", "ruleConfig", "tags[*]"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SafetyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -137,5 +135,5 @@ export interface SafetyRuleArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

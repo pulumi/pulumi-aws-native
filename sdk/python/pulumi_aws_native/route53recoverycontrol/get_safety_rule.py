@@ -20,16 +20,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetSafetyRuleResult:
-    def __init__(__self__, assertion_rule=None, gating_rule=None, name=None, safety_rule_arn=None, status=None):
+    def __init__(__self__, assertion_rule=None, control_panel_arn=None, gating_rule=None, name=None, rule_config=None, safety_rule_arn=None, status=None):
         if assertion_rule and not isinstance(assertion_rule, dict):
             raise TypeError("Expected argument 'assertion_rule' to be a dict")
         pulumi.set(__self__, "assertion_rule", assertion_rule)
+        if control_panel_arn and not isinstance(control_panel_arn, str):
+            raise TypeError("Expected argument 'control_panel_arn' to be a str")
+        pulumi.set(__self__, "control_panel_arn", control_panel_arn)
         if gating_rule and not isinstance(gating_rule, dict):
             raise TypeError("Expected argument 'gating_rule' to be a dict")
         pulumi.set(__self__, "gating_rule", gating_rule)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if rule_config and not isinstance(rule_config, dict):
+            raise TypeError("Expected argument 'rule_config' to be a dict")
+        pulumi.set(__self__, "rule_config", rule_config)
         if safety_rule_arn and not isinstance(safety_rule_arn, str):
             raise TypeError("Expected argument 'safety_rule_arn' to be a str")
         pulumi.set(__self__, "safety_rule_arn", safety_rule_arn)
@@ -44,6 +50,14 @@ class GetSafetyRuleResult:
         An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
         """
         return pulumi.get(self, "assertion_rule")
+
+    @property
+    @pulumi.getter(name="controlPanelArn")
+    def control_panel_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the control panel.
+        """
+        return pulumi.get(self, "control_panel_arn")
 
     @property
     @pulumi.getter(name="gatingRule")
@@ -62,6 +76,14 @@ class GetSafetyRuleResult:
         The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ruleConfig")
+    def rule_config(self) -> Optional['outputs.SafetyRuleRuleConfig']:
+        """
+        The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
+        """
+        return pulumi.get(self, "rule_config")
 
     @property
     @pulumi.getter(name="safetyRuleArn")
@@ -87,8 +109,10 @@ class AwaitableGetSafetyRuleResult(GetSafetyRuleResult):
             yield self
         return GetSafetyRuleResult(
             assertion_rule=self.assertion_rule,
+            control_panel_arn=self.control_panel_arn,
             gating_rule=self.gating_rule,
             name=self.name,
+            rule_config=self.rule_config,
             safety_rule_arn=self.safety_rule_arn,
             status=self.status)
 
@@ -108,8 +132,10 @@ def get_safety_rule(safety_rule_arn: Optional[str] = None,
 
     return AwaitableGetSafetyRuleResult(
         assertion_rule=pulumi.get(__ret__, 'assertion_rule'),
+        control_panel_arn=pulumi.get(__ret__, 'control_panel_arn'),
         gating_rule=pulumi.get(__ret__, 'gating_rule'),
         name=pulumi.get(__ret__, 'name'),
+        rule_config=pulumi.get(__ret__, 'rule_config'),
         safety_rule_arn=pulumi.get(__ret__, 'safety_rule_arn'),
         status=pulumi.get(__ret__, 'status'))
 

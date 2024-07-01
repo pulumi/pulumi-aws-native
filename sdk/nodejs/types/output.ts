@@ -86879,7 +86879,7 @@ export namespace verifiedpermissions {
 
     export interface PolicyStoreSchemaDefinition {
         /**
-         * A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+         * A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
          */
         cedarJson?: string;
     }
@@ -87810,13 +87810,7 @@ export namespace wafv2 {
          *
          * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
          *
-         * AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-         *
-         * AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-         *
-         * - Missing comma: `{"key1":"value1""key2":"value2"}`
-         * - Missing colon: `{"key1":"value1","key2""value2"}`
-         * - Extra colons: `{"key1"::"value1","key2""value2"}`
+         * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
          */
         invalidFallbackBehavior?: enums.wafv2.RuleGroupBodyParsingFallbackBehavior;
         /**
@@ -89115,13 +89109,7 @@ export namespace wafv2 {
          *
          * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
          *
-         * AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-         *
-         * AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-         *
-         * - Missing comma: `{"key1":"value1""key2":"value2"}`
-         * - Missing colon: `{"key1":"value1","key2""value2"}`
-         * - Extra colons: `{"key1"::"value1","key2""value2"}`
+         * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
          */
         invalidFallbackBehavior?: enums.wafv2.WebAclBodyParsingFallbackBehavior;
         /**
@@ -90220,17 +90208,35 @@ export namespace workspaces {
     }
 
     export interface WorkspacesPoolApplicationSettings {
+        /**
+         * The path prefix for the S3 bucket where users’ persistent application settings are stored.
+         */
         settingsGroup?: string;
+        /**
+         * Enables or disables persistent application settings for users during their pool sessions.
+         */
         status: enums.workspaces.WorkspacesPoolApplicationSettingsStatus;
     }
 
     export interface WorkspacesPoolCapacity {
+        /**
+         * The desired number of user sessions for the WorkSpaces in the pool.
+         */
         desiredUserSessions: number;
     }
 
     export interface WorkspacesPoolTimeoutSettings {
+        /**
+         * Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+         */
         disconnectTimeoutInSeconds?: number;
+        /**
+         * The amount of time in seconds a connection will stay active while idle.
+         */
         idleDisconnectTimeoutInSeconds?: number;
+        /**
+         * Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+         */
         maxUserDurationInSeconds?: number;
     }
 

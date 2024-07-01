@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetWorkspacesPoolArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the pool.
+        /// </summary>
         [Input("poolId", required: true)]
         public string PoolId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetWorkspacesPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the pool.
+        /// </summary>
         [Input("poolId", required: true)]
         public Input<string> PoolId { get; set; } = null!;
 
@@ -51,14 +57,41 @@ namespace Pulumi.AwsNative.WorkSpaces
     [OutputType]
     public sealed class GetWorkspacesPoolResult
     {
+        /// <summary>
+        /// The persistent application settings for users of the pool.
+        /// </summary>
         public readonly Outputs.WorkspacesPoolApplicationSettings? ApplicationSettings;
+        /// <summary>
+        /// The identifier of the bundle used by the pool.
+        /// </summary>
         public readonly string? BundleId;
+        /// <summary>
+        /// Describes the user capacity for the pool.
+        /// </summary>
         public readonly Outputs.WorkspacesPoolCapacity? Capacity;
+        /// <summary>
+        /// The time the pool was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description of the pool.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The identifier of the directory used by the pool.
+        /// </summary>
         public readonly string? DirectoryId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the pool.
+        /// </summary>
         public readonly string? PoolArn;
+        /// <summary>
+        /// The identifier of the pool.
+        /// </summary>
         public readonly string? PoolId;
+        /// <summary>
+        /// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+        /// </summary>
         public readonly Outputs.WorkspacesPoolTimeoutSettings? TimeoutSettings;
 
         [OutputConstructor]

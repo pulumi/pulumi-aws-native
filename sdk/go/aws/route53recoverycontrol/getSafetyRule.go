@@ -30,12 +30,16 @@ type LookupSafetyRuleArgs struct {
 type LookupSafetyRuleResult struct {
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
 	AssertionRule *SafetyRuleAssertionRule `pulumi:"assertionRule"`
+	// The Amazon Resource Name (ARN) of the control panel.
+	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 	//
 	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
 	GatingRule *SafetyRuleGatingRule `pulumi:"gatingRule"`
 	// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name *string `pulumi:"name"`
+	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
+	RuleConfig *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 	// The Amazon Resource Name (ARN) of the safety rule.
 	SafetyRuleArn *string `pulumi:"safetyRuleArn"`
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
@@ -83,6 +87,11 @@ func (o LookupSafetyRuleResultOutput) AssertionRule() SafetyRuleAssertionRulePtr
 	return o.ApplyT(func(v LookupSafetyRuleResult) *SafetyRuleAssertionRule { return v.AssertionRule }).(SafetyRuleAssertionRulePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the control panel.
+func (o LookupSafetyRuleResultOutput) ControlPanelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSafetyRuleResult) *string { return v.ControlPanelArn }).(pulumi.StringPtrOutput)
+}
+
 // A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 //
 // For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
@@ -93,6 +102,11 @@ func (o LookupSafetyRuleResultOutput) GatingRule() SafetyRuleGatingRulePtrOutput
 // The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 func (o LookupSafetyRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSafetyRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
+func (o LookupSafetyRuleResultOutput) RuleConfig() SafetyRuleRuleConfigPtrOutput {
+	return o.ApplyT(func(v LookupSafetyRuleResult) *SafetyRuleRuleConfig { return v.RuleConfig }).(SafetyRuleRuleConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the safety rule.

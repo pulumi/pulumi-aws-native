@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.WorkSpaces.Inputs
 
     public sealed class WorkspacesPoolApplicationSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path prefix for the S3 bucket where users’ persistent application settings are stored.
+        /// </summary>
         [Input("settingsGroup")]
         public Input<string>? SettingsGroup { get; set; }
 
+        /// <summary>
+        /// Enables or disables persistent application settings for users during their pool sessions.
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.WorkSpaces.WorkspacesPoolApplicationSettingsStatus> Status { get; set; } = null!;
 

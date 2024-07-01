@@ -378,7 +378,7 @@ class PolicyStoreSchemaDefinitionArgs:
     def __init__(__self__, *,
                  cedar_json: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        :param pulumi.Input[str] cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
         """
         if cedar_json is not None:
             pulumi.set(__self__, "cedar_json", cedar_json)
@@ -387,7 +387,7 @@ class PolicyStoreSchemaDefinitionArgs:
     @pulumi.getter(name="cedarJson")
     def cedar_json(self) -> Optional[pulumi.Input[str]]:
         """
-        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
         """
         return pulumi.get(self, "cedar_json")
 

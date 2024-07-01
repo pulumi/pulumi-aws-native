@@ -30,7 +30,7 @@ type LookupIdentitySourceArgs struct {
 }
 
 type LookupIdentitySourceResult struct {
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	Configuration interface{}            `pulumi:"configuration"`
 	Details       *IdentitySourceDetails `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
@@ -77,7 +77,7 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWith
 	return o
 }
 
-// Contains configuration information about an identity source.
+// Contains configuration information used when creating a new identity source.
 func (o LookupIdentitySourceResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIdentitySourceResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }

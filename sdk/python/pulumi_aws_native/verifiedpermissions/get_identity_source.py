@@ -38,7 +38,7 @@ class GetIdentitySourceResult:
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
         """
-        Contains configuration information about an identity source.
+        Contains configuration information used when creating a new identity source.
         """
         return pulumi.get(self, "configuration")
 

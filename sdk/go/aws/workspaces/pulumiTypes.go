@@ -88,8 +88,10 @@ type ConnectionAliasTag struct {
 }
 
 type WorkspacesPoolApplicationSettings struct {
-	SettingsGroup *string                                 `pulumi:"settingsGroup"`
-	Status        WorkspacesPoolApplicationSettingsStatus `pulumi:"status"`
+	// The path prefix for the S3 bucket where users’ persistent application settings are stored.
+	SettingsGroup *string `pulumi:"settingsGroup"`
+	// Enables or disables persistent application settings for users during their pool sessions.
+	Status WorkspacesPoolApplicationSettingsStatus `pulumi:"status"`
 }
 
 // WorkspacesPoolApplicationSettingsInput is an input type that accepts WorkspacesPoolApplicationSettingsArgs and WorkspacesPoolApplicationSettingsOutput values.
@@ -104,8 +106,10 @@ type WorkspacesPoolApplicationSettingsInput interface {
 }
 
 type WorkspacesPoolApplicationSettingsArgs struct {
-	SettingsGroup pulumi.StringPtrInput                        `pulumi:"settingsGroup"`
-	Status        WorkspacesPoolApplicationSettingsStatusInput `pulumi:"status"`
+	// The path prefix for the S3 bucket where users’ persistent application settings are stored.
+	SettingsGroup pulumi.StringPtrInput `pulumi:"settingsGroup"`
+	// Enables or disables persistent application settings for users during their pool sessions.
+	Status WorkspacesPoolApplicationSettingsStatusInput `pulumi:"status"`
 }
 
 func (WorkspacesPoolApplicationSettingsArgs) ElementType() reflect.Type {
@@ -185,10 +189,12 @@ func (o WorkspacesPoolApplicationSettingsOutput) ToWorkspacesPoolApplicationSett
 	}).(WorkspacesPoolApplicationSettingsPtrOutput)
 }
 
+// The path prefix for the S3 bucket where users’ persistent application settings are stored.
 func (o WorkspacesPoolApplicationSettingsOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacesPoolApplicationSettings) *string { return v.SettingsGroup }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables persistent application settings for users during their pool sessions.
 func (o WorkspacesPoolApplicationSettingsOutput) Status() WorkspacesPoolApplicationSettingsStatusOutput {
 	return o.ApplyT(func(v WorkspacesPoolApplicationSettings) WorkspacesPoolApplicationSettingsStatus { return v.Status }).(WorkspacesPoolApplicationSettingsStatusOutput)
 }
@@ -217,6 +223,7 @@ func (o WorkspacesPoolApplicationSettingsPtrOutput) Elem() WorkspacesPoolApplica
 	}).(WorkspacesPoolApplicationSettingsOutput)
 }
 
+// The path prefix for the S3 bucket where users’ persistent application settings are stored.
 func (o WorkspacesPoolApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolApplicationSettings) *string {
 		if v == nil {
@@ -226,6 +233,7 @@ func (o WorkspacesPoolApplicationSettingsPtrOutput) SettingsGroup() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables persistent application settings for users during their pool sessions.
 func (o WorkspacesPoolApplicationSettingsPtrOutput) Status() WorkspacesPoolApplicationSettingsStatusPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolApplicationSettings) *WorkspacesPoolApplicationSettingsStatus {
 		if v == nil {
@@ -236,6 +244,7 @@ func (o WorkspacesPoolApplicationSettingsPtrOutput) Status() WorkspacesPoolAppli
 }
 
 type WorkspacesPoolCapacity struct {
+	// The desired number of user sessions for the WorkSpaces in the pool.
 	DesiredUserSessions int `pulumi:"desiredUserSessions"`
 }
 
@@ -251,6 +260,7 @@ type WorkspacesPoolCapacityInput interface {
 }
 
 type WorkspacesPoolCapacityArgs struct {
+	// The desired number of user sessions for the WorkSpaces in the pool.
 	DesiredUserSessions pulumi.IntInput `pulumi:"desiredUserSessions"`
 }
 
@@ -280,6 +290,7 @@ func (o WorkspacesPoolCapacityOutput) ToWorkspacesPoolCapacityOutputWithContext(
 	return o
 }
 
+// The desired number of user sessions for the WorkSpaces in the pool.
 func (o WorkspacesPoolCapacityOutput) DesiredUserSessions() pulumi.IntOutput {
 	return o.ApplyT(func(v WorkspacesPoolCapacity) int { return v.DesiredUserSessions }).(pulumi.IntOutput)
 }
@@ -308,6 +319,7 @@ func (o WorkspacesPoolCapacityPtrOutput) Elem() WorkspacesPoolCapacityOutput {
 	}).(WorkspacesPoolCapacityOutput)
 }
 
+// The desired number of user sessions for the WorkSpaces in the pool.
 func (o WorkspacesPoolCapacityPtrOutput) DesiredUserSessions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolCapacity) *int {
 		if v == nil {
@@ -325,9 +337,12 @@ type WorkspacesPoolTag struct {
 }
 
 type WorkspacesPoolTimeoutSettings struct {
-	DisconnectTimeoutInSeconds     *int `pulumi:"disconnectTimeoutInSeconds"`
+	// Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+	DisconnectTimeoutInSeconds *int `pulumi:"disconnectTimeoutInSeconds"`
+	// The amount of time in seconds a connection will stay active while idle.
 	IdleDisconnectTimeoutInSeconds *int `pulumi:"idleDisconnectTimeoutInSeconds"`
-	MaxUserDurationInSeconds       *int `pulumi:"maxUserDurationInSeconds"`
+	// Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+	MaxUserDurationInSeconds *int `pulumi:"maxUserDurationInSeconds"`
 }
 
 // WorkspacesPoolTimeoutSettingsInput is an input type that accepts WorkspacesPoolTimeoutSettingsArgs and WorkspacesPoolTimeoutSettingsOutput values.
@@ -342,9 +357,12 @@ type WorkspacesPoolTimeoutSettingsInput interface {
 }
 
 type WorkspacesPoolTimeoutSettingsArgs struct {
-	DisconnectTimeoutInSeconds     pulumi.IntPtrInput `pulumi:"disconnectTimeoutInSeconds"`
+	// Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+	DisconnectTimeoutInSeconds pulumi.IntPtrInput `pulumi:"disconnectTimeoutInSeconds"`
+	// The amount of time in seconds a connection will stay active while idle.
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrInput `pulumi:"idleDisconnectTimeoutInSeconds"`
-	MaxUserDurationInSeconds       pulumi.IntPtrInput `pulumi:"maxUserDurationInSeconds"`
+	// Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+	MaxUserDurationInSeconds pulumi.IntPtrInput `pulumi:"maxUserDurationInSeconds"`
 }
 
 func (WorkspacesPoolTimeoutSettingsArgs) ElementType() reflect.Type {
@@ -424,14 +442,17 @@ func (o WorkspacesPoolTimeoutSettingsOutput) ToWorkspacesPoolTimeoutSettingsPtrO
 	}).(WorkspacesPoolTimeoutSettingsPtrOutput)
 }
 
+// Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
 func (o WorkspacesPoolTimeoutSettingsOutput) DisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspacesPoolTimeoutSettings) *int { return v.DisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The amount of time in seconds a connection will stay active while idle.
 func (o WorkspacesPoolTimeoutSettingsOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspacesPoolTimeoutSettings) *int { return v.IdleDisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
 func (o WorkspacesPoolTimeoutSettingsOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspacesPoolTimeoutSettings) *int { return v.MaxUserDurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -460,6 +481,7 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) Elem() WorkspacesPoolTimeoutSett
 	}).(WorkspacesPoolTimeoutSettingsOutput)
 }
 
+// Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
 func (o WorkspacesPoolTimeoutSettingsPtrOutput) DisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolTimeoutSettings) *int {
 		if v == nil {
@@ -469,6 +491,7 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) DisconnectTimeoutInSeconds() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of time in seconds a connection will stay active while idle.
 func (o WorkspacesPoolTimeoutSettingsPtrOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolTimeoutSettings) *int {
 		if v == nil {
@@ -478,6 +501,7 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) IdleDisconnectTimeoutInSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
 func (o WorkspacesPoolTimeoutSettingsPtrOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPoolTimeoutSettings) *int {
 		if v == nil {
