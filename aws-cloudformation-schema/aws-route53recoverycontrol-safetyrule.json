@@ -2,7 +2,6 @@
   "typeName" : "AWS::Route53RecoveryControl::SafetyRule",
   "description" : "Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
-  "taggable" : true,
   "definitions" : {
     "SafetyRuleName" : {
       "description" : "The name for the safety rule.",
@@ -140,7 +139,7 @@
   } ],
   "required" : [ ],
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/ControlPanelArn", "/properties/RuleConfig", "/properties/ControlPanelArn", "/properties/Tags" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/ControlPanelArn", "/properties/RuleConfig", "/properties/Tags", "/properties/AssertionRule/AssertedControls", "/properties/GatingRule/GatingControls", "/properties/GatingRule/TargetControls" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/SafetyRuleArn", "/properties/Status" ],
   "primaryIdentifier" : [ "/properties/SafetyRuleArn" ],
@@ -168,5 +167,12 @@
       },
       "permissions" : [ "route53-recovery-control-config:ListSafetyRules" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : false
   }
 }
