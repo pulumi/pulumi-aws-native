@@ -53,7 +53,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "EngineVersion", "EngineType", "Data", "Name" ],
+  "required" : [ "EngineType", "Data", "Name" ],
   "createOnlyProperties" : [ "/properties/EngineType", "/properties/Name", "/properties/AuthenticationStrategy", "/properties/EngineVersion" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Revision", "/properties/Id", "/properties/Arn" ]

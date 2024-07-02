@@ -273,7 +273,7 @@
       "required" : [ "Revision", "Id" ]
     }
   },
-  "required" : [ "EngineVersion", "DeploymentMode", "HostInstanceType", "EngineType", "AutoMinorVersionUpgrade", "Users", "PubliclyAccessible", "BrokerName" ],
+  "required" : [ "DeploymentMode", "HostInstanceType", "EngineType", "Users", "PubliclyAccessible", "BrokerName" ],
   "createOnlyProperties" : [ "/properties/BrokerName", "/properties/StorageType", "/properties/DeploymentMode", "/properties/EngineType", "/properties/SubnetIds", "/properties/AuthenticationStrategy", "/properties/EncryptionOptions", "/properties/PubliclyAccessible" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/IpAddresses", "/properties/Id", "/properties/MqttEndpoints", "/properties/OpenWireEndpoints", "/properties/ConfigurationId", "/properties/ConfigurationRevision", "/properties/StompEndpoints", "/properties/WssEndpoints", "/properties/AmqpEndpoints", "/properties/Arn" ]
