@@ -25,19 +25,21 @@ class DbClusterParameterGroupArgs:
         The set of arguments for constructing a DbClusterParameterGroup resource.
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
         :param pulumi.Input[str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
-        :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+                 The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+                 To list all of the available parameter group families, use the following command:
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+                The output contains duplicates.
+                For more information, see ``CreateDBClusterParameterGroup``.
+        :param Any parameters: Provides a list of parameters for the DB cluster parameter group.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
-               
-               Constraints:
-               
-               - Must not match the name of an existing DB cluster parameter group.
-               
-               If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-               
-               > This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags for the cluster parameter group.
+                Constraints:
+                 +  Must not match the name of an existing DB cluster parameter group.
+                 
+                If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+                 This value is stored as a lowercase string.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional array of key-value pairs to apply to this DB cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
@@ -64,6 +66,11 @@ class DbClusterParameterGroupArgs:
     def family(self) -> pulumi.Input[str]:
         """
         The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+          The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+          To list all of the available parameter group families, use the following command:
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+         The output contains duplicates.
+         For more information, see ``CreateDBClusterParameterGroup``.
         """
         return pulumi.get(self, "family")
 
@@ -75,7 +82,7 @@ class DbClusterParameterGroupArgs:
     @pulumi.getter
     def parameters(self) -> Any:
         """
-        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        Provides a list of parameters for the DB cluster parameter group.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         """
@@ -90,14 +97,11 @@ class DbClusterParameterGroupArgs:
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the DB cluster parameter group.
-
-        Constraints:
-
-        - Must not match the name of an existing DB cluster parameter group.
-
-        If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-
-        > This value is stored as a lowercase string.
+         Constraints:
+          +  Must not match the name of an existing DB cluster parameter group.
+          
+         If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+          This value is stored as a lowercase string.
         """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
@@ -109,7 +113,7 @@ class DbClusterParameterGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The list of tags for the cluster parameter group.
+        An optional array of key-value pairs to apply to this DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
@@ -130,25 +134,30 @@ class DbClusterParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+        The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
+         For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+          If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
+         If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
-               
-               Constraints:
-               
-               - Must not match the name of an existing DB cluster parameter group.
-               
-               If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-               
-               > This value is stored as a lowercase string.
+                Constraints:
+                 +  Must not match the name of an existing DB cluster parameter group.
+                 
+                If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+                 This value is stored as a lowercase string.
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
         :param pulumi.Input[str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
-        :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+                 The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+                 To list all of the available parameter group families, use the following command:
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+                The output contains duplicates.
+                For more information, see ``CreateDBClusterParameterGroup``.
+        :param Any parameters: Provides a list of parameters for the DB cluster parameter group.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional array of key-value pairs to apply to this DB cluster parameter group.
         """
         ...
     @overload
@@ -157,7 +166,10 @@ class DbClusterParameterGroup(pulumi.CustomResource):
                  args: DbClusterParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+        The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
+         For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+          If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
+         If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
 
         :param str resource_name: The name of the resource.
         :param DbClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.
@@ -235,14 +247,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the DB cluster parameter group.
-
-        Constraints:
-
-        - Must not match the name of an existing DB cluster parameter group.
-
-        If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-
-        > This value is stored as a lowercase string.
+         Constraints:
+          +  Must not match the name of an existing DB cluster parameter group.
+          
+         If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+          This value is stored as a lowercase string.
         """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
@@ -259,6 +268,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def family(self) -> pulumi.Output[str]:
         """
         The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+          The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+          To list all of the available parameter group families, use the following command:
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+         The output contains duplicates.
+         For more information, see ``CreateDBClusterParameterGroup``.
         """
         return pulumi.get(self, "family")
 
@@ -266,7 +280,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Any]:
         """
-        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        Provides a list of parameters for the DB cluster parameter group.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         """
@@ -276,7 +290,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The list of tags for the cluster parameter group.
+        An optional array of key-value pairs to apply to this DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 

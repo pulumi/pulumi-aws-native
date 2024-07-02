@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, activation_code=None, arn=None, created_at=None, desired_software_set_id=None, desktop_endpoint=None, desktop_type=None, id=None, maintenance_window=None, name=None, pending_software_set_id=None, pending_software_set_version=None, registered_devices_count=None, software_set_compliance_status=None, software_set_update_mode=None, software_set_update_schedule=None, tags=None, updated_at=None):
+    def __init__(__self__, activation_code=None, arn=None, created_at=None, desired_software_set_id=None, desktop_endpoint=None, desktop_type=None, device_creation_tags=None, id=None, maintenance_window=None, name=None, pending_software_set_id=None, pending_software_set_version=None, registered_devices_count=None, software_set_compliance_status=None, software_set_update_mode=None, software_set_update_schedule=None, tags=None, updated_at=None):
         if activation_code and not isinstance(activation_code, str):
             raise TypeError("Expected argument 'activation_code' to be a str")
         pulumi.set(__self__, "activation_code", activation_code)
@@ -40,6 +40,9 @@ class GetEnvironmentResult:
         if desktop_type and not isinstance(desktop_type, str):
             raise TypeError("Expected argument 'desktop_type' to be a str")
         pulumi.set(__self__, "desktop_type", desktop_type)
+        if device_creation_tags and not isinstance(device_creation_tags, list):
+            raise TypeError("Expected argument 'device_creation_tags' to be a list")
+        pulumi.set(__self__, "device_creation_tags", device_creation_tags)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -121,6 +124,14 @@ class GetEnvironmentResult:
         The type of VDI.
         """
         return pulumi.get(self, "desktop_type")
+
+    @property
+    @pulumi.getter(name="deviceCreationTags")
+    def device_creation_tags(self) -> Optional[Sequence['outputs.EnvironmentTag']]:
+        """
+        An array of key-value pairs to apply to the newly created devices for this environment.
+        """
+        return pulumi.get(self, "device_creation_tags")
 
     @property
     @pulumi.getter
@@ -223,6 +234,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             desired_software_set_id=self.desired_software_set_id,
             desktop_endpoint=self.desktop_endpoint,
             desktop_type=self.desktop_type,
+            device_creation_tags=self.device_creation_tags,
             id=self.id,
             maintenance_window=self.maintenance_window,
             name=self.name,
@@ -256,6 +268,7 @@ def get_environment(id: Optional[str] = None,
         desired_software_set_id=pulumi.get(__ret__, 'desired_software_set_id'),
         desktop_endpoint=pulumi.get(__ret__, 'desktop_endpoint'),
         desktop_type=pulumi.get(__ret__, 'desktop_type'),
+        device_creation_tags=pulumi.get(__ret__, 'device_creation_tags'),
         id=pulumi.get(__ret__, 'id'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),

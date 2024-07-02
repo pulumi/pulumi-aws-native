@@ -29,6 +29,7 @@ import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
+import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
@@ -190,6 +191,7 @@ export {
     codebuild,
     codeguruprofiler,
     codegurureviewer,
+    codepipeline,
     codestarconnections,
     codestarnotifications,
     comprehend,

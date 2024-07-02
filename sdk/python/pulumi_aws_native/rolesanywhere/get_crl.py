@@ -42,26 +42,41 @@ class GetCrlResult:
     @property
     @pulumi.getter(name="crlData")
     def crl_data(self) -> Optional[str]:
+        """
+        The x509 v3 specified certificate revocation list (CRL).
+        """
         return pulumi.get(self, "crl_data")
 
     @property
     @pulumi.getter(name="crlId")
     def crl_id(self) -> Optional[str]:
+        """
+        The unique primary identifier of the Crl
+        """
         return pulumi.get(self, "crl_id")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the certificate revocation list (CRL) is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to attach to the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -91,6 +106,9 @@ def get_crl(crl_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCrlResult:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
+
+
+    :param str crl_id: The unique primary identifier of the Crl
     """
     __args__ = dict()
     __args__['crlId'] = crl_id
@@ -111,5 +129,8 @@ def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrlResult]:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
+
+
+    :param str crl_id: The unique primary identifier of the Crl
     """
     ...

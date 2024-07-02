@@ -24,6 +24,7 @@ class ApplicationArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']] = None,
                  identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
+                 q_apps_configuration: Optional[pulumi.Input['ApplicationQAppsConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -47,6 +48,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if identity_center_instance_arn is not None:
             pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if q_apps_configuration is not None:
+            pulumi.set(__self__, "q_apps_configuration", q_apps_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -115,6 +118,15 @@ class ApplicationArgs:
         pulumi.set(self, "identity_center_instance_arn", value)
 
     @property
+    @pulumi.getter(name="qAppsConfiguration")
+    def q_apps_configuration(self) -> Optional[pulumi.Input['ApplicationQAppsConfigurationArgs']]:
+        return pulumi.get(self, "q_apps_configuration")
+
+    @q_apps_configuration.setter
+    def q_apps_configuration(self, value: Optional[pulumi.Input['ApplicationQAppsConfigurationArgs']]):
+        pulumi.set(self, "q_apps_configuration", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -149,6 +161,7 @@ class Application(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']]] = None,
                  identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
+                 q_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationQAppsConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -196,6 +209,7 @@ class Application(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']]] = None,
                  identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
+                 q_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationQAppsConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -214,6 +228,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["identity_center_instance_arn"] = identity_center_instance_arn
+            __props__.__dict__["q_apps_configuration"] = q_apps_configuration
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
@@ -255,6 +270,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["identity_center_application_arn"] = None
         __props__.__dict__["identity_center_instance_arn"] = None
+        __props__.__dict__["q_apps_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -334,6 +350,11 @@ class Application(pulumi.CustomResource):
         *Required* : `Yes`
         """
         return pulumi.get(self, "identity_center_instance_arn")
+
+    @property
+    @pulumi.getter(name="qAppsConfiguration")
+    def q_apps_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationQAppsConfiguration']]:
+        return pulumi.get(self, "q_apps_configuration")
 
     @property
     @pulumi.getter(name="roleArn")

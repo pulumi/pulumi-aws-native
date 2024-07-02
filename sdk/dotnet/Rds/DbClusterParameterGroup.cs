@@ -10,21 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+    /// The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
+    ///  For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+    ///   If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
+    ///  If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DbClusterParameterGroup")]
     public partial class DbClusterParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the DB cluster parameter group.
-        /// 
-        /// Constraints:
-        /// 
-        /// - Must not match the name of an existing DB cluster parameter group.
-        /// 
-        /// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-        /// 
-        /// &gt; This value is stored as a lowercase string.
+        ///  Constraints:
+        ///   +  Must not match the name of an existing DB cluster parameter group.
+        ///   
+        ///  If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Output("dbClusterParameterGroupName")]
         public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
@@ -37,12 +37,17 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+        ///   The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+        ///   To list all of the available parameter group families, use the following command:
+        ///   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+        ///  The output contains duplicates.
+        ///  For more information, see ``CreateDBClusterParameterGroup``.
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// Provides a list of parameters for the DB cluster parameter group.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         /// </summary>
@@ -50,7 +55,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<object> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The list of tags for the cluster parameter group.
+        /// An optional array of key-value pairs to apply to this DB cluster parameter group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -108,14 +113,11 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// The name of the DB cluster parameter group.
-        /// 
-        /// Constraints:
-        /// 
-        /// - Must not match the name of an existing DB cluster parameter group.
-        /// 
-        /// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-        /// 
-        /// &gt; This value is stored as a lowercase string.
+        ///  Constraints:
+        ///   +  Must not match the name of an existing DB cluster parameter group.
+        ///   
+        ///  If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
@@ -128,12 +130,17 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+        ///   The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+        ///   To list all of the available parameter group families, use the following command:
+        ///   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
+        ///  The output contains duplicates.
+        ///  For more information, see ``CreateDBClusterParameterGroup``.
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// Provides a list of parameters for the DB cluster parameter group.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         /// </summary>
@@ -144,7 +151,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The list of tags for the cluster parameter group.
+        /// An optional array of key-value pairs to apply to this DB cluster parameter group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

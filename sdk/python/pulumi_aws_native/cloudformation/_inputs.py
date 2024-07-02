@@ -250,6 +250,7 @@ class StackSetDeploymentTargetsArgs:
 @pulumi.input_type
 class StackSetOperationPreferencesArgs:
     def __init__(__self__, *,
+                 concurrency_mode: Optional[pulumi.Input['StackSetConcurrencyMode']] = None,
                  failure_tolerance_count: Optional[pulumi.Input[int]] = None,
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
                  max_concurrent_count: Optional[pulumi.Input[int]] = None,
@@ -283,6 +284,8 @@ class StackSetOperationPreferencesArgs:
                
                > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         """
+        if concurrency_mode is not None:
+            pulumi.set(__self__, "concurrency_mode", concurrency_mode)
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -295,6 +298,15 @@ class StackSetOperationPreferencesArgs:
             pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
         if region_order is not None:
             pulumi.set(__self__, "region_order", region_order)
+
+    @property
+    @pulumi.getter(name="concurrencyMode")
+    def concurrency_mode(self) -> Optional[pulumi.Input['StackSetConcurrencyMode']]:
+        return pulumi.get(self, "concurrency_mode")
+
+    @concurrency_mode.setter
+    def concurrency_mode(self, value: Optional[pulumi.Input['StackSetConcurrencyMode']]):
+        pulumi.set(self, "concurrency_mode", value)
 
     @property
     @pulumi.getter(name="failureToleranceCount")

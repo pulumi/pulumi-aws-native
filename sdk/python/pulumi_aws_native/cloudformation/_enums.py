@@ -16,6 +16,7 @@ __all__ = [
     'StackCapabilitiesItem',
     'StackSetCallAs',
     'StackSetCapability',
+    'StackSetConcurrencyMode',
     'StackSetDeploymentTargetsAccountFilterType',
     'StackSetPermissionModel',
     'StackSetRegionConcurrencyType',
@@ -124,6 +125,14 @@ class StackSetCapability(str, Enum):
     CAPABILITY_IAM = "CAPABILITY_IAM"
     CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
     CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND"
+
+
+class StackSetConcurrencyMode(str, Enum):
+    """
+    Specifies how the concurrency level behaves during the operation execution.
+    """
+    STRICT_FAILURE_TOLERANCE = "STRICT_FAILURE_TOLERANCE"
+    SOFT_FAILURE_TOLERANCE = "SOFT_FAILURE_TOLERANCE"
 
 
 class StackSetDeploymentTargetsAccountFilterType(str, Enum):

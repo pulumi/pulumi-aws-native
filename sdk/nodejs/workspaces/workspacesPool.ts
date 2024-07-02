@@ -37,16 +37,49 @@ export class WorkspacesPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspacesPool.__pulumiType;
     }
 
+    /**
+     * The persistent application settings for users of the pool.
+     */
     public readonly applicationSettings!: pulumi.Output<outputs.workspaces.WorkspacesPoolApplicationSettings | undefined>;
+    /**
+     * The identifier of the bundle used by the pool.
+     */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * Describes the user capacity for the pool.
+     */
     public readonly capacity!: pulumi.Output<outputs.workspaces.WorkspacesPoolCapacity>;
+    /**
+     * The time the pool was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The description of the pool.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier of the directory used by the pool.
+     */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the pool.
+     */
     public /*out*/ readonly poolArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the pool.
+     */
     public /*out*/ readonly poolId!: pulumi.Output<string>;
+    /**
+     * The name of the pool.
+     */
     public readonly poolName!: pulumi.Output<string>;
+    /**
+     * The tags for the pool.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+     */
     public readonly timeoutSettings!: pulumi.Output<outputs.workspaces.WorkspacesPoolTimeoutSettings | undefined>;
 
     /**
@@ -104,12 +137,36 @@ export class WorkspacesPool extends pulumi.CustomResource {
  * The set of arguments for constructing a WorkspacesPool resource.
  */
 export interface WorkspacesPoolArgs {
+    /**
+     * The persistent application settings for users of the pool.
+     */
     applicationSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolApplicationSettingsArgs>;
+    /**
+     * The identifier of the bundle used by the pool.
+     */
     bundleId: pulumi.Input<string>;
+    /**
+     * Describes the user capacity for the pool.
+     */
     capacity: pulumi.Input<inputs.workspaces.WorkspacesPoolCapacityArgs>;
+    /**
+     * The description of the pool.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier of the directory used by the pool.
+     */
     directoryId: pulumi.Input<string>;
+    /**
+     * The name of the pool.
+     */
     poolName?: pulumi.Input<string>;
+    /**
+     * The tags for the pool.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+     */
     timeoutSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolTimeoutSettingsArgs>;
 }

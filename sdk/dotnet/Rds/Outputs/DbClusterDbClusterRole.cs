@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
     public sealed class DbClusterDbClusterRole
     {
         /// <summary>
-        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         /// </summary>
         public readonly string? FeatureName;
         /// <summary>

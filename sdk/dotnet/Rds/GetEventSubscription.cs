@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Rds
     public static class GetEventSubscription
     {
         /// <summary>
-        /// The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.
+        /// The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("aws-native:rds:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.
+        /// The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:rds:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// The name of the subscription.
+        ///  Constraints: The name must be less than 255 characters.
         /// </summary>
         [Input("subscriptionName", required: true)]
         public string SubscriptionName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// The name of the subscription.
+        ///  Constraints: The name must be less than 255 characters.
         /// </summary>
         [Input("subscriptionName", required: true)]
         public Input<string> SubscriptionName { get; set; } = null!;
@@ -58,23 +60,32 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetEventSubscriptionResult
     {
         /// <summary>
-        /// A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
+        /// Specifies whether to activate the subscription. If the event notification subscription isn't activated, the subscription is created but not active.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the Events topic in the Amazon RDS User Guide or by using the DescribeEventCategories action.
+        /// A list of event categories for a particular source type (``SourceType``) that you want to subscribe to. You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html). You can also see this list by using the ``DescribeEventCategories`` operation.
         /// </summary>
         public readonly ImmutableArray<string> EventCategories;
         /// <summary>
-        /// The list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
+        /// The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It can't end with a hyphen or contain two consecutive hyphens.
+        ///  Constraints:
+        ///   +  If a ``SourceIds`` value is supplied, ``SourceType`` must also be provided.
+        ///   +  If the source type is a DB instance, a ``DBInstanceIdentifier`` value must be supplied.
+        ///   +  If the source type is a DB cluster, a ``DBClusterIdentifier`` value must be supplied.
+        ///   +  If the source type is a DB parameter group, a ``DBParameterGroupName`` value must be supplied.
+        ///   +  If the source type is a DB security group, a ``DBSecurityGroupName`` value must be supplied.
+        ///   +  If the source type is a DB snapshot, a ``DBSnapshotIdentifier`` value must be supplied.
+        ///   +  If the source type is a DB cluster snapshot, a ``DBClusterSnapshotIdentifier`` value must be supplied.
         /// </summary>
         public readonly ImmutableArray<string> SourceIds;
         /// <summary>
-        /// The type of source that will be generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. if this value is not specified, all events are returned.
+        /// The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, set this parameter to ``db-instance``. If this value isn't specified, all events are returned.
+        ///  Valid values: ``db-instance`` | ``db-cluster`` | ``db-parameter-group`` | ``db-security-group`` | ``db-snapshot`` | ``db-cluster-snapshot``
         /// </summary>
         public readonly string? SourceType;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this subscription.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

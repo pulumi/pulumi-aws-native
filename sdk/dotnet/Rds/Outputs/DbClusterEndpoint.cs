@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Outputs
 {
 
+    /// <summary>
+    /// The ``Endpoint`` return value specifies the connection endpoint for the primary instance of the DB cluster.
+    /// </summary>
     [OutputType]
     public sealed class DbClusterEndpoint
     {
         /// <summary>
-        /// The connection endpoint for the DB cluster.
+        /// Specifies the connection endpoint for the primary instance of the DB cluster.
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The port number that will accept connections on this DB cluster.
+        /// Specifies the port that the database engine is listening on.
         /// </summary>
         public readonly string? Port;
 

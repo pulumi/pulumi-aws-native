@@ -31,7 +31,7 @@ class GetDbClusterParameterGroupResult:
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
         """
-        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        Provides a list of parameters for the DB cluster parameter group.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         """
@@ -41,7 +41,7 @@ class GetDbClusterParameterGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The list of tags for the cluster parameter group.
+        An optional array of key-value pairs to apply to this DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
@@ -59,18 +59,18 @@ class AwaitableGetDbClusterParameterGroupResult(GetDbClusterParameterGroupResult
 def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterParameterGroupResult:
     """
-    The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+    The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
+     For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+      If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
+     If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
 
 
     :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
-           
-           Constraints:
-           
-           - Must not match the name of an existing DB cluster parameter group.
-           
-           If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-           
-           > This value is stored as a lowercase string.
+            Constraints:
+             +  Must not match the name of an existing DB cluster parameter group.
+             
+            If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+             This value is stored as a lowercase string.
     """
     __args__ = dict()
     __args__['dbClusterParameterGroupName'] = db_cluster_parameter_group_name
@@ -86,17 +86,17 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[str
 def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
-    The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+    The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
+     For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+      If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
+     If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
 
 
     :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
-           
-           Constraints:
-           
-           - Must not match the name of an existing DB cluster parameter group.
-           
-           If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-           
-           > This value is stored as a lowercase string.
+            Constraints:
+             +  Must not match the name of an existing DB cluster parameter group.
+             
+            If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
+             This value is stored as a lowercase string.
     """
     ...

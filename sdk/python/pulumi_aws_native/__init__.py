@@ -1136,7 +1136,8 @@ _utilities.register(
   "mod": "codepipeline",
   "fqn": "pulumi_aws_native.codepipeline",
   "classes": {
-   "aws-native:codepipeline:CustomActionType": "CustomActionType"
+   "aws-native:codepipeline:CustomActionType": "CustomActionType",
+   "aws-native:codepipeline:Pipeline": "Pipeline"
   }
  },
  {

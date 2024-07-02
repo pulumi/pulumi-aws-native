@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationAttachmentsControlMode',
+    'ApplicationQAppsControlMode',
     'ApplicationStatus',
     'DataSourceAttributeValueOperator',
     'DataSourceDocumentContentOperator',
@@ -27,6 +28,11 @@ __all__ = [
 
 
 class ApplicationAttachmentsControlMode(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ApplicationQAppsControlMode(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 

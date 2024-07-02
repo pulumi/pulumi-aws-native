@@ -125,6 +125,16 @@ export const StackSetCapability = {
 
 export type StackSetCapability = (typeof StackSetCapability)[keyof typeof StackSetCapability];
 
+export const StackSetConcurrencyMode = {
+    StrictFailureTolerance: "STRICT_FAILURE_TOLERANCE",
+    SoftFailureTolerance: "SOFT_FAILURE_TOLERANCE",
+} as const;
+
+/**
+ * Specifies how the concurrency level behaves during the operation execution.
+ */
+export type StackSetConcurrencyMode = (typeof StackSetConcurrencyMode)[keyof typeof StackSetConcurrencyMode];
+
 export const StackSetDeploymentTargetsAccountFilterType = {
     None: "NONE",
     Union: "UNION",

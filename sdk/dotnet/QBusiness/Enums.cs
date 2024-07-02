@@ -36,6 +36,34 @@ namespace Pulumi.AwsNative.QBusiness
     }
 
     [EnumType]
+    public readonly struct ApplicationQAppsControlMode : IEquatable<ApplicationQAppsControlMode>
+    {
+        private readonly string _value;
+
+        private ApplicationQAppsControlMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationQAppsControlMode Enabled { get; } = new ApplicationQAppsControlMode("ENABLED");
+        public static ApplicationQAppsControlMode Disabled { get; } = new ApplicationQAppsControlMode("DISABLED");
+
+        public static bool operator ==(ApplicationQAppsControlMode left, ApplicationQAppsControlMode right) => left.Equals(right);
+        public static bool operator !=(ApplicationQAppsControlMode left, ApplicationQAppsControlMode right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationQAppsControlMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationQAppsControlMode other && Equals(other);
+        public bool Equals(ApplicationQAppsControlMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ApplicationStatus : IEquatable<ApplicationStatus>
     {
         private readonly string _value;

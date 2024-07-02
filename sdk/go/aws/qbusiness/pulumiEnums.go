@@ -175,6 +175,171 @@ func (in *applicationAttachmentsControlModePtr) ToApplicationAttachmentsControlM
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAttachmentsControlModePtrOutput)
 }
 
+type ApplicationQAppsControlMode string
+
+const (
+	ApplicationQAppsControlModeEnabled  = ApplicationQAppsControlMode("ENABLED")
+	ApplicationQAppsControlModeDisabled = ApplicationQAppsControlMode("DISABLED")
+)
+
+func (ApplicationQAppsControlMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQAppsControlMode)(nil)).Elem()
+}
+
+func (e ApplicationQAppsControlMode) ToApplicationQAppsControlModeOutput() ApplicationQAppsControlModeOutput {
+	return pulumi.ToOutput(e).(ApplicationQAppsControlModeOutput)
+}
+
+func (e ApplicationQAppsControlMode) ToApplicationQAppsControlModeOutputWithContext(ctx context.Context) ApplicationQAppsControlModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationQAppsControlModeOutput)
+}
+
+func (e ApplicationQAppsControlMode) ToApplicationQAppsControlModePtrOutput() ApplicationQAppsControlModePtrOutput {
+	return e.ToApplicationQAppsControlModePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationQAppsControlMode) ToApplicationQAppsControlModePtrOutputWithContext(ctx context.Context) ApplicationQAppsControlModePtrOutput {
+	return ApplicationQAppsControlMode(e).ToApplicationQAppsControlModeOutputWithContext(ctx).ToApplicationQAppsControlModePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationQAppsControlMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationQAppsControlMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationQAppsControlMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationQAppsControlMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationQAppsControlModeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQAppsControlModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQAppsControlMode)(nil)).Elem()
+}
+
+func (o ApplicationQAppsControlModeOutput) ToApplicationQAppsControlModeOutput() ApplicationQAppsControlModeOutput {
+	return o
+}
+
+func (o ApplicationQAppsControlModeOutput) ToApplicationQAppsControlModeOutputWithContext(ctx context.Context) ApplicationQAppsControlModeOutput {
+	return o
+}
+
+func (o ApplicationQAppsControlModeOutput) ToApplicationQAppsControlModePtrOutput() ApplicationQAppsControlModePtrOutput {
+	return o.ToApplicationQAppsControlModePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationQAppsControlModeOutput) ToApplicationQAppsControlModePtrOutputWithContext(ctx context.Context) ApplicationQAppsControlModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationQAppsControlMode) *ApplicationQAppsControlMode {
+		return &v
+	}).(ApplicationQAppsControlModePtrOutput)
+}
+
+func (o ApplicationQAppsControlModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationQAppsControlModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationQAppsControlMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationQAppsControlModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationQAppsControlModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationQAppsControlMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationQAppsControlModePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQAppsControlModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationQAppsControlMode)(nil)).Elem()
+}
+
+func (o ApplicationQAppsControlModePtrOutput) ToApplicationQAppsControlModePtrOutput() ApplicationQAppsControlModePtrOutput {
+	return o
+}
+
+func (o ApplicationQAppsControlModePtrOutput) ToApplicationQAppsControlModePtrOutputWithContext(ctx context.Context) ApplicationQAppsControlModePtrOutput {
+	return o
+}
+
+func (o ApplicationQAppsControlModePtrOutput) Elem() ApplicationQAppsControlModeOutput {
+	return o.ApplyT(func(v *ApplicationQAppsControlMode) ApplicationQAppsControlMode {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationQAppsControlMode
+		return ret
+	}).(ApplicationQAppsControlModeOutput)
+}
+
+func (o ApplicationQAppsControlModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationQAppsControlModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationQAppsControlMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationQAppsControlModeInput is an input type that accepts values of the ApplicationQAppsControlMode enum
+// A concrete instance of `ApplicationQAppsControlModeInput` can be one of the following:
+//
+//	ApplicationQAppsControlModeEnabled
+//	ApplicationQAppsControlModeDisabled
+type ApplicationQAppsControlModeInput interface {
+	pulumi.Input
+
+	ToApplicationQAppsControlModeOutput() ApplicationQAppsControlModeOutput
+	ToApplicationQAppsControlModeOutputWithContext(context.Context) ApplicationQAppsControlModeOutput
+}
+
+var applicationQAppsControlModePtrType = reflect.TypeOf((**ApplicationQAppsControlMode)(nil)).Elem()
+
+type ApplicationQAppsControlModePtrInput interface {
+	pulumi.Input
+
+	ToApplicationQAppsControlModePtrOutput() ApplicationQAppsControlModePtrOutput
+	ToApplicationQAppsControlModePtrOutputWithContext(context.Context) ApplicationQAppsControlModePtrOutput
+}
+
+type applicationQAppsControlModePtr string
+
+func ApplicationQAppsControlModePtr(v string) ApplicationQAppsControlModePtrInput {
+	return (*applicationQAppsControlModePtr)(&v)
+}
+
+func (*applicationQAppsControlModePtr) ElementType() reflect.Type {
+	return applicationQAppsControlModePtrType
+}
+
+func (in *applicationQAppsControlModePtr) ToApplicationQAppsControlModePtrOutput() ApplicationQAppsControlModePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationQAppsControlModePtrOutput)
+}
+
+func (in *applicationQAppsControlModePtr) ToApplicationQAppsControlModePtrOutputWithContext(ctx context.Context) ApplicationQAppsControlModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationQAppsControlModePtrOutput)
+}
+
 type ApplicationStatus string
 
 const (
@@ -2574,6 +2739,8 @@ func (o WebExperienceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsControlModeInput)(nil)).Elem(), ApplicationAttachmentsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsControlModePtrInput)(nil)).Elem(), ApplicationAttachmentsControlMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsControlModeInput)(nil)).Elem(), ApplicationQAppsControlMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsControlModePtrInput)(nil)).Elem(), ApplicationQAppsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorPtrInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentContentOperatorInput)(nil)).Elem(), DataSourceDocumentContentOperator("DELETE"))
@@ -2598,6 +2765,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamplePromptsControlModePtrInput)(nil)).Elem(), WebExperienceSamplePromptsControlMode("ENABLED"))
 	pulumi.RegisterOutputType(ApplicationAttachmentsControlModeOutput{})
 	pulumi.RegisterOutputType(ApplicationAttachmentsControlModePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationQAppsControlModeOutput{})
+	pulumi.RegisterOutputType(ApplicationQAppsControlModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationStatusOutput{})
 	pulumi.RegisterOutputType(ApplicationStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorOutput{})

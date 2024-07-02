@@ -362,6 +362,37 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
     /// <summary>
+    /// Specifies how the concurrency level behaves during the operation execution.
+    /// </summary>
+    [EnumType]
+    public readonly struct StackSetConcurrencyMode : IEquatable<StackSetConcurrencyMode>
+    {
+        private readonly string _value;
+
+        private StackSetConcurrencyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StackSetConcurrencyMode StrictFailureTolerance { get; } = new StackSetConcurrencyMode("STRICT_FAILURE_TOLERANCE");
+        public static StackSetConcurrencyMode SoftFailureTolerance { get; } = new StackSetConcurrencyMode("SOFT_FAILURE_TOLERANCE");
+
+        public static bool operator ==(StackSetConcurrencyMode left, StackSetConcurrencyMode right) => left.Equals(right);
+        public static bool operator !=(StackSetConcurrencyMode left, StackSetConcurrencyMode right) => !left.Equals(right);
+
+        public static explicit operator string(StackSetConcurrencyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StackSetConcurrencyMode other && Equals(other);
+        public bool Equals(StackSetConcurrencyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The filter type you want to apply on organizational units and accounts.
     /// </summary>
     [EnumType]

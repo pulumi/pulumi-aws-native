@@ -54,6 +54,7 @@ export interface GetApplicationResult {
      * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
      */
     readonly identityCenterApplicationArn?: string;
+    readonly qAppsConfiguration?: outputs.qbusiness.ApplicationQAppsConfiguration;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      */

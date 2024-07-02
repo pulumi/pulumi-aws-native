@@ -41,6 +41,8 @@ type LookupEnvironmentResult struct {
 	DesktopEndpoint *string `pulumi:"desktopEndpoint"`
 	// The type of VDI.
 	DesktopType *EnvironmentDesktopType `pulumi:"desktopType"`
+	// An array of key-value pairs to apply to the newly created devices for this environment.
+	DeviceCreationTags []EnvironmentTag `pulumi:"deviceCreationTags"`
 	// Unique identifier of the environment.
 	Id *string `pulumi:"id"`
 	// A specification for a time window to apply software updates.
@@ -129,6 +131,11 @@ func (o LookupEnvironmentResultOutput) DesktopEndpoint() pulumi.StringPtrOutput 
 // The type of VDI.
 func (o LookupEnvironmentResultOutput) DesktopType() EnvironmentDesktopTypePtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentDesktopType { return v.DesktopType }).(EnvironmentDesktopTypePtrOutput)
+}
+
+// An array of key-value pairs to apply to the newly created devices for this environment.
+func (o LookupEnvironmentResultOutput) DeviceCreationTags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.DeviceCreationTags }).(EnvironmentTagArrayOutput)
 }
 
 // Unique identifier of the environment.

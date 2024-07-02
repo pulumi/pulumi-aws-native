@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Rds.DbInstanceProcessorFeatureName? Name;
         /// <summary>
-        /// The value of a processor feature name.
+        /// The value of a processor feature.
         /// </summary>
         public readonly string? Value;
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WorkSpaces.Inputs
 
     public sealed class WorkspacesPoolCapacityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The desired number of user sessions for the WorkSpaces in the pool.
+        /// </summary>
         [Input("desiredUserSessions", required: true)]
         public Input<int> DesiredUserSessions { get; set; } = null!;
 

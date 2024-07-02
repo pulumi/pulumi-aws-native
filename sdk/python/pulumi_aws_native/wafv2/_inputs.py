@@ -1852,13 +1852,7 @@ class RuleGroupJsonBodyArgs:
                
                If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
                
-               AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-               
-               AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-               
-               - Missing comma: `{"key1":"value1""key2":"value2"}`
-               - Missing colon: `{"key1":"value1","key2""value2"}`
-               - Extra colons: `{"key1"::"value1","key2""value2"}`
+               > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
         :param pulumi.Input['RuleGroupOversizeHandling'] oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -1921,13 +1915,7 @@ class RuleGroupJsonBodyArgs:
 
         If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-
-        AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-
-        - Missing comma: `{"key1":"value1""key2":"value2"}`
-        - Missing colon: `{"key1":"value1","key2""value2"}`
-        - Extra colons: `{"key1"::"value1","key2""value2"}`
+        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "invalid_fallback_behavior")
 
@@ -5476,13 +5464,7 @@ class WebAclJsonBodyArgs:
                
                If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
                
-               AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-               
-               AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-               
-               - Missing comma: `{"key1":"value1""key2":"value2"}`
-               - Missing colon: `{"key1":"value1","key2""value2"}`
-               - Extra colons: `{"key1"::"value1","key2""value2"}`
+               > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
         :param pulumi.Input['WebAclOversizeHandling'] oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -5545,13 +5527,7 @@ class WebAclJsonBodyArgs:
 
         If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-
-        AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-
-        - Missing comma: `{"key1":"value1""key2":"value2"}`
-        - Missing colon: `{"key1":"value1","key2""value2"}`
-        - Extra colons: `{"key1"::"value1","key2""value2"}`
+        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "invalid_fallback_behavior")
 

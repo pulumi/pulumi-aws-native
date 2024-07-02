@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+// The “AWS::RDS::OptionGroup“ resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ...pulumi.InvokeOption) (*LookupOptionGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOptionGroupResult
@@ -24,14 +24,22 @@ func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ..
 }
 
 type LookupOptionGroupArgs struct {
-	// Specifies the name of the option group.
+	// The name of the option group to be created.
+	//  Constraints:
+	//   +  Must be 1 to 255 letters, numbers, or hyphens
+	//   +  First character must be a letter
+	//   +  Can't end with a hyphen or contain two consecutive hyphens
+	//
+	//  Example: ``myoptiongroup``
+	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+	//   This value is stored as a lowercase string.
 	OptionGroupName string `pulumi:"optionGroupName"`
 }
 
 type LookupOptionGroupResult struct {
-	// Indicates what options are available in the option group.
+	// A list of options and the settings for each option.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional array of key-value pairs to apply to this option group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -49,7 +57,15 @@ func LookupOptionGroupOutput(ctx *pulumi.Context, args LookupOptionGroupOutputAr
 }
 
 type LookupOptionGroupOutputArgs struct {
-	// Specifies the name of the option group.
+	// The name of the option group to be created.
+	//  Constraints:
+	//   +  Must be 1 to 255 letters, numbers, or hyphens
+	//   +  First character must be a letter
+	//   +  Can't end with a hyphen or contain two consecutive hyphens
+	//
+	//  Example: ``myoptiongroup``
+	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+	//   This value is stored as a lowercase string.
 	OptionGroupName pulumi.StringInput `pulumi:"optionGroupName"`
 }
 
@@ -71,12 +87,12 @@ func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutputWithContex
 	return o
 }
 
-// Indicates what options are available in the option group.
+// A list of options and the settings for each option.
 func (o LookupOptionGroupResultOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupOptionConfiguration { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// An optional array of key-value pairs to apply to this option group.
 func (o LookupOptionGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOptionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

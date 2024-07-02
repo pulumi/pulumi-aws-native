@@ -23,7 +23,7 @@ type CustomDbEngineVersionTag struct {
 
 // Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DbClusterDbClusterRole struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 	FeatureName *string `pulumi:"featureName"`
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 	RoleArn string `pulumi:"roleArn"`
@@ -42,7 +42,7 @@ type DbClusterDbClusterRoleInput interface {
 
 // Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DbClusterDbClusterRoleArgs struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -100,7 +100,7 @@ func (o DbClusterDbClusterRoleOutput) ToDbClusterDbClusterRoleOutputWithContext(
 	return o
 }
 
-// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the “SupportedFeatureNames“ description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 func (o DbClusterDbClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterDbClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
@@ -130,13 +130,15 @@ func (o DbClusterDbClusterRoleArrayOutput) Index(i pulumi.IntInput) DbClusterDbC
 	}).(DbClusterDbClusterRoleOutput)
 }
 
+// The “Endpoint“ return value specifies the connection endpoint for the primary instance of the DB cluster.
 type DbClusterEndpoint struct {
-	// The connection endpoint for the DB cluster.
+	// Specifies the connection endpoint for the primary instance of the DB cluster.
 	Address *string `pulumi:"address"`
-	// The port number that will accept connections on this DB cluster.
+	// Specifies the port that the database engine is listening on.
 	Port *string `pulumi:"port"`
 }
 
+// The “Endpoint“ return value specifies the connection endpoint for the primary instance of the DB cluster.
 type DbClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (DbClusterEndpointOutput) ElementType() reflect.Type {
@@ -151,12 +153,12 @@ func (o DbClusterEndpointOutput) ToDbClusterEndpointOutputWithContext(ctx contex
 	return o
 }
 
-// The connection endpoint for the DB cluster.
+// Specifies the connection endpoint for the primary instance of the DB cluster.
 func (o DbClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The port number that will accept connections on this DB cluster.
+// Specifies the port that the database engine is listening on.
 func (o DbClusterEndpointOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -185,7 +187,7 @@ func (o DbClusterEndpointPtrOutput) Elem() DbClusterEndpointOutput {
 	}).(DbClusterEndpointOutput)
 }
 
-// The connection endpoint for the DB cluster.
+// Specifies the connection endpoint for the primary instance of the DB cluster.
 func (o DbClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterEndpoint) *string {
 		if v == nil {
@@ -195,7 +197,7 @@ func (o DbClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port number that will accept connections on this DB cluster.
+// Specifies the port that the database engine is listening on.
 func (o DbClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterEndpoint) *string {
 		if v == nil {
@@ -205,6 +207,9 @@ func (o DbClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbClusterMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -223,6 +228,9 @@ type DbClusterMasterUserSecretInput interface {
 	ToDbClusterMasterUserSecretOutputWithContext(context.Context) DbClusterMasterUserSecretOutput
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbClusterMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -283,6 +291,9 @@ func (i *dbClusterMasterUserSecretPtrType) ToDbClusterMasterUserSecretPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMasterUserSecretPtrOutput)
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (DbClusterMasterUserSecretOutput) ElementType() reflect.Type {
@@ -361,16 +372,23 @@ func (o DbClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbClusterParameterGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 
+// The “ReadEndpoint“ return value specifies the reader endpoint for the DB cluster.
+//
+//	The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+//	If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+//	For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
 type DbClusterReadEndpoint struct {
-	// The reader endpoint for the DB cluster.
+	// The host address of the reader endpoint.
 	Address *string `pulumi:"address"`
 }
 
@@ -385,8 +403,13 @@ type DbClusterReadEndpointInput interface {
 	ToDbClusterReadEndpointOutputWithContext(context.Context) DbClusterReadEndpointOutput
 }
 
+// The “ReadEndpoint“ return value specifies the reader endpoint for the DB cluster.
+//
+//	The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+//	If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+//	For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
 type DbClusterReadEndpointArgs struct {
-	// The reader endpoint for the DB cluster.
+	// The host address of the reader endpoint.
 	Address pulumi.StringPtrInput `pulumi:"address"`
 }
 
@@ -443,6 +466,11 @@ func (i *dbClusterReadEndpointPtrType) ToDbClusterReadEndpointPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointPtrOutput)
 }
 
+// The “ReadEndpoint“ return value specifies the reader endpoint for the DB cluster.
+//
+//	The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+//	If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+//	For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
 type DbClusterReadEndpointOutput struct{ *pulumi.OutputState }
 
 func (DbClusterReadEndpointOutput) ElementType() reflect.Type {
@@ -467,7 +495,7 @@ func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointPtrOutputWithContext
 	}).(DbClusterReadEndpointPtrOutput)
 }
 
-// The reader endpoint for the DB cluster.
+// The host address of the reader endpoint.
 func (o DbClusterReadEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterReadEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -496,7 +524,7 @@ func (o DbClusterReadEndpointPtrOutput) Elem() DbClusterReadEndpointOutput {
 	}).(DbClusterReadEndpointOutput)
 }
 
-// The reader endpoint for the DB cluster.
+// The host address of the reader endpoint.
 func (o DbClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterReadEndpoint) *string {
 		if v == nil {
@@ -506,30 +534,36 @@ func (o DbClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+// The “ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
+//
+//	For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v1 DB clusters only
 type DbClusterScalingConfiguration struct {
-	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	// Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	//   If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
 	AutoPause *bool `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-	// The maximum capacity must be greater than or equal to the minimum capacity.
+	// The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+	//  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+	//  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+	//  The maximum capacity must be greater than or equal to the minimum capacity.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-	// The minimum capacity must be less than or equal to the maximum capacity.
+	// The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+	//  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+	//  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+	//  The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity *int `pulumi:"minCapacity"`
-	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-	// The default is 300.
+	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+	//  Specify a value between 60 and 600 seconds.
 	SecondsBeforeTimeout *int `pulumi:"secondsBeforeTimeout"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+	// The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+	//  Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-	// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-	// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-	//
-	// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+	// The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
+	//   ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+	//   ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//   If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+	//   For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
@@ -544,30 +578,36 @@ type DbClusterScalingConfigurationInput interface {
 	ToDbClusterScalingConfigurationOutputWithContext(context.Context) DbClusterScalingConfigurationOutput
 }
 
-// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+// The “ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
+//
+//	For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v1 DB clusters only
 type DbClusterScalingConfigurationArgs struct {
-	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	// Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	//   If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-	// The maximum capacity must be greater than or equal to the minimum capacity.
+	// The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+	//  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+	//  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+	//  The maximum capacity must be greater than or equal to the minimum capacity.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-	// The minimum capacity must be less than or equal to the maximum capacity.
+	// The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+	//  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+	//  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+	//  The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
-	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-	// The default is 300.
+	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+	//  Specify a value between 60 and 600 seconds.
 	SecondsBeforeTimeout pulumi.IntPtrInput `pulumi:"secondsBeforeTimeout"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+	// The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+	//  Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-	// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-	// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-	//
-	// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+	// The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
+	//   ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+	//   ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//   If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+	//   For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
 }
 
@@ -624,7 +664,11 @@ func (i *dbClusterScalingConfigurationPtrType) ToDbClusterScalingConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterScalingConfigurationPtrOutput)
 }
 
-// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+// The “ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
+//
+//	For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v1 DB clusters only
 type DbClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DbClusterScalingConfigurationOutput) ElementType() reflect.Type {
@@ -649,43 +693,51 @@ func (o DbClusterScalingConfigurationOutput) ToDbClusterScalingConfigurationPtrO
 	}).(DbClusterScalingConfigurationPtrOutput)
 }
 
-// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+// Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in “serverless“ DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+//
+//	If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
 func (o DbClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-// The maximum capacity must be greater than or equal to the minimum capacity.
+// The maximum capacity for an Aurora DB cluster in “serverless“ DB engine mode.
+//
+//	For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+//	For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+//	The maximum capacity must be greater than or equal to the minimum capacity.
 func (o DbClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-// The minimum capacity must be less than or equal to the maximum capacity.
+// The minimum capacity for an Aurora DB cluster in “serverless“ DB engine mode.
+//
+//	For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+//	For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+//	The minimum capacity must be less than or equal to the maximum capacity.
 func (o DbClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-// The default is 300.
+// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+//
+//	Specify a value between 60 and 600 seconds.
 func (o DbClusterScalingConfigurationOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.SecondsBeforeTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+// The time, in seconds, before an Aurora DB cluster in “serverless“ mode is paused.
+//
+//	Specify a value between 300 and 86,400 seconds.
 func (o DbClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+// The action to take when the timeout is reached, either “ForceApplyCapacityChange“ or “RollbackCapacityChange“.
 //
-// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+//	``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+//	``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+//	If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+//	For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 func (o DbClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
 }
@@ -714,7 +766,9 @@ func (o DbClusterScalingConfigurationPtrOutput) Elem() DbClusterScalingConfigura
 	}).(DbClusterScalingConfigurationOutput)
 }
 
-// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+// Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in “serverless“ DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+//
+//	If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
 func (o DbClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *bool {
 		if v == nil {
@@ -724,10 +778,11 @@ func (o DbClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-// The maximum capacity must be greater than or equal to the minimum capacity.
+// The maximum capacity for an Aurora DB cluster in “serverless“ DB engine mode.
+//
+//	For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+//	For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+//	The maximum capacity must be greater than or equal to the minimum capacity.
 func (o DbClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
@@ -737,10 +792,11 @@ func (o DbClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-// The minimum capacity must be less than or equal to the maximum capacity.
+// The minimum capacity for an Aurora DB cluster in “serverless“ DB engine mode.
+//
+//	For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+//	For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+//	The minimum capacity must be less than or equal to the maximum capacity.
 func (o DbClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
@@ -750,8 +806,9 @@ func (o DbClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-// The default is 300.
+// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+//
+//	Specify a value between 60 and 600 seconds.
 func (o DbClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
@@ -761,7 +818,9 @@ func (o DbClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+// The time, in seconds, before an Aurora DB cluster in “serverless“ mode is paused.
+//
+//	Specify a value between 300 and 86,400 seconds.
 func (o DbClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *int {
 		if v == nil {
@@ -771,11 +830,12 @@ func (o DbClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+// The action to take when the timeout is reached, either “ForceApplyCapacityChange“ or “RollbackCapacityChange“.
 //
-// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+//	``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+//	``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+//	If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+//	For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 func (o DbClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *string {
 		if v == nil {
@@ -785,9 +845,15 @@ func (o DbClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+// The “ServerlessV2ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
+//
+//	If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v2 DB clusters
 type DbClusterServerlessV2ScalingConfiguration struct {
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+	//  The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+	//  Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
 	MinCapacity *float64 `pulumi:"minCapacity"`
@@ -804,9 +870,15 @@ type DbClusterServerlessV2ScalingConfigurationInput interface {
 	ToDbClusterServerlessV2ScalingConfigurationOutputWithContext(context.Context) DbClusterServerlessV2ScalingConfigurationOutput
 }
 
-// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+// The “ServerlessV2ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
+//
+//	If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v2 DB clusters
 type DbClusterServerlessV2ScalingConfigurationArgs struct {
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+	//  The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+	//  Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
@@ -865,7 +937,11 @@ func (i *dbClusterServerlessV2ScalingConfigurationPtrType) ToDbClusterServerless
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
-// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+// The “ServerlessV2ScalingConfiguration“ property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
+//
+//	If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
+//	This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
+//	Valid for: Aurora Serverless v2 DB clusters
 type DbClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DbClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
@@ -891,6 +967,9 @@ func (o DbClusterServerlessV2ScalingConfigurationOutput) ToDbClusterServerlessV2
 }
 
 // The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+//
+//	The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+//	Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
 func (o DbClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DbClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -925,6 +1004,9 @@ func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) Elem() DbClusterServ
 }
 
 // The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+//
+//	The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+//	Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
 func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DbClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -944,15 +1026,17 @@ func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbClusterTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 
-// Returns the details of the DB instance’s server certificate.
+// The details of the DB instance’s server certificate.
 //
 //	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetails struct {
@@ -973,7 +1057,7 @@ type DbInstanceCertificateDetailsInput interface {
 	ToDbInstanceCertificateDetailsOutputWithContext(context.Context) DbInstanceCertificateDetailsOutput
 }
 
-// Returns the details of the DB instance’s server certificate.
+// The details of the DB instance’s server certificate.
 //
 //	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetailsArgs struct {
@@ -1036,7 +1120,7 @@ func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsPtrOutput)
 }
 
-// Returns the details of the DB instance’s server certificate.
+// The details of the DB instance’s server certificate.
 //
 //	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
@@ -1597,7 +1681,7 @@ func (o DbInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput 
 type DbInstanceProcessorFeature struct {
 	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name *DbInstanceProcessorFeatureName `pulumi:"name"`
-	// The value of a processor feature name.
+	// The value of a processor feature.
 	Value *string `pulumi:"value"`
 }
 
@@ -1616,7 +1700,7 @@ type DbInstanceProcessorFeatureInput interface {
 type DbInstanceProcessorFeatureArgs struct {
 	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name DbInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
-	// The value of a processor feature name.
+	// The value of a processor feature.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1677,7 +1761,7 @@ func (o DbInstanceProcessorFeatureOutput) Name() DbInstanceProcessorFeatureNameP
 	return o.ApplyT(func(v DbInstanceProcessorFeature) *DbInstanceProcessorFeatureName { return v.Name }).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
-// The value of a processor feature name.
+// The value of a processor feature.
 func (o DbInstanceProcessorFeatureOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceProcessorFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2096,11 +2180,13 @@ type DbSubnetGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type EventSubscriptionTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 
@@ -2112,7 +2198,7 @@ type IntegrationTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+// The “OptionConfiguration“ property type specifies an individual option, and its settings, within an “AWS::RDS::OptionGroup“ resource.
 type OptionGroupOptionConfiguration struct {
 	// A list of DBSecurityGroupMembership name strings used for this option.
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
@@ -2139,7 +2225,7 @@ type OptionGroupOptionConfigurationInput interface {
 	ToOptionGroupOptionConfigurationOutputWithContext(context.Context) OptionGroupOptionConfigurationOutput
 }
 
-// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+// The “OptionConfiguration“ property type specifies an individual option, and its settings, within an “AWS::RDS::OptionGroup“ resource.
 type OptionGroupOptionConfigurationArgs struct {
 	// A list of DBSecurityGroupMembership name strings used for this option.
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
@@ -2192,7 +2278,7 @@ func (i OptionGroupOptionConfigurationArray) ToOptionGroupOptionConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationArrayOutput)
 }
 
-// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+// The “OptionConfiguration“ property type specifies an individual option, and its settings, within an “AWS::RDS::OptionGroup“ resource.
 type OptionGroupOptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionConfigurationOutput) ElementType() reflect.Type {
@@ -2257,7 +2343,7 @@ func (o OptionGroupOptionConfigurationArrayOutput) Index(i pulumi.IntInput) Opti
 	}).(OptionGroupOptionConfigurationOutput)
 }
 
-// The OptionSetting property type specifies the value for an option within an OptionSetting property.
+// The “OptionSetting“ property type specifies the value for an option within an “OptionSetting“ property.
 type OptionGroupOptionSetting struct {
 	// The name of the option that has settings that you can set.
 	Name *string `pulumi:"name"`
@@ -2276,7 +2362,7 @@ type OptionGroupOptionSettingInput interface {
 	ToOptionGroupOptionSettingOutputWithContext(context.Context) OptionGroupOptionSettingOutput
 }
 
-// The OptionSetting property type specifies the value for an option within an OptionSetting property.
+// The “OptionSetting“ property type specifies the value for an option within an “OptionSetting“ property.
 type OptionGroupOptionSettingArgs struct {
 	// The name of the option that has settings that you can set.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2321,7 +2407,7 @@ func (i OptionGroupOptionSettingArray) ToOptionGroupOptionSettingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingArrayOutput)
 }
 
-// The OptionSetting property type specifies the value for an option within an OptionSetting property.
+// The “OptionSetting“ property type specifies the value for an option within an “OptionSetting“ property.
 type OptionGroupOptionSettingOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionSettingOutput) ElementType() reflect.Type {
@@ -2366,11 +2452,13 @@ func (o OptionGroupOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGrou
 	}).(OptionGroupOptionSettingOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type OptionGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 

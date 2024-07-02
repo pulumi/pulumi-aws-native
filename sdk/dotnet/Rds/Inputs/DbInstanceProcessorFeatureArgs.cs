@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         public Input<Pulumi.AwsNative.Rds.DbInstanceProcessorFeatureName>? Name { get; set; }
 
         /// <summary>
-        /// The value of a processor feature name.
+        /// The value of a processor feature.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

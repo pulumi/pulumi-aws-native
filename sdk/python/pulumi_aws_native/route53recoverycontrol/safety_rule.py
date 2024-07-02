@@ -24,7 +24,7 @@ class SafetyRuleArgs:
                  gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
         :param pulumi.Input['SafetyRuleAssertionRuleArgs'] assertion_rule: An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
@@ -34,7 +34,7 @@ class SafetyRuleArgs:
                For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
         :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
         :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
         if assertion_rule is not None:
             pulumi.set(__self__, "assertion_rule", assertion_rule)
@@ -113,14 +113,14 @@ class SafetyRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -134,7 +134,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -148,7 +148,7 @@ class SafetyRule(pulumi.CustomResource):
                For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
         :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
         :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -179,7 +179,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,8 +197,6 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["safety_rule_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["controlPanelArn", "ruleConfig", "tags[*]"])
-        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SafetyRule, __self__).__init__(
             'aws-native:route53recoverycontrol:SafetyRule',
             resource_name,
@@ -291,7 +289,7 @@ class SafetyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource
         """

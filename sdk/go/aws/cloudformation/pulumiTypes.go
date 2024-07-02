@@ -796,6 +796,7 @@ func (o StackSetDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringAr
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferences struct {
+	ConcurrencyMode *StackSetConcurrencyMode `pulumi:"concurrencyMode"`
 	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
@@ -841,6 +842,7 @@ type StackSetOperationPreferencesInput interface {
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferencesArgs struct {
+	ConcurrencyMode StackSetConcurrencyModePtrInput `pulumi:"concurrencyMode"`
 	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
@@ -951,6 +953,10 @@ func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOut
 	}).(StackSetOperationPreferencesPtrOutput)
 }
 
+func (o StackSetOperationPreferencesOutput) ConcurrencyMode() StackSetConcurrencyModePtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *StackSetConcurrencyMode { return v.ConcurrencyMode }).(StackSetConcurrencyModePtrOutput)
+}
+
 // The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
@@ -1021,6 +1027,15 @@ func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferenc
 		var ret StackSetOperationPreferences
 		return ret
 	}).(StackSetOperationPreferencesOutput)
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ConcurrencyMode() StackSetConcurrencyModePtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *StackSetConcurrencyMode {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrencyMode
+	}).(StackSetConcurrencyModePtrOutput)
 }
 
 // The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.

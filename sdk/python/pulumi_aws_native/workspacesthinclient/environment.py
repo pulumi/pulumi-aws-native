@@ -22,6 +22,7 @@ class EnvironmentArgs:
                  desktop_arn: pulumi.Input[str],
                  desired_software_set_id: Optional[pulumi.Input[str]] = None,
                  desktop_endpoint: Optional[pulumi.Input[str]] = None,
+                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['EnvironmentMaintenanceWindowArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class EnvironmentArgs:
         :param pulumi.Input[str] desktop_arn: The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
         :param pulumi.Input[str] desired_software_set_id: The ID of the software set to apply.
         :param pulumi.Input[str] desktop_endpoint: The URL for the identity provider login (only for environments that use AppStream 2.0).
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] device_creation_tags: An array of key-value pairs to apply to the newly created devices for this environment.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
         :param pulumi.Input['EnvironmentMaintenanceWindowArgs'] maintenance_window: A specification for a time window to apply software updates.
         :param pulumi.Input[str] name: The name of the environment.
@@ -45,6 +47,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "desired_software_set_id", desired_software_set_id)
         if desktop_endpoint is not None:
             pulumi.set(__self__, "desktop_endpoint", desktop_endpoint)
+        if device_creation_tags is not None:
+            pulumi.set(__self__, "device_creation_tags", device_creation_tags)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
@@ -93,6 +97,18 @@ class EnvironmentArgs:
     @desktop_endpoint.setter
     def desktop_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "desktop_endpoint", value)
+
+    @property
+    @pulumi.getter(name="deviceCreationTags")
+    def device_creation_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to the newly created devices for this environment.
+        """
+        return pulumi.get(self, "device_creation_tags")
+
+    @device_creation_tags.setter
+    def device_creation_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
+        pulumi.set(self, "device_creation_tags", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -175,6 +191,7 @@ class Environment(pulumi.CustomResource):
                  desired_software_set_id: Optional[pulumi.Input[str]] = None,
                  desktop_arn: Optional[pulumi.Input[str]] = None,
                  desktop_endpoint: Optional[pulumi.Input[str]] = None,
+                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -190,6 +207,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] desired_software_set_id: The ID of the software set to apply.
         :param pulumi.Input[str] desktop_arn: The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
         :param pulumi.Input[str] desktop_endpoint: The URL for the identity provider login (only for environments that use AppStream 2.0).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] device_creation_tags: An array of key-value pairs to apply to the newly created devices for this environment.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
         :param pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']] maintenance_window: A specification for a time window to apply software updates.
         :param pulumi.Input[str] name: The name of the environment.
@@ -224,6 +242,7 @@ class Environment(pulumi.CustomResource):
                  desired_software_set_id: Optional[pulumi.Input[str]] = None,
                  desktop_arn: Optional[pulumi.Input[str]] = None,
                  desktop_endpoint: Optional[pulumi.Input[str]] = None,
+                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -244,6 +263,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'desktop_arn'")
             __props__.__dict__["desktop_arn"] = desktop_arn
             __props__.__dict__["desktop_endpoint"] = desktop_endpoint
+            __props__.__dict__["device_creation_tags"] = device_creation_tags
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
@@ -292,6 +312,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["desktop_arn"] = None
         __props__.__dict__["desktop_endpoint"] = None
         __props__.__dict__["desktop_type"] = None
+        __props__.__dict__["device_creation_tags"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
@@ -368,6 +389,14 @@ class Environment(pulumi.CustomResource):
         The type of VDI.
         """
         return pulumi.get(self, "desktop_type")
+
+    @property
+    @pulumi.getter(name="deviceCreationTags")
+    def device_creation_tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTag']]]:
+        """
+        An array of key-value pairs to apply to the newly created devices for this environment.
+        """
+        return pulumi.get(self, "device_creation_tags")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

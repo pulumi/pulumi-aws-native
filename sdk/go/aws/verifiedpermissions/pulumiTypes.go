@@ -1574,7 +1574,7 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 }
 
 type PolicyStoreSchemaDefinition struct {
-	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
 	CedarJson *string `pulumi:"cedarJson"`
 }
 
@@ -1590,7 +1590,7 @@ type PolicyStoreSchemaDefinitionInput interface {
 }
 
 type PolicyStoreSchemaDefinitionArgs struct {
-	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
 	CedarJson pulumi.StringPtrInput `pulumi:"cedarJson"`
 }
 
@@ -1671,7 +1671,7 @@ func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutpu
 	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
-// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
 func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
@@ -1700,7 +1700,7 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinition
 	}).(PolicyStoreSchemaDefinitionOutput)
 }
 
-// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
 func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStoreSchemaDefinition) *string {
 		if v == nil {

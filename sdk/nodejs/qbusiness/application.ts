@@ -75,6 +75,7 @@ export class Application extends pulumi.CustomResource {
      * *Required* : `Yes`
      */
     public readonly identityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    public readonly qAppsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      */
@@ -111,6 +112,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
+            resourceInputs["qAppsConfiguration"] = args ? args.qAppsConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
@@ -129,6 +131,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["identityCenterInstanceArn"] = undefined /*out*/;
+            resourceInputs["qAppsConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -167,6 +170,7 @@ export interface ApplicationArgs {
      * *Required* : `Yes`
      */
     identityCenterInstanceArn?: pulumi.Input<string>;
+    qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      */

@@ -361,16 +361,11 @@ type DbInstance struct {
 	//   +   ``sqlserver-web``
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The life cycle type for this DB instance.
-	//
-	// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
-	//
-	// This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
-	//
-	// You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .
-	//
-	// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
-	//
-	// Default: `open-source-rds-extended-support`
+	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
+	//   This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
+	//  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
+	//  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
+	//  Default: ``open-source-rds-extended-support``
 	EngineLifecycleSupport pulumi.StringPtrOutput `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use.
 	//  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
@@ -1021,16 +1016,11 @@ type dbInstanceArgs struct {
 	//   +   ``sqlserver-web``
 	Engine *string `pulumi:"engine"`
 	// The life cycle type for this DB instance.
-	//
-	// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
-	//
-	// This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
-	//
-	// You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .
-	//
-	// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
-	//
-	// Default: `open-source-rds-extended-support`
+	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
+	//   This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
+	//  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
+	//  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
+	//  Default: ``open-source-rds-extended-support``
 	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use.
 	//  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
@@ -1627,16 +1617,11 @@ type DbInstanceArgs struct {
 	//   +   ``sqlserver-web``
 	Engine pulumi.StringPtrInput
 	// The life cycle type for this DB instance.
-	//
-	// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
-	//
-	// This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
-	//
-	// You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .
-	//
-	// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
-	//
-	// Default: `open-source-rds-extended-support`
+	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
+	//   This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
+	//  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
+	//  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
+	//  Default: ``open-source-rds-extended-support``
 	EngineLifecycleSupport pulumi.StringPtrInput
 	// The version number of the database engine to use.
 	//  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
@@ -2425,15 +2410,11 @@ func (o DbInstanceOutput) Engine() pulumi.StringPtrOutput {
 
 // The life cycle type for this DB instance.
 //
-// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
-//
-// This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
-//
-// You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .
-//
-// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
-//
-// Default: `open-source-rds-extended-support`
+//	 By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
+//	 This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
+//	You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
+//	Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
+//	Default: ``open-source-rds-extended-support``
 func (o DbInstanceOutput) EngineLifecycleSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.EngineLifecycleSupport }).(pulumi.StringPtrOutput)
 }
