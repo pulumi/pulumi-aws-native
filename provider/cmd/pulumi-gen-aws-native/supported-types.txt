@@ -170,6 +170,7 @@ AWS::CodeDeploy::DeploymentConfig
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
+AWS::CodePipeline::Pipeline
 AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::RepositoryLink
 AWS::CodeStarConnections::SyncConfiguration
@@ -610,6 +611,7 @@ AWS::Lambda::LayerVersionPermission
 AWS::Lambda::Permission
 AWS::Lambda::Url
 AWS::Lambda::Version
+AWS::LaunchWizard::Deployment
 AWS::Lex::Bot
 AWS::Lex::BotAlias
 AWS::Lex::BotVersion

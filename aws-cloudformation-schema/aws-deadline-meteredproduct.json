@@ -32,7 +32,7 @@
     }
   },
   "createOnlyProperties" : [ "/properties/LicenseEndpointId", "/properties/ProductId" ],
-  "readOnlyProperties" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Port", "/properties/Family", "/properties/Vendor" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "tagging" : {
     "taggable" : false,

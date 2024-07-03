@@ -231,7 +231,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "kms:*" ],
+      "permissions" : [ "iam:PassRole", "iam:CreateServiceLinkedRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ListTagsForResource", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "kms:*" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
