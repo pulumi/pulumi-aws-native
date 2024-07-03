@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WorkSpaces.Outputs
     [OutputType]
     public sealed class WorkspacesPoolCapacity
     {
+        /// <summary>
+        /// The desired number of user sessions for the WorkSpaces in the pool.
+        /// </summary>
         public readonly int DesiredUserSessions;
 
         [OutputConstructor]

@@ -33,7 +33,7 @@ type SafetyRule struct {
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status SafetyRuleStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.
@@ -43,12 +43,6 @@ func NewSafetyRule(ctx *pulumi.Context,
 		args = &SafetyRuleArgs{}
 	}
 
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"controlPanelArn",
-		"ruleConfig",
-		"tags[*]",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SafetyRule
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:SafetyRule", name, args, &resource, opts...)
@@ -95,7 +89,7 @@ type safetyRuleArgs struct {
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 	// A collection of tags associated with a resource
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SafetyRule resource.
@@ -113,7 +107,7 @@ type SafetyRuleArgs struct {
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig SafetyRuleRuleConfigPtrInput
 	// A collection of tags associated with a resource
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SafetyRuleArgs) ElementType() reflect.Type {
@@ -191,8 +185,8 @@ func (o SafetyRuleOutput) Status() SafetyRuleStatusOutput {
 }
 
 // A collection of tags associated with a resource
-func (o SafetyRuleOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *SafetyRule) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o SafetyRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SafetyRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Rds
     public static class GetOptionGroup
     {
         /// <summary>
-        /// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+        /// The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
         /// </summary>
         public static Task<GetOptionGroupResult> InvokeAsync(GetOptionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+        /// The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
         /// </summary>
         public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,15 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetOptionGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the option group.
+        /// The name of the option group to be created.
+        ///  Constraints:
+        ///   +  Must be 1 to 255 letters, numbers, or hyphens
+        ///   +  First character must be a letter
+        ///   +  Can't end with a hyphen or contain two consecutive hyphens
+        ///   
+        ///  Example: ``myoptiongroup`` 
+        ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("optionGroupName", required: true)]
         public string OptionGroupName { get; set; } = null!;
@@ -42,7 +50,15 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetOptionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the option group.
+        /// The name of the option group to be created.
+        ///  Constraints:
+        ///   +  Must be 1 to 255 letters, numbers, or hyphens
+        ///   +  First character must be a letter
+        ///   +  Can't end with a hyphen or contain two consecutive hyphens
+        ///   
+        ///  Example: ``myoptiongroup`` 
+        ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("optionGroupName", required: true)]
         public Input<string> OptionGroupName { get; set; } = null!;
@@ -58,11 +74,11 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetOptionGroupResult
     {
         /// <summary>
-        /// Indicates what options are available in the option group.
+        /// A list of options and the settings for each option.
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionConfiguration> OptionConfigurations;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this option group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

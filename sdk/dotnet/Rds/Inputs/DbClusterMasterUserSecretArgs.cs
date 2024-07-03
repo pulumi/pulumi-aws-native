@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Inputs
 {
 
+    /// <summary>
+    /// The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+    ///  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+    /// </summary>
     public sealed class DbClusterMasterUserSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

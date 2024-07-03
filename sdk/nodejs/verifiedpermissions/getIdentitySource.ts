@@ -32,7 +32,7 @@ export interface GetIdentitySourceArgs {
 
 export interface GetIdentitySourceResult {
     /**
-     * Contains configuration information about an identity source.
+     * Contains configuration information used when creating a new identity source.
      */
     readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfiguration0Properties | outputs.verifiedpermissions.IdentitySourceConfiguration1Properties;
     readonly details?: outputs.verifiedpermissions.IdentitySourceDetails;

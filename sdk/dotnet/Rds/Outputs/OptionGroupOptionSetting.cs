@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
 {
 
     /// <summary>
-    /// The OptionSetting property type specifies the value for an option within an OptionSetting property.
+    /// The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
     /// </summary>
     [OutputType]
     public sealed class OptionGroupOptionSetting

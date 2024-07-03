@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'ApplicationAttachmentsConfiguration',
     'ApplicationEncryptionConfiguration',
+    'ApplicationQAppsConfiguration',
     'DataSourceDocumentAttributeCondition',
     'DataSourceDocumentAttributeTarget',
     'DataSourceDocumentAttributeValue0Properties',
@@ -113,6 +114,41 @@ class ApplicationEncryptionConfiguration(dict):
         The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ApplicationQAppsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qAppsControlMode":
+            suggest = "q_apps_control_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationQAppsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationQAppsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationQAppsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 q_apps_control_mode: 'ApplicationQAppsControlMode'):
+        """
+        :param 'ApplicationQAppsControlMode' q_apps_control_mode: Status information about whether end users can create and use Amazon Q Apps in the web experience.
+        """
+        pulumi.set(__self__, "q_apps_control_mode", q_apps_control_mode)
+
+    @property
+    @pulumi.getter(name="qAppsControlMode")
+    def q_apps_control_mode(self) -> 'ApplicationQAppsControlMode':
+        """
+        Status information about whether end users can create and use Amazon Q Apps in the web experience.
+        """
+        return pulumi.get(self, "q_apps_control_mode")
 
 
 @pulumi.output_type

@@ -57,7 +57,7 @@ import (
 type IdentitySource struct {
 	pulumi.CustomResourceState
 
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	Configuration pulumi.AnyOutput            `pulumi:"configuration"`
 	Details       IdentitySourceDetailsOutput `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
@@ -118,7 +118,7 @@ func (IdentitySourceState) ElementType() reflect.Type {
 }
 
 type identitySourceArgs struct {
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	Configuration interface{} `pulumi:"configuration"`
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId string `pulumi:"policyStoreId"`
@@ -128,7 +128,7 @@ type identitySourceArgs struct {
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	Configuration pulumi.Input
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId pulumi.StringInput
@@ -173,7 +173,7 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Contains configuration information about an identity source.
+// Contains configuration information used when creating a new identity source.
 func (o IdentitySourceOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }

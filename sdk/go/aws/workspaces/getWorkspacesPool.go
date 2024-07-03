@@ -23,19 +23,29 @@ func LookupWorkspacesPool(ctx *pulumi.Context, args *LookupWorkspacesPoolArgs, o
 }
 
 type LookupWorkspacesPoolArgs struct {
+	// The identifier of the pool.
 	PoolId string `pulumi:"poolId"`
 }
 
 type LookupWorkspacesPoolResult struct {
+	// The persistent application settings for users of the pool.
 	ApplicationSettings *WorkspacesPoolApplicationSettings `pulumi:"applicationSettings"`
-	BundleId            *string                            `pulumi:"bundleId"`
-	Capacity            *WorkspacesPoolCapacity            `pulumi:"capacity"`
-	CreatedAt           *string                            `pulumi:"createdAt"`
-	Description         *string                            `pulumi:"description"`
-	DirectoryId         *string                            `pulumi:"directoryId"`
-	PoolArn             *string                            `pulumi:"poolArn"`
-	PoolId              *string                            `pulumi:"poolId"`
-	TimeoutSettings     *WorkspacesPoolTimeoutSettings     `pulumi:"timeoutSettings"`
+	// The identifier of the bundle used by the pool.
+	BundleId *string `pulumi:"bundleId"`
+	// Describes the user capacity for the pool.
+	Capacity *WorkspacesPoolCapacity `pulumi:"capacity"`
+	// The time the pool was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The description of the pool.
+	Description *string `pulumi:"description"`
+	// The identifier of the directory used by the pool.
+	DirectoryId *string `pulumi:"directoryId"`
+	// The Amazon Resource Name (ARN) for the pool.
+	PoolArn *string `pulumi:"poolArn"`
+	// The identifier of the pool.
+	PoolId *string `pulumi:"poolId"`
+	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+	TimeoutSettings *WorkspacesPoolTimeoutSettings `pulumi:"timeoutSettings"`
 }
 
 func LookupWorkspacesPoolOutput(ctx *pulumi.Context, args LookupWorkspacesPoolOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspacesPoolResultOutput {
@@ -52,6 +62,7 @@ func LookupWorkspacesPoolOutput(ctx *pulumi.Context, args LookupWorkspacesPoolOu
 }
 
 type LookupWorkspacesPoolOutputArgs struct {
+	// The identifier of the pool.
 	PoolId pulumi.StringInput `pulumi:"poolId"`
 }
 
@@ -73,38 +84,47 @@ func (o LookupWorkspacesPoolResultOutput) ToLookupWorkspacesPoolResultOutputWith
 	return o
 }
 
+// The persistent application settings for users of the pool.
 func (o LookupWorkspacesPoolResultOutput) ApplicationSettings() WorkspacesPoolApplicationSettingsPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *WorkspacesPoolApplicationSettings { return v.ApplicationSettings }).(WorkspacesPoolApplicationSettingsPtrOutput)
 }
 
+// The identifier of the bundle used by the pool.
 func (o LookupWorkspacesPoolResultOutput) BundleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.BundleId }).(pulumi.StringPtrOutput)
 }
 
+// Describes the user capacity for the pool.
 func (o LookupWorkspacesPoolResultOutput) Capacity() WorkspacesPoolCapacityPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *WorkspacesPoolCapacity { return v.Capacity }).(WorkspacesPoolCapacityPtrOutput)
 }
 
+// The time the pool was created.
 func (o LookupWorkspacesPoolResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The description of the pool.
 func (o LookupWorkspacesPoolResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the directory used by the pool.
 func (o LookupWorkspacesPoolResultOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the pool.
 func (o LookupWorkspacesPoolResultOutput) PoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.PoolArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the pool.
 func (o LookupWorkspacesPoolResultOutput) PoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.PoolId }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 func (o LookupWorkspacesPoolResultOutput) TimeoutSettings() WorkspacesPoolTimeoutSettingsPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *WorkspacesPoolTimeoutSettings { return v.TimeoutSettings }).(WorkspacesPoolTimeoutSettingsPtrOutput)
 }

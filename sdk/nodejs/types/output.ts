@@ -10021,6 +10021,7 @@ export namespace cloudformation {
      * The user-specified preferences for how AWS CloudFormation performs a stack set operation.
      */
     export interface StackSetOperationPreferences {
+        concurrencyMode?: enums.cloudformation.StackSetConcurrencyMode;
         /**
          * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
          *
@@ -12239,6 +12240,332 @@ export namespace codepipeline {
          * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
          */
         thirdPartyConfigurationUrl?: string;
+    }
+
+    /**
+     * Represents information about an action declaration.
+     */
+    export interface PipelineActionDeclaration {
+        /**
+         * Specifies the action type and the provider of the action.
+         */
+        actionTypeId: outputs.codepipeline.PipelineActionTypeId;
+        /**
+         * The action's configuration. These are key-value pairs that specify input values for an action.
+         */
+        configuration?: any;
+        /**
+         * The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+         *
+         * > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
+         */
+        inputArtifacts?: outputs.codepipeline.PipelineInputArtifact[];
+        /**
+         * The action declaration's name.
+         */
+        name: string;
+        /**
+         * The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
+         */
+        namespace?: string;
+        /**
+         * The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+         */
+        outputArtifacts?: outputs.codepipeline.PipelineOutputArtifact[];
+        /**
+         * The action declaration's AWS Region, such as us-east-1.
+         */
+        region?: string;
+        /**
+         * The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
+         */
+        roleArn?: string;
+        /**
+         * The order in which actions are run.
+         */
+        runOrder?: number;
+        /**
+         * A timeout duration in minutes that can be applied against the ActionType’s default timeout value specified in Quotas for AWS CodePipeline. This attribute is available only to the manual approval ActionType.
+         */
+        timeoutInMinutes?: number;
+    }
+
+    /**
+     * Represents information about an action type.
+     */
+    export interface PipelineActionTypeId {
+        /**
+         * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
+         */
+        category: enums.codepipeline.PipelineActionTypeIdCategory;
+        /**
+         * The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom.
+         */
+        owner: string;
+        /**
+         * The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy.
+         */
+        provider: string;
+        /**
+         * A string that describes the action version.
+         */
+        version: string;
+    }
+
+    /**
+     * The S3 bucket where artifacts for the pipeline are stored.
+     */
+    export interface PipelineArtifactStore {
+        /**
+         * The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key. If this is undefined, the default key for Amazon S3 is used. To see an example artifact store encryption key field, see the example structure here: [AWS::CodePipeline::Pipeline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html) .
+         */
+        encryptionKey?: outputs.codepipeline.PipelineEncryptionKey;
+        /**
+         * The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
+         */
+        location: string;
+        /**
+         * The type of the artifact store, such as S3.
+         */
+        type: enums.codepipeline.PipelineArtifactStoreType;
+    }
+
+    /**
+     * A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+     */
+    export interface PipelineArtifactStoreMap {
+        /**
+         * Represents information about the S3 bucket where artifacts are stored for the pipeline.
+         *
+         * > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
+         */
+        artifactStore: outputs.codepipeline.PipelineArtifactStore;
+        /**
+         * The action declaration's AWS Region, such as us-east-1.
+         */
+        region: string;
+    }
+
+    /**
+     * Reserved for future use.
+     */
+    export interface PipelineBlockerDeclaration {
+        /**
+         * Reserved for future use.
+         */
+        name: string;
+        /**
+         * Reserved for future use.
+         */
+        type: enums.codepipeline.PipelineBlockerDeclarationType;
+    }
+
+    /**
+     * Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key
+     */
+    export interface PipelineEncryptionKey {
+        /**
+         * The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
+         */
+        id: string;
+        /**
+         * The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
+         */
+        type: string;
+    }
+
+    /**
+     * The configuration that specifies the result, such as rollback, to occur upon stage failure
+     */
+    export interface PipelineFailureConditions {
+        /**
+         * The specified result for when the failure conditions are met, such as rolling back the stage
+         */
+        result?: enums.codepipeline.PipelineFailureConditionsResult;
+    }
+
+    /**
+     * The Git repository branches specified as filter criteria to start the pipeline.
+     */
+    export interface PipelineGitBranchFilterCriteria {
+        /**
+         * The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: string[];
+        /**
+         * The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: string[];
+    }
+
+    /**
+     * A type of trigger configuration for Git-based source actions.
+     */
+    export interface PipelineGitConfiguration {
+        /**
+         * The field where the repository event that will start the pipeline is specified as pull requests.
+         */
+        pullRequest?: outputs.codepipeline.PipelineGitPullRequestFilter[];
+        /**
+         * The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
+         */
+        push?: outputs.codepipeline.PipelineGitPushFilter[];
+        /**
+         * The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
+         */
+        sourceActionName: string;
+    }
+
+    /**
+     * The Git repository file paths specified as filter criteria to start the pipeline.
+     */
+    export interface PipelineGitFilePathFilterCriteria {
+        /**
+         * The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: string[];
+        /**
+         * The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: string[];
+    }
+
+    /**
+     * The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.
+     */
+    export interface PipelineGitPullRequestFilter {
+        /**
+         * The field that specifies to filter on branches for the pull request trigger configuration.
+         */
+        branches?: outputs.codepipeline.PipelineGitBranchFilterCriteria;
+        /**
+         * The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.
+         */
+        events?: string[];
+        /**
+         * The field that specifies to filter on file paths for the pull request trigger configuration.
+         */
+        filePaths?: outputs.codepipeline.PipelineGitFilePathFilterCriteria;
+    }
+
+    /**
+     * The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.
+     */
+    export interface PipelineGitPushFilter {
+        /**
+         * The field that specifies to filter on branches for the push trigger configuration.
+         */
+        branches?: outputs.codepipeline.PipelineGitBranchFilterCriteria;
+        /**
+         * The field that specifies to filter on file paths for the push trigger configuration.
+         */
+        filePaths?: outputs.codepipeline.PipelineGitFilePathFilterCriteria;
+        /**
+         * The field that contains the details for the Git tags trigger configuration.
+         */
+        tags?: outputs.codepipeline.PipelineGitTagFilterCriteria;
+    }
+
+    /**
+     * The Git tags specified as filter criteria for whether a Git tag repository event will start the pipeline.
+     */
+    export interface PipelineGitTagFilterCriteria {
+        /**
+         * The list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+         */
+        excludes?: string[];
+        /**
+         * The list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+         */
+        includes?: string[];
+    }
+
+    /**
+     * Represents information about an artifact to be worked on, such as a test or build artifact.
+     */
+    export interface PipelineInputArtifact {
+        /**
+         * The name of the artifact to be worked on (for example, "My App").
+         */
+        name: string;
+    }
+
+    /**
+     * Represents information about the output of an action.
+     */
+    export interface PipelineOutputArtifact {
+        /**
+         * The name of the output of an artifact, such as "My App".
+         */
+        name: string;
+    }
+
+    /**
+     * Represents information about a stage and its definition.
+     */
+    export interface PipelineStageDeclaration {
+        /**
+         * The actions included in a stage.
+         */
+        actions: outputs.codepipeline.PipelineActionDeclaration[];
+        /**
+         * Reserved for future use.
+         */
+        blockers?: outputs.codepipeline.PipelineBlockerDeclaration[];
+        /**
+         * The name of the stage.
+         */
+        name: string;
+        /**
+         * The method to use when a stage has not completed successfully
+         */
+        onFailure?: outputs.codepipeline.PipelineFailureConditions;
+    }
+
+    /**
+     * The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
+     */
+    export interface PipelineStageTransition {
+        /**
+         * The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
+         */
+        reason: string;
+        /**
+         * The name of the stage where you want to disable the inbound or outbound transition of artifacts.
+         */
+        stageName: string;
+    }
+
+    /**
+     * Represents information about the specified trigger configuration, such as the filter criteria and the source stage for the action that contains the trigger.
+     */
+    export interface PipelineTriggerDeclaration {
+        /**
+         * Provides the filter criteria and the source stage for the repository event that starts the pipeline, such as Git tags.
+         */
+        gitConfiguration?: outputs.codepipeline.PipelineGitConfiguration;
+        /**
+         * The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
+         */
+        providerType: enums.codepipeline.PipelineTriggerDeclarationProviderType;
+    }
+
+    /**
+     * A variable declared at the pipeline level.
+     */
+    export interface PipelineVariableDeclaration {
+        /**
+         * The value of a pipeline-level variable.
+         */
+        defaultValue?: string;
+        /**
+         * The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.
+         */
+        description?: string;
+        /**
+         * The name of a pipeline-level variable.
+         */
+        name: string;
     }
 
 }
@@ -22897,9 +23224,10 @@ export namespace ecs {
          *  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
          *   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
          *   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
-         *  On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
+         *  On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2, and the maximum valid CPU share value that the Linux kernel allows is 262144. However, the CPU parameter isn't required, and you can use CPU values below 2 or above 262144 in your container definitions. For CPU values below 2 (including null) or above 262144, the behavior varies based on your Amazon ECS container agent version:
          *   +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.
          *   +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
+         *   +   *Agent versions greater than or equal to 1.84.0:* CPU values greater than 256 vCPU are passed to Docker as 256, which is equivalent to 262144 CPU shares.
          *   
          *  On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
          */
@@ -23717,7 +24045,7 @@ export namespace ecs {
 
     /**
      * The ``ulimit`` settings to pass to the container.
-     *  Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``1024`` and the default hard limit is ``65535``.
+     *  Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
      *  You can specify the ``ulimit`` settings for a container in a task definition.
      */
     export interface TaskDefinitionUlimit {
@@ -38881,6 +39209,9 @@ export namespace lambda {
 
 }
 
+export namespace launchwizard {
+}
+
 export namespace lex {
     /**
      * Provides settings that enable advanced recognition settings for slot values.
@@ -48138,6 +48469,13 @@ export namespace qbusiness {
          * The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
          */
         kmsKeyId?: string;
+    }
+
+    export interface ApplicationQAppsConfiguration {
+        /**
+         * Status information about whether end users can create and use Amazon Q Apps in the web experience.
+         */
+        qAppsControlMode: enums.qbusiness.ApplicationQAppsControlMode;
     }
 
     export interface DataSourceDocumentAttributeCondition {
@@ -75631,7 +75969,7 @@ export namespace rds {
      */
     export interface DbClusterDbClusterRole {
         /**
-         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
          */
         featureName?: string;
         /**
@@ -75640,17 +75978,24 @@ export namespace rds {
         roleArn: string;
     }
 
+    /**
+     * The ``Endpoint`` return value specifies the connection endpoint for the primary instance of the DB cluster.
+     */
     export interface DbClusterEndpoint {
         /**
-         * The connection endpoint for the DB cluster.
+         * Specifies the connection endpoint for the primary instance of the DB cluster.
          */
         address?: string;
         /**
-         * The port number that will accept connections on this DB cluster.
+         * Specifies the port that the database engine is listening on.
          */
         port?: string;
     }
 
+    /**
+     * The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+     */
     export interface DbClusterMasterUserSecret {
         /**
          * The AWS KMS key identifier that is used to encrypt the secret.
@@ -75662,60 +76007,76 @@ export namespace rds {
         secretArn?: string;
     }
 
+    /**
+     * The ``ReadEndpoint`` return value specifies the reader endpoint for the DB cluster.
+     *  The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+     *  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+     *  For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
+     */
     export interface DbClusterReadEndpoint {
         /**
-         * The reader endpoint for the DB cluster.
+         * The host address of the reader endpoint.
          */
         address?: string;
     }
 
     /**
-     * The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+     * The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
+     *  For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
+     *  This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
+     *  Valid for: Aurora Serverless v1 DB clusters only
      */
     export interface DbClusterScalingConfiguration {
         /**
-         * A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+         * Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+         *   If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
          */
         autoPause?: boolean;
         /**
-         * The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-         * For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-         * For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-         * The maximum capacity must be greater than or equal to the minimum capacity.
+         * The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+         *  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+         *  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+         *  The maximum capacity must be greater than or equal to the minimum capacity.
          */
         maxCapacity?: number;
         /**
-         * The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-         * For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-         * For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-         * The minimum capacity must be less than or equal to the maximum capacity.
+         * The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+         *  For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+         *  For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+         *  The minimum capacity must be less than or equal to the maximum capacity.
          */
         minCapacity?: number;
         /**
-         * The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-         * The default is 300.
+         * The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+         *  Specify a value between 60 and 600 seconds.
          */
         secondsBeforeTimeout?: number;
         /**
-         * The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+         * The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+         *  Specify a value between 300 and 86,400 seconds.
          */
         secondsUntilAutoPause?: number;
         /**
-         * The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-         * ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-         * RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-         *
-         * For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+         * The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
+         *   ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+         *   ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+         *   If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+         *   For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
          */
         timeoutAction?: string;
     }
 
     /**
-     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     * The ``ServerlessV2ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
+     *  If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
+     *  This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
+     *  Valid for: Aurora Serverless v2 DB clusters
      */
     export interface DbClusterServerlessV2ScalingConfiguration {
         /**
          * The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+         *  The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+         *  Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
          */
         maxCapacity?: number;
         /**
@@ -75725,7 +76086,7 @@ export namespace rds {
     }
 
     /**
-     * Returns the details of the DB instance’s server certificate.
+     * The details of the DB instance’s server certificate.
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
      */
     export interface DbInstanceCertificateDetails {
@@ -75800,7 +76161,7 @@ export namespace rds {
          */
         name?: enums.rds.DbInstanceProcessorFeatureName;
         /**
-         * The value of a processor feature name.
+         * The value of a processor feature.
          */
         value?: string;
     }
@@ -75852,7 +76213,7 @@ export namespace rds {
     }
 
     /**
-     * The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+     * The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
      */
     export interface OptionGroupOptionConfiguration {
         /**
@@ -75882,7 +76243,7 @@ export namespace rds {
     }
 
     /**
-     * The OptionSetting property type specifies the value for an option within an OptionSetting property.
+     * The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
      */
     export interface OptionGroupOptionSetting {
         /**
@@ -77590,7 +77951,7 @@ export namespace s3 {
     }
 
     /**
-     * The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+     * The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
      *    +  The ``DefaultRetention`` settings require both a mode and a period.
      *   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
      */
@@ -86879,7 +87240,7 @@ export namespace verifiedpermissions {
 
     export interface PolicyStoreSchemaDefinition {
         /**
-         * A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+         * A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
          */
         cedarJson?: string;
     }
@@ -87810,13 +88171,7 @@ export namespace wafv2 {
          *
          * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
          *
-         * AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-         *
-         * AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-         *
-         * - Missing comma: `{"key1":"value1""key2":"value2"}`
-         * - Missing colon: `{"key1":"value1","key2""value2"}`
-         * - Extra colons: `{"key1"::"value1","key2""value2"}`
+         * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
          */
         invalidFallbackBehavior?: enums.wafv2.RuleGroupBodyParsingFallbackBehavior;
         /**
@@ -89115,13 +89470,7 @@ export namespace wafv2 {
          *
          * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
          *
-         * AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-         *
-         * AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-         *
-         * - Missing comma: `{"key1":"value1""key2":"value2"}`
-         * - Missing colon: `{"key1":"value1","key2""value2"}`
-         * - Extra colons: `{"key1"::"value1","key2""value2"}`
+         * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
          */
         invalidFallbackBehavior?: enums.wafv2.WebAclBodyParsingFallbackBehavior;
         /**
@@ -90220,17 +90569,35 @@ export namespace workspaces {
     }
 
     export interface WorkspacesPoolApplicationSettings {
+        /**
+         * The path prefix for the S3 bucket where users’ persistent application settings are stored.
+         */
         settingsGroup?: string;
+        /**
+         * Enables or disables persistent application settings for users during their pool sessions.
+         */
         status: enums.workspaces.WorkspacesPoolApplicationSettingsStatus;
     }
 
     export interface WorkspacesPoolCapacity {
+        /**
+         * The desired number of user sessions for the WorkSpaces in the pool.
+         */
         desiredUserSessions: number;
     }
 
     export interface WorkspacesPoolTimeoutSettings {
+        /**
+         * Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+         */
         disconnectTimeoutInSeconds?: number;
+        /**
+         * The amount of time in seconds a connection will stay active while idle.
+         */
         idleDisconnectTimeoutInSeconds?: number;
+        /**
+         * Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+         */
         maxUserDurationInSeconds?: number;
     }
 
@@ -90266,6 +90633,20 @@ export namespace workspacesthinclient {
          * The type of maintenance window.
          */
         type: enums.workspacesthinclient.EnvironmentMaintenanceWindowType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EnvironmentTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
 }

@@ -1631,7 +1631,7 @@ func (o BucketDataExportPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+// The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
 //   - The “DefaultRetention“ settings require both a mode and a period.
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetention struct {
@@ -1654,7 +1654,7 @@ type BucketDefaultRetentionInput interface {
 	ToBucketDefaultRetentionOutputWithContext(context.Context) BucketDefaultRetentionOutput
 }
 
-// The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+// The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
 //   - The “DefaultRetention“ settings require both a mode and a period.
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetentionArgs struct {
@@ -1719,7 +1719,7 @@ func (i *bucketDefaultRetentionPtrType) ToBucketDefaultRetentionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionPtrOutput)
 }
 
-// The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+// The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
 //   - The “DefaultRetention“ settings require both a mode and a period.
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetentionOutput struct{ *pulumi.OutputState }

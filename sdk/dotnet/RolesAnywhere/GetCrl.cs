@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetCrlArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique primary identifier of the Crl
+        /// </summary>
         [Input("crlId", required: true)]
         public string CrlId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetCrlInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique primary identifier of the Crl
+        /// </summary>
         [Input("crlId", required: true)]
         public Input<string> CrlId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [OutputType]
     public sealed class GetCrlResult
     {
+        /// <summary>
+        /// The x509 v3 specified certificate revocation list (CRL).
+        /// </summary>
         public readonly string? CrlData;
+        /// <summary>
+        /// The unique primary identifier of the Crl
+        /// </summary>
         public readonly string? CrlId;
+        /// <summary>
+        /// Specifies whether the certificate revocation list (CRL) is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The name of the certificate revocation list (CRL).
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A list of tags to attach to the certificate revocation list (CRL).
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.

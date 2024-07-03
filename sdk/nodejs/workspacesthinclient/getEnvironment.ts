@@ -51,6 +51,10 @@ export interface GetEnvironmentResult {
      */
     readonly desktopType?: enums.workspacesthinclient.EnvironmentDesktopType;
     /**
+     * An array of key-value pairs to apply to the newly created devices for this environment.
+     */
+    readonly deviceCreationTags?: outputs.workspacesthinclient.EnvironmentTag[];
+    /**
      * Unique identifier of the environment.
      */
     readonly id?: string;

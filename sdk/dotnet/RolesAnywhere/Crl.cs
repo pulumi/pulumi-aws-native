@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [AwsNativeResourceType("aws-native:rolesanywhere:Crl")]
     public partial class Crl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The x509 v3 specified certificate revocation list (CRL).
+        /// </summary>
         [Output("crlData")]
         public Output<string> CrlData { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique primary identifier of the Crl
+        /// </summary>
         [Output("crlId")]
         public Output<string> CrlId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the certificate revocation list (CRL) is enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the certificate revocation list (CRL).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags to attach to the certificate revocation list (CRL).
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -81,17 +96,30 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class CrlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The x509 v3 specified certificate revocation list (CRL).
+        /// </summary>
         [Input("crlData", required: true)]
         public Input<string> CrlData { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the certificate revocation list (CRL) is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the certificate revocation list (CRL).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags to attach to the certificate revocation list (CRL).
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

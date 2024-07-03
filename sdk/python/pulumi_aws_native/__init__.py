@@ -264,6 +264,8 @@ if typing.TYPE_CHECKING:
     lakeformation = __lakeformation
     import pulumi_aws_native.lambda_ as __lambda_
     lambda_ = __lambda_
+    import pulumi_aws_native.launchwizard as __launchwizard
+    launchwizard = __launchwizard
     import pulumi_aws_native.lex as __lex
     lex = __lex
     import pulumi_aws_native.licensemanager as __licensemanager
@@ -570,6 +572,7 @@ else:
     kms = _utilities.lazy_import('pulumi_aws_native.kms')
     lakeformation = _utilities.lazy_import('pulumi_aws_native.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws_native.lambda_')
+    launchwizard = _utilities.lazy_import('pulumi_aws_native.launchwizard')
     lex = _utilities.lazy_import('pulumi_aws_native.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws_native.licensemanager')
     lightsail = _utilities.lazy_import('pulumi_aws_native.lightsail')
@@ -1136,7 +1139,8 @@ _utilities.register(
   "mod": "codepipeline",
   "fqn": "pulumi_aws_native.codepipeline",
   "classes": {
-   "aws-native:codepipeline:CustomActionType": "CustomActionType"
+   "aws-native:codepipeline:CustomActionType": "CustomActionType",
+   "aws-native:codepipeline:Pipeline": "Pipeline"
   }
  },
  {
@@ -2122,6 +2126,14 @@ _utilities.register(
    "aws-native:lambda:Permission": "Permission",
    "aws-native:lambda:Url": "Url",
    "aws-native:lambda:Version": "Version"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "launchwizard",
+  "fqn": "pulumi_aws_native.launchwizard",
+  "classes": {
+   "aws-native:launchwizard:Deployment": "Deployment"
   }
  },
  {

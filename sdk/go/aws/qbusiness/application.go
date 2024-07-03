@@ -37,6 +37,8 @@ type Application struct {
 	//
 	// *Required* : `Yes`
 	IdentityCenterInstanceArn pulumi.StringPtrOutput `pulumi:"identityCenterInstanceArn"`
+	// Configuration information about Amazon Q Apps. (preview feature)
+	QAppsConfiguration ApplicationQAppsConfigurationPtrOutput `pulumi:"qAppsConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
@@ -106,6 +108,8 @@ type applicationArgs struct {
 	//
 	// *Required* : `Yes`
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// Configuration information about Amazon Q Apps. (preview feature)
+	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -126,6 +130,8 @@ type ApplicationArgs struct {
 	//
 	// *Required* : `Yes`
 	IdentityCenterInstanceArn pulumi.StringPtrInput
+	// Configuration information about Amazon Q Apps. (preview feature)
+	QAppsConfiguration ApplicationQAppsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn pulumi.StringPtrInput
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -214,6 +220,11 @@ func (o ApplicationOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 // *Required* : `Yes`
 func (o ApplicationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// Configuration information about Amazon Q Apps. (preview feature)
+func (o ApplicationOutput) QAppsConfiguration() ApplicationQAppsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationQAppsConfigurationPtrOutput { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.

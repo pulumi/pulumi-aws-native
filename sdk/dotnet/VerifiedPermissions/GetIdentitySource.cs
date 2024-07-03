@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class GetIdentitySourceResult
     {
         /// <summary>
-        /// Contains configuration information about an identity source.
+        /// Contains configuration information used when creating a new identity source.
         /// </summary>
         public readonly Union<Outputs.IdentitySourceConfiguration0Properties, Outputs.IdentitySourceConfiguration1Properties>? Configuration;
         public readonly Outputs.IdentitySourceDetails? Details;

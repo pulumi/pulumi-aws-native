@@ -29,6 +29,14 @@ class WorkspacesPoolArgs:
                  timeout_settings: Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']] = None):
         """
         The set of arguments for constructing a WorkspacesPool resource.
+        :param pulumi.Input[str] bundle_id: The identifier of the bundle used by the pool.
+        :param pulumi.Input['WorkspacesPoolCapacityArgs'] capacity: Describes the user capacity for the pool.
+        :param pulumi.Input[str] directory_id: The identifier of the directory used by the pool.
+        :param pulumi.Input['WorkspacesPoolApplicationSettingsArgs'] application_settings: The persistent application settings for users of the pool.
+        :param pulumi.Input[str] description: The description of the pool.
+        :param pulumi.Input[str] pool_name: The name of the pool.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the pool.
+        :param pulumi.Input['WorkspacesPoolTimeoutSettingsArgs'] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "capacity", capacity)
@@ -47,6 +55,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the bundle used by the pool.
+        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -56,6 +67,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Input['WorkspacesPoolCapacityArgs']:
+        """
+        Describes the user capacity for the pool.
+        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -65,6 +79,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the directory used by the pool.
+        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -74,6 +91,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> Optional[pulumi.Input['WorkspacesPoolApplicationSettingsArgs']]:
+        """
+        The persistent application settings for users of the pool.
+        """
         return pulumi.get(self, "application_settings")
 
     @application_settings.setter
@@ -83,6 +103,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the pool.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -92,6 +115,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="poolName")
     def pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pool.
+        """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
@@ -101,6 +127,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the pool.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,6 +139,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']]:
+        """
+        The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+        """
         return pulumi.get(self, "timeout_settings")
 
     @timeout_settings.setter
@@ -136,6 +168,14 @@ class WorkspacesPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['WorkspacesPoolApplicationSettingsArgs']] application_settings: The persistent application settings for users of the pool.
+        :param pulumi.Input[str] bundle_id: The identifier of the bundle used by the pool.
+        :param pulumi.Input[pulumi.InputType['WorkspacesPoolCapacityArgs']] capacity: Describes the user capacity for the pool.
+        :param pulumi.Input[str] description: The description of the pool.
+        :param pulumi.Input[str] directory_id: The identifier of the directory used by the pool.
+        :param pulumi.Input[str] pool_name: The name of the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the pool.
+        :param pulumi.Input[pulumi.InputType['WorkspacesPoolTimeoutSettingsArgs']] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         ...
     @overload
@@ -235,55 +275,88 @@ class WorkspacesPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Output[Optional['outputs.WorkspacesPoolApplicationSettings']]:
+        """
+        The persistent application settings for users of the pool.
+        """
         return pulumi.get(self, "application_settings")
 
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the bundle used by the pool.
+        """
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output['outputs.WorkspacesPoolCapacity']:
+        """
+        Describes the user capacity for the pool.
+        """
         return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time the pool was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the pool.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the directory used by the pool.
+        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="poolArn")
     def pool_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the pool.
+        """
         return pulumi.get(self, "pool_arn")
 
     @property
     @pulumi.getter(name="poolId")
     def pool_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the pool.
+        """
         return pulumi.get(self, "pool_id")
 
     @property
     @pulumi.getter(name="poolName")
     def pool_name(self) -> pulumi.Output[str]:
+        """
+        The name of the pool.
+        """
         return pulumi.get(self, "pool_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the pool.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> pulumi.Output[Optional['outputs.WorkspacesPoolTimeoutSettings']]:
+        """
+        The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+        """
         return pulumi.get(self, "timeout_settings")
 

@@ -37,10 +37,25 @@ export class Crl extends pulumi.CustomResource {
         return obj['__pulumiType'] === Crl.__pulumiType;
     }
 
+    /**
+     * The x509 v3 specified certificate revocation list (CRL).
+     */
     public readonly crlData!: pulumi.Output<string>;
+    /**
+     * The unique primary identifier of the Crl
+     */
     public /*out*/ readonly crlId!: pulumi.Output<string>;
+    /**
+     * Specifies whether the certificate revocation list (CRL) is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the certificate revocation list (CRL).
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of tags to attach to the certificate revocation list (CRL).
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
@@ -84,9 +99,21 @@ export class Crl extends pulumi.CustomResource {
  * The set of arguments for constructing a Crl resource.
  */
 export interface CrlArgs {
+    /**
+     * The x509 v3 specified certificate revocation list (CRL).
+     */
     crlData: pulumi.Input<string>;
+    /**
+     * Specifies whether the certificate revocation list (CRL) is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the certificate revocation list (CRL).
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of tags to attach to the certificate revocation list (CRL).
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.

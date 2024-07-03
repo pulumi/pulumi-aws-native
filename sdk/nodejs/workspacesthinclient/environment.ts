@@ -70,6 +70,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly desktopType!: pulumi.Output<enums.workspacesthinclient.EnvironmentDesktopType>;
     /**
+     * An array of key-value pairs to apply to the newly created devices for this environment.
+     */
+    public readonly deviceCreationTags!: pulumi.Output<outputs.workspacesthinclient.EnvironmentTag[] | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
@@ -131,6 +135,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["desiredSoftwareSetId"] = args ? args.desiredSoftwareSetId : undefined;
             resourceInputs["desktopArn"] = args ? args.desktopArn : undefined;
             resourceInputs["desktopEndpoint"] = args ? args.desktopEndpoint : undefined;
+            resourceInputs["deviceCreationTags"] = args ? args.deviceCreationTags : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -156,6 +161,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["desktopArn"] = undefined /*out*/;
             resourceInputs["desktopEndpoint"] = undefined /*out*/;
             resourceInputs["desktopType"] = undefined /*out*/;
+            resourceInputs["deviceCreationTags"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface EnvironmentArgs {
      * The URL for the identity provider login (only for environments that use AppStream 2.0).
      */
     desktopEndpoint?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to the newly created devices for this environment.
+     */
+    deviceCreationTags?: pulumi.Input<pulumi.Input<inputs.workspacesthinclient.EnvironmentTagArgs>[]>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
      */

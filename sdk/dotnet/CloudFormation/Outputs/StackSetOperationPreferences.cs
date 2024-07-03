@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetOperationPreferences
     {
+        public readonly Pulumi.AwsNative.CloudFormation.StackSetConcurrencyMode? ConcurrencyMode;
         /// <summary>
         /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
         /// 
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetOperationPreferences(
+            Pulumi.AwsNative.CloudFormation.StackSetConcurrencyMode? concurrencyMode,
+
             int? failureToleranceCount,
 
             int? failureTolerancePercentage,
@@ -73,6 +76,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
             ImmutableArray<string> regionOrder)
         {
+            ConcurrencyMode = concurrencyMode;
             FailureToleranceCount = failureToleranceCount;
             FailureTolerancePercentage = failureTolerancePercentage;
             MaxConcurrentCount = maxConcurrentCount;

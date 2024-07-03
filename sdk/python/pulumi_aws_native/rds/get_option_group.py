@@ -32,7 +32,7 @@ class GetOptionGroupResult:
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> Optional[Sequence['outputs.OptionGroupOptionConfiguration']]:
         """
-        Indicates what options are available in the option group.
+        A list of options and the settings for each option.
         """
         return pulumi.get(self, "option_configurations")
 
@@ -40,7 +40,7 @@ class GetOptionGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional array of key-value pairs to apply to this option group.
         """
         return pulumi.get(self, "tags")
 
@@ -58,10 +58,18 @@ class AwaitableGetOptionGroupResult(GetOptionGroupResult):
 def get_option_group(option_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOptionGroupResult:
     """
-    The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+    The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
 
-    :param str option_group_name: Specifies the name of the option group.
+    :param str option_group_name: The name of the option group to be created.
+            Constraints:
+             +  Must be 1 to 255 letters, numbers, or hyphens
+             +  First character must be a letter
+             +  Can't end with a hyphen or contain two consecutive hyphens
+             
+            Example: ``myoptiongroup`` 
+            If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+             This value is stored as a lowercase string.
     """
     __args__ = dict()
     __args__['optionGroupName'] = option_group_name
@@ -77,9 +85,17 @@ def get_option_group(option_group_name: Optional[str] = None,
 def get_option_group_output(option_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOptionGroupResult]:
     """
-    The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+    The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
 
-    :param str option_group_name: Specifies the name of the option group.
+    :param str option_group_name: The name of the option group to be created.
+            Constraints:
+             +  Must be 1 to 255 letters, numbers, or hyphens
+             +  First character must be a letter
+             +  Can't end with a hyphen or contain two consecutive hyphens
+             
+            Example: ``myoptiongroup`` 
+            If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+             This value is stored as a lowercase string.
     """
     ...

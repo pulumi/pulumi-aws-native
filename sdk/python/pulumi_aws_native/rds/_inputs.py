@@ -35,7 +35,7 @@ class DbClusterDbClusterRoleArgs:
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if feature_name is not None:
@@ -57,7 +57,7 @@ class DbClusterDbClusterRoleArgs:
     @pulumi.getter(name="featureName")
     def feature_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
         return pulumi.get(self, "feature_name")
 
@@ -72,6 +72,8 @@ class DbClusterMasterUserSecretArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
+        The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
@@ -110,7 +112,11 @@ class DbClusterReadEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] address: The reader endpoint for the DB cluster.
+        The ``ReadEndpoint`` return value specifies the reader endpoint for the DB cluster.
+         The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+         If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+         For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
+        :param pulumi.Input[str] address: The host address of the reader endpoint.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -119,7 +125,7 @@ class DbClusterReadEndpointArgs:
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[str]]:
         """
-        The reader endpoint for the DB cluster.
+        The host address of the reader endpoint.
         """
         return pulumi.get(self, "address")
 
@@ -138,24 +144,29 @@ class DbClusterScalingConfigurationArgs:
                  seconds_until_auto_pause: Optional[pulumi.Input[int]] = None,
                  timeout_action: Optional[pulumi.Input[str]] = None):
         """
-        The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-        :param pulumi.Input[bool] auto_pause: A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
-        :param pulumi.Input[int] max_capacity: The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-               For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-               For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-               The maximum capacity must be greater than or equal to the minimum capacity.
-        :param pulumi.Input[int] min_capacity: The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-               For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-               For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-               The minimum capacity must be less than or equal to the maximum capacity.
-        :param pulumi.Input[int] seconds_before_timeout: The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-               The default is 300.
-        :param pulumi.Input[int] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
-        :param pulumi.Input[str] timeout_action: The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-               ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-               RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-               
-               For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+        The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
+         For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
+         This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
+         Valid for: Aurora Serverless v1 DB clusters only
+        :param pulumi.Input[bool] auto_pause: Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+                 If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
+        :param pulumi.Input[int] max_capacity: The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+                For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+                For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+                The maximum capacity must be greater than or equal to the minimum capacity.
+        :param pulumi.Input[int] min_capacity: The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+                For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+                For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+                The minimum capacity must be less than or equal to the maximum capacity.
+        :param pulumi.Input[int] seconds_before_timeout: The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+                Specify a value between 60 and 600 seconds.
+        :param pulumi.Input[int] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+                Specify a value between 300 and 86,400 seconds.
+        :param pulumi.Input[str] timeout_action: The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
+                 ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+                 ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+                 If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+                 For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
         """
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
@@ -174,7 +185,8 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="autoPause")
     def auto_pause(self) -> Optional[pulumi.Input[bool]]:
         """
-        A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+        Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+          If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
         """
         return pulumi.get(self, "auto_pause")
 
@@ -186,10 +198,10 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-        For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-        For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-        The maximum capacity must be greater than or equal to the minimum capacity.
+        The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+         For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+         For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+         The maximum capacity must be greater than or equal to the minimum capacity.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -201,10 +213,10 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
-        For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
-        For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
-        The minimum capacity must be less than or equal to the maximum capacity.
+        The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
+         For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
+         For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
+         The minimum capacity must be less than or equal to the maximum capacity.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -216,8 +228,8 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="secondsBeforeTimeout")
     def seconds_before_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
-        The default is 300.
+        The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+         Specify a value between 60 and 600 seconds.
         """
         return pulumi.get(self, "seconds_before_timeout")
 
@@ -229,7 +241,8 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="secondsUntilAutoPause")
     def seconds_until_auto_pause(self) -> Optional[pulumi.Input[int]]:
         """
-        The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+        The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+         Specify a value between 300 and 86,400 seconds.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
 
@@ -241,11 +254,11 @@ class DbClusterScalingConfigurationArgs:
     @pulumi.getter(name="timeoutAction")
     def timeout_action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
-        ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
-        RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-
-        For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+        The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
+          ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+          ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+          If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+          For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
         """
         return pulumi.get(self, "timeout_action")
 
@@ -260,8 +273,13 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None):
         """
-        Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        The ``ServerlessV2ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
+         If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
+         This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
+         Valid for: Aurora Serverless v2 DB clusters
         :param pulumi.Input[float] max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+                The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+                Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
         :param pulumi.Input[float] min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
         """
         if max_capacity is not None:
@@ -274,6 +292,8 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
     def max_capacity(self) -> Optional[pulumi.Input[float]]:
         """
         The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+         The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
+         Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -300,7 +320,7 @@ class DbInstanceCertificateDetailsArgs:
                  ca_identifier: Optional[pulumi.Input[str]] = None,
                  valid_till: Optional[pulumi.Input[str]] = None):
         """
-        Returns the details of the DB instance’s server certificate.
+        The details of the DB instance’s server certificate.
          For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         :param pulumi.Input[str] ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param pulumi.Input[str] valid_till: The expiration date of the DB instance’s server certificate.
@@ -483,7 +503,7 @@ class DbInstanceProcessorFeatureArgs:
         """
         The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
         :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
-        :param pulumi.Input[str] value: The value of a processor feature name.
+        :param pulumi.Input[str] value: The value of a processor feature.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -506,7 +526,7 @@ class DbInstanceProcessorFeatureArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of a processor feature name.
+        The value of a processor feature.
         """
         return pulumi.get(self, "value")
 
@@ -699,7 +719,7 @@ class OptionGroupOptionConfigurationArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+        The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
         :param pulumi.Input[str] option_name: The configuration of options to include in a group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]] option_settings: The option settings to include in an option group.
@@ -798,7 +818,7 @@ class OptionGroupOptionSettingArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The OptionSetting property type specifies the value for an option within an OptionSetting property.
+        The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
         :param pulumi.Input[str] name: The name of the option that has settings that you can set.
         :param pulumi.Input[str] value: The current value of the option setting.
         """

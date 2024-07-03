@@ -1495,6 +1495,172 @@ func (o StackSetCapabilityArrayOutput) Index(i pulumi.IntInput) StackSetCapabili
 	}).(StackSetCapabilityOutput)
 }
 
+// Specifies how the concurrency level behaves during the operation execution.
+type StackSetConcurrencyMode string
+
+const (
+	StackSetConcurrencyModeStrictFailureTolerance = StackSetConcurrencyMode("STRICT_FAILURE_TOLERANCE")
+	StackSetConcurrencyModeSoftFailureTolerance   = StackSetConcurrencyMode("SOFT_FAILURE_TOLERANCE")
+)
+
+func (StackSetConcurrencyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetConcurrencyMode)(nil)).Elem()
+}
+
+func (e StackSetConcurrencyMode) ToStackSetConcurrencyModeOutput() StackSetConcurrencyModeOutput {
+	return pulumi.ToOutput(e).(StackSetConcurrencyModeOutput)
+}
+
+func (e StackSetConcurrencyMode) ToStackSetConcurrencyModeOutputWithContext(ctx context.Context) StackSetConcurrencyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StackSetConcurrencyModeOutput)
+}
+
+func (e StackSetConcurrencyMode) ToStackSetConcurrencyModePtrOutput() StackSetConcurrencyModePtrOutput {
+	return e.ToStackSetConcurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (e StackSetConcurrencyMode) ToStackSetConcurrencyModePtrOutputWithContext(ctx context.Context) StackSetConcurrencyModePtrOutput {
+	return StackSetConcurrencyMode(e).ToStackSetConcurrencyModeOutputWithContext(ctx).ToStackSetConcurrencyModePtrOutputWithContext(ctx)
+}
+
+func (e StackSetConcurrencyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackSetConcurrencyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackSetConcurrencyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StackSetConcurrencyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StackSetConcurrencyModeOutput struct{ *pulumi.OutputState }
+
+func (StackSetConcurrencyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetConcurrencyMode)(nil)).Elem()
+}
+
+func (o StackSetConcurrencyModeOutput) ToStackSetConcurrencyModeOutput() StackSetConcurrencyModeOutput {
+	return o
+}
+
+func (o StackSetConcurrencyModeOutput) ToStackSetConcurrencyModeOutputWithContext(ctx context.Context) StackSetConcurrencyModeOutput {
+	return o
+}
+
+func (o StackSetConcurrencyModeOutput) ToStackSetConcurrencyModePtrOutput() StackSetConcurrencyModePtrOutput {
+	return o.ToStackSetConcurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (o StackSetConcurrencyModeOutput) ToStackSetConcurrencyModePtrOutputWithContext(ctx context.Context) StackSetConcurrencyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetConcurrencyMode) *StackSetConcurrencyMode {
+		return &v
+	}).(StackSetConcurrencyModePtrOutput)
+}
+
+func (o StackSetConcurrencyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StackSetConcurrencyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackSetConcurrencyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StackSetConcurrencyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetConcurrencyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackSetConcurrencyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StackSetConcurrencyModePtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetConcurrencyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetConcurrencyMode)(nil)).Elem()
+}
+
+func (o StackSetConcurrencyModePtrOutput) ToStackSetConcurrencyModePtrOutput() StackSetConcurrencyModePtrOutput {
+	return o
+}
+
+func (o StackSetConcurrencyModePtrOutput) ToStackSetConcurrencyModePtrOutputWithContext(ctx context.Context) StackSetConcurrencyModePtrOutput {
+	return o
+}
+
+func (o StackSetConcurrencyModePtrOutput) Elem() StackSetConcurrencyModeOutput {
+	return o.ApplyT(func(v *StackSetConcurrencyMode) StackSetConcurrencyMode {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetConcurrencyMode
+		return ret
+	}).(StackSetConcurrencyModeOutput)
+}
+
+func (o StackSetConcurrencyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetConcurrencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StackSetConcurrencyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StackSetConcurrencyModeInput is an input type that accepts values of the StackSetConcurrencyMode enum
+// A concrete instance of `StackSetConcurrencyModeInput` can be one of the following:
+//
+//	StackSetConcurrencyModeStrictFailureTolerance
+//	StackSetConcurrencyModeSoftFailureTolerance
+type StackSetConcurrencyModeInput interface {
+	pulumi.Input
+
+	ToStackSetConcurrencyModeOutput() StackSetConcurrencyModeOutput
+	ToStackSetConcurrencyModeOutputWithContext(context.Context) StackSetConcurrencyModeOutput
+}
+
+var stackSetConcurrencyModePtrType = reflect.TypeOf((**StackSetConcurrencyMode)(nil)).Elem()
+
+type StackSetConcurrencyModePtrInput interface {
+	pulumi.Input
+
+	ToStackSetConcurrencyModePtrOutput() StackSetConcurrencyModePtrOutput
+	ToStackSetConcurrencyModePtrOutputWithContext(context.Context) StackSetConcurrencyModePtrOutput
+}
+
+type stackSetConcurrencyModePtr string
+
+func StackSetConcurrencyModePtr(v string) StackSetConcurrencyModePtrInput {
+	return (*stackSetConcurrencyModePtr)(&v)
+}
+
+func (*stackSetConcurrencyModePtr) ElementType() reflect.Type {
+	return stackSetConcurrencyModePtrType
+}
+
+func (in *stackSetConcurrencyModePtr) ToStackSetConcurrencyModePtrOutput() StackSetConcurrencyModePtrOutput {
+	return pulumi.ToOutput(in).(StackSetConcurrencyModePtrOutput)
+}
+
+func (in *stackSetConcurrencyModePtr) ToStackSetConcurrencyModePtrOutputWithContext(ctx context.Context) StackSetConcurrencyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StackSetConcurrencyModePtrOutput)
+}
+
 // The filter type you want to apply on organizational units and accounts.
 type StackSetDeploymentTargetsAccountFilterType string
 
@@ -2456,6 +2622,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityPtrInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityArrayInput)(nil)).Elem(), StackSetCapabilityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetConcurrencyModeInput)(nil)).Elem(), StackSetConcurrencyMode("STRICT_FAILURE_TOLERANCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetConcurrencyModePtrInput)(nil)).Elem(), StackSetConcurrencyMode("STRICT_FAILURE_TOLERANCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterTypeInput)(nil)).Elem(), StackSetDeploymentTargetsAccountFilterType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterTypePtrInput)(nil)).Elem(), StackSetDeploymentTargetsAccountFilterType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetPermissionModelInput)(nil)).Elem(), StackSetPermissionModel("SERVICE_MANAGED"))
@@ -2490,6 +2658,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetCapabilityOutput{})
 	pulumi.RegisterOutputType(StackSetCapabilityPtrOutput{})
 	pulumi.RegisterOutputType(StackSetCapabilityArrayOutput{})
+	pulumi.RegisterOutputType(StackSetConcurrencyModeOutput{})
+	pulumi.RegisterOutputType(StackSetConcurrencyModePtrOutput{})
 	pulumi.RegisterOutputType(StackSetDeploymentTargetsAccountFilterTypeOutput{})
 	pulumi.RegisterOutputType(StackSetDeploymentTargetsAccountFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(StackSetPermissionModelOutput{})

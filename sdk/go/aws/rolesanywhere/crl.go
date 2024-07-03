@@ -17,11 +17,16 @@ import (
 type Crl struct {
 	pulumi.CustomResourceState
 
-	CrlData pulumi.StringOutput  `pulumi:"crlData"`
-	CrlId   pulumi.StringOutput  `pulumi:"crlId"`
+	// The x509 v3 specified certificate revocation list (CRL).
+	CrlData pulumi.StringOutput `pulumi:"crlData"`
+	// The unique primary identifier of the Crl
+	CrlId pulumi.StringOutput `pulumi:"crlId"`
+	// Specifies whether the certificate revocation list (CRL) is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Name    pulumi.StringOutput  `pulumi:"name"`
-	Tags    aws.TagArrayOutput   `pulumi:"tags"`
+	// The name of the certificate revocation list (CRL).
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of tags to attach to the certificate revocation list (CRL).
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
@@ -69,20 +74,28 @@ func (CrlState) ElementType() reflect.Type {
 }
 
 type crlArgs struct {
-	CrlData string    `pulumi:"crlData"`
-	Enabled *bool     `pulumi:"enabled"`
-	Name    *string   `pulumi:"name"`
-	Tags    []aws.Tag `pulumi:"tags"`
+	// The x509 v3 specified certificate revocation list (CRL).
+	CrlData string `pulumi:"crlData"`
+	// Specifies whether the certificate revocation list (CRL) is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the certificate revocation list (CRL).
+	Name *string `pulumi:"name"`
+	// A list of tags to attach to the certificate revocation list (CRL).
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
 }
 
 // The set of arguments for constructing a Crl resource.
 type CrlArgs struct {
+	// The x509 v3 specified certificate revocation list (CRL).
 	CrlData pulumi.StringInput
+	// Specifies whether the certificate revocation list (CRL) is enabled.
 	Enabled pulumi.BoolPtrInput
-	Name    pulumi.StringPtrInput
-	Tags    aws.TagArrayInput
+	// The name of the certificate revocation list (CRL).
+	Name pulumi.StringPtrInput
+	// A list of tags to attach to the certificate revocation list (CRL).
+	Tags aws.TagArrayInput
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrInput
 }
@@ -124,22 +137,27 @@ func (o CrlOutput) ToCrlOutputWithContext(ctx context.Context) CrlOutput {
 	return o
 }
 
+// The x509 v3 specified certificate revocation list (CRL).
 func (o CrlOutput) CrlData() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.CrlData }).(pulumi.StringOutput)
 }
 
+// The unique primary identifier of the Crl
 func (o CrlOutput) CrlId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.CrlId }).(pulumi.StringOutput)
 }
 
+// Specifies whether the certificate revocation list (CRL) is enabled.
 func (o CrlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Crl) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the certificate revocation list (CRL).
 func (o CrlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of tags to attach to the certificate revocation list (CRL).
 func (o CrlOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Crl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

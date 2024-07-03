@@ -43,6 +43,8 @@ type LookupApplicationResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// Configuration information about Amazon Q Apps. (preview feature)
+	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
@@ -124,6 +126,11 @@ func (o LookupApplicationResultOutput) DisplayName() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
 func (o LookupApplicationResultOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// Configuration information about Amazon Q Apps. (preview feature)
+func (o LookupApplicationResultOutput) QAppsConfiguration() ApplicationQAppsConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationQAppsConfiguration { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.

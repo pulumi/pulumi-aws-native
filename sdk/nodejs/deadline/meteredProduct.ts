@@ -41,7 +41,7 @@ export class MeteredProduct extends pulumi.CustomResource {
     /**
      * The family to which the metered product belongs.
      */
-    public readonly family!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly family!: pulumi.Output<string>;
     /**
      * The Amazon EC2 identifier of the license endpoint.
      */
@@ -49,7 +49,7 @@ export class MeteredProduct extends pulumi.CustomResource {
     /**
      * The port on which the metered product should run.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
     /**
      * The product ID.
      */
@@ -57,7 +57,7 @@ export class MeteredProduct extends pulumi.CustomResource {
     /**
      * The vendor.
      */
-    public readonly vendor!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly vendor!: pulumi.Output<string>;
 
     /**
      * Create a MeteredProduct resource with the given unique name, arguments, and options.
@@ -70,12 +70,12 @@ export class MeteredProduct extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["licenseEndpointId"] = args ? args.licenseEndpointId : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["family"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["vendor"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
@@ -96,23 +96,11 @@ export class MeteredProduct extends pulumi.CustomResource {
  */
 export interface MeteredProductArgs {
     /**
-     * The family to which the metered product belongs.
-     */
-    family?: pulumi.Input<string>;
-    /**
      * The Amazon EC2 identifier of the license endpoint.
      */
     licenseEndpointId?: pulumi.Input<string>;
     /**
-     * The port on which the metered product should run.
-     */
-    port?: pulumi.Input<number>;
-    /**
      * The product ID.
      */
     productId?: pulumi.Input<string>;
-    /**
-     * The vendor.
-     */
-    vendor?: pulumi.Input<string>;
 }

@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         public Output<Pulumi.AwsNative.WorkSpacesThinClient.EnvironmentDesktopType> DesktopType { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to the newly created devices for this environment.
+        /// </summary>
+        [Output("deviceCreationTags")]
+        public Output<ImmutableArray<Outputs.EnvironmentTag>> DeviceCreationTags { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
         /// </summary>
         [Output("kmsKeyArn")]
@@ -196,6 +202,18 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         /// </summary>
         [Input("desktopEndpoint")]
         public Input<string>? DesktopEndpoint { get; set; }
+
+        [Input("deviceCreationTags")]
+        private InputList<Inputs.EnvironmentTagArgs>? _deviceCreationTags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to the newly created devices for this environment.
+        /// </summary>
+        public InputList<Inputs.EnvironmentTagArgs> DeviceCreationTags
+        {
+            get => _deviceCreationTags ?? (_deviceCreationTags = new InputList<Inputs.EnvironmentTagArgs>());
+            set => _deviceCreationTags = value;
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.

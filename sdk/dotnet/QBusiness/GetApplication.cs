@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
         /// <summary>
+        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// </summary>
+        public readonly Outputs.ApplicationQAppsConfiguration? QAppsConfiguration;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         /// </summary>
         public readonly string? RoleArn;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.QBusiness
 
             string? identityCenterApplicationArn,
 
+            Outputs.ApplicationQAppsConfiguration? qAppsConfiguration,
+
             string? roleArn,
 
             Pulumi.AwsNative.QBusiness.ApplicationStatus? status,
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.QBusiness
             Description = description;
             DisplayName = displayName;
             IdentityCenterApplicationArn = identityCenterApplicationArn;
+            QAppsConfiguration = qAppsConfiguration;
             RoleArn = roleArn;
             Status = status;
             Tags = tags;

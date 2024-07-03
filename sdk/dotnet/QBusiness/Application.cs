@@ -72,6 +72,12 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string?> IdentityCenterInstanceArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// </summary>
+        [Output("qAppsConfiguration")]
+        public Output<Outputs.ApplicationQAppsConfiguration?> QAppsConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         /// </summary>
         [Output("roleArn")]
@@ -175,6 +181,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
+
+        /// <summary>
+        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// </summary>
+        [Input("qAppsConfiguration")]
+        public Input<Inputs.ApplicationQAppsConfigurationArgs>? QAppsConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.

@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesThinClient.EnvironmentDesktopType? DesktopType;
         /// <summary>
+        /// An array of key-value pairs to apply to the newly created devices for this environment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EnvironmentTag> DeviceCreationTags;
+        /// <summary>
         /// Unique identifier of the environment.
         /// </summary>
         public readonly string? Id;
@@ -140,6 +144,8 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
 
             Pulumi.AwsNative.WorkSpacesThinClient.EnvironmentDesktopType? desktopType,
 
+            ImmutableArray<Outputs.EnvironmentTag> deviceCreationTags,
+
             string? id,
 
             Outputs.EnvironmentMaintenanceWindow? maintenanceWindow,
@@ -168,6 +174,7 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
             DesiredSoftwareSetId = desiredSoftwareSetId;
             DesktopEndpoint = desktopEndpoint;
             DesktopType = desktopType;
+            DeviceCreationTags = deviceCreationTags;
             Id = id;
             MaintenanceWindow = maintenanceWindow;
             Name = name;

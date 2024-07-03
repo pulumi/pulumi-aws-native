@@ -289,6 +289,143 @@ func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationQAppsConfiguration struct {
+	// Status information about whether end users can create and use Amazon Q Apps in the web experience.
+	QAppsControlMode ApplicationQAppsControlMode `pulumi:"qAppsControlMode"`
+}
+
+// ApplicationQAppsConfigurationInput is an input type that accepts ApplicationQAppsConfigurationArgs and ApplicationQAppsConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationQAppsConfigurationInput` via:
+//
+//	ApplicationQAppsConfigurationArgs{...}
+type ApplicationQAppsConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationQAppsConfigurationOutput() ApplicationQAppsConfigurationOutput
+	ToApplicationQAppsConfigurationOutputWithContext(context.Context) ApplicationQAppsConfigurationOutput
+}
+
+type ApplicationQAppsConfigurationArgs struct {
+	// Status information about whether end users can create and use Amazon Q Apps in the web experience.
+	QAppsControlMode ApplicationQAppsControlModeInput `pulumi:"qAppsControlMode"`
+}
+
+func (ApplicationQAppsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQAppsConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationQAppsConfigurationArgs) ToApplicationQAppsConfigurationOutput() ApplicationQAppsConfigurationOutput {
+	return i.ToApplicationQAppsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationQAppsConfigurationArgs) ToApplicationQAppsConfigurationOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQAppsConfigurationOutput)
+}
+
+func (i ApplicationQAppsConfigurationArgs) ToApplicationQAppsConfigurationPtrOutput() ApplicationQAppsConfigurationPtrOutput {
+	return i.ToApplicationQAppsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationQAppsConfigurationArgs) ToApplicationQAppsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQAppsConfigurationOutput).ToApplicationQAppsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationQAppsConfigurationPtrInput is an input type that accepts ApplicationQAppsConfigurationArgs, ApplicationQAppsConfigurationPtr and ApplicationQAppsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationQAppsConfigurationPtrInput` via:
+//
+//	        ApplicationQAppsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationQAppsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationQAppsConfigurationPtrOutput() ApplicationQAppsConfigurationPtrOutput
+	ToApplicationQAppsConfigurationPtrOutputWithContext(context.Context) ApplicationQAppsConfigurationPtrOutput
+}
+
+type applicationQAppsConfigurationPtrType ApplicationQAppsConfigurationArgs
+
+func ApplicationQAppsConfigurationPtr(v *ApplicationQAppsConfigurationArgs) ApplicationQAppsConfigurationPtrInput {
+	return (*applicationQAppsConfigurationPtrType)(v)
+}
+
+func (*applicationQAppsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationQAppsConfiguration)(nil)).Elem()
+}
+
+func (i *applicationQAppsConfigurationPtrType) ToApplicationQAppsConfigurationPtrOutput() ApplicationQAppsConfigurationPtrOutput {
+	return i.ToApplicationQAppsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationQAppsConfigurationPtrType) ToApplicationQAppsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQAppsConfigurationPtrOutput)
+}
+
+type ApplicationQAppsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQAppsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQAppsConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationQAppsConfigurationOutput) ToApplicationQAppsConfigurationOutput() ApplicationQAppsConfigurationOutput {
+	return o
+}
+
+func (o ApplicationQAppsConfigurationOutput) ToApplicationQAppsConfigurationOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationOutput {
+	return o
+}
+
+func (o ApplicationQAppsConfigurationOutput) ToApplicationQAppsConfigurationPtrOutput() ApplicationQAppsConfigurationPtrOutput {
+	return o.ToApplicationQAppsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationQAppsConfigurationOutput) ToApplicationQAppsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationQAppsConfiguration) *ApplicationQAppsConfiguration {
+		return &v
+	}).(ApplicationQAppsConfigurationPtrOutput)
+}
+
+// Status information about whether end users can create and use Amazon Q Apps in the web experience.
+func (o ApplicationQAppsConfigurationOutput) QAppsControlMode() ApplicationQAppsControlModeOutput {
+	return o.ApplyT(func(v ApplicationQAppsConfiguration) ApplicationQAppsControlMode { return v.QAppsControlMode }).(ApplicationQAppsControlModeOutput)
+}
+
+type ApplicationQAppsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQAppsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationQAppsConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationQAppsConfigurationPtrOutput) ToApplicationQAppsConfigurationPtrOutput() ApplicationQAppsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationQAppsConfigurationPtrOutput) ToApplicationQAppsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQAppsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationQAppsConfigurationPtrOutput) Elem() ApplicationQAppsConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationQAppsConfiguration) ApplicationQAppsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationQAppsConfiguration
+		return ret
+	}).(ApplicationQAppsConfigurationOutput)
+}
+
+// Status information about whether end users can create and use Amazon Q Apps in the web experience.
+func (o ApplicationQAppsConfigurationPtrOutput) QAppsControlMode() ApplicationQAppsControlModePtrOutput {
+	return o.ApplyT(func(v *ApplicationQAppsConfiguration) *ApplicationQAppsControlMode {
+		if v == nil {
+			return nil
+		}
+		return &v.QAppsControlMode
+	}).(ApplicationQAppsControlModePtrOutput)
+}
+
 type ApplicationTag struct {
 	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
 	Key string `pulumi:"key"`
@@ -3733,6 +3870,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsConfigurationPtrInput)(nil)).Elem(), ApplicationAttachmentsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationPtrInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationPtrInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionPtrInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeTargetInput)(nil)).Elem(), DataSourceDocumentAttributeTargetArgs{})
@@ -3779,6 +3918,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAttachmentsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationQAppsConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationQAppsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeTargetOutput{})

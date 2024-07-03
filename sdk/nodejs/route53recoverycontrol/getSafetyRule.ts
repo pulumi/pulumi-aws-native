@@ -31,6 +31,10 @@ export interface GetSafetyRuleResult {
      */
     readonly assertionRule?: outputs.route53recoverycontrol.SafetyRuleAssertionRule;
     /**
+     * The Amazon Resource Name (ARN) of the control panel.
+     */
+    readonly controlPanelArn?: string;
+    /**
      * A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
      *
      * For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
@@ -40,6 +44,10 @@ export interface GetSafetyRuleResult {
      * The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
      */
     readonly name?: string;
+    /**
+     * The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
+     */
+    readonly ruleConfig?: outputs.route53recoverycontrol.SafetyRuleRuleConfig;
     /**
      * The Amazon Resource Name (ARN) of the safety rule.
      */

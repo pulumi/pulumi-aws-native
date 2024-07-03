@@ -186,6 +186,7 @@ import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
+import * as launchwizard from "./launchwizard";
 import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
@@ -402,6 +403,7 @@ export {
     kms,
     lakeformation,
     lambda,
+    launchwizard,
     lex,
     licensemanager,
     lightsail,

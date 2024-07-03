@@ -577,7 +577,7 @@ class BucketDefaultRetentionArgs:
                  mode: Optional[pulumi.Input['BucketDefaultRetentionMode']] = None,
                  years: Optional[pulumi.Input[int]] = None):
         """
-        The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+        The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
         :param pulumi.Input[int] days: The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.

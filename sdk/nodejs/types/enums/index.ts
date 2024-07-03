@@ -29,6 +29,7 @@ import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
+import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
@@ -89,6 +90,7 @@ import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
+import * as launchwizard from "./launchwizard";
 import * as lex from "./lex";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
@@ -190,6 +192,7 @@ export {
     codebuild,
     codeguruprofiler,
     codegurureviewer,
+    codepipeline,
     codestarconnections,
     codestarnotifications,
     comprehend,
@@ -250,6 +253,7 @@ export {
     kms,
     lakeformation,
     lambda,
+    launchwizard,
     lex,
     lightsail,
     location,

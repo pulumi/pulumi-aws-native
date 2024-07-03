@@ -64,7 +64,7 @@ export class IdentitySource extends pulumi.CustomResource {
     }
 
     /**
-     * Contains configuration information about an identity source.
+     * Contains configuration information used when creating a new identity source.
      */
     public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration0Properties | outputs.verifiedpermissions.IdentitySourceConfiguration1Properties>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
@@ -122,7 +122,7 @@ export class IdentitySource extends pulumi.CustomResource {
  */
 export interface IdentitySourceArgs {
     /**
-     * Contains configuration information about an identity source.
+     * Contains configuration information used when creating a new identity source.
      */
     configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration0PropertiesArgs | inputs.verifiedpermissions.IdentitySourceConfiguration1PropertiesArgs>;
     /**

@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'ApplicationAttachmentsConfigurationArgs',
     'ApplicationEncryptionConfigurationArgs',
+    'ApplicationQAppsConfigurationArgs',
     'DataSourceDocumentAttributeConditionArgs',
     'DataSourceDocumentAttributeTargetArgs',
     'DataSourceDocumentAttributeValue0PropertiesArgs',
@@ -84,6 +85,28 @@ class ApplicationEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ApplicationQAppsConfigurationArgs:
+    def __init__(__self__, *,
+                 q_apps_control_mode: pulumi.Input['ApplicationQAppsControlMode']):
+        """
+        :param pulumi.Input['ApplicationQAppsControlMode'] q_apps_control_mode: Status information about whether end users can create and use Amazon Q Apps in the web experience.
+        """
+        pulumi.set(__self__, "q_apps_control_mode", q_apps_control_mode)
+
+    @property
+    @pulumi.getter(name="qAppsControlMode")
+    def q_apps_control_mode(self) -> pulumi.Input['ApplicationQAppsControlMode']:
+        """
+        Status information about whether end users can create and use Amazon Q Apps in the web experience.
+        """
+        return pulumi.get(self, "q_apps_control_mode")
+
+    @q_apps_control_mode.setter
+    def q_apps_control_mode(self, value: pulumi.Input['ApplicationQAppsControlMode']):
+        pulumi.set(self, "q_apps_control_mode", value)
 
 
 @pulumi.input_type

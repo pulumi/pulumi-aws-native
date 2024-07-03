@@ -19,14 +19,32 @@ export function getCrl(args: GetCrlArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetCrlArgs {
+    /**
+     * The unique primary identifier of the Crl
+     */
     crlId: string;
 }
 
 export interface GetCrlResult {
+    /**
+     * The x509 v3 specified certificate revocation list (CRL).
+     */
     readonly crlData?: string;
+    /**
+     * The unique primary identifier of the Crl
+     */
     readonly crlId?: string;
+    /**
+     * Specifies whether the certificate revocation list (CRL) is enabled.
+     */
     readonly enabled?: boolean;
+    /**
+     * The name of the certificate revocation list (CRL).
+     */
     readonly name?: string;
+    /**
+     * A list of tags to attach to the certificate revocation list (CRL).
+     */
     readonly tags?: outputs.Tag[];
     /**
      * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
@@ -41,5 +59,8 @@ export function getCrlOutput(args: GetCrlOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetCrlOutputArgs {
+    /**
+     * The unique primary identifier of the Crl
+     */
     crlId: pulumi.Input<string>;
 }

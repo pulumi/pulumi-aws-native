@@ -55,6 +55,10 @@ export interface GetApplicationResult {
      */
     readonly identityCenterApplicationArn?: string;
     /**
+     * Configuration information about Amazon Q Apps. (preview feature)
+     */
+    readonly qAppsConfiguration?: outputs.qbusiness.ApplicationQAppsConfiguration;
+    /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      */
     readonly roleArn?: string;

@@ -9,6 +9,13 @@ export const ApplicationAttachmentsControlMode = {
 
 export type ApplicationAttachmentsControlMode = (typeof ApplicationAttachmentsControlMode)[keyof typeof ApplicationAttachmentsControlMode];
 
+export const ApplicationQAppsControlMode = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ApplicationQAppsControlMode = (typeof ApplicationQAppsControlMode)[keyof typeof ApplicationQAppsControlMode];
+
 export const ApplicationStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

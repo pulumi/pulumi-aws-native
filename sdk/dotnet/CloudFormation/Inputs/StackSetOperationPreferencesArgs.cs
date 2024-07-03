@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// </summary>
     public sealed class StackSetOperationPreferencesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("concurrencyMode")]
+        public Input<Pulumi.AwsNative.CloudFormation.StackSetConcurrencyMode>? ConcurrencyMode { get; set; }
+
         /// <summary>
         /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
         /// 

@@ -17,17 +17,28 @@ import (
 type WorkspacesPool struct {
 	pulumi.CustomResourceState
 
+	// The persistent application settings for users of the pool.
 	ApplicationSettings WorkspacesPoolApplicationSettingsPtrOutput `pulumi:"applicationSettings"`
-	BundleId            pulumi.StringOutput                        `pulumi:"bundleId"`
-	Capacity            WorkspacesPoolCapacityOutput               `pulumi:"capacity"`
-	CreatedAt           pulumi.StringOutput                        `pulumi:"createdAt"`
-	Description         pulumi.StringPtrOutput                     `pulumi:"description"`
-	DirectoryId         pulumi.StringOutput                        `pulumi:"directoryId"`
-	PoolArn             pulumi.StringOutput                        `pulumi:"poolArn"`
-	PoolId              pulumi.StringOutput                        `pulumi:"poolId"`
-	PoolName            pulumi.StringOutput                        `pulumi:"poolName"`
-	Tags                aws.TagArrayOutput                         `pulumi:"tags"`
-	TimeoutSettings     WorkspacesPoolTimeoutSettingsPtrOutput     `pulumi:"timeoutSettings"`
+	// The identifier of the bundle used by the pool.
+	BundleId pulumi.StringOutput `pulumi:"bundleId"`
+	// Describes the user capacity for the pool.
+	Capacity WorkspacesPoolCapacityOutput `pulumi:"capacity"`
+	// The time the pool was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description of the pool.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The identifier of the directory used by the pool.
+	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+	// The Amazon Resource Name (ARN) for the pool.
+	PoolArn pulumi.StringOutput `pulumi:"poolArn"`
+	// The identifier of the pool.
+	PoolId pulumi.StringOutput `pulumi:"poolId"`
+	// The name of the pool.
+	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// The tags for the pool.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrOutput `pulumi:"timeoutSettings"`
 }
 
 // NewWorkspacesPool registers a new resource with the given unique name, arguments, and options.
@@ -83,26 +94,42 @@ func (WorkspacesPoolState) ElementType() reflect.Type {
 }
 
 type workspacesPoolArgs struct {
+	// The persistent application settings for users of the pool.
 	ApplicationSettings *WorkspacesPoolApplicationSettings `pulumi:"applicationSettings"`
-	BundleId            string                             `pulumi:"bundleId"`
-	Capacity            WorkspacesPoolCapacity             `pulumi:"capacity"`
-	Description         *string                            `pulumi:"description"`
-	DirectoryId         string                             `pulumi:"directoryId"`
-	PoolName            *string                            `pulumi:"poolName"`
-	Tags                []aws.Tag                          `pulumi:"tags"`
-	TimeoutSettings     *WorkspacesPoolTimeoutSettings     `pulumi:"timeoutSettings"`
+	// The identifier of the bundle used by the pool.
+	BundleId string `pulumi:"bundleId"`
+	// Describes the user capacity for the pool.
+	Capacity WorkspacesPoolCapacity `pulumi:"capacity"`
+	// The description of the pool.
+	Description *string `pulumi:"description"`
+	// The identifier of the directory used by the pool.
+	DirectoryId string `pulumi:"directoryId"`
+	// The name of the pool.
+	PoolName *string `pulumi:"poolName"`
+	// The tags for the pool.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+	TimeoutSettings *WorkspacesPoolTimeoutSettings `pulumi:"timeoutSettings"`
 }
 
 // The set of arguments for constructing a WorkspacesPool resource.
 type WorkspacesPoolArgs struct {
+	// The persistent application settings for users of the pool.
 	ApplicationSettings WorkspacesPoolApplicationSettingsPtrInput
-	BundleId            pulumi.StringInput
-	Capacity            WorkspacesPoolCapacityInput
-	Description         pulumi.StringPtrInput
-	DirectoryId         pulumi.StringInput
-	PoolName            pulumi.StringPtrInput
-	Tags                aws.TagArrayInput
-	TimeoutSettings     WorkspacesPoolTimeoutSettingsPtrInput
+	// The identifier of the bundle used by the pool.
+	BundleId pulumi.StringInput
+	// Describes the user capacity for the pool.
+	Capacity WorkspacesPoolCapacityInput
+	// The description of the pool.
+	Description pulumi.StringPtrInput
+	// The identifier of the directory used by the pool.
+	DirectoryId pulumi.StringInput
+	// The name of the pool.
+	PoolName pulumi.StringPtrInput
+	// The tags for the pool.
+	Tags aws.TagArrayInput
+	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrInput
 }
 
 func (WorkspacesPoolArgs) ElementType() reflect.Type {
@@ -142,46 +169,57 @@ func (o WorkspacesPoolOutput) ToWorkspacesPoolOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The persistent application settings for users of the pool.
 func (o WorkspacesPoolOutput) ApplicationSettings() WorkspacesPoolApplicationSettingsPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPool) WorkspacesPoolApplicationSettingsPtrOutput { return v.ApplicationSettings }).(WorkspacesPoolApplicationSettingsPtrOutput)
 }
 
+// The identifier of the bundle used by the pool.
 func (o WorkspacesPoolOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// Describes the user capacity for the pool.
 func (o WorkspacesPoolOutput) Capacity() WorkspacesPoolCapacityOutput {
 	return o.ApplyT(func(v *WorkspacesPool) WorkspacesPoolCapacityOutput { return v.Capacity }).(WorkspacesPoolCapacityOutput)
 }
 
+// The time the pool was created.
 func (o WorkspacesPoolOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description of the pool.
 func (o WorkspacesPoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the directory used by the pool.
 func (o WorkspacesPoolOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the pool.
 func (o WorkspacesPoolOutput) PoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the pool.
 func (o WorkspacesPoolOutput) PoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolId }).(pulumi.StringOutput)
 }
 
+// The name of the pool.
 func (o WorkspacesPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
 
+// The tags for the pool.
 func (o WorkspacesPoolOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WorkspacesPool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 func (o WorkspacesPoolOutput) TimeoutSettings() WorkspacesPoolTimeoutSettingsPtrOutput {
 	return o.ApplyT(func(v *WorkspacesPool) WorkspacesPoolTimeoutSettingsPtrOutput { return v.TimeoutSettings }).(WorkspacesPoolTimeoutSettingsPtrOutput)
 }

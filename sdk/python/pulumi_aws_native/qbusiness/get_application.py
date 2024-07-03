@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_id=None, attachments_configuration=None, created_at=None, description=None, display_name=None, identity_center_application_arn=None, role_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, application_arn=None, application_id=None, attachments_configuration=None, created_at=None, description=None, display_name=None, identity_center_application_arn=None, q_apps_configuration=None, role_arn=None, status=None, tags=None, updated_at=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -43,6 +43,9 @@ class GetApplicationResult:
         if identity_center_application_arn and not isinstance(identity_center_application_arn, str):
             raise TypeError("Expected argument 'identity_center_application_arn' to be a str")
         pulumi.set(__self__, "identity_center_application_arn", identity_center_application_arn)
+        if q_apps_configuration and not isinstance(q_apps_configuration, dict):
+            raise TypeError("Expected argument 'q_apps_configuration' to be a dict")
+        pulumi.set(__self__, "q_apps_configuration", q_apps_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -113,6 +116,14 @@ class GetApplicationResult:
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
+    @pulumi.getter(name="qAppsConfiguration")
+    def q_apps_configuration(self) -> Optional['outputs.ApplicationQAppsConfiguration']:
+        """
+        Configuration information about Amazon Q Apps. (preview feature)
+        """
+        return pulumi.get(self, "q_apps_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
@@ -158,6 +169,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             description=self.description,
             display_name=self.display_name,
             identity_center_application_arn=self.identity_center_application_arn,
+            q_apps_configuration=self.q_apps_configuration,
             role_arn=self.role_arn,
             status=self.status,
             tags=self.tags,
@@ -185,6 +197,7 @@ def get_application(application_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         identity_center_application_arn=pulumi.get(__ret__, 'identity_center_application_arn'),
+        q_apps_configuration=pulumi.get(__ret__, 'q_apps_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),

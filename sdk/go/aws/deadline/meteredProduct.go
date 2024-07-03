@@ -18,15 +18,15 @@ type MeteredProduct struct {
 	// The Amazon Resource Name (ARN) of the metered product.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The family to which the metered product belongs.
-	Family pulumi.StringPtrOutput `pulumi:"family"`
+	Family pulumi.StringOutput `pulumi:"family"`
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId pulumi.StringPtrOutput `pulumi:"licenseEndpointId"`
 	// The port on which the metered product should run.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
+	Port pulumi.IntOutput `pulumi:"port"`
 	// The product ID.
 	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
 	// The vendor.
-	Vendor pulumi.StringPtrOutput `pulumi:"vendor"`
+	Vendor pulumi.StringOutput `pulumi:"vendor"`
 }
 
 // NewMeteredProduct registers a new resource with the given unique name, arguments, and options.
@@ -74,30 +74,18 @@ func (MeteredProductState) ElementType() reflect.Type {
 }
 
 type meteredProductArgs struct {
-	// The family to which the metered product belongs.
-	Family *string `pulumi:"family"`
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId *string `pulumi:"licenseEndpointId"`
-	// The port on which the metered product should run.
-	Port *int `pulumi:"port"`
 	// The product ID.
 	ProductId *string `pulumi:"productId"`
-	// The vendor.
-	Vendor *string `pulumi:"vendor"`
 }
 
 // The set of arguments for constructing a MeteredProduct resource.
 type MeteredProductArgs struct {
-	// The family to which the metered product belongs.
-	Family pulumi.StringPtrInput
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId pulumi.StringPtrInput
-	// The port on which the metered product should run.
-	Port pulumi.IntPtrInput
 	// The product ID.
 	ProductId pulumi.StringPtrInput
-	// The vendor.
-	Vendor pulumi.StringPtrInput
 }
 
 func (MeteredProductArgs) ElementType() reflect.Type {
@@ -143,8 +131,8 @@ func (o MeteredProductOutput) Arn() pulumi.StringOutput {
 }
 
 // The family to which the metered product belongs.
-func (o MeteredProductOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MeteredProduct) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
+func (o MeteredProductOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v *MeteredProduct) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
 // The Amazon EC2 identifier of the license endpoint.
@@ -153,8 +141,8 @@ func (o MeteredProductOutput) LicenseEndpointId() pulumi.StringPtrOutput {
 }
 
 // The port on which the metered product should run.
-func (o MeteredProductOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MeteredProduct) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+func (o MeteredProductOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v *MeteredProduct) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
 // The product ID.
@@ -163,8 +151,8 @@ func (o MeteredProductOutput) ProductId() pulumi.StringPtrOutput {
 }
 
 // The vendor.
-func (o MeteredProductOutput) Vendor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MeteredProduct) pulumi.StringPtrOutput { return v.Vendor }).(pulumi.StringPtrOutput)
+func (o MeteredProductOutput) Vendor() pulumi.StringOutput {
+	return o.ApplyT(func(v *MeteredProduct) pulumi.StringOutput { return v.Vendor }).(pulumi.StringOutput)
 }
 
 func init() {

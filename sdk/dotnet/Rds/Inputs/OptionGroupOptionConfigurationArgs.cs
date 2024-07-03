@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
 {
 
     /// <summary>
-    /// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+    /// The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
     /// </summary>
     public sealed class OptionGroupOptionConfigurationArgs : global::Pulumi.ResourceArgs
     {

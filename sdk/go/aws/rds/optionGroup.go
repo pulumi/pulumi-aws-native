@@ -13,21 +13,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+// The “AWS::RDS::OptionGroup“ resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
-	// Indicates the name of the engine that this option group can be applied to.
+	// Specifies the name of the engine that this option group should be associated with.
+	//  Valid Values:
+	//   +   ``mariadb``
+	//   +   ``mysql``
+	//   +   ``oracle-ee``
+	//   +   ``oracle-ee-cdb``
+	//   +   ``oracle-se2``
+	//   +   ``oracle-se2-cdb``
+	//   +   ``postgres``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
+	//   +   ``sqlserver-ex``
+	//   +   ``sqlserver-web``
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
-	// Indicates the major engine version associated with this option group.
+	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
-	// Indicates what options are available in the option group.
+	// A list of options and the settings for each option.
 	OptionConfigurations OptionGroupOptionConfigurationArrayOutput `pulumi:"optionConfigurations"`
-	// Provides a description of the option group.
+	// The description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
-	// Specifies the name of the option group.
+	// The name of the option group to be created.
+	//  Constraints:
+	//   +  Must be 1 to 255 letters, numbers, or hyphens
+	//   +  First character must be a letter
+	//   +  Can't end with a hyphen or contain two consecutive hyphens
+	//
+	//  Example: ``myoptiongroup``
+	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+	//   This value is stored as a lowercase string.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional array of key-value pairs to apply to this option group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -87,33 +107,73 @@ func (OptionGroupState) ElementType() reflect.Type {
 }
 
 type optionGroupArgs struct {
-	// Indicates the name of the engine that this option group can be applied to.
+	// Specifies the name of the engine that this option group should be associated with.
+	//  Valid Values:
+	//   +   ``mariadb``
+	//   +   ``mysql``
+	//   +   ``oracle-ee``
+	//   +   ``oracle-ee-cdb``
+	//   +   ``oracle-se2``
+	//   +   ``oracle-se2-cdb``
+	//   +   ``postgres``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
+	//   +   ``sqlserver-ex``
+	//   +   ``sqlserver-web``
 	EngineName string `pulumi:"engineName"`
-	// Indicates the major engine version associated with this option group.
+	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	// Indicates what options are available in the option group.
+	// A list of options and the settings for each option.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
-	// Provides a description of the option group.
+	// The description of the option group.
 	OptionGroupDescription string `pulumi:"optionGroupDescription"`
-	// Specifies the name of the option group.
+	// The name of the option group to be created.
+	//  Constraints:
+	//   +  Must be 1 to 255 letters, numbers, or hyphens
+	//   +  First character must be a letter
+	//   +  Can't end with a hyphen or contain two consecutive hyphens
+	//
+	//  Example: ``myoptiongroup``
+	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+	//   This value is stored as a lowercase string.
 	OptionGroupName *string `pulumi:"optionGroupName"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional array of key-value pairs to apply to this option group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
 type OptionGroupArgs struct {
-	// Indicates the name of the engine that this option group can be applied to.
+	// Specifies the name of the engine that this option group should be associated with.
+	//  Valid Values:
+	//   +   ``mariadb``
+	//   +   ``mysql``
+	//   +   ``oracle-ee``
+	//   +   ``oracle-ee-cdb``
+	//   +   ``oracle-se2``
+	//   +   ``oracle-se2-cdb``
+	//   +   ``postgres``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
+	//   +   ``sqlserver-ex``
+	//   +   ``sqlserver-web``
 	EngineName pulumi.StringInput
-	// Indicates the major engine version associated with this option group.
+	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringInput
-	// Indicates what options are available in the option group.
+	// A list of options and the settings for each option.
 	OptionConfigurations OptionGroupOptionConfigurationArrayInput
-	// Provides a description of the option group.
+	// The description of the option group.
 	OptionGroupDescription pulumi.StringInput
-	// Specifies the name of the option group.
+	// The name of the option group to be created.
+	//  Constraints:
+	//   +  Must be 1 to 255 letters, numbers, or hyphens
+	//   +  First character must be a letter
+	//   +  Can't end with a hyphen or contain two consecutive hyphens
+	//
+	//  Example: ``myoptiongroup``
+	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+	//   This value is stored as a lowercase string.
 	OptionGroupName pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
+	// An optional array of key-value pairs to apply to this option group.
 	Tags aws.TagArrayInput
 }
 
@@ -154,32 +214,54 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
-// Indicates the name of the engine that this option group can be applied to.
+// Specifies the name of the engine that this option group should be associated with.
+//
+//	Valid Values:
+//	 +   ``mariadb``
+//	 +   ``mysql``
+//	 +   ``oracle-ee``
+//	 +   ``oracle-ee-cdb``
+//	 +   ``oracle-se2``
+//	 +   ``oracle-se2-cdb``
+//	 +   ``postgres``
+//	 +   ``sqlserver-ee``
+//	 +   ``sqlserver-se``
+//	 +   ``sqlserver-ex``
+//	 +   ``sqlserver-web``
 func (o OptionGroupOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
 
-// Indicates the major engine version associated with this option group.
+// Specifies the major version of the engine that this option group should be associated with.
 func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
-// Indicates what options are available in the option group.
+// A list of options and the settings for each option.
 func (o OptionGroupOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionConfigurationArrayOutput { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }
 
-// Provides a description of the option group.
+// The description of the option group.
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the option group.
+// The name of the option group to be created.
+//
+//	Constraints:
+//	 +  Must be 1 to 255 letters, numbers, or hyphens
+//	 +  First character must be a letter
+//	 +  Can't end with a hyphen or contain two consecutive hyphens
+//
+//	Example: ``myoptiongroup``
+//	If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+//	 This value is stored as a lowercase string.
 func (o OptionGroupOutput) OptionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringPtrOutput { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// An optional array of key-value pairs to apply to this option group.
 func (o OptionGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

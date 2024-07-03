@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+    /// The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
     ///    +  The ``DefaultRetention`` settings require both a mode and a period.
     ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
     /// </summary>

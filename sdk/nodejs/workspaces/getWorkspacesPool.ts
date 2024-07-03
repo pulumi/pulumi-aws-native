@@ -19,18 +19,48 @@ export function getWorkspacesPool(args: GetWorkspacesPoolArgs, opts?: pulumi.Inv
 }
 
 export interface GetWorkspacesPoolArgs {
+    /**
+     * The identifier of the pool.
+     */
     poolId: string;
 }
 
 export interface GetWorkspacesPoolResult {
+    /**
+     * The persistent application settings for users of the pool.
+     */
     readonly applicationSettings?: outputs.workspaces.WorkspacesPoolApplicationSettings;
+    /**
+     * The identifier of the bundle used by the pool.
+     */
     readonly bundleId?: string;
+    /**
+     * Describes the user capacity for the pool.
+     */
     readonly capacity?: outputs.workspaces.WorkspacesPoolCapacity;
+    /**
+     * The time the pool was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The description of the pool.
+     */
     readonly description?: string;
+    /**
+     * The identifier of the directory used by the pool.
+     */
     readonly directoryId?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the pool.
+     */
     readonly poolArn?: string;
+    /**
+     * The identifier of the pool.
+     */
     readonly poolId?: string;
+    /**
+     * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+     */
     readonly timeoutSettings?: outputs.workspaces.WorkspacesPoolTimeoutSettings;
 }
 /**
@@ -41,5 +71,8 @@ export function getWorkspacesPoolOutput(args: GetWorkspacesPoolOutputArgs, opts?
 }
 
 export interface GetWorkspacesPoolOutputArgs {
+    /**
+     * The identifier of the pool.
+     */
     poolId: pulumi.Input<string>;
 }

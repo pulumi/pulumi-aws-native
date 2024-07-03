@@ -22,7 +22,7 @@ class IdentitySourceArgs:
                  principal_entity_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
-        :param pulumi.Input[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgs']] configuration: Contains configuration information about an identity source.
+        :param pulumi.Input[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgs']] configuration: Contains configuration information used when creating a new identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -35,7 +35,7 @@ class IdentitySourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgs']]:
         """
-        Contains configuration information about an identity source.
+        Contains configuration information used when creating a new identity source.
         """
         return pulumi.get(self, "configuration")
 
@@ -107,7 +107,7 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['IdentitySourceConfiguration0PropertiesArgs'], pulumi.InputType['IdentitySourceConfiguration1PropertiesArgs']]] configuration: Contains configuration information about an identity source.
+        :param pulumi.Input[Union[pulumi.InputType['IdentitySourceConfiguration0PropertiesArgs'], pulumi.InputType['IdentitySourceConfiguration1PropertiesArgs']]] configuration: Contains configuration information used when creating a new identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -216,7 +216,7 @@ class IdentitySource(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
         """
-        Contains configuration information about an identity source.
+        Contains configuration information used when creating a new identity source.
         """
         return pulumi.get(self, "configuration")
 

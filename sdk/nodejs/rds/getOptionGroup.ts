@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+ * The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
  */
 export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOptionGroupResult> {
 
@@ -20,23 +20,31 @@ export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOpt
 
 export interface GetOptionGroupArgs {
     /**
-     * Specifies the name of the option group.
+     * The name of the option group to be created.
+     *  Constraints:
+     *   +  Must be 1 to 255 letters, numbers, or hyphens
+     *   +  First character must be a letter
+     *   +  Can't end with a hyphen or contain two consecutive hyphens
+     *   
+     *  Example: ``myoptiongroup`` 
+     *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+     *   This value is stored as a lowercase string.
      */
     optionGroupName: string;
 }
 
 export interface GetOptionGroupResult {
     /**
-     * Indicates what options are available in the option group.
+     * A list of options and the settings for each option.
      */
     readonly optionConfigurations?: outputs.rds.OptionGroupOptionConfiguration[];
     /**
-     * An array of key-value pairs to apply to this resource.
+     * An optional array of key-value pairs to apply to this option group.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+ * The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
  */
 export function getOptionGroupOutput(args: GetOptionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOptionGroupResult> {
     return pulumi.output(args).apply((a: any) => getOptionGroup(a, opts))
@@ -44,7 +52,15 @@ export function getOptionGroupOutput(args: GetOptionGroupOutputArgs, opts?: pulu
 
 export interface GetOptionGroupOutputArgs {
     /**
-     * Specifies the name of the option group.
+     * The name of the option group to be created.
+     *  Constraints:
+     *   +  Must be 1 to 255 letters, numbers, or hyphens
+     *   +  First character must be a letter
+     *   +  Can't end with a hyphen or contain two consecutive hyphens
+     *   
+     *  Example: ``myoptiongroup`` 
+     *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
+     *   This value is stored as a lowercase string.
      */
     optionGroupName: pulumi.Input<string>;
 }

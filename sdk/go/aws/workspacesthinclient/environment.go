@@ -33,6 +33,8 @@ type Environment struct {
 	DesktopEndpoint pulumi.StringPtrOutput `pulumi:"desktopEndpoint"`
 	// The type of VDI.
 	DesktopType EnvironmentDesktopTypeOutput `pulumi:"desktopType"`
+	// An array of key-value pairs to apply to the newly created devices for this environment.
+	DeviceCreationTags EnvironmentTagArrayOutput `pulumi:"deviceCreationTags"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// A specification for a time window to apply software updates.
@@ -111,6 +113,8 @@ type environmentArgs struct {
 	DesktopArn string `pulumi:"desktopArn"`
 	// The URL for the identity provider login (only for environments that use AppStream 2.0).
 	DesktopEndpoint *string `pulumi:"desktopEndpoint"`
+	// An array of key-value pairs to apply to the newly created devices for this environment.
+	DeviceCreationTags []EnvironmentTag `pulumi:"deviceCreationTags"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A specification for a time window to apply software updates.
@@ -133,6 +137,8 @@ type EnvironmentArgs struct {
 	DesktopArn pulumi.StringInput
 	// The URL for the identity provider login (only for environments that use AppStream 2.0).
 	DesktopEndpoint pulumi.StringPtrInput
+	// An array of key-value pairs to apply to the newly created devices for this environment.
+	DeviceCreationTags EnvironmentTagArrayInput
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	KmsKeyArn pulumi.StringPtrInput
 	// A specification for a time window to apply software updates.
@@ -222,6 +228,11 @@ func (o EnvironmentOutput) DesktopEndpoint() pulumi.StringPtrOutput {
 // The type of VDI.
 func (o EnvironmentOutput) DesktopType() EnvironmentDesktopTypeOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentDesktopTypeOutput { return v.DesktopType }).(EnvironmentDesktopTypeOutput)
+}
+
+// An array of key-value pairs to apply to the newly created devices for this environment.
+func (o EnvironmentOutput) DeviceCreationTags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.DeviceCreationTags }).(EnvironmentTagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.

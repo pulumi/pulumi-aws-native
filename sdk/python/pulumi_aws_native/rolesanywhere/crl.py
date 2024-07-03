@@ -23,6 +23,10 @@ class CrlArgs:
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Crl resource.
+        :param pulumi.Input[str] crl_data: The x509 v3 specified certificate revocation list (CRL).
+        :param pulumi.Input[bool] enabled: Specifies whether the certificate revocation list (CRL) is enabled.
+        :param pulumi.Input[str] name: The name of the certificate revocation list (CRL).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to attach to the certificate revocation list (CRL).
         :param pulumi.Input[str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         pulumi.set(__self__, "crl_data", crl_data)
@@ -38,6 +42,9 @@ class CrlArgs:
     @property
     @pulumi.getter(name="crlData")
     def crl_data(self) -> pulumi.Input[str]:
+        """
+        The x509 v3 specified certificate revocation list (CRL).
+        """
         return pulumi.get(self, "crl_data")
 
     @crl_data.setter
@@ -47,6 +54,9 @@ class CrlArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the certificate revocation list (CRL) is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -56,6 +66,9 @@ class CrlArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -65,6 +78,9 @@ class CrlArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of tags to attach to the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -100,6 +116,10 @@ class Crl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] crl_data: The x509 v3 specified certificate revocation list (CRL).
+        :param pulumi.Input[bool] enabled: Specifies whether the certificate revocation list (CRL) is enabled.
+        :param pulumi.Input[str] name: The name of the certificate revocation list (CRL).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to attach to the certificate revocation list (CRL).
         :param pulumi.Input[str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         ...
@@ -181,26 +201,41 @@ class Crl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="crlData")
     def crl_data(self) -> pulumi.Output[str]:
+        """
+        The x509 v3 specified certificate revocation list (CRL).
+        """
         return pulumi.get(self, "crl_data")
 
     @property
     @pulumi.getter(name="crlId")
     def crl_id(self) -> pulumi.Output[str]:
+        """
+        The unique primary identifier of the Crl
+        """
         return pulumi.get(self, "crl_id")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the certificate revocation list (CRL) is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of tags to attach to the certificate revocation list (CRL).
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -5839,13 +5839,7 @@ type RuleGroupJsonBody struct {
 	//
 	// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 	//
-	// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-	//
-	// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-	//
-	// - Missing comma: `{"key1":"value1""key2":"value2"}`
-	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 	InvalidFallbackBehavior *RuleGroupBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
 	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
@@ -5893,13 +5887,7 @@ type RuleGroupJsonBodyArgs struct {
 	//
 	// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 	//
-	// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-	//
-	// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-	//
-	// - Missing comma: `{"key1":"value1""key2":"value2"}`
-	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 	InvalidFallbackBehavior RuleGroupBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
 	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
@@ -6012,13 +6000,7 @@ func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyPtrOutputWithContext(ctx con
 //
 // If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 //
-// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-//
-// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-//
-// - Missing comma: `{"key1":"value1""key2":"value2"}`
-// - Missing colon: `{"key1":"value1","key2""value2"}`
-// - Extra colons: `{"key1"::"value1","key2""value2"}`
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) *RuleGroupBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
@@ -6087,13 +6069,7 @@ func (o RuleGroupJsonBodyPtrOutput) Elem() RuleGroupJsonBodyOutput {
 //
 // If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 //
-// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-//
-// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-//
-// - Missing comma: `{"key1":"value1""key2":"value2"}`
-// - Missing colon: `{"key1":"value1","key2""value2"}`
-// - Extra colons: `{"key1"::"value1","key2""value2"}`
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupBodyParsingFallbackBehavior {
 		if v == nil {
@@ -17205,13 +17181,7 @@ type WebAclJsonBody struct {
 	//
 	// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 	//
-	// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-	//
-	// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-	//
-	// - Missing comma: `{"key1":"value1""key2":"value2"}`
-	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 	InvalidFallbackBehavior *WebAclBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
 	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern WebAclJsonMatchPattern `pulumi:"matchPattern"`
@@ -17259,13 +17229,7 @@ type WebAclJsonBodyArgs struct {
 	//
 	// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 	//
-	// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-	//
-	// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-	//
-	// - Missing comma: `{"key1":"value1""key2":"value2"}`
-	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 	InvalidFallbackBehavior WebAclBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
 	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern WebAclJsonMatchPatternInput `pulumi:"matchPattern"`
@@ -17378,13 +17342,7 @@ func (o WebAclJsonBodyOutput) ToWebAclJsonBodyPtrOutputWithContext(ctx context.C
 //
 // If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 //
-// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-//
-// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-//
-// - Missing comma: `{"key1":"value1""key2":"value2"}`
-// - Missing colon: `{"key1":"value1","key2""value2"}`
-// - Extra colons: `{"key1"::"value1","key2""value2"}`
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 func (o WebAclJsonBodyOutput) InvalidFallbackBehavior() WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return o.ApplyT(func(v WebAclJsonBody) *WebAclBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
@@ -17453,13 +17411,7 @@ func (o WebAclJsonBodyPtrOutput) Elem() WebAclJsonBodyOutput {
 //
 // If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 //
-// AWS WAF does its best to parse the entire JSON body, but might be forced to stop for reasons such as invalid characters, duplicate keys, truncation, and any content whose root node isn't an object or an array.
-//
-// AWS WAF parses the JSON in the following examples as two valid key, value pairs:
-//
-// - Missing comma: `{"key1":"value1""key2":"value2"}`
-// - Missing colon: `{"key1":"value1","key2""value2"}`
-// - Extra colons: `{"key1"::"value1","key2""value2"}`
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
 func (o WebAclJsonBodyPtrOutput) InvalidFallbackBehavior() WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return o.ApplyT(func(v *WebAclJsonBody) *WebAclBodyParsingFallbackBehavior {
 		if v == nil {

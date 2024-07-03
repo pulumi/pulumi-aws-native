@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
 {
 
     /// <summary>
-    /// Returns the details of the DB instance’s server certificate.
+    /// The details of the DB instance’s server certificate.
     ///  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
     /// </summary>
     [OutputType]
