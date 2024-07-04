@@ -11500,6 +11500,34 @@
       }
     }
   },
+  "aws-native:ses:MailManagerAddonInstance": {
+    "cfTypeName": "AWS::SES::MailManagerAddonInstance",
+    "properties": {
+      "addonSubscriptionId": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:ses:MailManagerAddonSubscription": {
+    "cfTypeName": "AWS::SES::MailManagerAddonSubscription",
+    "properties": {
+      "addonName": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:ses:Template": {
     "cfTypeName": "AWS::SES::Template",
     "properties": {
