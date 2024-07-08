@@ -874,6 +874,13 @@ AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
 AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
+AWS::SES::MailManagerAddonInstance
+AWS::SES::MailManagerAddonSubscription
+AWS::SES::MailManagerArchive
+AWS::SES::MailManagerIngressPoint
+AWS::SES::MailManagerRelay
+AWS::SES::MailManagerRuleSet
+AWS::SES::MailManagerTrafficPolicy
 AWS::SES::Template
 AWS::SES::VdmAttributes
 AWS::SNS::Topic
