@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
     public sealed class IdMappingWorkflowInputSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An Glue table ARN for the input source table or IdNamespace ARN
+        /// An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
         /// </summary>
         [Input("inputSourceArn", required: true)]
         public Input<string> InputSourceArn { get; set; } = null!;

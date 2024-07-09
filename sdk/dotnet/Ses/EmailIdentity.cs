@@ -64,7 +64,9 @@ namespace Pulumi.AwsNative.Ses
         public Output<string> DkimDnsTokenValue3 { get; private set; } = null!;
 
         /// <summary>
-        /// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        /// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+        /// 
+        /// You can only specify this object if the email identity is a domain, as opposed to an address.
         /// </summary>
         [Output("dkimSigningAttributes")]
         public Output<Outputs.EmailIdentityDkimSigningAttributes?> DkimSigningAttributes { get; private set; } = null!;
@@ -149,7 +151,9 @@ namespace Pulumi.AwsNative.Ses
         public Input<Inputs.EmailIdentityDkimAttributesArgs>? DkimAttributes { get; set; }
 
         /// <summary>
-        /// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        /// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+        /// 
+        /// You can only specify this object if the email identity is a domain, as opposed to an address.
         /// </summary>
         [Input("dkimSigningAttributes")]
         public Input<Inputs.EmailIdentityDkimSigningAttributesArgs>? DkimSigningAttributes { get; set; }

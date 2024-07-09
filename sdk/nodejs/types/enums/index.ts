@@ -144,6 +144,7 @@ import * as securityhub from "./securityhub";
 import * as securitylake from "./securitylake";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
+import * as ses from "./ses";
 import * as shield from "./shield";
 import * as signer from "./signer";
 import * as sns from "./sns";
@@ -307,6 +308,7 @@ export {
     securitylake,
     servicecatalog,
     servicecatalogappregistry,
+    ses,
     shield,
     signer,
     sns,

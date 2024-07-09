@@ -156,7 +156,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
     public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
@@ -164,7 +164,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * An object that represents the reputation settings for the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
     public readonly reputationOptions!: pulumi.Output<outputs.ses.ConfigurationSetReputationOptions | undefined>;
     /**
@@ -176,7 +176,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
     /**
-     * The name of the custom open and click tracking domain associated with the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
     /**
@@ -223,7 +223,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
  */
 export interface ConfigurationSetArgs {
     /**
-     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
     deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptionsArgs>;
     /**
@@ -231,7 +231,7 @@ export interface ConfigurationSetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * An object that represents the reputation settings for the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
     reputationOptions?: pulumi.Input<inputs.ses.ConfigurationSetReputationOptionsArgs>;
     /**
@@ -243,7 +243,7 @@ export interface ConfigurationSetArgs {
      */
     suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
     /**
-     * The name of the custom open and click tracking domain associated with the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs>;
     /**

@@ -2919,6 +2919,13 @@ _utilities.register(
    "aws-native:ses:ContactList": "ContactList",
    "aws-native:ses:DedicatedIpPool": "DedicatedIpPool",
    "aws-native:ses:EmailIdentity": "EmailIdentity",
+   "aws-native:ses:MailManagerAddonInstance": "MailManagerAddonInstance",
+   "aws-native:ses:MailManagerAddonSubscription": "MailManagerAddonSubscription",
+   "aws-native:ses:MailManagerArchive": "MailManagerArchive",
+   "aws-native:ses:MailManagerIngressPoint": "MailManagerIngressPoint",
+   "aws-native:ses:MailManagerRelay": "MailManagerRelay",
+   "aws-native:ses:MailManagerRuleSet": "MailManagerRuleSet",
+   "aws-native:ses:MailManagerTrafficPolicy": "MailManagerTrafficPolicy",
    "aws-native:ses:Template": "Template",
    "aws-native:ses:VdmAttributes": "VdmAttributes"
   }

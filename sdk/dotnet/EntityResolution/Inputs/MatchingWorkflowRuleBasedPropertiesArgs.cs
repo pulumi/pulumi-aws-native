@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("attributeMatchingModel", required: true)]
         public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel> AttributeMatchingModel { get; set; } = null!;
 
+        [Input("matchPurpose")]
+        public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesMatchPurpose>? MatchPurpose { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.MatchingWorkflowRuleArgs>? _rules;
 

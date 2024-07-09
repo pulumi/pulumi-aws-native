@@ -16,8 +16,6 @@ import (
 type UserPoolUiCustomizationAttachment struct {
 	pulumi.CustomResourceState
 
-	// The resource ID.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// The CSS values in the UI customization.
@@ -130,11 +128,6 @@ func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttach
 
 func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUiCustomizationAttachmentOutput {
 	return o
-}
-
-// The resource ID.
-func (o UserPoolUiCustomizationAttachmentOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).

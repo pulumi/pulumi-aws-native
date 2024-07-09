@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        [Input("hashed")]
+        public Input<bool>? Hashed { get; set; }
+
         [Input("matchKey")]
         public Input<string>? MatchKey { get; set; }
 

@@ -5,15 +5,37 @@
 from enum import Enum
 
 __all__ = [
+    'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel',
+    'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel',
+    'IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType',
     'IdMappingWorkflowIdMappingTechniquesIdMappingType',
     'IdMappingWorkflowInputSourceType',
     'IdNamespaceIdMappingWorkflowPropertiesIdMappingType',
+    'IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel',
+    'IdNamespaceRecordMatchingModel',
+    'IdNamespaceRuleDefinitionType',
     'IdNamespaceType',
-    'MatchingWorkflowResolutionTechniquesResolutionType',
+    'MatchingWorkflowResolutionType',
     'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
+    'MatchingWorkflowRuleBasedPropertiesMatchPurpose',
     'PolicyStatementStatementEffect',
     'SchemaMappingSchemaAttributeType',
 ]
+
+
+class IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel(str, Enum):
+    ONE_TO_ONE = "ONE_TO_ONE"
+    MANY_TO_MANY = "MANY_TO_MANY"
+
+
+class IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel(str, Enum):
+    ONE_SOURCE_TO_ONE_TARGET = "ONE_SOURCE_TO_ONE_TARGET"
+    MANY_SOURCE_TO_ONE_TARGET = "MANY_SOURCE_TO_ONE_TARGET"
+
+
+class IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType(str, Enum):
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
 
 
 class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
@@ -21,6 +43,7 @@ class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
     The type of ID mapping.
     """
     PROVIDER = "PROVIDER"
+    RULE_BASED = "RULE_BASED"
 
 
 class IdMappingWorkflowInputSourceType(str, Enum):
@@ -40,6 +63,22 @@ class IdNamespaceIdMappingWorkflowPropertiesIdMappingType(str, Enum):
     The type of ID mapping.
     """
     PROVIDER = "PROVIDER"
+    RULE_BASED = "RULE_BASED"
+
+
+class IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel(str, Enum):
+    ONE_TO_ONE = "ONE_TO_ONE"
+    MANY_TO_MANY = "MANY_TO_MANY"
+
+
+class IdNamespaceRecordMatchingModel(str, Enum):
+    ONE_SOURCE_TO_ONE_TARGET = "ONE_SOURCE_TO_ONE_TARGET"
+    MANY_SOURCE_TO_ONE_TARGET = "MANY_SOURCE_TO_ONE_TARGET"
+
+
+class IdNamespaceRuleDefinitionType(str, Enum):
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
 
 
 class IdNamespaceType(str, Enum):
@@ -54,10 +93,7 @@ class IdNamespaceType(str, Enum):
     TARGET = "TARGET"
 
 
-class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):
-    """
-    The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-    """
+class MatchingWorkflowResolutionType(str, Enum):
     RULE_MATCHING = "RULE_MATCHING"
     ML_MATCHING = "ML_MATCHING"
     PROVIDER = "PROVIDER"
@@ -69,6 +105,11 @@ class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(str, Enum):
     """
     ONE_TO_ONE = "ONE_TO_ONE"
     MANY_TO_MANY = "MANY_TO_MANY"
+
+
+class MatchingWorkflowRuleBasedPropertiesMatchPurpose(str, Enum):
+    IDENTIFIER_GENERATION = "IDENTIFIER_GENERATION"
+    INDEXING = "INDEXING"
 
 
 class PolicyStatementStatementEffect(str, Enum):

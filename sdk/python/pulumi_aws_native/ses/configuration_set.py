@@ -25,12 +25,12 @@ class ConfigurationSetArgs:
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
-        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[str] name: The name of the configuration set.
-        :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that represents the reputation settings for the configuration set.
+        :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: The name of the custom open and click tracking domain associated with the configuration set.
+        :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         if delivery_options is not None:
@@ -52,7 +52,7 @@ class ConfigurationSetArgs:
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
         return pulumi.get(self, "delivery_options")
 
@@ -76,7 +76,7 @@ class ConfigurationSetArgs:
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
         """
-        An object that represents the reputation settings for the configuration set.
+        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         """
         return pulumi.get(self, "reputation_options")
 
@@ -112,7 +112,7 @@ class ConfigurationSetArgs:
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
         """
-        The name of the custom open and click tracking domain associated with the configuration set.
+        An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         return pulumi.get(self, "tracking_options")
 
@@ -267,12 +267,12 @@ class ConfigurationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[str] name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that represents the reputation settings for the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: The name of the custom open and click tracking domain associated with the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         ...
@@ -475,7 +475,7 @@ class ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetDeliveryOptions']]:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
         return pulumi.get(self, "delivery_options")
 
@@ -491,7 +491,7 @@ class ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetReputationOptions']]:
         """
-        An object that represents the reputation settings for the configuration set.
+        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         """
         return pulumi.get(self, "reputation_options")
 
@@ -515,7 +515,7 @@ class ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetTrackingOptions']]:
         """
-        The name of the custom open and click tracking domain associated with the configuration set.
+        An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         return pulumi.get(self, "tracking_options")
 

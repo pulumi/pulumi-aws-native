@@ -7,6 +7,90 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.EntityResolution
 {
+    [EnumType]
+    public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel OneToOne { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE");
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel ManyToMany { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel("MANY_TO_MANY");
+
+        public static bool operator ==(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel left, IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel left, IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel other && Equals(other);
+        public bool Equals(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel OneSourceToOneTarget { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel("ONE_SOURCE_TO_ONE_TARGET");
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel ManySourceToOneTarget { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel("MANY_SOURCE_TO_ONE_TARGET");
+
+        public static bool operator ==(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel left, IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel left, IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel other && Equals(other);
+        public bool Equals(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType Source { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType("SOURCE");
+        public static IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType Target { get; } = new IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType("TARGET");
+
+        public static bool operator ==(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType left, IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType left, IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType other && Equals(other);
+        public bool Equals(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of ID mapping.
     /// </summary>
@@ -21,6 +105,7 @@ namespace Pulumi.AwsNative.EntityResolution
         }
 
         public static IdMappingWorkflowIdMappingTechniquesIdMappingType Provider { get; } = new IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER");
+        public static IdMappingWorkflowIdMappingTechniquesIdMappingType RuleBased { get; } = new IdMappingWorkflowIdMappingTechniquesIdMappingType("RULE_BASED");
 
         public static bool operator ==(IdMappingWorkflowIdMappingTechniquesIdMappingType left, IdMappingWorkflowIdMappingTechniquesIdMappingType right) => left.Equals(right);
         public static bool operator !=(IdMappingWorkflowIdMappingTechniquesIdMappingType left, IdMappingWorkflowIdMappingTechniquesIdMappingType right) => !left.Equals(right);
@@ -86,6 +171,7 @@ namespace Pulumi.AwsNative.EntityResolution
         }
 
         public static IdNamespaceIdMappingWorkflowPropertiesIdMappingType Provider { get; } = new IdNamespaceIdMappingWorkflowPropertiesIdMappingType("PROVIDER");
+        public static IdNamespaceIdMappingWorkflowPropertiesIdMappingType RuleBased { get; } = new IdNamespaceIdMappingWorkflowPropertiesIdMappingType("RULE_BASED");
 
         public static bool operator ==(IdNamespaceIdMappingWorkflowPropertiesIdMappingType left, IdNamespaceIdMappingWorkflowPropertiesIdMappingType right) => left.Equals(right);
         public static bool operator !=(IdNamespaceIdMappingWorkflowPropertiesIdMappingType left, IdNamespaceIdMappingWorkflowPropertiesIdMappingType right) => !left.Equals(right);
@@ -95,6 +181,90 @@ namespace Pulumi.AwsNative.EntityResolution
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdNamespaceIdMappingWorkflowPropertiesIdMappingType other && Equals(other);
         public bool Equals(IdNamespaceIdMappingWorkflowPropertiesIdMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel : IEquatable<IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel>
+    {
+        private readonly string _value;
+
+        private IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel OneToOne { get; } = new IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE");
+        public static IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel ManyToMany { get; } = new IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel("MANY_TO_MANY");
+
+        public static bool operator ==(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel left, IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel right) => left.Equals(right);
+        public static bool operator !=(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel left, IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel other && Equals(other);
+        public bool Equals(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdNamespaceRecordMatchingModel : IEquatable<IdNamespaceRecordMatchingModel>
+    {
+        private readonly string _value;
+
+        private IdNamespaceRecordMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdNamespaceRecordMatchingModel OneSourceToOneTarget { get; } = new IdNamespaceRecordMatchingModel("ONE_SOURCE_TO_ONE_TARGET");
+        public static IdNamespaceRecordMatchingModel ManySourceToOneTarget { get; } = new IdNamespaceRecordMatchingModel("MANY_SOURCE_TO_ONE_TARGET");
+
+        public static bool operator ==(IdNamespaceRecordMatchingModel left, IdNamespaceRecordMatchingModel right) => left.Equals(right);
+        public static bool operator !=(IdNamespaceRecordMatchingModel left, IdNamespaceRecordMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(IdNamespaceRecordMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdNamespaceRecordMatchingModel other && Equals(other);
+        public bool Equals(IdNamespaceRecordMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdNamespaceRuleDefinitionType : IEquatable<IdNamespaceRuleDefinitionType>
+    {
+        private readonly string _value;
+
+        private IdNamespaceRuleDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdNamespaceRuleDefinitionType Source { get; } = new IdNamespaceRuleDefinitionType("SOURCE");
+        public static IdNamespaceRuleDefinitionType Target { get; } = new IdNamespaceRuleDefinitionType("TARGET");
+
+        public static bool operator ==(IdNamespaceRuleDefinitionType left, IdNamespaceRuleDefinitionType right) => left.Equals(right);
+        public static bool operator !=(IdNamespaceRuleDefinitionType left, IdNamespaceRuleDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(IdNamespaceRuleDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdNamespaceRuleDefinitionType other && Equals(other);
+        public bool Equals(IdNamespaceRuleDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -137,31 +307,28 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-    /// </summary>
     [EnumType]
-    public readonly struct MatchingWorkflowResolutionTechniquesResolutionType : IEquatable<MatchingWorkflowResolutionTechniquesResolutionType>
+    public readonly struct MatchingWorkflowResolutionType : IEquatable<MatchingWorkflowResolutionType>
     {
         private readonly string _value;
 
-        private MatchingWorkflowResolutionTechniquesResolutionType(string value)
+        private MatchingWorkflowResolutionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MatchingWorkflowResolutionTechniquesResolutionType RuleMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING");
-        public static MatchingWorkflowResolutionTechniquesResolutionType MlMatching { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("ML_MATCHING");
-        public static MatchingWorkflowResolutionTechniquesResolutionType Provider { get; } = new MatchingWorkflowResolutionTechniquesResolutionType("PROVIDER");
+        public static MatchingWorkflowResolutionType RuleMatching { get; } = new MatchingWorkflowResolutionType("RULE_MATCHING");
+        public static MatchingWorkflowResolutionType MlMatching { get; } = new MatchingWorkflowResolutionType("ML_MATCHING");
+        public static MatchingWorkflowResolutionType Provider { get; } = new MatchingWorkflowResolutionType("PROVIDER");
 
-        public static bool operator ==(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => left.Equals(right);
-        public static bool operator !=(MatchingWorkflowResolutionTechniquesResolutionType left, MatchingWorkflowResolutionTechniquesResolutionType right) => !left.Equals(right);
+        public static bool operator ==(MatchingWorkflowResolutionType left, MatchingWorkflowResolutionType right) => left.Equals(right);
+        public static bool operator !=(MatchingWorkflowResolutionType left, MatchingWorkflowResolutionType right) => !left.Equals(right);
 
-        public static explicit operator string(MatchingWorkflowResolutionTechniquesResolutionType value) => value._value;
+        public static explicit operator string(MatchingWorkflowResolutionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MatchingWorkflowResolutionTechniquesResolutionType other && Equals(other);
-        public bool Equals(MatchingWorkflowResolutionTechniquesResolutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is MatchingWorkflowResolutionType other && Equals(other);
+        public bool Equals(MatchingWorkflowResolutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -193,6 +360,34 @@ namespace Pulumi.AwsNative.EntityResolution
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel other && Equals(other);
         public bool Equals(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MatchingWorkflowRuleBasedPropertiesMatchPurpose : IEquatable<MatchingWorkflowRuleBasedPropertiesMatchPurpose>
+    {
+        private readonly string _value;
+
+        private MatchingWorkflowRuleBasedPropertiesMatchPurpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchingWorkflowRuleBasedPropertiesMatchPurpose IdentifierGeneration { get; } = new MatchingWorkflowRuleBasedPropertiesMatchPurpose("IDENTIFIER_GENERATION");
+        public static MatchingWorkflowRuleBasedPropertiesMatchPurpose Indexing { get; } = new MatchingWorkflowRuleBasedPropertiesMatchPurpose("INDEXING");
+
+        public static bool operator ==(MatchingWorkflowRuleBasedPropertiesMatchPurpose left, MatchingWorkflowRuleBasedPropertiesMatchPurpose right) => left.Equals(right);
+        public static bool operator !=(MatchingWorkflowRuleBasedPropertiesMatchPurpose left, MatchingWorkflowRuleBasedPropertiesMatchPurpose right) => !left.Equals(right);
+
+        public static explicit operator string(MatchingWorkflowRuleBasedPropertiesMatchPurpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchingWorkflowRuleBasedPropertiesMatchPurpose other && Equals(other);
+        public bool Equals(MatchingWorkflowRuleBasedPropertiesMatchPurpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

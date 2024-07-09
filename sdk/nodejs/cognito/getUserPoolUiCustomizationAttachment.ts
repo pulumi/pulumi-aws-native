@@ -11,15 +11,20 @@ export function getUserPoolUiCustomizationAttachment(args: GetUserPoolUiCustomiz
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolUiCustomizationAttachment", {
-        "id": args.id,
+        "clientId": args.clientId,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolUiCustomizationAttachmentArgs {
     /**
-     * The resource ID.
+     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
      */
-    id: string;
+    clientId: string;
+    /**
+     * The user pool ID for the user pool.
+     */
+    userPoolId: string;
 }
 
 export interface GetUserPoolUiCustomizationAttachmentResult {
@@ -27,10 +32,6 @@ export interface GetUserPoolUiCustomizationAttachmentResult {
      * The CSS values in the UI customization.
      */
     readonly css?: string;
-    /**
-     * The resource ID.
-     */
-    readonly id?: string;
 }
 /**
  * Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
@@ -41,7 +42,11 @@ export function getUserPoolUiCustomizationAttachmentOutput(args: GetUserPoolUiCu
 
 export interface GetUserPoolUiCustomizationAttachmentOutputArgs {
     /**
-     * The resource ID.
+     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
      */
-    id: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
+    userPoolId: pulumi.Input<string>;
 }

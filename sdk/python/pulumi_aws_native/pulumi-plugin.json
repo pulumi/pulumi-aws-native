@@ -1,5 +1,5 @@
 {
   "resource": true,
   "name": "aws-native",
-  "version": "0.110.0-alpha.1719585597+bc49058"
+  "version": "1.0.0-alpha.0+dev"
 }

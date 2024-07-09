@@ -122,7 +122,9 @@ class GetEmailIdentityResult:
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional['outputs.EmailIdentityDkimSigningAttributes']:
         """
-        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+
+        You can only specify this object if the email identity is a domain, as opposed to an address.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 

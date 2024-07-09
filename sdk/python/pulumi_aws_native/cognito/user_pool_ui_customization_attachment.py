@@ -126,7 +126,6 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientId", "userPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolUiCustomizationAttachment, __self__).__init__(
@@ -151,19 +150,10 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
 
         __props__ = UserPoolUiCustomizationAttachmentArgs.__new__(UserPoolUiCustomizationAttachmentArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_id"] = None
         __props__.__dict__["css"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolUiCustomizationAttachment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientId")

@@ -28,10 +28,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public string ClientId { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolUiCustomizationAttachmentArgs()
         {
@@ -42,10 +48,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolUiCustomizationAttachmentInvokeArgs()
         {
@@ -61,19 +73,11 @@ namespace Pulumi.AwsNative.Cognito
         /// The CSS values in the UI customization.
         /// </summary>
         public readonly string? Css;
-        /// <summary>
-        /// The resource ID.
-        /// </summary>
-        public readonly string? Id;
 
         [OutputConstructor]
-        private GetUserPoolUiCustomizationAttachmentResult(
-            string? css,
-
-            string? id)
+        private GetUserPoolUiCustomizationAttachmentResult(string? css)
         {
             Css = css;
-            Id = id;
         }
     }
 }

@@ -24,6 +24,8 @@ type WebExperience struct {
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint pulumi.StringOutput `pulumi:"defaultEndpoint"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	//
+	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrOutput `pulumi:"samplePromptsControlMode"`
@@ -95,6 +97,8 @@ type webExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId string `pulumi:"applicationId"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	//
+	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
 	RoleArn *string `pulumi:"roleArn"`
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode *WebExperienceSamplePromptsControlMode `pulumi:"samplePromptsControlMode"`
@@ -113,6 +117,8 @@ type WebExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
+	//
+	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
 	RoleArn pulumi.StringPtrInput
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrInput
@@ -179,6 +185,8 @@ func (o WebExperienceOutput) DefaultEndpoint() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the service role attached to your web experience.
+//
+// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
 func (o WebExperienceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

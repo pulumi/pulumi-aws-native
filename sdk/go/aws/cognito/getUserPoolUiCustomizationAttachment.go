@@ -23,15 +23,15 @@ func LookupUserPoolUiCustomizationAttachment(ctx *pulumi.Context, args *LookupUs
 }
 
 type LookupUserPoolUiCustomizationAttachmentArgs struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
+	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	ClientId string `pulumi:"clientId"`
+	// The user pool ID for the user pool.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolUiCustomizationAttachmentResult struct {
 	// The CSS values in the UI customization.
 	Css *string `pulumi:"css"`
-	// The resource ID.
-	Id *string `pulumi:"id"`
 }
 
 func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolUiCustomizationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolUiCustomizationAttachmentResultOutput {
@@ -48,8 +48,10 @@ func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupUserPoolUiCustomizationAttachmentOutputArgs struct {
-	// The resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolUiCustomizationAttachmentOutputArgs) ElementType() reflect.Type {
@@ -73,11 +75,6 @@ func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToLookupUserPoolUiC
 // The CSS values in the UI customization.
 func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolUiCustomizationAttachmentResult) *string { return v.Css }).(pulumi.StringPtrOutput)
-}
-
-// The resource ID.
-func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolUiCustomizationAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

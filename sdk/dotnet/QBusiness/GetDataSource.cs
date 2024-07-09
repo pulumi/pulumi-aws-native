@@ -82,7 +82,17 @@ namespace Pulumi.AwsNative.QBusiness
     public sealed class GetDataSourceResult
     {
         /// <summary>
-        /// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+        /// Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.
+        /// 
+        /// Each data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:
+        /// 
+        /// - [Amazon S3 JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html)
+        /// - [Web Crawler JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html)
+        /// 
+        /// You can find configuration templates for your specific data source using the following steps:
+        /// 
+        /// - Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source of your choice.
+        /// - Then, from your specific data source connector page, select *Using the API* . You will find the JSON schema for your data source, including parameter descriptions, in this section.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         /// </summary>
