@@ -35,10 +35,6 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID.
-     */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    /**
      * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
      */
     public readonly clientId!: pulumi.Output<string>;
@@ -71,9 +67,7 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["css"] = args ? args.css : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["css"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;

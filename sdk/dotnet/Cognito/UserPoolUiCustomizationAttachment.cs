@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolUiCustomizationAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
-        /// <summary>
         /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
         /// </summary>
         [Output("clientId")]

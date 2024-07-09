@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
         /// </summary>
         [Input("resolutionType")]
-        public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType>? ResolutionType { get; set; }
+        public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType>? ResolutionType { get; set; }
 
         /// <summary>
         /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.

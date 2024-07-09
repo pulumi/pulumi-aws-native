@@ -16,6 +16,14 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetOperationPreferences
     {
+        /// <summary>
+        /// Specifies how the concurrency level behaves during the operation execution.
+        /// 
+        /// - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
+        /// 
+        /// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
+        /// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFormation.StackSetConcurrencyMode? ConcurrencyMode;
         /// <summary>
         /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.

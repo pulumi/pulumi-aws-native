@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
         /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel AttributeMatchingModel;
+        public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesMatchPurpose? MatchPurpose;
         /// <summary>
         /// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         private MatchingWorkflowRuleBasedProperties(
             Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel attributeMatchingModel,
 
+            Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesMatchPurpose? matchPurpose,
+
             ImmutableArray<Outputs.MatchingWorkflowRule> rules)
         {
             AttributeMatchingModel = attributeMatchingModel;
+            MatchPurpose = matchPurpose;
             Rules = rules;
         }
     }

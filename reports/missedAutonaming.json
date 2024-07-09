@@ -9534,7 +9534,7 @@
       },
       "configuration": {
         "$ref": "pulumi.json#/Any",
-        "description": "Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
+        "description": "Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.\n\nEach data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:\n\n- [Amazon S3 JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html)\n- [Web Crawler JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html)\n\nYou can find configuration templates for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source of your choice.\n- Then, from your specific data source connector page, select *Using the API* . You will find the JSON schema for your data source, including parameter descriptions, in this section.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
       },
       "description": {
         "type": "string",
@@ -9710,7 +9710,7 @@
       },
       "roleArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the service role attached to your web experience."
+        "description": "The Amazon Resource Name (ARN) of the service role attached to your web experience.\n\n\u003e You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value."
       },
       "samplePromptsControlMode": {
         "$ref": "#/types/aws-native:qbusiness:WebExperienceSamplePromptsControlMode",
@@ -11479,7 +11479,7 @@
       },
       "dkimSigningAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityDkimSigningAttributes",
-        "description": "If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) ."
+        "description": "If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .\n\nYou can only specify this object if the email identity is a domain, as opposed to an address."
       },
       "emailIdentity": {
         "type": "string",
@@ -11497,6 +11497,38 @@
       "mailFromAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityMailFromAttributes",
         "description": "Used to enable or disable the custom Mail-From domain configuration for an email identity."
+      }
+    }
+  },
+  "aws-native:ses:MailManagerAddonInstance": {
+    "cfTypeName": "AWS::SES::MailManagerAddonInstance",
+    "properties": {
+      "addonSubscriptionId": {
+        "type": "string",
+        "description": "The subscription ID for the instance."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
+      }
+    }
+  },
+  "aws-native:ses:MailManagerAddonSubscription": {
+    "cfTypeName": "AWS::SES::MailManagerAddonSubscription",
+    "properties": {
+      "addonName": {
+        "type": "string",
+        "description": "The name of the Add On to subscribe to. You can only have one subscription for each Add On name.\n\nValid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
       }
     }
   },

@@ -101,12 +101,15 @@
       "required" : [ "Name" ],
       "additionalProperties" : false
     },
+    "ResolutionType" : {
+      "type" : "string",
+      "enum" : [ "RULE_MATCHING", "ML_MATCHING", "PROVIDER" ]
+    },
     "ResolutionTechniques" : {
       "type" : "object",
       "properties" : {
         "ResolutionType" : {
-          "type" : "string",
-          "enum" : [ "RULE_MATCHING", "ML_MATCHING", "PROVIDER" ]
+          "$ref" : "#/definitions/ResolutionType"
         },
         "RuleBasedProperties" : {
           "$ref" : "#/definitions/RuleBasedProperties"
@@ -132,6 +135,10 @@
         "AttributeMatchingModel" : {
           "type" : "string",
           "enum" : [ "ONE_TO_ONE", "MANY_TO_MANY" ]
+        },
+        "MatchPurpose" : {
+          "type" : "string",
+          "enum" : [ "IDENTIFIER_GENERATION", "INDEXING" ]
         }
       },
       "required" : [ "AttributeMatchingModel", "Rules" ],

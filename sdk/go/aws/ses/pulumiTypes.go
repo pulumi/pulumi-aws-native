@@ -574,6 +574,7 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) Index
 
 // An object that contains Event bus ARN associated with the event bridge destination.
 type ConfigurationSetEventDestinationEventBridgeDestination struct {
+	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 	EventBusArn string `pulumi:"eventBusArn"`
 }
 
@@ -590,6 +591,7 @@ type ConfigurationSetEventDestinationEventBridgeDestinationInput interface {
 
 // An object that contains Event bus ARN associated with the event bridge destination.
 type ConfigurationSetEventDestinationEventBridgeDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
 }
 
@@ -671,6 +673,7 @@ func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) ToConfigur
 	}).(ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 func (o ConfigurationSetEventDestinationEventBridgeDestinationOutput) EventBusArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventBridgeDestination) string { return v.EventBusArn }).(pulumi.StringOutput)
 }
@@ -699,6 +702,7 @@ func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) Elem() 
 	}).(ConfigurationSetEventDestinationEventBridgeDestinationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 func (o ConfigurationSetEventDestinationEventBridgeDestinationPtrOutput) EventBusArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventBridgeDestination) *string {
 		if v == nil {
@@ -1925,9 +1929,9 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 
 // An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
 type ConfigurationSetVdmOptions struct {
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions *ConfigurationSetDashboardOptions `pulumi:"dashboardOptions"`
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianOptions *ConfigurationSetGuardianOptions `pulumi:"guardianOptions"`
 }
 
@@ -1944,9 +1948,9 @@ type ConfigurationSetVdmOptionsInput interface {
 
 // An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
 type ConfigurationSetVdmOptionsArgs struct {
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions ConfigurationSetDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianOptions ConfigurationSetGuardianOptionsPtrInput `pulumi:"guardianOptions"`
 }
 
@@ -2028,12 +2032,12 @@ func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputW
 	}).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
-// Settings for your VDM configuration as applicable to the Dashboard.
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions { return v.DashboardOptions }).(ConfigurationSetDashboardOptionsPtrOutput)
 }
 
-// Settings for your VDM configuration as applicable to the Guardian.
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions { return v.GuardianOptions }).(ConfigurationSetGuardianOptionsPtrOutput)
 }
@@ -2062,7 +2066,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOu
 	}).(ConfigurationSetVdmOptionsOutput)
 }
 
-// Settings for your VDM configuration as applicable to the Dashboard.
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions {
 		if v == nil {
@@ -2072,7 +2076,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSet
 	}).(ConfigurationSetDashboardOptionsPtrOutput)
 }
 
-// Settings for your VDM configuration as applicable to the Guardian.
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions {
 		if v == nil {
@@ -2083,7 +2087,9 @@ func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetG
 }
 
 type ContactListTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want a resource to have a specific tag value, don't specify a value for this parameter. If you don't specify a value, Amazon SES sets the value to an empty string.
 	Value string `pulumi:"value"`
 }
 
@@ -2968,6 +2974,3565 @@ func (o EmailIdentityMailFromAttributesPtrOutput) MailFromDomain() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type MailManagerAddonInstanceTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerAddonSubscriptionTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerArchiveArchiveRetention0Properties struct {
+	RetentionPeriod MailManagerArchiveRetentionPeriod `pulumi:"retentionPeriod"`
+}
+
+type MailManagerArchiveArchiveRetentionProperties struct {
+	RetentionPeriod MailManagerArchiveRetentionPeriod `pulumi:"retentionPeriod"`
+}
+
+// MailManagerArchiveArchiveRetentionPropertiesInput is an input type that accepts MailManagerArchiveArchiveRetentionPropertiesArgs and MailManagerArchiveArchiveRetentionPropertiesOutput values.
+// You can construct a concrete instance of `MailManagerArchiveArchiveRetentionPropertiesInput` via:
+//
+//	MailManagerArchiveArchiveRetentionPropertiesArgs{...}
+type MailManagerArchiveArchiveRetentionPropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerArchiveArchiveRetentionPropertiesOutput() MailManagerArchiveArchiveRetentionPropertiesOutput
+	ToMailManagerArchiveArchiveRetentionPropertiesOutputWithContext(context.Context) MailManagerArchiveArchiveRetentionPropertiesOutput
+}
+
+type MailManagerArchiveArchiveRetentionPropertiesArgs struct {
+	RetentionPeriod MailManagerArchiveRetentionPeriodInput `pulumi:"retentionPeriod"`
+}
+
+func (MailManagerArchiveArchiveRetentionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerArchiveArchiveRetentionProperties)(nil)).Elem()
+}
+
+func (i MailManagerArchiveArchiveRetentionPropertiesArgs) ToMailManagerArchiveArchiveRetentionPropertiesOutput() MailManagerArchiveArchiveRetentionPropertiesOutput {
+	return i.ToMailManagerArchiveArchiveRetentionPropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerArchiveArchiveRetentionPropertiesArgs) ToMailManagerArchiveArchiveRetentionPropertiesOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerArchiveArchiveRetentionPropertiesOutput)
+}
+
+func (i MailManagerArchiveArchiveRetentionPropertiesArgs) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutput() MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return i.ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerArchiveArchiveRetentionPropertiesArgs) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerArchiveArchiveRetentionPropertiesOutput).ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(ctx)
+}
+
+// MailManagerArchiveArchiveRetentionPropertiesPtrInput is an input type that accepts MailManagerArchiveArchiveRetentionPropertiesArgs, MailManagerArchiveArchiveRetentionPropertiesPtr and MailManagerArchiveArchiveRetentionPropertiesPtrOutput values.
+// You can construct a concrete instance of `MailManagerArchiveArchiveRetentionPropertiesPtrInput` via:
+//
+//	        MailManagerArchiveArchiveRetentionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerArchiveArchiveRetentionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerArchiveArchiveRetentionPropertiesPtrOutput() MailManagerArchiveArchiveRetentionPropertiesPtrOutput
+	ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(context.Context) MailManagerArchiveArchiveRetentionPropertiesPtrOutput
+}
+
+type mailManagerArchiveArchiveRetentionPropertiesPtrType MailManagerArchiveArchiveRetentionPropertiesArgs
+
+func MailManagerArchiveArchiveRetentionPropertiesPtr(v *MailManagerArchiveArchiveRetentionPropertiesArgs) MailManagerArchiveArchiveRetentionPropertiesPtrInput {
+	return (*mailManagerArchiveArchiveRetentionPropertiesPtrType)(v)
+}
+
+func (*mailManagerArchiveArchiveRetentionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerArchiveArchiveRetentionProperties)(nil)).Elem()
+}
+
+func (i *mailManagerArchiveArchiveRetentionPropertiesPtrType) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutput() MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return i.ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerArchiveArchiveRetentionPropertiesPtrType) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerArchiveArchiveRetentionPropertiesPtrOutput)
+}
+
+type MailManagerArchiveArchiveRetentionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerArchiveArchiveRetentionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerArchiveArchiveRetentionProperties)(nil)).Elem()
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesOutput) ToMailManagerArchiveArchiveRetentionPropertiesOutput() MailManagerArchiveArchiveRetentionPropertiesOutput {
+	return o
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesOutput) ToMailManagerArchiveArchiveRetentionPropertiesOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesOutput {
+	return o
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesOutput) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutput() MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return o.ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesOutput) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerArchiveArchiveRetentionProperties) *MailManagerArchiveArchiveRetentionProperties {
+		return &v
+	}).(MailManagerArchiveArchiveRetentionPropertiesPtrOutput)
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesOutput) RetentionPeriod() MailManagerArchiveRetentionPeriodOutput {
+	return o.ApplyT(func(v MailManagerArchiveArchiveRetentionProperties) MailManagerArchiveRetentionPeriod {
+		return v.RetentionPeriod
+	}).(MailManagerArchiveRetentionPeriodOutput)
+}
+
+type MailManagerArchiveArchiveRetentionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerArchiveArchiveRetentionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerArchiveArchiveRetentionProperties)(nil)).Elem()
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesPtrOutput) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutput() MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesPtrOutput) ToMailManagerArchiveArchiveRetentionPropertiesPtrOutputWithContext(ctx context.Context) MailManagerArchiveArchiveRetentionPropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesPtrOutput) Elem() MailManagerArchiveArchiveRetentionPropertiesOutput {
+	return o.ApplyT(func(v *MailManagerArchiveArchiveRetentionProperties) MailManagerArchiveArchiveRetentionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerArchiveArchiveRetentionProperties
+		return ret
+	}).(MailManagerArchiveArchiveRetentionPropertiesOutput)
+}
+
+func (o MailManagerArchiveArchiveRetentionPropertiesPtrOutput) RetentionPeriod() MailManagerArchiveRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *MailManagerArchiveArchiveRetentionProperties) *MailManagerArchiveRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriod
+	}).(MailManagerArchiveRetentionPeriodPtrOutput)
+}
+
+type MailManagerArchiveTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerIngressPointIngressPointConfiguration0Properties struct {
+	SmtpPassword string `pulumi:"smtpPassword"`
+}
+
+// MailManagerIngressPointIngressPointConfiguration0PropertiesInput is an input type that accepts MailManagerIngressPointIngressPointConfiguration0PropertiesArgs and MailManagerIngressPointIngressPointConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointIngressPointConfiguration0PropertiesInput` via:
+//
+//	MailManagerIngressPointIngressPointConfiguration0PropertiesArgs{...}
+type MailManagerIngressPointIngressPointConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesOutput
+	ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutputWithContext(context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesOutput
+}
+
+type MailManagerIngressPointIngressPointConfiguration0PropertiesArgs struct {
+	SmtpPassword pulumi.StringInput `pulumi:"smtpPassword"`
+}
+
+func (MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration0Properties)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration0PropertiesOutput)
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration0PropertiesOutput).ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput is an input type that accepts MailManagerIngressPointIngressPointConfiguration0PropertiesArgs, MailManagerIngressPointIngressPointConfiguration0PropertiesPtr and MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput` via:
+//
+//	        MailManagerIngressPointIngressPointConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput
+	ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput
+}
+
+type mailManagerIngressPointIngressPointConfiguration0PropertiesPtrType MailManagerIngressPointIngressPointConfiguration0PropertiesArgs
+
+func MailManagerIngressPointIngressPointConfiguration0PropertiesPtr(v *MailManagerIngressPointIngressPointConfiguration0PropertiesArgs) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput {
+	return (*mailManagerIngressPointIngressPointConfiguration0PropertiesPtrType)(v)
+}
+
+func (*mailManagerIngressPointIngressPointConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointIngressPointConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointIngressPointConfiguration0PropertiesPtrType) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointIngressPointConfiguration0PropertiesPtrType) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput)
+}
+
+type MailManagerIngressPointIngressPointConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return o.ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointIngressPointConfiguration0Properties) *MailManagerIngressPointIngressPointConfiguration0Properties {
+		return &v
+	}).(MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput)
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesOutput) SmtpPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerIngressPointIngressPointConfiguration0Properties) string { return v.SmtpPassword }).(pulumi.StringOutput)
+}
+
+type MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointIngressPointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput) ToMailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput) Elem() MailManagerIngressPointIngressPointConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointIngressPointConfiguration0Properties) MailManagerIngressPointIngressPointConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointIngressPointConfiguration0Properties
+		return ret
+	}).(MailManagerIngressPointIngressPointConfiguration0PropertiesOutput)
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput) SmtpPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointIngressPointConfiguration0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SmtpPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerIngressPointIngressPointConfiguration1Properties struct {
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// MailManagerIngressPointIngressPointConfiguration1PropertiesInput is an input type that accepts MailManagerIngressPointIngressPointConfiguration1PropertiesArgs and MailManagerIngressPointIngressPointConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointIngressPointConfiguration1PropertiesInput` via:
+//
+//	MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{...}
+type MailManagerIngressPointIngressPointConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesOutput
+	ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutputWithContext(context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesOutput
+}
+
+type MailManagerIngressPointIngressPointConfiguration1PropertiesArgs struct {
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1Properties)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration1PropertiesOutput)
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration1PropertiesOutput).ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput is an input type that accepts MailManagerIngressPointIngressPointConfiguration1PropertiesArgs, MailManagerIngressPointIngressPointConfiguration1PropertiesPtr and MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput` via:
+//
+//	        MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput
+	ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput
+}
+
+type mailManagerIngressPointIngressPointConfiguration1PropertiesPtrType MailManagerIngressPointIngressPointConfiguration1PropertiesArgs
+
+func MailManagerIngressPointIngressPointConfiguration1PropertiesPtr(v *MailManagerIngressPointIngressPointConfiguration1PropertiesArgs) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput {
+	return (*mailManagerIngressPointIngressPointConfiguration1PropertiesPtrType)(v)
+}
+
+func (*mailManagerIngressPointIngressPointConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointIngressPointConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointIngressPointConfiguration1PropertiesPtrType) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointIngressPointConfiguration1PropertiesPtrType) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput)
+}
+
+type MailManagerIngressPointIngressPointConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return o.ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointIngressPointConfiguration1Properties) *MailManagerIngressPointIngressPointConfiguration1Properties {
+		return &v
+	}).(MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput)
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerIngressPointIngressPointConfiguration1Properties) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointIngressPointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput() MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) ToMailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) Elem() MailManagerIngressPointIngressPointConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointIngressPointConfiguration1Properties) MailManagerIngressPointIngressPointConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointIngressPointConfiguration1Properties
+		return ret
+	}).(MailManagerIngressPointIngressPointConfiguration1PropertiesOutput)
+}
+
+func (o MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointIngressPointConfiguration1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerIngressPointTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerRelayNoAuthentication struct {
+}
+
+// MailManagerRelayNoAuthenticationInput is an input type that accepts MailManagerRelayNoAuthenticationArgs and MailManagerRelayNoAuthenticationOutput values.
+// You can construct a concrete instance of `MailManagerRelayNoAuthenticationInput` via:
+//
+//	MailManagerRelayNoAuthenticationArgs{...}
+type MailManagerRelayNoAuthenticationInput interface {
+	pulumi.Input
+
+	ToMailManagerRelayNoAuthenticationOutput() MailManagerRelayNoAuthenticationOutput
+	ToMailManagerRelayNoAuthenticationOutputWithContext(context.Context) MailManagerRelayNoAuthenticationOutput
+}
+
+type MailManagerRelayNoAuthenticationArgs struct {
+}
+
+func (MailManagerRelayNoAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayNoAuthentication)(nil)).Elem()
+}
+
+func (i MailManagerRelayNoAuthenticationArgs) ToMailManagerRelayNoAuthenticationOutput() MailManagerRelayNoAuthenticationOutput {
+	return i.ToMailManagerRelayNoAuthenticationOutputWithContext(context.Background())
+}
+
+func (i MailManagerRelayNoAuthenticationArgs) ToMailManagerRelayNoAuthenticationOutputWithContext(ctx context.Context) MailManagerRelayNoAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRelayNoAuthenticationOutput)
+}
+
+type MailManagerRelayNoAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayNoAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayNoAuthentication)(nil)).Elem()
+}
+
+func (o MailManagerRelayNoAuthenticationOutput) ToMailManagerRelayNoAuthenticationOutput() MailManagerRelayNoAuthenticationOutput {
+	return o
+}
+
+func (o MailManagerRelayNoAuthenticationOutput) ToMailManagerRelayNoAuthenticationOutputWithContext(ctx context.Context) MailManagerRelayNoAuthenticationOutput {
+	return o
+}
+
+type MailManagerRelayNoAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayNoAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRelayNoAuthentication)(nil)).Elem()
+}
+
+func (o MailManagerRelayNoAuthenticationPtrOutput) ToMailManagerRelayNoAuthenticationPtrOutput() MailManagerRelayNoAuthenticationPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayNoAuthenticationPtrOutput) ToMailManagerRelayNoAuthenticationPtrOutputWithContext(ctx context.Context) MailManagerRelayNoAuthenticationPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayNoAuthenticationPtrOutput) Elem() MailManagerRelayNoAuthenticationOutput {
+	return o.ApplyT(func(v *MailManagerRelayNoAuthentication) MailManagerRelayNoAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRelayNoAuthentication
+		return ret
+	}).(MailManagerRelayNoAuthenticationOutput)
+}
+
+type MailManagerRelayRelayAuthentication0Properties struct {
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// MailManagerRelayRelayAuthentication0PropertiesInput is an input type that accepts MailManagerRelayRelayAuthentication0PropertiesArgs and MailManagerRelayRelayAuthentication0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRelayRelayAuthentication0PropertiesInput` via:
+//
+//	MailManagerRelayRelayAuthentication0PropertiesArgs{...}
+type MailManagerRelayRelayAuthentication0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRelayRelayAuthentication0PropertiesOutput() MailManagerRelayRelayAuthentication0PropertiesOutput
+	ToMailManagerRelayRelayAuthentication0PropertiesOutputWithContext(context.Context) MailManagerRelayRelayAuthentication0PropertiesOutput
+}
+
+type MailManagerRelayRelayAuthentication0PropertiesArgs struct {
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (MailManagerRelayRelayAuthentication0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayRelayAuthentication0Properties)(nil)).Elem()
+}
+
+func (i MailManagerRelayRelayAuthentication0PropertiesArgs) ToMailManagerRelayRelayAuthentication0PropertiesOutput() MailManagerRelayRelayAuthentication0PropertiesOutput {
+	return i.ToMailManagerRelayRelayAuthentication0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRelayRelayAuthentication0PropertiesArgs) ToMailManagerRelayRelayAuthentication0PropertiesOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRelayRelayAuthentication0PropertiesOutput)
+}
+
+type MailManagerRelayRelayAuthentication0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayRelayAuthentication0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayRelayAuthentication0Properties)(nil)).Elem()
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesOutput) ToMailManagerRelayRelayAuthentication0PropertiesOutput() MailManagerRelayRelayAuthentication0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesOutput) ToMailManagerRelayRelayAuthentication0PropertiesOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRelayRelayAuthentication0Properties) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type MailManagerRelayRelayAuthentication0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayRelayAuthentication0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRelayRelayAuthentication0Properties)(nil)).Elem()
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesPtrOutput) ToMailManagerRelayRelayAuthentication0PropertiesPtrOutput() MailManagerRelayRelayAuthentication0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesPtrOutput) ToMailManagerRelayRelayAuthentication0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesPtrOutput) Elem() MailManagerRelayRelayAuthentication0PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerRelayRelayAuthentication0Properties) MailManagerRelayRelayAuthentication0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRelayRelayAuthentication0Properties
+		return ret
+	}).(MailManagerRelayRelayAuthentication0PropertiesOutput)
+}
+
+func (o MailManagerRelayRelayAuthentication0PropertiesPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MailManagerRelayRelayAuthentication0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerRelayRelayAuthentication1Properties struct {
+	NoAuthentication MailManagerRelayNoAuthentication `pulumi:"noAuthentication"`
+}
+
+// MailManagerRelayRelayAuthentication1PropertiesInput is an input type that accepts MailManagerRelayRelayAuthentication1PropertiesArgs and MailManagerRelayRelayAuthentication1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRelayRelayAuthentication1PropertiesInput` via:
+//
+//	MailManagerRelayRelayAuthentication1PropertiesArgs{...}
+type MailManagerRelayRelayAuthentication1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRelayRelayAuthentication1PropertiesOutput() MailManagerRelayRelayAuthentication1PropertiesOutput
+	ToMailManagerRelayRelayAuthentication1PropertiesOutputWithContext(context.Context) MailManagerRelayRelayAuthentication1PropertiesOutput
+}
+
+type MailManagerRelayRelayAuthentication1PropertiesArgs struct {
+	NoAuthentication MailManagerRelayNoAuthenticationInput `pulumi:"noAuthentication"`
+}
+
+func (MailManagerRelayRelayAuthentication1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayRelayAuthentication1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRelayRelayAuthentication1PropertiesArgs) ToMailManagerRelayRelayAuthentication1PropertiesOutput() MailManagerRelayRelayAuthentication1PropertiesOutput {
+	return i.ToMailManagerRelayRelayAuthentication1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRelayRelayAuthentication1PropertiesArgs) ToMailManagerRelayRelayAuthentication1PropertiesOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRelayRelayAuthentication1PropertiesOutput)
+}
+
+type MailManagerRelayRelayAuthentication1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayRelayAuthentication1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRelayRelayAuthentication1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesOutput) ToMailManagerRelayRelayAuthentication1PropertiesOutput() MailManagerRelayRelayAuthentication1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesOutput) ToMailManagerRelayRelayAuthentication1PropertiesOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesOutput) NoAuthentication() MailManagerRelayNoAuthenticationOutput {
+	return o.ApplyT(func(v MailManagerRelayRelayAuthentication1Properties) MailManagerRelayNoAuthentication {
+		return v.NoAuthentication
+	}).(MailManagerRelayNoAuthenticationOutput)
+}
+
+type MailManagerRelayRelayAuthentication1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRelayRelayAuthentication1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRelayRelayAuthentication1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesPtrOutput) ToMailManagerRelayRelayAuthentication1PropertiesPtrOutput() MailManagerRelayRelayAuthentication1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesPtrOutput) ToMailManagerRelayRelayAuthentication1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerRelayRelayAuthentication1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesPtrOutput) Elem() MailManagerRelayRelayAuthentication1PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerRelayRelayAuthentication1Properties) MailManagerRelayRelayAuthentication1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRelayRelayAuthentication1Properties
+		return ret
+	}).(MailManagerRelayRelayAuthentication1PropertiesOutput)
+}
+
+func (o MailManagerRelayRelayAuthentication1PropertiesPtrOutput) NoAuthentication() MailManagerRelayNoAuthenticationPtrOutput {
+	return o.ApplyT(func(v *MailManagerRelayRelayAuthentication1Properties) *MailManagerRelayNoAuthentication {
+		if v == nil {
+			return nil
+		}
+		return &v.NoAuthentication
+	}).(MailManagerRelayNoAuthenticationPtrOutput)
+}
+
+type MailManagerRelayTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerRuleSetAddHeaderAction struct {
+	HeaderName  string `pulumi:"headerName"`
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// MailManagerRuleSetAddHeaderActionInput is an input type that accepts MailManagerRuleSetAddHeaderActionArgs and MailManagerRuleSetAddHeaderActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetAddHeaderActionInput` via:
+//
+//	MailManagerRuleSetAddHeaderActionArgs{...}
+type MailManagerRuleSetAddHeaderActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetAddHeaderActionOutput() MailManagerRuleSetAddHeaderActionOutput
+	ToMailManagerRuleSetAddHeaderActionOutputWithContext(context.Context) MailManagerRuleSetAddHeaderActionOutput
+}
+
+type MailManagerRuleSetAddHeaderActionArgs struct {
+	HeaderName  pulumi.StringInput `pulumi:"headerName"`
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (MailManagerRuleSetAddHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetAddHeaderAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetAddHeaderActionArgs) ToMailManagerRuleSetAddHeaderActionOutput() MailManagerRuleSetAddHeaderActionOutput {
+	return i.ToMailManagerRuleSetAddHeaderActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetAddHeaderActionArgs) ToMailManagerRuleSetAddHeaderActionOutputWithContext(ctx context.Context) MailManagerRuleSetAddHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetAddHeaderActionOutput)
+}
+
+type MailManagerRuleSetAddHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetAddHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetAddHeaderAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetAddHeaderActionOutput) ToMailManagerRuleSetAddHeaderActionOutput() MailManagerRuleSetAddHeaderActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetAddHeaderActionOutput) ToMailManagerRuleSetAddHeaderActionOutputWithContext(ctx context.Context) MailManagerRuleSetAddHeaderActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetAddHeaderActionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetAddHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetAddHeaderActionOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetAddHeaderAction) string { return v.HeaderValue }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetAnalysis struct {
+	Analyzer    string `pulumi:"analyzer"`
+	ResultField string `pulumi:"resultField"`
+}
+
+// MailManagerRuleSetAnalysisInput is an input type that accepts MailManagerRuleSetAnalysisArgs and MailManagerRuleSetAnalysisOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetAnalysisInput` via:
+//
+//	MailManagerRuleSetAnalysisArgs{...}
+type MailManagerRuleSetAnalysisInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetAnalysisOutput() MailManagerRuleSetAnalysisOutput
+	ToMailManagerRuleSetAnalysisOutputWithContext(context.Context) MailManagerRuleSetAnalysisOutput
+}
+
+type MailManagerRuleSetAnalysisArgs struct {
+	Analyzer    pulumi.StringInput `pulumi:"analyzer"`
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (MailManagerRuleSetAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetAnalysis)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetAnalysisArgs) ToMailManagerRuleSetAnalysisOutput() MailManagerRuleSetAnalysisOutput {
+	return i.ToMailManagerRuleSetAnalysisOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetAnalysisArgs) ToMailManagerRuleSetAnalysisOutputWithContext(ctx context.Context) MailManagerRuleSetAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetAnalysisOutput)
+}
+
+type MailManagerRuleSetAnalysisOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetAnalysis)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetAnalysisOutput) ToMailManagerRuleSetAnalysisOutput() MailManagerRuleSetAnalysisOutput {
+	return o
+}
+
+func (o MailManagerRuleSetAnalysisOutput) ToMailManagerRuleSetAnalysisOutputWithContext(ctx context.Context) MailManagerRuleSetAnalysisOutput {
+	return o
+}
+
+func (o MailManagerRuleSetAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetArchiveAction struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy `pulumi:"actionFailurePolicy"`
+	TargetArchive       string                                 `pulumi:"targetArchive"`
+}
+
+// MailManagerRuleSetArchiveActionInput is an input type that accepts MailManagerRuleSetArchiveActionArgs and MailManagerRuleSetArchiveActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetArchiveActionInput` via:
+//
+//	MailManagerRuleSetArchiveActionArgs{...}
+type MailManagerRuleSetArchiveActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetArchiveActionOutput() MailManagerRuleSetArchiveActionOutput
+	ToMailManagerRuleSetArchiveActionOutputWithContext(context.Context) MailManagerRuleSetArchiveActionOutput
+}
+
+type MailManagerRuleSetArchiveActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput `pulumi:"actionFailurePolicy"`
+	TargetArchive       pulumi.StringInput                            `pulumi:"targetArchive"`
+}
+
+func (MailManagerRuleSetArchiveActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetArchiveAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetArchiveActionArgs) ToMailManagerRuleSetArchiveActionOutput() MailManagerRuleSetArchiveActionOutput {
+	return i.ToMailManagerRuleSetArchiveActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetArchiveActionArgs) ToMailManagerRuleSetArchiveActionOutputWithContext(ctx context.Context) MailManagerRuleSetArchiveActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetArchiveActionOutput)
+}
+
+type MailManagerRuleSetArchiveActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetArchiveActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetArchiveAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetArchiveActionOutput) ToMailManagerRuleSetArchiveActionOutput() MailManagerRuleSetArchiveActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetArchiveActionOutput) ToMailManagerRuleSetArchiveActionOutputWithContext(ctx context.Context) MailManagerRuleSetArchiveActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetArchiveActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetArchiveAction) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetArchiveActionOutput) TargetArchive() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetArchiveAction) string { return v.TargetArchive }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetDeliverToMailboxAction struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy `pulumi:"actionFailurePolicy"`
+	MailboxArn          string                                 `pulumi:"mailboxArn"`
+	RoleArn             string                                 `pulumi:"roleArn"`
+}
+
+// MailManagerRuleSetDeliverToMailboxActionInput is an input type that accepts MailManagerRuleSetDeliverToMailboxActionArgs and MailManagerRuleSetDeliverToMailboxActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetDeliverToMailboxActionInput` via:
+//
+//	MailManagerRuleSetDeliverToMailboxActionArgs{...}
+type MailManagerRuleSetDeliverToMailboxActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetDeliverToMailboxActionOutput() MailManagerRuleSetDeliverToMailboxActionOutput
+	ToMailManagerRuleSetDeliverToMailboxActionOutputWithContext(context.Context) MailManagerRuleSetDeliverToMailboxActionOutput
+}
+
+type MailManagerRuleSetDeliverToMailboxActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput `pulumi:"actionFailurePolicy"`
+	MailboxArn          pulumi.StringInput                            `pulumi:"mailboxArn"`
+	RoleArn             pulumi.StringInput                            `pulumi:"roleArn"`
+}
+
+func (MailManagerRuleSetDeliverToMailboxActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetDeliverToMailboxAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetDeliverToMailboxActionArgs) ToMailManagerRuleSetDeliverToMailboxActionOutput() MailManagerRuleSetDeliverToMailboxActionOutput {
+	return i.ToMailManagerRuleSetDeliverToMailboxActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetDeliverToMailboxActionArgs) ToMailManagerRuleSetDeliverToMailboxActionOutputWithContext(ctx context.Context) MailManagerRuleSetDeliverToMailboxActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetDeliverToMailboxActionOutput)
+}
+
+type MailManagerRuleSetDeliverToMailboxActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetDeliverToMailboxActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetDeliverToMailboxAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetDeliverToMailboxActionOutput) ToMailManagerRuleSetDeliverToMailboxActionOutput() MailManagerRuleSetDeliverToMailboxActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetDeliverToMailboxActionOutput) ToMailManagerRuleSetDeliverToMailboxActionOutputWithContext(ctx context.Context) MailManagerRuleSetDeliverToMailboxActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetDeliverToMailboxActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetDeliverToMailboxAction) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetDeliverToMailboxActionOutput) MailboxArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetDeliverToMailboxAction) string { return v.MailboxArn }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetDeliverToMailboxActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetDeliverToMailboxAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetDropAction struct {
+}
+
+// MailManagerRuleSetDropActionInput is an input type that accepts MailManagerRuleSetDropActionArgs and MailManagerRuleSetDropActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetDropActionInput` via:
+//
+//	MailManagerRuleSetDropActionArgs{...}
+type MailManagerRuleSetDropActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetDropActionOutput() MailManagerRuleSetDropActionOutput
+	ToMailManagerRuleSetDropActionOutputWithContext(context.Context) MailManagerRuleSetDropActionOutput
+}
+
+type MailManagerRuleSetDropActionArgs struct {
+}
+
+func (MailManagerRuleSetDropActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetDropAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetDropActionArgs) ToMailManagerRuleSetDropActionOutput() MailManagerRuleSetDropActionOutput {
+	return i.ToMailManagerRuleSetDropActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetDropActionArgs) ToMailManagerRuleSetDropActionOutputWithContext(ctx context.Context) MailManagerRuleSetDropActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetDropActionOutput)
+}
+
+type MailManagerRuleSetDropActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetDropActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetDropAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetDropActionOutput) ToMailManagerRuleSetDropActionOutput() MailManagerRuleSetDropActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetDropActionOutput) ToMailManagerRuleSetDropActionOutputWithContext(ctx context.Context) MailManagerRuleSetDropActionOutput {
+	return o
+}
+
+type MailManagerRuleSetRelayAction struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy `pulumi:"actionFailurePolicy"`
+	MailFrom            *MailManagerRuleSetMailFrom            `pulumi:"mailFrom"`
+	Relay               string                                 `pulumi:"relay"`
+}
+
+// MailManagerRuleSetRelayActionInput is an input type that accepts MailManagerRuleSetRelayActionArgs and MailManagerRuleSetRelayActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRelayActionInput` via:
+//
+//	MailManagerRuleSetRelayActionArgs{...}
+type MailManagerRuleSetRelayActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRelayActionOutput() MailManagerRuleSetRelayActionOutput
+	ToMailManagerRuleSetRelayActionOutputWithContext(context.Context) MailManagerRuleSetRelayActionOutput
+}
+
+type MailManagerRuleSetRelayActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput `pulumi:"actionFailurePolicy"`
+	MailFrom            MailManagerRuleSetMailFromPtrInput            `pulumi:"mailFrom"`
+	Relay               pulumi.StringInput                            `pulumi:"relay"`
+}
+
+func (MailManagerRuleSetRelayActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRelayAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRelayActionArgs) ToMailManagerRuleSetRelayActionOutput() MailManagerRuleSetRelayActionOutput {
+	return i.ToMailManagerRuleSetRelayActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRelayActionArgs) ToMailManagerRuleSetRelayActionOutputWithContext(ctx context.Context) MailManagerRuleSetRelayActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRelayActionOutput)
+}
+
+type MailManagerRuleSetRelayActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRelayActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRelayAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRelayActionOutput) ToMailManagerRuleSetRelayActionOutput() MailManagerRuleSetRelayActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRelayActionOutput) ToMailManagerRuleSetRelayActionOutputWithContext(ctx context.Context) MailManagerRuleSetRelayActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRelayActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRelayAction) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetRelayActionOutput) MailFrom() MailManagerRuleSetMailFromPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRelayAction) *MailManagerRuleSetMailFrom { return v.MailFrom }).(MailManagerRuleSetMailFromPtrOutput)
+}
+
+func (o MailManagerRuleSetRelayActionOutput) Relay() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRelayAction) string { return v.Relay }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetReplaceRecipientAction struct {
+	ReplaceWith []string `pulumi:"replaceWith"`
+}
+
+// MailManagerRuleSetReplaceRecipientActionInput is an input type that accepts MailManagerRuleSetReplaceRecipientActionArgs and MailManagerRuleSetReplaceRecipientActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetReplaceRecipientActionInput` via:
+//
+//	MailManagerRuleSetReplaceRecipientActionArgs{...}
+type MailManagerRuleSetReplaceRecipientActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetReplaceRecipientActionOutput() MailManagerRuleSetReplaceRecipientActionOutput
+	ToMailManagerRuleSetReplaceRecipientActionOutputWithContext(context.Context) MailManagerRuleSetReplaceRecipientActionOutput
+}
+
+type MailManagerRuleSetReplaceRecipientActionArgs struct {
+	ReplaceWith pulumi.StringArrayInput `pulumi:"replaceWith"`
+}
+
+func (MailManagerRuleSetReplaceRecipientActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetReplaceRecipientAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetReplaceRecipientActionArgs) ToMailManagerRuleSetReplaceRecipientActionOutput() MailManagerRuleSetReplaceRecipientActionOutput {
+	return i.ToMailManagerRuleSetReplaceRecipientActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetReplaceRecipientActionArgs) ToMailManagerRuleSetReplaceRecipientActionOutputWithContext(ctx context.Context) MailManagerRuleSetReplaceRecipientActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetReplaceRecipientActionOutput)
+}
+
+type MailManagerRuleSetReplaceRecipientActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetReplaceRecipientActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetReplaceRecipientAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetReplaceRecipientActionOutput) ToMailManagerRuleSetReplaceRecipientActionOutput() MailManagerRuleSetReplaceRecipientActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetReplaceRecipientActionOutput) ToMailManagerRuleSetReplaceRecipientActionOutputWithContext(ctx context.Context) MailManagerRuleSetReplaceRecipientActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetReplaceRecipientActionOutput) ReplaceWith() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetReplaceRecipientAction) []string { return v.ReplaceWith }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerRuleSetRule struct {
+	// The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+	Actions []interface{} `pulumi:"actions"`
+	// The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+	Conditions []interface{} `pulumi:"conditions"`
+	// The user-friendly name of the rule.
+	Name *string `pulumi:"name"`
+	// The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+	Unless []interface{} `pulumi:"unless"`
+}
+
+// MailManagerRuleSetRuleInput is an input type that accepts MailManagerRuleSetRuleArgs and MailManagerRuleSetRuleOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleInput` via:
+//
+//	MailManagerRuleSetRuleArgs{...}
+type MailManagerRuleSetRuleInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleOutput() MailManagerRuleSetRuleOutput
+	ToMailManagerRuleSetRuleOutputWithContext(context.Context) MailManagerRuleSetRuleOutput
+}
+
+type MailManagerRuleSetRuleArgs struct {
+	// The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+	Actions pulumi.ArrayInput `pulumi:"actions"`
+	// The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
+	// The user-friendly name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+	Unless pulumi.ArrayInput `pulumi:"unless"`
+}
+
+func (MailManagerRuleSetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRule)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleArgs) ToMailManagerRuleSetRuleOutput() MailManagerRuleSetRuleOutput {
+	return i.ToMailManagerRuleSetRuleOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleArgs) ToMailManagerRuleSetRuleOutputWithContext(ctx context.Context) MailManagerRuleSetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleOutput)
+}
+
+// MailManagerRuleSetRuleArrayInput is an input type that accepts MailManagerRuleSetRuleArray and MailManagerRuleSetRuleArrayOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleArrayInput` via:
+//
+//	MailManagerRuleSetRuleArray{ MailManagerRuleSetRuleArgs{...} }
+type MailManagerRuleSetRuleArrayInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleArrayOutput() MailManagerRuleSetRuleArrayOutput
+	ToMailManagerRuleSetRuleArrayOutputWithContext(context.Context) MailManagerRuleSetRuleArrayOutput
+}
+
+type MailManagerRuleSetRuleArray []MailManagerRuleSetRuleInput
+
+func (MailManagerRuleSetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MailManagerRuleSetRule)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleArray) ToMailManagerRuleSetRuleArrayOutput() MailManagerRuleSetRuleArrayOutput {
+	return i.ToMailManagerRuleSetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleArray) ToMailManagerRuleSetRuleArrayOutputWithContext(ctx context.Context) MailManagerRuleSetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleArrayOutput)
+}
+
+type MailManagerRuleSetRuleOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRule)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleOutput) ToMailManagerRuleSetRuleOutput() MailManagerRuleSetRuleOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleOutput) ToMailManagerRuleSetRuleOutputWithContext(ctx context.Context) MailManagerRuleSetRuleOutput {
+	return o
+}
+
+// The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+func (o MailManagerRuleSetRuleOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRule) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+func (o MailManagerRuleSetRuleOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRule) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
+}
+
+// The user-friendly name of the rule.
+func (o MailManagerRuleSetRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+func (o MailManagerRuleSetRuleOutput) Unless() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRule) []interface{} { return v.Unless }).(pulumi.ArrayOutput)
+}
+
+type MailManagerRuleSetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MailManagerRuleSetRule)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleArrayOutput) ToMailManagerRuleSetRuleArrayOutput() MailManagerRuleSetRuleArrayOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleArrayOutput) ToMailManagerRuleSetRuleArrayOutputWithContext(ctx context.Context) MailManagerRuleSetRuleArrayOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleArrayOutput) Index(i pulumi.IntInput) MailManagerRuleSetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MailManagerRuleSetRule {
+		return vs[0].([]MailManagerRuleSetRule)[vs[1].(int)]
+	}).(MailManagerRuleSetRuleOutput)
+}
+
+type MailManagerRuleSetRuleAction0Properties struct {
+	Drop MailManagerRuleSetDropAction `pulumi:"drop"`
+}
+
+// MailManagerRuleSetRuleAction0PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction0PropertiesArgs and MailManagerRuleSetRuleAction0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction0PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction0PropertiesArgs{...}
+type MailManagerRuleSetRuleAction0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction0PropertiesOutput() MailManagerRuleSetRuleAction0PropertiesOutput
+	ToMailManagerRuleSetRuleAction0PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction0PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction0PropertiesArgs struct {
+	Drop MailManagerRuleSetDropActionInput `pulumi:"drop"`
+}
+
+func (MailManagerRuleSetRuleAction0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction0Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction0PropertiesArgs) ToMailManagerRuleSetRuleAction0PropertiesOutput() MailManagerRuleSetRuleAction0PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction0PropertiesArgs) ToMailManagerRuleSetRuleAction0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction0PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction0Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction0PropertiesOutput) ToMailManagerRuleSetRuleAction0PropertiesOutput() MailManagerRuleSetRuleAction0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction0PropertiesOutput) ToMailManagerRuleSetRuleAction0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction0PropertiesOutput) Drop() MailManagerRuleSetDropActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction0Properties) MailManagerRuleSetDropAction { return v.Drop }).(MailManagerRuleSetDropActionOutput)
+}
+
+type MailManagerRuleSetRuleAction1Properties struct {
+	Relay MailManagerRuleSetRelayAction `pulumi:"relay"`
+}
+
+// MailManagerRuleSetRuleAction1PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction1PropertiesArgs and MailManagerRuleSetRuleAction1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction1PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction1PropertiesArgs{...}
+type MailManagerRuleSetRuleAction1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction1PropertiesOutput() MailManagerRuleSetRuleAction1PropertiesOutput
+	ToMailManagerRuleSetRuleAction1PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction1PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction1PropertiesArgs struct {
+	Relay MailManagerRuleSetRelayActionInput `pulumi:"relay"`
+}
+
+func (MailManagerRuleSetRuleAction1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction1PropertiesArgs) ToMailManagerRuleSetRuleAction1PropertiesOutput() MailManagerRuleSetRuleAction1PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction1PropertiesArgs) ToMailManagerRuleSetRuleAction1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction1PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction1PropertiesOutput) ToMailManagerRuleSetRuleAction1PropertiesOutput() MailManagerRuleSetRuleAction1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction1PropertiesOutput) ToMailManagerRuleSetRuleAction1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction1PropertiesOutput) Relay() MailManagerRuleSetRelayActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction1Properties) MailManagerRuleSetRelayAction { return v.Relay }).(MailManagerRuleSetRelayActionOutput)
+}
+
+type MailManagerRuleSetRuleAction2Properties struct {
+	Archive MailManagerRuleSetArchiveAction `pulumi:"archive"`
+}
+
+// MailManagerRuleSetRuleAction2PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction2PropertiesArgs and MailManagerRuleSetRuleAction2PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction2PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction2PropertiesArgs{...}
+type MailManagerRuleSetRuleAction2PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction2PropertiesOutput() MailManagerRuleSetRuleAction2PropertiesOutput
+	ToMailManagerRuleSetRuleAction2PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction2PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction2PropertiesArgs struct {
+	Archive MailManagerRuleSetArchiveActionInput `pulumi:"archive"`
+}
+
+func (MailManagerRuleSetRuleAction2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction2Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction2PropertiesArgs) ToMailManagerRuleSetRuleAction2PropertiesOutput() MailManagerRuleSetRuleAction2PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction2PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction2PropertiesArgs) ToMailManagerRuleSetRuleAction2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction2PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction2Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction2PropertiesOutput) ToMailManagerRuleSetRuleAction2PropertiesOutput() MailManagerRuleSetRuleAction2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction2PropertiesOutput) ToMailManagerRuleSetRuleAction2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction2PropertiesOutput) Archive() MailManagerRuleSetArchiveActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction2Properties) MailManagerRuleSetArchiveAction { return v.Archive }).(MailManagerRuleSetArchiveActionOutput)
+}
+
+type MailManagerRuleSetRuleAction3Properties struct {
+	WriteToS3 MailManagerRuleSetS3Action `pulumi:"writeToS3"`
+}
+
+// MailManagerRuleSetRuleAction3PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction3PropertiesArgs and MailManagerRuleSetRuleAction3PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction3PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction3PropertiesArgs{...}
+type MailManagerRuleSetRuleAction3PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction3PropertiesOutput() MailManagerRuleSetRuleAction3PropertiesOutput
+	ToMailManagerRuleSetRuleAction3PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction3PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction3PropertiesArgs struct {
+	WriteToS3 MailManagerRuleSetS3ActionInput `pulumi:"writeToS3"`
+}
+
+func (MailManagerRuleSetRuleAction3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction3Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction3PropertiesArgs) ToMailManagerRuleSetRuleAction3PropertiesOutput() MailManagerRuleSetRuleAction3PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction3PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction3PropertiesArgs) ToMailManagerRuleSetRuleAction3PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction3PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction3Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction3PropertiesOutput) ToMailManagerRuleSetRuleAction3PropertiesOutput() MailManagerRuleSetRuleAction3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction3PropertiesOutput) ToMailManagerRuleSetRuleAction3PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction3PropertiesOutput) WriteToS3() MailManagerRuleSetS3ActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction3Properties) MailManagerRuleSetS3Action { return v.WriteToS3 }).(MailManagerRuleSetS3ActionOutput)
+}
+
+type MailManagerRuleSetRuleAction4Properties struct {
+	Send MailManagerRuleSetSendAction `pulumi:"send"`
+}
+
+// MailManagerRuleSetRuleAction4PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction4PropertiesArgs and MailManagerRuleSetRuleAction4PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction4PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction4PropertiesArgs{...}
+type MailManagerRuleSetRuleAction4PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction4PropertiesOutput() MailManagerRuleSetRuleAction4PropertiesOutput
+	ToMailManagerRuleSetRuleAction4PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction4PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction4PropertiesArgs struct {
+	Send MailManagerRuleSetSendActionInput `pulumi:"send"`
+}
+
+func (MailManagerRuleSetRuleAction4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction4Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction4PropertiesArgs) ToMailManagerRuleSetRuleAction4PropertiesOutput() MailManagerRuleSetRuleAction4PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction4PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction4PropertiesArgs) ToMailManagerRuleSetRuleAction4PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction4PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction4Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction4PropertiesOutput) ToMailManagerRuleSetRuleAction4PropertiesOutput() MailManagerRuleSetRuleAction4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction4PropertiesOutput) ToMailManagerRuleSetRuleAction4PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction4PropertiesOutput) Send() MailManagerRuleSetSendActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction4Properties) MailManagerRuleSetSendAction { return v.Send }).(MailManagerRuleSetSendActionOutput)
+}
+
+type MailManagerRuleSetRuleAction5Properties struct {
+	AddHeader MailManagerRuleSetAddHeaderAction `pulumi:"addHeader"`
+}
+
+// MailManagerRuleSetRuleAction5PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction5PropertiesArgs and MailManagerRuleSetRuleAction5PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction5PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction5PropertiesArgs{...}
+type MailManagerRuleSetRuleAction5PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction5PropertiesOutput() MailManagerRuleSetRuleAction5PropertiesOutput
+	ToMailManagerRuleSetRuleAction5PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction5PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction5PropertiesArgs struct {
+	AddHeader MailManagerRuleSetAddHeaderActionInput `pulumi:"addHeader"`
+}
+
+func (MailManagerRuleSetRuleAction5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction5Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction5PropertiesArgs) ToMailManagerRuleSetRuleAction5PropertiesOutput() MailManagerRuleSetRuleAction5PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction5PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction5PropertiesArgs) ToMailManagerRuleSetRuleAction5PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction5PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction5Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction5PropertiesOutput) ToMailManagerRuleSetRuleAction5PropertiesOutput() MailManagerRuleSetRuleAction5PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction5PropertiesOutput) ToMailManagerRuleSetRuleAction5PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction5PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction5PropertiesOutput) AddHeader() MailManagerRuleSetAddHeaderActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction5Properties) MailManagerRuleSetAddHeaderAction { return v.AddHeader }).(MailManagerRuleSetAddHeaderActionOutput)
+}
+
+type MailManagerRuleSetRuleAction6Properties struct {
+	ReplaceRecipient MailManagerRuleSetReplaceRecipientAction `pulumi:"replaceRecipient"`
+}
+
+// MailManagerRuleSetRuleAction6PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction6PropertiesArgs and MailManagerRuleSetRuleAction6PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction6PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction6PropertiesArgs{...}
+type MailManagerRuleSetRuleAction6PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction6PropertiesOutput() MailManagerRuleSetRuleAction6PropertiesOutput
+	ToMailManagerRuleSetRuleAction6PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction6PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction6PropertiesArgs struct {
+	ReplaceRecipient MailManagerRuleSetReplaceRecipientActionInput `pulumi:"replaceRecipient"`
+}
+
+func (MailManagerRuleSetRuleAction6PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction6Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction6PropertiesArgs) ToMailManagerRuleSetRuleAction6PropertiesOutput() MailManagerRuleSetRuleAction6PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction6PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction6PropertiesArgs) ToMailManagerRuleSetRuleAction6PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction6PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction6PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction6PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction6PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction6Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction6PropertiesOutput) ToMailManagerRuleSetRuleAction6PropertiesOutput() MailManagerRuleSetRuleAction6PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction6PropertiesOutput) ToMailManagerRuleSetRuleAction6PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction6PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction6PropertiesOutput) ReplaceRecipient() MailManagerRuleSetReplaceRecipientActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction6Properties) MailManagerRuleSetReplaceRecipientAction {
+		return v.ReplaceRecipient
+	}).(MailManagerRuleSetReplaceRecipientActionOutput)
+}
+
+type MailManagerRuleSetRuleAction7Properties struct {
+	DeliverToMailbox MailManagerRuleSetDeliverToMailboxAction `pulumi:"deliverToMailbox"`
+}
+
+// MailManagerRuleSetRuleAction7PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction7PropertiesArgs and MailManagerRuleSetRuleAction7PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction7PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction7PropertiesArgs{...}
+type MailManagerRuleSetRuleAction7PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction7PropertiesOutput() MailManagerRuleSetRuleAction7PropertiesOutput
+	ToMailManagerRuleSetRuleAction7PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction7PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction7PropertiesArgs struct {
+	DeliverToMailbox MailManagerRuleSetDeliverToMailboxActionInput `pulumi:"deliverToMailbox"`
+}
+
+func (MailManagerRuleSetRuleAction7PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction7Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction7PropertiesArgs) ToMailManagerRuleSetRuleAction7PropertiesOutput() MailManagerRuleSetRuleAction7PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction7PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction7PropertiesArgs) ToMailManagerRuleSetRuleAction7PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction7PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction7PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction7PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction7PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction7Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction7PropertiesOutput) ToMailManagerRuleSetRuleAction7PropertiesOutput() MailManagerRuleSetRuleAction7PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction7PropertiesOutput) ToMailManagerRuleSetRuleAction7PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction7PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction7PropertiesOutput) DeliverToMailbox() MailManagerRuleSetDeliverToMailboxActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction7Properties) MailManagerRuleSetDeliverToMailboxAction {
+		return v.DeliverToMailbox
+	}).(MailManagerRuleSetDeliverToMailboxActionOutput)
+}
+
+type MailManagerRuleSetRuleBooleanExpression struct {
+	Evaluate MailManagerRuleSetRuleBooleanToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleBooleanOperator             `pulumi:"operator"`
+}
+
+// MailManagerRuleSetRuleBooleanExpressionInput is an input type that accepts MailManagerRuleSetRuleBooleanExpressionArgs and MailManagerRuleSetRuleBooleanExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanExpressionInput` via:
+//
+//	MailManagerRuleSetRuleBooleanExpressionArgs{...}
+type MailManagerRuleSetRuleBooleanExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleBooleanExpressionOutput() MailManagerRuleSetRuleBooleanExpressionOutput
+	ToMailManagerRuleSetRuleBooleanExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanExpressionOutput
+}
+
+type MailManagerRuleSetRuleBooleanExpressionArgs struct {
+	Evaluate MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleBooleanOperatorInput             `pulumi:"operator"`
+}
+
+func (MailManagerRuleSetRuleBooleanExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleBooleanExpressionArgs) ToMailManagerRuleSetRuleBooleanExpressionOutput() MailManagerRuleSetRuleBooleanExpressionOutput {
+	return i.ToMailManagerRuleSetRuleBooleanExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleBooleanExpressionArgs) ToMailManagerRuleSetRuleBooleanExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanExpressionOutput)
+}
+
+type MailManagerRuleSetRuleBooleanExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleBooleanExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleBooleanExpressionOutput) ToMailManagerRuleSetRuleBooleanExpressionOutput() MailManagerRuleSetRuleBooleanExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanExpressionOutput) ToMailManagerRuleSetRuleBooleanExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanExpressionOutput) Evaluate() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanExpression) MailManagerRuleSetRuleBooleanToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerRuleSetRuleBooleanExpressionOutput) Operator() MailManagerRuleSetRuleBooleanOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanExpression) MailManagerRuleSetRuleBooleanOperator {
+		return v.Operator
+	}).(MailManagerRuleSetRuleBooleanOperatorOutput)
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate0Properties struct {
+	Attribute MailManagerRuleSetRuleBooleanEmailAttribute `pulumi:"attribute"`
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluateProperties struct {
+	Attribute MailManagerRuleSetRuleBooleanEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs and MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput` via:
+//
+//	MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs{...}
+type MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs struct {
+	Attribute MailManagerRuleSetRuleBooleanEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+	return i.ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput)
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleBooleanEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanToEvaluateProperties) MailManagerRuleSetRuleBooleanEmailAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleBooleanEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleCondition0Properties struct {
+	BooleanExpression MailManagerRuleSetRuleBooleanExpression `pulumi:"booleanExpression"`
+}
+
+// MailManagerRuleSetRuleCondition0PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition0PropertiesArgs and MailManagerRuleSetRuleCondition0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition0PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition0PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition0PropertiesOutput() MailManagerRuleSetRuleCondition0PropertiesOutput
+	ToMailManagerRuleSetRuleCondition0PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition0PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition0PropertiesArgs struct {
+	BooleanExpression MailManagerRuleSetRuleBooleanExpressionInput `pulumi:"booleanExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition0Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition0PropertiesArgs) ToMailManagerRuleSetRuleCondition0PropertiesOutput() MailManagerRuleSetRuleCondition0PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition0PropertiesArgs) ToMailManagerRuleSetRuleCondition0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition0PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition0Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition0PropertiesOutput) ToMailManagerRuleSetRuleCondition0PropertiesOutput() MailManagerRuleSetRuleCondition0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition0PropertiesOutput) ToMailManagerRuleSetRuleCondition0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition0PropertiesOutput) BooleanExpression() MailManagerRuleSetRuleBooleanExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition0Properties) MailManagerRuleSetRuleBooleanExpression {
+		return v.BooleanExpression
+	}).(MailManagerRuleSetRuleBooleanExpressionOutput)
+}
+
+type MailManagerRuleSetRuleCondition1Properties struct {
+	StringExpression MailManagerRuleSetRuleStringExpression `pulumi:"stringExpression"`
+}
+
+// MailManagerRuleSetRuleCondition1PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition1PropertiesArgs and MailManagerRuleSetRuleCondition1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition1PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition1PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition1PropertiesOutput() MailManagerRuleSetRuleCondition1PropertiesOutput
+	ToMailManagerRuleSetRuleCondition1PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition1PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition1PropertiesArgs struct {
+	StringExpression MailManagerRuleSetRuleStringExpressionInput `pulumi:"stringExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition1PropertiesArgs) ToMailManagerRuleSetRuleCondition1PropertiesOutput() MailManagerRuleSetRuleCondition1PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition1PropertiesArgs) ToMailManagerRuleSetRuleCondition1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition1PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition1PropertiesOutput) ToMailManagerRuleSetRuleCondition1PropertiesOutput() MailManagerRuleSetRuleCondition1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition1PropertiesOutput) ToMailManagerRuleSetRuleCondition1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition1PropertiesOutput) StringExpression() MailManagerRuleSetRuleStringExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition1Properties) MailManagerRuleSetRuleStringExpression {
+		return v.StringExpression
+	}).(MailManagerRuleSetRuleStringExpressionOutput)
+}
+
+type MailManagerRuleSetRuleCondition2Properties struct {
+	NumberExpression MailManagerRuleSetRuleNumberExpression `pulumi:"numberExpression"`
+}
+
+// MailManagerRuleSetRuleCondition2PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition2PropertiesArgs and MailManagerRuleSetRuleCondition2PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition2PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition2PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition2PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition2PropertiesOutput() MailManagerRuleSetRuleCondition2PropertiesOutput
+	ToMailManagerRuleSetRuleCondition2PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition2PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition2PropertiesArgs struct {
+	NumberExpression MailManagerRuleSetRuleNumberExpressionInput `pulumi:"numberExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition2Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition2PropertiesArgs) ToMailManagerRuleSetRuleCondition2PropertiesOutput() MailManagerRuleSetRuleCondition2PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition2PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition2PropertiesArgs) ToMailManagerRuleSetRuleCondition2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition2PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition2Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition2PropertiesOutput) ToMailManagerRuleSetRuleCondition2PropertiesOutput() MailManagerRuleSetRuleCondition2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition2PropertiesOutput) ToMailManagerRuleSetRuleCondition2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition2PropertiesOutput) NumberExpression() MailManagerRuleSetRuleNumberExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition2Properties) MailManagerRuleSetRuleNumberExpression {
+		return v.NumberExpression
+	}).(MailManagerRuleSetRuleNumberExpressionOutput)
+}
+
+type MailManagerRuleSetRuleCondition3Properties struct {
+	IpExpression MailManagerRuleSetRuleIpExpression `pulumi:"ipExpression"`
+}
+
+// MailManagerRuleSetRuleCondition3PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition3PropertiesArgs and MailManagerRuleSetRuleCondition3PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition3PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition3PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition3PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition3PropertiesOutput() MailManagerRuleSetRuleCondition3PropertiesOutput
+	ToMailManagerRuleSetRuleCondition3PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition3PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition3PropertiesArgs struct {
+	IpExpression MailManagerRuleSetRuleIpExpressionInput `pulumi:"ipExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition3Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition3PropertiesArgs) ToMailManagerRuleSetRuleCondition3PropertiesOutput() MailManagerRuleSetRuleCondition3PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition3PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition3PropertiesArgs) ToMailManagerRuleSetRuleCondition3PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition3PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition3Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition3PropertiesOutput) ToMailManagerRuleSetRuleCondition3PropertiesOutput() MailManagerRuleSetRuleCondition3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition3PropertiesOutput) ToMailManagerRuleSetRuleCondition3PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition3PropertiesOutput) IpExpression() MailManagerRuleSetRuleIpExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition3Properties) MailManagerRuleSetRuleIpExpression {
+		return v.IpExpression
+	}).(MailManagerRuleSetRuleIpExpressionOutput)
+}
+
+type MailManagerRuleSetRuleCondition4Properties struct {
+	VerdictExpression MailManagerRuleSetRuleVerdictExpression `pulumi:"verdictExpression"`
+}
+
+// MailManagerRuleSetRuleCondition4PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition4PropertiesArgs and MailManagerRuleSetRuleCondition4PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition4PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition4PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition4PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition4PropertiesOutput() MailManagerRuleSetRuleCondition4PropertiesOutput
+	ToMailManagerRuleSetRuleCondition4PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition4PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition4PropertiesArgs struct {
+	VerdictExpression MailManagerRuleSetRuleVerdictExpressionInput `pulumi:"verdictExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition4Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition4PropertiesArgs) ToMailManagerRuleSetRuleCondition4PropertiesOutput() MailManagerRuleSetRuleCondition4PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition4PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition4PropertiesArgs) ToMailManagerRuleSetRuleCondition4PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition4PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition4Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition4PropertiesOutput) ToMailManagerRuleSetRuleCondition4PropertiesOutput() MailManagerRuleSetRuleCondition4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition4PropertiesOutput) ToMailManagerRuleSetRuleCondition4PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition4PropertiesOutput) VerdictExpression() MailManagerRuleSetRuleVerdictExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition4Properties) MailManagerRuleSetRuleVerdictExpression {
+		return v.VerdictExpression
+	}).(MailManagerRuleSetRuleVerdictExpressionOutput)
+}
+
+type MailManagerRuleSetRuleCondition5Properties struct {
+	DmarcExpression MailManagerRuleSetRuleDmarcExpression `pulumi:"dmarcExpression"`
+}
+
+// MailManagerRuleSetRuleCondition5PropertiesInput is an input type that accepts MailManagerRuleSetRuleCondition5PropertiesArgs and MailManagerRuleSetRuleCondition5PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleCondition5PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleCondition5PropertiesArgs{...}
+type MailManagerRuleSetRuleCondition5PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleCondition5PropertiesOutput() MailManagerRuleSetRuleCondition5PropertiesOutput
+	ToMailManagerRuleSetRuleCondition5PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleCondition5PropertiesOutput
+}
+
+type MailManagerRuleSetRuleCondition5PropertiesArgs struct {
+	DmarcExpression MailManagerRuleSetRuleDmarcExpressionInput `pulumi:"dmarcExpression"`
+}
+
+func (MailManagerRuleSetRuleCondition5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition5Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleCondition5PropertiesArgs) ToMailManagerRuleSetRuleCondition5PropertiesOutput() MailManagerRuleSetRuleCondition5PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleCondition5PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleCondition5PropertiesArgs) ToMailManagerRuleSetRuleCondition5PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleCondition5PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleCondition5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleCondition5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleCondition5Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleCondition5PropertiesOutput) ToMailManagerRuleSetRuleCondition5PropertiesOutput() MailManagerRuleSetRuleCondition5PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition5PropertiesOutput) ToMailManagerRuleSetRuleCondition5PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleCondition5PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleCondition5PropertiesOutput) DmarcExpression() MailManagerRuleSetRuleDmarcExpressionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleCondition5Properties) MailManagerRuleSetRuleDmarcExpression {
+		return v.DmarcExpression
+	}).(MailManagerRuleSetRuleDmarcExpressionOutput)
+}
+
+type MailManagerRuleSetRuleDmarcExpression struct {
+	Operator MailManagerRuleSetRuleDmarcOperator `pulumi:"operator"`
+	Values   []MailManagerRuleSetRuleDmarcPolicy `pulumi:"values"`
+}
+
+// MailManagerRuleSetRuleDmarcExpressionInput is an input type that accepts MailManagerRuleSetRuleDmarcExpressionArgs and MailManagerRuleSetRuleDmarcExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleDmarcExpressionInput` via:
+//
+//	MailManagerRuleSetRuleDmarcExpressionArgs{...}
+type MailManagerRuleSetRuleDmarcExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleDmarcExpressionOutput() MailManagerRuleSetRuleDmarcExpressionOutput
+	ToMailManagerRuleSetRuleDmarcExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleDmarcExpressionOutput
+}
+
+type MailManagerRuleSetRuleDmarcExpressionArgs struct {
+	Operator MailManagerRuleSetRuleDmarcOperatorInput    `pulumi:"operator"`
+	Values   MailManagerRuleSetRuleDmarcPolicyArrayInput `pulumi:"values"`
+}
+
+func (MailManagerRuleSetRuleDmarcExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleDmarcExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleDmarcExpressionArgs) ToMailManagerRuleSetRuleDmarcExpressionOutput() MailManagerRuleSetRuleDmarcExpressionOutput {
+	return i.ToMailManagerRuleSetRuleDmarcExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleDmarcExpressionArgs) ToMailManagerRuleSetRuleDmarcExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleDmarcExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleDmarcExpressionOutput)
+}
+
+type MailManagerRuleSetRuleDmarcExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleDmarcExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleDmarcExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleDmarcExpressionOutput) ToMailManagerRuleSetRuleDmarcExpressionOutput() MailManagerRuleSetRuleDmarcExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleDmarcExpressionOutput) ToMailManagerRuleSetRuleDmarcExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleDmarcExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleDmarcExpressionOutput) Operator() MailManagerRuleSetRuleDmarcOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleDmarcExpression) MailManagerRuleSetRuleDmarcOperator { return v.Operator }).(MailManagerRuleSetRuleDmarcOperatorOutput)
+}
+
+func (o MailManagerRuleSetRuleDmarcExpressionOutput) Values() MailManagerRuleSetRuleDmarcPolicyArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleDmarcExpression) []MailManagerRuleSetRuleDmarcPolicy { return v.Values }).(MailManagerRuleSetRuleDmarcPolicyArrayOutput)
+}
+
+type MailManagerRuleSetRuleIpExpression struct {
+	Evaluate MailManagerRuleSetRuleIpToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleIpOperator             `pulumi:"operator"`
+	Values   []string                                     `pulumi:"values"`
+}
+
+// MailManagerRuleSetRuleIpExpressionInput is an input type that accepts MailManagerRuleSetRuleIpExpressionArgs and MailManagerRuleSetRuleIpExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleIpExpressionInput` via:
+//
+//	MailManagerRuleSetRuleIpExpressionArgs{...}
+type MailManagerRuleSetRuleIpExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleIpExpressionOutput() MailManagerRuleSetRuleIpExpressionOutput
+	ToMailManagerRuleSetRuleIpExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleIpExpressionOutput
+}
+
+type MailManagerRuleSetRuleIpExpressionArgs struct {
+	Evaluate MailManagerRuleSetRuleIpToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleIpOperatorInput             `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                           `pulumi:"values"`
+}
+
+func (MailManagerRuleSetRuleIpExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIpExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleIpExpressionArgs) ToMailManagerRuleSetRuleIpExpressionOutput() MailManagerRuleSetRuleIpExpressionOutput {
+	return i.ToMailManagerRuleSetRuleIpExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleIpExpressionArgs) ToMailManagerRuleSetRuleIpExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIpExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleIpExpressionOutput)
+}
+
+type MailManagerRuleSetRuleIpExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleIpExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIpExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleIpExpressionOutput) ToMailManagerRuleSetRuleIpExpressionOutput() MailManagerRuleSetRuleIpExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIpExpressionOutput) ToMailManagerRuleSetRuleIpExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIpExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIpExpressionOutput) Evaluate() MailManagerRuleSetRuleIpToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIpExpression) MailManagerRuleSetRuleIpToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerRuleSetRuleIpToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerRuleSetRuleIpExpressionOutput) Operator() MailManagerRuleSetRuleIpOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIpExpression) MailManagerRuleSetRuleIpOperator { return v.Operator }).(MailManagerRuleSetRuleIpOperatorOutput)
+}
+
+func (o MailManagerRuleSetRuleIpExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIpExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerRuleSetRuleIpToEvaluate0Properties struct {
+	Attribute MailManagerRuleSetRuleIpEmailAttribute `pulumi:"attribute"`
+}
+
+type MailManagerRuleSetRuleIpToEvaluateProperties struct {
+	Attribute MailManagerRuleSetRuleIpEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleIpToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleIpToEvaluatePropertiesArgs and MailManagerRuleSetRuleIpToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleIpToEvaluatePropertiesInput` via:
+//
+//	MailManagerRuleSetRuleIpToEvaluatePropertiesArgs{...}
+type MailManagerRuleSetRuleIpToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutput() MailManagerRuleSetRuleIpToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleIpToEvaluatePropertiesOutput
+}
+
+type MailManagerRuleSetRuleIpToEvaluatePropertiesArgs struct {
+	Attribute MailManagerRuleSetRuleIpEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleIpToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIpToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleIpToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutput() MailManagerRuleSetRuleIpToEvaluatePropertiesOutput {
+	return i.ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleIpToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIpToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleIpToEvaluatePropertiesOutput)
+}
+
+type MailManagerRuleSetRuleIpToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleIpToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIpToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleIpToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutput() MailManagerRuleSetRuleIpToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIpToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleIpToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIpToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIpToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleIpEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIpToEvaluateProperties) MailManagerRuleSetRuleIpEmailAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleIpEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleNumberExpression struct {
+	Evaluate MailManagerRuleSetRuleNumberToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleNumberOperator             `pulumi:"operator"`
+	Value    float64                                          `pulumi:"value"`
+}
+
+// MailManagerRuleSetRuleNumberExpressionInput is an input type that accepts MailManagerRuleSetRuleNumberExpressionArgs and MailManagerRuleSetRuleNumberExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleNumberExpressionInput` via:
+//
+//	MailManagerRuleSetRuleNumberExpressionArgs{...}
+type MailManagerRuleSetRuleNumberExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleNumberExpressionOutput() MailManagerRuleSetRuleNumberExpressionOutput
+	ToMailManagerRuleSetRuleNumberExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleNumberExpressionOutput
+}
+
+type MailManagerRuleSetRuleNumberExpressionArgs struct {
+	Evaluate MailManagerRuleSetRuleNumberToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleNumberOperatorInput             `pulumi:"operator"`
+	Value    pulumi.Float64Input                                   `pulumi:"value"`
+}
+
+func (MailManagerRuleSetRuleNumberExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleNumberExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleNumberExpressionArgs) ToMailManagerRuleSetRuleNumberExpressionOutput() MailManagerRuleSetRuleNumberExpressionOutput {
+	return i.ToMailManagerRuleSetRuleNumberExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleNumberExpressionArgs) ToMailManagerRuleSetRuleNumberExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleNumberExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleNumberExpressionOutput)
+}
+
+type MailManagerRuleSetRuleNumberExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleNumberExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleNumberExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleNumberExpressionOutput) ToMailManagerRuleSetRuleNumberExpressionOutput() MailManagerRuleSetRuleNumberExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleNumberExpressionOutput) ToMailManagerRuleSetRuleNumberExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleNumberExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleNumberExpressionOutput) Evaluate() MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleNumberExpression) MailManagerRuleSetRuleNumberToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerRuleSetRuleNumberExpressionOutput) Operator() MailManagerRuleSetRuleNumberOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleNumberExpression) MailManagerRuleSetRuleNumberOperator { return v.Operator }).(MailManagerRuleSetRuleNumberOperatorOutput)
+}
+
+func (o MailManagerRuleSetRuleNumberExpressionOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v MailManagerRuleSetRuleNumberExpression) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type MailManagerRuleSetRuleNumberToEvaluate0Properties struct {
+	Attribute MailManagerRuleSetRuleNumberEmailAttribute `pulumi:"attribute"`
+}
+
+type MailManagerRuleSetRuleNumberToEvaluateProperties struct {
+	Attribute MailManagerRuleSetRuleNumberEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleNumberToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs and MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleNumberToEvaluatePropertiesInput` via:
+//
+//	MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs{...}
+type MailManagerRuleSetRuleNumberToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutput() MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput
+}
+
+type MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs struct {
+	Attribute MailManagerRuleSetRuleNumberEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleNumberToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutput() MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput {
+	return i.ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput)
+}
+
+type MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleNumberToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutput() MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleNumberToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleNumberEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleNumberToEvaluateProperties) MailManagerRuleSetRuleNumberEmailAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleNumberEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleStringExpression struct {
+	Evaluate MailManagerRuleSetRuleStringToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleStringOperator             `pulumi:"operator"`
+	Values   []string                                         `pulumi:"values"`
+}
+
+// MailManagerRuleSetRuleStringExpressionInput is an input type that accepts MailManagerRuleSetRuleStringExpressionArgs and MailManagerRuleSetRuleStringExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleStringExpressionInput` via:
+//
+//	MailManagerRuleSetRuleStringExpressionArgs{...}
+type MailManagerRuleSetRuleStringExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleStringExpressionOutput() MailManagerRuleSetRuleStringExpressionOutput
+	ToMailManagerRuleSetRuleStringExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleStringExpressionOutput
+}
+
+type MailManagerRuleSetRuleStringExpressionArgs struct {
+	Evaluate MailManagerRuleSetRuleStringToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleStringOperatorInput             `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                               `pulumi:"values"`
+}
+
+func (MailManagerRuleSetRuleStringExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleStringExpressionArgs) ToMailManagerRuleSetRuleStringExpressionOutput() MailManagerRuleSetRuleStringExpressionOutput {
+	return i.ToMailManagerRuleSetRuleStringExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleStringExpressionArgs) ToMailManagerRuleSetRuleStringExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringExpressionOutput)
+}
+
+type MailManagerRuleSetRuleStringExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleStringExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleStringExpressionOutput) ToMailManagerRuleSetRuleStringExpressionOutput() MailManagerRuleSetRuleStringExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringExpressionOutput) ToMailManagerRuleSetRuleStringExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringExpressionOutput) Evaluate() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringExpression) MailManagerRuleSetRuleStringToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerRuleSetRuleStringExpressionOutput) Operator() MailManagerRuleSetRuleStringOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringExpression) MailManagerRuleSetRuleStringOperator { return v.Operator }).(MailManagerRuleSetRuleStringOperatorOutput)
+}
+
+func (o MailManagerRuleSetRuleStringExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerRuleSetRuleStringToEvaluate0Properties struct {
+	Attribute MailManagerRuleSetRuleStringEmailAttribute `pulumi:"attribute"`
+}
+
+type MailManagerRuleSetRuleStringToEvaluateProperties struct {
+	Attribute MailManagerRuleSetRuleStringEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleStringToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleStringToEvaluatePropertiesArgs and MailManagerRuleSetRuleStringToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleStringToEvaluatePropertiesInput` via:
+//
+//	MailManagerRuleSetRuleStringToEvaluatePropertiesArgs{...}
+type MailManagerRuleSetRuleStringToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput
+}
+
+type MailManagerRuleSetRuleStringToEvaluatePropertiesArgs struct {
+	Attribute MailManagerRuleSetRuleStringEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+	return i.ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput)
+}
+
+type MailManagerRuleSetRuleStringToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleStringEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluateProperties) MailManagerRuleSetRuleStringEmailAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleStringEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleVerdictExpression struct {
+	Evaluate interface{}                           `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleVerdictOperator `pulumi:"operator"`
+	Values   []MailManagerRuleSetRuleVerdict       `pulumi:"values"`
+}
+
+// MailManagerRuleSetRuleVerdictExpressionInput is an input type that accepts MailManagerRuleSetRuleVerdictExpressionArgs and MailManagerRuleSetRuleVerdictExpressionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleVerdictExpressionInput` via:
+//
+//	MailManagerRuleSetRuleVerdictExpressionArgs{...}
+type MailManagerRuleSetRuleVerdictExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleVerdictExpressionOutput() MailManagerRuleSetRuleVerdictExpressionOutput
+	ToMailManagerRuleSetRuleVerdictExpressionOutputWithContext(context.Context) MailManagerRuleSetRuleVerdictExpressionOutput
+}
+
+type MailManagerRuleSetRuleVerdictExpressionArgs struct {
+	Evaluate pulumi.Input                               `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleVerdictOperatorInput `pulumi:"operator"`
+	Values   MailManagerRuleSetRuleVerdictArrayInput    `pulumi:"values"`
+}
+
+func (MailManagerRuleSetRuleVerdictExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictExpression)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleVerdictExpressionArgs) ToMailManagerRuleSetRuleVerdictExpressionOutput() MailManagerRuleSetRuleVerdictExpressionOutput {
+	return i.ToMailManagerRuleSetRuleVerdictExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleVerdictExpressionArgs) ToMailManagerRuleSetRuleVerdictExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleVerdictExpressionOutput)
+}
+
+type MailManagerRuleSetRuleVerdictExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleVerdictExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictExpression)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleVerdictExpressionOutput) ToMailManagerRuleSetRuleVerdictExpressionOutput() MailManagerRuleSetRuleVerdictExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictExpressionOutput) ToMailManagerRuleSetRuleVerdictExpressionOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictExpressionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictExpressionOutput) Evaluate() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleVerdictExpression) interface{} { return v.Evaluate }).(pulumi.AnyOutput)
+}
+
+func (o MailManagerRuleSetRuleVerdictExpressionOutput) Operator() MailManagerRuleSetRuleVerdictOperatorOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleVerdictExpression) MailManagerRuleSetRuleVerdictOperator {
+		return v.Operator
+	}).(MailManagerRuleSetRuleVerdictOperatorOutput)
+}
+
+func (o MailManagerRuleSetRuleVerdictExpressionOutput) Values() MailManagerRuleSetRuleVerdictArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleVerdictExpression) []MailManagerRuleSetRuleVerdict { return v.Values }).(MailManagerRuleSetRuleVerdictArrayOutput)
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate0Properties struct {
+	Attribute MailManagerRuleSetRuleVerdictAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput is an input type that accepts MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs and MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs{...}
+type MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput
+	ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs struct {
+	Attribute MailManagerRuleSetRuleVerdictAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate0Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate0Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput) Attribute() MailManagerRuleSetRuleVerdictAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleVerdictToEvaluate0Properties) MailManagerRuleSetRuleVerdictAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleVerdictAttributeOutput)
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate1Properties struct {
+	Analysis MailManagerRuleSetAnalysis `pulumi:"analysis"`
+}
+
+// MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput is an input type that accepts MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs and MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs{...}
+type MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput
+	ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs struct {
+	Analysis MailManagerRuleSetAnalysisInput `pulumi:"analysis"`
+}
+
+func (MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput() MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput) Analysis() MailManagerRuleSetAnalysisOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleVerdictToEvaluate1Properties) MailManagerRuleSetAnalysis {
+		return v.Analysis
+	}).(MailManagerRuleSetAnalysisOutput)
+}
+
+type MailManagerRuleSetS3Action struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy `pulumi:"actionFailurePolicy"`
+	RoleArn             string                                 `pulumi:"roleArn"`
+	S3Bucket            string                                 `pulumi:"s3Bucket"`
+	S3Prefix            *string                                `pulumi:"s3Prefix"`
+	S3SseKmsKeyId       *string                                `pulumi:"s3SseKmsKeyId"`
+}
+
+// MailManagerRuleSetS3ActionInput is an input type that accepts MailManagerRuleSetS3ActionArgs and MailManagerRuleSetS3ActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetS3ActionInput` via:
+//
+//	MailManagerRuleSetS3ActionArgs{...}
+type MailManagerRuleSetS3ActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetS3ActionOutput() MailManagerRuleSetS3ActionOutput
+	ToMailManagerRuleSetS3ActionOutputWithContext(context.Context) MailManagerRuleSetS3ActionOutput
+}
+
+type MailManagerRuleSetS3ActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput `pulumi:"actionFailurePolicy"`
+	RoleArn             pulumi.StringInput                            `pulumi:"roleArn"`
+	S3Bucket            pulumi.StringInput                            `pulumi:"s3Bucket"`
+	S3Prefix            pulumi.StringPtrInput                         `pulumi:"s3Prefix"`
+	S3SseKmsKeyId       pulumi.StringPtrInput                         `pulumi:"s3SseKmsKeyId"`
+}
+
+func (MailManagerRuleSetS3ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetS3Action)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetS3ActionArgs) ToMailManagerRuleSetS3ActionOutput() MailManagerRuleSetS3ActionOutput {
+	return i.ToMailManagerRuleSetS3ActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetS3ActionArgs) ToMailManagerRuleSetS3ActionOutputWithContext(ctx context.Context) MailManagerRuleSetS3ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetS3ActionOutput)
+}
+
+type MailManagerRuleSetS3ActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetS3ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetS3Action)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetS3ActionOutput) ToMailManagerRuleSetS3ActionOutput() MailManagerRuleSetS3ActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetS3ActionOutput) ToMailManagerRuleSetS3ActionOutputWithContext(ctx context.Context) MailManagerRuleSetS3ActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetS3ActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetS3Action) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetS3ActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetS3Action) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetS3ActionOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetS3Action) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetS3ActionOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetS3Action) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o MailManagerRuleSetS3ActionOutput) S3SseKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetS3Action) *string { return v.S3SseKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type MailManagerRuleSetSendAction struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy `pulumi:"actionFailurePolicy"`
+	RoleArn             string                                 `pulumi:"roleArn"`
+}
+
+// MailManagerRuleSetSendActionInput is an input type that accepts MailManagerRuleSetSendActionArgs and MailManagerRuleSetSendActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetSendActionInput` via:
+//
+//	MailManagerRuleSetSendActionArgs{...}
+type MailManagerRuleSetSendActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSendActionOutput() MailManagerRuleSetSendActionOutput
+	ToMailManagerRuleSetSendActionOutputWithContext(context.Context) MailManagerRuleSetSendActionOutput
+}
+
+type MailManagerRuleSetSendActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput `pulumi:"actionFailurePolicy"`
+	RoleArn             pulumi.StringInput                            `pulumi:"roleArn"`
+}
+
+func (MailManagerRuleSetSendActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSendAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetSendActionArgs) ToMailManagerRuleSetSendActionOutput() MailManagerRuleSetSendActionOutput {
+	return i.ToMailManagerRuleSetSendActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetSendActionArgs) ToMailManagerRuleSetSendActionOutputWithContext(ctx context.Context) MailManagerRuleSetSendActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetSendActionOutput)
+}
+
+type MailManagerRuleSetSendActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSendActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSendAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSendActionOutput) ToMailManagerRuleSetSendActionOutput() MailManagerRuleSetSendActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSendActionOutput) ToMailManagerRuleSetSendActionOutputWithContext(ctx context.Context) MailManagerRuleSetSendActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSendActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSendAction) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetSendActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSendAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
+type MailManagerTrafficPolicyIngressAnalysis struct {
+	Analyzer    string `pulumi:"analyzer"`
+	ResultField string `pulumi:"resultField"`
+}
+
+// MailManagerTrafficPolicyIngressAnalysisInput is an input type that accepts MailManagerTrafficPolicyIngressAnalysisArgs and MailManagerTrafficPolicyIngressAnalysisOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressAnalysisInput` via:
+//
+//	MailManagerTrafficPolicyIngressAnalysisArgs{...}
+type MailManagerTrafficPolicyIngressAnalysisInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressAnalysisOutput() MailManagerTrafficPolicyIngressAnalysisOutput
+	ToMailManagerTrafficPolicyIngressAnalysisOutputWithContext(context.Context) MailManagerTrafficPolicyIngressAnalysisOutput
+}
+
+type MailManagerTrafficPolicyIngressAnalysisArgs struct {
+	Analyzer    pulumi.StringInput `pulumi:"analyzer"`
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (MailManagerTrafficPolicyIngressAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressAnalysis)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressAnalysisArgs) ToMailManagerTrafficPolicyIngressAnalysisOutput() MailManagerTrafficPolicyIngressAnalysisOutput {
+	return i.ToMailManagerTrafficPolicyIngressAnalysisOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressAnalysisArgs) ToMailManagerTrafficPolicyIngressAnalysisOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressAnalysisOutput)
+}
+
+type MailManagerTrafficPolicyIngressAnalysisOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressAnalysis)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressAnalysisOutput) ToMailManagerTrafficPolicyIngressAnalysisOutput() MailManagerTrafficPolicyIngressAnalysisOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAnalysisOutput) ToMailManagerTrafficPolicyIngressAnalysisOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAnalysisOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanExpression struct {
+	Evaluate MailManagerTrafficPolicyIngressBooleanToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressBooleanOperator             `pulumi:"operator"`
+}
+
+// MailManagerTrafficPolicyIngressBooleanExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanExpressionArgs and MailManagerTrafficPolicyIngressBooleanExpressionOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressBooleanExpressionInput` via:
+//
+//	MailManagerTrafficPolicyIngressBooleanExpressionArgs{...}
+type MailManagerTrafficPolicyIngressBooleanExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressBooleanExpressionOutput() MailManagerTrafficPolicyIngressBooleanExpressionOutput
+	ToMailManagerTrafficPolicyIngressBooleanExpressionOutputWithContext(context.Context) MailManagerTrafficPolicyIngressBooleanExpressionOutput
+}
+
+type MailManagerTrafficPolicyIngressBooleanExpressionArgs struct {
+	Evaluate MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressBooleanOperatorInput             `pulumi:"operator"`
+}
+
+func (MailManagerTrafficPolicyIngressBooleanExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanExpression)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanExpressionArgs) ToMailManagerTrafficPolicyIngressBooleanExpressionOutput() MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return i.ToMailManagerTrafficPolicyIngressBooleanExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanExpressionArgs) ToMailManagerTrafficPolicyIngressBooleanExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressBooleanExpressionOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressBooleanExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanExpression)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) ToMailManagerTrafficPolicyIngressBooleanExpressionOutput() MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) ToMailManagerTrafficPolicyIngressBooleanExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanExpression) MailManagerTrafficPolicyIngressBooleanToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) Operator() MailManagerTrafficPolicyIngressBooleanOperatorOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanExpression) MailManagerTrafficPolicyIngressBooleanOperator {
+		return v.Operator
+	}).(MailManagerTrafficPolicyIngressBooleanOperatorOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties struct {
+	Analysis MailManagerTrafficPolicyIngressAnalysis `pulumi:"analysis"`
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluateProperties struct {
+	Analysis MailManagerTrafficPolicyIngressAnalysis `pulumi:"analysis"`
+}
+
+// MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{...}
+type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs struct {
+	Analysis MailManagerTrafficPolicyIngressAnalysisInput `pulumi:"analysis"`
+}
+
+func (MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) Analysis() MailManagerTrafficPolicyIngressAnalysisOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanToEvaluateProperties) MailManagerTrafficPolicyIngressAnalysis {
+		return v.Analysis
+	}).(MailManagerTrafficPolicyIngressAnalysisOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpToEvaluate0Properties struct {
+	Attribute MailManagerTrafficPolicyIngressIpv4Attribute `pulumi:"attribute"`
+}
+
+type MailManagerTrafficPolicyIngressIpToEvaluateProperties struct {
+	Attribute MailManagerTrafficPolicyIngressIpv4Attribute `pulumi:"attribute"`
+}
+
+// MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs{...}
+type MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs struct {
+	Attribute MailManagerTrafficPolicyIngressIpv4AttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput) Attribute() MailManagerTrafficPolicyIngressIpv4AttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpToEvaluateProperties) MailManagerTrafficPolicyIngressIpv4Attribute {
+		return v.Attribute
+	}).(MailManagerTrafficPolicyIngressIpv4AttributeOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv4Expression struct {
+	Evaluate MailManagerTrafficPolicyIngressIpToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressIpOperator             `pulumi:"operator"`
+	Values   []string                                              `pulumi:"values"`
+}
+
+// MailManagerTrafficPolicyIngressIpv4ExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressIpv4ExpressionArgs and MailManagerTrafficPolicyIngressIpv4ExpressionOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressIpv4ExpressionInput` via:
+//
+//	MailManagerTrafficPolicyIngressIpv4ExpressionArgs{...}
+type MailManagerTrafficPolicyIngressIpv4ExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpv4ExpressionOutput() MailManagerTrafficPolicyIngressIpv4ExpressionOutput
+	ToMailManagerTrafficPolicyIngressIpv4ExpressionOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpv4ExpressionOutput
+}
+
+type MailManagerTrafficPolicyIngressIpv4ExpressionArgs struct {
+	Evaluate MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressIpOperatorInput             `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                                    `pulumi:"values"`
+}
+
+func (MailManagerTrafficPolicyIngressIpv4ExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4Expression)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressIpv4ExpressionArgs) ToMailManagerTrafficPolicyIngressIpv4ExpressionOutput() MailManagerTrafficPolicyIngressIpv4ExpressionOutput {
+	return i.ToMailManagerTrafficPolicyIngressIpv4ExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressIpv4ExpressionArgs) ToMailManagerTrafficPolicyIngressIpv4ExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv4ExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressIpv4ExpressionOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv4ExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpv4ExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4Expression)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) ToMailManagerTrafficPolicyIngressIpv4ExpressionOutput() MailManagerTrafficPolicyIngressIpv4ExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) ToMailManagerTrafficPolicyIngressIpv4ExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv4ExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv4Expression) MailManagerTrafficPolicyIngressIpToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) Operator() MailManagerTrafficPolicyIngressIpOperatorOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv4Expression) MailManagerTrafficPolicyIngressIpOperator {
+		return v.Operator
+	}).(MailManagerTrafficPolicyIngressIpOperatorOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv4Expression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringExpression struct {
+	Evaluate MailManagerTrafficPolicyIngressStringToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressStringOperator             `pulumi:"operator"`
+	Values   []string                                                  `pulumi:"values"`
+}
+
+// MailManagerTrafficPolicyIngressStringExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressStringExpressionArgs and MailManagerTrafficPolicyIngressStringExpressionOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressStringExpressionInput` via:
+//
+//	MailManagerTrafficPolicyIngressStringExpressionArgs{...}
+type MailManagerTrafficPolicyIngressStringExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressStringExpressionOutput() MailManagerTrafficPolicyIngressStringExpressionOutput
+	ToMailManagerTrafficPolicyIngressStringExpressionOutputWithContext(context.Context) MailManagerTrafficPolicyIngressStringExpressionOutput
+}
+
+type MailManagerTrafficPolicyIngressStringExpressionArgs struct {
+	Evaluate MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressStringOperatorInput             `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                                        `pulumi:"values"`
+}
+
+func (MailManagerTrafficPolicyIngressStringExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringExpression)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressStringExpressionArgs) ToMailManagerTrafficPolicyIngressStringExpressionOutput() MailManagerTrafficPolicyIngressStringExpressionOutput {
+	return i.ToMailManagerTrafficPolicyIngressStringExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressStringExpressionArgs) ToMailManagerTrafficPolicyIngressStringExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressStringExpressionOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressStringExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringExpression)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) ToMailManagerTrafficPolicyIngressStringExpressionOutput() MailManagerTrafficPolicyIngressStringExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) ToMailManagerTrafficPolicyIngressStringExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringExpression) MailManagerTrafficPolicyIngressStringToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Operator() MailManagerTrafficPolicyIngressStringOperatorOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringExpression) MailManagerTrafficPolicyIngressStringOperator {
+		return v.Operator
+	}).(MailManagerTrafficPolicyIngressStringOperatorOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluate0Properties struct {
+	Attribute MailManagerTrafficPolicyIngressStringEmailAttribute `pulumi:"attribute"`
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluateProperties struct {
+	Attribute MailManagerTrafficPolicyIngressStringEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs{...}
+type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs struct {
+	Attribute MailManagerTrafficPolicyIngressStringEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) Attribute() MailManagerTrafficPolicyIngressStringEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringToEvaluateProperties) MailManagerTrafficPolicyIngressStringEmailAttribute {
+		return v.Attribute
+	}).(MailManagerTrafficPolicyIngressStringEmailAttributeOutput)
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolExpression struct {
+	Evaluate MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressTlsProtocolOperator             `pulumi:"operator"`
+	Value    MailManagerTrafficPolicyIngressTlsProtocolAttribute            `pulumi:"value"`
+}
+
+// MailManagerTrafficPolicyIngressTlsProtocolExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs and MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressTlsProtocolExpressionInput` via:
+//
+//	MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs{...}
+type MailManagerTrafficPolicyIngressTlsProtocolExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutput() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput
+	ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutputWithContext(context.Context) MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs struct {
+	Evaluate MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressTlsProtocolOperatorInput             `pulumi:"operator"`
+	Value    MailManagerTrafficPolicyIngressTlsProtocolAttributeInput            `pulumi:"value"`
+}
+
+func (MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolExpression)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs) ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutput() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return i.ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs) ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput)
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolExpression)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutput() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) ToMailManagerTrafficPolicyIngressTlsProtocolExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressTlsProtocolExpression) MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) Operator() MailManagerTrafficPolicyIngressTlsProtocolOperatorOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressTlsProtocolExpression) MailManagerTrafficPolicyIngressTlsProtocolOperator {
+		return v.Operator
+	}).(MailManagerTrafficPolicyIngressTlsProtocolOperatorOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput) Value() MailManagerTrafficPolicyIngressTlsProtocolAttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressTlsProtocolExpression) MailManagerTrafficPolicyIngressTlsProtocolAttribute {
+		return v.Value
+	}).(MailManagerTrafficPolicyIngressTlsProtocolAttributeOutput)
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolToEvaluate0Properties struct {
+	Attribute MailManagerTrafficPolicyIngressTlsAttribute `pulumi:"attribute"`
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties struct {
+	Attribute MailManagerTrafficPolicyIngressTlsAttribute `pulumi:"attribute"`
+}
+
+// MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs{...}
+type MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs struct {
+	Attribute MailManagerTrafficPolicyIngressTlsAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput) Attribute() MailManagerTrafficPolicyIngressTlsAttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties) MailManagerTrafficPolicyIngressTlsAttribute {
+		return v.Attribute
+	}).(MailManagerTrafficPolicyIngressTlsAttributeOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition0Properties struct {
+	StringExpression MailManagerTrafficPolicyIngressStringExpression `pulumi:"stringExpression"`
+}
+
+// MailManagerTrafficPolicyPolicyCondition0PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition0PropertiesArgs and MailManagerTrafficPolicyPolicyCondition0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyCondition0PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyPolicyCondition0PropertiesArgs{...}
+type MailManagerTrafficPolicyPolicyCondition0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutput() MailManagerTrafficPolicyPolicyCondition0PropertiesOutput
+	ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyCondition0PropertiesOutput
+}
+
+type MailManagerTrafficPolicyPolicyCondition0PropertiesArgs struct {
+	StringExpression MailManagerTrafficPolicyIngressStringExpressionInput `pulumi:"stringExpression"`
+}
+
+func (MailManagerTrafficPolicyPolicyCondition0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition0Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition0PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutput() MailManagerTrafficPolicyPolicyCondition0PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition0PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyCondition0PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyCondition0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition0Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition0PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutput() MailManagerTrafficPolicyPolicyCondition0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition0PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition0PropertiesOutput) StringExpression() MailManagerTrafficPolicyIngressStringExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition0Properties) MailManagerTrafficPolicyIngressStringExpression {
+		return v.StringExpression
+	}).(MailManagerTrafficPolicyIngressStringExpressionOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition1Properties struct {
+	IpExpression MailManagerTrafficPolicyIngressIpv4Expression `pulumi:"ipExpression"`
+}
+
+// MailManagerTrafficPolicyPolicyCondition1PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition1PropertiesArgs and MailManagerTrafficPolicyPolicyCondition1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyCondition1PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyPolicyCondition1PropertiesArgs{...}
+type MailManagerTrafficPolicyPolicyCondition1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutput() MailManagerTrafficPolicyPolicyCondition1PropertiesOutput
+	ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyCondition1PropertiesOutput
+}
+
+type MailManagerTrafficPolicyPolicyCondition1PropertiesArgs struct {
+	IpExpression MailManagerTrafficPolicyIngressIpv4ExpressionInput `pulumi:"ipExpression"`
+}
+
+func (MailManagerTrafficPolicyPolicyCondition1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition1Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition1PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutput() MailManagerTrafficPolicyPolicyCondition1PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition1PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyCondition1PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyCondition1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition1Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition1PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutput() MailManagerTrafficPolicyPolicyCondition1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition1PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition1PropertiesOutput) IpExpression() MailManagerTrafficPolicyIngressIpv4ExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition1Properties) MailManagerTrafficPolicyIngressIpv4Expression {
+		return v.IpExpression
+	}).(MailManagerTrafficPolicyIngressIpv4ExpressionOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition2Properties struct {
+	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpression `pulumi:"tlsExpression"`
+}
+
+// MailManagerTrafficPolicyPolicyCondition2PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition2PropertiesArgs and MailManagerTrafficPolicyPolicyCondition2PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyCondition2PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyPolicyCondition2PropertiesArgs{...}
+type MailManagerTrafficPolicyPolicyCondition2PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutput() MailManagerTrafficPolicyPolicyCondition2PropertiesOutput
+	ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyCondition2PropertiesOutput
+}
+
+type MailManagerTrafficPolicyPolicyCondition2PropertiesArgs struct {
+	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpressionInput `pulumi:"tlsExpression"`
+}
+
+func (MailManagerTrafficPolicyPolicyCondition2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition2Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition2PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutput() MailManagerTrafficPolicyPolicyCondition2PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition2PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyCondition2PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition2Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutput() MailManagerTrafficPolicyPolicyCondition2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition2PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) TlsExpression() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition2Properties) MailManagerTrafficPolicyIngressTlsProtocolExpression {
+		return v.TlsExpression
+	}).(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition3Properties struct {
+	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpression `pulumi:"booleanExpression"`
+}
+
+// MailManagerTrafficPolicyPolicyCondition3PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition3PropertiesArgs and MailManagerTrafficPolicyPolicyCondition3PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyCondition3PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyPolicyCondition3PropertiesArgs{...}
+type MailManagerTrafficPolicyPolicyCondition3PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutput() MailManagerTrafficPolicyPolicyCondition3PropertiesOutput
+	ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyCondition3PropertiesOutput
+}
+
+type MailManagerTrafficPolicyPolicyCondition3PropertiesArgs struct {
+	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpressionInput `pulumi:"booleanExpression"`
+}
+
+func (MailManagerTrafficPolicyPolicyCondition3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition3Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition3PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutput() MailManagerTrafficPolicyPolicyCondition3PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition3PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyCondition3PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition3Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutput() MailManagerTrafficPolicyPolicyCondition3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition3PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition3PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) BooleanExpression() MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition3Properties) MailManagerTrafficPolicyIngressBooleanExpression {
+		return v.BooleanExpression
+	}).(MailManagerTrafficPolicyIngressBooleanExpressionOutput)
+}
+
+type MailManagerTrafficPolicyPolicyStatement struct {
+	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+	Action MailManagerTrafficPolicyAcceptAction `pulumi:"action"`
+	// The list of conditions to apply to incoming messages for filtering email traffic.
+	Conditions []interface{} `pulumi:"conditions"`
+}
+
+// MailManagerTrafficPolicyPolicyStatementInput is an input type that accepts MailManagerTrafficPolicyPolicyStatementArgs and MailManagerTrafficPolicyPolicyStatementOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyStatementInput` via:
+//
+//	MailManagerTrafficPolicyPolicyStatementArgs{...}
+type MailManagerTrafficPolicyPolicyStatementInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyStatementOutput() MailManagerTrafficPolicyPolicyStatementOutput
+	ToMailManagerTrafficPolicyPolicyStatementOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyStatementOutput
+}
+
+type MailManagerTrafficPolicyPolicyStatementArgs struct {
+	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+	Action MailManagerTrafficPolicyAcceptActionInput `pulumi:"action"`
+	// The list of conditions to apply to incoming messages for filtering email traffic.
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
+}
+
+func (MailManagerTrafficPolicyPolicyStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatement)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyStatementArgs) ToMailManagerTrafficPolicyPolicyStatementOutput() MailManagerTrafficPolicyPolicyStatementOutput {
+	return i.ToMailManagerTrafficPolicyPolicyStatementOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyStatementArgs) ToMailManagerTrafficPolicyPolicyStatementOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyStatementOutput)
+}
+
+// MailManagerTrafficPolicyPolicyStatementArrayInput is an input type that accepts MailManagerTrafficPolicyPolicyStatementArray and MailManagerTrafficPolicyPolicyStatementArrayOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyStatementArrayInput` via:
+//
+//	MailManagerTrafficPolicyPolicyStatementArray{ MailManagerTrafficPolicyPolicyStatementArgs{...} }
+type MailManagerTrafficPolicyPolicyStatementArrayInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyStatementArrayOutput() MailManagerTrafficPolicyPolicyStatementArrayOutput
+	ToMailManagerTrafficPolicyPolicyStatementArrayOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyStatementArrayOutput
+}
+
+type MailManagerTrafficPolicyPolicyStatementArray []MailManagerTrafficPolicyPolicyStatementInput
+
+func (MailManagerTrafficPolicyPolicyStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MailManagerTrafficPolicyPolicyStatement)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyStatementArray) ToMailManagerTrafficPolicyPolicyStatementArrayOutput() MailManagerTrafficPolicyPolicyStatementArrayOutput {
+	return i.ToMailManagerTrafficPolicyPolicyStatementArrayOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyStatementArray) ToMailManagerTrafficPolicyPolicyStatementArrayOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyStatementArrayOutput)
+}
+
+type MailManagerTrafficPolicyPolicyStatementOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatement)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyStatementOutput) ToMailManagerTrafficPolicyPolicyStatementOutput() MailManagerTrafficPolicyPolicyStatementOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyStatementOutput) ToMailManagerTrafficPolicyPolicyStatementOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyStatementOutput {
+	return o
+}
+
+// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+func (o MailManagerTrafficPolicyPolicyStatementOutput) Action() MailManagerTrafficPolicyAcceptActionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyStatement) MailManagerTrafficPolicyAcceptAction { return v.Action }).(MailManagerTrafficPolicyAcceptActionOutput)
+}
+
+// The list of conditions to apply to incoming messages for filtering email traffic.
+func (o MailManagerTrafficPolicyPolicyStatementOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyStatement) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
+}
+
+type MailManagerTrafficPolicyPolicyStatementArrayOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MailManagerTrafficPolicyPolicyStatement)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyStatementArrayOutput) ToMailManagerTrafficPolicyPolicyStatementArrayOutput() MailManagerTrafficPolicyPolicyStatementArrayOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyStatementArrayOutput) ToMailManagerTrafficPolicyPolicyStatementArrayOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyStatementArrayOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyStatementArrayOutput) Index(i pulumi.IntInput) MailManagerTrafficPolicyPolicyStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MailManagerTrafficPolicyPolicyStatement {
+		return vs[0].([]MailManagerTrafficPolicyPolicyStatement)[vs[1].(int)]
+	}).(MailManagerTrafficPolicyPolicyStatementOutput)
+}
+
+type MailManagerTrafficPolicyTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
 // The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateType struct {
 	// The HTML body of the email.
@@ -3485,6 +7050,67 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityFeedbackAttributesPtrInput)(nil)).Elem(), EmailIdentityFeedbackAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityMailFromAttributesInput)(nil)).Elem(), EmailIdentityMailFromAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityMailFromAttributesPtrInput)(nil)).Elem(), EmailIdentityMailFromAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerArchiveArchiveRetentionPropertiesInput)(nil)).Elem(), MailManagerArchiveArchiveRetentionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerArchiveArchiveRetentionPropertiesPtrInput)(nil)).Elem(), MailManagerArchiveArchiveRetentionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration0PropertiesInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1PropertiesInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayNoAuthenticationInput)(nil)).Elem(), MailManagerRelayNoAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayRelayAuthentication0PropertiesInput)(nil)).Elem(), MailManagerRelayRelayAuthentication0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayRelayAuthentication1PropertiesInput)(nil)).Elem(), MailManagerRelayRelayAuthentication1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetAddHeaderActionInput)(nil)).Elem(), MailManagerRuleSetAddHeaderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetAnalysisInput)(nil)).Elem(), MailManagerRuleSetAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetArchiveActionInput)(nil)).Elem(), MailManagerRuleSetArchiveActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetDeliverToMailboxActionInput)(nil)).Elem(), MailManagerRuleSetDeliverToMailboxActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetDropActionInput)(nil)).Elem(), MailManagerRuleSetDropActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRelayActionInput)(nil)).Elem(), MailManagerRuleSetRelayActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetReplaceRecipientActionInput)(nil)).Elem(), MailManagerRuleSetReplaceRecipientActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleInput)(nil)).Elem(), MailManagerRuleSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleArrayInput)(nil)).Elem(), MailManagerRuleSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction3PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction4PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction5PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction5PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction6PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction6PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction7PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction7PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition3PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition4PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition5PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition5PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleDmarcExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleDmarcExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleIpExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleIpExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleIpToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleIpToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleNumberExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetS3ActionInput)(nil)).Elem(), MailManagerRuleSetS3ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSendActionInput)(nil)).Elem(), MailManagerRuleSetSendActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressAnalysisInput)(nil)).Elem(), MailManagerTrafficPolicyIngressAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4ExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv4ExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition0PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition1PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition2PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition3PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementArrayInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
@@ -3531,6 +7157,70 @@ func init() {
 	pulumi.RegisterOutputType(EmailIdentityFeedbackAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EmailIdentityMailFromAttributesOutput{})
 	pulumi.RegisterOutputType(EmailIdentityMailFromAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerArchiveArchiveRetentionPropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerArchiveArchiveRetentionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayNoAuthenticationOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayNoAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayRelayAuthentication0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayRelayAuthentication0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayRelayAuthentication1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRelayRelayAuthentication1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetAddHeaderActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetAnalysisOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetArchiveActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetDeliverToMailboxActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetDropActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRelayActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetReplaceRecipientActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction2PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction3PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction4PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction5PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction6PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction7PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition2PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition3PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition4PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition5PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleDmarcExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleIpExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleIpToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetS3ActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSendActionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressAnalysisOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv4ExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition2PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition3PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesOutput{})

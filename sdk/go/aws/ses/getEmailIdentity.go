@@ -44,7 +44,9 @@ type LookupEmailIdentityResult struct {
 	DkimDnsTokenValue2 *string `pulumi:"dkimDnsTokenValue2"`
 	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	DkimDnsTokenValue3 *string `pulumi:"dkimDnsTokenValue3"`
-	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+	//
+	// You can only specify this object if the email identity is a domain, as opposed to an address.
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
 	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes *EmailIdentityFeedbackAttributes `pulumi:"feedbackAttributes"`
@@ -130,7 +132,9 @@ func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue3() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue3 }).(pulumi.StringPtrOutput)
 }
 
-// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+//
+// You can only specify this object if the email identity is a domain, as opposed to an address.
 func (o LookupEmailIdentityResultOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityDkimSigningAttributes { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }

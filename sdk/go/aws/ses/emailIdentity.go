@@ -32,7 +32,9 @@ type EmailIdentity struct {
 	DkimDnsTokenValue2 pulumi.StringOutput `pulumi:"dkimDnsTokenValue2"`
 	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	DkimDnsTokenValue3 pulumi.StringOutput `pulumi:"dkimDnsTokenValue3"`
-	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+	//
+	// You can only specify this object if the email identity is a domain, as opposed to an address.
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrOutput `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
@@ -93,7 +95,9 @@ type emailIdentityArgs struct {
 	ConfigurationSetAttributes *EmailIdentityConfigurationSetAttributes `pulumi:"configurationSetAttributes"`
 	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes *EmailIdentityDkimAttributes `pulumi:"dkimAttributes"`
-	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+	//
+	// You can only specify this object if the email identity is a domain, as opposed to an address.
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	EmailIdentity string `pulumi:"emailIdentity"`
@@ -109,7 +113,9 @@ type EmailIdentityArgs struct {
 	ConfigurationSetAttributes EmailIdentityConfigurationSetAttributesPtrInput
 	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes EmailIdentityDkimAttributesPtrInput
-	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+	//
+	// You can only specify this object if the email identity is a domain, as opposed to an address.
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
 	// The email address or domain to verify.
 	EmailIdentity pulumi.StringInput
@@ -198,7 +204,9 @@ func (o EmailIdentityOutput) DkimDnsTokenValue3() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenValue3 }).(pulumi.StringOutput)
 }
 
-// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+//
+// You can only specify this object if the email identity is a domain, as opposed to an address.
 func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimSigningAttributesPtrOutput { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }

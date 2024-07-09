@@ -70,7 +70,9 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     public /*out*/ readonly dkimDnsTokenValue3!: pulumi.Output<string>;
     /**
-     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+     *
+     * You can only specify this object if the email identity is a domain, as opposed to an address.
      */
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
     /**
@@ -146,7 +148,9 @@ export interface EmailIdentityArgs {
      */
     dkimAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimAttributesArgs>;
     /**
-     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+     *
+     * You can only specify this object if the email identity is a domain, as opposed to an address.
      */
     dkimSigningAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimSigningAttributesArgs>;
     /**

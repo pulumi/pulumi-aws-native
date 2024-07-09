@@ -12,14 +12,18 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IdMappingWorkflowIdMappingRuleBasedProperties',
     'IdMappingWorkflowIdMappingTechniques',
     'IdMappingWorkflowInputSource',
     'IdMappingWorkflowIntermediateSourceConfiguration',
     'IdMappingWorkflowOutputSource',
     'IdMappingWorkflowProviderProperties',
+    'IdMappingWorkflowRule',
     'IdNamespaceIdMappingWorkflowProperties',
     'IdNamespaceInputSource',
     'IdNamespaceNamespaceProviderProperties',
+    'IdNamespaceNamespaceRuleBasedProperties',
+    'IdNamespaceRule',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
     'MatchingWorkflowOutputAttribute',
@@ -32,14 +36,74 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class IdMappingWorkflowIdMappingRuleBasedProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeMatchingModel":
+            suggest = "attribute_matching_model"
+        elif key == "recordMatchingModel":
+            suggest = "record_matching_model"
+        elif key == "ruleDefinitionType":
+            suggest = "rule_definition_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowIdMappingRuleBasedProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowIdMappingRuleBasedProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowIdMappingRuleBasedProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_matching_model: 'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel',
+                 record_matching_model: 'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel',
+                 rule_definition_type: Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType'] = None,
+                 rules: Optional[Sequence['outputs.IdMappingWorkflowRule']] = None):
+        pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
+        pulumi.set(__self__, "record_matching_model", record_matching_model)
+        if rule_definition_type is not None:
+            pulumi.set(__self__, "rule_definition_type", rule_definition_type)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="attributeMatchingModel")
+    def attribute_matching_model(self) -> 'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel':
+        return pulumi.get(self, "attribute_matching_model")
+
+    @property
+    @pulumi.getter(name="recordMatchingModel")
+    def record_matching_model(self) -> 'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel':
+        return pulumi.get(self, "record_matching_model")
+
+    @property
+    @pulumi.getter(name="ruleDefinitionType")
+    def rule_definition_type(self) -> Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']:
+        return pulumi.get(self, "rule_definition_type")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.IdMappingWorkflowRule']]:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
 class IdMappingWorkflowIdMappingTechniques(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "idMappingType":
             suggest = "id_mapping_type"
+        elif key == "normalizationVersion":
+            suggest = "normalization_version"
         elif key == "providerProperties":
             suggest = "provider_properties"
+        elif key == "ruleBasedProperties":
+            suggest = "rule_based_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowIdMappingTechniques. Access the value via the '{suggest}' property getter instead.")
@@ -54,15 +118,21 @@ class IdMappingWorkflowIdMappingTechniques(dict):
 
     def __init__(__self__, *,
                  id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
-                 provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None):
+                 normalization_version: Optional[str] = None,
+                 provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None,
+                 rule_based_properties: Optional['outputs.IdMappingWorkflowIdMappingRuleBasedProperties'] = None):
         """
         :param 'IdMappingWorkflowIdMappingTechniquesIdMappingType' id_mapping_type: The type of ID mapping.
         :param 'IdMappingWorkflowProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
         """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
+        if normalization_version is not None:
+            pulumi.set(__self__, "normalization_version", normalization_version)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
+        if rule_based_properties is not None:
+            pulumi.set(__self__, "rule_based_properties", rule_based_properties)
 
     @property
     @pulumi.getter(name="idMappingType")
@@ -73,12 +143,22 @@ class IdMappingWorkflowIdMappingTechniques(dict):
         return pulumi.get(self, "id_mapping_type")
 
     @property
+    @pulumi.getter(name="normalizationVersion")
+    def normalization_version(self) -> Optional[str]:
+        return pulumi.get(self, "normalization_version")
+
+    @property
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.IdMappingWorkflowProviderProperties']:
         """
         An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
+
+    @property
+    @pulumi.getter(name="ruleBasedProperties")
+    def rule_based_properties(self) -> Optional['outputs.IdMappingWorkflowIdMappingRuleBasedProperties']:
+        return pulumi.get(self, "rule_based_properties")
 
 
 @pulumi.output_type
@@ -107,7 +187,7 @@ class IdMappingWorkflowInputSource(dict):
                  schema_arn: Optional[str] = None,
                  type: Optional['IdMappingWorkflowInputSourceType'] = None):
         """
-        :param str input_source_arn: An Glue table ARN for the input source table or IdNamespace ARN
+        :param str input_source_arn: An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
         :param str schema_arn: The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
         :param 'IdMappingWorkflowInputSourceType' type: The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
                
@@ -125,7 +205,7 @@ class IdMappingWorkflowInputSource(dict):
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> str:
         """
-        An Glue table ARN for the input source table or IdNamespace ARN
+        An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
         """
         return pulumi.get(self, "input_source_arn")
 
@@ -298,6 +378,44 @@ class IdMappingWorkflowProviderProperties(dict):
 
 
 @pulumi.output_type
+class IdMappingWorkflowRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingKeys":
+            suggest = "matching_keys"
+        elif key == "ruleName":
+            suggest = "rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_keys: Sequence[str],
+                 rule_name: str):
+        pulumi.set(__self__, "matching_keys", matching_keys)
+        pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter(name="matchingKeys")
+    def matching_keys(self) -> Sequence[str]:
+        return pulumi.get(self, "matching_keys")
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> str:
+        return pulumi.get(self, "rule_name")
+
+
+@pulumi.output_type
 class IdNamespaceIdMappingWorkflowProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -306,6 +424,8 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
             suggest = "id_mapping_type"
         elif key == "providerProperties":
             suggest = "provider_properties"
+        elif key == "ruleBasedProperties":
+            suggest = "rule_based_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdNamespaceIdMappingWorkflowProperties. Access the value via the '{suggest}' property getter instead.")
@@ -320,7 +440,8 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
 
     def __init__(__self__, *,
                  id_mapping_type: 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType',
-                 provider_properties: Optional['outputs.IdNamespaceNamespaceProviderProperties'] = None):
+                 provider_properties: Optional['outputs.IdNamespaceNamespaceProviderProperties'] = None,
+                 rule_based_properties: Optional['outputs.IdNamespaceNamespaceRuleBasedProperties'] = None):
         """
         :param 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType' id_mapping_type: The type of ID mapping.
         :param 'IdNamespaceNamespaceProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
@@ -328,6 +449,8 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
         pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
+        if rule_based_properties is not None:
+            pulumi.set(__self__, "rule_based_properties", rule_based_properties)
 
     @property
     @pulumi.getter(name="idMappingType")
@@ -344,6 +467,11 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
         An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
+
+    @property
+    @pulumi.getter(name="ruleBasedProperties")
+    def rule_based_properties(self) -> Optional['outputs.IdNamespaceNamespaceRuleBasedProperties']:
+        return pulumi.get(self, "rule_based_properties")
 
 
 @pulumi.output_type
@@ -442,6 +570,102 @@ class IdNamespaceNamespaceProviderProperties(dict):
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
         """
         return pulumi.get(self, "provider_configuration")
+
+
+@pulumi.output_type
+class IdNamespaceNamespaceRuleBasedProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeMatchingModel":
+            suggest = "attribute_matching_model"
+        elif key == "recordMatchingModels":
+            suggest = "record_matching_models"
+        elif key == "ruleDefinitionTypes":
+            suggest = "rule_definition_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceNamespaceRuleBasedProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceNamespaceRuleBasedProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceNamespaceRuleBasedProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_matching_model: Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel'] = None,
+                 record_matching_models: Optional[Sequence['IdNamespaceRecordMatchingModel']] = None,
+                 rule_definition_types: Optional[Sequence['IdNamespaceRuleDefinitionType']] = None,
+                 rules: Optional[Sequence['outputs.IdNamespaceRule']] = None):
+        if attribute_matching_model is not None:
+            pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
+        if record_matching_models is not None:
+            pulumi.set(__self__, "record_matching_models", record_matching_models)
+        if rule_definition_types is not None:
+            pulumi.set(__self__, "rule_definition_types", rule_definition_types)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="attributeMatchingModel")
+    def attribute_matching_model(self) -> Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']:
+        return pulumi.get(self, "attribute_matching_model")
+
+    @property
+    @pulumi.getter(name="recordMatchingModels")
+    def record_matching_models(self) -> Optional[Sequence['IdNamespaceRecordMatchingModel']]:
+        return pulumi.get(self, "record_matching_models")
+
+    @property
+    @pulumi.getter(name="ruleDefinitionTypes")
+    def rule_definition_types(self) -> Optional[Sequence['IdNamespaceRuleDefinitionType']]:
+        return pulumi.get(self, "rule_definition_types")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.IdNamespaceRule']]:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class IdNamespaceRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingKeys":
+            suggest = "matching_keys"
+        elif key == "ruleName":
+            suggest = "rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_keys: Sequence[str],
+                 rule_name: str):
+        pulumi.set(__self__, "matching_keys", matching_keys)
+        pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter(name="matchingKeys")
+    def matching_keys(self) -> Sequence[str]:
+        return pulumi.get(self, "matching_keys")
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> str:
+        return pulumi.get(self, "rule_name")
 
 
 @pulumi.output_type
@@ -733,11 +957,11 @@ class MatchingWorkflowResolutionTechniques(dict):
 
     def __init__(__self__, *,
                  provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
-                 resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
+                 resolution_type: Optional['MatchingWorkflowResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
         """
         :param 'MatchingWorkflowProviderProperties' provider_properties: The properties of the provider service.
-        :param 'MatchingWorkflowResolutionTechniquesResolutionType' resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        :param 'MatchingWorkflowResolutionType' resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
         :param 'MatchingWorkflowRuleBasedProperties' rule_based_properties: An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         """
         if provider_properties is not None:
@@ -757,7 +981,7 @@ class MatchingWorkflowResolutionTechniques(dict):
 
     @property
     @pulumi.getter(name="resolutionType")
-    def resolution_type(self) -> Optional['MatchingWorkflowResolutionTechniquesResolutionType']:
+    def resolution_type(self) -> Optional['MatchingWorkflowResolutionType']:
         """
         The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
         """
@@ -827,6 +1051,8 @@ class MatchingWorkflowRuleBasedProperties(dict):
         suggest = None
         if key == "attributeMatchingModel":
             suggest = "attribute_matching_model"
+        elif key == "matchPurpose":
+            suggest = "match_purpose"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowRuleBasedProperties. Access the value via the '{suggest}' property getter instead.")
@@ -841,13 +1067,16 @@ class MatchingWorkflowRuleBasedProperties(dict):
 
     def __init__(__self__, *,
                  attribute_matching_model: 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
-                 rules: Sequence['outputs.MatchingWorkflowRule']):
+                 rules: Sequence['outputs.MatchingWorkflowRule'],
+                 match_purpose: Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose'] = None):
         """
         :param 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
         :param Sequence['MatchingWorkflowRule'] rules: A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         pulumi.set(__self__, "rules", rules)
+        if match_purpose is not None:
+            pulumi.set(__self__, "match_purpose", match_purpose)
 
     @property
     @pulumi.getter(name="attributeMatchingModel")
@@ -864,6 +1093,11 @@ class MatchingWorkflowRuleBasedProperties(dict):
         A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         """
         return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter(name="matchPurpose")
+    def match_purpose(self) -> Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']:
+        return pulumi.get(self, "match_purpose")
 
 
 @pulumi.output_type
@@ -895,6 +1129,7 @@ class SchemaMappingSchemaInputAttribute(dict):
                  field_name: str,
                  type: 'SchemaMappingSchemaAttributeType',
                  group_name: Optional[str] = None,
+                 hashed: Optional[bool] = None,
                  match_key: Optional[str] = None,
                  sub_type: Optional[str] = None):
         """
@@ -904,6 +1139,8 @@ class SchemaMappingSchemaInputAttribute(dict):
         pulumi.set(__self__, "type", type)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
+        if hashed is not None:
+            pulumi.set(__self__, "hashed", hashed)
         if match_key is not None:
             pulumi.set(__self__, "match_key", match_key)
         if sub_type is not None:
@@ -923,6 +1160,11 @@ class SchemaMappingSchemaInputAttribute(dict):
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[str]:
         return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def hashed(self) -> Optional[bool]:
+        return pulumi.get(self, "hashed")
 
     @property
     @pulumi.getter(name="matchKey")

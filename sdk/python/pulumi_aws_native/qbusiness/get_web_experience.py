@@ -79,6 +79,8 @@ class GetWebExperienceResult:
     def role_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the service role attached to your web experience.
+
+        > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
         """
         return pulumi.get(self, "role_arn")
 

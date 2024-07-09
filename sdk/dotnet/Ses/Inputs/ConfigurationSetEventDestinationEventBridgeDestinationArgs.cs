@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ses.Inputs
     /// </summary>
     public sealed class ConfigurationSetEventDestinationEventBridgeDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        /// </summary>
         [Input("eventBusArn", required: true)]
         public Input<string> EventBusArn { get; set; } = null!;
 

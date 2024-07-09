@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ConfigurationSetDashboardOptions',
@@ -31,6 +32,62 @@ __all__ = [
     'EmailIdentityDkimSigningAttributes',
     'EmailIdentityFeedbackAttributes',
     'EmailIdentityMailFromAttributes',
+    'MailManagerArchiveArchiveRetentionProperties',
+    'MailManagerIngressPointIngressPointConfiguration0Properties',
+    'MailManagerIngressPointIngressPointConfiguration1Properties',
+    'MailManagerRelayNoAuthentication',
+    'MailManagerRelayRelayAuthentication0Properties',
+    'MailManagerRelayRelayAuthentication1Properties',
+    'MailManagerRuleSetAddHeaderAction',
+    'MailManagerRuleSetAnalysis',
+    'MailManagerRuleSetArchiveAction',
+    'MailManagerRuleSetDeliverToMailboxAction',
+    'MailManagerRuleSetDropAction',
+    'MailManagerRuleSetRelayAction',
+    'MailManagerRuleSetReplaceRecipientAction',
+    'MailManagerRuleSetRule',
+    'MailManagerRuleSetRuleAction0Properties',
+    'MailManagerRuleSetRuleAction1Properties',
+    'MailManagerRuleSetRuleAction2Properties',
+    'MailManagerRuleSetRuleAction3Properties',
+    'MailManagerRuleSetRuleAction4Properties',
+    'MailManagerRuleSetRuleAction5Properties',
+    'MailManagerRuleSetRuleAction6Properties',
+    'MailManagerRuleSetRuleAction7Properties',
+    'MailManagerRuleSetRuleBooleanExpression',
+    'MailManagerRuleSetRuleBooleanToEvaluateProperties',
+    'MailManagerRuleSetRuleCondition0Properties',
+    'MailManagerRuleSetRuleCondition1Properties',
+    'MailManagerRuleSetRuleCondition2Properties',
+    'MailManagerRuleSetRuleCondition3Properties',
+    'MailManagerRuleSetRuleCondition4Properties',
+    'MailManagerRuleSetRuleCondition5Properties',
+    'MailManagerRuleSetRuleDmarcExpression',
+    'MailManagerRuleSetRuleIpExpression',
+    'MailManagerRuleSetRuleIpToEvaluateProperties',
+    'MailManagerRuleSetRuleNumberExpression',
+    'MailManagerRuleSetRuleNumberToEvaluateProperties',
+    'MailManagerRuleSetRuleStringExpression',
+    'MailManagerRuleSetRuleStringToEvaluateProperties',
+    'MailManagerRuleSetRuleVerdictExpression',
+    'MailManagerRuleSetRuleVerdictToEvaluate0Properties',
+    'MailManagerRuleSetRuleVerdictToEvaluate1Properties',
+    'MailManagerRuleSetS3Action',
+    'MailManagerRuleSetSendAction',
+    'MailManagerTrafficPolicyIngressAnalysis',
+    'MailManagerTrafficPolicyIngressBooleanExpression',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressIpToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressIpv4Expression',
+    'MailManagerTrafficPolicyIngressStringExpression',
+    'MailManagerTrafficPolicyIngressStringToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressTlsProtocolExpression',
+    'MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties',
+    'MailManagerTrafficPolicyPolicyCondition0Properties',
+    'MailManagerTrafficPolicyPolicyCondition1Properties',
+    'MailManagerTrafficPolicyPolicyCondition2Properties',
+    'MailManagerTrafficPolicyPolicyCondition3Properties',
+    'MailManagerTrafficPolicyPolicyStatement',
     'Template',
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
@@ -260,12 +317,16 @@ class ConfigurationSetEventDestinationEventBridgeDestination(dict):
                  event_bus_arn: str):
         """
         An object that contains Event bus ARN associated with the event bridge destination.
+        :param str event_bus_arn: The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
         """
         pulumi.set(__self__, "event_bus_arn", event_bus_arn)
 
     @property
     @pulumi.getter(name="eventBusArn")
     def event_bus_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        """
         return pulumi.get(self, "event_bus_arn")
 
 
@@ -706,8 +767,8 @@ class ConfigurationSetVdmOptions(dict):
                  guardian_options: Optional['outputs.ConfigurationSetGuardianOptions'] = None):
         """
         An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
-        :param 'ConfigurationSetDashboardOptions' dashboard_options: Settings for your VDM configuration as applicable to the Dashboard.
-        :param 'ConfigurationSetGuardianOptions' guardian_options: Settings for your VDM configuration as applicable to the Guardian.
+        :param 'ConfigurationSetDashboardOptions' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param 'ConfigurationSetGuardianOptions' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -718,7 +779,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Optional['outputs.ConfigurationSetDashboardOptions']:
         """
-        Settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_options")
 
@@ -726,7 +787,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Optional['outputs.ConfigurationSetGuardianOptions']:
         """
-        Settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_options")
 
@@ -1044,6 +1105,1440 @@ class EmailIdentityMailFromAttributes(dict):
         The custom MAIL FROM domain that you want the verified identity to use
         """
         return pulumi.get(self, "mail_from_domain")
+
+
+@pulumi.output_type
+class MailManagerArchiveArchiveRetentionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerArchiveArchiveRetentionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerArchiveArchiveRetentionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerArchiveArchiveRetentionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_period: 'MailManagerArchiveRetentionPeriod'):
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> 'MailManagerArchiveRetentionPeriod':
+        return pulumi.get(self, "retention_period")
+
+
+@pulumi.output_type
+class MailManagerIngressPointIngressPointConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smtpPassword":
+            suggest = "smtp_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointIngressPointConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointIngressPointConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointIngressPointConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 smtp_password: str):
+        pulumi.set(__self__, "smtp_password", smtp_password)
+
+    @property
+    @pulumi.getter(name="smtpPassword")
+    def smtp_password(self) -> str:
+        return pulumi.get(self, "smtp_password")
+
+
+@pulumi.output_type
+class MailManagerIngressPointIngressPointConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointIngressPointConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointIngressPointConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointIngressPointConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class MailManagerRelayNoAuthentication(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class MailManagerRelayRelayAuthentication0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRelayRelayAuthentication0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRelayRelayAuthentication0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRelayRelayAuthentication0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class MailManagerRelayRelayAuthentication1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noAuthentication":
+            suggest = "no_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRelayRelayAuthentication1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRelayRelayAuthentication1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRelayRelayAuthentication1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_authentication: 'outputs.MailManagerRelayNoAuthentication'):
+        pulumi.set(__self__, "no_authentication", no_authentication)
+
+    @property
+    @pulumi.getter(name="noAuthentication")
+    def no_authentication(self) -> 'outputs.MailManagerRelayNoAuthentication':
+        return pulumi.get(self, "no_authentication")
+
+
+@pulumi.output_type
+class MailManagerRuleSetAddHeaderAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetAddHeaderAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetAddHeaderAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetAddHeaderAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: str,
+                 header_value: str):
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> str:
+        return pulumi.get(self, "header_value")
+
+
+@pulumi.output_type
+class MailManagerRuleSetAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: str,
+                 result_field: str):
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @property
+    @pulumi.getter
+    def analyzer(self) -> str:
+        return pulumi.get(self, "analyzer")
+
+    @property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> str:
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class MailManagerRuleSetArchiveAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetArchive":
+            suggest = "target_archive"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetArchiveAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetArchiveAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetArchiveAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_archive: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None):
+        pulumi.set(__self__, "target_archive", target_archive)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @property
+    @pulumi.getter(name="targetArchive")
+    def target_archive(self) -> str:
+        return pulumi.get(self, "target_archive")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class MailManagerRuleSetDeliverToMailboxAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mailboxArn":
+            suggest = "mailbox_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetDeliverToMailboxAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetDeliverToMailboxAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetDeliverToMailboxAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mailbox_arn: str,
+                 role_arn: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None):
+        pulumi.set(__self__, "mailbox_arn", mailbox_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @property
+    @pulumi.getter(name="mailboxArn")
+    def mailbox_arn(self) -> str:
+        return pulumi.get(self, "mailbox_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class MailManagerRuleSetDropAction(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class MailManagerRuleSetRelayAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "mailFrom":
+            suggest = "mail_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRelayAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRelayAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRelayAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relay: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None,
+                 mail_from: Optional['MailManagerRuleSetMailFrom'] = None):
+        pulumi.set(__self__, "relay", relay)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if mail_from is not None:
+            pulumi.set(__self__, "mail_from", mail_from)
+
+    @property
+    @pulumi.getter
+    def relay(self) -> str:
+        return pulumi.get(self, "relay")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+    @property
+    @pulumi.getter(name="mailFrom")
+    def mail_from(self) -> Optional['MailManagerRuleSetMailFrom']:
+        return pulumi.get(self, "mail_from")
+
+
+@pulumi.output_type
+class MailManagerRuleSetReplaceRecipientAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replaceWith":
+            suggest = "replace_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetReplaceRecipientAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetReplaceRecipientAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetReplaceRecipientAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replace_with: Optional[Sequence[str]] = None):
+        if replace_with is not None:
+            pulumi.set(__self__, "replace_with", replace_with)
+
+    @property
+    @pulumi.getter(name="replaceWith")
+    def replace_with(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "replace_with")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRule(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[Any],
+                 conditions: Optional[Sequence[Any]] = None,
+                 name: Optional[str] = None,
+                 unless: Optional[Sequence[Any]] = None):
+        """
+        :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+        :param str name: The user-friendly name of the rule.
+        :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if unless is not None:
+            pulumi.set(__self__, "unless", unless)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[Any]:
+        """
+        The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence[Any]]:
+        """
+        The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The user-friendly name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def unless(self) -> Optional[Sequence[Any]]:
+        """
+        The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+        """
+        return pulumi.get(self, "unless")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction0Properties(dict):
+    def __init__(__self__, *,
+                 drop: 'outputs.MailManagerRuleSetDropAction'):
+        pulumi.set(__self__, "drop", drop)
+
+    @property
+    @pulumi.getter
+    def drop(self) -> 'outputs.MailManagerRuleSetDropAction':
+        return pulumi.get(self, "drop")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction1Properties(dict):
+    def __init__(__self__, *,
+                 relay: 'outputs.MailManagerRuleSetRelayAction'):
+        pulumi.set(__self__, "relay", relay)
+
+    @property
+    @pulumi.getter
+    def relay(self) -> 'outputs.MailManagerRuleSetRelayAction':
+        return pulumi.get(self, "relay")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction2Properties(dict):
+    def __init__(__self__, *,
+                 archive: 'outputs.MailManagerRuleSetArchiveAction'):
+        pulumi.set(__self__, "archive", archive)
+
+    @property
+    @pulumi.getter
+    def archive(self) -> 'outputs.MailManagerRuleSetArchiveAction':
+        return pulumi.get(self, "archive")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "writeToS3":
+            suggest = "write_to_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 write_to_s3: 'outputs.MailManagerRuleSetS3Action'):
+        pulumi.set(__self__, "write_to_s3", write_to_s3)
+
+    @property
+    @pulumi.getter(name="writeToS3")
+    def write_to_s3(self) -> 'outputs.MailManagerRuleSetS3Action':
+        return pulumi.get(self, "write_to_s3")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction4Properties(dict):
+    def __init__(__self__, *,
+                 send: 'outputs.MailManagerRuleSetSendAction'):
+        pulumi.set(__self__, "send", send)
+
+    @property
+    @pulumi.getter
+    def send(self) -> 'outputs.MailManagerRuleSetSendAction':
+        return pulumi.get(self, "send")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction5Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addHeader":
+            suggest = "add_header"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction5Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction5Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction5Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_header: 'outputs.MailManagerRuleSetAddHeaderAction'):
+        pulumi.set(__self__, "add_header", add_header)
+
+    @property
+    @pulumi.getter(name="addHeader")
+    def add_header(self) -> 'outputs.MailManagerRuleSetAddHeaderAction':
+        return pulumi.get(self, "add_header")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction6Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replaceRecipient":
+            suggest = "replace_recipient"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction6Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction6Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction6Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replace_recipient: 'outputs.MailManagerRuleSetReplaceRecipientAction'):
+        pulumi.set(__self__, "replace_recipient", replace_recipient)
+
+    @property
+    @pulumi.getter(name="replaceRecipient")
+    def replace_recipient(self) -> 'outputs.MailManagerRuleSetReplaceRecipientAction':
+        return pulumi.get(self, "replace_recipient")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction7Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliverToMailbox":
+            suggest = "deliver_to_mailbox"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction7Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction7Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction7Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deliver_to_mailbox: 'outputs.MailManagerRuleSetDeliverToMailboxAction'):
+        pulumi.set(__self__, "deliver_to_mailbox", deliver_to_mailbox)
+
+    @property
+    @pulumi.getter(name="deliverToMailbox")
+    def deliver_to_mailbox(self) -> 'outputs.MailManagerRuleSetDeliverToMailboxAction':
+        return pulumi.get(self, "deliver_to_mailbox")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleBooleanExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerRuleSetRuleBooleanToEvaluateProperties',
+                 operator: 'MailManagerRuleSetRuleBooleanOperator'):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleBooleanToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleBooleanOperator':
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleBooleanToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerRuleSetRuleBooleanEmailAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleBooleanEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanExpression":
+            suggest = "boolean_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_expression: 'outputs.MailManagerRuleSetRuleBooleanExpression'):
+        pulumi.set(__self__, "boolean_expression", boolean_expression)
+
+    @property
+    @pulumi.getter(name="booleanExpression")
+    def boolean_expression(self) -> 'outputs.MailManagerRuleSetRuleBooleanExpression':
+        return pulumi.get(self, "boolean_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringExpression":
+            suggest = "string_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_expression: 'outputs.MailManagerRuleSetRuleStringExpression'):
+        pulumi.set(__self__, "string_expression", string_expression)
+
+    @property
+    @pulumi.getter(name="stringExpression")
+    def string_expression(self) -> 'outputs.MailManagerRuleSetRuleStringExpression':
+        return pulumi.get(self, "string_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberExpression":
+            suggest = "number_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_expression: 'outputs.MailManagerRuleSetRuleNumberExpression'):
+        pulumi.set(__self__, "number_expression", number_expression)
+
+    @property
+    @pulumi.getter(name="numberExpression")
+    def number_expression(self) -> 'outputs.MailManagerRuleSetRuleNumberExpression':
+        return pulumi.get(self, "number_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipExpression":
+            suggest = "ip_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_expression: 'outputs.MailManagerRuleSetRuleIpExpression'):
+        pulumi.set(__self__, "ip_expression", ip_expression)
+
+    @property
+    @pulumi.getter(name="ipExpression")
+    def ip_expression(self) -> 'outputs.MailManagerRuleSetRuleIpExpression':
+        return pulumi.get(self, "ip_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "verdictExpression":
+            suggest = "verdict_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 verdict_expression: 'outputs.MailManagerRuleSetRuleVerdictExpression'):
+        pulumi.set(__self__, "verdict_expression", verdict_expression)
+
+    @property
+    @pulumi.getter(name="verdictExpression")
+    def verdict_expression(self) -> 'outputs.MailManagerRuleSetRuleVerdictExpression':
+        return pulumi.get(self, "verdict_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleCondition5Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dmarcExpression":
+            suggest = "dmarc_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleCondition5Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleCondition5Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleCondition5Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dmarc_expression: 'outputs.MailManagerRuleSetRuleDmarcExpression'):
+        pulumi.set(__self__, "dmarc_expression", dmarc_expression)
+
+    @property
+    @pulumi.getter(name="dmarcExpression")
+    def dmarc_expression(self) -> 'outputs.MailManagerRuleSetRuleDmarcExpression':
+        return pulumi.get(self, "dmarc_expression")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleDmarcExpression(dict):
+    def __init__(__self__, *,
+                 operator: 'MailManagerRuleSetRuleDmarcOperator',
+                 values: Sequence['MailManagerRuleSetRuleDmarcPolicy']):
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleDmarcOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['MailManagerRuleSetRuleDmarcPolicy']:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleIpExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerRuleSetRuleIpToEvaluateProperties',
+                 operator: 'MailManagerRuleSetRuleIpOperator',
+                 values: Sequence[str]):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleIpToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleIpOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleIpToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerRuleSetRuleIpEmailAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleIpEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleNumberExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerRuleSetRuleNumberToEvaluateProperties',
+                 operator: 'MailManagerRuleSetRuleNumberOperator',
+                 value: float):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleNumberToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleNumberOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleNumberToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerRuleSetRuleNumberEmailAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleNumberEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleStringExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerRuleSetRuleStringToEvaluateProperties',
+                 operator: 'MailManagerRuleSetRuleStringOperator',
+                 values: Sequence[str]):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleStringToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleStringOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleStringToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerRuleSetRuleStringEmailAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleStringEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleVerdictExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: Any,
+                 operator: 'MailManagerRuleSetRuleVerdictOperator',
+                 values: Sequence['MailManagerRuleSetRuleVerdict']):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> Any:
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerRuleSetRuleVerdictOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['MailManagerRuleSetRuleVerdict']:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleVerdictToEvaluate0Properties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerRuleSetRuleVerdictAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleVerdictAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleVerdictToEvaluate1Properties(dict):
+    def __init__(__self__, *,
+                 analysis: 'outputs.MailManagerRuleSetAnalysis'):
+        pulumi.set(__self__, "analysis", analysis)
+
+    @property
+    @pulumi.getter
+    def analysis(self) -> 'outputs.MailManagerRuleSetAnalysis':
+        return pulumi.get(self, "analysis")
+
+
+@pulumi.output_type
+class MailManagerRuleSetS3Action(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+        elif key == "s3SseKmsKeyId":
+            suggest = "s3_sse_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetS3Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetS3Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetS3Action.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 s3_bucket: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None,
+                 s3_prefix: Optional[str] = None,
+                 s3_sse_kms_key_id: Optional[str] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+        if s3_sse_kms_key_id is not None:
+            pulumi.set(__self__, "s3_sse_kms_key_id", s3_sse_kms_key_id)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "s3_prefix")
+
+    @property
+    @pulumi.getter(name="s3SseKmsKeyId")
+    def s3_sse_kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "s3_sse_kms_key_id")
+
+
+@pulumi.output_type
+class MailManagerRuleSetSendAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetSendAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetSendAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetSendAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyIngressAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyIngressAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyIngressAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: str,
+                 result_field: str):
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @property
+    @pulumi.getter
+    def analyzer(self) -> str:
+        return pulumi.get(self, "analyzer")
+
+    @property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> str:
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressBooleanExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
+                 operator: 'MailManagerTrafficPolicyIngressBooleanOperator'):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerTrafficPolicyIngressBooleanOperator':
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressBooleanToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 analysis: 'outputs.MailManagerTrafficPolicyIngressAnalysis'):
+        pulumi.set(__self__, "analysis", analysis)
+
+    @property
+    @pulumi.getter
+    def analysis(self) -> 'outputs.MailManagerTrafficPolicyIngressAnalysis':
+        return pulumi.get(self, "analysis")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressIpToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerTrafficPolicyIngressIpv4Attribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerTrafficPolicyIngressIpv4Attribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressIpv4Expression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerTrafficPolicyIngressIpToEvaluateProperties',
+                 operator: 'MailManagerTrafficPolicyIngressIpOperator',
+                 values: Sequence[str]):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressIpToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerTrafficPolicyIngressIpOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressStringExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties',
+                 operator: 'MailManagerTrafficPolicyIngressStringOperator',
+                 values: Sequence[str]):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerTrafficPolicyIngressStringOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressStringToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerTrafficPolicyIngressStringEmailAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerTrafficPolicyIngressStringEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressTlsProtocolExpression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties',
+                 operator: 'MailManagerTrafficPolicyIngressTlsProtocolOperator',
+                 value: 'MailManagerTrafficPolicyIngressTlsProtocolAttribute'):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerTrafficPolicyIngressTlsProtocolOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'MailManagerTrafficPolicyIngressTlsProtocolAttribute':
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerTrafficPolicyIngressTlsAttribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerTrafficPolicyIngressTlsAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyCondition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringExpression":
+            suggest = "string_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyPolicyCondition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyPolicyCondition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_expression: 'outputs.MailManagerTrafficPolicyIngressStringExpression'):
+        pulumi.set(__self__, "string_expression", string_expression)
+
+    @property
+    @pulumi.getter(name="stringExpression")
+    def string_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressStringExpression':
+        return pulumi.get(self, "string_expression")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyCondition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipExpression":
+            suggest = "ip_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyPolicyCondition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyPolicyCondition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_expression: 'outputs.MailManagerTrafficPolicyIngressIpv4Expression'):
+        pulumi.set(__self__, "ip_expression", ip_expression)
+
+    @property
+    @pulumi.getter(name="ipExpression")
+    def ip_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressIpv4Expression':
+        return pulumi.get(self, "ip_expression")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyCondition2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsExpression":
+            suggest = "tls_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyPolicyCondition2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyPolicyCondition2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tls_expression: 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression'):
+        pulumi.set(__self__, "tls_expression", tls_expression)
+
+    @property
+    @pulumi.getter(name="tlsExpression")
+    def tls_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression':
+        return pulumi.get(self, "tls_expression")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyCondition3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanExpression":
+            suggest = "boolean_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyPolicyCondition3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyPolicyCondition3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_expression: 'outputs.MailManagerTrafficPolicyIngressBooleanExpression'):
+        pulumi.set(__self__, "boolean_expression", boolean_expression)
+
+    @property
+    @pulumi.getter(name="booleanExpression")
+    def boolean_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressBooleanExpression':
+        return pulumi.get(self, "boolean_expression")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyStatement(dict):
+    def __init__(__self__, *,
+                 action: 'MailManagerTrafficPolicyAcceptAction',
+                 conditions: Sequence[Any]):
+        """
+        :param 'MailManagerTrafficPolicyAcceptAction' action: The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+        :param Sequence[Union['MailManagerTrafficPolicyPolicyCondition0Properties', 'MailManagerTrafficPolicyPolicyCondition1Properties', 'MailManagerTrafficPolicyPolicyCondition2Properties', 'MailManagerTrafficPolicyPolicyCondition3Properties']] conditions: The list of conditions to apply to incoming messages for filtering email traffic.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'MailManagerTrafficPolicyAcceptAction':
+        """
+        The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence[Any]:
+        """
+        The list of conditions to apply to incoming messages for filtering email traffic.
+        """
+        return pulumi.get(self, "conditions")
 
 
 @pulumi.output_type

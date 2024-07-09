@@ -18,13 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolUiCustomizationAttachmentResult:
-    def __init__(__self__, css=None, id=None):
+    def __init__(__self__, css=None):
         if css and not isinstance(css, str):
             raise TypeError("Expected argument 'css' to be a str")
         pulumi.set(__self__, "css", css)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -34,14 +31,6 @@ class GetUserPoolUiCustomizationAttachmentResult:
         """
         return pulumi.get(self, "css")
 
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "id")
-
 
 class AwaitableGetUserPoolUiCustomizationAttachmentResult(GetUserPoolUiCustomizationAttachmentResult):
     # pylint: disable=using-constant-test
@@ -49,35 +38,38 @@ class AwaitableGetUserPoolUiCustomizationAttachmentResult(GetUserPoolUiCustomiza
         if False:
             yield self
         return GetUserPoolUiCustomizationAttachmentResult(
-            css=self.css,
-            id=self.id)
+            css=self.css)
 
 
-def get_user_pool_ui_customization_attachment(id: Optional[str] = None,
+def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
+                                              user_pool_id: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolUiCustomizationAttachmentResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
 
-    :param str id: The resource ID.
+    :param str client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+    :param str user_pool_id: The user pool ID for the user pool.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['clientId'] = client_id
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolUiCustomizationAttachment', __args__, opts=opts, typ=GetUserPoolUiCustomizationAttachmentResult).value
 
     return AwaitableGetUserPoolUiCustomizationAttachmentResult(
-        css=pulumi.get(__ret__, 'css'),
-        id=pulumi.get(__ret__, 'id'))
+        css=pulumi.get(__ret__, 'css'))
 
 
 @_utilities.lift_output_func(get_user_pool_ui_customization_attachment)
-def get_user_pool_ui_customization_attachment_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.Input[str]] = None,
+                                                     user_pool_id: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
 
-    :param str id: The resource ID.
+    :param str client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+    :param str user_pool_id: The user pool ID for the user pool.
     """
     ...

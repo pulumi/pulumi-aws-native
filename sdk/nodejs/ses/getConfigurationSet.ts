@@ -27,11 +27,11 @@ export interface GetConfigurationSetArgs {
 
 export interface GetConfigurationSetResult {
     /**
-     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
     readonly deliveryOptions?: outputs.ses.ConfigurationSetDeliveryOptions;
     /**
-     * An object that represents the reputation settings for the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
     readonly reputationOptions?: outputs.ses.ConfigurationSetReputationOptions;
     /**
@@ -43,7 +43,7 @@ export interface GetConfigurationSetResult {
      */
     readonly suppressionOptions?: outputs.ses.ConfigurationSetSuppressionOptions;
     /**
-     * The name of the custom open and click tracking domain associated with the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     readonly trackingOptions?: outputs.ses.ConfigurationSetTrackingOptions;
     /**

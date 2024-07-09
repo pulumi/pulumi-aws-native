@@ -2,8 +2,30 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel = {
+    OneToOne: "ONE_TO_ONE",
+    ManyToMany: "MANY_TO_MANY",
+} as const;
+
+export type IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel = (typeof IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel)[keyof typeof IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel];
+
+export const IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel = {
+    OneSourceToOneTarget: "ONE_SOURCE_TO_ONE_TARGET",
+    ManySourceToOneTarget: "MANY_SOURCE_TO_ONE_TARGET",
+} as const;
+
+export type IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel = (typeof IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel)[keyof typeof IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel];
+
+export const IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+export type IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType = (typeof IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType)[keyof typeof IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType];
+
 export const IdMappingWorkflowIdMappingTechniquesIdMappingType = {
     Provider: "PROVIDER",
+    RuleBased: "RULE_BASED",
 } as const;
 
 /**
@@ -27,12 +49,34 @@ export type IdMappingWorkflowInputSourceType = (typeof IdMappingWorkflowInputSou
 
 export const IdNamespaceIdMappingWorkflowPropertiesIdMappingType = {
     Provider: "PROVIDER",
+    RuleBased: "RULE_BASED",
 } as const;
 
 /**
  * The type of ID mapping.
  */
 export type IdNamespaceIdMappingWorkflowPropertiesIdMappingType = (typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType)[keyof typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType];
+
+export const IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel = {
+    OneToOne: "ONE_TO_ONE",
+    ManyToMany: "MANY_TO_MANY",
+} as const;
+
+export type IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel = (typeof IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel)[keyof typeof IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel];
+
+export const IdNamespaceRecordMatchingModel = {
+    OneSourceToOneTarget: "ONE_SOURCE_TO_ONE_TARGET",
+    ManySourceToOneTarget: "MANY_SOURCE_TO_ONE_TARGET",
+} as const;
+
+export type IdNamespaceRecordMatchingModel = (typeof IdNamespaceRecordMatchingModel)[keyof typeof IdNamespaceRecordMatchingModel];
+
+export const IdNamespaceRuleDefinitionType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+export type IdNamespaceRuleDefinitionType = (typeof IdNamespaceRuleDefinitionType)[keyof typeof IdNamespaceRuleDefinitionType];
 
 export const IdNamespaceType = {
     Source: "SOURCE",
@@ -48,16 +92,13 @@ export const IdNamespaceType = {
  */
 export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
-export const MatchingWorkflowResolutionTechniquesResolutionType = {
+export const MatchingWorkflowResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",
     Provider: "PROVIDER",
 } as const;
 
-/**
- * The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
- */
-export type MatchingWorkflowResolutionTechniquesResolutionType = (typeof MatchingWorkflowResolutionTechniquesResolutionType)[keyof typeof MatchingWorkflowResolutionTechniquesResolutionType];
+export type MatchingWorkflowResolutionType = (typeof MatchingWorkflowResolutionType)[keyof typeof MatchingWorkflowResolutionType];
 
 export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
     OneToOne: "ONE_TO_ONE",
@@ -68,6 +109,13 @@ export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
  * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
  */
 export type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = (typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel)[keyof typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel];
+
+export const MatchingWorkflowRuleBasedPropertiesMatchPurpose = {
+    IdentifierGeneration: "IDENTIFIER_GENERATION",
+    Indexing: "INDEXING",
+} as const;
+
+export type MatchingWorkflowRuleBasedPropertiesMatchPurpose = (typeof MatchingWorkflowRuleBasedPropertiesMatchPurpose)[keyof typeof MatchingWorkflowRuleBasedPropertiesMatchPurpose];
 
 export const PolicyStatementStatementEffect = {
     Allow: "Allow",

@@ -10021,6 +10021,14 @@ export namespace cloudformation {
      * The user-specified preferences for how AWS CloudFormation performs a stack set operation.
      */
     export interface StackSetOperationPreferences {
+        /**
+         * Specifies how the concurrency level behaves during the operation execution.
+         *
+         * - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
+         *
+         * If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
+         * - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+         */
         concurrencyMode?: enums.cloudformation.StackSetConcurrencyMode;
         /**
          * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
@@ -25955,20 +25963,29 @@ export namespace emrserverless {
 }
 
 export namespace entityresolution {
+    export interface IdMappingWorkflowIdMappingRuleBasedProperties {
+        attributeMatchingModel: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel;
+        recordMatchingModel: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel;
+        ruleDefinitionType?: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType;
+        rules?: outputs.entityresolution.IdMappingWorkflowRule[];
+    }
+
     export interface IdMappingWorkflowIdMappingTechniques {
         /**
          * The type of ID mapping.
          */
         idMappingType?: enums.entityresolution.IdMappingWorkflowIdMappingTechniquesIdMappingType;
+        normalizationVersion?: string;
         /**
          * An object which defines any additional configurations required by the provider service.
          */
         providerProperties?: outputs.entityresolution.IdMappingWorkflowProviderProperties;
+        ruleBasedProperties?: outputs.entityresolution.IdMappingWorkflowIdMappingRuleBasedProperties;
     }
 
     export interface IdMappingWorkflowInputSource {
         /**
-         * An Glue table ARN for the input source table or IdNamespace ARN
+         * An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
          */
         inputSourceArn: string;
         /**
@@ -26018,6 +26035,11 @@ export namespace entityresolution {
         providerServiceArn: string;
     }
 
+    export interface IdMappingWorkflowRule {
+        matchingKeys: string[];
+        ruleName: string;
+    }
+
     export interface IdNamespaceIdMappingWorkflowProperties {
         /**
          * The type of ID mapping.
@@ -26027,6 +26049,7 @@ export namespace entityresolution {
          * An object which defines any additional configurations required by the provider service.
          */
         providerProperties?: outputs.entityresolution.IdNamespaceNamespaceProviderProperties;
+        ruleBasedProperties?: outputs.entityresolution.IdNamespaceNamespaceRuleBasedProperties;
     }
 
     export interface IdNamespaceInputSource {
@@ -26049,6 +26072,18 @@ export namespace entityresolution {
          * The Amazon Resource Name (ARN) of the provider service.
          */
         providerServiceArn: string;
+    }
+
+    export interface IdNamespaceNamespaceRuleBasedProperties {
+        attributeMatchingModel?: enums.entityresolution.IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel;
+        recordMatchingModels?: enums.entityresolution.IdNamespaceRecordMatchingModel[];
+        ruleDefinitionTypes?: enums.entityresolution.IdNamespaceRuleDefinitionType[];
+        rules?: outputs.entityresolution.IdNamespaceRule[];
+    }
+
+    export interface IdNamespaceRule {
+        matchingKeys: string[];
+        ruleName: string;
     }
 
     export interface MatchingWorkflowInputSource {
@@ -26126,7 +26161,7 @@ export namespace entityresolution {
         /**
          * The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
          */
-        resolutionType?: enums.entityresolution.MatchingWorkflowResolutionTechniquesResolutionType;
+        resolutionType?: enums.entityresolution.MatchingWorkflowResolutionType;
         /**
          * An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
          */
@@ -26149,6 +26184,7 @@ export namespace entityresolution {
          * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
          */
         attributeMatchingModel: enums.entityresolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel;
+        matchPurpose?: enums.entityresolution.MatchingWorkflowRuleBasedPropertiesMatchPurpose;
         /**
          * A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
          */
@@ -26158,6 +26194,7 @@ export namespace entityresolution {
     export interface SchemaMappingSchemaInputAttribute {
         fieldName: string;
         groupName?: string;
+        hashed?: boolean;
         matchKey?: string;
         /**
          * The subtype of the Attribute. Would be required only when type is PROVIDER_ID
@@ -85375,6 +85412,9 @@ export namespace ses {
      * An object that contains Event bus ARN associated with the event bridge destination.
      */
     export interface ConfigurationSetEventDestinationEventBridgeDestination {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         */
         eventBusArn: string;
     }
 
@@ -85490,11 +85530,11 @@ export namespace ses {
      */
     export interface ConfigurationSetVdmOptions {
         /**
-         * Settings for your VDM configuration as applicable to the Dashboard.
+         * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
          */
         dashboardOptions?: outputs.ses.ConfigurationSetDashboardOptions;
         /**
-         * Settings for your VDM configuration as applicable to the Guardian.
+         * Specifies additional settings for your VDM configuration as applicable to the Guardian.
          */
         guardianOptions?: outputs.ses.ConfigurationSetGuardianOptions;
     }
@@ -85578,6 +85618,280 @@ export namespace ses {
          * The custom MAIL FROM domain that you want the verified identity to use
          */
         mailFromDomain?: string;
+    }
+
+    export interface MailManagerArchiveArchiveRetentionProperties {
+        retentionPeriod: enums.ses.MailManagerArchiveRetentionPeriod;
+    }
+
+    export interface MailManagerIngressPointIngressPointConfiguration0Properties {
+        smtpPassword: string;
+    }
+
+    export interface MailManagerIngressPointIngressPointConfiguration1Properties {
+        secretArn: string;
+    }
+
+    export interface MailManagerRelayNoAuthentication {
+    }
+
+    export interface MailManagerRelayRelayAuthentication0Properties {
+        secretArn: string;
+    }
+
+    export interface MailManagerRelayRelayAuthentication1Properties {
+        noAuthentication: outputs.ses.MailManagerRelayNoAuthentication;
+    }
+
+    export interface MailManagerRuleSetAddHeaderAction {
+        headerName: string;
+        headerValue: string;
+    }
+
+    export interface MailManagerRuleSetAnalysis {
+        analyzer: string;
+        resultField: string;
+    }
+
+    export interface MailManagerRuleSetArchiveAction {
+        actionFailurePolicy?: enums.ses.MailManagerRuleSetActionFailurePolicy;
+        targetArchive: string;
+    }
+
+    export interface MailManagerRuleSetDeliverToMailboxAction {
+        actionFailurePolicy?: enums.ses.MailManagerRuleSetActionFailurePolicy;
+        mailboxArn: string;
+        roleArn: string;
+    }
+
+    export interface MailManagerRuleSetDropAction {
+    }
+
+    export interface MailManagerRuleSetRelayAction {
+        actionFailurePolicy?: enums.ses.MailManagerRuleSetActionFailurePolicy;
+        mailFrom?: enums.ses.MailManagerRuleSetMailFrom;
+        relay: string;
+    }
+
+    export interface MailManagerRuleSetReplaceRecipientAction {
+        replaceWith?: string[];
+    }
+
+    export interface MailManagerRuleSetRule {
+        /**
+         * The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+         */
+        actions: (outputs.ses.MailManagerRuleSetRuleAction0Properties | outputs.ses.MailManagerRuleSetRuleAction1Properties | outputs.ses.MailManagerRuleSetRuleAction2Properties | outputs.ses.MailManagerRuleSetRuleAction3Properties | outputs.ses.MailManagerRuleSetRuleAction4Properties | outputs.ses.MailManagerRuleSetRuleAction5Properties | outputs.ses.MailManagerRuleSetRuleAction6Properties | outputs.ses.MailManagerRuleSetRuleAction7Properties)[];
+        /**
+         * The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+         */
+        conditions?: (outputs.ses.MailManagerRuleSetRuleCondition0Properties | outputs.ses.MailManagerRuleSetRuleCondition1Properties | outputs.ses.MailManagerRuleSetRuleCondition2Properties | outputs.ses.MailManagerRuleSetRuleCondition3Properties | outputs.ses.MailManagerRuleSetRuleCondition4Properties | outputs.ses.MailManagerRuleSetRuleCondition5Properties)[];
+        /**
+         * The user-friendly name of the rule.
+         */
+        name?: string;
+        /**
+         * The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+         */
+        unless?: (outputs.ses.MailManagerRuleSetRuleCondition0Properties | outputs.ses.MailManagerRuleSetRuleCondition1Properties | outputs.ses.MailManagerRuleSetRuleCondition2Properties | outputs.ses.MailManagerRuleSetRuleCondition3Properties | outputs.ses.MailManagerRuleSetRuleCondition4Properties | outputs.ses.MailManagerRuleSetRuleCondition5Properties)[];
+    }
+
+    export interface MailManagerRuleSetRuleAction0Properties {
+        drop: outputs.ses.MailManagerRuleSetDropAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction1Properties {
+        relay: outputs.ses.MailManagerRuleSetRelayAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction2Properties {
+        archive: outputs.ses.MailManagerRuleSetArchiveAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction3Properties {
+        writeToS3: outputs.ses.MailManagerRuleSetS3Action;
+    }
+
+    export interface MailManagerRuleSetRuleAction4Properties {
+        send: outputs.ses.MailManagerRuleSetSendAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction5Properties {
+        addHeader: outputs.ses.MailManagerRuleSetAddHeaderAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction6Properties {
+        replaceRecipient: outputs.ses.MailManagerRuleSetReplaceRecipientAction;
+    }
+
+    export interface MailManagerRuleSetRuleAction7Properties {
+        deliverToMailbox: outputs.ses.MailManagerRuleSetDeliverToMailboxAction;
+    }
+
+    export interface MailManagerRuleSetRuleBooleanExpression {
+        evaluate: outputs.ses.MailManagerRuleSetRuleBooleanToEvaluateProperties;
+        operator: enums.ses.MailManagerRuleSetRuleBooleanOperator;
+    }
+
+    export interface MailManagerRuleSetRuleBooleanToEvaluateProperties {
+        attribute: enums.ses.MailManagerRuleSetRuleBooleanEmailAttribute;
+    }
+
+    export interface MailManagerRuleSetRuleCondition0Properties {
+        booleanExpression: outputs.ses.MailManagerRuleSetRuleBooleanExpression;
+    }
+
+    export interface MailManagerRuleSetRuleCondition1Properties {
+        stringExpression: outputs.ses.MailManagerRuleSetRuleStringExpression;
+    }
+
+    export interface MailManagerRuleSetRuleCondition2Properties {
+        numberExpression: outputs.ses.MailManagerRuleSetRuleNumberExpression;
+    }
+
+    export interface MailManagerRuleSetRuleCondition3Properties {
+        ipExpression: outputs.ses.MailManagerRuleSetRuleIpExpression;
+    }
+
+    export interface MailManagerRuleSetRuleCondition4Properties {
+        verdictExpression: outputs.ses.MailManagerRuleSetRuleVerdictExpression;
+    }
+
+    export interface MailManagerRuleSetRuleCondition5Properties {
+        dmarcExpression: outputs.ses.MailManagerRuleSetRuleDmarcExpression;
+    }
+
+    export interface MailManagerRuleSetRuleDmarcExpression {
+        operator: enums.ses.MailManagerRuleSetRuleDmarcOperator;
+        values: enums.ses.MailManagerRuleSetRuleDmarcPolicy[];
+    }
+
+    export interface MailManagerRuleSetRuleIpExpression {
+        evaluate: outputs.ses.MailManagerRuleSetRuleIpToEvaluateProperties;
+        operator: enums.ses.MailManagerRuleSetRuleIpOperator;
+        values: string[];
+    }
+
+    export interface MailManagerRuleSetRuleIpToEvaluateProperties {
+        attribute: enums.ses.MailManagerRuleSetRuleIpEmailAttribute;
+    }
+
+    export interface MailManagerRuleSetRuleNumberExpression {
+        evaluate: outputs.ses.MailManagerRuleSetRuleNumberToEvaluateProperties;
+        operator: enums.ses.MailManagerRuleSetRuleNumberOperator;
+        value: number;
+    }
+
+    export interface MailManagerRuleSetRuleNumberToEvaluateProperties {
+        attribute: enums.ses.MailManagerRuleSetRuleNumberEmailAttribute;
+    }
+
+    export interface MailManagerRuleSetRuleStringExpression {
+        evaluate: outputs.ses.MailManagerRuleSetRuleStringToEvaluateProperties;
+        operator: enums.ses.MailManagerRuleSetRuleStringOperator;
+        values: string[];
+    }
+
+    export interface MailManagerRuleSetRuleStringToEvaluateProperties {
+        attribute: enums.ses.MailManagerRuleSetRuleStringEmailAttribute;
+    }
+
+    export interface MailManagerRuleSetRuleVerdictExpression {
+        evaluate: outputs.ses.MailManagerRuleSetRuleVerdictToEvaluate0Properties | outputs.ses.MailManagerRuleSetRuleVerdictToEvaluate1Properties;
+        operator: enums.ses.MailManagerRuleSetRuleVerdictOperator;
+        values: enums.ses.MailManagerRuleSetRuleVerdict[];
+    }
+
+    export interface MailManagerRuleSetRuleVerdictToEvaluate0Properties {
+        attribute: enums.ses.MailManagerRuleSetRuleVerdictAttribute;
+    }
+
+    export interface MailManagerRuleSetRuleVerdictToEvaluate1Properties {
+        analysis: outputs.ses.MailManagerRuleSetAnalysis;
+    }
+
+    export interface MailManagerRuleSetS3Action {
+        actionFailurePolicy?: enums.ses.MailManagerRuleSetActionFailurePolicy;
+        roleArn: string;
+        s3Bucket: string;
+        s3Prefix?: string;
+        s3SseKmsKeyId?: string;
+    }
+
+    export interface MailManagerRuleSetSendAction {
+        actionFailurePolicy?: enums.ses.MailManagerRuleSetActionFailurePolicy;
+        roleArn: string;
+    }
+
+    export interface MailManagerTrafficPolicyIngressAnalysis {
+        analyzer: string;
+        resultField: string;
+    }
+
+    export interface MailManagerTrafficPolicyIngressBooleanExpression {
+        evaluate: outputs.ses.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties;
+        operator: enums.ses.MailManagerTrafficPolicyIngressBooleanOperator;
+    }
+
+    export interface MailManagerTrafficPolicyIngressBooleanToEvaluateProperties {
+        analysis: outputs.ses.MailManagerTrafficPolicyIngressAnalysis;
+    }
+
+    export interface MailManagerTrafficPolicyIngressIpToEvaluateProperties {
+        attribute: enums.ses.MailManagerTrafficPolicyIngressIpv4Attribute;
+    }
+
+    export interface MailManagerTrafficPolicyIngressIpv4Expression {
+        evaluate: outputs.ses.MailManagerTrafficPolicyIngressIpToEvaluateProperties;
+        operator: enums.ses.MailManagerTrafficPolicyIngressIpOperator;
+        values: string[];
+    }
+
+    export interface MailManagerTrafficPolicyIngressStringExpression {
+        evaluate: outputs.ses.MailManagerTrafficPolicyIngressStringToEvaluateProperties;
+        operator: enums.ses.MailManagerTrafficPolicyIngressStringOperator;
+        values: string[];
+    }
+
+    export interface MailManagerTrafficPolicyIngressStringToEvaluateProperties {
+        attribute: enums.ses.MailManagerTrafficPolicyIngressStringEmailAttribute;
+    }
+
+    export interface MailManagerTrafficPolicyIngressTlsProtocolExpression {
+        evaluate: outputs.ses.MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties;
+        operator: enums.ses.MailManagerTrafficPolicyIngressTlsProtocolOperator;
+        value: enums.ses.MailManagerTrafficPolicyIngressTlsProtocolAttribute;
+    }
+
+    export interface MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties {
+        attribute: enums.ses.MailManagerTrafficPolicyIngressTlsAttribute;
+    }
+
+    export interface MailManagerTrafficPolicyPolicyCondition0Properties {
+        stringExpression: outputs.ses.MailManagerTrafficPolicyIngressStringExpression;
+    }
+
+    export interface MailManagerTrafficPolicyPolicyCondition1Properties {
+        ipExpression: outputs.ses.MailManagerTrafficPolicyIngressIpv4Expression;
+    }
+
+    export interface MailManagerTrafficPolicyPolicyCondition2Properties {
+        tlsExpression: outputs.ses.MailManagerTrafficPolicyIngressTlsProtocolExpression;
+    }
+
+    export interface MailManagerTrafficPolicyPolicyCondition3Properties {
+        booleanExpression: outputs.ses.MailManagerTrafficPolicyIngressBooleanExpression;
+    }
+
+    export interface MailManagerTrafficPolicyPolicyStatement {
+        /**
+         * The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+         */
+        action: enums.ses.MailManagerTrafficPolicyAcceptAction;
+        /**
+         * The list of conditions to apply to incoming messages for filtering email traffic.
+         */
+        conditions: (outputs.ses.MailManagerTrafficPolicyPolicyCondition0Properties | outputs.ses.MailManagerTrafficPolicyPolicyCondition1Properties | outputs.ses.MailManagerTrafficPolicyPolicyCondition2Properties | outputs.ses.MailManagerTrafficPolicyPolicyCondition3Properties)[];
     }
 
     /**

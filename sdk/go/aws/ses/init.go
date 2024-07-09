@@ -31,6 +31,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DedicatedIpPool{}
 	case "aws-native:ses:EmailIdentity":
 		r = &EmailIdentity{}
+	case "aws-native:ses:MailManagerAddonInstance":
+		r = &MailManagerAddonInstance{}
+	case "aws-native:ses:MailManagerAddonSubscription":
+		r = &MailManagerAddonSubscription{}
+	case "aws-native:ses:MailManagerArchive":
+		r = &MailManagerArchive{}
+	case "aws-native:ses:MailManagerIngressPoint":
+		r = &MailManagerIngressPoint{}
+	case "aws-native:ses:MailManagerRelay":
+		r = &MailManagerRelay{}
+	case "aws-native:ses:MailManagerRuleSet":
+		r = &MailManagerRuleSet{}
+	case "aws-native:ses:MailManagerTrafficPolicy":
+		r = &MailManagerTrafficPolicy{}
 	case "aws-native:ses:Template":
 		r = &Template{}
 	case "aws-native:ses:VdmAttributes":

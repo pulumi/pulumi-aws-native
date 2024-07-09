@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Ses.Outputs
     public sealed class ConfigurationSetVdmOptions
     {
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Dashboard.
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         public readonly Outputs.ConfigurationSetDashboardOptions? DashboardOptions;
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Guardian.
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         public readonly Outputs.ConfigurationSetGuardianOptions? GuardianOptions;
 

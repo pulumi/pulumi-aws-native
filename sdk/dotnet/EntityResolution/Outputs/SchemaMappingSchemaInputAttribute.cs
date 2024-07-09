@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     {
         public readonly string FieldName;
         public readonly string? GroupName;
+        public readonly bool? Hashed;
         public readonly string? MatchKey;
         /// <summary>
         /// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
             string? groupName,
 
+            bool? hashed,
+
             string? matchKey,
 
             string? subType,
@@ -36,6 +39,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         {
             FieldName = fieldName;
             GroupName = groupName;
+            Hashed = hashed;
             MatchKey = matchKey;
             SubType = subType;
             Type = type;

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// <summary>
         /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
         /// </summary>
-        public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType? ResolutionType;
+        public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? ResolutionType;
         /// <summary>
         /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         private MatchingWorkflowResolutionTechniques(
             Outputs.MatchingWorkflowProviderProperties? providerProperties,
 
-            Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType? resolutionType,
+            Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? resolutionType,
 
             Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties)
         {

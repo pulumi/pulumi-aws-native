@@ -21,15 +21,19 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// An object which defines any additional configurations required by the provider service.
         /// </summary>
         public readonly Outputs.IdNamespaceNamespaceProviderProperties? ProviderProperties;
+        public readonly Outputs.IdNamespaceNamespaceRuleBasedProperties? RuleBasedProperties;
 
         [OutputConstructor]
         private IdNamespaceIdMappingWorkflowProperties(
             Pulumi.AwsNative.EntityResolution.IdNamespaceIdMappingWorkflowPropertiesIdMappingType idMappingType,
 
-            Outputs.IdNamespaceNamespaceProviderProperties? providerProperties)
+            Outputs.IdNamespaceNamespaceProviderProperties? providerProperties,
+
+            Outputs.IdNamespaceNamespaceRuleBasedProperties? ruleBasedProperties)
         {
             IdMappingType = idMappingType;
             ProviderProperties = providerProperties;
+            RuleBasedProperties = ruleBasedProperties;
         }
     }
 }

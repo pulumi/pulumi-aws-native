@@ -13,11 +13,197 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IdMappingWorkflowIdMappingRuleBasedProperties struct {
+	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
+	RecordMatchingModel    IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel    `pulumi:"recordMatchingModel"`
+	RuleDefinitionType     *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType    `pulumi:"ruleDefinitionType"`
+	Rules                  []IdMappingWorkflowRule                                             `pulumi:"rules"`
+}
+
+// IdMappingWorkflowIdMappingRuleBasedPropertiesInput is an input type that accepts IdMappingWorkflowIdMappingRuleBasedPropertiesArgs and IdMappingWorkflowIdMappingRuleBasedPropertiesOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowIdMappingRuleBasedPropertiesInput` via:
+//
+//	IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{...}
+type IdMappingWorkflowIdMappingRuleBasedPropertiesInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesOutput
+	ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutputWithContext(context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesOutput
+}
+
+type IdMappingWorkflowIdMappingRuleBasedPropertiesArgs struct {
+	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
+	RecordMatchingModel    IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelInput    `pulumi:"recordMatchingModel"`
+	RuleDefinitionType     IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrInput  `pulumi:"ruleDefinitionType"`
+	Rules                  IdMappingWorkflowRuleArrayInput                                          `pulumi:"rules"`
+}
+
+func (IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedProperties)(nil)).Elem()
+}
+
+func (i IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesOutput {
+	return i.ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput)
+}
+
+func (i IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return i.ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput).ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(ctx)
+}
+
+// IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput is an input type that accepts IdMappingWorkflowIdMappingRuleBasedPropertiesArgs, IdMappingWorkflowIdMappingRuleBasedPropertiesPtr and IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput` via:
+//
+//	        IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput
+	ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput
+}
+
+type idMappingWorkflowIdMappingRuleBasedPropertiesPtrType IdMappingWorkflowIdMappingRuleBasedPropertiesArgs
+
+func IdMappingWorkflowIdMappingRuleBasedPropertiesPtr(v *IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput {
+	return (*idMappingWorkflowIdMappingRuleBasedPropertiesPtrType)(v)
+}
+
+func (*idMappingWorkflowIdMappingRuleBasedPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowIdMappingRuleBasedProperties)(nil)).Elem()
+}
+
+func (i *idMappingWorkflowIdMappingRuleBasedPropertiesPtrType) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return i.ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *idMappingWorkflowIdMappingRuleBasedPropertiesPtrType) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput)
+}
+
+type IdMappingWorkflowIdMappingRuleBasedPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedProperties)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o.ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedProperties {
+		return &v
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
+		return v.AttributeMatchingModel
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) RecordMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel {
+		return v.RecordMatchingModel
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) RuleDefinitionType() IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType {
+		return v.RuleDefinitionType
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) Rules() IdMappingWorkflowRuleArrayOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) []IdMappingWorkflowRule { return v.Rules }).(IdMappingWorkflowRuleArrayOutput)
+}
+
+type IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowIdMappingRuleBasedProperties)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) ToIdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Elem() IdMappingWorkflowIdMappingRuleBasedPropertiesOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingWorkflowIdMappingRuleBasedProperties
+		return ret
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelPtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeMatchingModel
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelPtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RecordMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelPtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordMatchingModel
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelPtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RuleDefinitionType() IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType {
+		if v == nil {
+			return nil
+		}
+		return v.RuleDefinitionType
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Rules() IdMappingWorkflowRuleArrayOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) []IdMappingWorkflowRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(IdMappingWorkflowRuleArrayOutput)
+}
+
 type IdMappingWorkflowIdMappingTechniques struct {
 	// The type of ID mapping.
-	IdMappingType *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
+	IdMappingType        *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
+	NormalizationVersion *string                                            `pulumi:"normalizationVersion"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties *IdMappingWorkflowProviderProperties `pulumi:"providerProperties"`
+	ProviderProperties  *IdMappingWorkflowProviderProperties           `pulumi:"providerProperties"`
+	RuleBasedProperties *IdMappingWorkflowIdMappingRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
 
 // IdMappingWorkflowIdMappingTechniquesInput is an input type that accepts IdMappingWorkflowIdMappingTechniquesArgs and IdMappingWorkflowIdMappingTechniquesOutput values.
@@ -33,9 +219,11 @@ type IdMappingWorkflowIdMappingTechniquesInput interface {
 
 type IdMappingWorkflowIdMappingTechniquesArgs struct {
 	// The type of ID mapping.
-	IdMappingType IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
+	IdMappingType        IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
+	NormalizationVersion pulumi.StringPtrInput                                     `pulumi:"normalizationVersion"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
+	ProviderProperties  IdMappingWorkflowProviderPropertiesPtrInput           `pulumi:"providerProperties"`
+	RuleBasedProperties IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
 
 func (IdMappingWorkflowIdMappingTechniquesArgs) ElementType() reflect.Type {
@@ -71,11 +259,21 @@ func (o IdMappingWorkflowIdMappingTechniquesOutput) IdMappingType() IdMappingWor
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+func (o IdMappingWorkflowIdMappingTechniquesOutput) NormalizationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *string { return v.NormalizationVersion }).(pulumi.StringPtrOutput)
+}
+
 // An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
 		return v.ProviderProperties
 	}).(IdMappingWorkflowProviderPropertiesPtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingTechniquesOutput) RuleBasedProperties() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingRuleBasedProperties {
+		return v.RuleBasedProperties
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput)
 }
 
 type IdMappingWorkflowIdMappingTechniquesPtrOutput struct{ *pulumi.OutputState }
@@ -112,6 +310,15 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) IdMappingType() IdMapping
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) NormalizationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NormalizationVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
@@ -122,8 +329,17 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMa
 	}).(IdMappingWorkflowProviderPropertiesPtrOutput)
 }
 
+func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) RuleBasedProperties() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingRuleBasedProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RuleBasedProperties
+	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput)
+}
+
 type IdMappingWorkflowInputSource struct {
-	// An Glue table ARN for the input source table or IdNamespace ARN
+	// An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
 	InputSourceArn string `pulumi:"inputSourceArn"`
 	// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
 	SchemaArn *string `pulumi:"schemaArn"`
@@ -147,7 +363,7 @@ type IdMappingWorkflowInputSourceInput interface {
 }
 
 type IdMappingWorkflowInputSourceArgs struct {
-	// An Glue table ARN for the input source table or IdNamespace ARN
+	// An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
 	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
 	// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
 	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
@@ -210,7 +426,7 @@ func (o IdMappingWorkflowInputSourceOutput) ToIdMappingWorkflowInputSourceOutput
 	return o
 }
 
-// An Glue table ARN for the input source table or IdNamespace ARN
+// An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
 func (o IdMappingWorkflowInputSourceOutput) InputSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
@@ -669,6 +885,106 @@ func (o IdMappingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type IdMappingWorkflowRule struct {
+	MatchingKeys []string `pulumi:"matchingKeys"`
+	RuleName     string   `pulumi:"ruleName"`
+}
+
+// IdMappingWorkflowRuleInput is an input type that accepts IdMappingWorkflowRuleArgs and IdMappingWorkflowRuleOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowRuleInput` via:
+//
+//	IdMappingWorkflowRuleArgs{...}
+type IdMappingWorkflowRuleInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowRuleOutput() IdMappingWorkflowRuleOutput
+	ToIdMappingWorkflowRuleOutputWithContext(context.Context) IdMappingWorkflowRuleOutput
+}
+
+type IdMappingWorkflowRuleArgs struct {
+	MatchingKeys pulumi.StringArrayInput `pulumi:"matchingKeys"`
+	RuleName     pulumi.StringInput      `pulumi:"ruleName"`
+}
+
+func (IdMappingWorkflowRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowRule)(nil)).Elem()
+}
+
+func (i IdMappingWorkflowRuleArgs) ToIdMappingWorkflowRuleOutput() IdMappingWorkflowRuleOutput {
+	return i.ToIdMappingWorkflowRuleOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowRuleArgs) ToIdMappingWorkflowRuleOutputWithContext(ctx context.Context) IdMappingWorkflowRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowRuleOutput)
+}
+
+// IdMappingWorkflowRuleArrayInput is an input type that accepts IdMappingWorkflowRuleArray and IdMappingWorkflowRuleArrayOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowRuleArrayInput` via:
+//
+//	IdMappingWorkflowRuleArray{ IdMappingWorkflowRuleArgs{...} }
+type IdMappingWorkflowRuleArrayInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowRuleArrayOutput() IdMappingWorkflowRuleArrayOutput
+	ToIdMappingWorkflowRuleArrayOutputWithContext(context.Context) IdMappingWorkflowRuleArrayOutput
+}
+
+type IdMappingWorkflowRuleArray []IdMappingWorkflowRuleInput
+
+func (IdMappingWorkflowRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdMappingWorkflowRule)(nil)).Elem()
+}
+
+func (i IdMappingWorkflowRuleArray) ToIdMappingWorkflowRuleArrayOutput() IdMappingWorkflowRuleArrayOutput {
+	return i.ToIdMappingWorkflowRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowRuleArray) ToIdMappingWorkflowRuleArrayOutputWithContext(ctx context.Context) IdMappingWorkflowRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowRuleArrayOutput)
+}
+
+type IdMappingWorkflowRuleOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowRule)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowRuleOutput) ToIdMappingWorkflowRuleOutput() IdMappingWorkflowRuleOutput {
+	return o
+}
+
+func (o IdMappingWorkflowRuleOutput) ToIdMappingWorkflowRuleOutputWithContext(ctx context.Context) IdMappingWorkflowRuleOutput {
+	return o
+}
+
+func (o IdMappingWorkflowRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdMappingWorkflowRule) []string { return v.MatchingKeys }).(pulumi.StringArrayOutput)
+}
+
+func (o IdMappingWorkflowRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v IdMappingWorkflowRule) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+type IdMappingWorkflowRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdMappingWorkflowRule)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowRuleArrayOutput) ToIdMappingWorkflowRuleArrayOutput() IdMappingWorkflowRuleArrayOutput {
+	return o
+}
+
+func (o IdMappingWorkflowRuleArrayOutput) ToIdMappingWorkflowRuleArrayOutputWithContext(ctx context.Context) IdMappingWorkflowRuleArrayOutput {
+	return o
+}
+
+func (o IdMappingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) IdMappingWorkflowRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdMappingWorkflowRule {
+		return vs[0].([]IdMappingWorkflowRule)[vs[1].(int)]
+	}).(IdMappingWorkflowRuleOutput)
+}
+
 // A key-value pair to associate with a resource
 type IdMappingWorkflowTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -681,7 +997,8 @@ type IdNamespaceIdMappingWorkflowProperties struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties *IdNamespaceNamespaceProviderProperties `pulumi:"providerProperties"`
+	ProviderProperties  *IdNamespaceNamespaceProviderProperties  `pulumi:"providerProperties"`
+	RuleBasedProperties *IdNamespaceNamespaceRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
 
 // IdNamespaceIdMappingWorkflowPropertiesInput is an input type that accepts IdNamespaceIdMappingWorkflowPropertiesArgs and IdNamespaceIdMappingWorkflowPropertiesOutput values.
@@ -699,7 +1016,8 @@ type IdNamespaceIdMappingWorkflowPropertiesArgs struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput `pulumi:"providerProperties"`
+	ProviderProperties  IdNamespaceNamespaceProviderPropertiesPtrInput  `pulumi:"providerProperties"`
+	RuleBasedProperties IdNamespaceNamespaceRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
 
 func (IdNamespaceIdMappingWorkflowPropertiesArgs) ElementType() reflect.Type {
@@ -765,6 +1083,12 @@ func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ProviderProperties() IdNam
 	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceProviderProperties {
 		return v.ProviderProperties
 	}).(IdNamespaceNamespaceProviderPropertiesPtrOutput)
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesOutput) RuleBasedProperties() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceRuleBasedProperties {
+		return v.RuleBasedProperties
+	}).(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput)
 }
 
 type IdNamespaceIdMappingWorkflowPropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -1047,6 +1371,290 @@ func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderServiceArn() pu
 		}
 		return &v.ProviderServiceArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type IdNamespaceNamespaceRuleBasedProperties struct {
+	AttributeMatchingModel *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
+	RecordMatchingModels   []IdNamespaceRecordMatchingModel                               `pulumi:"recordMatchingModels"`
+	RuleDefinitionTypes    []IdNamespaceRuleDefinitionType                                `pulumi:"ruleDefinitionTypes"`
+	Rules                  []IdNamespaceRule                                              `pulumi:"rules"`
+}
+
+// IdNamespaceNamespaceRuleBasedPropertiesInput is an input type that accepts IdNamespaceNamespaceRuleBasedPropertiesArgs and IdNamespaceNamespaceRuleBasedPropertiesOutput values.
+// You can construct a concrete instance of `IdNamespaceNamespaceRuleBasedPropertiesInput` via:
+//
+//	IdNamespaceNamespaceRuleBasedPropertiesArgs{...}
+type IdNamespaceNamespaceRuleBasedPropertiesInput interface {
+	pulumi.Input
+
+	ToIdNamespaceNamespaceRuleBasedPropertiesOutput() IdNamespaceNamespaceRuleBasedPropertiesOutput
+	ToIdNamespaceNamespaceRuleBasedPropertiesOutputWithContext(context.Context) IdNamespaceNamespaceRuleBasedPropertiesOutput
+}
+
+type IdNamespaceNamespaceRuleBasedPropertiesArgs struct {
+	AttributeMatchingModel IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrInput `pulumi:"attributeMatchingModel"`
+	RecordMatchingModels   IdNamespaceRecordMatchingModelArrayInput                              `pulumi:"recordMatchingModels"`
+	RuleDefinitionTypes    IdNamespaceRuleDefinitionTypeArrayInput                               `pulumi:"ruleDefinitionTypes"`
+	Rules                  IdNamespaceRuleArrayInput                                             `pulumi:"rules"`
+}
+
+func (IdNamespaceNamespaceRuleBasedPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceNamespaceRuleBasedProperties)(nil)).Elem()
+}
+
+func (i IdNamespaceNamespaceRuleBasedPropertiesArgs) ToIdNamespaceNamespaceRuleBasedPropertiesOutput() IdNamespaceNamespaceRuleBasedPropertiesOutput {
+	return i.ToIdNamespaceNamespaceRuleBasedPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceNamespaceRuleBasedPropertiesArgs) ToIdNamespaceNamespaceRuleBasedPropertiesOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceRuleBasedPropertiesOutput)
+}
+
+func (i IdNamespaceNamespaceRuleBasedPropertiesArgs) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutput() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return i.ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceNamespaceRuleBasedPropertiesArgs) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceRuleBasedPropertiesOutput).ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(ctx)
+}
+
+// IdNamespaceNamespaceRuleBasedPropertiesPtrInput is an input type that accepts IdNamespaceNamespaceRuleBasedPropertiesArgs, IdNamespaceNamespaceRuleBasedPropertiesPtr and IdNamespaceNamespaceRuleBasedPropertiesPtrOutput values.
+// You can construct a concrete instance of `IdNamespaceNamespaceRuleBasedPropertiesPtrInput` via:
+//
+//	        IdNamespaceNamespaceRuleBasedPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdNamespaceNamespaceRuleBasedPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutput() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput
+	ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(context.Context) IdNamespaceNamespaceRuleBasedPropertiesPtrOutput
+}
+
+type idNamespaceNamespaceRuleBasedPropertiesPtrType IdNamespaceNamespaceRuleBasedPropertiesArgs
+
+func IdNamespaceNamespaceRuleBasedPropertiesPtr(v *IdNamespaceNamespaceRuleBasedPropertiesArgs) IdNamespaceNamespaceRuleBasedPropertiesPtrInput {
+	return (*idNamespaceNamespaceRuleBasedPropertiesPtrType)(v)
+}
+
+func (*idNamespaceNamespaceRuleBasedPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceNamespaceRuleBasedProperties)(nil)).Elem()
+}
+
+func (i *idNamespaceNamespaceRuleBasedPropertiesPtrType) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutput() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return i.ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *idNamespaceNamespaceRuleBasedPropertiesPtrType) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput)
+}
+
+type IdNamespaceNamespaceRuleBasedPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceNamespaceRuleBasedPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceNamespaceRuleBasedProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRuleBasedPropertiesOutput() IdNamespaceNamespaceRuleBasedPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRuleBasedPropertiesOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutput() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return o.ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedProperties {
+		return &v
+	}).(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
+		return v.AttributeMatchingModel
+	}).(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) RecordMatchingModels() IdNamespaceRecordMatchingModelArrayOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRecordMatchingModel {
+		return v.RecordMatchingModels
+	}).(IdNamespaceRecordMatchingModelArrayOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) RuleDefinitionTypes() IdNamespaceRuleDefinitionTypeArrayOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRuleDefinitionType {
+		return v.RuleDefinitionTypes
+	}).(IdNamespaceRuleDefinitionTypeArrayOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) Rules() IdNamespaceRuleArrayOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRule { return v.Rules }).(IdNamespaceRuleArrayOutput)
+}
+
+type IdNamespaceNamespaceRuleBasedPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceNamespaceRuleBasedProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutput() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) ToIdNamespaceNamespaceRuleBasedPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Elem() IdNamespaceNamespaceRuleBasedPropertiesOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) IdNamespaceNamespaceRuleBasedProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceNamespaceRuleBasedProperties
+		return ret
+	}).(IdNamespaceNamespaceRuleBasedPropertiesOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeMatchingModel
+	}).(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RecordMatchingModels() IdNamespaceRecordMatchingModelArrayOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRecordMatchingModel {
+		if v == nil {
+			return nil
+		}
+		return v.RecordMatchingModels
+	}).(IdNamespaceRecordMatchingModelArrayOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RuleDefinitionTypes() IdNamespaceRuleDefinitionTypeArrayOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRuleDefinitionType {
+		if v == nil {
+			return nil
+		}
+		return v.RuleDefinitionTypes
+	}).(IdNamespaceRuleDefinitionTypeArrayOutput)
+}
+
+func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Rules() IdNamespaceRuleArrayOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(IdNamespaceRuleArrayOutput)
+}
+
+type IdNamespaceRule struct {
+	MatchingKeys []string `pulumi:"matchingKeys"`
+	RuleName     string   `pulumi:"ruleName"`
+}
+
+// IdNamespaceRuleInput is an input type that accepts IdNamespaceRuleArgs and IdNamespaceRuleOutput values.
+// You can construct a concrete instance of `IdNamespaceRuleInput` via:
+//
+//	IdNamespaceRuleArgs{...}
+type IdNamespaceRuleInput interface {
+	pulumi.Input
+
+	ToIdNamespaceRuleOutput() IdNamespaceRuleOutput
+	ToIdNamespaceRuleOutputWithContext(context.Context) IdNamespaceRuleOutput
+}
+
+type IdNamespaceRuleArgs struct {
+	MatchingKeys pulumi.StringArrayInput `pulumi:"matchingKeys"`
+	RuleName     pulumi.StringInput      `pulumi:"ruleName"`
+}
+
+func (IdNamespaceRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceRule)(nil)).Elem()
+}
+
+func (i IdNamespaceRuleArgs) ToIdNamespaceRuleOutput() IdNamespaceRuleOutput {
+	return i.ToIdNamespaceRuleOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceRuleArgs) ToIdNamespaceRuleOutputWithContext(ctx context.Context) IdNamespaceRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceRuleOutput)
+}
+
+// IdNamespaceRuleArrayInput is an input type that accepts IdNamespaceRuleArray and IdNamespaceRuleArrayOutput values.
+// You can construct a concrete instance of `IdNamespaceRuleArrayInput` via:
+//
+//	IdNamespaceRuleArray{ IdNamespaceRuleArgs{...} }
+type IdNamespaceRuleArrayInput interface {
+	pulumi.Input
+
+	ToIdNamespaceRuleArrayOutput() IdNamespaceRuleArrayOutput
+	ToIdNamespaceRuleArrayOutputWithContext(context.Context) IdNamespaceRuleArrayOutput
+}
+
+type IdNamespaceRuleArray []IdNamespaceRuleInput
+
+func (IdNamespaceRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceRule)(nil)).Elem()
+}
+
+func (i IdNamespaceRuleArray) ToIdNamespaceRuleArrayOutput() IdNamespaceRuleArrayOutput {
+	return i.ToIdNamespaceRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceRuleArray) ToIdNamespaceRuleArrayOutputWithContext(ctx context.Context) IdNamespaceRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceRuleArrayOutput)
+}
+
+type IdNamespaceRuleOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceRule)(nil)).Elem()
+}
+
+func (o IdNamespaceRuleOutput) ToIdNamespaceRuleOutput() IdNamespaceRuleOutput {
+	return o
+}
+
+func (o IdNamespaceRuleOutput) ToIdNamespaceRuleOutputWithContext(ctx context.Context) IdNamespaceRuleOutput {
+	return o
+}
+
+func (o IdNamespaceRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdNamespaceRule) []string { return v.MatchingKeys }).(pulumi.StringArrayOutput)
+}
+
+func (o IdNamespaceRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v IdNamespaceRule) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+type IdNamespaceRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceRule)(nil)).Elem()
+}
+
+func (o IdNamespaceRuleArrayOutput) ToIdNamespaceRuleArrayOutput() IdNamespaceRuleArrayOutput {
+	return o
+}
+
+func (o IdNamespaceRuleArrayOutput) ToIdNamespaceRuleArrayOutputWithContext(ctx context.Context) IdNamespaceRuleArrayOutput {
+	return o
+}
+
+func (o IdNamespaceRuleArrayOutput) Index(i pulumi.IntInput) IdNamespaceRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdNamespaceRule {
+		return vs[0].([]IdNamespaceRule)[vs[1].(int)]
+	}).(IdNamespaceRuleOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1720,7 +2328,7 @@ type MatchingWorkflowResolutionTechniques struct {
 	// The properties of the provider service.
 	ProviderProperties *MatchingWorkflowProviderProperties `pulumi:"providerProperties"`
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-	ResolutionType *MatchingWorkflowResolutionTechniquesResolutionType `pulumi:"resolutionType"`
+	ResolutionType *MatchingWorkflowResolutionType `pulumi:"resolutionType"`
 	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
 	RuleBasedProperties *MatchingWorkflowRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
@@ -1740,7 +2348,7 @@ type MatchingWorkflowResolutionTechniquesArgs struct {
 	// The properties of the provider service.
 	ProviderProperties MatchingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-	ResolutionType MatchingWorkflowResolutionTechniquesResolutionTypePtrInput `pulumi:"resolutionType"`
+	ResolutionType MatchingWorkflowResolutionTypePtrInput `pulumi:"resolutionType"`
 	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
 	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
@@ -1779,10 +2387,8 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ProviderProperties() Matchin
 }
 
 // The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
-	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionTechniquesResolutionType {
-		return v.ResolutionType
-	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
+func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTypePtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionType { return v.ResolutionType }).(MatchingWorkflowResolutionTypePtrOutput)
 }
 
 // An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
@@ -1827,13 +2433,13 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() Matc
 }
 
 // The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
-	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionTechniquesResolutionType {
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() MatchingWorkflowResolutionTypePtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionType {
 		if v == nil {
 			return nil
 		}
 		return v.ResolutionType
-	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
+	}).(MatchingWorkflowResolutionTypePtrOutput)
 }
 
 // An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
@@ -1955,6 +2561,7 @@ func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkfl
 type MatchingWorkflowRuleBasedProperties struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
+	MatchPurpose           *MatchingWorkflowRuleBasedPropertiesMatchPurpose          `pulumi:"matchPurpose"`
 	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules []MatchingWorkflowRule `pulumi:"rules"`
 }
@@ -1973,6 +2580,7 @@ type MatchingWorkflowRuleBasedPropertiesInput interface {
 type MatchingWorkflowRuleBasedPropertiesArgs struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
+	MatchPurpose           MatchingWorkflowRuleBasedPropertiesMatchPurposePtrInput        `pulumi:"matchPurpose"`
 	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules MatchingWorkflowRuleArrayInput `pulumi:"rules"`
 }
@@ -2061,6 +2669,12 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() Matc
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput)
 }
 
+func (o MatchingWorkflowRuleBasedPropertiesOutput) MatchPurpose() MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesMatchPurpose {
+		return v.MatchPurpose
+	}).(MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput)
+}
+
 // A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule { return v.Rules }).(MatchingWorkflowRuleArrayOutput)
@@ -2100,6 +2714,15 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() M
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) MatchPurpose() MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesMatchPurpose {
+		if v == nil {
+			return nil
+		}
+		return v.MatchPurpose
+	}).(MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput)
+}
+
 // A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule {
@@ -2121,6 +2744,7 @@ type MatchingWorkflowTag struct {
 type SchemaMappingSchemaInputAttribute struct {
 	FieldName string  `pulumi:"fieldName"`
 	GroupName *string `pulumi:"groupName"`
+	Hashed    *bool   `pulumi:"hashed"`
 	MatchKey  *string `pulumi:"matchKey"`
 	// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
 	SubType *string                          `pulumi:"subType"`
@@ -2141,6 +2765,7 @@ type SchemaMappingSchemaInputAttributeInput interface {
 type SchemaMappingSchemaInputAttributeArgs struct {
 	FieldName pulumi.StringInput    `pulumi:"fieldName"`
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	Hashed    pulumi.BoolPtrInput   `pulumi:"hashed"`
 	MatchKey  pulumi.StringPtrInput `pulumi:"matchKey"`
 	// The subtype of the Attribute. Would be required only when type is PROVIDER_ID
 	SubType pulumi.StringPtrInput                 `pulumi:"subType"`
@@ -2206,6 +2831,10 @@ func (o SchemaMappingSchemaInputAttributeOutput) GroupName() pulumi.StringPtrOut
 	return o.ApplyT(func(v SchemaMappingSchemaInputAttribute) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+func (o SchemaMappingSchemaInputAttributeOutput) Hashed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaMappingSchemaInputAttribute) *bool { return v.Hashed }).(pulumi.BoolPtrOutput)
+}
+
 func (o SchemaMappingSchemaInputAttributeOutput) MatchKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMappingSchemaInputAttribute) *string { return v.MatchKey }).(pulumi.StringPtrOutput)
 }
@@ -2248,6 +2877,8 @@ type SchemaMappingTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedPropertiesInput)(nil)).Elem(), IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput)(nil)).Elem(), IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceInput)(nil)).Elem(), IdMappingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceArrayInput)(nil)).Elem(), IdMappingWorkflowInputSourceArray{})
@@ -2257,12 +2888,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowOutputSourceArrayInput)(nil)).Elem(), IdMappingWorkflowOutputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesPtrInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowRuleInput)(nil)).Elem(), IdMappingWorkflowRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowRuleArrayInput)(nil)).Elem(), IdMappingWorkflowRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesArrayInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceInputSourceInput)(nil)).Elem(), IdNamespaceInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceInputSourceArrayInput)(nil)).Elem(), IdNamespaceInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceProviderPropertiesInput)(nil)).Elem(), IdNamespaceNamespaceProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceProviderPropertiesPtrInput)(nil)).Elem(), IdNamespaceNamespaceProviderPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceRuleBasedPropertiesInput)(nil)).Elem(), IdNamespaceNamespaceRuleBasedPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceRuleBasedPropertiesPtrInput)(nil)).Elem(), IdNamespaceNamespaceRuleBasedPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleInput)(nil)).Elem(), IdNamespaceRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleArrayInput)(nil)).Elem(), IdNamespaceRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
@@ -2280,6 +2917,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeArrayInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArray{})
+	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceOutput{})
@@ -2290,12 +2929,18 @@ func init() {
 	pulumi.RegisterOutputType(IdMappingWorkflowOutputSourceArrayOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowRuleOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowRuleArrayOutput{})
 	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(IdNamespaceInputSourceOutput{})
 	pulumi.RegisterOutputType(IdNamespaceInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(IdNamespaceNamespaceProviderPropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceNamespaceProviderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceNamespaceRuleBasedPropertiesOutput{})
+	pulumi.RegisterOutputType(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceRuleOutput{})
+	pulumi.RegisterOutputType(IdNamespaceRuleArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})
