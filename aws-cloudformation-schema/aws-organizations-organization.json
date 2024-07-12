@@ -60,7 +60,7 @@
       "permissions" : [ "organizations:DescribeOrganization" ]
     },
     "update" : {
-      "permissions" : [ ]
+      "permissions" : [ "organizations:DescribeOrganization" ]
     }
   },
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/ManagementAccountArn", "/properties/ManagementAccountId", "/properties/ManagementAccountEmail", "/properties/RootId" ],

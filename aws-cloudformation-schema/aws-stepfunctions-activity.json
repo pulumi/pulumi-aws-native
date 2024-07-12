@@ -19,6 +19,27 @@
       },
       "additionalProperties" : false,
       "required" : [ "Key", "Value" ]
+    },
+    "EncryptionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "KmsKeyId" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2048
+        },
+        "KmsDataKeyReusePeriodSeconds" : {
+          "type" : "integer",
+          "minimum" : 60,
+          "maximum" : 900
+        },
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "CUSTOMER_MANAGED_KMS_KEY", "AWS_OWNED_KEY" ]
+        }
+      },
+      "required" : [ "Type" ]
     }
   },
   "properties" : {
@@ -39,6 +60,9 @@
       "items" : {
         "$ref" : "#/definitions/TagsEntry"
       }
+    },
+    "EncryptionConfiguration" : {
+      "$ref" : "#/definitions/EncryptionConfiguration"
     }
   },
   "additionalProperties" : false,
@@ -52,10 +76,10 @@
   "required" : [ "Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/EncryptionConfiguration" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateActivity", "states:TagResource" ]
+      "permissions" : [ "states:CreateActivity", "states:TagResource", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeActivity", "states:ListTagsForResource" ]

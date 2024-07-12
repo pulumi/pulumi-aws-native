@@ -36,7 +36,7 @@
       "permissions" : [ "ec2:DescribeSecurityGroups" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteSecurityGroup", "ec2:DescribeInstances" ]
+      "permissions" : [ "ec2:DescribeSecurityGroups", "ec2:DeleteSecurityGroup", "ec2:DescribeInstances" ]
     }
   },
   "writeOnlyProperties" : [ "/properties/SecurityGroupIngress/*/SourceSecurityGroupName" ],
