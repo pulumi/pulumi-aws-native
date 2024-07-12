@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -33,12 +32,9 @@ type OidcProvider struct {
 func NewOidcProvider(ctx *pulumi.Context,
 	name string, args *OidcProviderArgs, opts ...pulumi.ResourceOption) (*OidcProvider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &OidcProviderArgs{}
 	}
 
-	if args.ThumbprintList == nil {
-		return nil, errors.New("invalid value for required argument 'ThumbprintList'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"url",
 	})

@@ -8,14 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ActivityArgs', 'Activity']
 
 @pulumi.input_type
 class ActivityArgs:
     def __init__(__self__, *,
+                 encryption_configuration: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -35,10 +39,21 @@ class ActivityArgs:
                
                Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter
@@ -82,6 +97,7 @@ class Activity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -213,6 +229,7 @@ class Activity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -224,10 +241,11 @@ class Activity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActivityArgs.__new__(ActivityArgs)
 
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["encryptionConfiguration", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Activity, __self__).__init__(
             'aws-native:stepfunctions:Activity',
@@ -252,6 +270,7 @@ class Activity(pulumi.CustomResource):
         __props__ = ActivityArgs.__new__(ActivityArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Activity(resource_name, opts=opts, __props__=__props__)
@@ -263,6 +282,11 @@ class Activity(pulumi.CustomResource):
         Returns the ARN of the resource.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ActivityEncryptionConfiguration']]:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter

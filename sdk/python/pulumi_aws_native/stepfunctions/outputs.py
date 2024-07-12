@@ -12,15 +12,64 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActivityEncryptionConfiguration',
     'StateMachineAliasDeploymentPreference',
     'StateMachineAliasRoutingConfigurationVersion',
     'StateMachineCloudWatchLogsLogGroup',
     'StateMachineDefinition',
+    'StateMachineEncryptionConfiguration',
     'StateMachineLogDestination',
     'StateMachineLoggingConfiguration',
     'StateMachineS3Location',
     'StateMachineTracingConfiguration',
 ]
+
+@pulumi.output_type
+class ActivityEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsDataKeyReusePeriodSeconds":
+            suggest = "kms_data_key_reuse_period_seconds"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'ActivityEncryptionConfigurationType',
+                 kms_data_key_reuse_period_seconds: Optional[int] = None,
+                 kms_key_id: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ActivityEncryptionConfigurationType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
 
 @pulumi.output_type
 class StateMachineAliasDeploymentPreference(dict):
@@ -198,6 +247,53 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 class StateMachineDefinition(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class StateMachineEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsDataKeyReusePeriodSeconds":
+            suggest = "kms_data_key_reuse_period_seconds"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'StateMachineEncryptionConfigurationType',
+                 kms_data_key_reuse_period_seconds: Optional[int] = None,
+                 kms_key_id: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'StateMachineEncryptionConfigurationType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type

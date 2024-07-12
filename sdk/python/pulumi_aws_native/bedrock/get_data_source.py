@@ -64,7 +64,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> Optional['DataSourceDataDeletionPolicy']:
         """
-        The data deletion policy for a data source.
+        The data deletion policy for the data source.
         """
         return pulumi.get(self, "data_deletion_policy")
 
@@ -72,7 +72,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional['outputs.DataSourceConfiguration']:
         """
-        Contains details about how the data source is stored.
+        The connection configuration for the data source.
         """
         return pulumi.get(self, "data_source_configuration")
 

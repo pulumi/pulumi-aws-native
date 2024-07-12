@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.StepFunctions
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.ActivityEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The name of the activity.
         /// 
@@ -134,6 +137,7 @@ namespace Pulumi.AwsNative.StepFunctions
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "encryptionConfiguration",
                     "name",
                 },
             };
@@ -158,6 +162,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.ActivityEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
         /// <summary>
         /// The name of the activity.
         /// 

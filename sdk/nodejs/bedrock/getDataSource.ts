@@ -36,11 +36,11 @@ export interface GetDataSourceResult {
      */
     readonly createdAt?: string;
     /**
-     * The data deletion policy for a data source.
+     * The data deletion policy for the data source.
      */
     readonly dataDeletionPolicy?: enums.bedrock.DataSourceDataDeletionPolicy;
     /**
-     * Contains details about how the data source is stored.
+     * The connection configuration for the data source.
      */
     readonly dataSourceConfiguration?: outputs.bedrock.DataSourceConfiguration;
     /**

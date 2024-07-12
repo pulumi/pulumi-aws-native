@@ -159,6 +159,7 @@ export class StateMachine extends pulumi.CustomResource {
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
     public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineEncryptionConfiguration | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged.
      *
@@ -236,6 +237,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
             resourceInputs["definitionString"] = args ? args.definitionString : undefined;
             resourceInputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stateMachineName"] = args ? args.stateMachineName : undefined;
@@ -251,6 +253,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["definitionS3Location"] = undefined /*out*/;
             resourceInputs["definitionString"] = undefined /*out*/;
             resourceInputs["definitionSubstitutions"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
@@ -289,6 +292,7 @@ export interface StateMachineArgs {
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
     definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>}>;
+    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineEncryptionConfigurationArgs>;
     /**
      * Defines what execution history events are logged and where they are logged.
      *

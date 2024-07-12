@@ -11,15 +11,57 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ActivityEncryptionConfigurationArgs',
     'StateMachineAliasDeploymentPreferenceArgs',
     'StateMachineAliasRoutingConfigurationVersionArgs',
     'StateMachineCloudWatchLogsLogGroupArgs',
     'StateMachineDefinitionArgs',
+    'StateMachineEncryptionConfigurationArgs',
     'StateMachineLogDestinationArgs',
     'StateMachineLoggingConfigurationArgs',
     'StateMachineS3LocationArgs',
     'StateMachineTracingConfigurationArgs',
 ]
+
+@pulumi.input_type
+class ActivityEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ActivityEncryptionConfigurationType'],
+                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ActivityEncryptionConfigurationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ActivityEncryptionConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @kms_data_key_reuse_period_seconds.setter
+    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
 
 @pulumi.input_type
 class StateMachineAliasDeploymentPreferenceArgs:
@@ -175,6 +217,46 @@ class StateMachineCloudWatchLogsLogGroupArgs:
 class StateMachineDefinitionArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class StateMachineEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['StateMachineEncryptionConfigurationType'],
+                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['StateMachineEncryptionConfigurationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['StateMachineEncryptionConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @kms_data_key_reuse_period_seconds.setter
+    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type

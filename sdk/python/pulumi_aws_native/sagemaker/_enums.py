@@ -14,8 +14,10 @@ __all__ = [
     'DataQualityJobDefinitionS3OutputS3UploadMode',
     'DomainAppNetworkAccessType',
     'DomainAppSecurityGroupManagement',
+    'DomainAppType',
     'DomainAuthMode',
     'DomainDockerSettingsEnableDockerAccess',
+    'DomainMlTools',
     'DomainRStudioServerProAppSettingsAccessStatus',
     'DomainRStudioServerProAppSettingsUserGroup',
     'DomainResourceSpecInstanceType',
@@ -83,6 +85,8 @@ __all__ = [
     'SpaceAppType',
     'SpaceResourceSpecInstanceType',
     'SpaceSharingSettingsSharingType',
+    'UserProfileAppType',
+    'UserProfileMlTools',
     'UserProfileRStudioServerProAppSettingsAccessStatus',
     'UserProfileRStudioServerProAppSettingsUserGroup',
     'UserProfileResourceSpecInstanceType',
@@ -227,6 +231,16 @@ class DomainAppSecurityGroupManagement(str, Enum):
     CUSTOMER = "Customer"
 
 
+class DomainAppType(str, Enum):
+    JUPYTER_SERVER = "JupyterServer"
+    TENSOR_BOARD = "TensorBoard"
+    R_STUDIO_SERVER_PRO = "RStudioServerPro"
+    JUPYTER_LAB = "JupyterLab"
+    CODE_EDITOR = "CodeEditor"
+    DETAILED_PROFILER = "DetailedProfiler"
+    CANVAS = "Canvas"
+
+
 class DomainAuthMode(str, Enum):
     """
     The mode of authentication that members use to access the domain.
@@ -241,6 +255,22 @@ class DomainDockerSettingsEnableDockerAccess(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class DomainMlTools(str, Enum):
+    DATA_WRANGLER = "DataWrangler"
+    FEATURE_STORE = "FeatureStore"
+    EMR_CLUSTERS = "EmrClusters"
+    AUTO_ML = "AutoML"
+    EXPERIMENTS = "Experiments"
+    TRAINING = "Training"
+    MODEL_EVALUATION = "ModelEvaluation"
+    PIPELINES = "Pipelines"
+    MODELS = "Models"
+    JUMP_START = "JumpStart"
+    INFERENCE_RECOMMENDER = "InferenceRecommender"
+    ENDPOINTS = "Endpoints"
+    PROJECTS = "Projects"
 
 
 class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -940,6 +970,32 @@ class SpaceSharingSettingsSharingType(str, Enum):
     """
     PRIVATE = "Private"
     SHARED = "Shared"
+
+
+class UserProfileAppType(str, Enum):
+    JUPYTER_SERVER = "JupyterServer"
+    TENSOR_BOARD = "TensorBoard"
+    R_STUDIO_SERVER_PRO = "RStudioServerPro"
+    JUPYTER_LAB = "JupyterLab"
+    CODE_EDITOR = "CodeEditor"
+    DETAILED_PROFILER = "DetailedProfiler"
+    CANVAS = "Canvas"
+
+
+class UserProfileMlTools(str, Enum):
+    DATA_WRANGLER = "DataWrangler"
+    FEATURE_STORE = "FeatureStore"
+    EMR_CLUSTERS = "EmrClusters"
+    AUTO_ML = "AutoML"
+    EXPERIMENTS = "Experiments"
+    TRAINING = "Training"
+    MODEL_EVALUATION = "ModelEvaluation"
+    PIPELINES = "Pipelines"
+    MODELS = "Models"
+    JUMP_START = "JumpStart"
+    INFERENCE_RECOMMENDER = "InferenceRecommender"
+    ENDPOINTS = "Endpoints"
+    PROJECTS = "Projects"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

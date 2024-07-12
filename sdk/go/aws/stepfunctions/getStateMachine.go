@@ -32,7 +32,8 @@ type LookupStateMachineResult struct {
 	// Returns the ARN of the resource.
 	Arn *string `pulumi:"arn"`
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-	DefinitionString *string `pulumi:"definitionString"`
+	DefinitionString        *string                              `pulumi:"definitionString"`
+	EncryptionConfiguration *StateMachineEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged.
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
@@ -107,6 +108,12 @@ func (o LookupStateMachineResultOutput) Arn() pulumi.StringPtrOutput {
 // The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 func (o LookupStateMachineResultOutput) DefinitionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.DefinitionString }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStateMachineResultOutput) EncryptionConfiguration() StateMachineEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(StateMachineEncryptionConfigurationPtrOutput)
 }
 
 // Defines what execution history events are logged and where they are logged.

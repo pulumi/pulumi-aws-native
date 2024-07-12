@@ -156,6 +156,18 @@ export const DomainAppSecurityGroupManagement = {
  */
 export type DomainAppSecurityGroupManagement = (typeof DomainAppSecurityGroupManagement)[keyof typeof DomainAppSecurityGroupManagement];
 
+export const DomainAppType = {
+    JupyterServer: "JupyterServer",
+    TensorBoard: "TensorBoard",
+    RStudioServerPro: "RStudioServerPro",
+    JupyterLab: "JupyterLab",
+    CodeEditor: "CodeEditor",
+    DetailedProfiler: "DetailedProfiler",
+    Canvas: "Canvas",
+} as const;
+
+export type DomainAppType = (typeof DomainAppType)[keyof typeof DomainAppType];
+
 export const DomainAuthMode = {
     Sso: "SSO",
     Iam: "IAM",
@@ -175,6 +187,24 @@ export const DomainDockerSettingsEnableDockerAccess = {
  * The flag to enable/disable docker-proxy server
  */
 export type DomainDockerSettingsEnableDockerAccess = (typeof DomainDockerSettingsEnableDockerAccess)[keyof typeof DomainDockerSettingsEnableDockerAccess];
+
+export const DomainMlTools = {
+    DataWrangler: "DataWrangler",
+    FeatureStore: "FeatureStore",
+    EmrClusters: "EmrClusters",
+    AutoMl: "AutoML",
+    Experiments: "Experiments",
+    Training: "Training",
+    ModelEvaluation: "ModelEvaluation",
+    Pipelines: "Pipelines",
+    Models: "Models",
+    JumpStart: "JumpStart",
+    InferenceRecommender: "InferenceRecommender",
+    Endpoints: "Endpoints",
+    Projects: "Projects",
+} as const;
+
+export type DomainMlTools = (typeof DomainMlTools)[keyof typeof DomainMlTools];
 
 export const DomainRStudioServerProAppSettingsAccessStatus = {
     Enabled: "ENABLED",
@@ -1008,6 +1038,36 @@ export const SpaceSharingSettingsSharingType = {
  * Specifies the sharing type of the space.
  */
 export type SpaceSharingSettingsSharingType = (typeof SpaceSharingSettingsSharingType)[keyof typeof SpaceSharingSettingsSharingType];
+
+export const UserProfileAppType = {
+    JupyterServer: "JupyterServer",
+    TensorBoard: "TensorBoard",
+    RStudioServerPro: "RStudioServerPro",
+    JupyterLab: "JupyterLab",
+    CodeEditor: "CodeEditor",
+    DetailedProfiler: "DetailedProfiler",
+    Canvas: "Canvas",
+} as const;
+
+export type UserProfileAppType = (typeof UserProfileAppType)[keyof typeof UserProfileAppType];
+
+export const UserProfileMlTools = {
+    DataWrangler: "DataWrangler",
+    FeatureStore: "FeatureStore",
+    EmrClusters: "EmrClusters",
+    AutoMl: "AutoML",
+    Experiments: "Experiments",
+    Training: "Training",
+    ModelEvaluation: "ModelEvaluation",
+    Pipelines: "Pipelines",
+    Models: "Models",
+    JumpStart: "JumpStart",
+    InferenceRecommender: "InferenceRecommender",
+    Endpoints: "Endpoints",
+    Projects: "Projects",
+} as const;
+
+export type UserProfileMlTools = (typeof UserProfileMlTools)[keyof typeof UserProfileMlTools];
 
 export const UserProfileRStudioServerProAppSettingsAccessStatus = {
     Enabled: "ENABLED",

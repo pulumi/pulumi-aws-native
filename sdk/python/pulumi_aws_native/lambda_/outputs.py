@@ -51,6 +51,9 @@ __all__ = [
 
 @pulumi.output_type
 class AliasProvisionedConcurrencyConfiguration(dict):
+    """
+    A provisioned concurrency configuration for a function's alias.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -71,6 +74,7 @@ class AliasProvisionedConcurrencyConfiguration(dict):
     def __init__(__self__, *,
                  provisioned_concurrent_executions: int):
         """
+        A provisioned concurrency configuration for a function's alias.
         :param int provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the alias.
         """
         pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
@@ -86,6 +90,9 @@ class AliasProvisionedConcurrencyConfiguration(dict):
 
 @pulumi.output_type
 class AliasRoutingConfiguration(dict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -104,15 +111,17 @@ class AliasRoutingConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
+                 additional_version_weights: Optional[Sequence['outputs.AliasVersionWeight']] = None):
         """
+        The traffic-shifting configuration of a Lambda function alias.
         :param Sequence['AliasVersionWeight'] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
         """
-        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+        if additional_version_weights is not None:
+            pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
+    def additional_version_weights(self) -> Optional[Sequence['outputs.AliasVersionWeight']]:
         """
         The second version, and the percentage of traffic that's routed to it.
         """
@@ -121,6 +130,9 @@ class AliasRoutingConfiguration(dict):
 
 @pulumi.output_type
 class AliasVersionWeight(dict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -144,6 +156,7 @@ class AliasVersionWeight(dict):
                  function_version: str,
                  function_weight: float):
         """
+        The traffic-shifting configuration of a Lambda function alias.
         :param str function_version: The qualifier of the second version.
         :param float function_weight: The percentage of traffic that the alias routes to the second version.
         """

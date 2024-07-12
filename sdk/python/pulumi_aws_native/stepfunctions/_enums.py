@@ -5,10 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'ActivityEncryptionConfigurationType',
     'StateMachineAliasDeploymentPreferenceType',
+    'StateMachineEncryptionConfigurationType',
     'StateMachineLoggingConfigurationLevel',
     'StateMachineType',
 ]
+
+
+class ActivityEncryptionConfigurationType(str, Enum):
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
 
 
 class StateMachineAliasDeploymentPreferenceType(str, Enum):
@@ -18,6 +25,11 @@ class StateMachineAliasDeploymentPreferenceType(str, Enum):
     LINEAR = "LINEAR"
     ALL_AT_ONCE = "ALL_AT_ONCE"
     CANARY = "CANARY"
+
+
+class StateMachineEncryptionConfigurationType(str, Enum):
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
 
 
 class StateMachineLoggingConfigurationLevel(str, Enum):

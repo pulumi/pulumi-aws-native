@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal? StudioWebPortal;
+        /// <summary>
+        /// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        /// </summary>
+        public readonly Outputs.UserProfileStudioWebPortalSettings? StudioWebPortalSettings;
 
         [OutputConstructor]
         private UserProfileUserSettings(
@@ -95,7 +99,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.UserProfileDefaultSpaceStorageSettings? spaceStorageSettings,
 
-            Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal? studioWebPortal)
+            Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal? studioWebPortal,
+
+            Outputs.UserProfileStudioWebPortalSettings? studioWebPortalSettings)
         {
             CodeEditorAppSettings = codeEditorAppSettings;
             CustomFileSystemConfigs = customFileSystemConfigs;
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             SharingSettings = sharingSettings;
             SpaceStorageSettings = spaceStorageSettings;
             StudioWebPortal = studioWebPortal;
+            StudioWebPortalSettings = studioWebPortalSettings;
         }
     }
 }

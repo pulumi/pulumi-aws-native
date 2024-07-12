@@ -183,6 +183,9 @@ namespace Pulumi.AwsNative.StepFunctions
         [Output("definitionSubstitutions")]
         public Output<ImmutableDictionary<string, object>?> DefinitionSubstitutions { get; private set; } = null!;
 
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.StateMachineEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Defines what execution history events are logged and where they are logged.
         /// 
@@ -338,6 +341,9 @@ namespace Pulumi.AwsNative.StepFunctions
             get => _definitionSubstitutions ?? (_definitionSubstitutions = new InputMap<object>());
             set => _definitionSubstitutions = value;
         }
+
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.StateMachineEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged.

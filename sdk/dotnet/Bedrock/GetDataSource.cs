@@ -74,11 +74,11 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// The data deletion policy for a data source.
+        /// The data deletion policy for the data source.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy? DataDeletionPolicy;
         /// <summary>
-        /// Contains details about how the data source is stored.
+        /// The connection configuration for the data source.
         /// </summary>
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
         /// <summary>

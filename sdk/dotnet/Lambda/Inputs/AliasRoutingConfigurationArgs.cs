@@ -10,9 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// The traffic-shifting configuration of a Lambda function alias.
+    /// </summary>
     public sealed class AliasRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalVersionWeights", required: true)]
+        [Input("additionalVersionWeights")]
         private InputList<Inputs.AliasVersionWeightArgs>? _additionalVersionWeights;
 
         /// <summary>

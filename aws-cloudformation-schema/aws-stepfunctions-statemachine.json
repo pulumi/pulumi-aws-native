@@ -70,6 +70,27 @@
         }
       }
     },
+    "EncryptionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "KmsKeyId" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2048
+        },
+        "KmsDataKeyReusePeriodSeconds" : {
+          "type" : "integer",
+          "minimum" : 60,
+          "maximum" : 900
+        },
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "CUSTOMER_MANAGED_KMS_KEY", "AWS_OWNED_KEY" ]
+        }
+      },
+      "required" : [ "Type" ]
+    },
     "S3Location" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -148,6 +169,9 @@
     "TracingConfiguration" : {
       "$ref" : "#/definitions/TracingConfiguration"
     },
+    "EncryptionConfiguration" : {
+      "$ref" : "#/definitions/EncryptionConfiguration"
+    },
     "DefinitionS3Location" : {
       "$ref" : "#/definitions/S3Location"
     },
@@ -182,13 +206,13 @@
   "additionalIdentifiers" : [ [ "/properties/StateMachineName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject" ]
+      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "read" : {
-      "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource" ]
+      "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "delete" : {
       "permissions" : [ "states:DeleteStateMachine", "states:DescribeStateMachine" ]

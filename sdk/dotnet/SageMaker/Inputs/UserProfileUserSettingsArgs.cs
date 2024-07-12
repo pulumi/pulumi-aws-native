@@ -105,6 +105,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("studioWebPortal")]
         public Input<Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal>? StudioWebPortal { get; set; }
 
+        /// <summary>
+        /// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        /// </summary>
+        [Input("studioWebPortalSettings")]
+        public Input<Inputs.UserProfileStudioWebPortalSettingsArgs>? StudioWebPortalSettings { get; set; }
+
         public UserProfileUserSettingsArgs()
         {
         }

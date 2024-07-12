@@ -42,11 +42,11 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The data deletion policy for a data source.
+     * The data deletion policy for the data source.
      */
     public readonly dataDeletionPolicy!: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
     /**
-     * Contains details about how the data source is stored.
+     * The connection configuration for the data source.
      */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
     /**
@@ -144,11 +144,11 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceArgs {
     /**
-     * The data deletion policy for a data source.
+     * The data deletion policy for the data source.
      */
     dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy>;
     /**
-     * Contains details about how the data source is stored.
+     * The connection configuration for the data source.
      */
     dataSourceConfiguration: pulumi.Input<inputs.bedrock.DataSourceConfigurationArgs>;
     /**

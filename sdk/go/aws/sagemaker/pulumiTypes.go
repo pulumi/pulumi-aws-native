@@ -7023,6 +7023,165 @@ func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type DomainStudioWebPortalSettings struct {
+	// Applications supported in Studio that are hidden from the Studio left navigation pane.
+	HiddenAppTypes []DomainAppType `pulumi:"hiddenAppTypes"`
+	// The machine learning tools that are hidden from the Studio left navigation pane.
+	HiddenMlTools []DomainMlTools `pulumi:"hiddenMlTools"`
+}
+
+// DomainStudioWebPortalSettingsInput is an input type that accepts DomainStudioWebPortalSettingsArgs and DomainStudioWebPortalSettingsOutput values.
+// You can construct a concrete instance of `DomainStudioWebPortalSettingsInput` via:
+//
+//	DomainStudioWebPortalSettingsArgs{...}
+type DomainStudioWebPortalSettingsInput interface {
+	pulumi.Input
+
+	ToDomainStudioWebPortalSettingsOutput() DomainStudioWebPortalSettingsOutput
+	ToDomainStudioWebPortalSettingsOutputWithContext(context.Context) DomainStudioWebPortalSettingsOutput
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type DomainStudioWebPortalSettingsArgs struct {
+	// Applications supported in Studio that are hidden from the Studio left navigation pane.
+	HiddenAppTypes DomainAppTypeArrayInput `pulumi:"hiddenAppTypes"`
+	// The machine learning tools that are hidden from the Studio left navigation pane.
+	HiddenMlTools DomainMlToolsArrayInput `pulumi:"hiddenMlTools"`
+}
+
+func (DomainStudioWebPortalSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (i DomainStudioWebPortalSettingsArgs) ToDomainStudioWebPortalSettingsOutput() DomainStudioWebPortalSettingsOutput {
+	return i.ToDomainStudioWebPortalSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainStudioWebPortalSettingsArgs) ToDomainStudioWebPortalSettingsOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainStudioWebPortalSettingsOutput)
+}
+
+func (i DomainStudioWebPortalSettingsArgs) ToDomainStudioWebPortalSettingsPtrOutput() DomainStudioWebPortalSettingsPtrOutput {
+	return i.ToDomainStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainStudioWebPortalSettingsArgs) ToDomainStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainStudioWebPortalSettingsOutput).ToDomainStudioWebPortalSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainStudioWebPortalSettingsPtrInput is an input type that accepts DomainStudioWebPortalSettingsArgs, DomainStudioWebPortalSettingsPtr and DomainStudioWebPortalSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainStudioWebPortalSettingsPtrInput` via:
+//
+//	        DomainStudioWebPortalSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainStudioWebPortalSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainStudioWebPortalSettingsPtrOutput() DomainStudioWebPortalSettingsPtrOutput
+	ToDomainStudioWebPortalSettingsPtrOutputWithContext(context.Context) DomainStudioWebPortalSettingsPtrOutput
+}
+
+type domainStudioWebPortalSettingsPtrType DomainStudioWebPortalSettingsArgs
+
+func DomainStudioWebPortalSettingsPtr(v *DomainStudioWebPortalSettingsArgs) DomainStudioWebPortalSettingsPtrInput {
+	return (*domainStudioWebPortalSettingsPtrType)(v)
+}
+
+func (*domainStudioWebPortalSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (i *domainStudioWebPortalSettingsPtrType) ToDomainStudioWebPortalSettingsPtrOutput() DomainStudioWebPortalSettingsPtrOutput {
+	return i.ToDomainStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainStudioWebPortalSettingsPtrType) ToDomainStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainStudioWebPortalSettingsPtrOutput)
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type DomainStudioWebPortalSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainStudioWebPortalSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (o DomainStudioWebPortalSettingsOutput) ToDomainStudioWebPortalSettingsOutput() DomainStudioWebPortalSettingsOutput {
+	return o
+}
+
+func (o DomainStudioWebPortalSettingsOutput) ToDomainStudioWebPortalSettingsOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsOutput {
+	return o
+}
+
+func (o DomainStudioWebPortalSettingsOutput) ToDomainStudioWebPortalSettingsPtrOutput() DomainStudioWebPortalSettingsPtrOutput {
+	return o.ToDomainStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainStudioWebPortalSettingsOutput) ToDomainStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainStudioWebPortalSettings) *DomainStudioWebPortalSettings {
+		return &v
+	}).(DomainStudioWebPortalSettingsPtrOutput)
+}
+
+// Applications supported in Studio that are hidden from the Studio left navigation pane.
+func (o DomainStudioWebPortalSettingsOutput) HiddenAppTypes() DomainAppTypeArrayOutput {
+	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainAppType { return v.HiddenAppTypes }).(DomainAppTypeArrayOutput)
+}
+
+// The machine learning tools that are hidden from the Studio left navigation pane.
+func (o DomainStudioWebPortalSettingsOutput) HiddenMlTools() DomainMlToolsArrayOutput {
+	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainMlTools { return v.HiddenMlTools }).(DomainMlToolsArrayOutput)
+}
+
+type DomainStudioWebPortalSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainStudioWebPortalSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (o DomainStudioWebPortalSettingsPtrOutput) ToDomainStudioWebPortalSettingsPtrOutput() DomainStudioWebPortalSettingsPtrOutput {
+	return o
+}
+
+func (o DomainStudioWebPortalSettingsPtrOutput) ToDomainStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) DomainStudioWebPortalSettingsPtrOutput {
+	return o
+}
+
+func (o DomainStudioWebPortalSettingsPtrOutput) Elem() DomainStudioWebPortalSettingsOutput {
+	return o.ApplyT(func(v *DomainStudioWebPortalSettings) DomainStudioWebPortalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainStudioWebPortalSettings
+		return ret
+	}).(DomainStudioWebPortalSettingsOutput)
+}
+
+// Applications supported in Studio that are hidden from the Studio left navigation pane.
+func (o DomainStudioWebPortalSettingsPtrOutput) HiddenAppTypes() DomainAppTypeArrayOutput {
+	return o.ApplyT(func(v *DomainStudioWebPortalSettings) []DomainAppType {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenAppTypes
+	}).(DomainAppTypeArrayOutput)
+}
+
+// The machine learning tools that are hidden from the Studio left navigation pane.
+func (o DomainStudioWebPortalSettingsPtrOutput) HiddenMlTools() DomainMlToolsArrayOutput {
+	return o.ApplyT(func(v *DomainStudioWebPortalSettings) []DomainMlTools {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenMlTools
+	}).(DomainMlToolsArrayOutput)
+}
+
 type DomainTag struct {
 	// The tag key. Tag keys must be unique per resource.
 	Key string `pulumi:"key"`
@@ -7060,6 +7219,8 @@ type DomainUserSettings struct {
 	SpaceStorageSettings *DomainDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *DomainUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
+	// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+	StudioWebPortalSettings *DomainStudioWebPortalSettings `pulumi:"studioWebPortalSettings"`
 }
 
 // DomainUserSettingsInput is an input type that accepts DomainUserSettingsArgs and DomainUserSettingsOutput values.
@@ -7103,6 +7264,8 @@ type DomainUserSettingsArgs struct {
 	SpaceStorageSettings DomainDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal DomainUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
+	// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+	StudioWebPortalSettings DomainStudioWebPortalSettingsPtrInput `pulumi:"studioWebPortalSettings"`
 }
 
 func (DomainUserSettingsArgs) ElementType() reflect.Type {
@@ -7200,6 +7363,11 @@ func (o DomainUserSettingsOutput) SpaceStorageSettings() DomainDefaultSpaceStora
 // Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 func (o DomainUserSettingsOutput) StudioWebPortal() DomainUserSettingsStudioWebPortalPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainUserSettingsStudioWebPortal { return v.StudioWebPortal }).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+func (o DomainUserSettingsOutput) StudioWebPortalSettings() DomainStudioWebPortalSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainStudioWebPortalSettings { return v.StudioWebPortalSettings }).(DomainStudioWebPortalSettingsPtrOutput)
 }
 
 type DomainUserSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -7364,6 +7532,16 @@ func (o DomainUserSettingsPtrOutput) StudioWebPortal() DomainUserSettingsStudioW
 		}
 		return v.StudioWebPortal
 	}).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+func (o DomainUserSettingsPtrOutput) StudioWebPortalSettings() DomainStudioWebPortalSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainStudioWebPortalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.StudioWebPortalSettings
+	}).(DomainStudioWebPortalSettingsPtrOutput)
 }
 
 type FeatureGroupDataCatalogConfig struct {
@@ -35401,6 +35579,165 @@ func (o UserProfileSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type UserProfileStudioWebPortalSettings struct {
+	// Applications supported in Studio that are hidden from the Studio left navigation pane.
+	HiddenAppTypes []UserProfileAppType `pulumi:"hiddenAppTypes"`
+	// The machine learning tools that are hidden from the Studio left navigation pane.
+	HiddenMlTools []UserProfileMlTools `pulumi:"hiddenMlTools"`
+}
+
+// UserProfileStudioWebPortalSettingsInput is an input type that accepts UserProfileStudioWebPortalSettingsArgs and UserProfileStudioWebPortalSettingsOutput values.
+// You can construct a concrete instance of `UserProfileStudioWebPortalSettingsInput` via:
+//
+//	UserProfileStudioWebPortalSettingsArgs{...}
+type UserProfileStudioWebPortalSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileStudioWebPortalSettingsOutput() UserProfileStudioWebPortalSettingsOutput
+	ToUserProfileStudioWebPortalSettingsOutputWithContext(context.Context) UserProfileStudioWebPortalSettingsOutput
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type UserProfileStudioWebPortalSettingsArgs struct {
+	// Applications supported in Studio that are hidden from the Studio left navigation pane.
+	HiddenAppTypes UserProfileAppTypeArrayInput `pulumi:"hiddenAppTypes"`
+	// The machine learning tools that are hidden from the Studio left navigation pane.
+	HiddenMlTools UserProfileMlToolsArrayInput `pulumi:"hiddenMlTools"`
+}
+
+func (UserProfileStudioWebPortalSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (i UserProfileStudioWebPortalSettingsArgs) ToUserProfileStudioWebPortalSettingsOutput() UserProfileStudioWebPortalSettingsOutput {
+	return i.ToUserProfileStudioWebPortalSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileStudioWebPortalSettingsArgs) ToUserProfileStudioWebPortalSettingsOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileStudioWebPortalSettingsOutput)
+}
+
+func (i UserProfileStudioWebPortalSettingsArgs) ToUserProfileStudioWebPortalSettingsPtrOutput() UserProfileStudioWebPortalSettingsPtrOutput {
+	return i.ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileStudioWebPortalSettingsArgs) ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileStudioWebPortalSettingsOutput).ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileStudioWebPortalSettingsPtrInput is an input type that accepts UserProfileStudioWebPortalSettingsArgs, UserProfileStudioWebPortalSettingsPtr and UserProfileStudioWebPortalSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileStudioWebPortalSettingsPtrInput` via:
+//
+//	        UserProfileStudioWebPortalSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileStudioWebPortalSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileStudioWebPortalSettingsPtrOutput() UserProfileStudioWebPortalSettingsPtrOutput
+	ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(context.Context) UserProfileStudioWebPortalSettingsPtrOutput
+}
+
+type userProfileStudioWebPortalSettingsPtrType UserProfileStudioWebPortalSettingsArgs
+
+func UserProfileStudioWebPortalSettingsPtr(v *UserProfileStudioWebPortalSettingsArgs) UserProfileStudioWebPortalSettingsPtrInput {
+	return (*userProfileStudioWebPortalSettingsPtrType)(v)
+}
+
+func (*userProfileStudioWebPortalSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (i *userProfileStudioWebPortalSettingsPtrType) ToUserProfileStudioWebPortalSettingsPtrOutput() UserProfileStudioWebPortalSettingsPtrOutput {
+	return i.ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileStudioWebPortalSettingsPtrType) ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileStudioWebPortalSettingsPtrOutput)
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+type UserProfileStudioWebPortalSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileStudioWebPortalSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (o UserProfileStudioWebPortalSettingsOutput) ToUserProfileStudioWebPortalSettingsOutput() UserProfileStudioWebPortalSettingsOutput {
+	return o
+}
+
+func (o UserProfileStudioWebPortalSettingsOutput) ToUserProfileStudioWebPortalSettingsOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsOutput {
+	return o
+}
+
+func (o UserProfileStudioWebPortalSettingsOutput) ToUserProfileStudioWebPortalSettingsPtrOutput() UserProfileStudioWebPortalSettingsPtrOutput {
+	return o.ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileStudioWebPortalSettingsOutput) ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileStudioWebPortalSettings) *UserProfileStudioWebPortalSettings {
+		return &v
+	}).(UserProfileStudioWebPortalSettingsPtrOutput)
+}
+
+// Applications supported in Studio that are hidden from the Studio left navigation pane.
+func (o UserProfileStudioWebPortalSettingsOutput) HiddenAppTypes() UserProfileAppTypeArrayOutput {
+	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileAppType { return v.HiddenAppTypes }).(UserProfileAppTypeArrayOutput)
+}
+
+// The machine learning tools that are hidden from the Studio left navigation pane.
+func (o UserProfileStudioWebPortalSettingsOutput) HiddenMlTools() UserProfileMlToolsArrayOutput {
+	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileMlTools { return v.HiddenMlTools }).(UserProfileMlToolsArrayOutput)
+}
+
+type UserProfileStudioWebPortalSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileStudioWebPortalSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileStudioWebPortalSettings)(nil)).Elem()
+}
+
+func (o UserProfileStudioWebPortalSettingsPtrOutput) ToUserProfileStudioWebPortalSettingsPtrOutput() UserProfileStudioWebPortalSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileStudioWebPortalSettingsPtrOutput) ToUserProfileStudioWebPortalSettingsPtrOutputWithContext(ctx context.Context) UserProfileStudioWebPortalSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileStudioWebPortalSettingsPtrOutput) Elem() UserProfileStudioWebPortalSettingsOutput {
+	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) UserProfileStudioWebPortalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileStudioWebPortalSettings
+		return ret
+	}).(UserProfileStudioWebPortalSettingsOutput)
+}
+
+// Applications supported in Studio that are hidden from the Studio left navigation pane.
+func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenAppTypes() UserProfileAppTypeArrayOutput {
+	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) []UserProfileAppType {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenAppTypes
+	}).(UserProfileAppTypeArrayOutput)
+}
+
+// The machine learning tools that are hidden from the Studio left navigation pane.
+func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenMlTools() UserProfileMlToolsArrayOutput {
+	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) []UserProfileMlTools {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenMlTools
+	}).(UserProfileMlToolsArrayOutput)
+}
+
 type UserProfileTag struct {
 	// The tag key. Tag keys must be unique per resource.
 	Key string `pulumi:"key"`
@@ -35436,6 +35773,8 @@ type UserProfileUserSettings struct {
 	SpaceStorageSettings *UserProfileDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *UserProfileUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
+	// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+	StudioWebPortalSettings *UserProfileStudioWebPortalSettings `pulumi:"studioWebPortalSettings"`
 }
 
 // UserProfileUserSettingsInput is an input type that accepts UserProfileUserSettingsArgs and UserProfileUserSettingsOutput values.
@@ -35477,6 +35816,8 @@ type UserProfileUserSettingsArgs struct {
 	SpaceStorageSettings UserProfileDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal UserProfileUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
+	// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+	StudioWebPortalSettings UserProfileStudioWebPortalSettingsPtrInput `pulumi:"studioWebPortalSettings"`
 }
 
 func (UserProfileUserSettingsArgs) ElementType() reflect.Type {
@@ -35626,6 +35967,11 @@ func (o UserProfileUserSettingsOutput) SpaceStorageSettings() UserProfileDefault
 // Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 func (o UserProfileUserSettingsOutput) StudioWebPortal() UserProfileUserSettingsStudioWebPortalPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsStudioWebPortal { return v.StudioWebPortal }).(UserProfileUserSettingsStudioWebPortalPtrOutput)
+}
+
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+func (o UserProfileUserSettingsOutput) StudioWebPortalSettings() UserProfileStudioWebPortalSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileStudioWebPortalSettings { return v.StudioWebPortalSettings }).(UserProfileStudioWebPortalSettingsPtrOutput)
 }
 
 type UserProfileUserSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -35782,6 +36128,16 @@ func (o UserProfileUserSettingsPtrOutput) StudioWebPortal() UserProfileUserSetti
 	}).(UserProfileUserSettingsStudioWebPortalPtrOutput)
 }
 
+// Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+func (o UserProfileUserSettingsPtrOutput) StudioWebPortalSettings() UserProfileStudioWebPortalSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileStudioWebPortalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.StudioWebPortalSettings
+	}).(UserProfileStudioWebPortalSettingsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
@@ -35870,6 +36226,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsPtrInput)(nil)).Elem(), DomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsInput)(nil)).Elem(), DomainSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsPtrInput)(nil)).Elem(), DomainSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsPtrInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsInput)(nil)).Elem(), DomainUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupDataCatalogConfigInput)(nil)).Elem(), FeatureGroupDataCatalogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupDataCatalogConfigPtrInput)(nil)).Elem(), FeatureGroupDataCatalogConfigArgs{})
@@ -36207,6 +36565,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecPtrInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsPtrInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStudioWebPortalSettingsInput)(nil)).Elem(), UserProfileStudioWebPortalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStudioWebPortalSettingsPtrInput)(nil)).Elem(), UserProfileStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
@@ -36297,6 +36657,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainStudioWebPortalSettingsOutput{})
+	pulumi.RegisterOutputType(DomainStudioWebPortalSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigOutput{})
@@ -36645,6 +37007,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileStudioWebPortalSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileStudioWebPortalSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 }

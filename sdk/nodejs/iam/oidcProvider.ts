@@ -52,7 +52,7 @@ export class OidcProvider extends pulumi.CustomResource {
     /**
      * A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */
-    public readonly thumbprintList!: pulumi.Output<string[]>;
+    public readonly thumbprintList!: pulumi.Output<string[] | undefined>;
     /**
      * The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */
@@ -65,13 +65,10 @@ export class OidcProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OidcProviderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: OidcProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.thumbprintList === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'thumbprintList'");
-            }
             resourceInputs["clientIdList"] = args ? args.clientIdList : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thumbprintList"] = args ? args.thumbprintList : undefined;
@@ -106,7 +103,7 @@ export interface OidcProviderArgs {
     /**
      * A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */
-    thumbprintList: pulumi.Input<pulumi.Input<string>[]>;
+    thumbprintList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */

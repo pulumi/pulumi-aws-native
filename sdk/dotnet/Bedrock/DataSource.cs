@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The data deletion policy for a data source.
+        /// The data deletion policy for the data source.
         /// </summary>
         [Output("dataDeletionPolicy")]
         public Output<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy?> DataDeletionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Contains details about how the data source is stored.
+        /// The connection configuration for the data source.
         /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.AwsNative.Bedrock
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data deletion policy for a data source.
+        /// The data deletion policy for the data source.
         /// </summary>
         [Input("dataDeletionPolicy")]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy>? DataDeletionPolicy { get; set; }
 
         /// <summary>
-        /// Contains details about how the data source is stored.
+        /// The connection configuration for the data source.
         /// </summary>
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.DataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;

@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         /// </summary>
         public readonly string? DefinitionString;
+        public readonly Outputs.StateMachineEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
         /// Defines what execution history events are logged and where they are logged.
         /// 
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.StepFunctions
 
             string? definitionString,
 
+            Outputs.StateMachineEncryptionConfiguration? encryptionConfiguration,
+
             Outputs.StateMachineLoggingConfiguration? loggingConfiguration,
 
             string? name,
@@ -126,6 +129,7 @@ namespace Pulumi.AwsNative.StepFunctions
         {
             Arn = arn;
             DefinitionString = definitionString;
+            EncryptionConfiguration = encryptionConfiguration;
             LoggingConfiguration = loggingConfiguration;
             Name = name;
             RoleArn = roleArn;

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains details about the configuration of the S3 object containing the data source.
+        /// The configuration information to connect to Amazon S3 as your data source.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DataSourceS3DataSourceConfigurationArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The type of storage for the data source.
+        /// The type of data source.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceType> Type { get; set; } = null!;

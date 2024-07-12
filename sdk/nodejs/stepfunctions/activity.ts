@@ -85,6 +85,7 @@ export class Activity extends pulumi.CustomResource {
      * Returns the ARN of the resource.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.stepfunctions.ActivityEncryptionConfiguration | undefined>;
     /**
      * The name of the activity.
      *
@@ -117,16 +118,18 @@ export class Activity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["encryptionConfiguration", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Activity.__pulumiType, name, resourceInputs, opts);
     }
@@ -136,6 +139,7 @@ export class Activity extends pulumi.CustomResource {
  * The set of arguments for constructing a Activity resource.
  */
 export interface ActivityArgs {
+    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.ActivityEncryptionConfigurationArgs>;
     /**
      * The name of the activity.
      *

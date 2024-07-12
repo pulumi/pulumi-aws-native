@@ -65,7 +65,6 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "ThumbprintList" ],
   "createOnlyProperties" : [ "/properties/Url" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActivityEncryptionConfigurationType = {
+    CustomerManagedKmsKey: "CUSTOMER_MANAGED_KMS_KEY",
+    AwsOwnedKey: "AWS_OWNED_KEY",
+} as const;
+
+export type ActivityEncryptionConfigurationType = (typeof ActivityEncryptionConfigurationType)[keyof typeof ActivityEncryptionConfigurationType];
+
 export const StateMachineAliasDeploymentPreferenceType = {
     Linear: "LINEAR",
     AllAtOnce: "ALL_AT_ONCE",
@@ -12,6 +19,13 @@ export const StateMachineAliasDeploymentPreferenceType = {
  * The type of deployment to perform.
  */
 export type StateMachineAliasDeploymentPreferenceType = (typeof StateMachineAliasDeploymentPreferenceType)[keyof typeof StateMachineAliasDeploymentPreferenceType];
+
+export const StateMachineEncryptionConfigurationType = {
+    CustomerManagedKmsKey: "CUSTOMER_MANAGED_KMS_KEY",
+    AwsOwnedKey: "AWS_OWNED_KEY",
+} as const;
+
+export type StateMachineEncryptionConfigurationType = (typeof StateMachineEncryptionConfigurationType)[keyof typeof StateMachineEncryptionConfigurationType];
 
 export const StateMachineLoggingConfigurationLevel = {
     All: "ALL",

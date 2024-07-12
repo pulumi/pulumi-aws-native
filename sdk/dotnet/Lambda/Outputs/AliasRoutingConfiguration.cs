@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// The traffic-shifting configuration of a Lambda function alias.
+    /// </summary>
     [OutputType]
     public sealed class AliasRoutingConfiguration
     {

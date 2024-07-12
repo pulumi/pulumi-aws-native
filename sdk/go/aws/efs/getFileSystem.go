@@ -47,10 +47,10 @@ type LookupFileSystemResult struct {
 	FileSystemTags []aws.Tag `pulumi:"fileSystemTags"`
 	// An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
 	//   +  When to move files in the file system from primary storage to IA storage.
-	//   + When to move files in the file system from primary storage or IA storage to Archive storage.
-	//  +  When to move files that are in IA or Archive storage to primary storage.
+	//   +  When to move files in the file system from primary storage or IA storage to Archive storage.
+	//   +  When to move files that are in IA or Archive storage to primary storage.
 	//
-	//   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+	//    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`

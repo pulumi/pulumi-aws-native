@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// A provisioned concurrency configuration for a function's alias.
+    /// </summary>
     [OutputType]
     public sealed class AliasProvisionedConcurrencyConfiguration
     {

@@ -13,6 +13,169 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ActivityEncryptionConfiguration struct {
+	KmsDataKeyReusePeriodSeconds *int                                `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     *string                             `pulumi:"kmsKeyId"`
+	Type                         ActivityEncryptionConfigurationType `pulumi:"type"`
+}
+
+// ActivityEncryptionConfigurationInput is an input type that accepts ActivityEncryptionConfigurationArgs and ActivityEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ActivityEncryptionConfigurationInput` via:
+//
+//	ActivityEncryptionConfigurationArgs{...}
+type ActivityEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput
+	ToActivityEncryptionConfigurationOutputWithContext(context.Context) ActivityEncryptionConfigurationOutput
+}
+
+type ActivityEncryptionConfigurationArgs struct {
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput                       `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
+	Type                         ActivityEncryptionConfigurationTypeInput `pulumi:"type"`
+}
+
+func (ActivityEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput {
+	return i.ToActivityEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationOutput)
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return i.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationOutput).ToActivityEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ActivityEncryptionConfigurationPtrInput is an input type that accepts ActivityEncryptionConfigurationArgs, ActivityEncryptionConfigurationPtr and ActivityEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ActivityEncryptionConfigurationPtrInput` via:
+//
+//	        ActivityEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActivityEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput
+	ToActivityEncryptionConfigurationPtrOutputWithContext(context.Context) ActivityEncryptionConfigurationPtrOutput
+}
+
+type activityEncryptionConfigurationPtrType ActivityEncryptionConfigurationArgs
+
+func ActivityEncryptionConfigurationPtr(v *ActivityEncryptionConfigurationArgs) ActivityEncryptionConfigurationPtrInput {
+	return (*activityEncryptionConfigurationPtrType)(v)
+}
+
+func (*activityEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *activityEncryptionConfigurationPtrType) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return i.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *activityEncryptionConfigurationPtrType) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationPtrOutput)
+}
+
+type ActivityEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ActivityEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return o.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEncryptionConfiguration) *ActivityEncryptionConfiguration {
+		return &v
+	}).(ActivityEncryptionConfigurationPtrOutput)
+}
+
+func (o ActivityEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ActivityEncryptionConfigurationOutput) Type() ActivityEncryptionConfigurationTypeOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) ActivityEncryptionConfigurationType { return v.Type }).(ActivityEncryptionConfigurationTypeOutput)
+}
+
+type ActivityEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ActivityEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) Elem() ActivityEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) ActivityEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityEncryptionConfiguration
+		return ret
+	}).(ActivityEncryptionConfigurationOutput)
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KmsDataKeyReusePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) Type() ActivityEncryptionConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *ActivityEncryptionConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ActivityEncryptionConfigurationTypePtrOutput)
+}
+
 type ActivityTagsEntry struct {
 	// The `key` for a key-value pair in a tag entry.
 	Key string `pulumi:"key"`
@@ -603,6 +766,169 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 		var ret StateMachineDefinition
 		return ret
 	}).(StateMachineDefinitionOutput)
+}
+
+type StateMachineEncryptionConfiguration struct {
+	KmsDataKeyReusePeriodSeconds *int                                    `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     *string                                 `pulumi:"kmsKeyId"`
+	Type                         StateMachineEncryptionConfigurationType `pulumi:"type"`
+}
+
+// StateMachineEncryptionConfigurationInput is an input type that accepts StateMachineEncryptionConfigurationArgs and StateMachineEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `StateMachineEncryptionConfigurationInput` via:
+//
+//	StateMachineEncryptionConfigurationArgs{...}
+type StateMachineEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput
+	ToStateMachineEncryptionConfigurationOutputWithContext(context.Context) StateMachineEncryptionConfigurationOutput
+}
+
+type StateMachineEncryptionConfigurationArgs struct {
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput                           `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     pulumi.StringPtrInput                        `pulumi:"kmsKeyId"`
+	Type                         StateMachineEncryptionConfigurationTypeInput `pulumi:"type"`
+}
+
+func (StateMachineEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput {
+	return i.ToStateMachineEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationOutput)
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return i.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationOutput).ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// StateMachineEncryptionConfigurationPtrInput is an input type that accepts StateMachineEncryptionConfigurationArgs, StateMachineEncryptionConfigurationPtr and StateMachineEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `StateMachineEncryptionConfigurationPtrInput` via:
+//
+//	        StateMachineEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StateMachineEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput
+	ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Context) StateMachineEncryptionConfigurationPtrOutput
+}
+
+type stateMachineEncryptionConfigurationPtrType StateMachineEncryptionConfigurationArgs
+
+func StateMachineEncryptionConfigurationPtr(v *StateMachineEncryptionConfigurationArgs) StateMachineEncryptionConfigurationPtrInput {
+	return (*stateMachineEncryptionConfigurationPtrType)(v)
+}
+
+func (*stateMachineEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *stateMachineEncryptionConfigurationPtrType) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return i.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *stateMachineEncryptionConfigurationPtrType) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationPtrOutput)
+}
+
+type StateMachineEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StateMachineEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return o.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineEncryptionConfiguration) *StateMachineEncryptionConfiguration {
+		return &v
+	}).(StateMachineEncryptionConfigurationPtrOutput)
+}
+
+func (o StateMachineEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o StateMachineEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o StateMachineEncryptionConfigurationOutput) Type() StateMachineEncryptionConfigurationTypeOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) StateMachineEncryptionConfigurationType { return v.Type }).(StateMachineEncryptionConfigurationTypeOutput)
+}
+
+type StateMachineEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StateMachineEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) Elem() StateMachineEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) StateMachineEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineEncryptionConfiguration
+		return ret
+	}).(StateMachineEncryptionConfigurationOutput)
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KmsDataKeyReusePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) Type() StateMachineEncryptionConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *StateMachineEncryptionConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(StateMachineEncryptionConfigurationTypePtrOutput)
 }
 
 type StateMachineLogDestination struct {
@@ -1199,6 +1525,8 @@ func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityEncryptionConfigurationInput)(nil)).Elem(), ActivityEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityEncryptionConfigurationPtrInput)(nil)).Elem(), ActivityEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferenceInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferencePtrInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersionInput)(nil)).Elem(), StateMachineAliasRoutingConfigurationVersionArgs{})
@@ -1207,6 +1535,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineCloudWatchLogsLogGroupPtrInput)(nil)).Elem(), StateMachineCloudWatchLogsLogGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionInput)(nil)).Elem(), StateMachineDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionPtrInput)(nil)).Elem(), StateMachineDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineEncryptionConfigurationInput)(nil)).Elem(), StateMachineEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineEncryptionConfigurationPtrInput)(nil)).Elem(), StateMachineEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLogDestinationInput)(nil)).Elem(), StateMachineLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLogDestinationArrayInput)(nil)).Elem(), StateMachineLogDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
@@ -1215,6 +1545,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineS3LocationPtrInput)(nil)).Elem(), StateMachineS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationPtrInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
+	pulumi.RegisterOutputType(ActivityEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ActivityEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferenceOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferencePtrOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasRoutingConfigurationVersionOutput{})
@@ -1223,6 +1555,8 @@ func init() {
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(StateMachineEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StateMachineEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationOutput{})

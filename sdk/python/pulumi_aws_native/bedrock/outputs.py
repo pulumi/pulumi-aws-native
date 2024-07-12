@@ -1000,6 +1000,8 @@ class DataSourceChunkingConfiguration(dict):
         :param 'DataSourceChunkingStrategy' chunking_strategy: Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
                
                - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+               - `HIERARCHICAL` – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+               - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
                - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
         :param 'DataSourceFixedSizeChunkingConfiguration' fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
         """
@@ -1014,6 +1016,8 @@ class DataSourceChunkingConfiguration(dict):
         Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
 
         - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+        - `HIERARCHICAL` – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+        - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
         - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
         """
         return pulumi.get(self, "chunking_strategy")
@@ -1054,8 +1058,8 @@ class DataSourceConfiguration(dict):
                  type: 'DataSourceType'):
         """
         Specifies a raw data source location to ingest.
-        :param 'DataSourceS3DataSourceConfiguration' s3_configuration: Contains details about the configuration of the S3 object containing the data source.
-        :param 'DataSourceType' type: The type of storage for the data source.
+        :param 'DataSourceS3DataSourceConfiguration' s3_configuration: The configuration information to connect to Amazon S3 as your data source.
+        :param 'DataSourceType' type: The type of data source.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "type", type)
@@ -1064,7 +1068,7 @@ class DataSourceConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DataSourceS3DataSourceConfiguration':
         """
-        Contains details about the configuration of the S3 object containing the data source.
+        The configuration information to connect to Amazon S3 as your data source.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -1072,7 +1076,7 @@ class DataSourceConfiguration(dict):
     @pulumi.getter
     def type(self) -> 'DataSourceType':
         """
-        The type of storage for the data source.
+        The type of data source.
         """
         return pulumi.get(self, "type")
 

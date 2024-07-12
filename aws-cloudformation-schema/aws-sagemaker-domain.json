@@ -146,6 +146,9 @@
         "CodeEditorAppSettings" : {
           "$ref" : "#/definitions/CodeEditorAppSettings"
         },
+        "StudioWebPortalSettings" : {
+          "$ref" : "#/definitions/StudioWebPortalSettings"
+        },
         "DefaultLandingUri" : {
           "type" : "string",
           "description" : "Defines which Amazon SageMaker application users are directed to by default.",
@@ -295,7 +298,7 @@
           "uniqueItems" : false,
           "insertionOrder" : false,
           "minItems" : 0,
-          "maxItems" : 30,
+          "maxItems" : 200,
           "items" : {
             "$ref" : "#/definitions/CustomImage"
           }
@@ -340,7 +343,7 @@
           "description" : "A list of custom images for use for JupyterLab apps.",
           "uniqueItems" : false,
           "minItems" : 0,
-          "maxItems" : 30,
+          "maxItems" : 200,
           "items" : {
             "$ref" : "#/definitions/CustomImage"
           }
@@ -415,7 +418,7 @@
           "description" : "A list of custom images for use for CodeEditor apps.",
           "uniqueItems" : false,
           "minItems" : 0,
-          "maxItems" : 30,
+          "maxItems" : 200,
           "items" : {
             "$ref" : "#/definitions/CustomImage"
           }
@@ -581,11 +584,12 @@
           "uniqueItems" : false,
           "insertionOrder" : false,
           "minItems" : 0,
-          "maxItems" : 10,
+          "maxItems" : 20,
           "items" : {
             "type" : "string",
+            "minLength" : 12,
             "maxLength" : 12,
-            "pattern" : "^[0-9]$"
+            "pattern" : "^\\d+$"
           }
         }
       }
@@ -629,7 +633,7 @@
           "insertionOrder" : false,
           "uniqueItems" : false,
           "minItems" : 0,
-          "maxItems" : 30,
+          "maxItems" : 200,
           "items" : {
             "$ref" : "#/definitions/CustomImage"
           }
@@ -655,6 +659,41 @@
           "enum" : [ "R_STUDIO_ADMIN", "R_STUDIO_USER" ]
         }
       }
+    },
+    "StudioWebPortalSettings" : {
+      "type" : "object",
+      "description" : "Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.",
+      "additionalProperties" : false,
+      "properties" : {
+        "HiddenMlTools" : {
+          "type" : "array",
+          "description" : "The machine learning tools that are hidden from the Studio left navigation pane.",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "minItems" : 0,
+          "items" : {
+            "$ref" : "#/definitions/MlTools"
+          }
+        },
+        "HiddenAppTypes" : {
+          "type" : "array",
+          "description" : "Applications supported in Studio that are hidden from the Studio left navigation pane.",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "minItems" : 0,
+          "items" : {
+            "$ref" : "#/definitions/AppType"
+          }
+        }
+      }
+    },
+    "MlTools" : {
+      "type" : "string",
+      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoML", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects" ]
+    },
+    "AppType" : {
+      "type" : "string",
+      "enum" : [ "JupyterServer", "TensorBoard", "RStudioServerPro", "JupyterLab", "CodeEditor", "DetailedProfiler", "Canvas" ]
     }
   },
   "required" : [ "AuthMode", "DefaultUserSettings", "DomainName", "SubnetIds", "VpcId" ],

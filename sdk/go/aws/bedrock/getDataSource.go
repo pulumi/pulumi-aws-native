@@ -32,9 +32,9 @@ type LookupDataSourceArgs struct {
 type LookupDataSourceResult struct {
 	// The time at which the data source was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The data deletion policy for a data source.
+	// The data deletion policy for the data source.
 	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	// Contains details about how the data source is stored.
+	// The connection configuration for the data source.
 	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId *string `pulumi:"dataSourceId"`
@@ -98,12 +98,12 @@ func (o LookupDataSourceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The data deletion policy for a data source.
+// The data deletion policy for the data source.
 func (o LookupDataSourceResultOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceDataDeletionPolicy { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
-// Contains details about how the data source is stored.
+// The connection configuration for the data source.
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }

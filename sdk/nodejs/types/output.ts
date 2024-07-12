@@ -8778,6 +8778,8 @@ export namespace bedrock {
          * Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
          *
          * - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+         * - `HIERARCHICAL` – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+         * - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
          * - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
          */
         chunkingStrategy: enums.bedrock.DataSourceChunkingStrategy;
@@ -8792,11 +8794,11 @@ export namespace bedrock {
      */
     export interface DataSourceConfiguration {
         /**
-         * Contains details about the configuration of the S3 object containing the data source.
+         * The configuration information to connect to Amazon S3 as your data source.
          */
         s3Configuration: outputs.bedrock.DataSourceS3DataSourceConfiguration;
         /**
-         * The type of storage for the data source.
+         * The type of data source.
          */
         type: enums.bedrock.DataSourceType;
     }
@@ -11823,9 +11825,11 @@ export namespace cloudtrail {
      */
     export interface TrailEventSelector {
         /**
-         * CloudTrail supports data event logging for Amazon S3 objects, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+         * CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
          *
          * For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
+         *
+         * > To log data events for all other resource types including objects stored in [directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html) , you must use [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) . You must also use `AdvancedEventSelectors` if you want to filter on the `eventName` field.
          */
         dataResources?: outputs.cloudtrail.TrailDataResource[];
         /**
@@ -24270,8 +24274,8 @@ export namespace efs {
 
     /**
      * Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
-     *   + Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
-     *  + See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
+     *    +  Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
+     *   +  See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
      */
     export interface FileSystemLifecyclePolicy {
         /**
@@ -24318,7 +24322,7 @@ export namespace efs {
      */
     export interface FileSystemReplicationDestination {
         /**
-         * The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+         * For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
          *  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
          *   One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
          */
@@ -38778,6 +38782,9 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
     export interface AliasProvisionedConcurrencyConfiguration {
         /**
          * The amount of provisioned concurrency to allocate for the alias.
@@ -38785,13 +38792,19 @@ export namespace lambda {
         provisionedConcurrentExecutions: number;
     }
 
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
     export interface AliasRoutingConfiguration {
         /**
          * The second version, and the percentage of traffic that's routed to it.
          */
-        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
+        additionalVersionWeights?: outputs.lambda.AliasVersionWeight[];
     }
 
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
     export interface AliasVersionWeight {
         /**
          * The qualifier of the second version.
@@ -80270,6 +80283,20 @@ export namespace sagemaker {
     }
 
     /**
+     * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+     */
+    export interface DomainStudioWebPortalSettings {
+        /**
+         * Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: enums.sagemaker.DomainAppType[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: enums.sagemaker.DomainMlTools[];
+    }
+
+    /**
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface DomainUserSettings {
@@ -80329,6 +80356,10 @@ export namespace sagemaker {
          * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
          */
         studioWebPortal?: enums.sagemaker.DomainUserSettingsStudioWebPortal;
+        /**
+         * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.DomainStudioWebPortalSettings;
     }
 
     export interface FeatureGroupDataCatalogConfig {
@@ -83430,6 +83461,20 @@ export namespace sagemaker {
     }
 
     /**
+     * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+     */
+    export interface UserProfileStudioWebPortalSettings {
+        /**
+         * Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: enums.sagemaker.UserProfileAppType[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: enums.sagemaker.UserProfileMlTools[];
+    }
+
+    /**
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface UserProfileUserSettings {
@@ -83485,6 +83530,10 @@ export namespace sagemaker {
          * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
          */
         studioWebPortal?: enums.sagemaker.UserProfileUserSettingsStudioWebPortal;
+        /**
+         * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.UserProfileStudioWebPortalSettings;
     }
 
 }
@@ -86750,6 +86799,12 @@ export namespace sso {
 }
 
 export namespace stepfunctions {
+    export interface ActivityEncryptionConfiguration {
+        kmsDataKeyReusePeriodSeconds?: number;
+        kmsKeyId?: string;
+        type: enums.stepfunctions.ActivityEncryptionConfigurationType;
+    }
+
     /**
      * The settings to enable gradual state machine deployments.
      */
@@ -86797,6 +86852,12 @@ export namespace stepfunctions {
     }
 
     export interface StateMachineDefinition {
+    }
+
+    export interface StateMachineEncryptionConfiguration {
+        kmsDataKeyReusePeriodSeconds?: number;
+        kmsKeyId?: string;
+        type: enums.stepfunctions.StateMachineEncryptionConfigurationType;
     }
 
     export interface StateMachineLogDestination {

@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.StepFunctions
 {
+    [EnumType]
+    public readonly struct ActivityEncryptionConfigurationType : IEquatable<ActivityEncryptionConfigurationType>
+    {
+        private readonly string _value;
+
+        private ActivityEncryptionConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActivityEncryptionConfigurationType CustomerManagedKmsKey { get; } = new ActivityEncryptionConfigurationType("CUSTOMER_MANAGED_KMS_KEY");
+        public static ActivityEncryptionConfigurationType AwsOwnedKey { get; } = new ActivityEncryptionConfigurationType("AWS_OWNED_KEY");
+
+        public static bool operator ==(ActivityEncryptionConfigurationType left, ActivityEncryptionConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ActivityEncryptionConfigurationType left, ActivityEncryptionConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ActivityEncryptionConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActivityEncryptionConfigurationType other && Equals(other);
+        public bool Equals(ActivityEncryptionConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of deployment to perform.
     /// </summary>
@@ -32,6 +60,34 @@ namespace Pulumi.AwsNative.StepFunctions
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StateMachineAliasDeploymentPreferenceType other && Equals(other);
         public bool Equals(StateMachineAliasDeploymentPreferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StateMachineEncryptionConfigurationType : IEquatable<StateMachineEncryptionConfigurationType>
+    {
+        private readonly string _value;
+
+        private StateMachineEncryptionConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StateMachineEncryptionConfigurationType CustomerManagedKmsKey { get; } = new StateMachineEncryptionConfigurationType("CUSTOMER_MANAGED_KMS_KEY");
+        public static StateMachineEncryptionConfigurationType AwsOwnedKey { get; } = new StateMachineEncryptionConfigurationType("AWS_OWNED_KEY");
+
+        public static bool operator ==(StateMachineEncryptionConfigurationType left, StateMachineEncryptionConfigurationType right) => left.Equals(right);
+        public static bool operator !=(StateMachineEncryptionConfigurationType left, StateMachineEncryptionConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(StateMachineEncryptionConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StateMachineEncryptionConfigurationType other && Equals(other);
+        public bool Equals(StateMachineEncryptionConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

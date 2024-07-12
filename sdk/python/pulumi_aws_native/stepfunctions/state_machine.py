@@ -24,6 +24,7 @@ class StateMachineArgs:
                  definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
+                 encryption_configuration: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
                  state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
@@ -67,6 +68,8 @@ class StateMachineArgs:
             pulumi.set(__self__, "definition_string", definition_string)
         if definition_substitutions is not None:
             pulumi.set(__self__, "definition_substitutions", definition_substitutions)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if state_machine_name is not None:
@@ -139,6 +142,15 @@ class StateMachineArgs:
     @definition_substitutions.setter
     def definition_substitutions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]]):
         pulumi.set(self, "definition_substitutions", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -224,6 +236,7 @@ class StateMachine(pulumi.CustomResource):
                  definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
@@ -483,6 +496,7 @@ class StateMachine(pulumi.CustomResource):
                  definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
@@ -502,6 +516,7 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["definition_s3_location"] = definition_s3_location
             __props__.__dict__["definition_string"] = definition_string
             __props__.__dict__["definition_substitutions"] = definition_substitutions
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["logging_configuration"] = logging_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -542,6 +557,7 @@ class StateMachine(pulumi.CustomResource):
         __props__.__dict__["definition_s3_location"] = None
         __props__.__dict__["definition_string"] = None
         __props__.__dict__["definition_substitutions"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
@@ -593,6 +609,11 @@ class StateMachine(pulumi.CustomResource):
         Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
         """
         return pulumi.get(self, "definition_substitutions")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineEncryptionConfiguration']]:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="loggingConfiguration")

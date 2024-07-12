@@ -1632,6 +1632,226 @@ func (in *domainAppSecurityGroupManagementPtr) ToDomainAppSecurityGroupManagemen
 	return pulumi.ToOutputWithContext(ctx, in).(DomainAppSecurityGroupManagementPtrOutput)
 }
 
+type DomainAppType string
+
+const (
+	DomainAppTypeJupyterServer    = DomainAppType("JupyterServer")
+	DomainAppTypeTensorBoard      = DomainAppType("TensorBoard")
+	DomainAppTypeRStudioServerPro = DomainAppType("RStudioServerPro")
+	DomainAppTypeJupyterLab       = DomainAppType("JupyterLab")
+	DomainAppTypeCodeEditor       = DomainAppType("CodeEditor")
+	DomainAppTypeDetailedProfiler = DomainAppType("DetailedProfiler")
+	DomainAppTypeCanvas           = DomainAppType("Canvas")
+)
+
+func (DomainAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppType)(nil)).Elem()
+}
+
+func (e DomainAppType) ToDomainAppTypeOutput() DomainAppTypeOutput {
+	return pulumi.ToOutput(e).(DomainAppTypeOutput)
+}
+
+func (e DomainAppType) ToDomainAppTypeOutputWithContext(ctx context.Context) DomainAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAppTypeOutput)
+}
+
+func (e DomainAppType) ToDomainAppTypePtrOutput() DomainAppTypePtrOutput {
+	return e.ToDomainAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppType) ToDomainAppTypePtrOutputWithContext(ctx context.Context) DomainAppTypePtrOutput {
+	return DomainAppType(e).ToDomainAppTypeOutputWithContext(ctx).ToDomainAppTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAppTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppType)(nil)).Elem()
+}
+
+func (o DomainAppTypeOutput) ToDomainAppTypeOutput() DomainAppTypeOutput {
+	return o
+}
+
+func (o DomainAppTypeOutput) ToDomainAppTypeOutputWithContext(ctx context.Context) DomainAppTypeOutput {
+	return o
+}
+
+func (o DomainAppTypeOutput) ToDomainAppTypePtrOutput() DomainAppTypePtrOutput {
+	return o.ToDomainAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppTypeOutput) ToDomainAppTypePtrOutputWithContext(ctx context.Context) DomainAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAppType) *DomainAppType {
+		return &v
+	}).(DomainAppTypePtrOutput)
+}
+
+func (o DomainAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAppType)(nil)).Elem()
+}
+
+func (o DomainAppTypePtrOutput) ToDomainAppTypePtrOutput() DomainAppTypePtrOutput {
+	return o
+}
+
+func (o DomainAppTypePtrOutput) ToDomainAppTypePtrOutputWithContext(ctx context.Context) DomainAppTypePtrOutput {
+	return o
+}
+
+func (o DomainAppTypePtrOutput) Elem() DomainAppTypeOutput {
+	return o.ApplyT(func(v *DomainAppType) DomainAppType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAppType
+		return ret
+	}).(DomainAppTypeOutput)
+}
+
+func (o DomainAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAppTypeInput is an input type that accepts values of the DomainAppType enum
+// A concrete instance of `DomainAppTypeInput` can be one of the following:
+//
+//	DomainAppTypeJupyterServer
+//	DomainAppTypeTensorBoard
+//	DomainAppTypeRStudioServerPro
+//	DomainAppTypeJupyterLab
+//	DomainAppTypeCodeEditor
+//	DomainAppTypeDetailedProfiler
+//	DomainAppTypeCanvas
+type DomainAppTypeInput interface {
+	pulumi.Input
+
+	ToDomainAppTypeOutput() DomainAppTypeOutput
+	ToDomainAppTypeOutputWithContext(context.Context) DomainAppTypeOutput
+}
+
+var domainAppTypePtrType = reflect.TypeOf((**DomainAppType)(nil)).Elem()
+
+type DomainAppTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainAppTypePtrOutput() DomainAppTypePtrOutput
+	ToDomainAppTypePtrOutputWithContext(context.Context) DomainAppTypePtrOutput
+}
+
+type domainAppTypePtr string
+
+func DomainAppTypePtr(v string) DomainAppTypePtrInput {
+	return (*domainAppTypePtr)(&v)
+}
+
+func (*domainAppTypePtr) ElementType() reflect.Type {
+	return domainAppTypePtrType
+}
+
+func (in *domainAppTypePtr) ToDomainAppTypePtrOutput() DomainAppTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainAppTypePtrOutput)
+}
+
+func (in *domainAppTypePtr) ToDomainAppTypePtrOutputWithContext(ctx context.Context) DomainAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAppTypePtrOutput)
+}
+
+// DomainAppTypeArrayInput is an input type that accepts DomainAppTypeArray and DomainAppTypeArrayOutput values.
+// You can construct a concrete instance of `DomainAppTypeArrayInput` via:
+//
+//	DomainAppTypeArray{ DomainAppTypeArgs{...} }
+type DomainAppTypeArrayInput interface {
+	pulumi.Input
+
+	ToDomainAppTypeArrayOutput() DomainAppTypeArrayOutput
+	ToDomainAppTypeArrayOutputWithContext(context.Context) DomainAppTypeArrayOutput
+}
+
+type DomainAppTypeArray []DomainAppType
+
+func (DomainAppTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAppType)(nil)).Elem()
+}
+
+func (i DomainAppTypeArray) ToDomainAppTypeArrayOutput() DomainAppTypeArrayOutput {
+	return i.ToDomainAppTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAppTypeArray) ToDomainAppTypeArrayOutputWithContext(ctx context.Context) DomainAppTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAppTypeArrayOutput)
+}
+
+type DomainAppTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAppTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAppType)(nil)).Elem()
+}
+
+func (o DomainAppTypeArrayOutput) ToDomainAppTypeArrayOutput() DomainAppTypeArrayOutput {
+	return o
+}
+
+func (o DomainAppTypeArrayOutput) ToDomainAppTypeArrayOutputWithContext(ctx context.Context) DomainAppTypeArrayOutput {
+	return o
+}
+
+func (o DomainAppTypeArrayOutput) Index(i pulumi.IntInput) DomainAppTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAppType {
+		return vs[0].([]DomainAppType)[vs[1].(int)]
+	}).(DomainAppTypeOutput)
+}
+
 // The mode of authentication that members use to access the domain.
 type DomainAuthMode string
 
@@ -1962,6 +2182,238 @@ func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnabl
 
 func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainDockerSettingsEnableDockerAccessPtrOutput)
+}
+
+type DomainMlTools string
+
+const (
+	DomainMlToolsDataWrangler         = DomainMlTools("DataWrangler")
+	DomainMlToolsFeatureStore         = DomainMlTools("FeatureStore")
+	DomainMlToolsEmrClusters          = DomainMlTools("EmrClusters")
+	DomainMlToolsAutoMl               = DomainMlTools("AutoML")
+	DomainMlToolsExperiments          = DomainMlTools("Experiments")
+	DomainMlToolsTraining             = DomainMlTools("Training")
+	DomainMlToolsModelEvaluation      = DomainMlTools("ModelEvaluation")
+	DomainMlToolsPipelines            = DomainMlTools("Pipelines")
+	DomainMlToolsModels               = DomainMlTools("Models")
+	DomainMlToolsJumpStart            = DomainMlTools("JumpStart")
+	DomainMlToolsInferenceRecommender = DomainMlTools("InferenceRecommender")
+	DomainMlToolsEndpoints            = DomainMlTools("Endpoints")
+	DomainMlToolsProjects             = DomainMlTools("Projects")
+)
+
+func (DomainMlTools) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMlTools)(nil)).Elem()
+}
+
+func (e DomainMlTools) ToDomainMlToolsOutput() DomainMlToolsOutput {
+	return pulumi.ToOutput(e).(DomainMlToolsOutput)
+}
+
+func (e DomainMlTools) ToDomainMlToolsOutputWithContext(ctx context.Context) DomainMlToolsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainMlToolsOutput)
+}
+
+func (e DomainMlTools) ToDomainMlToolsPtrOutput() DomainMlToolsPtrOutput {
+	return e.ToDomainMlToolsPtrOutputWithContext(context.Background())
+}
+
+func (e DomainMlTools) ToDomainMlToolsPtrOutputWithContext(ctx context.Context) DomainMlToolsPtrOutput {
+	return DomainMlTools(e).ToDomainMlToolsOutputWithContext(ctx).ToDomainMlToolsPtrOutputWithContext(ctx)
+}
+
+func (e DomainMlTools) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainMlTools) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainMlTools) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainMlTools) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainMlToolsOutput struct{ *pulumi.OutputState }
+
+func (DomainMlToolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMlTools)(nil)).Elem()
+}
+
+func (o DomainMlToolsOutput) ToDomainMlToolsOutput() DomainMlToolsOutput {
+	return o
+}
+
+func (o DomainMlToolsOutput) ToDomainMlToolsOutputWithContext(ctx context.Context) DomainMlToolsOutput {
+	return o
+}
+
+func (o DomainMlToolsOutput) ToDomainMlToolsPtrOutput() DomainMlToolsPtrOutput {
+	return o.ToDomainMlToolsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainMlToolsOutput) ToDomainMlToolsPtrOutputWithContext(ctx context.Context) DomainMlToolsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainMlTools) *DomainMlTools {
+		return &v
+	}).(DomainMlToolsPtrOutput)
+}
+
+func (o DomainMlToolsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainMlToolsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainMlTools) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainMlToolsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainMlToolsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainMlTools) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainMlToolsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainMlToolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainMlTools)(nil)).Elem()
+}
+
+func (o DomainMlToolsPtrOutput) ToDomainMlToolsPtrOutput() DomainMlToolsPtrOutput {
+	return o
+}
+
+func (o DomainMlToolsPtrOutput) ToDomainMlToolsPtrOutputWithContext(ctx context.Context) DomainMlToolsPtrOutput {
+	return o
+}
+
+func (o DomainMlToolsPtrOutput) Elem() DomainMlToolsOutput {
+	return o.ApplyT(func(v *DomainMlTools) DomainMlTools {
+		if v != nil {
+			return *v
+		}
+		var ret DomainMlTools
+		return ret
+	}).(DomainMlToolsOutput)
+}
+
+func (o DomainMlToolsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainMlTools) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainMlToolsInput is an input type that accepts values of the DomainMlTools enum
+// A concrete instance of `DomainMlToolsInput` can be one of the following:
+//
+//	DomainMlToolsDataWrangler
+//	DomainMlToolsFeatureStore
+//	DomainMlToolsEmrClusters
+//	DomainMlToolsAutoMl
+//	DomainMlToolsExperiments
+//	DomainMlToolsTraining
+//	DomainMlToolsModelEvaluation
+//	DomainMlToolsPipelines
+//	DomainMlToolsModels
+//	DomainMlToolsJumpStart
+//	DomainMlToolsInferenceRecommender
+//	DomainMlToolsEndpoints
+//	DomainMlToolsProjects
+type DomainMlToolsInput interface {
+	pulumi.Input
+
+	ToDomainMlToolsOutput() DomainMlToolsOutput
+	ToDomainMlToolsOutputWithContext(context.Context) DomainMlToolsOutput
+}
+
+var domainMlToolsPtrType = reflect.TypeOf((**DomainMlTools)(nil)).Elem()
+
+type DomainMlToolsPtrInput interface {
+	pulumi.Input
+
+	ToDomainMlToolsPtrOutput() DomainMlToolsPtrOutput
+	ToDomainMlToolsPtrOutputWithContext(context.Context) DomainMlToolsPtrOutput
+}
+
+type domainMlToolsPtr string
+
+func DomainMlToolsPtr(v string) DomainMlToolsPtrInput {
+	return (*domainMlToolsPtr)(&v)
+}
+
+func (*domainMlToolsPtr) ElementType() reflect.Type {
+	return domainMlToolsPtrType
+}
+
+func (in *domainMlToolsPtr) ToDomainMlToolsPtrOutput() DomainMlToolsPtrOutput {
+	return pulumi.ToOutput(in).(DomainMlToolsPtrOutput)
+}
+
+func (in *domainMlToolsPtr) ToDomainMlToolsPtrOutputWithContext(ctx context.Context) DomainMlToolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainMlToolsPtrOutput)
+}
+
+// DomainMlToolsArrayInput is an input type that accepts DomainMlToolsArray and DomainMlToolsArrayOutput values.
+// You can construct a concrete instance of `DomainMlToolsArrayInput` via:
+//
+//	DomainMlToolsArray{ DomainMlToolsArgs{...} }
+type DomainMlToolsArrayInput interface {
+	pulumi.Input
+
+	ToDomainMlToolsArrayOutput() DomainMlToolsArrayOutput
+	ToDomainMlToolsArrayOutputWithContext(context.Context) DomainMlToolsArrayOutput
+}
+
+type DomainMlToolsArray []DomainMlTools
+
+func (DomainMlToolsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainMlTools)(nil)).Elem()
+}
+
+func (i DomainMlToolsArray) ToDomainMlToolsArrayOutput() DomainMlToolsArrayOutput {
+	return i.ToDomainMlToolsArrayOutputWithContext(context.Background())
+}
+
+func (i DomainMlToolsArray) ToDomainMlToolsArrayOutputWithContext(ctx context.Context) DomainMlToolsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMlToolsArrayOutput)
+}
+
+type DomainMlToolsArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainMlToolsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainMlTools)(nil)).Elem()
+}
+
+func (o DomainMlToolsArrayOutput) ToDomainMlToolsArrayOutput() DomainMlToolsArrayOutput {
+	return o
+}
+
+func (o DomainMlToolsArrayOutput) ToDomainMlToolsArrayOutputWithContext(ctx context.Context) DomainMlToolsArrayOutput {
+	return o
+}
+
+func (o DomainMlToolsArrayOutput) Index(i pulumi.IntInput) DomainMlToolsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainMlTools {
+		return vs[0].([]DomainMlTools)[vs[1].(int)]
+	}).(DomainMlToolsOutput)
 }
 
 // Indicates whether the current user has access to the RStudioServerPro app.
@@ -12895,6 +13347,458 @@ func (in *spaceSharingSettingsSharingTypePtr) ToSpaceSharingSettingsSharingTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(SpaceSharingSettingsSharingTypePtrOutput)
 }
 
+type UserProfileAppType string
+
+const (
+	UserProfileAppTypeJupyterServer    = UserProfileAppType("JupyterServer")
+	UserProfileAppTypeTensorBoard      = UserProfileAppType("TensorBoard")
+	UserProfileAppTypeRStudioServerPro = UserProfileAppType("RStudioServerPro")
+	UserProfileAppTypeJupyterLab       = UserProfileAppType("JupyterLab")
+	UserProfileAppTypeCodeEditor       = UserProfileAppType("CodeEditor")
+	UserProfileAppTypeDetailedProfiler = UserProfileAppType("DetailedProfiler")
+	UserProfileAppTypeCanvas           = UserProfileAppType("Canvas")
+)
+
+func (UserProfileAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppType)(nil)).Elem()
+}
+
+func (e UserProfileAppType) ToUserProfileAppTypeOutput() UserProfileAppTypeOutput {
+	return pulumi.ToOutput(e).(UserProfileAppTypeOutput)
+}
+
+func (e UserProfileAppType) ToUserProfileAppTypeOutputWithContext(ctx context.Context) UserProfileAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileAppTypeOutput)
+}
+
+func (e UserProfileAppType) ToUserProfileAppTypePtrOutput() UserProfileAppTypePtrOutput {
+	return e.ToUserProfileAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileAppType) ToUserProfileAppTypePtrOutputWithContext(ctx context.Context) UserProfileAppTypePtrOutput {
+	return UserProfileAppType(e).ToUserProfileAppTypeOutputWithContext(ctx).ToUserProfileAppTypePtrOutputWithContext(ctx)
+}
+
+func (e UserProfileAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileAppTypeOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppType)(nil)).Elem()
+}
+
+func (o UserProfileAppTypeOutput) ToUserProfileAppTypeOutput() UserProfileAppTypeOutput {
+	return o
+}
+
+func (o UserProfileAppTypeOutput) ToUserProfileAppTypeOutputWithContext(ctx context.Context) UserProfileAppTypeOutput {
+	return o
+}
+
+func (o UserProfileAppTypeOutput) ToUserProfileAppTypePtrOutput() UserProfileAppTypePtrOutput {
+	return o.ToUserProfileAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppTypeOutput) ToUserProfileAppTypePtrOutputWithContext(ctx context.Context) UserProfileAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileAppType) *UserProfileAppType {
+		return &v
+	}).(UserProfileAppTypePtrOutput)
+}
+
+func (o UserProfileAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileAppType)(nil)).Elem()
+}
+
+func (o UserProfileAppTypePtrOutput) ToUserProfileAppTypePtrOutput() UserProfileAppTypePtrOutput {
+	return o
+}
+
+func (o UserProfileAppTypePtrOutput) ToUserProfileAppTypePtrOutputWithContext(ctx context.Context) UserProfileAppTypePtrOutput {
+	return o
+}
+
+func (o UserProfileAppTypePtrOutput) Elem() UserProfileAppTypeOutput {
+	return o.ApplyT(func(v *UserProfileAppType) UserProfileAppType {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileAppType
+		return ret
+	}).(UserProfileAppTypeOutput)
+}
+
+func (o UserProfileAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileAppTypeInput is an input type that accepts values of the UserProfileAppType enum
+// A concrete instance of `UserProfileAppTypeInput` can be one of the following:
+//
+//	UserProfileAppTypeJupyterServer
+//	UserProfileAppTypeTensorBoard
+//	UserProfileAppTypeRStudioServerPro
+//	UserProfileAppTypeJupyterLab
+//	UserProfileAppTypeCodeEditor
+//	UserProfileAppTypeDetailedProfiler
+//	UserProfileAppTypeCanvas
+type UserProfileAppTypeInput interface {
+	pulumi.Input
+
+	ToUserProfileAppTypeOutput() UserProfileAppTypeOutput
+	ToUserProfileAppTypeOutputWithContext(context.Context) UserProfileAppTypeOutput
+}
+
+var userProfileAppTypePtrType = reflect.TypeOf((**UserProfileAppType)(nil)).Elem()
+
+type UserProfileAppTypePtrInput interface {
+	pulumi.Input
+
+	ToUserProfileAppTypePtrOutput() UserProfileAppTypePtrOutput
+	ToUserProfileAppTypePtrOutputWithContext(context.Context) UserProfileAppTypePtrOutput
+}
+
+type userProfileAppTypePtr string
+
+func UserProfileAppTypePtr(v string) UserProfileAppTypePtrInput {
+	return (*userProfileAppTypePtr)(&v)
+}
+
+func (*userProfileAppTypePtr) ElementType() reflect.Type {
+	return userProfileAppTypePtrType
+}
+
+func (in *userProfileAppTypePtr) ToUserProfileAppTypePtrOutput() UserProfileAppTypePtrOutput {
+	return pulumi.ToOutput(in).(UserProfileAppTypePtrOutput)
+}
+
+func (in *userProfileAppTypePtr) ToUserProfileAppTypePtrOutputWithContext(ctx context.Context) UserProfileAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileAppTypePtrOutput)
+}
+
+// UserProfileAppTypeArrayInput is an input type that accepts UserProfileAppTypeArray and UserProfileAppTypeArrayOutput values.
+// You can construct a concrete instance of `UserProfileAppTypeArrayInput` via:
+//
+//	UserProfileAppTypeArray{ UserProfileAppTypeArgs{...} }
+type UserProfileAppTypeArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileAppTypeArrayOutput() UserProfileAppTypeArrayOutput
+	ToUserProfileAppTypeArrayOutputWithContext(context.Context) UserProfileAppTypeArrayOutput
+}
+
+type UserProfileAppTypeArray []UserProfileAppType
+
+func (UserProfileAppTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileAppType)(nil)).Elem()
+}
+
+func (i UserProfileAppTypeArray) ToUserProfileAppTypeArrayOutput() UserProfileAppTypeArrayOutput {
+	return i.ToUserProfileAppTypeArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileAppTypeArray) ToUserProfileAppTypeArrayOutputWithContext(ctx context.Context) UserProfileAppTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileAppTypeArrayOutput)
+}
+
+type UserProfileAppTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileAppType)(nil)).Elem()
+}
+
+func (o UserProfileAppTypeArrayOutput) ToUserProfileAppTypeArrayOutput() UserProfileAppTypeArrayOutput {
+	return o
+}
+
+func (o UserProfileAppTypeArrayOutput) ToUserProfileAppTypeArrayOutputWithContext(ctx context.Context) UserProfileAppTypeArrayOutput {
+	return o
+}
+
+func (o UserProfileAppTypeArrayOutput) Index(i pulumi.IntInput) UserProfileAppTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileAppType {
+		return vs[0].([]UserProfileAppType)[vs[1].(int)]
+	}).(UserProfileAppTypeOutput)
+}
+
+type UserProfileMlTools string
+
+const (
+	UserProfileMlToolsDataWrangler         = UserProfileMlTools("DataWrangler")
+	UserProfileMlToolsFeatureStore         = UserProfileMlTools("FeatureStore")
+	UserProfileMlToolsEmrClusters          = UserProfileMlTools("EmrClusters")
+	UserProfileMlToolsAutoMl               = UserProfileMlTools("AutoML")
+	UserProfileMlToolsExperiments          = UserProfileMlTools("Experiments")
+	UserProfileMlToolsTraining             = UserProfileMlTools("Training")
+	UserProfileMlToolsModelEvaluation      = UserProfileMlTools("ModelEvaluation")
+	UserProfileMlToolsPipelines            = UserProfileMlTools("Pipelines")
+	UserProfileMlToolsModels               = UserProfileMlTools("Models")
+	UserProfileMlToolsJumpStart            = UserProfileMlTools("JumpStart")
+	UserProfileMlToolsInferenceRecommender = UserProfileMlTools("InferenceRecommender")
+	UserProfileMlToolsEndpoints            = UserProfileMlTools("Endpoints")
+	UserProfileMlToolsProjects             = UserProfileMlTools("Projects")
+)
+
+func (UserProfileMlTools) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileMlTools)(nil)).Elem()
+}
+
+func (e UserProfileMlTools) ToUserProfileMlToolsOutput() UserProfileMlToolsOutput {
+	return pulumi.ToOutput(e).(UserProfileMlToolsOutput)
+}
+
+func (e UserProfileMlTools) ToUserProfileMlToolsOutputWithContext(ctx context.Context) UserProfileMlToolsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileMlToolsOutput)
+}
+
+func (e UserProfileMlTools) ToUserProfileMlToolsPtrOutput() UserProfileMlToolsPtrOutput {
+	return e.ToUserProfileMlToolsPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileMlTools) ToUserProfileMlToolsPtrOutputWithContext(ctx context.Context) UserProfileMlToolsPtrOutput {
+	return UserProfileMlTools(e).ToUserProfileMlToolsOutputWithContext(ctx).ToUserProfileMlToolsPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileMlTools) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileMlTools) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileMlTools) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileMlTools) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileMlToolsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileMlToolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileMlTools)(nil)).Elem()
+}
+
+func (o UserProfileMlToolsOutput) ToUserProfileMlToolsOutput() UserProfileMlToolsOutput {
+	return o
+}
+
+func (o UserProfileMlToolsOutput) ToUserProfileMlToolsOutputWithContext(ctx context.Context) UserProfileMlToolsOutput {
+	return o
+}
+
+func (o UserProfileMlToolsOutput) ToUserProfileMlToolsPtrOutput() UserProfileMlToolsPtrOutput {
+	return o.ToUserProfileMlToolsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileMlToolsOutput) ToUserProfileMlToolsPtrOutputWithContext(ctx context.Context) UserProfileMlToolsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileMlTools) *UserProfileMlTools {
+		return &v
+	}).(UserProfileMlToolsPtrOutput)
+}
+
+func (o UserProfileMlToolsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileMlToolsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileMlTools) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileMlToolsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileMlToolsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileMlTools) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileMlToolsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileMlToolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileMlTools)(nil)).Elem()
+}
+
+func (o UserProfileMlToolsPtrOutput) ToUserProfileMlToolsPtrOutput() UserProfileMlToolsPtrOutput {
+	return o
+}
+
+func (o UserProfileMlToolsPtrOutput) ToUserProfileMlToolsPtrOutputWithContext(ctx context.Context) UserProfileMlToolsPtrOutput {
+	return o
+}
+
+func (o UserProfileMlToolsPtrOutput) Elem() UserProfileMlToolsOutput {
+	return o.ApplyT(func(v *UserProfileMlTools) UserProfileMlTools {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileMlTools
+		return ret
+	}).(UserProfileMlToolsOutput)
+}
+
+func (o UserProfileMlToolsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileMlTools) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileMlToolsInput is an input type that accepts values of the UserProfileMlTools enum
+// A concrete instance of `UserProfileMlToolsInput` can be one of the following:
+//
+//	UserProfileMlToolsDataWrangler
+//	UserProfileMlToolsFeatureStore
+//	UserProfileMlToolsEmrClusters
+//	UserProfileMlToolsAutoMl
+//	UserProfileMlToolsExperiments
+//	UserProfileMlToolsTraining
+//	UserProfileMlToolsModelEvaluation
+//	UserProfileMlToolsPipelines
+//	UserProfileMlToolsModels
+//	UserProfileMlToolsJumpStart
+//	UserProfileMlToolsInferenceRecommender
+//	UserProfileMlToolsEndpoints
+//	UserProfileMlToolsProjects
+type UserProfileMlToolsInput interface {
+	pulumi.Input
+
+	ToUserProfileMlToolsOutput() UserProfileMlToolsOutput
+	ToUserProfileMlToolsOutputWithContext(context.Context) UserProfileMlToolsOutput
+}
+
+var userProfileMlToolsPtrType = reflect.TypeOf((**UserProfileMlTools)(nil)).Elem()
+
+type UserProfileMlToolsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileMlToolsPtrOutput() UserProfileMlToolsPtrOutput
+	ToUserProfileMlToolsPtrOutputWithContext(context.Context) UserProfileMlToolsPtrOutput
+}
+
+type userProfileMlToolsPtr string
+
+func UserProfileMlToolsPtr(v string) UserProfileMlToolsPtrInput {
+	return (*userProfileMlToolsPtr)(&v)
+}
+
+func (*userProfileMlToolsPtr) ElementType() reflect.Type {
+	return userProfileMlToolsPtrType
+}
+
+func (in *userProfileMlToolsPtr) ToUserProfileMlToolsPtrOutput() UserProfileMlToolsPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileMlToolsPtrOutput)
+}
+
+func (in *userProfileMlToolsPtr) ToUserProfileMlToolsPtrOutputWithContext(ctx context.Context) UserProfileMlToolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileMlToolsPtrOutput)
+}
+
+// UserProfileMlToolsArrayInput is an input type that accepts UserProfileMlToolsArray and UserProfileMlToolsArrayOutput values.
+// You can construct a concrete instance of `UserProfileMlToolsArrayInput` via:
+//
+//	UserProfileMlToolsArray{ UserProfileMlToolsArgs{...} }
+type UserProfileMlToolsArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileMlToolsArrayOutput() UserProfileMlToolsArrayOutput
+	ToUserProfileMlToolsArrayOutputWithContext(context.Context) UserProfileMlToolsArrayOutput
+}
+
+type UserProfileMlToolsArray []UserProfileMlTools
+
+func (UserProfileMlToolsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileMlTools)(nil)).Elem()
+}
+
+func (i UserProfileMlToolsArray) ToUserProfileMlToolsArrayOutput() UserProfileMlToolsArrayOutput {
+	return i.ToUserProfileMlToolsArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileMlToolsArray) ToUserProfileMlToolsArrayOutputWithContext(ctx context.Context) UserProfileMlToolsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileMlToolsArrayOutput)
+}
+
+type UserProfileMlToolsArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileMlToolsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileMlTools)(nil)).Elem()
+}
+
+func (o UserProfileMlToolsArrayOutput) ToUserProfileMlToolsArrayOutput() UserProfileMlToolsArrayOutput {
+	return o
+}
+
+func (o UserProfileMlToolsArrayOutput) ToUserProfileMlToolsArrayOutputWithContext(ctx context.Context) UserProfileMlToolsArrayOutput {
+	return o
+}
+
+func (o UserProfileMlToolsArrayOutput) Index(i pulumi.IntInput) UserProfileMlToolsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileMlTools {
+		return vs[0].([]UserProfileMlTools)[vs[1].(int)]
+	}).(UserProfileMlToolsOutput)
+}
+
 // Indicates whether the current user has access to the RStudioServerPro app.
 type UserProfileRStudioServerProAppSettingsAccessStatus string
 
@@ -13866,10 +14770,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppNetworkAccessTypePtrInput)(nil)).Elem(), DomainAppNetworkAccessType("PublicInternetOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementPtrInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppTypeInput)(nil)).Elem(), DomainAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppTypePtrInput)(nil)).Elem(), DomainAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppTypeArrayInput)(nil)).Elem(), DomainAppTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModeInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModePtrInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsPtrInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsArrayInput)(nil)).Elem(), DomainMlToolsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
@@ -13990,6 +14900,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypePtrInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypeInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypePtrInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypePtrInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeArrayInput)(nil)).Elem(), UserProfileAppTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsInput)(nil)).Elem(), UserProfileMlTools("DataWrangler"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsPtrInput)(nil)).Elem(), UserProfileMlTools("DataWrangler"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsArrayInput)(nil)).Elem(), UserProfileMlToolsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
@@ -14018,10 +14934,16 @@ func init() {
 	pulumi.RegisterOutputType(DomainAppNetworkAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementOutput{})
 	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementPtrOutput{})
+	pulumi.RegisterOutputType(DomainAppTypeOutput{})
+	pulumi.RegisterOutputType(DomainAppTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainAppTypeArrayOutput{})
 	pulumi.RegisterOutputType(DomainAuthModeOutput{})
 	pulumi.RegisterOutputType(DomainAuthModePtrOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
+	pulumi.RegisterOutputType(DomainMlToolsOutput{})
+	pulumi.RegisterOutputType(DomainMlToolsPtrOutput{})
+	pulumi.RegisterOutputType(DomainMlToolsArrayOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupOutput{})
@@ -14156,6 +15078,12 @@ func init() {
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypeOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileAppTypeOutput{})
+	pulumi.RegisterOutputType(UserProfileAppTypePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileAppTypeArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileMlToolsOutput{})
+	pulumi.RegisterOutputType(UserProfileMlToolsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileMlToolsArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsUserGroupOutput{})

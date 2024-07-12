@@ -18,9 +18,9 @@ type DataSource struct {
 
 	// The time at which the data source was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The data deletion policy for a data source.
+	// The data deletion policy for the data source.
 	DataDeletionPolicy DataSourceDataDeletionPolicyPtrOutput `pulumi:"dataDeletionPolicy"`
-	// Contains details about how the data source is stored.
+	// The connection configuration for the data source.
 	DataSourceConfiguration DataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
@@ -96,9 +96,9 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// The data deletion policy for a data source.
+	// The data deletion policy for the data source.
 	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	// Contains details about how the data source is stored.
+	// The connection configuration for the data source.
 	DataSourceConfiguration DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
@@ -114,9 +114,9 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// The data deletion policy for a data source.
+	// The data deletion policy for the data source.
 	DataDeletionPolicy DataSourceDataDeletionPolicyPtrInput
-	// Contains details about how the data source is stored.
+	// The connection configuration for the data source.
 	DataSourceConfiguration DataSourceConfigurationInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
@@ -172,12 +172,12 @@ func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The data deletion policy for a data source.
+// The data deletion policy for the data source.
 func (o DataSourceOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceDataDeletionPolicyPtrOutput { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
-// Contains details about how the data source is stored.
+// The connection configuration for the data source.
 func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationOutput)
 }

@@ -426,7 +426,7 @@
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)",
     "/properties/StorageType" : "$lowercase(StorageType)"
   },
-  "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address", "/properties/MasterUserSecret/SecretArn", "/properties/StorageThroughput" ],
+  "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Address", "/properties/MasterUserSecret/SecretArn", "/properties/StorageThroughput" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DBSystemId", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
@@ -449,5 +449,13 @@
     "list" : {
       "permissions" : [ "rds:DescribeDBClusters" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
   }
 }

@@ -21,13 +21,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetStateMachineResult:
-    def __init__(__self__, arn=None, definition_string=None, logging_configuration=None, name=None, role_arn=None, state_machine_revision_id=None, tags=None, tracing_configuration=None):
+    def __init__(__self__, arn=None, definition_string=None, encryption_configuration=None, logging_configuration=None, name=None, role_arn=None, state_machine_revision_id=None, tags=None, tracing_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if definition_string and not isinstance(definition_string, str):
             raise TypeError("Expected argument 'definition_string' to be a str")
         pulumi.set(__self__, "definition_string", definition_string)
+        if encryption_configuration and not isinstance(encryption_configuration, dict):
+            raise TypeError("Expected argument 'encryption_configuration' to be a dict")
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -62,6 +65,11 @@ class GetStateMachineResult:
         The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         """
         return pulumi.get(self, "definition_string")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.StateMachineEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -136,6 +144,7 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
         return GetStateMachineResult(
             arn=self.arn,
             definition_string=self.definition_string,
+            encryption_configuration=self.encryption_configuration,
             logging_configuration=self.logging_configuration,
             name=self.name,
             role_arn=self.role_arn,
@@ -160,6 +169,7 @@ def get_state_machine(arn: Optional[str] = None,
     return AwaitableGetStateMachineResult(
         arn=pulumi.get(__ret__, 'arn'),
         definition_string=pulumi.get(__ret__, 'definition_string'),
+        encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
         name=pulumi.get(__ret__, 'name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),

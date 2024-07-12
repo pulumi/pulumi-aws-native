@@ -91,7 +91,8 @@ type Activity struct {
 	pulumi.CustomResourceState
 
 	// Returns the ARN of the resource.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                     pulumi.StringOutput                      `pulumi:"arn"`
+	EncryptionConfiguration ActivityEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The name of the activity.
 	//
 	// A name must *not* contain:
@@ -118,6 +119,7 @@ func NewActivity(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"encryptionConfiguration",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -154,6 +156,7 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
+	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity.
 	//
 	// A name must *not* contain:
@@ -174,6 +177,7 @@ type activityArgs struct {
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
+	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity.
 	//
 	// A name must *not* contain:
@@ -232,6 +236,10 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 // Returns the ARN of the resource.
 func (o ActivityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ActivityOutput) EncryptionConfiguration() ActivityEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Activity) ActivityEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ActivityEncryptionConfigurationPtrOutput)
 }
 
 // The name of the activity.

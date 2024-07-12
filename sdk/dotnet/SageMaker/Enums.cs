@@ -350,6 +350,39 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DomainAppType : IEquatable<DomainAppType>
+    {
+        private readonly string _value;
+
+        private DomainAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAppType JupyterServer { get; } = new DomainAppType("JupyterServer");
+        public static DomainAppType TensorBoard { get; } = new DomainAppType("TensorBoard");
+        public static DomainAppType RStudioServerPro { get; } = new DomainAppType("RStudioServerPro");
+        public static DomainAppType JupyterLab { get; } = new DomainAppType("JupyterLab");
+        public static DomainAppType CodeEditor { get; } = new DomainAppType("CodeEditor");
+        public static DomainAppType DetailedProfiler { get; } = new DomainAppType("DetailedProfiler");
+        public static DomainAppType Canvas { get; } = new DomainAppType("Canvas");
+
+        public static bool operator ==(DomainAppType left, DomainAppType right) => left.Equals(right);
+        public static bool operator !=(DomainAppType left, DomainAppType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAppType other && Equals(other);
+        public bool Equals(DomainAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The mode of authentication that members use to access the domain.
     /// </summary>
@@ -405,6 +438,45 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainDockerSettingsEnableDockerAccess other && Equals(other);
         public bool Equals(DomainDockerSettingsEnableDockerAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainMlTools : IEquatable<DomainMlTools>
+    {
+        private readonly string _value;
+
+        private DomainMlTools(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainMlTools DataWrangler { get; } = new DomainMlTools("DataWrangler");
+        public static DomainMlTools FeatureStore { get; } = new DomainMlTools("FeatureStore");
+        public static DomainMlTools EmrClusters { get; } = new DomainMlTools("EmrClusters");
+        public static DomainMlTools AutoMl { get; } = new DomainMlTools("AutoML");
+        public static DomainMlTools Experiments { get; } = new DomainMlTools("Experiments");
+        public static DomainMlTools Training { get; } = new DomainMlTools("Training");
+        public static DomainMlTools ModelEvaluation { get; } = new DomainMlTools("ModelEvaluation");
+        public static DomainMlTools Pipelines { get; } = new DomainMlTools("Pipelines");
+        public static DomainMlTools Models { get; } = new DomainMlTools("Models");
+        public static DomainMlTools JumpStart { get; } = new DomainMlTools("JumpStart");
+        public static DomainMlTools InferenceRecommender { get; } = new DomainMlTools("InferenceRecommender");
+        public static DomainMlTools Endpoints { get; } = new DomainMlTools("Endpoints");
+        public static DomainMlTools Projects { get; } = new DomainMlTools("Projects");
+
+        public static bool operator ==(DomainMlTools left, DomainMlTools right) => left.Equals(right);
+        public static bool operator !=(DomainMlTools left, DomainMlTools right) => !left.Equals(right);
+
+        public static explicit operator string(DomainMlTools value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainMlTools other && Equals(other);
+        public bool Equals(DomainMlTools other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2645,6 +2717,78 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpaceSharingSettingsSharingType other && Equals(other);
         public bool Equals(SpaceSharingSettingsSharingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserProfileAppType : IEquatable<UserProfileAppType>
+    {
+        private readonly string _value;
+
+        private UserProfileAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileAppType JupyterServer { get; } = new UserProfileAppType("JupyterServer");
+        public static UserProfileAppType TensorBoard { get; } = new UserProfileAppType("TensorBoard");
+        public static UserProfileAppType RStudioServerPro { get; } = new UserProfileAppType("RStudioServerPro");
+        public static UserProfileAppType JupyterLab { get; } = new UserProfileAppType("JupyterLab");
+        public static UserProfileAppType CodeEditor { get; } = new UserProfileAppType("CodeEditor");
+        public static UserProfileAppType DetailedProfiler { get; } = new UserProfileAppType("DetailedProfiler");
+        public static UserProfileAppType Canvas { get; } = new UserProfileAppType("Canvas");
+
+        public static bool operator ==(UserProfileAppType left, UserProfileAppType right) => left.Equals(right);
+        public static bool operator !=(UserProfileAppType left, UserProfileAppType right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileAppType other && Equals(other);
+        public bool Equals(UserProfileAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserProfileMlTools : IEquatable<UserProfileMlTools>
+    {
+        private readonly string _value;
+
+        private UserProfileMlTools(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileMlTools DataWrangler { get; } = new UserProfileMlTools("DataWrangler");
+        public static UserProfileMlTools FeatureStore { get; } = new UserProfileMlTools("FeatureStore");
+        public static UserProfileMlTools EmrClusters { get; } = new UserProfileMlTools("EmrClusters");
+        public static UserProfileMlTools AutoMl { get; } = new UserProfileMlTools("AutoML");
+        public static UserProfileMlTools Experiments { get; } = new UserProfileMlTools("Experiments");
+        public static UserProfileMlTools Training { get; } = new UserProfileMlTools("Training");
+        public static UserProfileMlTools ModelEvaluation { get; } = new UserProfileMlTools("ModelEvaluation");
+        public static UserProfileMlTools Pipelines { get; } = new UserProfileMlTools("Pipelines");
+        public static UserProfileMlTools Models { get; } = new UserProfileMlTools("Models");
+        public static UserProfileMlTools JumpStart { get; } = new UserProfileMlTools("JumpStart");
+        public static UserProfileMlTools InferenceRecommender { get; } = new UserProfileMlTools("InferenceRecommender");
+        public static UserProfileMlTools Endpoints { get; } = new UserProfileMlTools("Endpoints");
+        public static UserProfileMlTools Projects { get; } = new UserProfileMlTools("Projects");
+
+        public static bool operator ==(UserProfileMlTools left, UserProfileMlTools right) => left.Equals(right);
+        public static bool operator !=(UserProfileMlTools left, UserProfileMlTools right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileMlTools value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileMlTools other && Equals(other);
+        public bool Equals(UserProfileMlTools other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

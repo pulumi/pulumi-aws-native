@@ -53,11 +53,11 @@ class FileSystemArgs:
                 If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
                  +  When to move files in the file system from primary storage to IA storage.
-                 + When to move files in the file system from primary storage or IA storage to Archive storage.
-                +  When to move files that are in IA or Archive storage to primary storage.
+                 +  When to move files in the file system from primary storage or IA storage to Archive storage.
+                 +  When to move files that are in IA or Archive storage to primary storage.
                  
-                 EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
-        :param pulumi.Input[str] performance_mode: The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
+                  EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+        :param pulumi.Input[str] performance_mode: The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
                  Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
                  Default is ``generalPurpose``.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
@@ -203,10 +203,10 @@ class FileSystemArgs:
         """
         An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
           +  When to move files in the file system from primary storage to IA storage.
-          + When to move files in the file system from primary storage or IA storage to Archive storage.
-         +  When to move files that are in IA or Archive storage to primary storage.
+          +  When to move files in the file system from primary storage or IA storage to Archive storage.
+          +  When to move files that are in IA or Archive storage to primary storage.
           
-          EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+           EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         """
         return pulumi.get(self, "lifecycle_policies")
 
@@ -218,7 +218,7 @@ class FileSystemArgs:
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
+        The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
           Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
           Default is ``generalPurpose``.
         """
@@ -309,11 +309,11 @@ class FileSystem(pulumi.CustomResource):
                 If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
                  +  When to move files in the file system from primary storage to IA storage.
-                 + When to move files in the file system from primary storage or IA storage to Archive storage.
-                +  When to move files that are in IA or Archive storage to primary storage.
+                 +  When to move files in the file system from primary storage or IA storage to Archive storage.
+                 +  When to move files that are in IA or Archive storage to primary storage.
                  
-                 EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
-        :param pulumi.Input[str] performance_mode: The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
+                  EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+        :param pulumi.Input[str] performance_mode: The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
                  Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
                  Default is ``generalPurpose``.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
@@ -520,10 +520,10 @@ class FileSystem(pulumi.CustomResource):
         """
         An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
           +  When to move files in the file system from primary storage to IA storage.
-          + When to move files in the file system from primary storage or IA storage to Archive storage.
-         +  When to move files that are in IA or Archive storage to primary storage.
+          +  When to move files in the file system from primary storage or IA storage to Archive storage.
+          +  When to move files that are in IA or Archive storage to primary storage.
           
-          EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+           EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         """
         return pulumi.get(self, "lifecycle_policies")
 
@@ -531,7 +531,7 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
+        The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
           Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
           Default is ``generalPurpose``.
         """

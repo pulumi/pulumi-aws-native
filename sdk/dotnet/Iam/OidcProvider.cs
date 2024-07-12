@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Iam
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OidcProvider(string name, OidcProviderArgs args, CustomResourceOptions? options = null)
+        public OidcProvider(string name, OidcProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:iam:OidcProvider", name, args ?? new OidcProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Iam
             set => _tags = value;
         }
 
-        [Input("thumbprintList", required: true)]
+        [Input("thumbprintList")]
         private InputList<string>? _thumbprintList;
 
         /// <summary>

@@ -58,6 +58,7 @@ __all__ = [
     'DomainResourceSpecArgs',
     'DomainSettingsArgs',
     'DomainSharingSettingsArgs',
+    'DomainStudioWebPortalSettingsArgs',
     'DomainUserSettingsArgs',
     'FeatureGroupDataCatalogConfigArgs',
     'FeatureGroupFeatureDefinitionArgs',
@@ -248,6 +249,7 @@ __all__ = [
     'UserProfileRStudioServerProAppSettingsArgs',
     'UserProfileResourceSpecArgs',
     'UserProfileSharingSettingsArgs',
+    'UserProfileStudioWebPortalSettingsArgs',
     'UserProfileUserSettingsArgs',
 ]
 
@@ -2462,6 +2464,46 @@ class DomainSharingSettingsArgs:
 
 
 @pulumi.input_type
+class DomainStudioWebPortalSettingsArgs:
+    def __init__(__self__, *,
+                 hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppType']]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]] = None):
+        """
+        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        if hidden_app_types is not None:
+            pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_ml_tools is not None:
+            pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+
+    @property
+    @pulumi.getter(name="hiddenAppTypes")
+    def hidden_app_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppType']]]]:
+        """
+        Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_app_types")
+
+    @hidden_app_types.setter
+    def hidden_app_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppType']]]]):
+        pulumi.set(self, "hidden_app_types", value)
+
+    @property
+    @pulumi.getter(name="hiddenMlTools")
+    def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]:
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_ml_tools")
+
+    @hidden_ml_tools.setter
+    def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]):
+        pulumi.set(self, "hidden_ml_tools", value)
+
+
+@pulumi.input_type
 class DomainUserSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
@@ -2477,7 +2519,8 @@ class DomainUserSettingsArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sharing_settings: Optional[pulumi.Input['DomainSharingSettingsArgs']] = None,
                  space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']] = None,
-                 studio_web_portal: Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']] = None):
+                 studio_web_portal: Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']] = None,
+                 studio_web_portal_settings: Optional[pulumi.Input['DomainStudioWebPortalSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the user.
@@ -2494,6 +2537,7 @@ class DomainUserSettingsArgs:
         :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: The sharing settings.
         :param pulumi.Input['DomainDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
         :param pulumi.Input['DomainUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        :param pulumi.Input['DomainStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if code_editor_app_settings is not None:
@@ -2522,6 +2566,8 @@ class DomainUserSettingsArgs:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
         if studio_web_portal is not None:
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
+        if studio_web_portal_settings is not None:
+            pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -2690,6 +2736,18 @@ class DomainUserSettingsArgs:
     @studio_web_portal.setter
     def studio_web_portal(self, value: Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']]):
         pulumi.set(self, "studio_web_portal", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortalSettings")
+    def studio_web_portal_settings(self) -> Optional[pulumi.Input['DomainStudioWebPortalSettingsArgs']]:
+        """
+        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        """
+        return pulumi.get(self, "studio_web_portal_settings")
+
+    @studio_web_portal_settings.setter
+    def studio_web_portal_settings(self, value: Optional[pulumi.Input['DomainStudioWebPortalSettingsArgs']]):
+        pulumi.set(self, "studio_web_portal_settings", value)
 
 
 @pulumi.input_type
@@ -12564,6 +12622,46 @@ class UserProfileSharingSettingsArgs:
 
 
 @pulumi.input_type
+class UserProfileStudioWebPortalSettingsArgs:
+    def __init__(__self__, *,
+                 hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]] = None):
+        """
+        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        if hidden_app_types is not None:
+            pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_ml_tools is not None:
+            pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+
+    @property
+    @pulumi.getter(name="hiddenAppTypes")
+    def hidden_app_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]]]:
+        """
+        Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_app_types")
+
+    @hidden_app_types.setter
+    def hidden_app_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]]]):
+        pulumi.set(self, "hidden_app_types", value)
+
+    @property
+    @pulumi.getter(name="hiddenMlTools")
+    def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]:
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_ml_tools")
+
+    @hidden_ml_tools.setter
+    def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]):
+        pulumi.set(self, "hidden_ml_tools", value)
+
+
+@pulumi.input_type
 class UserProfileUserSettingsArgs:
     def __init__(__self__, *,
                  code_editor_app_settings: Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']] = None,
@@ -12578,7 +12676,8 @@ class UserProfileUserSettingsArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sharing_settings: Optional[pulumi.Input['UserProfileSharingSettingsArgs']] = None,
                  space_storage_settings: Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']] = None,
-                 studio_web_portal: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']] = None):
+                 studio_web_portal: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']] = None,
+                 studio_web_portal_settings: Optional[pulumi.Input['UserProfileStudioWebPortalSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input['UserProfileCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
@@ -12594,6 +12693,7 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input['UserProfileSharingSettingsArgs'] sharing_settings: The sharing settings.
         :param pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
         :param pulumi.Input['UserProfileUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        :param pulumi.Input['UserProfileStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
         if code_editor_app_settings is not None:
             pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
@@ -12621,6 +12721,8 @@ class UserProfileUserSettingsArgs:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
         if studio_web_portal is not None:
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
+        if studio_web_portal_settings is not None:
+            pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
 
     @property
     @pulumi.getter(name="codeEditorAppSettings")
@@ -12777,5 +12879,17 @@ class UserProfileUserSettingsArgs:
     @studio_web_portal.setter
     def studio_web_portal(self, value: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']]):
         pulumi.set(self, "studio_web_portal", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortalSettings")
+    def studio_web_portal_settings(self) -> Optional[pulumi.Input['UserProfileStudioWebPortalSettingsArgs']]:
+        """
+        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+        """
+        return pulumi.get(self, "studio_web_portal_settings")
+
+    @studio_web_portal_settings.setter
+    def studio_web_portal_settings(self, value: Optional[pulumi.Input['UserProfileStudioWebPortalSettingsArgs']]):
+        pulumi.set(self, "studio_web_portal_settings", value)
 
 

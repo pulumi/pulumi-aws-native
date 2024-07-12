@@ -111,10 +111,10 @@ class GetFileSystemResult:
         """
         An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
           +  When to move files in the file system from primary storage to IA storage.
-          + When to move files in the file system from primary storage or IA storage to Archive storage.
-         +  When to move files that are in IA or Archive storage to primary storage.
+          +  When to move files in the file system from primary storage or IA storage to Archive storage.
+          +  When to move files that are in IA or Archive storage to primary storage.
           
-          EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+           EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         """
         return pulumi.get(self, "lifecycle_policies")
 
