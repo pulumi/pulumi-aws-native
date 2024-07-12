@@ -72,12 +72,12 @@ import (
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myGSI"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Artist"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},
@@ -96,12 +96,12 @@ import (
 //					},
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myGSI2"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("NumberOfSongs"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},
@@ -122,12 +122,12 @@ import (
 //				LocalSecondaryIndexes: dynamodb.TableLocalSecondaryIndexArray{
 //					&dynamodb.TableLocalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myLSI"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Album"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},
@@ -201,12 +201,12 @@ import (
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myGSI"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Artist"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},
@@ -225,12 +225,12 @@ import (
 //					},
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myGSI2"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("NumberOfSongs"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},
@@ -251,12 +251,12 @@ import (
 //				LocalSecondaryIndexes: dynamodb.TableLocalSecondaryIndexArray{
 //					&dynamodb.TableLocalSecondaryIndexArgs{
 //						IndexName: pulumi.String("myLSI"),
-//						KeySchema: []dynamodb.TableKeySchemaArgs{
-//							{
+//						KeySchema: dynamodb.TableKeySchemaArray{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Album"),
 //								KeyType:       pulumi.String("HASH"),
 //							},
-//							{
+//							&dynamodb.TableKeySchemaArgs{
 //								AttributeName: pulumi.String("Sales"),
 //								KeyType:       pulumi.String("RANGE"),
 //							},

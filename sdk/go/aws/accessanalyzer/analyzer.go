@@ -35,8 +35,8 @@ import (
 //				AnalyzerName: pulumi.String("DevAccountAnalyzer"),
 //				ArchiveRules: accessanalyzer.AnalyzerArchiveRuleArray{
 //					&accessanalyzer.AnalyzerArchiveRuleArgs{
-//						Filter: []accessanalyzer.AnalyzerFilterArgs{
-//							{
+//						Filter: accessanalyzer.AnalyzerFilterArray{
+//							&accessanalyzer.AnalyzerFilterArgs{
 //								Eq: pulumi.StringArray{
 //									pulumi.String("123456789012"),
 //								},
@@ -46,8 +46,8 @@ import (
 //						RuleName: pulumi.String("ArchiveTrustedAccountAccess"),
 //					},
 //					&accessanalyzer.AnalyzerArchiveRuleArgs{
-//						Filter: []accessanalyzer.AnalyzerFilterArgs{
-//							{
+//						Filter: accessanalyzer.AnalyzerFilterArray{
+//							&accessanalyzer.AnalyzerFilterArgs{
 //								Contains: pulumi.StringArray{
 //									pulumi.String("arn:aws:s3:::docs-bucket"),
 //									pulumi.String("arn:aws:s3:::clients-bucket"),
