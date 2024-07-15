@@ -472,6 +472,17 @@ export const InferenceExperimentType = {
  */
 export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
 
+export const MlflowTrackingServerTrackingServerSize = {
+    Small: "Small",
+    Medium: "Medium",
+    Large: "Large",
+} as const;
+
+/**
+ * The size of the MLFlow Tracking Server.
+ */
+export type MlflowTrackingServerTrackingServerSize = (typeof MlflowTrackingServerTrackingServerSize)[keyof typeof MlflowTrackingServerTrackingServerSize];
+
 export const ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

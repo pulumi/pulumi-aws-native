@@ -5492,6 +5492,174 @@ func (in *inferenceExperimentTypePtr) ToInferenceExperimentTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentTypePtrOutput)
 }
 
+// The size of the MLFlow Tracking Server.
+type MlflowTrackingServerTrackingServerSize string
+
+const (
+	MlflowTrackingServerTrackingServerSizeSmall  = MlflowTrackingServerTrackingServerSize("Small")
+	MlflowTrackingServerTrackingServerSizeMedium = MlflowTrackingServerTrackingServerSize("Medium")
+	MlflowTrackingServerTrackingServerSizeLarge  = MlflowTrackingServerTrackingServerSize("Large")
+)
+
+func (MlflowTrackingServerTrackingServerSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowTrackingServerTrackingServerSize)(nil)).Elem()
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToMlflowTrackingServerTrackingServerSizeOutput() MlflowTrackingServerTrackingServerSizeOutput {
+	return pulumi.ToOutput(e).(MlflowTrackingServerTrackingServerSizeOutput)
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToMlflowTrackingServerTrackingServerSizeOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MlflowTrackingServerTrackingServerSizeOutput)
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToMlflowTrackingServerTrackingServerSizePtrOutput() MlflowTrackingServerTrackingServerSizePtrOutput {
+	return e.ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(context.Background())
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizePtrOutput {
+	return MlflowTrackingServerTrackingServerSize(e).ToMlflowTrackingServerTrackingServerSizeOutputWithContext(ctx).ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(ctx)
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MlflowTrackingServerTrackingServerSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MlflowTrackingServerTrackingServerSizeOutput struct{ *pulumi.OutputState }
+
+func (MlflowTrackingServerTrackingServerSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowTrackingServerTrackingServerSize)(nil)).Elem()
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToMlflowTrackingServerTrackingServerSizeOutput() MlflowTrackingServerTrackingServerSizeOutput {
+	return o
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToMlflowTrackingServerTrackingServerSizeOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizeOutput {
+	return o
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToMlflowTrackingServerTrackingServerSizePtrOutput() MlflowTrackingServerTrackingServerSizePtrOutput {
+	return o.ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(context.Background())
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlflowTrackingServerTrackingServerSize) *MlflowTrackingServerTrackingServerSize {
+		return &v
+	}).(MlflowTrackingServerTrackingServerSizePtrOutput)
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowTrackingServerTrackingServerSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowTrackingServerTrackingServerSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowTrackingServerTrackingServerSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MlflowTrackingServerTrackingServerSizePtrOutput struct{ *pulumi.OutputState }
+
+func (MlflowTrackingServerTrackingServerSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlflowTrackingServerTrackingServerSize)(nil)).Elem()
+}
+
+func (o MlflowTrackingServerTrackingServerSizePtrOutput) ToMlflowTrackingServerTrackingServerSizePtrOutput() MlflowTrackingServerTrackingServerSizePtrOutput {
+	return o
+}
+
+func (o MlflowTrackingServerTrackingServerSizePtrOutput) ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizePtrOutput {
+	return o
+}
+
+func (o MlflowTrackingServerTrackingServerSizePtrOutput) Elem() MlflowTrackingServerTrackingServerSizeOutput {
+	return o.ApplyT(func(v *MlflowTrackingServerTrackingServerSize) MlflowTrackingServerTrackingServerSize {
+		if v != nil {
+			return *v
+		}
+		var ret MlflowTrackingServerTrackingServerSize
+		return ret
+	}).(MlflowTrackingServerTrackingServerSizeOutput)
+}
+
+func (o MlflowTrackingServerTrackingServerSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowTrackingServerTrackingServerSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MlflowTrackingServerTrackingServerSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MlflowTrackingServerTrackingServerSizeInput is an input type that accepts values of the MlflowTrackingServerTrackingServerSize enum
+// A concrete instance of `MlflowTrackingServerTrackingServerSizeInput` can be one of the following:
+//
+//	MlflowTrackingServerTrackingServerSizeSmall
+//	MlflowTrackingServerTrackingServerSizeMedium
+//	MlflowTrackingServerTrackingServerSizeLarge
+type MlflowTrackingServerTrackingServerSizeInput interface {
+	pulumi.Input
+
+	ToMlflowTrackingServerTrackingServerSizeOutput() MlflowTrackingServerTrackingServerSizeOutput
+	ToMlflowTrackingServerTrackingServerSizeOutputWithContext(context.Context) MlflowTrackingServerTrackingServerSizeOutput
+}
+
+var mlflowTrackingServerTrackingServerSizePtrType = reflect.TypeOf((**MlflowTrackingServerTrackingServerSize)(nil)).Elem()
+
+type MlflowTrackingServerTrackingServerSizePtrInput interface {
+	pulumi.Input
+
+	ToMlflowTrackingServerTrackingServerSizePtrOutput() MlflowTrackingServerTrackingServerSizePtrOutput
+	ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(context.Context) MlflowTrackingServerTrackingServerSizePtrOutput
+}
+
+type mlflowTrackingServerTrackingServerSizePtr string
+
+func MlflowTrackingServerTrackingServerSizePtr(v string) MlflowTrackingServerTrackingServerSizePtrInput {
+	return (*mlflowTrackingServerTrackingServerSizePtr)(&v)
+}
+
+func (*mlflowTrackingServerTrackingServerSizePtr) ElementType() reflect.Type {
+	return mlflowTrackingServerTrackingServerSizePtrType
+}
+
+func (in *mlflowTrackingServerTrackingServerSizePtr) ToMlflowTrackingServerTrackingServerSizePtrOutput() MlflowTrackingServerTrackingServerSizePtrOutput {
+	return pulumi.ToOutput(in).(MlflowTrackingServerTrackingServerSizePtrOutput)
+}
+
+func (in *mlflowTrackingServerTrackingServerSizePtr) ToMlflowTrackingServerTrackingServerSizePtrOutputWithContext(ctx context.Context) MlflowTrackingServerTrackingServerSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MlflowTrackingServerTrackingServerSizePtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -14812,6 +14980,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypeInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypePtrInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowTrackingServerTrackingServerSizeInput)(nil)).Elem(), MlflowTrackingServerTrackingServerSize("Small"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowTrackingServerTrackingServerSizePtrInput)(nil)).Elem(), MlflowTrackingServerTrackingServerSize("Small"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -14982,6 +15152,8 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypeOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypePtrOutput{})
+	pulumi.RegisterOutputType(MlflowTrackingServerTrackingServerSizeOutput{})
+	pulumi.RegisterOutputType(MlflowTrackingServerTrackingServerSizePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput{})

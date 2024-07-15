@@ -90,6 +90,11 @@ export const getInferenceExperiment: typeof import("./getInferenceExperiment").g
 export const getInferenceExperimentOutput: typeof import("./getInferenceExperiment").getInferenceExperimentOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceExperiment","getInferenceExperimentOutput"], () => require("./getInferenceExperiment"));
 
+export { GetMlflowTrackingServerArgs, GetMlflowTrackingServerResult, GetMlflowTrackingServerOutputArgs } from "./getMlflowTrackingServer";
+export const getMlflowTrackingServer: typeof import("./getMlflowTrackingServer").getMlflowTrackingServer = null as any;
+export const getMlflowTrackingServerOutput: typeof import("./getMlflowTrackingServer").getMlflowTrackingServerOutput = null as any;
+utilities.lazyLoad(exports, ["getMlflowTrackingServer","getMlflowTrackingServerOutput"], () => require("./getMlflowTrackingServer"));
+
 export { GetModelBiasJobDefinitionArgs, GetModelBiasJobDefinitionResult, GetModelBiasJobDefinitionOutputArgs } from "./getModelBiasJobDefinition";
 export const getModelBiasJobDefinition: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinition = null as any;
 export const getModelBiasJobDefinitionOutput: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinitionOutput = null as any;
@@ -164,6 +169,11 @@ export { InferenceExperimentArgs } from "./inferenceExperiment";
 export type InferenceExperiment = import("./inferenceExperiment").InferenceExperiment;
 export const InferenceExperiment: typeof import("./inferenceExperiment").InferenceExperiment = null as any;
 utilities.lazyLoad(exports, ["InferenceExperiment"], () => require("./inferenceExperiment"));
+
+export { MlflowTrackingServerArgs } from "./mlflowTrackingServer";
+export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
+export const MlflowTrackingServer: typeof import("./mlflowTrackingServer").MlflowTrackingServer = null as any;
+utilities.lazyLoad(exports, ["MlflowTrackingServer"], () => require("./mlflowTrackingServer"));
 
 export { ModelBiasJobDefinitionArgs } from "./modelBiasJobDefinition";
 export type ModelBiasJobDefinition = import("./modelBiasJobDefinition").ModelBiasJobDefinition;
@@ -250,6 +260,8 @@ const _module = {
                 return new InferenceComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:InferenceExperiment":
                 return new InferenceExperiment(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:MlflowTrackingServer":
+                return new MlflowTrackingServer(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelBiasJobDefinition":
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelCard":

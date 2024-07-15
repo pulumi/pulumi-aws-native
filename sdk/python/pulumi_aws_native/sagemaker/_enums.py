@@ -37,6 +37,7 @@ __all__ = [
     'InferenceExperimentModelInfrastructureConfigInfrastructureType',
     'InferenceExperimentStatus',
     'InferenceExperimentType',
+    'MlflowTrackingServerTrackingServerSize',
     'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelBiasJobDefinitionBatchTransformInputS3InputMode',
     'ModelBiasJobDefinitionEndpointInputS3DataDistributionType',
@@ -499,6 +500,15 @@ class InferenceExperimentType(str, Enum):
     The type of the inference experiment that you want to run.
     """
     SHADOW_MODE = "ShadowMode"
+
+
+class MlflowTrackingServerTrackingServerSize(str, Enum):
+    """
+    The size of the MLFlow Tracking Server.
+    """
+    SMALL = "Small"
+    MEDIUM = "Medium"
+    LARGE = "Large"
 
 
 class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):

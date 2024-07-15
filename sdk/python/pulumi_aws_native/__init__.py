@@ -2829,6 +2829,7 @@ _utilities.register(
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
    "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
    "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
+   "aws-native:sagemaker:MlflowTrackingServer": "MlflowTrackingServer",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
    "aws-native:sagemaker:ModelCard": "ModelCard",
    "aws-native:sagemaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",

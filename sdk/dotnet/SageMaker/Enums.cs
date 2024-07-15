@@ -1150,6 +1150,38 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The size of the MLFlow Tracking Server.
+    /// </summary>
+    [EnumType]
+    public readonly struct MlflowTrackingServerTrackingServerSize : IEquatable<MlflowTrackingServerTrackingServerSize>
+    {
+        private readonly string _value;
+
+        private MlflowTrackingServerTrackingServerSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MlflowTrackingServerTrackingServerSize Small { get; } = new MlflowTrackingServerTrackingServerSize("Small");
+        public static MlflowTrackingServerTrackingServerSize Medium { get; } = new MlflowTrackingServerTrackingServerSize("Medium");
+        public static MlflowTrackingServerTrackingServerSize Large { get; } = new MlflowTrackingServerTrackingServerSize("Large");
+
+        public static bool operator ==(MlflowTrackingServerTrackingServerSize left, MlflowTrackingServerTrackingServerSize right) => left.Equals(right);
+        public static bool operator !=(MlflowTrackingServerTrackingServerSize left, MlflowTrackingServerTrackingServerSize right) => !left.Equals(right);
+
+        public static explicit operator string(MlflowTrackingServerTrackingServerSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MlflowTrackingServerTrackingServerSize other && Equals(other);
+        public bool Equals(MlflowTrackingServerTrackingServerSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
