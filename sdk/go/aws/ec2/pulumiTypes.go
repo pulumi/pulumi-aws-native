@@ -2093,7 +2093,9 @@ type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	Priority *float64 `pulumi:"priority"`
 	// The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
-	// The number of units provided by the specified instance type.
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+	//
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 	//
 	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
@@ -2139,7 +2141,9 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	Priority pulumi.Float64PtrInput `pulumi:"priority"`
 	// The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The number of units provided by the specified instance type.
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+	//
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 	//
 	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
@@ -2247,7 +2251,9 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) SubnetId() pulumi.Str
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The number of units provided by the specified instance type.
+// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+//
+// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 //
 // > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) WeightedCapacity() pulumi.Float64PtrOutput {
@@ -24738,6 +24744,8 @@ type SpotFleetLaunchSpecification struct {
 	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 	//
 	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	//
+	// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
@@ -24800,6 +24808,8 @@ type SpotFleetLaunchSpecificationArgs struct {
 	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 	//
 	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	//
+	// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
@@ -24958,6 +24968,8 @@ func (o SpotFleetLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
 // The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 //
 // If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+//
+// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 func (o SpotFleetLaunchSpecificationOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchSpecification) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -25113,9 +25125,11 @@ type SpotFleetLaunchTemplateOverrides struct {
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The ID of the subnet in which to launch the instances.
 	SubnetId *string `pulumi:"subnetId"`
-	// The number of units provided by the specified instance type.
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 	//
-	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	//
+	// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
@@ -25153,9 +25167,11 @@ type SpotFleetLaunchTemplateOverridesArgs struct {
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
 	// The ID of the subnet in which to launch the instances.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The number of units provided by the specified instance type.
+	// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 	//
-	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+	//
+	// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
@@ -25252,9 +25268,11 @@ func (o SpotFleetLaunchTemplateOverridesOutput) SubnetId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The number of units provided by the specified instance type.
+// The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 //
-// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+//
+// > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 func (o SpotFleetLaunchTemplateOverridesOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
