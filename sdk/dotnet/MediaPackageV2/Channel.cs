@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("ingestEndpoints")]
         public Output<ImmutableArray<Outputs.ChannelIngestEndpoint>> IngestEndpoints { get; private set; } = null!;
 
+        [Output("inputType")]
+        public Output<Pulumi.AwsNative.MediaPackageV2.ChannelInputType?> InputType { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
         /// </summary>
@@ -93,6 +96,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
                 {
                     "channelGroupName",
                     "channelName",
+                    "inputType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,6 +137,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("inputType")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.ChannelInputType>? InputType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

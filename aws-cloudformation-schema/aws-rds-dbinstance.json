@@ -68,7 +68,7 @@
           "description" : "The value of a processor feature."
         }
       },
-      "description" : "The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status."
+      "description" : "The ``ProcessorFeature`` property type specifies the processor features of a DB instance class."
     },
     "Tag" : {
       "description" : "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
@@ -129,7 +129,7 @@
     },
     "AutomaticBackupReplicationRegion" : {
       "type" : "string",
-      "description" : "The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*."
+      "description" : ""
     },
     "AutomaticBackupReplicationKmsKeyId" : {
       "type" : "string",
@@ -511,7 +511,7 @@
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "rds:CreateDBSnapshot", "rds:DeleteDBInstance", "rds:DescribeDBInstances" ],
+      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBSnapshot", "rds:DeleteDBInstance", "rds:DescribeDBInstances" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {

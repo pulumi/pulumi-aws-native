@@ -19,6 +19,16 @@ __all__ = [
     'DataSourceDataDeletionPolicy',
     'DataSourceStatus',
     'DataSourceType',
+    'FlowConnectionType',
+    'FlowNodeIoDataType',
+    'FlowNodeType',
+    'FlowPromptTemplateType',
+    'FlowStatus',
+    'FlowVersionFlowConnectionType',
+    'FlowVersionFlowNodeIoDataType',
+    'FlowVersionFlowNodeType',
+    'FlowVersionFlowStatus',
+    'FlowVersionPromptTemplateType',
     'GuardrailContentFilterType',
     'GuardrailFilterStrength',
     'GuardrailManagedWordsType',
@@ -29,6 +39,8 @@ __all__ = [
     'KnowledgeBaseStatus',
     'KnowledgeBaseStorageType',
     'KnowledgeBaseType',
+    'PromptTemplateType',
+    'PromptVersionPromptTemplateType',
 ]
 
 
@@ -156,6 +168,104 @@ class DataSourceType(str, Enum):
     S3 = "S3"
 
 
+class FlowConnectionType(str, Enum):
+    """
+    Connection type
+    """
+    DATA = "Data"
+    CONDITIONAL = "Conditional"
+
+
+class FlowNodeIoDataType(str, Enum):
+    """
+    Type of input/output for a node in a flow
+    """
+    STRING = "String"
+    NUMBER = "Number"
+    BOOLEAN = "Boolean"
+    OBJECT = "Object"
+    ARRAY = "Array"
+
+
+class FlowNodeType(str, Enum):
+    """
+    Flow node types
+    """
+    INPUT_TYPE = "Input"
+    OUTPUT_TYPE = "Output"
+    KNOWLEDGE_BASE = "KnowledgeBase"
+    CONDITION = "Condition"
+    LEX = "Lex"
+    PROMPT = "Prompt"
+    LAMBDA_FUNCTION = "LambdaFunction"
+
+
+class FlowPromptTemplateType(str, Enum):
+    """
+    Prompt template type
+    """
+    TEXT = "TEXT"
+
+
+class FlowStatus(str, Enum):
+    """
+    Schema Type for Flow APIs
+    """
+    FAILED = "Failed"
+    PREPARED = "Prepared"
+    PREPARING = "Preparing"
+    NOT_PREPARED = "NotPrepared"
+
+
+class FlowVersionFlowConnectionType(str, Enum):
+    """
+    Connection type
+    """
+    DATA = "Data"
+    CONDITIONAL = "Conditional"
+
+
+class FlowVersionFlowNodeIoDataType(str, Enum):
+    """
+    Type of input/output for a node in a flow
+    """
+    STRING = "String"
+    NUMBER = "Number"
+    BOOLEAN = "Boolean"
+    OBJECT = "Object"
+    ARRAY = "Array"
+
+
+class FlowVersionFlowNodeType(str, Enum):
+    """
+    Flow node types
+    """
+    INPUT_TYPE = "Input"
+    OUTPUT_TYPE = "Output"
+    KNOWLEDGE_BASE = "KnowledgeBase"
+    CONDITION = "Condition"
+    LEX = "Lex"
+    PROMPT = "Prompt"
+    LAMBDA_FUNCTION = "LambdaFunction"
+
+
+class FlowVersionFlowStatus(str, Enum):
+    """
+    Schema Type for Flow APIs
+    """
+    FAILED = "Failed"
+    PREPARED = "Prepared"
+    PREPARING = "Preparing"
+    NOT_PREPARED = "NotPrepared"
+
+
+class FlowVersionPromptTemplateType(str, Enum):
+    """
+    Prompt template type
+    """
+    TEXT = "TEXT"
+
+
 class GuardrailContentFilterType(str, Enum):
     """
     Type of filter in content policy
@@ -275,3 +385,17 @@ class KnowledgeBaseType(str, Enum):
     The type of a knowledge base.
     """
     VECTOR = "VECTOR"
+
+
+class PromptTemplateType(str, Enum):
+    """
+    Prompt template type
+    """
+    TEXT = "TEXT"
+
+
+class PromptVersionPromptTemplateType(str, Enum):
+    """
+    Prompt template type
+    """
+    TEXT = "TEXT"

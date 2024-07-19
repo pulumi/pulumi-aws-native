@@ -40,7 +40,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * Configuration parameters for provisioning an AWS DMS Serverless replication.
      */
-    public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig | undefined>;
+    public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
     /**
      * The Amazon Resource Name (ARN) of the Replication Config
      */
@@ -48,7 +48,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * A unique identifier of replication configuration
      */
-    public readonly replicationConfigIdentifier!: pulumi.Output<string | undefined>;
+    public readonly replicationConfigIdentifier!: pulumi.Output<string>;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
      *
@@ -58,7 +58,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The type of AWS DMS Serverless replication to provision using this replication configuration
      */
-    public readonly replicationType!: pulumi.Output<enums.dms.ReplicationConfigReplicationType | undefined>;
+    public readonly replicationType!: pulumi.Output<enums.dms.ReplicationConfigReplicationType>;
     /**
      * A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
      */
@@ -66,7 +66,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
      */
-    public readonly sourceEndpointArn!: pulumi.Output<string | undefined>;
+    public readonly sourceEndpointArn!: pulumi.Output<string>;
     /**
      * JSON settings for specifying supplemental data
      *
@@ -78,7 +78,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
-    public readonly tableMappings!: pulumi.Output<any | undefined>;
+    public readonly tableMappings!: pulumi.Output<any>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
@@ -86,7 +86,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */
-    public readonly targetEndpointArn!: pulumi.Output<string | undefined>;
+    public readonly targetEndpointArn!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationConfig resource with the given unique name, arguments, and options.
@@ -95,10 +95,28 @@ export class ReplicationConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ReplicationConfigArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ReplicationConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.computeConfig === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'computeConfig'");
+            }
+            if ((!args || args.replicationConfigIdentifier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'replicationConfigIdentifier'");
+            }
+            if ((!args || args.replicationType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'replicationType'");
+            }
+            if ((!args || args.sourceEndpointArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceEndpointArn'");
+            }
+            if ((!args || args.tableMappings === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'tableMappings'");
+            }
+            if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'targetEndpointArn'");
+            }
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
             resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
@@ -137,11 +155,11 @@ export interface ReplicationConfigArgs {
     /**
      * Configuration parameters for provisioning an AWS DMS Serverless replication.
      */
-    computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfigArgs>;
+    computeConfig: pulumi.Input<inputs.dms.ReplicationConfigComputeConfigArgs>;
     /**
      * A unique identifier of replication configuration
      */
-    replicationConfigIdentifier?: pulumi.Input<string>;
+    replicationConfigIdentifier: pulumi.Input<string>;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
      *
@@ -151,7 +169,7 @@ export interface ReplicationConfigArgs {
     /**
      * The type of AWS DMS Serverless replication to provision using this replication configuration
      */
-    replicationType?: pulumi.Input<enums.dms.ReplicationConfigReplicationType>;
+    replicationType: pulumi.Input<enums.dms.ReplicationConfigReplicationType>;
     /**
      * A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
      */
@@ -159,7 +177,7 @@ export interface ReplicationConfigArgs {
     /**
      * The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
      */
-    sourceEndpointArn?: pulumi.Input<string>;
+    sourceEndpointArn: pulumi.Input<string>;
     /**
      * JSON settings for specifying supplemental data
      *
@@ -171,7 +189,7 @@ export interface ReplicationConfigArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
-    tableMappings?: any;
+    tableMappings: any;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
@@ -179,5 +197,5 @@ export interface ReplicationConfigArgs {
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */
-    targetEndpointArn?: pulumi.Input<string>;
+    targetEndpointArn: pulumi.Input<string>;
 }

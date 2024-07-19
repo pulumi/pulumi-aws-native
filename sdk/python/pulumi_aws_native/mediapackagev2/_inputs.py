@@ -17,6 +17,7 @@ __all__ = [
     'OriginEndpointEncryptionMethodArgs',
     'OriginEndpointEncryptionArgs',
     'OriginEndpointFilterConfigurationArgs',
+    'OriginEndpointForceEndpointErrorConfigurationArgs',
     'OriginEndpointHlsManifestConfigurationArgs',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgs',
     'OriginEndpointScteDashArgs',
@@ -469,6 +470,58 @@ class OriginEndpointFilterConfigurationArgs:
     @time_delay_seconds.setter
     def time_delay_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_delay_seconds", value)
+
+
+@pulumi.input_type
+class OriginEndpointForceEndpointErrorConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint_error_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]] = None):
+        """
+        <p>The failover settings for the endpoint.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]] endpoint_error_conditions: <p>The failover settings for the endpoint. The options are:</p>
+                        <ul>
+                           <li>
+                              <p>
+                                 <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                           </li>
+                           <li>
+                              <p>
+                                 <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+                           </li>
+                           <li>
+                              <p>
+                                 <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                           </li>
+                        </ul>
+        """
+        if endpoint_error_conditions is not None:
+            pulumi.set(__self__, "endpoint_error_conditions", endpoint_error_conditions)
+
+    @property
+    @pulumi.getter(name="endpointErrorConditions")
+    def endpoint_error_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]:
+        """
+        <p>The failover settings for the endpoint. The options are:</p>
+                 <ul>
+                    <li>
+                       <p>
+                          <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                    </li>
+                 </ul>
+        """
+        return pulumi.get(self, "endpoint_error_conditions")
+
+    @endpoint_error_conditions.setter
+    def endpoint_error_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]):
+        pulumi.set(self, "endpoint_error_conditions", value)
 
 
 @pulumi.input_type

@@ -95,8 +95,7 @@ type DbInstance struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationKmsKeyId"`
-	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-	AutomaticBackupReplicationRegion pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
+	AutomaticBackupReplicationRegion   pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -756,8 +755,7 @@ type dbInstanceArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
 	AutomaticBackupReplicationKmsKeyId *string `pulumi:"automaticBackupReplicationKmsKeyId"`
-	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
+	AutomaticBackupReplicationRegion   *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -1357,8 +1355,7 @@ type DbInstanceArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrInput
-	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-	AutomaticBackupReplicationRegion pulumi.StringPtrInput
+	AutomaticBackupReplicationRegion   pulumi.StringPtrInput
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -2011,7 +2008,6 @@ func (o DbInstanceOutput) AutomaticBackupReplicationKmsKeyId() pulumi.StringPtrO
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 func (o DbInstanceOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }

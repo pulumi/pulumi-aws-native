@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for EC2 EIP association.
+ * Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+ *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
 export function getEipAssociation(args: GetEipAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEipAssociationResult> {
 
@@ -17,19 +18,20 @@ export function getEipAssociation(args: GetEipAssociationArgs, opts?: pulumi.Inv
 
 export interface GetEipAssociationArgs {
     /**
-     * Composite ID of non-empty properties, to determine the identification.
+     * The ID of the association.
      */
     id: string;
 }
 
 export interface GetEipAssociationResult {
     /**
-     * Composite ID of non-empty properties, to determine the identification.
+     * The ID of the association.
      */
     readonly id?: string;
 }
 /**
- * Resource schema for EC2 EIP association.
+ * Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+ *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
 export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipAssociationResult> {
     return pulumi.output(args).apply((a: any) => getEipAssociation(a, opts))
@@ -37,7 +39,7 @@ export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?
 
 export interface GetEipAssociationOutputArgs {
     /**
-     * Composite ID of non-empty properties, to determine the identification.
+     * The ID of the association.
      */
     id: pulumi.Input<string>;
 }

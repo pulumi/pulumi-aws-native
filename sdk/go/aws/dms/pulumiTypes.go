@@ -253,47 +253,6 @@ func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput)
 }
 
-func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
-	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput).ToReplicationConfigComputeConfigPtrOutputWithContext(ctx)
-}
-
-// ReplicationConfigComputeConfigPtrInput is an input type that accepts ReplicationConfigComputeConfigArgs, ReplicationConfigComputeConfigPtr and ReplicationConfigComputeConfigPtrOutput values.
-// You can construct a concrete instance of `ReplicationConfigComputeConfigPtrInput` via:
-//
-//	        ReplicationConfigComputeConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type ReplicationConfigComputeConfigPtrInput interface {
-	pulumi.Input
-
-	ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput
-	ToReplicationConfigComputeConfigPtrOutputWithContext(context.Context) ReplicationConfigComputeConfigPtrOutput
-}
-
-type replicationConfigComputeConfigPtrType ReplicationConfigComputeConfigArgs
-
-func ReplicationConfigComputeConfigPtr(v *ReplicationConfigComputeConfigArgs) ReplicationConfigComputeConfigPtrInput {
-	return (*replicationConfigComputeConfigPtrType)(v)
-}
-
-func (*replicationConfigComputeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfigComputeConfig)(nil)).Elem()
-}
-
-func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
-	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigPtrOutput)
-}
-
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfigOutput struct{ *pulumi.OutputState }
 
@@ -307,16 +266,6 @@ func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOu
 
 func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigOutput {
 	return o
-}
-
-func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
-	return o.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigComputeConfig) *ReplicationConfigComputeConfig {
-		return &v
-	}).(ReplicationConfigComputeConfigPtrOutput)
 }
 
 // The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
@@ -1712,7 +1661,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorArrayInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesPtrInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesArgs{})

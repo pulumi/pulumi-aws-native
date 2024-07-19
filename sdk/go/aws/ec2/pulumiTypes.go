@@ -9836,7 +9836,7 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 	}).(pulumi.StringPtrOutput)
 }
 
-// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
 type LaunchTemplateConnectionTrackingSpecification struct {
 	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
@@ -9857,7 +9857,7 @@ type LaunchTemplateConnectionTrackingSpecificationInput interface {
 	ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(context.Context) LaunchTemplateConnectionTrackingSpecificationOutput
 }
 
-// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
 type LaunchTemplateConnectionTrackingSpecificationArgs struct {
 	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
@@ -9920,7 +9920,7 @@ func (i *launchTemplateConnectionTrackingSpecificationPtrType) ToLaunchTemplateC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
 }
 
-// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
 type LaunchTemplateConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
@@ -10358,11 +10358,11 @@ type LaunchTemplateData struct {
 	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
 	// The credit option for CPU usage of the instance. Valid only for T instances.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
+	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
@@ -10378,7 +10378,7 @@ type LaunchTemplateData struct {
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
-	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
 	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
 	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
@@ -10407,7 +10407,7 @@ type LaunchTemplateData struct {
 	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
 	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
-	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
 	InstanceType *string `pulumi:"instanceType"`
 	// The ID of the kernel.
@@ -10420,7 +10420,7 @@ type LaunchTemplateData struct {
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
 	// The maintenance options of your instance.
 	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
-	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
@@ -10431,7 +10431,7 @@ type LaunchTemplateData struct {
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
-	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
 	//  If you specify a network interface, you must specify any security groups as part of the network interface instead.
@@ -10443,7 +10443,7 @@ type LaunchTemplateData struct {
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications []TagSpecification `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
 	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 	UserData *string `pulumi:"userData"`
 }
@@ -10467,11 +10467,11 @@ type LaunchTemplateDataArgs struct {
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
 	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 	CpuOptions LaunchTemplateCpuOptionsPtrInput `pulumi:"cpuOptions"`
 	// The credit option for CPU usage of the instance. Valid only for T instances.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
+	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 	DisableApiStop pulumi.BoolPtrInput `pulumi:"disableApiStop"`
 	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
 	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
@@ -10487,7 +10487,7 @@ type LaunchTemplateDataArgs struct {
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput `pulumi:"enclaveOptions"`
-	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
 	HibernationOptions LaunchTemplateHibernationOptionsPtrInput `pulumi:"hibernationOptions"`
 	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput `pulumi:"iamInstanceProfile"`
@@ -10516,7 +10516,7 @@ type LaunchTemplateDataArgs struct {
 	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
 	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
-	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The ID of the kernel.
@@ -10529,7 +10529,7 @@ type LaunchTemplateDataArgs struct {
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
 	// The maintenance options of your instance.
 	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput `pulumi:"maintenanceOptions"`
-	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
@@ -10540,7 +10540,7 @@ type LaunchTemplateDataArgs struct {
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
-	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 	RamDiskId pulumi.StringPtrInput `pulumi:"ramDiskId"`
 	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
 	//  If you specify a network interface, you must specify any security groups as part of the network interface instead.
@@ -10552,7 +10552,7 @@ type LaunchTemplateDataArgs struct {
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications TagSpecificationArrayInput `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
 	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 	UserData pulumi.StringPtrInput `pulumi:"userData"`
 }
@@ -10598,7 +10598,7 @@ func (o LaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTempl
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
-// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
 }
@@ -10608,7 +10608,7 @@ func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpec
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
+// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
@@ -10647,7 +10647,7 @@ func (o LaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsP
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
-// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateHibernationOptions { return v.HibernationOptions }).(LaunchTemplateHibernationOptionsPtrOutput)
 }
@@ -10697,7 +10697,7 @@ func (o LaunchTemplateDataOutput) InstanceRequirements() LaunchTemplateInstanceR
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceRequirements { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
-// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 //
 //	If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
 func (o LaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
@@ -10728,7 +10728,7 @@ func (o LaunchTemplateDataOutput) MaintenanceOptions() LaunchTemplateMaintenance
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMaintenanceOptions { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
-// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
 }
@@ -10755,7 +10755,7 @@ func (o LaunchTemplateDataOutput) PrivateDnsNameOptions() LaunchTemplatePrivateD
 
 // The ID of the RAM disk.
 //
-//	We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+//	We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
@@ -10782,7 +10782,7 @@ func (o LaunchTemplateDataOutput) TagSpecifications() TagSpecificationArrayOutpu
 	return o.ApplyT(func(v LaunchTemplateData) []TagSpecification { return v.TagSpecifications }).(TagSpecificationArrayOutput)
 }
 
-// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
 //
 //	If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
@@ -11129,7 +11129,7 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 //	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecification struct {
-	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+	// The type of Elastic Graphics accelerator.
 	Type *string `pulumi:"type"`
 }
 
@@ -11149,7 +11149,7 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 //	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+	// The type of Elastic Graphics accelerator.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -11208,7 +11208,7 @@ func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuS
 	return o
 }
 
-// The type of Elastic Graphics accelerator. For more information about the values to specify for “Type“, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+// The type of Elastic Graphics accelerator.
 func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -12392,7 +12392,7 @@ type LaunchTemplateInstanceRequirements struct {
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
@@ -12550,7 +12550,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
@@ -12860,7 +12860,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.Str
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 //	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o LaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int {
@@ -13215,7 +13215,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 //	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
@@ -13343,7 +13343,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateV
 //
 //	``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv4PrefixSpecification struct {
-	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
 	Ipv4Prefix *string `pulumi:"ipv4Prefix"`
 }
 
@@ -13362,7 +13362,7 @@ type LaunchTemplateIpv4PrefixSpecificationInput interface {
 //
 //	``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv4PrefixSpecificationArgs struct {
-	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
 	Ipv4Prefix pulumi.StringPtrInput `pulumi:"ipv4Prefix"`
 }
 
@@ -13420,7 +13420,7 @@ func (o LaunchTemplateIpv4PrefixSpecificationOutput) ToLaunchTemplateIpv4PrefixS
 	return o
 }
 
-// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIpv4PrefixSpecification) *string { return v.Ipv4Prefix }).(pulumi.StringPtrOutput)
 }
@@ -14824,7 +14824,7 @@ type LaunchTemplateNetworkInterface struct {
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups []string `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
 	//  Valid values: ``interface`` | ``efa``
 	InterfaceType *string `pulumi:"interfaceType"`
@@ -14889,7 +14889,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
 	//  Valid values: ``interface`` | ``efa``
 	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
@@ -15023,7 +15023,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 //
 //	If you are not creating an EFA, specify ``interface`` or omit this parameter.
 //	Valid values: ``interface`` | ``efa``
@@ -16233,7 +16233,7 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 //
 //	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecification struct {
-	// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
+	// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType *string `pulumi:"resourceType"`
 	// The tags for the resource.
 	Tags []LaunchTemplateTag `pulumi:"tags"`
@@ -16254,7 +16254,7 @@ type LaunchTemplateTagSpecificationInput interface {
 //
 //	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecificationArgs struct {
-	// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
+	// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// The tags for the resource.
 	Tags LaunchTemplateTagArrayInput `pulumi:"tags"`
@@ -16314,7 +16314,7 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
-// The type of resource. To tag the launch template, “ResourceType“ must be “launch-template“.
+// The type of resource. To tag a launch template, “ResourceType“ must be “launch-template“.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -19847,6 +19847,9 @@ type NetworkInsightsPathTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecification struct {
 	// Indicates whether ENA Express is enabled for the network interface.
 	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
@@ -19865,6 +19868,9 @@ type NetworkInterfaceAttachmentEnaSrdSpecificationInput interface {
 	ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationOutput
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecificationArgs struct {
 	// Indicates whether ENA Express is enabled for the network interface.
 	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
@@ -19925,6 +19931,9 @@ func (i *networkInterfaceAttachmentEnaSrdSpecificationPtrType) ToNetworkInterfac
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ElementType() reflect.Type {
@@ -28383,8 +28392,7 @@ type SubnetTag struct {
 //
 //	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecification struct {
-	// The type of resource to tag.
-	//  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+	// The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	ResourceType *string `pulumi:"resourceType"`
 	// The tags to apply to the resource.
@@ -28406,8 +28414,7 @@ type TagSpecificationInput interface {
 //
 //	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecificationArgs struct {
-	// The type of resource to tag.
-	//  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+	// The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// The tags to apply to the resource.
@@ -28468,9 +28475,8 @@ func (o TagSpecificationOutput) ToTagSpecificationOutputWithContext(ctx context.
 	return o
 }
 
-// The type of resource to tag.
+// The type of resource to tag. You can specify tags for the following resource types only: “instance“ | “volume“ | “network-interface“ | “spot-instances-request“. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
 //
-//	Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
 //	To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 func (o TagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)

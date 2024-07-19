@@ -30,6 +30,7 @@ type Channel struct {
 	IngestEndpointUrls pulumi.StringArrayOutput `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
+	InputType       ChannelInputTypePtrOutput        `pulumi:"inputType"`
 	// <p>The date and time the channel was modified.</p>
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The tags associated with the channel.
@@ -49,6 +50,7 @@ func NewChannel(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"channelGroupName",
 		"channelName",
+		"inputType",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -89,7 +91,8 @@ type channelArgs struct {
 	// The name of the channel.
 	ChannelName *string `pulumi:"channelName"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description *string `pulumi:"description"`
+	Description *string           `pulumi:"description"`
+	InputType   *ChannelInputType `pulumi:"inputType"`
 	// The tags associated with the channel.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -102,6 +105,7 @@ type ChannelArgs struct {
 	ChannelName pulumi.StringPtrInput
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
 	Description pulumi.StringPtrInput
+	InputType   ChannelInputTypePtrInput
 	// The tags associated with the channel.
 	Tags aws.TagArrayInput
 }
@@ -175,6 +179,10 @@ func (o ChannelOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
 // <p>The list of ingest endpoints.</p>
 func (o ChannelOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelIngestEndpointArrayOutput { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
+}
+
+func (o ChannelOutput) InputType() ChannelInputTypePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelInputTypePtrOutput { return v.InputType }).(ChannelInputTypePtrOutput)
 }
 
 // <p>The date and time the channel was modified.</p>

@@ -62,6 +62,7 @@ export class Channel extends pulumi.CustomResource {
      * <p>The list of ingest endpoints.</p>
      */
     public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
+    public readonly inputType!: pulumi.Output<enums.mediapackagev2.ChannelInputType | undefined>;
     /**
      * <p>The date and time the channel was modified.</p>
      */
@@ -88,6 +89,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputType"] = args ? args.inputType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -102,11 +104,12 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
+            resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["channelGroupName", "channelName"] };
+        const replaceOnChanges = { replaceOnChanges: ["channelGroupName", "channelName", "inputType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,6 +131,7 @@ export interface ChannelArgs {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     description?: pulumi.Input<string>;
+    inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType>;
     /**
      * The tags associated with the channel.
      */

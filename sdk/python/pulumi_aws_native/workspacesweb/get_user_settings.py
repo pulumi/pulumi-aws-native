@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
         if associated_portal_arns and not isinstance(associated_portal_arns, list):
             raise TypeError("Expected argument 'associated_portal_arns' to be a list")
         pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
@@ -31,6 +31,9 @@ class GetUserSettingsResult:
         if copy_allowed and not isinstance(copy_allowed, str):
             raise TypeError("Expected argument 'copy_allowed' to be a str")
         pulumi.set(__self__, "copy_allowed", copy_allowed)
+        if deep_link_allowed and not isinstance(deep_link_allowed, str):
+            raise TypeError("Expected argument 'deep_link_allowed' to be a str")
+        pulumi.set(__self__, "deep_link_allowed", deep_link_allowed)
         if disconnect_timeout_in_minutes and not isinstance(disconnect_timeout_in_minutes, float):
             raise TypeError("Expected argument 'disconnect_timeout_in_minutes' to be a float")
         pulumi.set(__self__, "disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
@@ -79,6 +82,11 @@ class GetUserSettingsResult:
         Specifies whether the user can copy text from the streaming session to the local device.
         """
         return pulumi.get(self, "copy_allowed")
+
+    @property
+    @pulumi.getter(name="deepLinkAllowed")
+    def deep_link_allowed(self) -> Optional['UserSettingsEnabledType']:
+        return pulumi.get(self, "deep_link_allowed")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
@@ -154,6 +162,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
             associated_portal_arns=self.associated_portal_arns,
             cookie_synchronization_configuration=self.cookie_synchronization_configuration,
             copy_allowed=self.copy_allowed,
+            deep_link_allowed=self.deep_link_allowed,
             disconnect_timeout_in_minutes=self.disconnect_timeout_in_minutes,
             download_allowed=self.download_allowed,
             idle_disconnect_timeout_in_minutes=self.idle_disconnect_timeout_in_minutes,
@@ -181,6 +190,7 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
         associated_portal_arns=pulumi.get(__ret__, 'associated_portal_arns'),
         cookie_synchronization_configuration=pulumi.get(__ret__, 'cookie_synchronization_configuration'),
         copy_allowed=pulumi.get(__ret__, 'copy_allowed'),
+        deep_link_allowed=pulumi.get(__ret__, 'deep_link_allowed'),
         disconnect_timeout_in_minutes=pulumi.get(__ret__, 'disconnect_timeout_in_minutes'),
         download_allowed=pulumi.get(__ret__, 'download_allowed'),
         idle_disconnect_timeout_in_minutes=pulumi.get(__ret__, 'idle_disconnect_timeout_in_minutes'),

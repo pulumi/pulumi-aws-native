@@ -262,9 +262,6 @@ class GetDbInstanceResult:
     @property
     @pulumi.getter(name="automaticBackupReplicationRegion")
     def automatic_backup_replication_region(self) -> Optional[str]:
-        """
-        The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-        """
         return pulumi.get(self, "automatic_backup_replication_region")
 
     @property

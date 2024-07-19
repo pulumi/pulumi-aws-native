@@ -39,8 +39,9 @@ type LookupOriginEndpointResult struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description     *string  `pulumi:"description"`
-	HlsManifestUrls []string `pulumi:"hlsManifestUrls"`
+	Description                     *string                                        `pulumi:"description"`
+	ForceEndpointErrorConfiguration *OriginEndpointForceEndpointErrorConfiguration `pulumi:"forceEndpointErrorConfiguration"`
+	HlsManifestUrls                 []string                                       `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests              []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
 	LowLatencyHlsManifestUrls []string                                 `pulumi:"lowLatencyHlsManifestUrls"`
@@ -119,6 +120,12 @@ func (o LookupOriginEndpointResultOutput) DashManifests() OriginEndpointDashMani
 // <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 func (o LookupOriginEndpointResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOriginEndpointResultOutput) ForceEndpointErrorConfiguration() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointForceEndpointErrorConfiguration {
+		return v.ForceEndpointErrorConfiguration
+	}).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
 }
 
 func (o LookupOriginEndpointResultOutput) HlsManifestUrls() pulumi.StringArrayOutput {

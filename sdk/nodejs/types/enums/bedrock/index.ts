@@ -154,6 +154,124 @@ export const DataSourceType = {
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+export const FlowConnectionType = {
+    Data: "Data",
+    Conditional: "Conditional",
+} as const;
+
+/**
+ * Connection type
+ */
+export type FlowConnectionType = (typeof FlowConnectionType)[keyof typeof FlowConnectionType];
+
+export const FlowNodeIoDataType = {
+    String: "String",
+    Number: "Number",
+    Boolean: "Boolean",
+    Object: "Object",
+    Array: "Array",
+} as const;
+
+/**
+ * Type of input/output for a node in a flow
+ */
+export type FlowNodeIoDataType = (typeof FlowNodeIoDataType)[keyof typeof FlowNodeIoDataType];
+
+export const FlowNodeType = {
+    InputType: "Input",
+    OutputType: "Output",
+    KnowledgeBase: "KnowledgeBase",
+    Condition: "Condition",
+    Lex: "Lex",
+    Prompt: "Prompt",
+    LambdaFunction: "LambdaFunction",
+} as const;
+
+/**
+ * Flow node types
+ */
+export type FlowNodeType = (typeof FlowNodeType)[keyof typeof FlowNodeType];
+
+export const FlowPromptTemplateType = {
+    Text: "TEXT",
+} as const;
+
+/**
+ * Prompt template type
+ */
+export type FlowPromptTemplateType = (typeof FlowPromptTemplateType)[keyof typeof FlowPromptTemplateType];
+
+export const FlowStatus = {
+    Failed: "Failed",
+    Prepared: "Prepared",
+    Preparing: "Preparing",
+    NotPrepared: "NotPrepared",
+} as const;
+
+/**
+ * Schema Type for Flow APIs
+ */
+export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
+
+export const FlowVersionFlowConnectionType = {
+    Data: "Data",
+    Conditional: "Conditional",
+} as const;
+
+/**
+ * Connection type
+ */
+export type FlowVersionFlowConnectionType = (typeof FlowVersionFlowConnectionType)[keyof typeof FlowVersionFlowConnectionType];
+
+export const FlowVersionFlowNodeIoDataType = {
+    String: "String",
+    Number: "Number",
+    Boolean: "Boolean",
+    Object: "Object",
+    Array: "Array",
+} as const;
+
+/**
+ * Type of input/output for a node in a flow
+ */
+export type FlowVersionFlowNodeIoDataType = (typeof FlowVersionFlowNodeIoDataType)[keyof typeof FlowVersionFlowNodeIoDataType];
+
+export const FlowVersionFlowNodeType = {
+    InputType: "Input",
+    OutputType: "Output",
+    KnowledgeBase: "KnowledgeBase",
+    Condition: "Condition",
+    Lex: "Lex",
+    Prompt: "Prompt",
+    LambdaFunction: "LambdaFunction",
+} as const;
+
+/**
+ * Flow node types
+ */
+export type FlowVersionFlowNodeType = (typeof FlowVersionFlowNodeType)[keyof typeof FlowVersionFlowNodeType];
+
+export const FlowVersionFlowStatus = {
+    Failed: "Failed",
+    Prepared: "Prepared",
+    Preparing: "Preparing",
+    NotPrepared: "NotPrepared",
+} as const;
+
+/**
+ * Schema Type for Flow APIs
+ */
+export type FlowVersionFlowStatus = (typeof FlowVersionFlowStatus)[keyof typeof FlowVersionFlowStatus];
+
+export const FlowVersionPromptTemplateType = {
+    Text: "TEXT",
+} as const;
+
+/**
+ * Prompt template type
+ */
+export type FlowVersionPromptTemplateType = (typeof FlowVersionPromptTemplateType)[keyof typeof FlowVersionPromptTemplateType];
+
 export const GuardrailContentFilterType = {
     Sexual: "SEXUAL",
     Violence: "VIOLENCE",
@@ -294,3 +412,21 @@ export const KnowledgeBaseType = {
  * The type of a knowledge base.
  */
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
+
+export const PromptTemplateType = {
+    Text: "TEXT",
+} as const;
+
+/**
+ * Prompt template type
+ */
+export type PromptTemplateType = (typeof PromptTemplateType)[keyof typeof PromptTemplateType];
+
+export const PromptVersionPromptTemplateType = {
+    Text: "TEXT",
+} as const;
+
+/**
+ * Prompt template type
+ */
+export type PromptVersionPromptTemplateType = (typeof PromptVersionPromptTemplateType)[keyof typeof PromptVersionPromptTemplateType];

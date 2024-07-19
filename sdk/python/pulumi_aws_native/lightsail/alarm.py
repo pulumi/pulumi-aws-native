@@ -30,7 +30,7 @@ class AlarmArgs:
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
         :param pulumi.Input[int] evaluation_periods: The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
         :param pulumi.Input[str] metric_name: The name of the metric to associate with the alarm.
-        :param pulumi.Input[str] monitored_resource_name: The validation status of the SSL/TLS certificate.
+        :param pulumi.Input[str] monitored_resource_name: The name of the Lightsail resource that the alarm monitors.
         :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
         :param pulumi.Input[str] alarm_name: The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_protocols: The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.
@@ -97,7 +97,7 @@ class AlarmArgs:
     @pulumi.getter(name="monitoredResourceName")
     def monitored_resource_name(self) -> pulumi.Input[str]:
         """
-        The validation status of the SSL/TLS certificate.
+        The name of the Lightsail resource that the alarm monitors.
         """
         return pulumi.get(self, "monitored_resource_name")
 
@@ -218,7 +218,7 @@ class Alarm(pulumi.CustomResource):
         :param pulumi.Input[int] datapoints_to_alarm: The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.
         :param pulumi.Input[int] evaluation_periods: The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
         :param pulumi.Input[str] metric_name: The name of the metric to associate with the alarm.
-        :param pulumi.Input[str] monitored_resource_name: The validation status of the SSL/TLS certificate.
+        :param pulumi.Input[str] monitored_resource_name: The name of the Lightsail resource that the alarm monitors.
         :param pulumi.Input[bool] notification_enabled: Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_triggers: The alarm states that trigger a notification.
         :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
@@ -390,7 +390,7 @@ class Alarm(pulumi.CustomResource):
     @pulumi.getter(name="monitoredResourceName")
     def monitored_resource_name(self) -> pulumi.Output[str]:
         """
-        The validation status of the SSL/TLS certificate.
+        The name of the Lightsail resource that the alarm monitors.
         """
         return pulumi.get(self, "monitored_resource_name")
 

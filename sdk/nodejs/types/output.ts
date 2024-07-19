@@ -8856,6 +8856,732 @@ export namespace bedrock {
     }
 
     /**
+     * Details about the routing configuration for a Flow alias.
+     */
+    export interface FlowAliasRoutingConfigurationListItem {
+        /**
+         * Version.
+         */
+        flowVersion?: string;
+    }
+
+    /**
+     * Condition branch for a condition node
+     */
+    export interface FlowCondition {
+        /**
+         * Expression for a condition in a flow
+         */
+        expression?: string;
+        /**
+         * Name of a condition in a flow
+         */
+        name: string;
+    }
+
+    /**
+     * Condition flow node configuration
+     */
+    export interface FlowConditionFlowNodeConfiguration {
+        /**
+         * List of conditions in a condition node
+         */
+        conditions: outputs.bedrock.FlowCondition[];
+    }
+
+    /**
+     * Conditional connection configuration
+     */
+    export interface FlowConditionalConnectionConfiguration {
+        /**
+         * Name of a condition in a flow
+         */
+        condition: string;
+    }
+
+    /**
+     * Flow connection
+     */
+    export interface FlowConnection {
+        configuration?: outputs.bedrock.FlowConnectionConfiguration0Properties | outputs.bedrock.FlowConnectionConfiguration1Properties;
+        /**
+         * Name of a connection in a flow
+         */
+        name: string;
+        /**
+         * Name of a node in a flow
+         */
+        source: string;
+        /**
+         * Name of a node in a flow
+         */
+        target: string;
+        type: enums.bedrock.FlowConnectionType;
+    }
+
+    /**
+     * Connection configuration
+     */
+    export interface FlowConnectionConfiguration0Properties {
+        data: outputs.bedrock.FlowDataConnectionConfiguration;
+    }
+
+    /**
+     * Connection configuration
+     */
+    export interface FlowConnectionConfiguration1Properties {
+        conditional: outputs.bedrock.FlowConditionalConnectionConfiguration;
+    }
+
+    /**
+     * Data connection configuration
+     */
+    export interface FlowDataConnectionConfiguration {
+        /**
+         * Name of a node output in a flow
+         */
+        sourceOutput: string;
+        /**
+         * Name of a node input in a flow
+         */
+        targetInput: string;
+    }
+
+    /**
+     * Flow definition
+     */
+    export interface FlowDefinition {
+        /**
+         * List of connections
+         */
+        connections?: outputs.bedrock.FlowConnection[];
+        /**
+         * List of nodes in a flow
+         */
+        nodes?: outputs.bedrock.FlowNode[];
+    }
+
+    /**
+     * Input flow node configuration
+     */
+    export interface FlowInputFlowNodeConfiguration {
+    }
+
+    /**
+     * Knowledge base flow node configuration
+     */
+    export interface FlowKnowledgeBaseFlowNodeConfiguration {
+        /**
+         * Identifier of the KnowledgeBase
+         */
+        knowledgeBaseId: string;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId?: string;
+    }
+
+    /**
+     * Lambda function flow node configuration
+     */
+    export interface FlowLambdaFunctionFlowNodeConfiguration {
+        /**
+         * ARN of a Lambda.
+         */
+        lambdaArn: string;
+    }
+
+    /**
+     * Lex flow node configuration
+     */
+    export interface FlowLexFlowNodeConfiguration {
+        /**
+         * ARN of a Lex bot alias
+         */
+        botAliasArn: string;
+        /**
+         * Lex bot locale id
+         */
+        localeId: string;
+    }
+
+    /**
+     * Internal mixin for flow node
+     */
+    export interface FlowNode {
+        configuration?: outputs.bedrock.FlowNodeConfiguration0Properties | outputs.bedrock.FlowNodeConfiguration1Properties | outputs.bedrock.FlowNodeConfiguration2Properties | outputs.bedrock.FlowNodeConfiguration3Properties | outputs.bedrock.FlowNodeConfiguration4Properties | outputs.bedrock.FlowNodeConfiguration5Properties | outputs.bedrock.FlowNodeConfiguration6Properties;
+        /**
+         * List of node inputs in a flow
+         */
+        inputs?: outputs.bedrock.FlowNodeInput[];
+        /**
+         * Name of a node in a flow
+         */
+        name: string;
+        /**
+         * List of node outputs in a flow
+         */
+        outputs?: outputs.bedrock.FlowNodeOutput[];
+        type: enums.bedrock.FlowNodeType;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration0Properties {
+        input: outputs.bedrock.FlowInputFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration1Properties {
+        output: outputs.bedrock.FlowOutputFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration2Properties {
+        knowledgeBase: outputs.bedrock.FlowKnowledgeBaseFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration3Properties {
+        condition: outputs.bedrock.FlowConditionFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration4Properties {
+        lex: outputs.bedrock.FlowLexFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration5Properties {
+        prompt: outputs.bedrock.FlowPromptFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowNodeConfiguration6Properties {
+        lambdaFunction: outputs.bedrock.FlowLambdaFunctionFlowNodeConfiguration;
+    }
+
+    /**
+     * Input to a node in a flow
+     */
+    export interface FlowNodeInput {
+        /**
+         * Expression for a node input in a flow
+         */
+        expression: string;
+        /**
+         * Name of a node input in a flow
+         */
+        name: string;
+        type: enums.bedrock.FlowNodeIoDataType;
+    }
+
+    /**
+     * Output of a node in a flow
+     */
+    export interface FlowNodeOutput {
+        /**
+         * Name of a node output in a flow
+         */
+        name: string;
+        type: enums.bedrock.FlowNodeIoDataType;
+    }
+
+    /**
+     * Output flow node configuration
+     */
+    export interface FlowOutputFlowNodeConfiguration {
+    }
+
+    /**
+     * Prompt flow node configuration
+     */
+    export interface FlowPromptFlowNodeConfiguration {
+        sourceConfiguration: outputs.bedrock.FlowPromptFlowNodeSourceConfiguration0Properties | outputs.bedrock.FlowPromptFlowNodeSourceConfiguration1Properties;
+    }
+
+    /**
+     * Inline prompt configuration for prompt node
+     */
+    export interface FlowPromptFlowNodeInlineConfiguration {
+        inferenceConfiguration?: outputs.bedrock.FlowPromptInferenceConfigurationProperties;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId: string;
+        templateConfiguration: outputs.bedrock.FlowPromptTemplateConfigurationProperties;
+        templateType: enums.bedrock.FlowPromptTemplateType;
+    }
+
+    /**
+     * Resource prompt configuration for prompt node
+     */
+    export interface FlowPromptFlowNodeResourceConfiguration {
+        /**
+         * ARN of a prompt resource possibly with a version
+         */
+        promptArn: string;
+    }
+
+    /**
+     * Prompt source configuration for prompt node
+     */
+    export interface FlowPromptFlowNodeSourceConfiguration0Properties {
+        resource: outputs.bedrock.FlowPromptFlowNodeResourceConfiguration;
+    }
+
+    /**
+     * Prompt source configuration for prompt node
+     */
+    export interface FlowPromptFlowNodeSourceConfiguration1Properties {
+        inline: outputs.bedrock.FlowPromptFlowNodeInlineConfiguration;
+    }
+
+    /**
+     * Model inference configuration
+     */
+    export interface FlowPromptInferenceConfigurationProperties {
+        text: outputs.bedrock.FlowPromptModelInferenceConfiguration;
+    }
+
+    /**
+     * Input variable
+     */
+    export interface FlowPromptInputVariable {
+        /**
+         * Name for an input variable
+         */
+        name?: string;
+    }
+
+    /**
+     * Prompt model inference configuration
+     */
+    export interface FlowPromptModelInferenceConfiguration {
+        /**
+         * Maximum length of output
+         */
+        maxTokens?: number;
+        /**
+         * List of stop sequences
+         */
+        stopSequences?: string[];
+        /**
+         * Controls randomness, higher values increase diversity
+         */
+        temperature?: number;
+        /**
+         * Sample from the k most likely next tokens
+         */
+        topK?: number;
+        /**
+         * Cumulative probability cutoff for token selection
+         */
+        topP?: number;
+    }
+
+    /**
+     * Prompt template configuration
+     */
+    export interface FlowPromptTemplateConfigurationProperties {
+        text: outputs.bedrock.FlowTextPromptTemplateConfiguration;
+    }
+
+    /**
+     * A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
+     */
+    export interface FlowS3Location {
+        /**
+         * A bucket in S3
+         */
+        bucket: string;
+        /**
+         * A object key in S3
+         */
+        key: string;
+        /**
+         * The version of the the S3 object to use
+         */
+        version?: string;
+    }
+
+    /**
+     * Configuration for text prompt template
+     */
+    export interface FlowTextPromptTemplateConfiguration {
+        /**
+         * List of input variables
+         */
+        inputVariables?: outputs.bedrock.FlowPromptInputVariable[];
+        /**
+         * Prompt content for String prompt template
+         */
+        text: string;
+    }
+
+    /**
+     * Condition flow node configuration
+     */
+    export interface FlowVersionConditionFlowNodeConfiguration {
+        /**
+         * List of conditions in a condition node
+         */
+        conditions: outputs.bedrock.FlowVersionFlowCondition[];
+    }
+
+    /**
+     * Condition branch for a condition node
+     */
+    export interface FlowVersionFlowCondition {
+        /**
+         * Expression for a condition in a flow
+         */
+        expression?: string;
+        /**
+         * Name of a condition in a flow
+         */
+        name: string;
+    }
+
+    /**
+     * Conditional connection configuration
+     */
+    export interface FlowVersionFlowConditionalConnectionConfiguration {
+        /**
+         * Name of a condition in a flow
+         */
+        condition: string;
+    }
+
+    /**
+     * Flow connection
+     */
+    export interface FlowVersionFlowConnection {
+        configuration?: outputs.bedrock.FlowVersionFlowConnectionConfiguration0Properties | outputs.bedrock.FlowVersionFlowConnectionConfiguration1Properties;
+        /**
+         * Name of a connection in a flow
+         */
+        name: string;
+        /**
+         * Name of a node in a flow
+         */
+        source: string;
+        /**
+         * Name of a node in a flow
+         */
+        target: string;
+        type: enums.bedrock.FlowVersionFlowConnectionType;
+    }
+
+    /**
+     * Connection configuration
+     */
+    export interface FlowVersionFlowConnectionConfiguration0Properties {
+        data: outputs.bedrock.FlowVersionFlowDataConnectionConfiguration;
+    }
+
+    /**
+     * Connection configuration
+     */
+    export interface FlowVersionFlowConnectionConfiguration1Properties {
+        conditional: outputs.bedrock.FlowVersionFlowConditionalConnectionConfiguration;
+    }
+
+    /**
+     * Data connection configuration
+     */
+    export interface FlowVersionFlowDataConnectionConfiguration {
+        /**
+         * Name of a node output in a flow
+         */
+        sourceOutput: string;
+        /**
+         * Name of a node input in a flow
+         */
+        targetInput: string;
+    }
+
+    /**
+     * Flow definition
+     */
+    export interface FlowVersionFlowDefinition {
+        /**
+         * List of connections
+         */
+        connections?: outputs.bedrock.FlowVersionFlowConnection[];
+        /**
+         * List of nodes in a flow
+         */
+        nodes?: outputs.bedrock.FlowVersionFlowNode[];
+    }
+
+    /**
+     * Internal mixin for flow node
+     */
+    export interface FlowVersionFlowNode {
+        configuration?: outputs.bedrock.FlowVersionFlowNodeConfiguration0Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration1Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration2Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration3Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration4Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration5Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration6Properties;
+        /**
+         * List of node inputs in a flow
+         */
+        inputs?: outputs.bedrock.FlowVersionFlowNodeInput[];
+        /**
+         * Name of a node in a flow
+         */
+        name: string;
+        /**
+         * List of node outputs in a flow
+         */
+        outputs?: outputs.bedrock.FlowVersionFlowNodeOutput[];
+        type: enums.bedrock.FlowVersionFlowNodeType;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration0Properties {
+        input: outputs.bedrock.FlowVersionInputFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration1Properties {
+        output: outputs.bedrock.FlowVersionOutputFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration2Properties {
+        knowledgeBase: outputs.bedrock.FlowVersionKnowledgeBaseFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration3Properties {
+        condition: outputs.bedrock.FlowVersionConditionFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration4Properties {
+        lex: outputs.bedrock.FlowVersionLexFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration5Properties {
+        prompt: outputs.bedrock.FlowVersionPromptFlowNodeConfiguration;
+    }
+
+    /**
+     * Node configuration in a flow
+     */
+    export interface FlowVersionFlowNodeConfiguration6Properties {
+        lambdaFunction: outputs.bedrock.FlowVersionLambdaFunctionFlowNodeConfiguration;
+    }
+
+    /**
+     * Input to a node in a flow
+     */
+    export interface FlowVersionFlowNodeInput {
+        /**
+         * Expression for a node input in a flow
+         */
+        expression: string;
+        /**
+         * Name of a node input in a flow
+         */
+        name: string;
+        type: enums.bedrock.FlowVersionFlowNodeIoDataType;
+    }
+
+    /**
+     * Output of a node in a flow
+     */
+    export interface FlowVersionFlowNodeOutput {
+        /**
+         * Name of a node output in a flow
+         */
+        name: string;
+        type: enums.bedrock.FlowVersionFlowNodeIoDataType;
+    }
+
+    /**
+     * Input flow node configuration
+     */
+    export interface FlowVersionInputFlowNodeConfiguration {
+    }
+
+    /**
+     * Knowledge base flow node configuration
+     */
+    export interface FlowVersionKnowledgeBaseFlowNodeConfiguration {
+        /**
+         * Identifier of the KnowledgeBase
+         */
+        knowledgeBaseId: string;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId?: string;
+    }
+
+    /**
+     * Lambda function flow node configuration
+     */
+    export interface FlowVersionLambdaFunctionFlowNodeConfiguration {
+        /**
+         * ARN of a Lambda.
+         */
+        lambdaArn: string;
+    }
+
+    /**
+     * Lex flow node configuration
+     */
+    export interface FlowVersionLexFlowNodeConfiguration {
+        /**
+         * ARN of a Lex bot alias
+         */
+        botAliasArn: string;
+        /**
+         * Lex bot locale id
+         */
+        localeId: string;
+    }
+
+    /**
+     * Output flow node configuration
+     */
+    export interface FlowVersionOutputFlowNodeConfiguration {
+    }
+
+    /**
+     * Prompt flow node configuration
+     */
+    export interface FlowVersionPromptFlowNodeConfiguration {
+        sourceConfiguration: outputs.bedrock.FlowVersionPromptFlowNodeSourceConfiguration0Properties | outputs.bedrock.FlowVersionPromptFlowNodeSourceConfiguration1Properties;
+    }
+
+    /**
+     * Inline prompt configuration for prompt node
+     */
+    export interface FlowVersionPromptFlowNodeInlineConfiguration {
+        inferenceConfiguration?: outputs.bedrock.FlowVersionPromptInferenceConfigurationProperties;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId: string;
+        templateConfiguration: outputs.bedrock.FlowVersionPromptTemplateConfigurationProperties;
+        templateType: enums.bedrock.FlowVersionPromptTemplateType;
+    }
+
+    /**
+     * Resource prompt configuration for prompt node
+     */
+    export interface FlowVersionPromptFlowNodeResourceConfiguration {
+        /**
+         * ARN of a prompt resource possibly with a version
+         */
+        promptArn: string;
+    }
+
+    /**
+     * Prompt source configuration for prompt node
+     */
+    export interface FlowVersionPromptFlowNodeSourceConfiguration0Properties {
+        resource: outputs.bedrock.FlowVersionPromptFlowNodeResourceConfiguration;
+    }
+
+    /**
+     * Prompt source configuration for prompt node
+     */
+    export interface FlowVersionPromptFlowNodeSourceConfiguration1Properties {
+        inline: outputs.bedrock.FlowVersionPromptFlowNodeInlineConfiguration;
+    }
+
+    /**
+     * Model inference configuration
+     */
+    export interface FlowVersionPromptInferenceConfigurationProperties {
+        text: outputs.bedrock.FlowVersionPromptModelInferenceConfiguration;
+    }
+
+    /**
+     * Input variable
+     */
+    export interface FlowVersionPromptInputVariable {
+        /**
+         * Name for an input variable
+         */
+        name?: string;
+    }
+
+    /**
+     * Prompt model inference configuration
+     */
+    export interface FlowVersionPromptModelInferenceConfiguration {
+        /**
+         * Maximum length of output
+         */
+        maxTokens?: number;
+        /**
+         * List of stop sequences
+         */
+        stopSequences?: string[];
+        /**
+         * Controls randomness, higher values increase diversity
+         */
+        temperature?: number;
+        /**
+         * Sample from the k most likely next tokens
+         */
+        topK?: number;
+        /**
+         * Cumulative probability cutoff for token selection
+         */
+        topP?: number;
+    }
+
+    /**
+     * Prompt template configuration
+     */
+    export interface FlowVersionPromptTemplateConfigurationProperties {
+        text: outputs.bedrock.FlowVersionTextPromptTemplateConfiguration;
+    }
+
+    /**
+     * Configuration for text prompt template
+     */
+    export interface FlowVersionTextPromptTemplateConfiguration {
+        /**
+         * List of input variables
+         */
+        inputVariables?: outputs.bedrock.FlowVersionPromptInputVariable[];
+        /**
+         * Prompt content for String prompt template
+         */
+        text: string;
+    }
+
+    /**
      * Content filter config in content policy.
      */
     export interface GuardrailContentFilterConfig {
@@ -9280,6 +10006,187 @@ export namespace bedrock {
          * The ARN of the model used to create vector embeddings for the knowledge base.
          */
         embeddingModelArn: string;
+    }
+
+    /**
+     * Model inference configuration
+     */
+    export interface PromptInferenceConfigurationProperties {
+        text: outputs.bedrock.PromptModelInferenceConfiguration;
+    }
+
+    /**
+     * Input variable
+     */
+    export interface PromptInputVariable {
+        /**
+         * Name for an input variable
+         */
+        name?: string;
+    }
+
+    /**
+     * Prompt model inference configuration
+     */
+    export interface PromptModelInferenceConfiguration {
+        /**
+         * Maximum length of output
+         */
+        maxTokens?: number;
+        /**
+         * List of stop sequences
+         */
+        stopSequences?: string[];
+        /**
+         * Controls randomness, higher values increase diversity
+         */
+        temperature?: number;
+        /**
+         * Sample from the k most likely next tokens
+         */
+        topK?: number;
+        /**
+         * Cumulative probability cutoff for token selection
+         */
+        topP?: number;
+    }
+
+    /**
+     * Prompt template configuration
+     */
+    export interface PromptTemplateConfigurationProperties {
+        text: outputs.bedrock.PromptTextPromptTemplateConfiguration;
+    }
+
+    /**
+     * Configuration for text prompt template
+     */
+    export interface PromptTextPromptTemplateConfiguration {
+        /**
+         * List of input variables
+         */
+        inputVariables?: outputs.bedrock.PromptInputVariable[];
+        /**
+         * Prompt content for String prompt template
+         */
+        text?: string;
+        textS3Location?: outputs.bedrock.PromptTextS3Location;
+    }
+
+    /**
+     * The identifier for the S3 resource.
+     */
+    export interface PromptTextS3Location {
+        /**
+         * A bucket in S3
+         */
+        bucket: string;
+        /**
+         * A object key in S3
+         */
+        key: string;
+        /**
+         * The version of the the S3 object to use
+         */
+        version?: string;
+    }
+
+    /**
+     * Prompt variant
+     */
+    export interface PromptVariant {
+        inferenceConfiguration?: outputs.bedrock.PromptInferenceConfigurationProperties;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId?: string;
+        /**
+         * Name for a variant.
+         */
+        name: string;
+        templateConfiguration?: outputs.bedrock.PromptTemplateConfigurationProperties;
+        templateType: enums.bedrock.PromptTemplateType;
+    }
+
+    /**
+     * Model inference configuration
+     */
+    export interface PromptVersionPromptInferenceConfigurationProperties {
+        text: outputs.bedrock.PromptVersionPromptModelInferenceConfiguration;
+    }
+
+    /**
+     * Input variable
+     */
+    export interface PromptVersionPromptInputVariable {
+        /**
+         * Name for an input variable
+         */
+        name?: string;
+    }
+
+    /**
+     * Prompt model inference configuration
+     */
+    export interface PromptVersionPromptModelInferenceConfiguration {
+        /**
+         * Maximum length of output
+         */
+        maxTokens?: number;
+        /**
+         * List of stop sequences
+         */
+        stopSequences?: string[];
+        /**
+         * Controls randomness, higher values increase diversity
+         */
+        temperature?: number;
+        /**
+         * Sample from the k most likely next tokens
+         */
+        topK?: number;
+        /**
+         * Cumulative probability cutoff for token selection
+         */
+        topP?: number;
+    }
+
+    /**
+     * Prompt template configuration
+     */
+    export interface PromptVersionPromptTemplateConfigurationProperties {
+        text: outputs.bedrock.PromptVersionTextPromptTemplateConfiguration;
+    }
+
+    /**
+     * Prompt variant
+     */
+    export interface PromptVersionPromptVariant {
+        inferenceConfiguration?: outputs.bedrock.PromptVersionPromptInferenceConfigurationProperties;
+        /**
+         * ARN or name of a Bedrock model.
+         */
+        modelId?: string;
+        /**
+         * Name for a variant.
+         */
+        name: string;
+        templateConfiguration?: outputs.bedrock.PromptVersionPromptTemplateConfigurationProperties;
+        templateType: enums.bedrock.PromptVersionPromptTemplateType;
+    }
+
+    /**
+     * Configuration for text prompt template
+     */
+    export interface PromptVersionTextPromptTemplateConfiguration {
+        /**
+         * List of input variables
+         */
+        inputVariables?: outputs.bedrock.PromptVersionPromptInputVariable[];
+        /**
+         * Prompt content for String prompt template
+         */
+        text: string;
     }
 
 }
@@ -19342,7 +20249,7 @@ export namespace ec2 {
     }
 
     /**
-     * A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
+     * A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
      */
     export interface LaunchTemplateConnectionTrackingSpecification {
         /**
@@ -19404,7 +20311,7 @@ export namespace ec2 {
          */
         capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
         /**
-         * The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
          */
         cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
         /**
@@ -19412,7 +20319,7 @@ export namespace ec2 {
          */
         creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
         /**
-         * Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
+         * Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
          */
         disableApiStop?: boolean;
         /**
@@ -19440,7 +20347,7 @@ export namespace ec2 {
          */
         enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
         /**
-         * Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
          */
         hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
         /**
@@ -19481,7 +20388,7 @@ export namespace ec2 {
          */
         instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
         /**
-         * The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
          *  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
          */
         instanceType?: string;
@@ -19504,7 +20411,7 @@ export namespace ec2 {
          */
         maintenanceOptions?: outputs.ec2.LaunchTemplateMaintenanceOptions;
         /**
-         * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
          */
         metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
         /**
@@ -19525,7 +20432,7 @@ export namespace ec2 {
         privateDnsNameOptions?: outputs.ec2.LaunchTemplatePrivateDnsNameOptions;
         /**
          * The ID of the RAM disk.
-         *   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         *   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
          */
         ramDiskId?: string;
         /**
@@ -19545,7 +20452,7 @@ export namespace ec2 {
          */
         tagSpecifications?: outputs.ec2.TagSpecification[];
         /**
-         * The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
          *  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
          */
         userData?: string;
@@ -19610,7 +20517,7 @@ export namespace ec2 {
      */
     export interface LaunchTemplateElasticGpuSpecification {
         /**
-         * The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+         * The type of Elastic Graphics accelerator.
          */
         type?: string;
     }
@@ -19847,7 +20754,7 @@ export namespace ec2 {
         /**
          * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
          *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
          */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
@@ -19911,7 +20818,7 @@ export namespace ec2 {
      */
     export interface LaunchTemplateIpv4PrefixSpecification {
         /**
-         * The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
          */
         ipv4Prefix?: string;
     }
@@ -20089,7 +20996,7 @@ export namespace ec2 {
          */
         groups?: string[];
         /**
-         * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
          *  If you are not creating an EFA, specify ``interface`` or omit this parameter.
          *  Valid values: ``interface`` | ``efa``
          */
@@ -20291,7 +21198,7 @@ export namespace ec2 {
      */
     export interface LaunchTemplateTagSpecification {
         /**
-         * The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
+         * The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
          */
         resourceType?: string;
         /**
@@ -20964,6 +21871,10 @@ export namespace ec2 {
         sourcePortRange?: outputs.ec2.NetworkInsightsPathFilterPortRange;
     }
 
+    /**
+     * ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+     *  To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+     */
     export interface NetworkInterfaceAttachmentEnaSrdSpecification {
         /**
          * Indicates whether ENA Express is enabled for the network interface.
@@ -22096,8 +23007,7 @@ export namespace ec2 {
      */
     export interface TagSpecification {
         /**
-         * The type of resource to tag.
-         *  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+         * The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
          *  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
          */
         resourceType?: string;
@@ -43675,6 +44585,30 @@ export namespace mediapackagev2 {
          * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
          */
         timeDelaySeconds?: number;
+    }
+
+    /**
+     * <p>The failover settings for the endpoint.</p>
+     */
+    export interface OriginEndpointForceEndpointErrorConfiguration {
+        /**
+         * <p>The failover settings for the endpoint. The options are:</p>
+         *          <ul>
+         *             <li>
+         *                <p>
+         *                   <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+         *             </li>
+         *             <li>
+         *                <p>
+         *                   <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+         *             </li>
+         *             <li>
+         *                <p>
+         *                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+         *             </li>
+         *          </ul>
+         */
+        endpointErrorConditions?: enums.mediapackagev2.OriginEndpointEndpointErrorCondition[];
     }
 
     /**
@@ -76209,7 +77143,7 @@ export namespace rds {
     }
 
     /**
-     * The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+     * The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
      */
     export interface DbInstanceProcessorFeature {
         /**

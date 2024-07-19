@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class LaunchTemplateElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+        /// The type of Elastic Graphics accelerator.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

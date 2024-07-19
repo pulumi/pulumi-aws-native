@@ -1677,7 +1677,7 @@ func (o DbInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class.
 type DbInstanceProcessorFeature struct {
 	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name *DbInstanceProcessorFeatureName `pulumi:"name"`
@@ -1696,7 +1696,7 @@ type DbInstanceProcessorFeatureInput interface {
 	ToDbInstanceProcessorFeatureOutputWithContext(context.Context) DbInstanceProcessorFeatureOutput
 }
 
-// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class.
 type DbInstanceProcessorFeatureArgs struct {
 	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name DbInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
@@ -1741,7 +1741,7 @@ func (i DbInstanceProcessorFeatureArray) ToDbInstanceProcessorFeatureArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceProcessorFeatureArrayOutput)
 }
 
-// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class.
 type DbInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceProcessorFeatureOutput) ElementType() reflect.Type {

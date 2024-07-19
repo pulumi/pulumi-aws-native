@@ -952,9 +952,14 @@ _utilities.register(
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:DataSource": "DataSource",
+   "aws-native:bedrock:Flow": "Flow",
+   "aws-native:bedrock:FlowAlias": "FlowAlias",
+   "aws-native:bedrock:FlowVersion": "FlowVersion",
    "aws-native:bedrock:Guardrail": "Guardrail",
    "aws-native:bedrock:GuardrailVersion": "GuardrailVersion",
-   "aws-native:bedrock:KnowledgeBase": "KnowledgeBase"
+   "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
+   "aws-native:bedrock:Prompt": "Prompt",
+   "aws-native:bedrock:PromptVersion": "PromptVersion"
   }
  },
  {

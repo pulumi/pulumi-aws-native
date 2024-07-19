@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Lightsail
     public static class GetCertificate
     {
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for AWS::Lightsail::Certificate.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws-native:lightsail:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for AWS::Lightsail::Certificate.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:lightsail:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

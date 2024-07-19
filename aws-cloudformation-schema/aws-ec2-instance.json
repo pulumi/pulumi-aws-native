@@ -31,7 +31,7 @@
       "permissions" : [ "ec2:DescribeInstances", "ec2:TerminateInstances", "ec2:DescribeElasticGpus", "ec2:DescribeNetworkInterfaces", "ec2:DescribeVolumes", "ec2:DescribeInstances", "ec2:DescribeInstanceAttribute", "ec2:DescribeInstanceCreditSpecifications", "ec2:DescribeLaunchTemplates", "elastic-inference:DescribeAccelerators", "ssm:DescribeAssociation", "ssm:ListAssociations" ]
     }
   },
-  "writeOnlyProperties" : [ "/properties/BlockDeviceMappings/*/NoDevice", "/properties/BlockDeviceMappings/*/VirtualName", "/properties/LicenseSpecification", "/properties/AdditionalInfo", "/properties/Ipv6AddressCount", "/properties/Ipv6Addresses", "/properties/PropagateTagsToVolumeOnCreation" ],
+  "writeOnlyProperties" : [ "/properties/BlockDeviceMappings/*/NoDevice", "/properties/BlockDeviceMappings/*/VirtualName", "/properties/LicenseSpecification", "/properties/AdditionalInfo", "/properties/Ipv6AddressCount", "/properties/Ipv6Addresses", "/properties/PropagateTagsToVolumeOnCreation", "/properties/LaunchTemplate" ],
   "additionalProperties" : false,
   "definitions" : {
     "LaunchTemplateSpecification" : {

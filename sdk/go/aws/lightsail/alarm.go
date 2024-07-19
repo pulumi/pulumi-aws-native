@@ -30,7 +30,7 @@ type Alarm struct {
 	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
 	// The name of the metric to associate with the alarm.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// The validation status of the SSL/TLS certificate.
+	// The name of the Lightsail resource that the alarm monitors.
 	MonitoredResourceName pulumi.StringOutput `pulumi:"monitoredResourceName"`
 	// Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
 	NotificationEnabled pulumi.BoolPtrOutput `pulumi:"notificationEnabled"`
@@ -117,7 +117,7 @@ type alarmArgs struct {
 	EvaluationPeriods int `pulumi:"evaluationPeriods"`
 	// The name of the metric to associate with the alarm.
 	MetricName string `pulumi:"metricName"`
-	// The validation status of the SSL/TLS certificate.
+	// The name of the Lightsail resource that the alarm monitors.
 	MonitoredResourceName string `pulumi:"monitoredResourceName"`
 	// Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
 	NotificationEnabled *bool `pulumi:"notificationEnabled"`
@@ -143,7 +143,7 @@ type AlarmArgs struct {
 	EvaluationPeriods pulumi.IntInput
 	// The name of the metric to associate with the alarm.
 	MetricName pulumi.StringInput
-	// The validation status of the SSL/TLS certificate.
+	// The name of the Lightsail resource that the alarm monitors.
 	MonitoredResourceName pulumi.StringInput
 	// Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
 	NotificationEnabled pulumi.BoolPtrInput
@@ -227,7 +227,7 @@ func (o AlarmOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The validation status of the SSL/TLS certificate.
+// The name of the Lightsail resource that the alarm monitors.
 func (o AlarmOutput) MonitoredResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.MonitoredResourceName }).(pulumi.StringOutput)
 }

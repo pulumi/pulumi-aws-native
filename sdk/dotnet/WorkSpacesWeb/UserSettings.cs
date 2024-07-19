@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        [Output("deepLinkAllowed")]
+        public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType?> DeepLinkAllowed { get; private set; } = null!;
+
         /// <summary>
         /// The amount of time that a streaming session remains active after users disconnect.
         /// </summary>
@@ -172,6 +175,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
+
+        [Input("deepLinkAllowed")]
+        public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType>? DeepLinkAllowed { get; set; }
 
         /// <summary>
         /// The amount of time that a streaming session remains active after users disconnect.

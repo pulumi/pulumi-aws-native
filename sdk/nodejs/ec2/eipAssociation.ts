@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for EC2 EIP association.
+ * Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+ *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**
@@ -35,27 +36,25 @@ export class EipAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The allocation ID. This is required for EC2-VPC.
+     * The allocation ID. This is required.
      */
     public readonly allocationId!: pulumi.Output<string | undefined>;
     /**
-     * Composite ID of non-empty properties, to determine the identification.
+     * The ID of the association.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
-    /**
-     * The Elastic IP address to associate with the instance.
-     */
     public readonly eip!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the instance.
+     * The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
      */
     public readonly instanceId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the network interface.
+     * The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+     *  You can specify either the instance ID or the network interface ID, but not both.
      */
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     /**
-     * The primary or secondary private IP address to associate with the Elastic IP address.
+     * The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
 
@@ -96,23 +95,21 @@ export class EipAssociation extends pulumi.CustomResource {
  */
 export interface EipAssociationArgs {
     /**
-     * The allocation ID. This is required for EC2-VPC.
+     * The allocation ID. This is required.
      */
     allocationId?: pulumi.Input<string>;
-    /**
-     * The Elastic IP address to associate with the instance.
-     */
     eip?: pulumi.Input<string>;
     /**
-     * The ID of the instance.
+     * The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * The ID of the network interface.
+     * The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+     *  You can specify either the instance ID or the network interface ID, but not both.
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
-     * The primary or secondary private IP address to associate with the Elastic IP address.
+     * The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
     privateIpAddress?: pulumi.Input<string>;
 }

@@ -1428,6 +1428,11 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 		if values.Has(str) {
 			continue
 		}
+
+		// Enum values cannot end in `*Input` or `*Output`. Special casing these two instances
+		if (typName == "FlowNodeType" || typName == "FlowVersionFlowNodeType") && (str == "Input" || str == "Output") {
+			str = str + "Type"
+		}
 		values.Add(str)
 		enumVal := pschema.EnumValueSpec{
 			Value: val,

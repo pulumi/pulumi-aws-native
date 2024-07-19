@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
     /// <summary>
-    /// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
+    /// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
     /// </summary>
     public sealed class LaunchTemplateConnectionTrackingSpecificationArgs : global::Pulumi.ResourceArgs
     {

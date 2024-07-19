@@ -23,10 +23,10 @@ class NetworkInterfaceAttachmentArgs:
                  ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
-        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
-        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         :param pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs'] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         """
         pulumi.set(__self__, "device_index", device_index)
@@ -41,7 +41,7 @@ class NetworkInterfaceAttachmentArgs:
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Input[str]:
         """
-        The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         """
         return pulumi.get(self, "device_index")
 
@@ -77,7 +77,7 @@ class NetworkInterfaceAttachmentArgs:
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -110,12 +110,12 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+        Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
-        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
+        :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
@@ -127,7 +127,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  args: NetworkInterfaceAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+        Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -222,7 +222,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Output[str]:
         """
-        The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         """
         return pulumi.get(self, "device_index")
 

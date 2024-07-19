@@ -27,6 +27,7 @@ class UserSettingsArgs:
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -55,6 +56,8 @@ class UserSettingsArgs:
             pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if deep_link_allowed is not None:
+            pulumi.set(__self__, "deep_link_allowed", deep_link_allowed)
         if disconnect_timeout_in_minutes is not None:
             pulumi.set(__self__, "disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
         if idle_disconnect_timeout_in_minutes is not None:
@@ -159,6 +162,15 @@ class UserSettingsArgs:
         pulumi.set(self, "customer_managed_key", value)
 
     @property
+    @pulumi.getter(name="deepLinkAllowed")
+    def deep_link_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+        return pulumi.get(self, "deep_link_allowed")
+
+    @deep_link_allowed.setter
+    def deep_link_allowed(self, value: Optional[pulumi.Input['UserSettingsEnabledType']]):
+        pulumi.set(self, "deep_link_allowed", value)
+
+    @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
         """
@@ -204,6 +216,7 @@ class UserSettings(pulumi.CustomResource):
                  cookie_synchronization_configuration: Optional[pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -257,6 +270,7 @@ class UserSettings(pulumi.CustomResource):
                  cookie_synchronization_configuration: Optional[pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -279,6 +293,7 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'copy_allowed'")
             __props__.__dict__["copy_allowed"] = copy_allowed
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            __props__.__dict__["deep_link_allowed"] = deep_link_allowed
             __props__.__dict__["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
             if download_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'download_allowed'")
@@ -325,6 +340,7 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["cookie_synchronization_configuration"] = None
         __props__.__dict__["copy_allowed"] = None
         __props__.__dict__["customer_managed_key"] = None
+        __props__.__dict__["deep_link_allowed"] = None
         __props__.__dict__["disconnect_timeout_in_minutes"] = None
         __props__.__dict__["download_allowed"] = None
         __props__.__dict__["idle_disconnect_timeout_in_minutes"] = None
@@ -374,6 +390,11 @@ class UserSettings(pulumi.CustomResource):
         The customer managed key used to encrypt sensitive information in the user settings.
         """
         return pulumi.get(self, "customer_managed_key")
+
+    @property
+    @pulumi.getter(name="deepLinkAllowed")
+    def deep_link_allowed(self) -> pulumi.Output[Optional['UserSettingsEnabledType']]:
+        return pulumi.get(self, "deep_link_allowed")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")

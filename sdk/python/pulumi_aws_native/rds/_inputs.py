@@ -501,7 +501,7 @@ class DbInstanceProcessorFeatureArgs:
                  name: Optional[pulumi.Input['DbInstanceProcessorFeatureName']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
         :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param pulumi.Input[str] value: The value of a processor feature.
         """

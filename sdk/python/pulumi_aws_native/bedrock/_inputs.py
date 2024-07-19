@@ -32,6 +32,41 @@ __all__ = [
     'DataSourceS3DataSourceConfigurationArgs',
     'DataSourceServerSideEncryptionConfigurationArgs',
     'DataSourceVectorIngestionConfigurationArgs',
+    'FlowAliasRoutingConfigurationListItemArgs',
+    'FlowConditionFlowNodeConfigurationArgs',
+    'FlowConditionalConnectionConfigurationArgs',
+    'FlowConditionArgs',
+    'FlowConnectionConfiguration0PropertiesArgs',
+    'FlowConnectionConfiguration1PropertiesArgs',
+    'FlowConnectionArgs',
+    'FlowDataConnectionConfigurationArgs',
+    'FlowDefinitionArgs',
+    'FlowInputFlowNodeConfigurationArgs',
+    'FlowKnowledgeBaseFlowNodeConfigurationArgs',
+    'FlowLambdaFunctionFlowNodeConfigurationArgs',
+    'FlowLexFlowNodeConfigurationArgs',
+    'FlowNodeConfiguration0PropertiesArgs',
+    'FlowNodeConfiguration1PropertiesArgs',
+    'FlowNodeConfiguration2PropertiesArgs',
+    'FlowNodeConfiguration3PropertiesArgs',
+    'FlowNodeConfiguration4PropertiesArgs',
+    'FlowNodeConfiguration5PropertiesArgs',
+    'FlowNodeConfiguration6PropertiesArgs',
+    'FlowNodeInputArgs',
+    'FlowNodeOutputArgs',
+    'FlowNodeArgs',
+    'FlowOutputFlowNodeConfigurationArgs',
+    'FlowPromptFlowNodeConfigurationArgs',
+    'FlowPromptFlowNodeInlineConfigurationArgs',
+    'FlowPromptFlowNodeResourceConfigurationArgs',
+    'FlowPromptFlowNodeSourceConfiguration0PropertiesArgs',
+    'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs',
+    'FlowPromptInferenceConfigurationPropertiesArgs',
+    'FlowPromptInputVariableArgs',
+    'FlowPromptModelInferenceConfigurationArgs',
+    'FlowPromptTemplateConfigurationPropertiesArgs',
+    'FlowS3LocationArgs',
+    'FlowTextPromptTemplateConfigurationArgs',
     'GuardrailContentFilterConfigArgs',
     'GuardrailContentPolicyConfigArgs',
     'GuardrailManagedWordsConfigArgs',
@@ -51,6 +86,13 @@ __all__ = [
     'KnowledgeBaseRdsFieldMappingArgs',
     'KnowledgeBaseStorageConfigurationArgs',
     'KnowledgeBaseVectorKnowledgeBaseConfigurationArgs',
+    'PromptInferenceConfigurationPropertiesArgs',
+    'PromptInputVariableArgs',
+    'PromptModelInferenceConfigurationArgs',
+    'PromptTemplateConfigurationPropertiesArgs',
+    'PromptTextPromptTemplateConfigurationArgs',
+    'PromptTextS3LocationArgs',
+    'PromptVariantArgs',
 ]
 
 @pulumi.input_type
@@ -1033,6 +1075,1099 @@ class DataSourceVectorIngestionConfigurationArgs:
     @chunking_configuration.setter
     def chunking_configuration(self, value: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
+
+
+@pulumi.input_type
+class FlowAliasRoutingConfigurationListItemArgs:
+    def __init__(__self__, *,
+                 flow_version: Optional[pulumi.Input[str]] = None):
+        """
+        Details about the routing configuration for a Flow alias.
+        :param pulumi.Input[str] flow_version: Version.
+        """
+        if flow_version is not None:
+            pulumi.set(__self__, "flow_version", flow_version)
+
+    @property
+    @pulumi.getter(name="flowVersion")
+    def flow_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version.
+        """
+        return pulumi.get(self, "flow_version")
+
+    @flow_version.setter
+    def flow_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_version", value)
+
+
+@pulumi.input_type
+class FlowConditionFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]]):
+        """
+        Condition flow node configuration
+        :param pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]] conditions: List of conditions in a condition node
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]]:
+        """
+        List of conditions in a condition node
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+@pulumi.input_type
+class FlowConditionalConnectionConfigurationArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[str]):
+        """
+        Conditional connection configuration
+        :param pulumi.Input[str] condition: Name of a condition in a flow
+        """
+        pulumi.set(__self__, "condition", condition)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[str]:
+        """
+        Name of a condition in a flow
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition", value)
+
+
+@pulumi.input_type
+class FlowConditionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 expression: Optional[pulumi.Input[str]] = None):
+        """
+        Condition branch for a condition node
+        :param pulumi.Input[str] name: Name of a condition in a flow
+        :param pulumi.Input[str] expression: Expression for a condition in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of a condition in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expression for a condition in a flow
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
+class FlowConnectionConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 data: pulumi.Input['FlowDataConnectionConfigurationArgs']):
+        """
+        Connection configuration
+        """
+        pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def data(self) -> pulumi.Input['FlowDataConnectionConfigurationArgs']:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: pulumi.Input['FlowDataConnectionConfigurationArgs']):
+        pulumi.set(self, "data", value)
+
+
+@pulumi.input_type
+class FlowConnectionConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
+        """
+        Connection configuration
+        """
+        pulumi.set(__self__, "conditional", conditional)
+
+    @property
+    @pulumi.getter
+    def conditional(self) -> pulumi.Input['FlowConditionalConnectionConfigurationArgs']:
+        return pulumi.get(self, "conditional")
+
+    @conditional.setter
+    def conditional(self, value: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
+        pulumi.set(self, "conditional", value)
+
+
+@pulumi.input_type
+class FlowConnectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 target: pulumi.Input[str],
+                 type: pulumi.Input['FlowConnectionType'],
+                 configuration: Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]] = None):
+        """
+        Flow connection
+        :param pulumi.Input[str] name: Name of a connection in a flow
+        :param pulumi.Input[str] source: Name of a node in a flow
+        :param pulumi.Input[str] target: Name of a node in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "type", type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of a connection in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        Name of a node in a flow
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        Name of a node in a flow
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowConnectionType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowConnectionType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]):
+        pulumi.set(self, "configuration", value)
+
+
+@pulumi.input_type
+class FlowDataConnectionConfigurationArgs:
+    def __init__(__self__, *,
+                 source_output: pulumi.Input[str],
+                 target_input: pulumi.Input[str]):
+        """
+        Data connection configuration
+        :param pulumi.Input[str] source_output: Name of a node output in a flow
+        :param pulumi.Input[str] target_input: Name of a node input in a flow
+        """
+        pulumi.set(__self__, "source_output", source_output)
+        pulumi.set(__self__, "target_input", target_input)
+
+    @property
+    @pulumi.getter(name="sourceOutput")
+    def source_output(self) -> pulumi.Input[str]:
+        """
+        Name of a node output in a flow
+        """
+        return pulumi.get(self, "source_output")
+
+    @source_output.setter
+    def source_output(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_output", value)
+
+    @property
+    @pulumi.getter(name="targetInput")
+    def target_input(self) -> pulumi.Input[str]:
+        """
+        Name of a node input in a flow
+        """
+        return pulumi.get(self, "target_input")
+
+    @target_input.setter
+    def target_input(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_input", value)
+
+
+@pulumi.input_type
+class FlowDefinitionArgs:
+    def __init__(__self__, *,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]] = None):
+        """
+        Flow definition
+        :param pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]] connections: List of connections
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]] nodes: List of nodes in a flow
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]]:
+        """
+        List of connections
+        """
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]]):
+        pulumi.set(self, "connections", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]]:
+        """
+        List of nodes in a flow
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+
+@pulumi.input_type
+class FlowInputFlowNodeConfigurationArgs:
+    def __init__(__self__):
+        """
+        Input flow node configuration
+        """
+        pass
+
+
+@pulumi.input_type
+class FlowKnowledgeBaseFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 knowledge_base_id: pulumi.Input[str],
+                 model_id: Optional[pulumi.Input[str]] = None):
+        """
+        Knowledge base flow node configuration
+        :param pulumi.Input[str] knowledge_base_id: Identifier of the KnowledgeBase
+        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
+        """
+        pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseId")
+    def knowledge_base_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the KnowledgeBase
+        """
+        return pulumi.get(self, "knowledge_base_id")
+
+    @knowledge_base_id.setter
+    def knowledge_base_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "knowledge_base_id", value)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN or name of a Bedrock model.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_id", value)
+
+
+@pulumi.input_type
+class FlowLambdaFunctionFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str]):
+        """
+        Lambda function flow node configuration
+        :param pulumi.Input[str] lambda_arn: ARN of a Lambda.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of a Lambda.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
+
+@pulumi.input_type
+class FlowLexFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 bot_alias_arn: pulumi.Input[str],
+                 locale_id: pulumi.Input[str]):
+        """
+        Lex flow node configuration
+        :param pulumi.Input[str] bot_alias_arn: ARN of a Lex bot alias
+        :param pulumi.Input[str] locale_id: Lex bot locale id
+        """
+        pulumi.set(__self__, "bot_alias_arn", bot_alias_arn)
+        pulumi.set(__self__, "locale_id", locale_id)
+
+    @property
+    @pulumi.getter(name="botAliasArn")
+    def bot_alias_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of a Lex bot alias
+        """
+        return pulumi.get(self, "bot_alias_arn")
+
+    @bot_alias_arn.setter
+    def bot_alias_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bot_alias_arn", value)
+
+    @property
+    @pulumi.getter(name="localeId")
+    def locale_id(self) -> pulumi.Input[str]:
+        """
+        Lex bot locale id
+        """
+        return pulumi.get(self, "locale_id")
+
+    @locale_id.setter
+    def locale_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "locale_id", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 input: pulumi.Input['FlowInputFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def input(self) -> pulumi.Input['FlowInputFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "input")
+
+    @input.setter
+    def input(self, value: pulumi.Input['FlowInputFlowNodeConfigurationArgs']):
+        pulumi.set(self, "input", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 output: pulumi.Input['FlowOutputFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "output", output)
+
+    @property
+    @pulumi.getter
+    def output(self) -> pulumi.Input['FlowOutputFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input['FlowOutputFlowNodeConfigurationArgs']):
+        pulumi.set(self, "output", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 knowledge_base: pulumi.Input['FlowKnowledgeBaseFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "knowledge_base", knowledge_base)
+
+    @property
+    @pulumi.getter(name="knowledgeBase")
+    def knowledge_base(self) -> pulumi.Input['FlowKnowledgeBaseFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "knowledge_base")
+
+    @knowledge_base.setter
+    def knowledge_base(self, value: pulumi.Input['FlowKnowledgeBaseFlowNodeConfigurationArgs']):
+        pulumi.set(self, "knowledge_base", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['FlowConditionFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "condition", condition)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['FlowConditionFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['FlowConditionFlowNodeConfigurationArgs']):
+        pulumi.set(self, "condition", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration4PropertiesArgs:
+    def __init__(__self__, *,
+                 lex: pulumi.Input['FlowLexFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "lex", lex)
+
+    @property
+    @pulumi.getter
+    def lex(self) -> pulumi.Input['FlowLexFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "lex")
+
+    @lex.setter
+    def lex(self, value: pulumi.Input['FlowLexFlowNodeConfigurationArgs']):
+        pulumi.set(self, "lex", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration5PropertiesArgs:
+    def __init__(__self__, *,
+                 prompt: pulumi.Input['FlowPromptFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "prompt", prompt)
+
+    @property
+    @pulumi.getter
+    def prompt(self) -> pulumi.Input['FlowPromptFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "prompt")
+
+    @prompt.setter
+    def prompt(self, value: pulumi.Input['FlowPromptFlowNodeConfigurationArgs']):
+        pulumi.set(self, "prompt", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration6PropertiesArgs:
+    def __init__(__self__, *,
+                 lambda_function: pulumi.Input['FlowLambdaFunctionFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "lambda_function", lambda_function)
+
+    @property
+    @pulumi.getter(name="lambdaFunction")
+    def lambda_function(self) -> pulumi.Input['FlowLambdaFunctionFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "lambda_function")
+
+    @lambda_function.setter
+    def lambda_function(self, value: pulumi.Input['FlowLambdaFunctionFlowNodeConfigurationArgs']):
+        pulumi.set(self, "lambda_function", value)
+
+
+@pulumi.input_type
+class FlowNodeInputArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['FlowNodeIoDataType']):
+        """
+        Input to a node in a flow
+        :param pulumi.Input[str] expression: Expression for a node input in a flow
+        :param pulumi.Input[str] name: Name of a node input in a flow
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        Expression for a node input in a flow
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of a node input in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowNodeIoDataType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowNodeIoDataType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class FlowNodeOutputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['FlowNodeIoDataType']):
+        """
+        Output of a node in a flow
+        :param pulumi.Input[str] name: Name of a node output in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of a node output in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowNodeIoDataType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowNodeIoDataType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class FlowNodeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['FlowNodeType'],
+                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
+        """
+        Internal mixin for flow node
+        :param pulumi.Input[str] name: Name of a node in a flow
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of a node in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowNodeType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowNodeType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]]:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]]:
+        """
+        List of node inputs in a flow
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]:
+        """
+        List of node outputs in a flow
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+
+@pulumi.input_type
+class FlowOutputFlowNodeConfigurationArgs:
+    def __init__(__self__):
+        """
+        Output flow node configuration
+        """
+        pass
+
+
+@pulumi.input_type
+class FlowPromptFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']]):
+        """
+        Prompt flow node configuration
+        """
+        pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "source_configuration", value)
+
+
+@pulumi.input_type
+class FlowPromptFlowNodeInlineConfigurationArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[str],
+                 template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgs'],
+                 template_type: pulumi.Input['FlowPromptTemplateType'],
+                 inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None):
+        """
+        Inline prompt configuration for prompt node
+        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        pulumi.set(__self__, "template_configuration", template_configuration)
+        pulumi.set(__self__, "template_type", template_type)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[str]:
+        """
+        ARN or name of a Bedrock model.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgs']:
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgs']):
+        pulumi.set(self, "template_configuration", value)
+
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> pulumi.Input['FlowPromptTemplateType']:
+        return pulumi.get(self, "template_type")
+
+    @template_type.setter
+    def template_type(self, value: pulumi.Input['FlowPromptTemplateType']):
+        pulumi.set(self, "template_type", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "inference_configuration")
+
+    @inference_configuration.setter
+    def inference_configuration(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+        pulumi.set(self, "inference_configuration", value)
+
+
+@pulumi.input_type
+class FlowPromptFlowNodeResourceConfigurationArgs:
+    def __init__(__self__, *,
+                 prompt_arn: pulumi.Input[str]):
+        """
+        Resource prompt configuration for prompt node
+        :param pulumi.Input[str] prompt_arn: ARN of a prompt resource possibly with a version
+        """
+        pulumi.set(__self__, "prompt_arn", prompt_arn)
+
+    @property
+    @pulumi.getter(name="promptArn")
+    def prompt_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of a prompt resource possibly with a version
+        """
+        return pulumi.get(self, "prompt_arn")
+
+    @prompt_arn.setter
+    def prompt_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_arn", value)
+
+
+@pulumi.input_type
+class FlowPromptFlowNodeSourceConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['FlowPromptFlowNodeResourceConfigurationArgs']):
+        """
+        Prompt source configuration for prompt node
+        """
+        pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['FlowPromptFlowNodeResourceConfigurationArgs']:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['FlowPromptFlowNodeResourceConfigurationArgs']):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class FlowPromptFlowNodeSourceConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 inline: pulumi.Input['FlowPromptFlowNodeInlineConfigurationArgs']):
+        """
+        Prompt source configuration for prompt node
+        """
+        pulumi.set(__self__, "inline", inline)
+
+    @property
+    @pulumi.getter
+    def inline(self) -> pulumi.Input['FlowPromptFlowNodeInlineConfigurationArgs']:
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: pulumi.Input['FlowPromptFlowNodeInlineConfigurationArgs']):
+        pulumi.set(self, "inline", value)
+
+
+@pulumi.input_type
+class FlowPromptInferenceConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input['FlowPromptModelInferenceConfigurationArgs']):
+        """
+        Model inference configuration
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input['FlowPromptModelInferenceConfigurationArgs']:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input['FlowPromptModelInferenceConfigurationArgs']):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class FlowPromptInputVariableArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input variable
+        :param pulumi.Input[str] name: Name for an input variable
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an input variable
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class FlowPromptModelInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: Optional[pulumi.Input[float]] = None,
+                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 temperature: Optional[pulumi.Input[float]] = None,
+                 top_k: Optional[pulumi.Input[float]] = None,
+                 top_p: Optional[pulumi.Input[float]] = None):
+        """
+        Prompt model inference configuration
+        :param pulumi.Input[float] max_tokens: Maximum length of output
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences
+        :param pulumi.Input[float] temperature: Controls randomness, higher values increase diversity
+        :param pulumi.Input[float] top_k: Sample from the k most likely next tokens
+        :param pulumi.Input[float] top_p: Cumulative probability cutoff for token selection
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum length of output
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stop sequences
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[float]]:
+        """
+        Controls randomness, higher values increase diversity
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sample from the k most likely next tokens
+        """
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "top_k", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[float]]:
+        """
+        Cumulative probability cutoff for token selection
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "top_p", value)
+
+
+@pulumi.input_type
+class FlowPromptTemplateConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input['FlowTextPromptTemplateConfigurationArgs']):
+        """
+        Prompt template configuration
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input['FlowTextPromptTemplateConfigurationArgs']:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input['FlowTextPromptTemplateConfigurationArgs']):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class FlowS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str],
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
+        :param pulumi.Input[str] bucket: A bucket in S3
+        :param pulumi.Input[str] key: A object key in S3
+        :param pulumi.Input[str] version: The version of the the S3 object to use
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        A bucket in S3
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A object key in S3
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the the S3 object to use
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class FlowTextPromptTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]] = None):
+        """
+        Configuration for text prompt template
+        :param pulumi.Input[str] text: Prompt content for String prompt template
+        :param pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]] input_variables: List of input variables
+        """
+        pulumi.set(__self__, "text", text)
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        Prompt content for String prompt template
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]:
+        """
+        List of input variables
+        """
+        return pulumi.get(self, "input_variables")
+
+    @input_variables.setter
+    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]):
+        pulumi.set(self, "input_variables", value)
 
 
 @pulumi.input_type
@@ -2164,5 +3299,335 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
     @embedding_model_arn.setter
     def embedding_model_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "embedding_model_arn", value)
+
+
+@pulumi.input_type
+class PromptInferenceConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input['PromptModelInferenceConfigurationArgs']):
+        """
+        Model inference configuration
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input['PromptModelInferenceConfigurationArgs']:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input['PromptModelInferenceConfigurationArgs']):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class PromptInputVariableArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input variable
+        :param pulumi.Input[str] name: Name for an input variable
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an input variable
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class PromptModelInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: Optional[pulumi.Input[float]] = None,
+                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 temperature: Optional[pulumi.Input[float]] = None,
+                 top_k: Optional[pulumi.Input[float]] = None,
+                 top_p: Optional[pulumi.Input[float]] = None):
+        """
+        Prompt model inference configuration
+        :param pulumi.Input[float] max_tokens: Maximum length of output
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences
+        :param pulumi.Input[float] temperature: Controls randomness, higher values increase diversity
+        :param pulumi.Input[float] top_k: Sample from the k most likely next tokens
+        :param pulumi.Input[float] top_p: Cumulative probability cutoff for token selection
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum length of output
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stop sequences
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[float]]:
+        """
+        Controls randomness, higher values increase diversity
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sample from the k most likely next tokens
+        """
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "top_k", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[float]]:
+        """
+        Cumulative probability cutoff for token selection
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "top_p", value)
+
+
+@pulumi.input_type
+class PromptTemplateConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input['PromptTextPromptTemplateConfigurationArgs']):
+        """
+        Prompt template configuration
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input['PromptTextPromptTemplateConfigurationArgs']:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input['PromptTextPromptTemplateConfigurationArgs']):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class PromptTextPromptTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
+                 text: Optional[pulumi.Input[str]] = None,
+                 text_s3_location: Optional[pulumi.Input['PromptTextS3LocationArgs']] = None):
+        """
+        Configuration for text prompt template
+        :param pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]] input_variables: List of input variables
+        :param pulumi.Input[str] text: Prompt content for String prompt template
+        """
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_s3_location is not None:
+            pulumi.set(__self__, "text_s3_location", text_s3_location)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
+        """
+        List of input variables
+        """
+        return pulumi.get(self, "input_variables")
+
+    @input_variables.setter
+    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
+        pulumi.set(self, "input_variables", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prompt content for String prompt template
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="textS3Location")
+    def text_s3_location(self) -> Optional[pulumi.Input['PromptTextS3LocationArgs']]:
+        return pulumi.get(self, "text_s3_location")
+
+    @text_s3_location.setter
+    def text_s3_location(self, value: Optional[pulumi.Input['PromptTextS3LocationArgs']]):
+        pulumi.set(self, "text_s3_location", value)
+
+
+@pulumi.input_type
+class PromptTextS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str],
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The identifier for the S3 resource.
+        :param pulumi.Input[str] bucket: A bucket in S3
+        :param pulumi.Input[str] key: A object key in S3
+        :param pulumi.Input[str] version: The version of the the S3 object to use
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        A bucket in S3
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A object key in S3
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the the S3 object to use
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class PromptVariantArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 template_type: pulumi.Input['PromptTemplateType'],
+                 inference_configuration: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']] = None,
+                 model_id: Optional[pulumi.Input[str]] = None,
+                 template_configuration: Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']] = None):
+        """
+        Prompt variant
+        :param pulumi.Input[str] name: Name for a variant.
+        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_type", template_type)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name for a variant.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> pulumi.Input['PromptTemplateType']:
+        return pulumi.get(self, "template_type")
+
+    @template_type.setter
+    def template_type(self, value: pulumi.Input['PromptTemplateType']):
+        pulumi.set(self, "template_type", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "inference_configuration")
+
+    @inference_configuration.setter
+    def inference_configuration(self, value: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']]):
+        pulumi.set(self, "inference_configuration", value)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN or name of a Bedrock model.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']]):
+        pulumi.set(self, "template_configuration", value)
 
 

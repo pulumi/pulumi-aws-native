@@ -123,9 +123,11 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "dms:AddTagsToResource", "dms:ListTagsForResource", "dms:RemoveTagsFromResource" ]
   },
   "additionalProperties" : false,
+  "required" : [ "ReplicationConfigIdentifier", "SourceEndpointArn", "TargetEndpointArn", "ReplicationType", "ComputeConfig", "TableMappings" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "dms:CreateReplicationConfig", "dms:AddTagsToResource", "dms:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:UpdateRoleDescription" ]
@@ -134,7 +136,7 @@
       "permissions" : [ "dms:DescribeReplicationConfigs", "dms:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "dms:ModifyReplicationConfig", "dms:AddTagsToResource", "dms:RemoveTagsToResource", "dms:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:UpdateRoleDescription" ]
+      "permissions" : [ "dms:ModifyReplicationConfig", "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:UpdateRoleDescription" ]
     },
     "list" : {
       "permissions" : [ "dms:DescribeReplicationConfigs", "dms:ListTagsForResource" ]

@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// Resource Type definition for AWS::Lightsail::Certificate.
 type Certificate struct {
 	pulumi.CustomResourceState
 

@@ -1283,6 +1283,19 @@
       }
     }
   },
+  "aws-native:bedrock:FlowVersion": {
+    "cfTypeName": "AWS::Bedrock::FlowVersion",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Description of the flow version"
+      },
+      "flowArn": {
+        "type": "string",
+        "description": "Arn representation of the Flow"
+      }
+    }
+  },
   "aws-native:bedrock:GuardrailVersion": {
     "cfTypeName": "AWS::Bedrock::GuardrailVersion",
     "properties": {
@@ -1293,6 +1306,19 @@
       "guardrailIdentifier": {
         "type": "string",
         "description": "Identifier (GuardrailId or GuardrailArn) for the guardrail"
+      }
+    }
+  },
+  "aws-native:bedrock:PromptVersion": {
+    "cfTypeName": "AWS::Bedrock::PromptVersion",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Description for a prompt version resource."
+      },
+      "promptArn": {
+        "type": "string",
+        "description": "ARN of a prompt resource possibly with a version"
       }
     }
   },
@@ -3598,23 +3624,22 @@
     "properties": {
       "allocationId": {
         "type": "string",
-        "description": "The allocation ID. This is required for EC2-VPC."
+        "description": "The allocation ID. This is required."
       },
       "eip": {
-        "type": "string",
-        "description": "The Elastic IP address to associate with the instance."
+        "type": "string"
       },
       "instanceId": {
         "type": "string",
-        "description": "The ID of the instance."
+        "description": "The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both."
       },
       "networkInterfaceId": {
         "type": "string",
-        "description": "The ID of the network interface."
+        "description": "The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.\n You can specify either the instance ID or the network interface ID, but not both."
       },
       "privateIpAddress": {
         "type": "string",
-        "description": "The primary or secondary private IP address to associate with the Elastic IP address."
+        "description": "The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address."
       }
     }
   },
@@ -4571,11 +4596,11 @@
     "properties": {
       "deleteOnTermination": {
         "type": "boolean",
-        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to true."
+        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``."
       },
       "deviceIndex": {
         "type": "string",
-        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0."
+        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0."
       },
       "enaSrdSpecification": {
         "$ref": "#/types/aws-native:ec2:NetworkInterfaceAttachmentEnaSrdSpecification",
@@ -10085,8 +10110,7 @@
         "description": "The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``."
       },
       "automaticBackupReplicationRegion": {
-        "type": "string",
-        "description": "The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*."
+        "type": "string"
       },
       "availabilityZone": {
         "type": "string",
@@ -12617,6 +12641,9 @@
       "customerManagedKey": {
         "type": "string",
         "description": "The customer managed key used to encrypt sensitive information in the user settings."
+      },
+      "deepLinkAllowed": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType"
       },
       "disconnectTimeoutInMinutes": {
         "type": "number",

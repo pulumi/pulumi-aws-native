@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lightsail
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for AWS::Lightsail::Certificate.
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

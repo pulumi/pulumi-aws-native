@@ -454,6 +454,334 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Connection type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowConnectionType : IEquatable<FlowConnectionType>
+    {
+        private readonly string _value;
+
+        private FlowConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowConnectionType Data { get; } = new FlowConnectionType("Data");
+        public static FlowConnectionType Conditional { get; } = new FlowConnectionType("Conditional");
+
+        public static bool operator ==(FlowConnectionType left, FlowConnectionType right) => left.Equals(right);
+        public static bool operator !=(FlowConnectionType left, FlowConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowConnectionType other && Equals(other);
+        public bool Equals(FlowConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of input/output for a node in a flow
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowNodeIoDataType : IEquatable<FlowNodeIoDataType>
+    {
+        private readonly string _value;
+
+        private FlowNodeIoDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowNodeIoDataType String { get; } = new FlowNodeIoDataType("String");
+        public static FlowNodeIoDataType Number { get; } = new FlowNodeIoDataType("Number");
+        public static FlowNodeIoDataType Boolean { get; } = new FlowNodeIoDataType("Boolean");
+        public static FlowNodeIoDataType Object { get; } = new FlowNodeIoDataType("Object");
+        public static FlowNodeIoDataType Array { get; } = new FlowNodeIoDataType("Array");
+
+        public static bool operator ==(FlowNodeIoDataType left, FlowNodeIoDataType right) => left.Equals(right);
+        public static bool operator !=(FlowNodeIoDataType left, FlowNodeIoDataType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowNodeIoDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowNodeIoDataType other && Equals(other);
+        public bool Equals(FlowNodeIoDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flow node types
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowNodeType : IEquatable<FlowNodeType>
+    {
+        private readonly string _value;
+
+        private FlowNodeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowNodeType InputType { get; } = new FlowNodeType("Input");
+        public static FlowNodeType OutputType { get; } = new FlowNodeType("Output");
+        public static FlowNodeType KnowledgeBase { get; } = new FlowNodeType("KnowledgeBase");
+        public static FlowNodeType Condition { get; } = new FlowNodeType("Condition");
+        public static FlowNodeType Lex { get; } = new FlowNodeType("Lex");
+        public static FlowNodeType Prompt { get; } = new FlowNodeType("Prompt");
+        public static FlowNodeType LambdaFunction { get; } = new FlowNodeType("LambdaFunction");
+
+        public static bool operator ==(FlowNodeType left, FlowNodeType right) => left.Equals(right);
+        public static bool operator !=(FlowNodeType left, FlowNodeType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowNodeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowNodeType other && Equals(other);
+        public bool Equals(FlowNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Prompt template type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowPromptTemplateType : IEquatable<FlowPromptTemplateType>
+    {
+        private readonly string _value;
+
+        private FlowPromptTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowPromptTemplateType Text { get; } = new FlowPromptTemplateType("TEXT");
+
+        public static bool operator ==(FlowPromptTemplateType left, FlowPromptTemplateType right) => left.Equals(right);
+        public static bool operator !=(FlowPromptTemplateType left, FlowPromptTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowPromptTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowPromptTemplateType other && Equals(other);
+        public bool Equals(FlowPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Schema Type for Flow APIs
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowStatus : IEquatable<FlowStatus>
+    {
+        private readonly string _value;
+
+        private FlowStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowStatus Failed { get; } = new FlowStatus("Failed");
+        public static FlowStatus Prepared { get; } = new FlowStatus("Prepared");
+        public static FlowStatus Preparing { get; } = new FlowStatus("Preparing");
+        public static FlowStatus NotPrepared { get; } = new FlowStatus("NotPrepared");
+
+        public static bool operator ==(FlowStatus left, FlowStatus right) => left.Equals(right);
+        public static bool operator !=(FlowStatus left, FlowStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FlowStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowStatus other && Equals(other);
+        public bool Equals(FlowStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Connection type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionFlowConnectionType : IEquatable<FlowVersionFlowConnectionType>
+    {
+        private readonly string _value;
+
+        private FlowVersionFlowConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionFlowConnectionType Data { get; } = new FlowVersionFlowConnectionType("Data");
+        public static FlowVersionFlowConnectionType Conditional { get; } = new FlowVersionFlowConnectionType("Conditional");
+
+        public static bool operator ==(FlowVersionFlowConnectionType left, FlowVersionFlowConnectionType right) => left.Equals(right);
+        public static bool operator !=(FlowVersionFlowConnectionType left, FlowVersionFlowConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionFlowConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionFlowConnectionType other && Equals(other);
+        public bool Equals(FlowVersionFlowConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of input/output for a node in a flow
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionFlowNodeIoDataType : IEquatable<FlowVersionFlowNodeIoDataType>
+    {
+        private readonly string _value;
+
+        private FlowVersionFlowNodeIoDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionFlowNodeIoDataType String { get; } = new FlowVersionFlowNodeIoDataType("String");
+        public static FlowVersionFlowNodeIoDataType Number { get; } = new FlowVersionFlowNodeIoDataType("Number");
+        public static FlowVersionFlowNodeIoDataType Boolean { get; } = new FlowVersionFlowNodeIoDataType("Boolean");
+        public static FlowVersionFlowNodeIoDataType Object { get; } = new FlowVersionFlowNodeIoDataType("Object");
+        public static FlowVersionFlowNodeIoDataType Array { get; } = new FlowVersionFlowNodeIoDataType("Array");
+
+        public static bool operator ==(FlowVersionFlowNodeIoDataType left, FlowVersionFlowNodeIoDataType right) => left.Equals(right);
+        public static bool operator !=(FlowVersionFlowNodeIoDataType left, FlowVersionFlowNodeIoDataType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionFlowNodeIoDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionFlowNodeIoDataType other && Equals(other);
+        public bool Equals(FlowVersionFlowNodeIoDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flow node types
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionFlowNodeType : IEquatable<FlowVersionFlowNodeType>
+    {
+        private readonly string _value;
+
+        private FlowVersionFlowNodeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionFlowNodeType InputType { get; } = new FlowVersionFlowNodeType("Input");
+        public static FlowVersionFlowNodeType OutputType { get; } = new FlowVersionFlowNodeType("Output");
+        public static FlowVersionFlowNodeType KnowledgeBase { get; } = new FlowVersionFlowNodeType("KnowledgeBase");
+        public static FlowVersionFlowNodeType Condition { get; } = new FlowVersionFlowNodeType("Condition");
+        public static FlowVersionFlowNodeType Lex { get; } = new FlowVersionFlowNodeType("Lex");
+        public static FlowVersionFlowNodeType Prompt { get; } = new FlowVersionFlowNodeType("Prompt");
+        public static FlowVersionFlowNodeType LambdaFunction { get; } = new FlowVersionFlowNodeType("LambdaFunction");
+
+        public static bool operator ==(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => left.Equals(right);
+        public static bool operator !=(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionFlowNodeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionFlowNodeType other && Equals(other);
+        public bool Equals(FlowVersionFlowNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Schema Type for Flow APIs
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionFlowStatus : IEquatable<FlowVersionFlowStatus>
+    {
+        private readonly string _value;
+
+        private FlowVersionFlowStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionFlowStatus Failed { get; } = new FlowVersionFlowStatus("Failed");
+        public static FlowVersionFlowStatus Prepared { get; } = new FlowVersionFlowStatus("Prepared");
+        public static FlowVersionFlowStatus Preparing { get; } = new FlowVersionFlowStatus("Preparing");
+        public static FlowVersionFlowStatus NotPrepared { get; } = new FlowVersionFlowStatus("NotPrepared");
+
+        public static bool operator ==(FlowVersionFlowStatus left, FlowVersionFlowStatus right) => left.Equals(right);
+        public static bool operator !=(FlowVersionFlowStatus left, FlowVersionFlowStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionFlowStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionFlowStatus other && Equals(other);
+        public bool Equals(FlowVersionFlowStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Prompt template type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionPromptTemplateType : IEquatable<FlowVersionPromptTemplateType>
+    {
+        private readonly string _value;
+
+        private FlowVersionPromptTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionPromptTemplateType Text { get; } = new FlowVersionPromptTemplateType("TEXT");
+
+        public static bool operator ==(FlowVersionPromptTemplateType left, FlowVersionPromptTemplateType right) => left.Equals(right);
+        public static bool operator !=(FlowVersionPromptTemplateType left, FlowVersionPromptTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionPromptTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionPromptTemplateType other && Equals(other);
+        public bool Equals(FlowVersionPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of filter in content policy
     /// </summary>
     [EnumType]
@@ -797,6 +1125,66 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnowledgeBaseType other && Equals(other);
         public bool Equals(KnowledgeBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Prompt template type
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptTemplateType : IEquatable<PromptTemplateType>
+    {
+        private readonly string _value;
+
+        private PromptTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptTemplateType Text { get; } = new PromptTemplateType("TEXT");
+
+        public static bool operator ==(PromptTemplateType left, PromptTemplateType right) => left.Equals(right);
+        public static bool operator !=(PromptTemplateType left, PromptTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(PromptTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptTemplateType other && Equals(other);
+        public bool Equals(PromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Prompt template type
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptVersionPromptTemplateType : IEquatable<PromptVersionPromptTemplateType>
+    {
+        private readonly string _value;
+
+        private PromptVersionPromptTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptVersionPromptTemplateType Text { get; } = new PromptVersionPromptTemplateType("TEXT");
+
+        public static bool operator ==(PromptVersionPromptTemplateType left, PromptVersionPromptTemplateType right) => left.Equals(right);
+        public static bool operator !=(PromptVersionPromptTemplateType left, PromptVersionPromptTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(PromptVersionPromptTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptVersionPromptTemplateType other && Equals(other);
+        public bool Equals(PromptVersionPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -20,6 +20,21 @@ export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
+export { FlowArgs } from "./flow";
+export type Flow = import("./flow").Flow;
+export const Flow: typeof import("./flow").Flow = null as any;
+utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
+
+export { FlowAliasArgs } from "./flowAlias";
+export type FlowAlias = import("./flowAlias").FlowAlias;
+export const FlowAlias: typeof import("./flowAlias").FlowAlias = null as any;
+utilities.lazyLoad(exports, ["FlowAlias"], () => require("./flowAlias"));
+
+export { FlowVersionArgs } from "./flowVersion";
+export type FlowVersion = import("./flowVersion").FlowVersion;
+export const FlowVersion: typeof import("./flowVersion").FlowVersion = null as any;
+utilities.lazyLoad(exports, ["FlowVersion"], () => require("./flowVersion"));
+
 export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
 export const getAgent: typeof import("./getAgent").getAgent = null as any;
 export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
@@ -34,6 +49,21 @@ export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from 
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+
+export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
+export const getFlow: typeof import("./getFlow").getFlow = null as any;
+export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
+utilities.lazyLoad(exports, ["getFlow","getFlowOutput"], () => require("./getFlow"));
+
+export { GetFlowAliasArgs, GetFlowAliasResult, GetFlowAliasOutputArgs } from "./getFlowAlias";
+export const getFlowAlias: typeof import("./getFlowAlias").getFlowAlias = null as any;
+export const getFlowAliasOutput: typeof import("./getFlowAlias").getFlowAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowAlias","getFlowAliasOutput"], () => require("./getFlowAlias"));
+
+export { GetFlowVersionArgs, GetFlowVersionResult, GetFlowVersionOutputArgs } from "./getFlowVersion";
+export const getFlowVersion: typeof import("./getFlowVersion").getFlowVersion = null as any;
+export const getFlowVersionOutput: typeof import("./getFlowVersion").getFlowVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowVersion","getFlowVersionOutput"], () => require("./getFlowVersion"));
 
 export { GetGuardrailArgs, GetGuardrailResult, GetGuardrailOutputArgs } from "./getGuardrail";
 export const getGuardrail: typeof import("./getGuardrail").getGuardrail = null as any;
@@ -50,6 +80,16 @@ export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeB
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
 utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
 
+export { GetPromptArgs, GetPromptResult, GetPromptOutputArgs } from "./getPrompt";
+export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
+export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
+utilities.lazyLoad(exports, ["getPrompt","getPromptOutput"], () => require("./getPrompt"));
+
+export { GetPromptVersionArgs, GetPromptVersionResult, GetPromptVersionOutputArgs } from "./getPromptVersion";
+export const getPromptVersion: typeof import("./getPromptVersion").getPromptVersion = null as any;
+export const getPromptVersionOutput: typeof import("./getPromptVersion").getPromptVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getPromptVersion","getPromptVersionOutput"], () => require("./getPromptVersion"));
+
 export { GuardrailArgs } from "./guardrail";
 export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
@@ -65,6 +105,16 @@ export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
 export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
 utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
 
+export { PromptArgs } from "./prompt";
+export type Prompt = import("./prompt").Prompt;
+export const Prompt: typeof import("./prompt").Prompt = null as any;
+utilities.lazyLoad(exports, ["Prompt"], () => require("./prompt"));
+
+export { PromptVersionArgs } from "./promptVersion";
+export type PromptVersion = import("./promptVersion").PromptVersion;
+export const PromptVersion: typeof import("./promptVersion").PromptVersion = null as any;
+utilities.lazyLoad(exports, ["PromptVersion"], () => require("./promptVersion"));
+
 
 // Export enums:
 export * from "../types/enums/bedrock";
@@ -79,12 +129,22 @@ const _module = {
                 return new AgentAlias(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:bedrock:Flow":
+                return new Flow(name, <any>undefined, { urn })
+            case "aws-native:bedrock:FlowAlias":
+                return new FlowAlias(name, <any>undefined, { urn })
+            case "aws-native:bedrock:FlowVersion":
+                return new FlowVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:Guardrail":
                 return new Guardrail(name, <any>undefined, { urn })
             case "aws-native:bedrock:GuardrailVersion":
                 return new GuardrailVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
+            case "aws-native:bedrock:Prompt":
+                return new Prompt(name, <any>undefined, { urn })
+            case "aws-native:bedrock:PromptVersion":
+                return new PromptVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -27,7 +27,7 @@ class GetEipAssociationResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Composite ID of non-empty properties, to determine the identification.
+        The ID of the association.
         """
         return pulumi.get(self, "id")
 
@@ -44,10 +44,11 @@ class AwaitableGetEipAssociationResult(GetEipAssociationResult):
 def get_eip_association(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipAssociationResult:
     """
-    Resource schema for EC2 EIP association.
+    Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+     You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
 
 
-    :param str id: Composite ID of non-empty properties, to determine the identification.
+    :param str id: The ID of the association.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -62,9 +63,10 @@ def get_eip_association(id: Optional[str] = None,
 def get_eip_association_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipAssociationResult]:
     """
-    Resource schema for EC2 EIP association.
+    Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+     You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
 
 
-    :param str id: Composite ID of non-empty properties, to determine the identification.
+    :param str id: The ID of the association.
     """
     ...

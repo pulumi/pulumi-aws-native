@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
 {
 
     /// <summary>
-    /// The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+    /// The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
     /// </summary>
     [OutputType]
     public sealed class DbInstanceProcessorFeature

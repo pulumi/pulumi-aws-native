@@ -152,7 +152,6 @@ class DbInstanceArgs:
                 Not applicable. The associated roles are managed by the DB cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] automatic_backup_replication_kms_key_id: The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
-        :param pulumi.Input[str] automatic_backup_replication_region: The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
                 For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
                 Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -887,9 +886,6 @@ class DbInstanceArgs:
     @property
     @pulumi.getter(name="automaticBackupReplicationRegion")
     def automatic_backup_replication_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-        """
         return pulumi.get(self, "automatic_backup_replication_region")
 
     @automatic_backup_replication_region.setter
@@ -2312,7 +2308,6 @@ class DbInstance(pulumi.CustomResource):
                 Not applicable. The associated roles are managed by the DB cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] automatic_backup_replication_kms_key_id: The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
-        :param pulumi.Input[str] automatic_backup_replication_region: The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
                 For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
                 Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -3189,9 +3184,6 @@ class DbInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="automaticBackupReplicationRegion")
     def automatic_backup_replication_region(self) -> pulumi.Output[Optional[str]]:
-        """
-        The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-        """
         return pulumi.get(self, "automatic_backup_replication_region")
 
     @property

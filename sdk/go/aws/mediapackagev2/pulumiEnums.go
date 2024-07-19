@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ChannelInputType string
+
+const (
+	ChannelInputTypeHls  = ChannelInputType("HLS")
+	ChannelInputTypeCmaf = ChannelInputType("CMAF")
+)
+
+func (ChannelInputType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputType)(nil)).Elem()
+}
+
+func (e ChannelInputType) ToChannelInputTypeOutput() ChannelInputTypeOutput {
+	return pulumi.ToOutput(e).(ChannelInputTypeOutput)
+}
+
+func (e ChannelInputType) ToChannelInputTypeOutputWithContext(ctx context.Context) ChannelInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelInputTypeOutput)
+}
+
+func (e ChannelInputType) ToChannelInputTypePtrOutput() ChannelInputTypePtrOutput {
+	return e.ToChannelInputTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelInputType) ToChannelInputTypePtrOutputWithContext(ctx context.Context) ChannelInputTypePtrOutput {
+	return ChannelInputType(e).ToChannelInputTypeOutputWithContext(ctx).ToChannelInputTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelInputType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelInputType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelInputType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelInputType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelInputTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputType)(nil)).Elem()
+}
+
+func (o ChannelInputTypeOutput) ToChannelInputTypeOutput() ChannelInputTypeOutput {
+	return o
+}
+
+func (o ChannelInputTypeOutput) ToChannelInputTypeOutputWithContext(ctx context.Context) ChannelInputTypeOutput {
+	return o
+}
+
+func (o ChannelInputTypeOutput) ToChannelInputTypePtrOutput() ChannelInputTypePtrOutput {
+	return o.ToChannelInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputTypeOutput) ToChannelInputTypePtrOutputWithContext(ctx context.Context) ChannelInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputType) *ChannelInputType {
+		return &v
+	}).(ChannelInputTypePtrOutput)
+}
+
+func (o ChannelInputTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelInputTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelInputType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelInputTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelInputType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputType)(nil)).Elem()
+}
+
+func (o ChannelInputTypePtrOutput) ToChannelInputTypePtrOutput() ChannelInputTypePtrOutput {
+	return o
+}
+
+func (o ChannelInputTypePtrOutput) ToChannelInputTypePtrOutputWithContext(ctx context.Context) ChannelInputTypePtrOutput {
+	return o
+}
+
+func (o ChannelInputTypePtrOutput) Elem() ChannelInputTypeOutput {
+	return o.ApplyT(func(v *ChannelInputType) ChannelInputType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelInputType
+		return ret
+	}).(ChannelInputTypeOutput)
+}
+
+func (o ChannelInputTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelInputType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelInputTypeInput is an input type that accepts values of the ChannelInputType enum
+// A concrete instance of `ChannelInputTypeInput` can be one of the following:
+//
+//	ChannelInputTypeHls
+//	ChannelInputTypeCmaf
+type ChannelInputTypeInput interface {
+	pulumi.Input
+
+	ToChannelInputTypeOutput() ChannelInputTypeOutput
+	ToChannelInputTypeOutputWithContext(context.Context) ChannelInputTypeOutput
+}
+
+var channelInputTypePtrType = reflect.TypeOf((**ChannelInputType)(nil)).Elem()
+
+type ChannelInputTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelInputTypePtrOutput() ChannelInputTypePtrOutput
+	ToChannelInputTypePtrOutputWithContext(context.Context) ChannelInputTypePtrOutput
+}
+
+type channelInputTypePtr string
+
+func ChannelInputTypePtr(v string) ChannelInputTypePtrInput {
+	return (*channelInputTypePtr)(&v)
+}
+
+func (*channelInputTypePtr) ElementType() reflect.Type {
+	return channelInputTypePtrType
+}
+
+func (in *channelInputTypePtr) ToChannelInputTypePtrOutput() ChannelInputTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelInputTypePtrOutput)
+}
+
+func (in *channelInputTypePtr) ToChannelInputTypePtrOutputWithContext(ctx context.Context) ChannelInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelInputTypePtrOutput)
+}
+
 type OriginEndpointAdMarkerDash string
 
 const (
@@ -1595,6 +1760,220 @@ func (o OriginEndpointDrmSystemArrayOutput) Index(i pulumi.IntInput) OriginEndpo
 	}).(OriginEndpointDrmSystemOutput)
 }
 
+type OriginEndpointEndpointErrorCondition string
+
+const (
+	OriginEndpointEndpointErrorConditionStaleManifest      = OriginEndpointEndpointErrorCondition("STALE_MANIFEST")
+	OriginEndpointEndpointErrorConditionIncompleteManifest = OriginEndpointEndpointErrorCondition("INCOMPLETE_MANIFEST")
+	OriginEndpointEndpointErrorConditionMissingDrmKey      = OriginEndpointEndpointErrorCondition("MISSING_DRM_KEY")
+	OriginEndpointEndpointErrorConditionSlateInput         = OriginEndpointEndpointErrorCondition("SLATE_INPUT")
+)
+
+func (OriginEndpointEndpointErrorCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointEndpointErrorCondition)(nil)).Elem()
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToOriginEndpointEndpointErrorConditionOutput() OriginEndpointEndpointErrorConditionOutput {
+	return pulumi.ToOutput(e).(OriginEndpointEndpointErrorConditionOutput)
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToOriginEndpointEndpointErrorConditionOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointEndpointErrorConditionOutput)
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToOriginEndpointEndpointErrorConditionPtrOutput() OriginEndpointEndpointErrorConditionPtrOutput {
+	return e.ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionPtrOutput {
+	return OriginEndpointEndpointErrorCondition(e).ToOriginEndpointEndpointErrorConditionOutputWithContext(ctx).ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointEndpointErrorCondition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointEndpointErrorConditionOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointEndpointErrorConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointEndpointErrorCondition)(nil)).Elem()
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToOriginEndpointEndpointErrorConditionOutput() OriginEndpointEndpointErrorConditionOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToOriginEndpointEndpointErrorConditionOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToOriginEndpointEndpointErrorConditionPtrOutput() OriginEndpointEndpointErrorConditionPtrOutput {
+	return o.ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointEndpointErrorCondition) *OriginEndpointEndpointErrorCondition {
+		return &v
+	}).(OriginEndpointEndpointErrorConditionPtrOutput)
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointEndpointErrorCondition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointEndpointErrorConditionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointEndpointErrorCondition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointEndpointErrorConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointEndpointErrorConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointEndpointErrorCondition)(nil)).Elem()
+}
+
+func (o OriginEndpointEndpointErrorConditionPtrOutput) ToOriginEndpointEndpointErrorConditionPtrOutput() OriginEndpointEndpointErrorConditionPtrOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionPtrOutput) ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionPtrOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionPtrOutput) Elem() OriginEndpointEndpointErrorConditionOutput {
+	return o.ApplyT(func(v *OriginEndpointEndpointErrorCondition) OriginEndpointEndpointErrorCondition {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointEndpointErrorCondition
+		return ret
+	}).(OriginEndpointEndpointErrorConditionOutput)
+}
+
+func (o OriginEndpointEndpointErrorConditionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointEndpointErrorConditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointEndpointErrorCondition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointEndpointErrorConditionInput is an input type that accepts values of the OriginEndpointEndpointErrorCondition enum
+// A concrete instance of `OriginEndpointEndpointErrorConditionInput` can be one of the following:
+//
+//	OriginEndpointEndpointErrorConditionStaleManifest
+//	OriginEndpointEndpointErrorConditionIncompleteManifest
+//	OriginEndpointEndpointErrorConditionMissingDrmKey
+//	OriginEndpointEndpointErrorConditionSlateInput
+type OriginEndpointEndpointErrorConditionInput interface {
+	pulumi.Input
+
+	ToOriginEndpointEndpointErrorConditionOutput() OriginEndpointEndpointErrorConditionOutput
+	ToOriginEndpointEndpointErrorConditionOutputWithContext(context.Context) OriginEndpointEndpointErrorConditionOutput
+}
+
+var originEndpointEndpointErrorConditionPtrType = reflect.TypeOf((**OriginEndpointEndpointErrorCondition)(nil)).Elem()
+
+type OriginEndpointEndpointErrorConditionPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointEndpointErrorConditionPtrOutput() OriginEndpointEndpointErrorConditionPtrOutput
+	ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(context.Context) OriginEndpointEndpointErrorConditionPtrOutput
+}
+
+type originEndpointEndpointErrorConditionPtr string
+
+func OriginEndpointEndpointErrorConditionPtr(v string) OriginEndpointEndpointErrorConditionPtrInput {
+	return (*originEndpointEndpointErrorConditionPtr)(&v)
+}
+
+func (*originEndpointEndpointErrorConditionPtr) ElementType() reflect.Type {
+	return originEndpointEndpointErrorConditionPtrType
+}
+
+func (in *originEndpointEndpointErrorConditionPtr) ToOriginEndpointEndpointErrorConditionPtrOutput() OriginEndpointEndpointErrorConditionPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointEndpointErrorConditionPtrOutput)
+}
+
+func (in *originEndpointEndpointErrorConditionPtr) ToOriginEndpointEndpointErrorConditionPtrOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointEndpointErrorConditionPtrOutput)
+}
+
+// OriginEndpointEndpointErrorConditionArrayInput is an input type that accepts OriginEndpointEndpointErrorConditionArray and OriginEndpointEndpointErrorConditionArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointEndpointErrorConditionArrayInput` via:
+//
+//	OriginEndpointEndpointErrorConditionArray{ OriginEndpointEndpointErrorConditionArgs{...} }
+type OriginEndpointEndpointErrorConditionArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointEndpointErrorConditionArrayOutput() OriginEndpointEndpointErrorConditionArrayOutput
+	ToOriginEndpointEndpointErrorConditionArrayOutputWithContext(context.Context) OriginEndpointEndpointErrorConditionArrayOutput
+}
+
+type OriginEndpointEndpointErrorConditionArray []OriginEndpointEndpointErrorCondition
+
+func (OriginEndpointEndpointErrorConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointEndpointErrorCondition)(nil)).Elem()
+}
+
+func (i OriginEndpointEndpointErrorConditionArray) ToOriginEndpointEndpointErrorConditionArrayOutput() OriginEndpointEndpointErrorConditionArrayOutput {
+	return i.ToOriginEndpointEndpointErrorConditionArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointEndpointErrorConditionArray) ToOriginEndpointEndpointErrorConditionArrayOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEndpointErrorConditionArrayOutput)
+}
+
+type OriginEndpointEndpointErrorConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointEndpointErrorConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointEndpointErrorCondition)(nil)).Elem()
+}
+
+func (o OriginEndpointEndpointErrorConditionArrayOutput) ToOriginEndpointEndpointErrorConditionArrayOutput() OriginEndpointEndpointErrorConditionArrayOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionArrayOutput) ToOriginEndpointEndpointErrorConditionArrayOutputWithContext(ctx context.Context) OriginEndpointEndpointErrorConditionArrayOutput {
+	return o
+}
+
+func (o OriginEndpointEndpointErrorConditionArrayOutput) Index(i pulumi.IntInput) OriginEndpointEndpointErrorConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointEndpointErrorCondition {
+		return vs[0].([]OriginEndpointEndpointErrorCondition)[vs[1].(int)]
+	}).(OriginEndpointEndpointErrorConditionOutput)
+}
+
 type OriginEndpointPresetSpeke20Audio string
 
 const (
@@ -2337,6 +2716,8 @@ func (in *originEndpointTsEncryptionMethodPtr) ToOriginEndpointTsEncryptionMetho
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypeInput)(nil)).Elem(), ChannelInputType("HLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypePtrInput)(nil)).Elem(), ChannelInputType("HLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerDashInput)(nil)).Elem(), OriginEndpointAdMarkerDash("BINARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerDashPtrInput)(nil)).Elem(), OriginEndpointAdMarkerDash("BINARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerHlsInput)(nil)).Elem(), OriginEndpointAdMarkerHls("DATERANGE"))
@@ -2357,6 +2738,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDrmSystemInput)(nil)).Elem(), OriginEndpointDrmSystem("CLEAR_KEY_AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDrmSystemPtrInput)(nil)).Elem(), OriginEndpointDrmSystem("CLEAR_KEY_AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDrmSystemArrayInput)(nil)).Elem(), OriginEndpointDrmSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionInput)(nil)).Elem(), OriginEndpointEndpointErrorCondition("STALE_MANIFEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionPtrInput)(nil)).Elem(), OriginEndpointEndpointErrorCondition("STALE_MANIFEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionArrayInput)(nil)).Elem(), OriginEndpointEndpointErrorConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioPtrInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20VideoInput)(nil)).Elem(), OriginEndpointPresetSpeke20Video("PRESET_VIDEO_1"))
@@ -2366,6 +2750,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterArrayInput)(nil)).Elem(), OriginEndpointScteFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
+	pulumi.RegisterOutputType(ChannelInputTypeOutput{})
+	pulumi.RegisterOutputType(ChannelInputTypePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerHlsOutput{})
@@ -2386,6 +2772,9 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointDrmSystemOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDrmSystemPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDrmSystemArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionOutput{})
+	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20VideoOutput{})

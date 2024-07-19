@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetEipAssociation
     {
         /// <summary>
-        /// Resource schema for EC2 EIP association.
+        /// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+        ///  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
         /// </summary>
         public static Task<GetEipAssociationResult> InvokeAsync(GetEipAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for EC2 EIP association.
+        /// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+        ///  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
         /// </summary>
         public static Output<GetEipAssociationResult> Invoke(GetEipAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationInvokeArgs(), options.WithDefaults());
@@ -28,7 +30,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetEipAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
+        /// The ID of the association.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -42,7 +44,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetEipAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
+        /// The ID of the association.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -58,7 +60,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetEipAssociationResult
     {
         /// <summary>
-        /// Composite ID of non-empty properties, to determine the identification.
+        /// The ID of the association.
         /// </summary>
         public readonly string? Id;
 
