@@ -63,7 +63,7 @@ export class Alarm extends pulumi.CustomResource {
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * The validation status of the SSL/TLS certificate.
+     * The name of the Lightsail resource that the alarm monitors.
      */
     public readonly monitoredResourceName!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface AlarmArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * The validation status of the SSL/TLS certificate.
+     * The name of the Lightsail resource that the alarm monitors.
      */
     monitoredResourceName: pulumi.Input<string>;
     /**

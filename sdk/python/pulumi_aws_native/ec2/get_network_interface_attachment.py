@@ -42,7 +42,7 @@ class GetNetworkInterfaceAttachmentResult:
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
         """
-        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -69,7 +69,7 @@ class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachment
 def get_network_interface_attachment(attachment_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceAttachmentResult:
     """
-    Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+    Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
 
     :param str attachment_id: The ID of the network interface attachment.
@@ -89,7 +89,7 @@ def get_network_interface_attachment(attachment_id: Optional[str] = None,
 def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
-    Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+    Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
 
     :param str attachment_id: The ID of the network interface attachment.

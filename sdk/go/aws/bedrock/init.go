@@ -27,12 +27,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentAlias{}
 	case "aws-native:bedrock:DataSource":
 		r = &DataSource{}
+	case "aws-native:bedrock:Flow":
+		r = &Flow{}
+	case "aws-native:bedrock:FlowAlias":
+		r = &FlowAlias{}
+	case "aws-native:bedrock:FlowVersion":
+		r = &FlowVersion{}
 	case "aws-native:bedrock:Guardrail":
 		r = &Guardrail{}
 	case "aws-native:bedrock:GuardrailVersion":
 		r = &GuardrailVersion{}
 	case "aws-native:bedrock:KnowledgeBase":
 		r = &KnowledgeBase{}
+	case "aws-native:bedrock:Prompt":
+		r = &Prompt{}
+	case "aws-native:bedrock:PromptVersion":
+		r = &PromptVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

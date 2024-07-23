@@ -38,6 +38,7 @@ export interface GetUserSettingsResult {
      * Specifies whether the user can copy text from the streaming session to the local device.
      */
     readonly copyAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    readonly deepLinkAllowed?: enums.workspacesweb.UserSettingsEnabledType;
     /**
      * The amount of time that a streaming session remains active after users disconnect.
      */

@@ -9,7 +9,8 @@
   "tagging" : {
     "taggable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "permissions" : [ "shield:ListTagsForResource", "shield:UntagResource", "shield:TagResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "Aggregation", "Pattern", "ProtectionGroupId" ],

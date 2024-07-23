@@ -1180,6 +1180,206 @@ func (o OriginEndpointFilterConfigurationPtrOutput) TimeDelaySeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// <p>The failover settings for the endpoint.</p>
+type OriginEndpointForceEndpointErrorConfiguration struct {
+	// <p>The failover settings for the endpoint. The options are:</p>
+	//          <ul>
+	//             <li>
+	//                <p>
+	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+	//             </li>
+	//          </ul>
+	EndpointErrorConditions []OriginEndpointEndpointErrorCondition `pulumi:"endpointErrorConditions"`
+}
+
+// OriginEndpointForceEndpointErrorConfigurationInput is an input type that accepts OriginEndpointForceEndpointErrorConfigurationArgs and OriginEndpointForceEndpointErrorConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointForceEndpointErrorConfigurationInput` via:
+//
+//	OriginEndpointForceEndpointErrorConfigurationArgs{...}
+type OriginEndpointForceEndpointErrorConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointForceEndpointErrorConfigurationOutput() OriginEndpointForceEndpointErrorConfigurationOutput
+	ToOriginEndpointForceEndpointErrorConfigurationOutputWithContext(context.Context) OriginEndpointForceEndpointErrorConfigurationOutput
+}
+
+// <p>The failover settings for the endpoint.</p>
+type OriginEndpointForceEndpointErrorConfigurationArgs struct {
+	// <p>The failover settings for the endpoint. The options are:</p>
+	//          <ul>
+	//             <li>
+	//                <p>
+	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+	//             </li>
+	//          </ul>
+	EndpointErrorConditions OriginEndpointEndpointErrorConditionArrayInput `pulumi:"endpointErrorConditions"`
+}
+
+func (OriginEndpointForceEndpointErrorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointForceEndpointErrorConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointForceEndpointErrorConfigurationArgs) ToOriginEndpointForceEndpointErrorConfigurationOutput() OriginEndpointForceEndpointErrorConfigurationOutput {
+	return i.ToOriginEndpointForceEndpointErrorConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointForceEndpointErrorConfigurationArgs) ToOriginEndpointForceEndpointErrorConfigurationOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointForceEndpointErrorConfigurationOutput)
+}
+
+func (i OriginEndpointForceEndpointErrorConfigurationArgs) ToOriginEndpointForceEndpointErrorConfigurationPtrOutput() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return i.ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointForceEndpointErrorConfigurationArgs) ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointForceEndpointErrorConfigurationOutput).ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointForceEndpointErrorConfigurationPtrInput is an input type that accepts OriginEndpointForceEndpointErrorConfigurationArgs, OriginEndpointForceEndpointErrorConfigurationPtr and OriginEndpointForceEndpointErrorConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointForceEndpointErrorConfigurationPtrInput` via:
+//
+//	        OriginEndpointForceEndpointErrorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointForceEndpointErrorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointForceEndpointErrorConfigurationPtrOutput() OriginEndpointForceEndpointErrorConfigurationPtrOutput
+	ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(context.Context) OriginEndpointForceEndpointErrorConfigurationPtrOutput
+}
+
+type originEndpointForceEndpointErrorConfigurationPtrType OriginEndpointForceEndpointErrorConfigurationArgs
+
+func OriginEndpointForceEndpointErrorConfigurationPtr(v *OriginEndpointForceEndpointErrorConfigurationArgs) OriginEndpointForceEndpointErrorConfigurationPtrInput {
+	return (*originEndpointForceEndpointErrorConfigurationPtrType)(v)
+}
+
+func (*originEndpointForceEndpointErrorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointForceEndpointErrorConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointForceEndpointErrorConfigurationPtrType) ToOriginEndpointForceEndpointErrorConfigurationPtrOutput() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return i.ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointForceEndpointErrorConfigurationPtrType) ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
+}
+
+// <p>The failover settings for the endpoint.</p>
+type OriginEndpointForceEndpointErrorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointForceEndpointErrorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointForceEndpointErrorConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointForceEndpointErrorConfigurationOutput() OriginEndpointForceEndpointErrorConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointForceEndpointErrorConfigurationOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointForceEndpointErrorConfigurationPtrOutput() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o.ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointForceEndpointErrorConfiguration) *OriginEndpointForceEndpointErrorConfiguration {
+		return &v
+	}).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
+}
+
+// <p>The failover settings for the endpoint. The options are:</p>
+//
+//	<ul>
+//	   <li>
+//	      <p>
+//	         <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+//	   </li>
+//	</ul>
+func (o OriginEndpointForceEndpointErrorConfigurationOutput) EndpointErrorConditions() OriginEndpointEndpointErrorConditionArrayOutput {
+	return o.ApplyT(func(v OriginEndpointForceEndpointErrorConfiguration) []OriginEndpointEndpointErrorCondition {
+		return v.EndpointErrorConditions
+	}).(OriginEndpointEndpointErrorConditionArrayOutput)
+}
+
+type OriginEndpointForceEndpointErrorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointForceEndpointErrorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointForceEndpointErrorConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) ToOriginEndpointForceEndpointErrorConfigurationPtrOutput() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) ToOriginEndpointForceEndpointErrorConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) Elem() OriginEndpointForceEndpointErrorConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointForceEndpointErrorConfiguration) OriginEndpointForceEndpointErrorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointForceEndpointErrorConfiguration
+		return ret
+	}).(OriginEndpointForceEndpointErrorConfigurationOutput)
+}
+
+// <p>The failover settings for the endpoint. The options are:</p>
+//
+//	<ul>
+//	   <li>
+//	      <p>
+//	         <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+//	   </li>
+//	</ul>
+func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) EndpointErrorConditions() OriginEndpointEndpointErrorConditionArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointForceEndpointErrorConfiguration) []OriginEndpointEndpointErrorCondition {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointErrorConditions
+	}).(OriginEndpointEndpointErrorConditionArrayOutput)
+}
+
 // <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
 type OriginEndpointHlsManifestConfiguration struct {
 	// <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
@@ -2472,6 +2672,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointEncryptionMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointFilterConfigurationInput)(nil)).Elem(), OriginEndpointFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointFilterConfigurationPtrInput)(nil)).Elem(), OriginEndpointFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointForceEndpointErrorConfigurationInput)(nil)).Elem(), OriginEndpointForceEndpointErrorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointForceEndpointErrorConfigurationPtrInput)(nil)).Elem(), OriginEndpointForceEndpointErrorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArgs{})
@@ -2500,6 +2702,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointForceEndpointErrorConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointForceEndpointErrorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationOutput{})

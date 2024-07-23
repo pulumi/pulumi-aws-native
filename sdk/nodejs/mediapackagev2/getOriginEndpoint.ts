@@ -47,6 +47,7 @@ export interface GetOriginEndpointResult {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     readonly description?: string;
+    readonly forceEndpointErrorConfiguration?: outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration;
     readonly hlsManifestUrls?: string[];
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>

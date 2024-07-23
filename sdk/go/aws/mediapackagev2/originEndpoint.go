@@ -31,8 +31,9 @@ type OriginEndpoint struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayOutput `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description     pulumi.StringPtrOutput   `pulumi:"description"`
-	HlsManifestUrls pulumi.StringArrayOutput `pulumi:"hlsManifestUrls"`
+	Description                     pulumi.StringPtrOutput                                 `pulumi:"description"`
+	ForceEndpointErrorConfiguration OriginEndpointForceEndpointErrorConfigurationPtrOutput `pulumi:"forceEndpointErrorConfiguration"`
+	HlsManifestUrls                 pulumi.StringArrayOutput                               `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests              OriginEndpointHlsManifestConfigurationArrayOutput `pulumi:"hlsManifests"`
 	LowLatencyHlsManifestUrls pulumi.StringArrayOutput                          `pulumi:"lowLatencyHlsManifestUrls"`
@@ -111,7 +112,8 @@ type originEndpointArgs struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description *string `pulumi:"description"`
+	Description                     *string                                        `pulumi:"description"`
+	ForceEndpointErrorConfiguration *OriginEndpointForceEndpointErrorConfiguration `pulumi:"forceEndpointErrorConfiguration"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
 	// <p>A low-latency HLS manifest configuration.</p>
@@ -137,7 +139,8 @@ type OriginEndpointArgs struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description pulumi.StringPtrInput
+	Description                     pulumi.StringPtrInput
+	ForceEndpointErrorConfiguration OriginEndpointForceEndpointErrorConfigurationPtrInput
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests OriginEndpointHlsManifestConfigurationArrayInput
 	// <p>A low-latency HLS manifest configuration.</p>
@@ -226,6 +229,12 @@ func (o OriginEndpointOutput) DashManifests() OriginEndpointDashManifestConfigur
 // <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 func (o OriginEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointOutput) ForceEndpointErrorConfiguration() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
+		return v.ForceEndpointErrorConfiguration
+	}).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
 }
 
 func (o OriginEndpointOutput) HlsManifestUrls() pulumi.StringArrayOutput {

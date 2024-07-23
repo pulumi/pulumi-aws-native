@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOriginEndpointResult:
-    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, segment=None, startover_window_seconds=None, tags=None):
+    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, force_endpoint_error_configuration=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, segment=None, startover_window_seconds=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetOriginEndpointResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if force_endpoint_error_configuration and not isinstance(force_endpoint_error_configuration, dict):
+            raise TypeError("Expected argument 'force_endpoint_error_configuration' to be a dict")
+        pulumi.set(__self__, "force_endpoint_error_configuration", force_endpoint_error_configuration)
         if hls_manifest_urls and not isinstance(hls_manifest_urls, list):
             raise TypeError("Expected argument 'hls_manifest_urls' to be a list")
         pulumi.set(__self__, "hls_manifest_urls", hls_manifest_urls)
@@ -109,6 +112,11 @@ class GetOriginEndpointResult:
         <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="forceEndpointErrorConfiguration")
+    def force_endpoint_error_configuration(self) -> Optional['outputs.OriginEndpointForceEndpointErrorConfiguration']:
+        return pulumi.get(self, "force_endpoint_error_configuration")
 
     @property
     @pulumi.getter(name="hlsManifestUrls")
@@ -181,6 +189,7 @@ class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
             dash_manifest_urls=self.dash_manifest_urls,
             dash_manifests=self.dash_manifests,
             description=self.description,
+            force_endpoint_error_configuration=self.force_endpoint_error_configuration,
             hls_manifest_urls=self.hls_manifest_urls,
             hls_manifests=self.hls_manifests,
             low_latency_hls_manifest_urls=self.low_latency_hls_manifest_urls,
@@ -211,6 +220,7 @@ def get_origin_endpoint(arn: Optional[str] = None,
         dash_manifest_urls=pulumi.get(__ret__, 'dash_manifest_urls'),
         dash_manifests=pulumi.get(__ret__, 'dash_manifests'),
         description=pulumi.get(__ret__, 'description'),
+        force_endpoint_error_configuration=pulumi.get(__ret__, 'force_endpoint_error_configuration'),
         hls_manifest_urls=pulumi.get(__ret__, 'hls_manifest_urls'),
         hls_manifests=pulumi.get(__ret__, 'hls_manifests'),
         low_latency_hls_manifest_urls=pulumi.get(__ret__, 'low_latency_hls_manifest_urls'),

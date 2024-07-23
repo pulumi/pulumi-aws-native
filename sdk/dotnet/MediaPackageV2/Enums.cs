@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     [EnumType]
+    public readonly struct ChannelInputType : IEquatable<ChannelInputType>
+    {
+        private readonly string _value;
+
+        private ChannelInputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelInputType Hls { get; } = new ChannelInputType("HLS");
+        public static ChannelInputType Cmaf { get; } = new ChannelInputType("CMAF");
+
+        public static bool operator ==(ChannelInputType left, ChannelInputType right) => left.Equals(right);
+        public static bool operator !=(ChannelInputType left, ChannelInputType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelInputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelInputType other && Equals(other);
+        public bool Equals(ChannelInputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointAdMarkerDash : IEquatable<OriginEndpointAdMarkerDash>
     {
         private readonly string _value;
@@ -257,6 +285,36 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointDrmSystem other && Equals(other);
         public bool Equals(OriginEndpointDrmSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointEndpointErrorCondition : IEquatable<OriginEndpointEndpointErrorCondition>
+    {
+        private readonly string _value;
+
+        private OriginEndpointEndpointErrorCondition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointEndpointErrorCondition StaleManifest { get; } = new OriginEndpointEndpointErrorCondition("STALE_MANIFEST");
+        public static OriginEndpointEndpointErrorCondition IncompleteManifest { get; } = new OriginEndpointEndpointErrorCondition("INCOMPLETE_MANIFEST");
+        public static OriginEndpointEndpointErrorCondition MissingDrmKey { get; } = new OriginEndpointEndpointErrorCondition("MISSING_DRM_KEY");
+        public static OriginEndpointEndpointErrorCondition SlateInput { get; } = new OriginEndpointEndpointErrorCondition("SLATE_INPUT");
+
+        public static bool operator ==(OriginEndpointEndpointErrorCondition left, OriginEndpointEndpointErrorCondition right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointEndpointErrorCondition left, OriginEndpointEndpointErrorCondition right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointEndpointErrorCondition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointEndpointErrorCondition other && Equals(other);
+        public bool Equals(OriginEndpointEndpointErrorCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

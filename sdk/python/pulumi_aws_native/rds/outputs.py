@@ -649,13 +649,13 @@ class DbInstanceMasterUserSecret(dict):
 @pulumi.output_type
 class DbInstanceProcessorFeature(dict):
     """
-    The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+    The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
     """
     def __init__(__self__, *,
                  name: Optional['DbInstanceProcessorFeatureName'] = None,
                  value: Optional[str] = None):
         """
-        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
         :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param str value: The value of a processor feature.
         """

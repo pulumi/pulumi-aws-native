@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for EC2 EIP association.
+// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+//
+//	You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
 func LookupEipAssociation(ctx *pulumi.Context, args *LookupEipAssociationArgs, opts ...pulumi.InvokeOption) (*LookupEipAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEipAssociationResult
@@ -23,12 +25,12 @@ func LookupEipAssociation(ctx *pulumi.Context, args *LookupEipAssociationArgs, o
 }
 
 type LookupEipAssociationArgs struct {
-	// Composite ID of non-empty properties, to determine the identification.
+	// The ID of the association.
 	Id string `pulumi:"id"`
 }
 
 type LookupEipAssociationResult struct {
-	// Composite ID of non-empty properties, to determine the identification.
+	// The ID of the association.
 	Id *string `pulumi:"id"`
 }
 
@@ -46,7 +48,7 @@ func LookupEipAssociationOutput(ctx *pulumi.Context, args LookupEipAssociationOu
 }
 
 type LookupEipAssociationOutputArgs struct {
-	// Composite ID of non-empty properties, to determine the identification.
+	// The ID of the association.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -68,7 +70,7 @@ func (o LookupEipAssociationResultOutput) ToLookupEipAssociationResultOutputWith
 	return o
 }
 
-// Composite ID of non-empty properties, to determine the identification.
+// The ID of the association.
 func (o LookupEipAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEipAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChannelInputType = {
+    Hls: "HLS",
+    Cmaf: "CMAF",
+} as const;
+
+export type ChannelInputType = (typeof ChannelInputType)[keyof typeof ChannelInputType];
+
 export const OriginEndpointAdMarkerDash = {
     Binary: "BINARY",
     Xml: "XML",
@@ -69,6 +76,15 @@ export const OriginEndpointDrmSystem = {
 } as const;
 
 export type OriginEndpointDrmSystem = (typeof OriginEndpointDrmSystem)[keyof typeof OriginEndpointDrmSystem];
+
+export const OriginEndpointEndpointErrorCondition = {
+    StaleManifest: "STALE_MANIFEST",
+    IncompleteManifest: "INCOMPLETE_MANIFEST",
+    MissingDrmKey: "MISSING_DRM_KEY",
+    SlateInput: "SLATE_INPUT",
+} as const;
+
+export type OriginEndpointEndpointErrorCondition = (typeof OriginEndpointEndpointErrorCondition)[keyof typeof OriginEndpointEndpointErrorCondition];
 
 export const OriginEndpointPresetSpeke20Audio = {
     PresetAudio1: "PRESET_AUDIO_1",

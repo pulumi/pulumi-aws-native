@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("forceEndpointErrorConfiguration")]
+        public Output<Outputs.OriginEndpointForceEndpointErrorConfiguration?> ForceEndpointErrorConfiguration { get; private set; } = null!;
+
         [Output("hlsManifestUrls")]
         public Output<ImmutableArray<string>> HlsManifestUrls { get; private set; } = null!;
 
@@ -194,6 +197,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("forceEndpointErrorConfiguration")]
+        public Input<Inputs.OriginEndpointForceEndpointErrorConfigurationArgs>? ForceEndpointErrorConfiguration { get; set; }
 
         [Input("hlsManifests")]
         private InputList<Inputs.OriginEndpointHlsManifestConfigurationArgs>? _hlsManifests;

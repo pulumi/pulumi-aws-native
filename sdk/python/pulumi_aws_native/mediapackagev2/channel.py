@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['ChannelArgs', 'Channel']
 
@@ -20,6 +21,7 @@ class ChannelArgs:
                  channel_group_name: pulumi.Input[str],
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
@@ -33,6 +35,8 @@ class ChannelArgs:
             pulumi.set(__self__, "channel_name", channel_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if input_type is not None:
+            pulumi.set(__self__, "input_type", input_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,6 +77,15 @@ class ChannelArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="inputType")
+    def input_type(self) -> Optional[pulumi.Input['ChannelInputType']]:
+        return pulumi.get(self, "input_type")
+
+    @input_type.setter
+    def input_type(self, value: Optional[pulumi.Input['ChannelInputType']]):
+        pulumi.set(self, "input_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -93,6 +106,7 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -132,6 +146,7 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -147,13 +162,14 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["channel_group_name"] = channel_group_name
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["input_type"] = input_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["ingest_endpoints"] = None
             __props__.__dict__["modified_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "inputType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
             'aws-native:mediapackagev2:Channel',
@@ -184,6 +200,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["ingest_endpoint_urls"] = None
         __props__.__dict__["ingest_endpoints"] = None
+        __props__.__dict__["input_type"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["tags"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
@@ -240,6 +257,11 @@ class Channel(pulumi.CustomResource):
         <p>The list of ingest endpoints.</p>
         """
         return pulumi.get(self, "ingest_endpoints")
+
+    @property
+    @pulumi.getter(name="inputType")
+    def input_type(self) -> pulumi.Output[Optional['ChannelInputType']]:
+        return pulumi.get(self, "input_type")
 
     @property
     @pulumi.getter(name="modifiedAt")

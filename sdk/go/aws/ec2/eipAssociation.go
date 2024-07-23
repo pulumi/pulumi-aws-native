@@ -11,21 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for EC2 EIP association.
+// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+//
+//	You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
 type EipAssociation struct {
 	pulumi.CustomResourceState
 
-	// The allocation ID. This is required for EC2-VPC.
+	// The allocation ID. This is required.
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
-	// Composite ID of non-empty properties, to determine the identification.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The Elastic IP address to associate with the instance.
-	Eip pulumi.StringPtrOutput `pulumi:"eip"`
-	// The ID of the instance.
+	// The ID of the association.
+	AwsId pulumi.StringOutput    `pulumi:"awsId"`
+	Eip   pulumi.StringPtrOutput `pulumi:"eip"`
+	// The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
-	// The ID of the network interface.
+	// The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+	//  You can specify either the instance ID or the network interface ID, but not both.
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
-	// The primary or secondary private IP address to associate with the Elastic IP address.
+	// The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 }
 
@@ -77,29 +79,29 @@ func (EipAssociationState) ElementType() reflect.Type {
 }
 
 type eipAssociationArgs struct {
-	// The allocation ID. This is required for EC2-VPC.
+	// The allocation ID. This is required.
 	AllocationId *string `pulumi:"allocationId"`
-	// The Elastic IP address to associate with the instance.
-	Eip *string `pulumi:"eip"`
-	// The ID of the instance.
+	Eip          *string `pulumi:"eip"`
+	// The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 	InstanceId *string `pulumi:"instanceId"`
-	// The ID of the network interface.
+	// The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+	//  You can specify either the instance ID or the network interface ID, but not both.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The primary or secondary private IP address to associate with the Elastic IP address.
+	// The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 }
 
 // The set of arguments for constructing a EipAssociation resource.
 type EipAssociationArgs struct {
-	// The allocation ID. This is required for EC2-VPC.
+	// The allocation ID. This is required.
 	AllocationId pulumi.StringPtrInput
-	// The Elastic IP address to associate with the instance.
-	Eip pulumi.StringPtrInput
-	// The ID of the instance.
+	Eip          pulumi.StringPtrInput
+	// The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 	InstanceId pulumi.StringPtrInput
-	// The ID of the network interface.
+	// The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+	//  You can specify either the instance ID or the network interface ID, but not both.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The primary or secondary private IP address to associate with the Elastic IP address.
+	// The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 	PrivateIpAddress pulumi.StringPtrInput
 }
 
@@ -140,32 +142,33 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The allocation ID. This is required for EC2-VPC.
+// The allocation ID. This is required.
 func (o EipAssociationOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-// Composite ID of non-empty properties, to determine the identification.
+// The ID of the association.
 func (o EipAssociationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The Elastic IP address to associate with the instance.
 func (o EipAssociationOutput) Eip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.Eip }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the instance.
+// The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
 func (o EipAssociationOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the network interface.
+// The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+//
+//	You can specify either the instance ID or the network interface ID, but not both.
 func (o EipAssociationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// The primary or secondary private IP address to associate with the Elastic IP address.
+// The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }

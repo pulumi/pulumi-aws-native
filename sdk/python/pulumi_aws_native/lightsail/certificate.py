@@ -95,7 +95,7 @@ class Certificate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::Lightsail::Certificate.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::Lightsail::Certificate.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class LaunchTemplateTagSpecification
     {
         /// <summary>
-        /// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
+        /// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Dms
         /// Configuration parameters for provisioning an AWS DMS Serverless replication.
         /// </summary>
         [Output("computeConfig")]
-        public Output<Outputs.ReplicationConfigComputeConfig?> ComputeConfig { get; private set; } = null!;
+        public Output<Outputs.ReplicationConfigComputeConfig> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Replication Config
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Dms
         /// A unique identifier of replication configuration
         /// </summary>
         [Output("replicationConfigIdentifier")]
-        public Output<string?> ReplicationConfigIdentifier { get; private set; } = null!;
+        public Output<string> ReplicationConfigIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Dms
         /// The type of AWS DMS Serverless replication to provision using this replication configuration
         /// </summary>
         [Output("replicationType")]
-        public Output<Pulumi.AwsNative.Dms.ReplicationConfigReplicationType?> ReplicationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Dms.ReplicationConfigReplicationType> ReplicationType { get; private set; } = null!;
 
         /// <summary>
         /// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Dms
         /// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
         [Output("sourceEndpointArn")]
-        public Output<string?> SourceEndpointArn { get; private set; } = null!;
+        public Output<string> SourceEndpointArn { get; private set; } = null!;
 
         /// <summary>
         /// JSON settings for specifying supplemental data
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Dms
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Output("tableMappings")]
-        public Output<object?> TableMappings { get; private set; } = null!;
+        public Output<object> TableMappings { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Dms
         /// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
         [Output("targetEndpointArn")]
-        public Output<string?> TargetEndpointArn { get; private set; } = null!;
+        public Output<string> TargetEndpointArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Dms
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ReplicationConfig(string name, ReplicationConfigArgs? args = null, CustomResourceOptions? options = null)
+        public ReplicationConfig(string name, ReplicationConfigArgs args, CustomResourceOptions? options = null)
             : base("aws-native:dms:ReplicationConfig", name, args ?? new ReplicationConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -139,14 +139,14 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// Configuration parameters for provisioning an AWS DMS Serverless replication.
         /// </summary>
-        [Input("computeConfig")]
-        public Input<Inputs.ReplicationConfigComputeConfigArgs>? ComputeConfig { get; set; }
+        [Input("computeConfig", required: true)]
+        public Input<Inputs.ReplicationConfigComputeConfigArgs> ComputeConfig { get; set; } = null!;
 
         /// <summary>
         /// A unique identifier of replication configuration
         /// </summary>
-        [Input("replicationConfigIdentifier")]
-        public Input<string>? ReplicationConfigIdentifier { get; set; }
+        [Input("replicationConfigIdentifier", required: true)]
+        public Input<string> ReplicationConfigIdentifier { get; set; } = null!;
 
         /// <summary>
         /// JSON settings for Servereless replications that are provisioned using this replication configuration
@@ -159,8 +159,8 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// The type of AWS DMS Serverless replication to provision using this replication configuration
         /// </summary>
-        [Input("replicationType")]
-        public Input<Pulumi.AwsNative.Dms.ReplicationConfigReplicationType>? ReplicationType { get; set; }
+        [Input("replicationType", required: true)]
+        public Input<Pulumi.AwsNative.Dms.ReplicationConfigReplicationType> ReplicationType { get; set; } = null!;
 
         /// <summary>
         /// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
@@ -171,8 +171,8 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
-        [Input("sourceEndpointArn")]
-        public Input<string>? SourceEndpointArn { get; set; }
+        [Input("sourceEndpointArn", required: true)]
+        public Input<string> SourceEndpointArn { get; set; } = null!;
 
         /// <summary>
         /// JSON settings for specifying supplemental data
@@ -187,8 +187,8 @@ namespace Pulumi.AwsNative.Dms
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
-        [Input("tableMappings")]
-        public Input<object>? TableMappings { get; set; }
+        [Input("tableMappings", required: true)]
+        public Input<object> TableMappings { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
@@ -205,8 +205,8 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
-        [Input("targetEndpointArn")]
-        public Input<string>? TargetEndpointArn { get; set; }
+        [Input("targetEndpointArn", required: true)]
+        public Input<string> TargetEndpointArn { get; set; } = null!;
 
         public ReplicationConfigArgs()
         {

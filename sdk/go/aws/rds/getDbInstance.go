@@ -104,8 +104,7 @@ type LookupDbInstanceResult struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
+	AutoMinorVersionUpgrade          *bool   `pulumi:"autoMinorVersionUpgrade"`
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -535,7 +534,6 @@ func (o LookupDbInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }

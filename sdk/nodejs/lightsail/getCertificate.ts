@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Lightsail::Certificate.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -40,7 +40,7 @@ export interface GetCertificateResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Lightsail::Certificate.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

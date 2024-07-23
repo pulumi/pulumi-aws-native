@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<string> MetricName { get; private set; } = null!;
 
         /// <summary>
-        /// The validation status of the SSL/TLS certificate.
+        /// The name of the Lightsail resource that the alarm monitors.
         /// </summary>
         [Output("monitoredResourceName")]
         public Output<string> MonitoredResourceName { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.AwsNative.Lightsail
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The validation status of the SSL/TLS certificate.
+        /// The name of the Lightsail resource that the alarm monitors.
         /// </summary>
         [Input("monitoredResourceName", required: true)]
         public Input<string> MonitoredResourceName { get; set; } = null!;

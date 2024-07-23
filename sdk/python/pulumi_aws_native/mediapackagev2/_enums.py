@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelInputType',
     'OriginEndpointAdMarkerDash',
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
@@ -14,11 +15,17 @@ __all__ = [
     'OriginEndpointDashSegmentTemplateFormat',
     'OriginEndpointDashUtcTimingMode',
     'OriginEndpointDrmSystem',
+    'OriginEndpointEndpointErrorCondition',
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
     'OriginEndpointTsEncryptionMethod',
 ]
+
+
+class ChannelInputType(str, Enum):
+    HLS = "HLS"
+    CMAF = "CMAF"
 
 
 class OriginEndpointAdMarkerDash(str, Enum):
@@ -69,6 +76,13 @@ class OriginEndpointDrmSystem(str, Enum):
     FAIRPLAY = "FAIRPLAY"
     PLAYREADY = "PLAYREADY"
     WIDEVINE = "WIDEVINE"
+
+
+class OriginEndpointEndpointErrorCondition(str, Enum):
+    STALE_MANIFEST = "STALE_MANIFEST"
+    INCOMPLETE_MANIFEST = "INCOMPLETE_MANIFEST"
+    MISSING_DRM_KEY = "MISSING_DRM_KEY"
+    SLATE_INPUT = "SLATE_INPUT"
 
 
 class OriginEndpointPresetSpeke20Audio(str, Enum):

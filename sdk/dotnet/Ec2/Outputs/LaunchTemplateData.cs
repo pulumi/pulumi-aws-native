@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification;
         /// <summary>
-        /// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateCpuOptions? CpuOptions;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateCreditSpecification? CreditSpecification;
         /// <summary>
-        /// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly bool? DisableApiStop;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions;
         /// <summary>
-        /// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateHibernationOptions? HibernationOptions;
         /// <summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements;
         /// <summary>
-        /// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
         ///  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
         /// </summary>
         public readonly string? InstanceType;
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions;
         /// <summary>
-        /// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateMetadataOptions? MetadataOptions;
         /// <summary>
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly Outputs.LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions;
         /// <summary>
         /// The ID of the RAM disk.
-        ///   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        ///   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly string? RamDiskId;
         /// <summary>
@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TagSpecification> TagSpecifications;
         /// <summary>
-        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
         ///  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
         /// </summary>
         public readonly string? UserData;

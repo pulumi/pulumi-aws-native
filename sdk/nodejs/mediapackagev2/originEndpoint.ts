@@ -66,6 +66,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly forceEndpointErrorConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration | undefined>;
     public /*out*/ readonly hlsManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -119,6 +120,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["containerType"] = args ? args.containerType : undefined;
             resourceInputs["dashManifests"] = args ? args.dashManifests : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceEndpointErrorConfiguration"] = args ? args.forceEndpointErrorConfiguration : undefined;
             resourceInputs["hlsManifests"] = args ? args.hlsManifests : undefined;
             resourceInputs["lowLatencyHlsManifests"] = args ? args.lowLatencyHlsManifests : undefined;
             resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
@@ -140,6 +142,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["dashManifestUrls"] = undefined /*out*/;
             resourceInputs["dashManifests"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["forceEndpointErrorConfiguration"] = undefined /*out*/;
             resourceInputs["hlsManifestUrls"] = undefined /*out*/;
             resourceInputs["hlsManifests"] = undefined /*out*/;
             resourceInputs["lowLatencyHlsManifestUrls"] = undefined /*out*/;
@@ -181,6 +184,7 @@ export interface OriginEndpointArgs {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     description?: pulumi.Input<string>;
+    forceEndpointErrorConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointForceEndpointErrorConfigurationArgs>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */

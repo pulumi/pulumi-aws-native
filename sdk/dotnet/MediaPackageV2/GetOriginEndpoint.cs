@@ -78,6 +78,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.OriginEndpointForceEndpointErrorConfiguration? ForceEndpointErrorConfiguration;
         public readonly ImmutableArray<string> HlsManifestUrls;
         /// <summary>
         /// &lt;p&gt;An HTTP live streaming (HLS) manifest configuration.&lt;/p&gt;
@@ -119,6 +120,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? description,
 
+            Outputs.OriginEndpointForceEndpointErrorConfiguration? forceEndpointErrorConfiguration,
+
             ImmutableArray<string> hlsManifestUrls,
 
             ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration> hlsManifests,
@@ -141,6 +144,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
             DashManifestUrls = dashManifestUrls;
             DashManifests = dashManifests;
             Description = description;
+            ForceEndpointErrorConfiguration = forceEndpointErrorConfiguration;
             HlsManifestUrls = hlsManifestUrls;
             HlsManifests = hlsManifests;
             LowLatencyHlsManifestUrls = lowLatencyHlsManifestUrls;

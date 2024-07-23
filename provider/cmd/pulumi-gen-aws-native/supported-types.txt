@@ -108,9 +108,14 @@ AWS::Batch::SchedulingPolicy
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::DataSource
+AWS::Bedrock::Flow
+AWS::Bedrock::FlowAlias
+AWS::Bedrock::FlowVersion
 AWS::Bedrock::Guardrail
 AWS::Bedrock::GuardrailVersion
 AWS::Bedrock::KnowledgeBase
+AWS::Bedrock::Prompt
+AWS::Bedrock::PromptVersion
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription

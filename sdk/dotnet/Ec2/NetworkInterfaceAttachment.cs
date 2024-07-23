@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+    /// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource
@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         /// </summary>
         [Output("deleteOnTermination")]
         public Output<bool?> DeleteOnTermination { get; private set; } = null!;
 
         /// <summary>
-        /// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        /// The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         /// </summary>
         [Output("deviceIndex")]
         public Output<string> DeviceIndex { get; private set; } = null!;
@@ -103,13 +103,13 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        /// The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<string> DeviceIndex { get; set; } = null!;

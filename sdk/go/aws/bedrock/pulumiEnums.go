@@ -2123,6 +2123,1241 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
 }
 
+// Connection type
+type FlowConnectionType string
+
+const (
+	FlowConnectionTypeData        = FlowConnectionType("Data")
+	FlowConnectionTypeConditional = FlowConnectionType("Conditional")
+)
+
+func (FlowConnectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowConnectionType)(nil)).Elem()
+}
+
+func (e FlowConnectionType) ToFlowConnectionTypeOutput() FlowConnectionTypeOutput {
+	return pulumi.ToOutput(e).(FlowConnectionTypeOutput)
+}
+
+func (e FlowConnectionType) ToFlowConnectionTypeOutputWithContext(ctx context.Context) FlowConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowConnectionTypeOutput)
+}
+
+func (e FlowConnectionType) ToFlowConnectionTypePtrOutput() FlowConnectionTypePtrOutput {
+	return e.ToFlowConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowConnectionType) ToFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowConnectionTypePtrOutput {
+	return FlowConnectionType(e).ToFlowConnectionTypeOutputWithContext(ctx).ToFlowConnectionTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowConnectionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowConnectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowConnectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowConnectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowConnectionType)(nil)).Elem()
+}
+
+func (o FlowConnectionTypeOutput) ToFlowConnectionTypeOutput() FlowConnectionTypeOutput {
+	return o
+}
+
+func (o FlowConnectionTypeOutput) ToFlowConnectionTypeOutputWithContext(ctx context.Context) FlowConnectionTypeOutput {
+	return o
+}
+
+func (o FlowConnectionTypeOutput) ToFlowConnectionTypePtrOutput() FlowConnectionTypePtrOutput {
+	return o.ToFlowConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowConnectionTypeOutput) ToFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowConnectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowConnectionType) *FlowConnectionType {
+		return &v
+	}).(FlowConnectionTypePtrOutput)
+}
+
+func (o FlowConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowConnectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowConnectionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowConnectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowConnectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowConnectionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowConnectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowConnectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowConnectionType)(nil)).Elem()
+}
+
+func (o FlowConnectionTypePtrOutput) ToFlowConnectionTypePtrOutput() FlowConnectionTypePtrOutput {
+	return o
+}
+
+func (o FlowConnectionTypePtrOutput) ToFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowConnectionTypePtrOutput {
+	return o
+}
+
+func (o FlowConnectionTypePtrOutput) Elem() FlowConnectionTypeOutput {
+	return o.ApplyT(func(v *FlowConnectionType) FlowConnectionType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowConnectionType
+		return ret
+	}).(FlowConnectionTypeOutput)
+}
+
+func (o FlowConnectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowConnectionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowConnectionTypeInput is an input type that accepts values of the FlowConnectionType enum
+// A concrete instance of `FlowConnectionTypeInput` can be one of the following:
+//
+//	FlowConnectionTypeData
+//	FlowConnectionTypeConditional
+type FlowConnectionTypeInput interface {
+	pulumi.Input
+
+	ToFlowConnectionTypeOutput() FlowConnectionTypeOutput
+	ToFlowConnectionTypeOutputWithContext(context.Context) FlowConnectionTypeOutput
+}
+
+var flowConnectionTypePtrType = reflect.TypeOf((**FlowConnectionType)(nil)).Elem()
+
+type FlowConnectionTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowConnectionTypePtrOutput() FlowConnectionTypePtrOutput
+	ToFlowConnectionTypePtrOutputWithContext(context.Context) FlowConnectionTypePtrOutput
+}
+
+type flowConnectionTypePtr string
+
+func FlowConnectionTypePtr(v string) FlowConnectionTypePtrInput {
+	return (*flowConnectionTypePtr)(&v)
+}
+
+func (*flowConnectionTypePtr) ElementType() reflect.Type {
+	return flowConnectionTypePtrType
+}
+
+func (in *flowConnectionTypePtr) ToFlowConnectionTypePtrOutput() FlowConnectionTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowConnectionTypePtrOutput)
+}
+
+func (in *flowConnectionTypePtr) ToFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowConnectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowConnectionTypePtrOutput)
+}
+
+// Type of input/output for a node in a flow
+type FlowNodeIoDataType string
+
+const (
+	FlowNodeIoDataTypeString  = FlowNodeIoDataType("String")
+	FlowNodeIoDataTypeNumber  = FlowNodeIoDataType("Number")
+	FlowNodeIoDataTypeBoolean = FlowNodeIoDataType("Boolean")
+	FlowNodeIoDataTypeObject  = FlowNodeIoDataType("Object")
+	FlowNodeIoDataTypeArray   = FlowNodeIoDataType("Array")
+)
+
+func (FlowNodeIoDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeIoDataType)(nil)).Elem()
+}
+
+func (e FlowNodeIoDataType) ToFlowNodeIoDataTypeOutput() FlowNodeIoDataTypeOutput {
+	return pulumi.ToOutput(e).(FlowNodeIoDataTypeOutput)
+}
+
+func (e FlowNodeIoDataType) ToFlowNodeIoDataTypeOutputWithContext(ctx context.Context) FlowNodeIoDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowNodeIoDataTypeOutput)
+}
+
+func (e FlowNodeIoDataType) ToFlowNodeIoDataTypePtrOutput() FlowNodeIoDataTypePtrOutput {
+	return e.ToFlowNodeIoDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeIoDataType) ToFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowNodeIoDataTypePtrOutput {
+	return FlowNodeIoDataType(e).ToFlowNodeIoDataTypeOutputWithContext(ctx).ToFlowNodeIoDataTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowNodeIoDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeIoDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeIoDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeIoDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowNodeIoDataTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeIoDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeIoDataType)(nil)).Elem()
+}
+
+func (o FlowNodeIoDataTypeOutput) ToFlowNodeIoDataTypeOutput() FlowNodeIoDataTypeOutput {
+	return o
+}
+
+func (o FlowNodeIoDataTypeOutput) ToFlowNodeIoDataTypeOutputWithContext(ctx context.Context) FlowNodeIoDataTypeOutput {
+	return o
+}
+
+func (o FlowNodeIoDataTypeOutput) ToFlowNodeIoDataTypePtrOutput() FlowNodeIoDataTypePtrOutput {
+	return o.ToFlowNodeIoDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeIoDataTypeOutput) ToFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowNodeIoDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeIoDataType) *FlowNodeIoDataType {
+		return &v
+	}).(FlowNodeIoDataTypePtrOutput)
+}
+
+func (o FlowNodeIoDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowNodeIoDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeIoDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowNodeIoDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeIoDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeIoDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowNodeIoDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeIoDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeIoDataType)(nil)).Elem()
+}
+
+func (o FlowNodeIoDataTypePtrOutput) ToFlowNodeIoDataTypePtrOutput() FlowNodeIoDataTypePtrOutput {
+	return o
+}
+
+func (o FlowNodeIoDataTypePtrOutput) ToFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowNodeIoDataTypePtrOutput {
+	return o
+}
+
+func (o FlowNodeIoDataTypePtrOutput) Elem() FlowNodeIoDataTypeOutput {
+	return o.ApplyT(func(v *FlowNodeIoDataType) FlowNodeIoDataType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeIoDataType
+		return ret
+	}).(FlowNodeIoDataTypeOutput)
+}
+
+func (o FlowNodeIoDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeIoDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowNodeIoDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowNodeIoDataTypeInput is an input type that accepts values of the FlowNodeIoDataType enum
+// A concrete instance of `FlowNodeIoDataTypeInput` can be one of the following:
+//
+//	FlowNodeIoDataTypeString
+//	FlowNodeIoDataTypeNumber
+//	FlowNodeIoDataTypeBoolean
+//	FlowNodeIoDataTypeObject
+//	FlowNodeIoDataTypeArray
+type FlowNodeIoDataTypeInput interface {
+	pulumi.Input
+
+	ToFlowNodeIoDataTypeOutput() FlowNodeIoDataTypeOutput
+	ToFlowNodeIoDataTypeOutputWithContext(context.Context) FlowNodeIoDataTypeOutput
+}
+
+var flowNodeIoDataTypePtrType = reflect.TypeOf((**FlowNodeIoDataType)(nil)).Elem()
+
+type FlowNodeIoDataTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeIoDataTypePtrOutput() FlowNodeIoDataTypePtrOutput
+	ToFlowNodeIoDataTypePtrOutputWithContext(context.Context) FlowNodeIoDataTypePtrOutput
+}
+
+type flowNodeIoDataTypePtr string
+
+func FlowNodeIoDataTypePtr(v string) FlowNodeIoDataTypePtrInput {
+	return (*flowNodeIoDataTypePtr)(&v)
+}
+
+func (*flowNodeIoDataTypePtr) ElementType() reflect.Type {
+	return flowNodeIoDataTypePtrType
+}
+
+func (in *flowNodeIoDataTypePtr) ToFlowNodeIoDataTypePtrOutput() FlowNodeIoDataTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowNodeIoDataTypePtrOutput)
+}
+
+func (in *flowNodeIoDataTypePtr) ToFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowNodeIoDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowNodeIoDataTypePtrOutput)
+}
+
+// Flow node types
+type FlowNodeType string
+
+const (
+	FlowNodeTypeInputType      = FlowNodeType("Input")
+	FlowNodeTypeOutputType     = FlowNodeType("Output")
+	FlowNodeTypeKnowledgeBase  = FlowNodeType("KnowledgeBase")
+	FlowNodeTypeCondition      = FlowNodeType("Condition")
+	FlowNodeTypeLex            = FlowNodeType("Lex")
+	FlowNodeTypePrompt         = FlowNodeType("Prompt")
+	FlowNodeTypeLambdaFunction = FlowNodeType("LambdaFunction")
+)
+
+func (FlowNodeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeType)(nil)).Elem()
+}
+
+func (e FlowNodeType) ToFlowNodeTypeOutput() FlowNodeTypeOutput {
+	return pulumi.ToOutput(e).(FlowNodeTypeOutput)
+}
+
+func (e FlowNodeType) ToFlowNodeTypeOutputWithContext(ctx context.Context) FlowNodeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowNodeTypeOutput)
+}
+
+func (e FlowNodeType) ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput {
+	return e.ToFlowNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeType) ToFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowNodeTypePtrOutput {
+	return FlowNodeType(e).ToFlowNodeTypeOutputWithContext(ctx).ToFlowNodeTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowNodeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowNodeTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeType)(nil)).Elem()
+}
+
+func (o FlowNodeTypeOutput) ToFlowNodeTypeOutput() FlowNodeTypeOutput {
+	return o
+}
+
+func (o FlowNodeTypeOutput) ToFlowNodeTypeOutputWithContext(ctx context.Context) FlowNodeTypeOutput {
+	return o
+}
+
+func (o FlowNodeTypeOutput) ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput {
+	return o.ToFlowNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeTypeOutput) ToFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowNodeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeType) *FlowNodeType {
+		return &v
+	}).(FlowNodeTypePtrOutput)
+}
+
+func (o FlowNodeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowNodeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowNodeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowNodeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeType)(nil)).Elem()
+}
+
+func (o FlowNodeTypePtrOutput) ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput {
+	return o
+}
+
+func (o FlowNodeTypePtrOutput) ToFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowNodeTypePtrOutput {
+	return o
+}
+
+func (o FlowNodeTypePtrOutput) Elem() FlowNodeTypeOutput {
+	return o.ApplyT(func(v *FlowNodeType) FlowNodeType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeType
+		return ret
+	}).(FlowNodeTypeOutput)
+}
+
+func (o FlowNodeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowNodeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowNodeTypeInput is an input type that accepts values of the FlowNodeType enum
+// A concrete instance of `FlowNodeTypeInput` can be one of the following:
+//
+//	FlowNodeTypeInputType
+//	FlowNodeTypeOutputType
+//	FlowNodeTypeKnowledgeBase
+//	FlowNodeTypeCondition
+//	FlowNodeTypeLex
+//	FlowNodeTypePrompt
+//	FlowNodeTypeLambdaFunction
+type FlowNodeTypeInput interface {
+	pulumi.Input
+
+	ToFlowNodeTypeOutput() FlowNodeTypeOutput
+	ToFlowNodeTypeOutputWithContext(context.Context) FlowNodeTypeOutput
+}
+
+var flowNodeTypePtrType = reflect.TypeOf((**FlowNodeType)(nil)).Elem()
+
+type FlowNodeTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput
+	ToFlowNodeTypePtrOutputWithContext(context.Context) FlowNodeTypePtrOutput
+}
+
+type flowNodeTypePtr string
+
+func FlowNodeTypePtr(v string) FlowNodeTypePtrInput {
+	return (*flowNodeTypePtr)(&v)
+}
+
+func (*flowNodeTypePtr) ElementType() reflect.Type {
+	return flowNodeTypePtrType
+}
+
+func (in *flowNodeTypePtr) ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowNodeTypePtrOutput)
+}
+
+func (in *flowNodeTypePtr) ToFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowNodeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowNodeTypePtrOutput)
+}
+
+// Prompt template type
+type FlowPromptTemplateType string
+
+const (
+	FlowPromptTemplateTypeText = FlowPromptTemplateType("TEXT")
+)
+
+func (FlowPromptTemplateType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPromptTemplateType)(nil)).Elem()
+}
+
+func (e FlowPromptTemplateType) ToFlowPromptTemplateTypeOutput() FlowPromptTemplateTypeOutput {
+	return pulumi.ToOutput(e).(FlowPromptTemplateTypeOutput)
+}
+
+func (e FlowPromptTemplateType) ToFlowPromptTemplateTypeOutputWithContext(ctx context.Context) FlowPromptTemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowPromptTemplateTypeOutput)
+}
+
+func (e FlowPromptTemplateType) ToFlowPromptTemplateTypePtrOutput() FlowPromptTemplateTypePtrOutput {
+	return e.ToFlowPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowPromptTemplateType) ToFlowPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowPromptTemplateTypePtrOutput {
+	return FlowPromptTemplateType(e).ToFlowPromptTemplateTypeOutputWithContext(ctx).ToFlowPromptTemplateTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowPromptTemplateType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPromptTemplateType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPromptTemplateType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPromptTemplateType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowPromptTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowPromptTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPromptTemplateType)(nil)).Elem()
+}
+
+func (o FlowPromptTemplateTypeOutput) ToFlowPromptTemplateTypeOutput() FlowPromptTemplateTypeOutput {
+	return o
+}
+
+func (o FlowPromptTemplateTypeOutput) ToFlowPromptTemplateTypeOutputWithContext(ctx context.Context) FlowPromptTemplateTypeOutput {
+	return o
+}
+
+func (o FlowPromptTemplateTypeOutput) ToFlowPromptTemplateTypePtrOutput() FlowPromptTemplateTypePtrOutput {
+	return o.ToFlowPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowPromptTemplateTypeOutput) ToFlowPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowPromptTemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPromptTemplateType) *FlowPromptTemplateType {
+		return &v
+	}).(FlowPromptTemplateTypePtrOutput)
+}
+
+func (o FlowPromptTemplateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowPromptTemplateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPromptTemplateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowPromptTemplateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPromptTemplateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPromptTemplateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowPromptTemplateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPromptTemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPromptTemplateType)(nil)).Elem()
+}
+
+func (o FlowPromptTemplateTypePtrOutput) ToFlowPromptTemplateTypePtrOutput() FlowPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o FlowPromptTemplateTypePtrOutput) ToFlowPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o FlowPromptTemplateTypePtrOutput) Elem() FlowPromptTemplateTypeOutput {
+	return o.ApplyT(func(v *FlowPromptTemplateType) FlowPromptTemplateType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPromptTemplateType
+		return ret
+	}).(FlowPromptTemplateTypeOutput)
+}
+
+func (o FlowPromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowPromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowPromptTemplateTypeInput is an input type that accepts values of the FlowPromptTemplateType enum
+// A concrete instance of `FlowPromptTemplateTypeInput` can be one of the following:
+//
+//	FlowPromptTemplateTypeText
+type FlowPromptTemplateTypeInput interface {
+	pulumi.Input
+
+	ToFlowPromptTemplateTypeOutput() FlowPromptTemplateTypeOutput
+	ToFlowPromptTemplateTypeOutputWithContext(context.Context) FlowPromptTemplateTypeOutput
+}
+
+var flowPromptTemplateTypePtrType = reflect.TypeOf((**FlowPromptTemplateType)(nil)).Elem()
+
+type FlowPromptTemplateTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowPromptTemplateTypePtrOutput() FlowPromptTemplateTypePtrOutput
+	ToFlowPromptTemplateTypePtrOutputWithContext(context.Context) FlowPromptTemplateTypePtrOutput
+}
+
+type flowPromptTemplateTypePtr string
+
+func FlowPromptTemplateTypePtr(v string) FlowPromptTemplateTypePtrInput {
+	return (*flowPromptTemplateTypePtr)(&v)
+}
+
+func (*flowPromptTemplateTypePtr) ElementType() reflect.Type {
+	return flowPromptTemplateTypePtrType
+}
+
+func (in *flowPromptTemplateTypePtr) ToFlowPromptTemplateTypePtrOutput() FlowPromptTemplateTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowPromptTemplateTypePtrOutput)
+}
+
+func (in *flowPromptTemplateTypePtr) ToFlowPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowPromptTemplateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowPromptTemplateTypePtrOutput)
+}
+
+// Schema Type for Flow APIs
+type FlowStatus string
+
+const (
+	FlowStatusFailed      = FlowStatus("Failed")
+	FlowStatusPrepared    = FlowStatus("Prepared")
+	FlowStatusPreparing   = FlowStatus("Preparing")
+	FlowStatusNotPrepared = FlowStatus("NotPrepared")
+)
+
+type FlowStatusOutput struct{ *pulumi.OutputState }
+
+func (FlowStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStatus)(nil)).Elem()
+}
+
+func (o FlowStatusOutput) ToFlowStatusOutput() FlowStatusOutput {
+	return o
+}
+
+func (o FlowStatusOutput) ToFlowStatusOutputWithContext(ctx context.Context) FlowStatusOutput {
+	return o
+}
+
+func (o FlowStatusOutput) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return o.ToFlowStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowStatus) *FlowStatus {
+		return &v
+	}).(FlowStatusPtrOutput)
+}
+
+func (o FlowStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStatus)(nil)).Elem()
+}
+
+func (o FlowStatusPtrOutput) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowStatusPtrOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowStatusPtrOutput) Elem() FlowStatusOutput {
+	return o.ApplyT(func(v *FlowStatus) FlowStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FlowStatus
+		return ret
+	}).(FlowStatusOutput)
+}
+
+func (o FlowStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection type
+type FlowVersionFlowConnectionType string
+
+const (
+	FlowVersionFlowConnectionTypeData        = FlowVersionFlowConnectionType("Data")
+	FlowVersionFlowConnectionTypeConditional = FlowVersionFlowConnectionType("Conditional")
+)
+
+type FlowVersionFlowConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowConnectionType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToFlowVersionFlowConnectionTypeOutput() FlowVersionFlowConnectionTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToFlowVersionFlowConnectionTypeOutputWithContext(ctx context.Context) FlowVersionFlowConnectionTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToFlowVersionFlowConnectionTypePtrOutput() FlowVersionFlowConnectionTypePtrOutput {
+	return o.ToFlowVersionFlowConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToFlowVersionFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowConnectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionFlowConnectionType) *FlowVersionFlowConnectionType {
+		return &v
+	}).(FlowVersionFlowConnectionTypePtrOutput)
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowConnectionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowConnectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowConnectionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionFlowConnectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowConnectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowConnectionType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowConnectionTypePtrOutput) ToFlowVersionFlowConnectionTypePtrOutput() FlowVersionFlowConnectionTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowConnectionTypePtrOutput) ToFlowVersionFlowConnectionTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowConnectionTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowConnectionTypePtrOutput) Elem() FlowVersionFlowConnectionTypeOutput {
+	return o.ApplyT(func(v *FlowVersionFlowConnectionType) FlowVersionFlowConnectionType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowConnectionType
+		return ret
+	}).(FlowVersionFlowConnectionTypeOutput)
+}
+
+func (o FlowVersionFlowConnectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionFlowConnectionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of input/output for a node in a flow
+type FlowVersionFlowNodeIoDataType string
+
+const (
+	FlowVersionFlowNodeIoDataTypeString  = FlowVersionFlowNodeIoDataType("String")
+	FlowVersionFlowNodeIoDataTypeNumber  = FlowVersionFlowNodeIoDataType("Number")
+	FlowVersionFlowNodeIoDataTypeBoolean = FlowVersionFlowNodeIoDataType("Boolean")
+	FlowVersionFlowNodeIoDataTypeObject  = FlowVersionFlowNodeIoDataType("Object")
+	FlowVersionFlowNodeIoDataTypeArray   = FlowVersionFlowNodeIoDataType("Array")
+)
+
+type FlowVersionFlowNodeIoDataTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeIoDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeIoDataType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToFlowVersionFlowNodeIoDataTypeOutput() FlowVersionFlowNodeIoDataTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToFlowVersionFlowNodeIoDataTypeOutputWithContext(ctx context.Context) FlowVersionFlowNodeIoDataTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToFlowVersionFlowNodeIoDataTypePtrOutput() FlowVersionFlowNodeIoDataTypePtrOutput {
+	return o.ToFlowVersionFlowNodeIoDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToFlowVersionFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeIoDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionFlowNodeIoDataType) *FlowVersionFlowNodeIoDataType {
+		return &v
+	}).(FlowVersionFlowNodeIoDataTypePtrOutput)
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowNodeIoDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeIoDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowNodeIoDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionFlowNodeIoDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeIoDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeIoDataType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeIoDataTypePtrOutput) ToFlowVersionFlowNodeIoDataTypePtrOutput() FlowVersionFlowNodeIoDataTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeIoDataTypePtrOutput) ToFlowVersionFlowNodeIoDataTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeIoDataTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeIoDataTypePtrOutput) Elem() FlowVersionFlowNodeIoDataTypeOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeIoDataType) FlowVersionFlowNodeIoDataType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeIoDataType
+		return ret
+	}).(FlowVersionFlowNodeIoDataTypeOutput)
+}
+
+func (o FlowVersionFlowNodeIoDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeIoDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionFlowNodeIoDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Flow node types
+type FlowVersionFlowNodeType string
+
+const (
+	FlowVersionFlowNodeTypeInputType      = FlowVersionFlowNodeType("Input")
+	FlowVersionFlowNodeTypeOutputType     = FlowVersionFlowNodeType("Output")
+	FlowVersionFlowNodeTypeKnowledgeBase  = FlowVersionFlowNodeType("KnowledgeBase")
+	FlowVersionFlowNodeTypeCondition      = FlowVersionFlowNodeType("Condition")
+	FlowVersionFlowNodeTypeLex            = FlowVersionFlowNodeType("Lex")
+	FlowVersionFlowNodeTypePrompt         = FlowVersionFlowNodeType("Prompt")
+	FlowVersionFlowNodeTypeLambdaFunction = FlowVersionFlowNodeType("LambdaFunction")
+)
+
+type FlowVersionFlowNodeTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToFlowVersionFlowNodeTypeOutput() FlowVersionFlowNodeTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToFlowVersionFlowNodeTypeOutputWithContext(ctx context.Context) FlowVersionFlowNodeTypeOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToFlowVersionFlowNodeTypePtrOutput() FlowVersionFlowNodeTypePtrOutput {
+	return o.ToFlowVersionFlowNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToFlowVersionFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionFlowNodeType) *FlowVersionFlowNodeType {
+		return &v
+	}).(FlowVersionFlowNodeTypePtrOutput)
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowNodeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowNodeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionFlowNodeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeType)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeTypePtrOutput) ToFlowVersionFlowNodeTypePtrOutput() FlowVersionFlowNodeTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeTypePtrOutput) ToFlowVersionFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeTypePtrOutput) Elem() FlowVersionFlowNodeTypeOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeType) FlowVersionFlowNodeType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeType
+		return ret
+	}).(FlowVersionFlowNodeTypeOutput)
+}
+
+func (o FlowVersionFlowNodeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionFlowNodeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schema Type for Flow APIs
+type FlowVersionFlowStatus string
+
+const (
+	FlowVersionFlowStatusFailed      = FlowVersionFlowStatus("Failed")
+	FlowVersionFlowStatusPrepared    = FlowVersionFlowStatus("Prepared")
+	FlowVersionFlowStatusPreparing   = FlowVersionFlowStatus("Preparing")
+	FlowVersionFlowStatusNotPrepared = FlowVersionFlowStatus("NotPrepared")
+)
+
+type FlowVersionFlowStatusOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowStatus)(nil)).Elem()
+}
+
+func (o FlowVersionFlowStatusOutput) ToFlowVersionFlowStatusOutput() FlowVersionFlowStatusOutput {
+	return o
+}
+
+func (o FlowVersionFlowStatusOutput) ToFlowVersionFlowStatusOutputWithContext(ctx context.Context) FlowVersionFlowStatusOutput {
+	return o
+}
+
+func (o FlowVersionFlowStatusOutput) ToFlowVersionFlowStatusPtrOutput() FlowVersionFlowStatusPtrOutput {
+	return o.ToFlowVersionFlowStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowStatusOutput) ToFlowVersionFlowStatusPtrOutputWithContext(ctx context.Context) FlowVersionFlowStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionFlowStatus) *FlowVersionFlowStatus {
+		return &v
+	}).(FlowVersionFlowStatusPtrOutput)
+}
+
+func (o FlowVersionFlowStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionFlowStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionFlowStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionFlowStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowStatus)(nil)).Elem()
+}
+
+func (o FlowVersionFlowStatusPtrOutput) ToFlowVersionFlowStatusPtrOutput() FlowVersionFlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowStatusPtrOutput) ToFlowVersionFlowStatusPtrOutputWithContext(ctx context.Context) FlowVersionFlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowStatusPtrOutput) Elem() FlowVersionFlowStatusOutput {
+	return o.ApplyT(func(v *FlowVersionFlowStatus) FlowVersionFlowStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowStatus
+		return ret
+	}).(FlowVersionFlowStatusOutput)
+}
+
+func (o FlowVersionFlowStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionFlowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionFlowStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prompt template type
+type FlowVersionPromptTemplateType string
+
+const (
+	FlowVersionPromptTemplateTypeText = FlowVersionPromptTemplateType("TEXT")
+)
+
+type FlowVersionPromptTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPromptTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionPromptTemplateType)(nil)).Elem()
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToFlowVersionPromptTemplateTypeOutput() FlowVersionPromptTemplateTypeOutput {
+	return o
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToFlowVersionPromptTemplateTypeOutputWithContext(ctx context.Context) FlowVersionPromptTemplateTypeOutput {
+	return o
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToFlowVersionPromptTemplateTypePtrOutput() FlowVersionPromptTemplateTypePtrOutput {
+	return o.ToFlowVersionPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToFlowVersionPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowVersionPromptTemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionPromptTemplateType) *FlowVersionPromptTemplateType {
+		return &v
+	}).(FlowVersionPromptTemplateTypePtrOutput)
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionPromptTemplateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPromptTemplateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionPromptTemplateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionPromptTemplateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPromptTemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionPromptTemplateType)(nil)).Elem()
+}
+
+func (o FlowVersionPromptTemplateTypePtrOutput) ToFlowVersionPromptTemplateTypePtrOutput() FlowVersionPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionPromptTemplateTypePtrOutput) ToFlowVersionPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowVersionPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionPromptTemplateTypePtrOutput) Elem() FlowVersionPromptTemplateTypeOutput {
+	return o.ApplyT(func(v *FlowVersionPromptTemplateType) FlowVersionPromptTemplateType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionPromptTemplateType
+		return ret
+	}).(FlowVersionPromptTemplateTypeOutput)
+}
+
+func (o FlowVersionPromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionPromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of filter in content policy
 type GuardrailContentFilterType string
 
@@ -3707,6 +4942,260 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseTypePtrOutput)
 }
 
+// Prompt template type
+type PromptTemplateType string
+
+const (
+	PromptTemplateTypeText = PromptTemplateType("TEXT")
+)
+
+func (PromptTemplateType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTemplateType)(nil)).Elem()
+}
+
+func (e PromptTemplateType) ToPromptTemplateTypeOutput() PromptTemplateTypeOutput {
+	return pulumi.ToOutput(e).(PromptTemplateTypeOutput)
+}
+
+func (e PromptTemplateType) ToPromptTemplateTypeOutputWithContext(ctx context.Context) PromptTemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PromptTemplateTypeOutput)
+}
+
+func (e PromptTemplateType) ToPromptTemplateTypePtrOutput() PromptTemplateTypePtrOutput {
+	return e.ToPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (e PromptTemplateType) ToPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptTemplateTypePtrOutput {
+	return PromptTemplateType(e).ToPromptTemplateTypeOutputWithContext(ctx).ToPromptTemplateTypePtrOutputWithContext(ctx)
+}
+
+func (e PromptTemplateType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptTemplateType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptTemplateType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PromptTemplateType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PromptTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (PromptTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTemplateType)(nil)).Elem()
+}
+
+func (o PromptTemplateTypeOutput) ToPromptTemplateTypeOutput() PromptTemplateTypeOutput {
+	return o
+}
+
+func (o PromptTemplateTypeOutput) ToPromptTemplateTypeOutputWithContext(ctx context.Context) PromptTemplateTypeOutput {
+	return o
+}
+
+func (o PromptTemplateTypeOutput) ToPromptTemplateTypePtrOutput() PromptTemplateTypePtrOutput {
+	return o.ToPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (o PromptTemplateTypeOutput) ToPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptTemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptTemplateType) *PromptTemplateType {
+		return &v
+	}).(PromptTemplateTypePtrOutput)
+}
+
+func (o PromptTemplateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptTemplateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptTemplateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptTemplateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptTemplateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptTemplateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptTemplateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptTemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptTemplateType)(nil)).Elem()
+}
+
+func (o PromptTemplateTypePtrOutput) ToPromptTemplateTypePtrOutput() PromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o PromptTemplateTypePtrOutput) ToPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o PromptTemplateTypePtrOutput) Elem() PromptTemplateTypeOutput {
+	return o.ApplyT(func(v *PromptTemplateType) PromptTemplateType {
+		if v != nil {
+			return *v
+		}
+		var ret PromptTemplateType
+		return ret
+	}).(PromptTemplateTypeOutput)
+}
+
+func (o PromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PromptTemplateTypeInput is an input type that accepts values of the PromptTemplateType enum
+// A concrete instance of `PromptTemplateTypeInput` can be one of the following:
+//
+//	PromptTemplateTypeText
+type PromptTemplateTypeInput interface {
+	pulumi.Input
+
+	ToPromptTemplateTypeOutput() PromptTemplateTypeOutput
+	ToPromptTemplateTypeOutputWithContext(context.Context) PromptTemplateTypeOutput
+}
+
+var promptTemplateTypePtrType = reflect.TypeOf((**PromptTemplateType)(nil)).Elem()
+
+type PromptTemplateTypePtrInput interface {
+	pulumi.Input
+
+	ToPromptTemplateTypePtrOutput() PromptTemplateTypePtrOutput
+	ToPromptTemplateTypePtrOutputWithContext(context.Context) PromptTemplateTypePtrOutput
+}
+
+type promptTemplateTypePtr string
+
+func PromptTemplateTypePtr(v string) PromptTemplateTypePtrInput {
+	return (*promptTemplateTypePtr)(&v)
+}
+
+func (*promptTemplateTypePtr) ElementType() reflect.Type {
+	return promptTemplateTypePtrType
+}
+
+func (in *promptTemplateTypePtr) ToPromptTemplateTypePtrOutput() PromptTemplateTypePtrOutput {
+	return pulumi.ToOutput(in).(PromptTemplateTypePtrOutput)
+}
+
+func (in *promptTemplateTypePtr) ToPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptTemplateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PromptTemplateTypePtrOutput)
+}
+
+// Prompt template type
+type PromptVersionPromptTemplateType string
+
+const (
+	PromptVersionPromptTemplateTypeText = PromptVersionPromptTemplateType("TEXT")
+)
+
+type PromptVersionPromptTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptTemplateType)(nil)).Elem()
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToPromptVersionPromptTemplateTypeOutput() PromptVersionPromptTemplateTypeOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToPromptVersionPromptTemplateTypeOutputWithContext(ctx context.Context) PromptVersionPromptTemplateTypeOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToPromptVersionPromptTemplateTypePtrOutput() PromptVersionPromptTemplateTypePtrOutput {
+	return o.ToPromptVersionPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToPromptVersionPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptVersionPromptTemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptVersionPromptTemplateType) *PromptVersionPromptTemplateType {
+		return &v
+	}).(PromptVersionPromptTemplateTypePtrOutput)
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionPromptTemplateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionPromptTemplateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionPromptTemplateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptVersionPromptTemplateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptTemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionPromptTemplateType)(nil)).Elem()
+}
+
+func (o PromptVersionPromptTemplateTypePtrOutput) ToPromptVersionPromptTemplateTypePtrOutput() PromptVersionPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateTypePtrOutput) ToPromptVersionPromptTemplateTypePtrOutputWithContext(ctx context.Context) PromptVersionPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateTypePtrOutput) Elem() PromptVersionPromptTemplateTypeOutput {
+	return o.ApplyT(func(v *PromptVersionPromptTemplateType) PromptVersionPromptTemplateType {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionPromptTemplateType
+		return ret
+	}).(PromptVersionPromptTemplateTypeOutput)
+}
+
+func (o PromptVersionPromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptVersionPromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupSignatureInput)(nil)).Elem(), AgentActionGroupSignature("AMAZON.UserInput"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupSignaturePtrInput)(nil)).Elem(), AgentActionGroupSignature("AMAZON.UserInput"))
@@ -3730,6 +5219,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypeInput)(nil)).Elem(), FlowConnectionType("Data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypePtrInput)(nil)).Elem(), FlowConnectionType("Data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypeInput)(nil)).Elem(), FlowNodeIoDataType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypePtrInput)(nil)).Elem(), FlowNodeIoDataType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeTypeInput)(nil)).Elem(), FlowNodeType("Input"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeTypePtrInput)(nil)).Elem(), FlowNodeType("Input"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypeInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypePtrInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypePtrInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
@@ -3746,6 +5243,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateTypeInput)(nil)).Elem(), PromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateTypePtrInput)(nil)).Elem(), PromptTemplateType("TEXT"))
 	pulumi.RegisterOutputType(AgentActionGroupSignatureOutput{})
 	pulumi.RegisterOutputType(AgentActionGroupSignaturePtrOutput{})
 	pulumi.RegisterOutputType(AgentActionGroupStateOutput{})
@@ -3774,6 +5273,26 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowConnectionTypeOutput{})
+	pulumi.RegisterOutputType(FlowConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeIoDataTypeOutput{})
+	pulumi.RegisterOutputType(FlowNodeIoDataTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeTypeOutput{})
+	pulumi.RegisterOutputType(FlowNodeTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowPromptTemplateTypeOutput{})
+	pulumi.RegisterOutputType(FlowPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowStatusOutput{})
+	pulumi.RegisterOutputType(FlowStatusPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypeOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeIoDataTypeOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeIoDataTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeTypeOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowStatusOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowStatusPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypeOutput{})
+	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailFilterStrengthOutput{})
@@ -3794,4 +5313,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptTemplateTypeOutput{})
+	pulumi.RegisterOutputType(PromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypePtrOutput{})
 }

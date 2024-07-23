@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class LaunchTemplateTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
+        /// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

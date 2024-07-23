@@ -24,6 +24,7 @@ class OriginEndpointArgs:
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
                  dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 force_endpoint_error_configuration: Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,8 @@ class OriginEndpointArgs:
             pulumi.set(__self__, "dash_manifests", dash_manifests)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if force_endpoint_error_configuration is not None:
+            pulumi.set(__self__, "force_endpoint_error_configuration", force_endpoint_error_configuration)
         if hls_manifests is not None:
             pulumi.set(__self__, "hls_manifests", hls_manifests)
         if low_latency_hls_manifests is not None:
@@ -124,6 +127,15 @@ class OriginEndpointArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="forceEndpointErrorConfiguration")
+    def force_endpoint_error_configuration(self) -> Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']]:
+        return pulumi.get(self, "force_endpoint_error_configuration")
+
+    @force_endpoint_error_configuration.setter
+    def force_endpoint_error_configuration(self, value: Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']]):
+        pulumi.set(self, "force_endpoint_error_configuration", value)
 
     @property
     @pulumi.getter(name="hlsManifests")
@@ -208,6 +220,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
                  dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointDashManifestConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 force_endpoint_error_configuration: Optional[pulumi.Input[pulumi.InputType['OriginEndpointForceEndpointErrorConfigurationArgs']]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -261,6 +274,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
                  dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointDashManifestConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 force_endpoint_error_configuration: Optional[pulumi.Input[pulumi.InputType['OriginEndpointForceEndpointErrorConfigurationArgs']]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -285,6 +299,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["container_type"] = container_type
             __props__.__dict__["dash_manifests"] = dash_manifests
             __props__.__dict__["description"] = description
+            __props__.__dict__["force_endpoint_error_configuration"] = force_endpoint_error_configuration
             __props__.__dict__["hls_manifests"] = hls_manifests
             __props__.__dict__["low_latency_hls_manifests"] = low_latency_hls_manifests
             __props__.__dict__["origin_endpoint_name"] = origin_endpoint_name
@@ -329,6 +344,7 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["dash_manifest_urls"] = None
         __props__.__dict__["dash_manifests"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["force_endpoint_error_configuration"] = None
         __props__.__dict__["hls_manifest_urls"] = None
         __props__.__dict__["hls_manifests"] = None
         __props__.__dict__["low_latency_hls_manifest_urls"] = None
@@ -400,6 +416,11 @@ class OriginEndpoint(pulumi.CustomResource):
         <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="forceEndpointErrorConfiguration")
+    def force_endpoint_error_configuration(self) -> pulumi.Output[Optional['outputs.OriginEndpointForceEndpointErrorConfiguration']]:
+        return pulumi.get(self, "force_endpoint_error_configuration")
 
     @property
     @pulumi.getter(name="hlsManifestUrls")
