@@ -937,6 +937,7 @@ AWS::SageMaker::Space
 AWS::SageMaker::UserProfile
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
+AWS::SecretsManager::ResourcePolicy
 AWS::SecretsManager::Secret
 AWS::SecurityHub::AutomationRule
 AWS::SecurityHub::ConfigurationPolicy
