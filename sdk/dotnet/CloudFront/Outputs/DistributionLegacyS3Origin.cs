@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionLegacyS3Origin
     {
+        /// <summary>
+        /// The domain name assigned to your CloudFront distribution.
+        /// </summary>
         public readonly string DnsName;
+        /// <summary>
+        /// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        /// </summary>
         public readonly string? OriginAccessIdentity;
 
         [OutputConstructor]

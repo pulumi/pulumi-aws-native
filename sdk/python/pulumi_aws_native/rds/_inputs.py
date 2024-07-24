@@ -75,7 +75,7 @@ class DbClusterMasterUserSecretArgs:
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
-        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -98,7 +98,7 @@ class DbClusterMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
         """
         return pulumi.get(self, "secret_arn")
 
@@ -463,7 +463,7 @@ class DbInstanceMasterUserSecretArgs:
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
-        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -486,7 +486,7 @@ class DbInstanceMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
         """
         return pulumi.get(self, "secret_arn")
 

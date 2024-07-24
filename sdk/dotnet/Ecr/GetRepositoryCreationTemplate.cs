@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        /// </summary>
+        public readonly string? CustomRoleArn;
+        /// <summary>
         /// The description of the template.
         /// </summary>
         public readonly string? Description;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.Ecr
 
             string? createdAt,
 
+            string? customRoleArn,
+
             string? description,
 
             Outputs.RepositoryCreationTemplateEncryptionConfiguration? encryptionConfiguration,
@@ -120,6 +126,7 @@ namespace Pulumi.AwsNative.Ecr
         {
             AppliedFor = appliedFor;
             CreatedAt = createdAt;
+            CustomRoleArn = customRoleArn;
             Description = description;
             EncryptionConfiguration = encryptionConfiguration;
             ImageTagMutability = imageTagMutability;

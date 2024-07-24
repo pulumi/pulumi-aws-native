@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class FlowConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the connection.
+        /// </summary>
         [Input("configuration")]
         public InputUnion<Inputs.FlowConnectionConfiguration0PropertiesArgs, Inputs.FlowConnectionConfiguration1PropertiesArgs>? Configuration { get; set; }
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.FlowConnectionType> Type { get; set; } = null!;
 

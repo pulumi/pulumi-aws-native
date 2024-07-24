@@ -78,6 +78,10 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     public /*out*/ readonly outputArn!: pulumi.Output<string>;
     /**
+     * An indication of whether the output should transmit data or not.
+     */
+    public readonly outputStatus!: pulumi.Output<enums.mediaconnect.FlowOutputOutputStatus | undefined>;
+    /**
      * The port to use when content is distributed to this output.
      */
     public readonly port!: pulumi.Output<number | undefined>;
@@ -128,6 +132,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["mediaStreamOutputConfigurations"] = args ? args.mediaStreamOutputConfigurations : undefined;
             resourceInputs["minLatency"] = args ? args.minLatency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputStatus"] = args ? args.outputStatus : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["remoteId"] = args ? args.remoteId : undefined;
@@ -146,6 +151,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputArn"] = undefined /*out*/;
+            resourceInputs["outputStatus"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["remoteId"] = undefined /*out*/;
@@ -200,6 +206,10 @@ export interface FlowOutputArgs {
      * The name of the output. This value must be unique within the current flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An indication of whether the output should transmit data or not.
+     */
+    outputStatus?: pulumi.Input<enums.mediaconnect.FlowOutputOutputStatus>;
     /**
      * The port to use when content is distributed to this output.
      */

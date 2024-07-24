@@ -29,6 +29,7 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -62,6 +63,8 @@ class ClusterArgs:
             pulumi.set(__self__, "outpost_config", outpost_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_policy is not None:
+            pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -186,6 +189,15 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+        return pulumi.get(self, "upgrade_policy")
+
+    @upgrade_policy.setter
+    def upgrade_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyArgs']]):
+        pulumi.set(self, "upgrade_policy", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -213,6 +225,7 @@ class Cluster(pulumi.CustomResource):
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -266,6 +279,7 @@ class Cluster(pulumi.CustomResource):
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -290,6 +304,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -339,6 +354,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["resources_vpc_config"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["upgrade_policy"] = None
         __props__.__dict__["version"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -477,6 +493,11 @@ class Cluster(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicy']]:
+        return pulumi.get(self, "upgrade_policy")
 
     @property
     @pulumi.getter

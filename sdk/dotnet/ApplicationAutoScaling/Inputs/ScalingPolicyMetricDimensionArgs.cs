@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
     /// <summary>
-    /// Describes the dimension names and values associated with a metric.
+    /// ``MetricDimension`` specifies a name/value pair that is part of the identity of a CloudWatch metric for the ``Dimensions`` property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
     /// </summary>
     public sealed class ScalingPolicyMetricDimensionArgs : global::Pulumi.ResourceArgs
     {

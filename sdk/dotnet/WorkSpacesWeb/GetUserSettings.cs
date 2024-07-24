@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// Specifies whether the user can copy text from the streaming session to the local device.
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? CopyAllowed;
+        /// <summary>
+        /// Specifies whether the user can use deep links that open automatically when connecting to a session.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? DeepLinkAllowed;
         /// <summary>
         /// The amount of time that a streaming session remains active after users disconnect.

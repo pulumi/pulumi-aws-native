@@ -12,17 +12,21 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 
     /// <summary>
     /// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+    ///  You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
+    ///  For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
+    ///   ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
     /// </summary>
     public sealed class ScalingPolicyTargetTrackingMetricDataQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The math expression to perform on the returned data, if this object is performing a math expression.
+        /// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
+        ///  Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         /// <summary>
-        /// A short name that identifies the object's results in the response.
+        /// A short name that identifies the object's results in the response. This name must be unique among all ``MetricDataQuery`` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -35,12 +39,15 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 
         /// <summary>
         /// Information about the metric data to return.
+        ///  Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         /// </summary>
         [Input("metricStat")]
         public Input<Inputs.ScalingPolicyTargetTrackingMetricStatArgs>? MetricStat { get; set; }
 
         /// <summary>
-        /// Indicates whether to return the timestamps and raw data values of this metric.
+        /// Indicates whether to return the timestamps and raw data values of this metric. 
+        ///  If you use any math expressions, specify ``true`` for this value for only the final math expression that the metric specification is based on. You must specify ``false`` for ``ReturnData`` for all the other metrics and expressions used in the metric specification.
+        ///  If you are only retrieving metrics and not performing any math expressions, do not specify anything for ``ReturnData``. This sets it to its default (``true``).
         /// </summary>
         [Input("returnData")]
         public Input<bool>? ReturnData { get; set; }

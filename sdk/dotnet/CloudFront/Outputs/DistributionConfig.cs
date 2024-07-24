@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that contains zero or more ``CacheBehavior`` elements.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
+        /// <summary>
+        /// An alias for the CloudFront distribution's domain name.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        /// </summary>
         public readonly ImmutableArray<string> Cnames;
         /// <summary>
         /// A comment to describe the distribution. The comment cannot be longer than 128 characters.
@@ -41,6 +46,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
+        /// <summary>
+        /// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// </summary>
         public readonly Outputs.DistributionLegacyCustomOrigin? CustomOrigin;
         /// <summary>
         /// A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
@@ -99,6 +109,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that identifies ways in which you want to restrict distribution of your content.
         /// </summary>
         public readonly Outputs.DistributionRestrictions? Restrictions;
+        /// <summary>
+        /// The origin as an Amazon S3 bucket.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// </summary>
         public readonly Outputs.DistributionLegacyS3Origin? S3Origin;
         /// <summary>
         /// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.

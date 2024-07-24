@@ -57,6 +57,9 @@ export class UserSettings extends pulumi.CustomResource {
      * The customer managed key used to encrypt sensitive information in the user settings.
      */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the user can use deep links that open automatically when connecting to a session.
+     */
     public readonly deepLinkAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType | undefined>;
     /**
      * The amount of time that a streaming session remains active after users disconnect.
@@ -174,6 +177,9 @@ export interface UserSettingsArgs {
      * The customer managed key used to encrypt sensitive information in the user settings.
      */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * Specifies whether the user can use deep links that open automatically when connecting to a session.
+     */
     deepLinkAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
     /**
      * The amount of time that a streaming session remains active after users disconnect.

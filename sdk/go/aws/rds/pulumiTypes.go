@@ -213,7 +213,7 @@ func (o DbClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 type DbClusterMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -234,7 +234,7 @@ type DbClusterMasterUserSecretInput interface {
 type DbClusterMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -323,7 +323,7 @@ func (o DbClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the “Fn::GetAtt“ intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
 func (o DbClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +362,7 @@ func (o DbClusterMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the “Fn::GetAtt“ intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
 func (o DbClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterMasterUserSecret) *string {
 		if v == nil {
@@ -1518,7 +1518,7 @@ func (o DbInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 type DbInstanceMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -1539,7 +1539,7 @@ type DbInstanceMasterUserSecretInput interface {
 type DbInstanceMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -1628,7 +1628,7 @@ func (o DbInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the “Fn::GetAtt“ intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
 func (o DbInstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -1667,7 +1667,7 @@ func (o DbInstanceMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the “Fn::GetAtt“ intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
 func (o DbInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstanceMasterUserSecret) *string {
 		if v == nil {

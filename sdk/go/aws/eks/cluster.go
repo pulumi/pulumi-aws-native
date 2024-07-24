@@ -50,7 +50,8 @@ type Cluster struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags          aws.TagArrayOutput            `pulumi:"tags"`
+	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -130,7 +131,8 @@ type clusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags          []aws.Tag             `pulumi:"tags"`
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `pulumi:"version"`
 }
@@ -156,7 +158,8 @@ type ClusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayInput
+	Tags          aws.TagArrayInput
+	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrInput
 }
@@ -281,6 +284,10 @@ func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 func (o ClusterOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o ClusterOutput) UpgradePolicy() ClusterUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterUpgradePolicyPtrOutput { return v.UpgradePolicy }).(ClusterUpgradePolicyPtrOutput)
 }
 
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

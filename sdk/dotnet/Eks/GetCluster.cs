@@ -101,6 +101,7 @@ namespace Pulumi.AwsNative.Eks
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.ClusterUpgradePolicy? UpgradePolicy;
         /// <summary>
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         /// </summary>
@@ -130,6 +131,8 @@ namespace Pulumi.AwsNative.Eks
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Outputs.ClusterUpgradePolicy? upgradePolicy,
+
             string? version)
         {
             AccessConfig = accessConfig;
@@ -143,6 +146,7 @@ namespace Pulumi.AwsNative.Eks
             OpenIdConnectIssuerUrl = openIdConnectIssuerUrl;
             ResourcesVpcConfig = resourcesVpcConfig;
             Tags = tags;
+            UpgradePolicy = upgradePolicy;
             Version = version;
         }
     }

@@ -105,6 +105,7 @@ export class Cluster extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy | undefined>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
@@ -137,6 +138,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -163,6 +165,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourcesVpcConfig"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["upgradePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -216,6 +219,7 @@ export interface ClusterArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicyArgs>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */

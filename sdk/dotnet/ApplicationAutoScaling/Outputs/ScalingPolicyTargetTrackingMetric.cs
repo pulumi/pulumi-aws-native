@@ -11,13 +11,15 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
     /// <summary>
-    /// Represents a specific metric.
+    /// Represents a specific metric for a target tracking scaling policy for Application Auto Scaling.
+    ///  Metric is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html) property type.
     /// </summary>
     [OutputType]
     public sealed class ScalingPolicyTargetTrackingMetric
     {
         /// <summary>
-        /// The dimensions for the metric.
+        /// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*. 
+        ///  Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyTargetTrackingMetricDimension> Dimensions;
         /// <summary>
@@ -25,7 +27,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
         /// </summary>
         public readonly string? MetricName;
         /// <summary>
-        /// The namespace of the metric.
+        /// The namespace of the metric. For more information, see the table in [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*.
         /// </summary>
         public readonly string? Namespace;
 

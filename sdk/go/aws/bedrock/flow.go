@@ -25,7 +25,8 @@ type Flow struct {
 	// A KMS key ARN
 	CustomerEncryptionKeyArn pulumi.StringPtrOutput  `pulumi:"customerEncryptionKeyArn"`
 	Definition               FlowDefinitionPtrOutput `pulumi:"definition"`
-	DefinitionS3Location     FlowS3LocationPtrOutput `pulumi:"definitionS3Location"`
+	// An Amazon S3 location.
+	DefinitionS3Location FlowS3LocationPtrOutput `pulumi:"definitionS3Location"`
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
 	DefinitionString        pulumi.StringPtrOutput `pulumi:"definitionString"`
 	DefinitionSubstitutions pulumi.MapOutput       `pulumi:"definitionSubstitutions"`
@@ -34,7 +35,13 @@ type Flow struct {
 	// ARN of a IAM role
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Name for the flow
-	Name          pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The status of the flow. The following statuses are possible:
+	//
+	// - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+	// - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+	// - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+	// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
 	Status        FlowStatusOutput       `pulumi:"status"`
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
 	TestAliasTags pulumi.StringMapOutput `pulumi:"testAliasTags"`
@@ -90,7 +97,8 @@ type flowArgs struct {
 	// A KMS key ARN
 	CustomerEncryptionKeyArn *string         `pulumi:"customerEncryptionKeyArn"`
 	Definition               *FlowDefinition `pulumi:"definition"`
-	DefinitionS3Location     *FlowS3Location `pulumi:"definitionS3Location"`
+	// An Amazon S3 location.
+	DefinitionS3Location *FlowS3Location `pulumi:"definitionS3Location"`
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
 	DefinitionString        *string                `pulumi:"definitionString"`
 	DefinitionSubstitutions map[string]interface{} `pulumi:"definitionSubstitutions"`
@@ -109,7 +117,8 @@ type FlowArgs struct {
 	// A KMS key ARN
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	Definition               FlowDefinitionPtrInput
-	DefinitionS3Location     FlowS3LocationPtrInput
+	// An Amazon S3 location.
+	DefinitionS3Location FlowS3LocationPtrInput
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
 	DefinitionString        pulumi.StringPtrInput
 	DefinitionSubstitutions pulumi.MapInput
@@ -184,6 +193,7 @@ func (o FlowOutput) Definition() FlowDefinitionPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowDefinitionPtrOutput { return v.Definition }).(FlowDefinitionPtrOutput)
 }
 
+// An Amazon S3 location.
 func (o FlowOutput) DefinitionS3Location() FlowS3LocationPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowS3LocationPtrOutput { return v.DefinitionS3Location }).(FlowS3LocationPtrOutput)
 }
@@ -212,6 +222,12 @@ func (o FlowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the flow. The following statuses are possible:
+//
+// - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+// - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+// - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
 func (o FlowOutput) Status() FlowStatusOutput {
 	return o.ApplyT(func(v *Flow) FlowStatusOutput { return v.Status }).(FlowStatusOutput)
 }

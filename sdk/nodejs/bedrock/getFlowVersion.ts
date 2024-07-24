@@ -48,6 +48,9 @@ export interface GetFlowVersionResult {
      * Name for the flow
      */
     readonly name?: string;
+    /**
+     * The status of the flow.
+     */
     readonly status?: enums.bedrock.FlowVersionFlowStatus;
     /**
      * Numerical Version.

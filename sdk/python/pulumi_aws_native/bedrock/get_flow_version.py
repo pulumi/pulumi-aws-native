@@ -83,6 +83,9 @@ class GetFlowVersionResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['FlowVersionFlowStatus']:
+        """
+        The status of the flow.
+        """
         return pulumi.get(self, "status")
 
     @property

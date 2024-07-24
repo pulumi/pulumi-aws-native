@@ -34,7 +34,8 @@ type LookupUserSettingsResult struct {
 	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
 	// Specifies whether the user can copy text from the streaming session to the local device.
-	CopyAllowed     *UserSettingsEnabledType `pulumi:"copyAllowed"`
+	CopyAllowed *UserSettingsEnabledType `pulumi:"copyAllowed"`
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
 	DeepLinkAllowed *UserSettingsEnabledType `pulumi:"deepLinkAllowed"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInMinutes *float64 `pulumi:"disconnectTimeoutInMinutes"`
@@ -107,6 +108,7 @@ func (o LookupUserSettingsResultOutput) CopyAllowed() UserSettingsEnabledTypePtr
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.CopyAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// Specifies whether the user can use deep links that open automatically when connecting to a session.
 func (o LookupUserSettingsResultOutput) DeepLinkAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.DeepLinkAllowed }).(UserSettingsEnabledTypePtrOutput)
 }

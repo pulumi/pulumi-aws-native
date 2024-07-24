@@ -20,6 +20,8 @@ type RepositoryCreationTemplate struct {
 	AppliedFor RepositoryCreationTemplateAppliedForItemArrayOutput `pulumi:"appliedFor"`
 	// Create timestamp of the template.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+	CustomRoleArn pulumi.StringPtrOutput `pulumi:"customRoleArn"`
 	// The description of the template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -94,6 +96,8 @@ func (RepositoryCreationTemplateState) ElementType() reflect.Type {
 type repositoryCreationTemplateArgs struct {
 	// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
 	AppliedFor []RepositoryCreationTemplateAppliedForItem `pulumi:"appliedFor"`
+	// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+	CustomRoleArn *string `pulumi:"customRoleArn"`
 	// The description of the template.
 	Description *string `pulumi:"description"`
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -118,6 +122,8 @@ type repositoryCreationTemplateArgs struct {
 type RepositoryCreationTemplateArgs struct {
 	// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
 	AppliedFor RepositoryCreationTemplateAppliedForItemArrayInput
+	// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+	CustomRoleArn pulumi.StringPtrInput
 	// The description of the template.
 	Description pulumi.StringPtrInput
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -185,6 +191,11 @@ func (o RepositoryCreationTemplateOutput) AppliedFor() RepositoryCreationTemplat
 // Create timestamp of the template.
 func (o RepositoryCreationTemplateOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+func (o RepositoryCreationTemplateOutput) CustomRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.CustomRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the template.

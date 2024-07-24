@@ -46,6 +46,10 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+     */
+    public readonly customRoleArn!: pulumi.Output<string | undefined>;
+    /**
      * The description of the template.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'prefix'");
             }
             resourceInputs["appliedFor"] = args ? args.appliedFor : undefined;
+            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
@@ -112,6 +117,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
         } else {
             resourceInputs["appliedFor"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customRoleArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["imageTagMutability"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export interface RepositoryCreationTemplateArgs {
      * A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
      */
     appliedFor: pulumi.Input<pulumi.Input<enums.ecr.RepositoryCreationTemplateAppliedForItem>[]>;
+    /**
+     * The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+     */
+    customRoleArn?: pulumi.Input<string>;
     /**
      * The description of the template.
      */

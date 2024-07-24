@@ -117,6 +117,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("upgradePolicy")]
+        public Output<Outputs.ClusterUpgradePolicy?> UpgradePolicy { get; private set; } = null!;
+
         /// <summary>
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         /// </summary>
@@ -249,6 +252,9 @@ namespace Pulumi.AwsNative.Eks
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("upgradePolicy")]
+        public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
 
         /// <summary>
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

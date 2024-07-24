@@ -19,6 +19,7 @@ class RepositoryCreationTemplateArgs:
     def __init__(__self__, *,
                  applied_for: pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]],
                  prefix: pulumi.Input[str],
+                 custom_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
@@ -29,6 +30,7 @@ class RepositoryCreationTemplateArgs:
         The set of arguments for constructing a RepositoryCreationTemplate resource.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
         :param pulumi.Input[str] prefix: The prefix use to match the repository name and apply the template.
+        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
         :param pulumi.Input[str] description: The description of the template.
         :param pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
                
@@ -42,6 +44,8 @@ class RepositoryCreationTemplateArgs:
         """
         pulumi.set(__self__, "applied_for", applied_for)
         pulumi.set(__self__, "prefix", prefix)
+        if custom_role_arn is not None:
+            pulumi.set(__self__, "custom_role_arn", custom_role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_configuration is not None:
@@ -78,6 +82,18 @@ class RepositoryCreationTemplateArgs:
     @prefix.setter
     def prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="customRoleArn")
+    def custom_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        """
+        return pulumi.get(self, "custom_role_arn")
+
+    @custom_role_arn.setter
+    def custom_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_role_arn", value)
 
     @property
     @pulumi.getter
@@ -162,6 +178,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
+                 custom_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
@@ -176,6 +193,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
         :param pulumi.Input[str] description: The description of the template.
         :param pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
                
@@ -213,6 +231,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
+                 custom_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
@@ -232,6 +251,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             if applied_for is None and not opts.urn:
                 raise TypeError("Missing required property 'applied_for'")
             __props__.__dict__["applied_for"] = applied_for
+            __props__.__dict__["custom_role_arn"] = custom_role_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
@@ -269,6 +289,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
 
         __props__.__dict__["applied_for"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["custom_role_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["image_tag_mutability"] = None
@@ -294,6 +315,14 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         Create timestamp of the template.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customRoleArn")
+    def custom_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        """
+        return pulumi.get(self, "custom_role_arn")
 
     @property
     @pulumi.getter

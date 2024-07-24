@@ -30,6 +30,7 @@ __all__ = [
     'FlowOutputEncryptionAlgorithm',
     'FlowOutputEncryptionKeyType',
     'FlowOutputMediaStreamOutputConfigurationEncodingName',
+    'FlowOutputOutputStatus',
     'FlowOutputProtocol',
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
@@ -264,6 +265,14 @@ class FlowOutputMediaStreamOutputConfigurationEncodingName(str, Enum):
     RAW = "raw"
     SMPTE291 = "smpte291"
     PCM = "pcm"
+
+
+class FlowOutputOutputStatus(str, Enum):
+    """
+    An indication of whether the output should transmit data or not.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class FlowOutputProtocol(str, Enum):

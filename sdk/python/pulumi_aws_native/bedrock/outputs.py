@@ -1495,6 +1495,8 @@ class FlowConnection(dict):
         :param str name: Name of a connection in a flow
         :param str source: Name of a node in a flow
         :param str target: Name of a node in a flow
+        :param 'FlowConnectionType' type: Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        :param Union['FlowConnectionConfiguration0Properties', 'FlowConnectionConfiguration1Properties'] configuration: The configuration of the connection.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
@@ -1530,11 +1532,17 @@ class FlowConnection(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowConnectionType':
+        """
+        Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        The configuration of the connection.
+        """
         return pulumi.get(self, "configuration")
 
 
@@ -1831,6 +1839,8 @@ class FlowNode(dict):
         """
         Internal mixin for flow node
         :param str name: Name of a node in a flow
+        :param 'FlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -1854,11 +1864,17 @@ class FlowNode(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowNodeType':
+        """
+        The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        Contains configurations for the node.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -2051,6 +2067,7 @@ class FlowNodeInput(dict):
         Input to a node in a flow
         :param str expression: Expression for a node input in a flow
         :param str name: Name of a node input in a flow
+        :param 'FlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -2075,6 +2092,9 @@ class FlowNodeInput(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowNodeIoDataType':
+        """
+        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
 
@@ -2089,6 +2109,7 @@ class FlowNodeOutput(dict):
         """
         Output of a node in a flow
         :param str name: Name of a node output in a flow
+        :param 'FlowNodeIoDataType' type: The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -2104,6 +2125,9 @@ class FlowNodeOutput(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowNodeIoDataType':
+        """
+        The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
 
@@ -2639,6 +2663,8 @@ class FlowVersionFlowConnection(dict):
         :param str name: Name of a connection in a flow
         :param str source: Name of a node in a flow
         :param str target: Name of a node in a flow
+        :param 'FlowVersionFlowConnectionType' type: Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        :param Union['FlowVersionFlowConnectionConfiguration0Properties', 'FlowVersionFlowConnectionConfiguration1Properties'] configuration: The configuration of the connection.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
@@ -2674,11 +2700,17 @@ class FlowVersionFlowConnection(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowConnectionType':
+        """
+        Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        The configuration of the connection.
+        """
         return pulumi.get(self, "configuration")
 
 
@@ -2819,6 +2851,8 @@ class FlowVersionFlowNode(dict):
         """
         Internal mixin for flow node
         :param str name: Name of a node in a flow
+        :param 'FlowVersionFlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowVersionFlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowVersionFlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -2842,11 +2876,17 @@ class FlowVersionFlowNode(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowNodeType':
+        """
+        The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        Contains configurations for the node.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -3039,6 +3079,7 @@ class FlowVersionFlowNodeInput(dict):
         Input to a node in a flow
         :param str expression: Expression for a node input in a flow
         :param str name: Name of a node input in a flow
+        :param 'FlowVersionFlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -3063,6 +3104,9 @@ class FlowVersionFlowNodeInput(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowNodeIoDataType':
+        """
+        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
 
@@ -3077,6 +3121,7 @@ class FlowVersionFlowNodeOutput(dict):
         """
         Output of a node in a flow
         :param str name: Name of a node output in a flow
+        :param 'FlowVersionFlowNodeIoDataType' type: The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -3092,6 +3137,9 @@ class FlowVersionFlowNodeOutput(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowNodeIoDataType':
+        """
+        The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
 
@@ -5209,7 +5257,10 @@ class PromptVariant(dict):
         """
         Prompt variant
         :param str name: Name for a variant.
+        :param 'PromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or name of a Bedrock model.
+        :param 'PromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_type", template_type)
@@ -5231,11 +5282,17 @@ class PromptVariant(dict):
     @property
     @pulumi.getter(name="templateType")
     def template_type(self) -> 'PromptTemplateType':
+        """
+        The type of prompt template to use.
+        """
         return pulumi.get(self, "template_type")
 
     @property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.PromptInferenceConfigurationProperties']:
+        """
+        Contains inference configurations for the prompt variant.
+        """
         return pulumi.get(self, "inference_configuration")
 
     @property
@@ -5249,6 +5306,9 @@ class PromptVariant(dict):
     @property
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.PromptTemplateConfigurationProperties']:
+        """
+        Contains configurations for the prompt template.
+        """
         return pulumi.get(self, "template_configuration")
 
 
@@ -5442,7 +5502,10 @@ class PromptVersionPromptVariant(dict):
         """
         Prompt variant
         :param str name: Name for a variant.
+        :param 'PromptVersionPromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptVersionPromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or name of a Bedrock model.
+        :param 'PromptVersionPromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_type", template_type)
@@ -5464,11 +5527,17 @@ class PromptVersionPromptVariant(dict):
     @property
     @pulumi.getter(name="templateType")
     def template_type(self) -> 'PromptVersionPromptTemplateType':
+        """
+        The type of prompt template to use.
+        """
         return pulumi.get(self, "template_type")
 
     @property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.PromptVersionPromptInferenceConfigurationProperties']:
+        """
+        Contains inference configurations for the prompt variant.
+        """
         return pulumi.get(self, "inference_configuration")
 
     @property
@@ -5482,6 +5551,9 @@ class PromptVersionPromptVariant(dict):
     @property
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.PromptVersionPromptTemplateConfigurationProperties']:
+        """
+        Contains configurations for the prompt template.
+        """
         return pulumi.get(self, "template_configuration")
 
 

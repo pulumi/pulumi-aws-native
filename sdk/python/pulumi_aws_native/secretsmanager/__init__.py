@@ -5,7 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_resource_policy import *
 from .get_secret import *
+from .resource_policy import *
 from .secret import *
 from ._inputs import *
 from . import outputs

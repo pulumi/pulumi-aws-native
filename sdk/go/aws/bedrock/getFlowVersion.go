@@ -38,7 +38,8 @@ type LookupFlowVersionResult struct {
 	// Identifier for a Flow
 	FlowId *string `pulumi:"flowId"`
 	// Name for the flow
-	Name   *string                `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the flow.
 	Status *FlowVersionFlowStatus `pulumi:"status"`
 	// Numerical Version.
 	Version *string `pulumi:"version"`
@@ -106,6 +107,7 @@ func (o LookupFlowVersionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowVersionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the flow.
 func (o LookupFlowVersionResultOutput) Status() FlowVersionFlowStatusPtrOutput {
 	return o.ApplyT(func(v LookupFlowVersionResult) *FlowVersionFlowStatus { return v.Status }).(FlowVersionFlowStatusPtrOutput)
 }

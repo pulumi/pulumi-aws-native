@@ -242,7 +242,6 @@ type DbInstance struct {
 	//   +   ``DBClusterIdentifier``
 	//   +   ``DBName``
 	//   +   ``DeleteAutomatedBackups``
-	//   +   ``EnablePerformanceInsights``
 	//   +   ``KmsKeyId``
 	//   +   ``MasterUsername``
 	//   +   ``MasterUserPassword``
@@ -900,7 +899,6 @@ type dbInstanceArgs struct {
 	//   +   ``DBClusterIdentifier``
 	//   +   ``DBName``
 	//   +   ``DeleteAutomatedBackups``
-	//   +   ``EnablePerformanceInsights``
 	//   +   ``KmsKeyId``
 	//   +   ``MasterUsername``
 	//   +   ``MasterUserPassword``
@@ -1500,7 +1498,6 @@ type DbInstanceArgs struct {
 	//   +   ``DBClusterIdentifier``
 	//   +   ``DBName``
 	//   +   ``DeleteAutomatedBackups``
-	//   +   ``EnablePerformanceInsights``
 	//   +   ``KmsKeyId``
 	//   +   ``MasterUsername``
 	//   +   ``MasterUserPassword``
@@ -2219,7 +2216,6 @@ func (o DbInstanceOutput) DbSecurityGroups() pulumi.StringArrayOutput {
 //	 +   ``DBClusterIdentifier``
 //	 +   ``DBName``
 //	 +   ``DeleteAutomatedBackups``
-//	 +   ``EnablePerformanceInsights``
 //	 +   ``KmsKeyId``
 //	 +   ``MasterUsername``
 //	 +   ``MasterUserPassword``

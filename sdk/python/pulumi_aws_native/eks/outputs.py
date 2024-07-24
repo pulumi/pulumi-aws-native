@@ -24,6 +24,7 @@ __all__ = [
     'ClusterOutpostConfig',
     'ClusterProvider',
     'ClusterResourcesVpcConfig',
+    'ClusterUpgradePolicy',
     'FargateProfileLabel',
     'FargateProfileSelector',
     'IdentityProviderConfigOidcIdentityProviderConfig',
@@ -633,6 +634,46 @@ class ClusterResourcesVpcConfig(dict):
         Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ClusterUpgradePolicy(dict):
+    """
+    An object representing the Upgrade Policy to use for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportType":
+            suggest = "support_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 support_type: Optional['ClusterUpgradePolicySupportType'] = None):
+        """
+        An object representing the Upgrade Policy to use for the cluster.
+        :param 'ClusterUpgradePolicySupportType' support_type: Specify the support type for your cluster.
+        """
+        if support_type is not None:
+            pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> Optional['ClusterUpgradePolicySupportType']:
+        """
+        Specify the support type for your cluster.
+        """
+        return pulumi.get(self, "support_type")
 
 
 @pulumi.output_type

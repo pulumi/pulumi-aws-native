@@ -57,6 +57,16 @@ export const ClusterLoggingTypeConfigType = {
  */
 export type ClusterLoggingTypeConfigType = (typeof ClusterLoggingTypeConfigType)[keyof typeof ClusterLoggingTypeConfigType];
 
+export const ClusterUpgradePolicySupportType = {
+    Standard: "STANDARD",
+    Extended: "EXTENDED",
+} as const;
+
+/**
+ * Specify the support type for your cluster.
+ */
+export type ClusterUpgradePolicySupportType = (typeof ClusterUpgradePolicySupportType)[keyof typeof ClusterUpgradePolicySupportType];
+
 export const IdentityProviderConfigType = {
     Oidc: "oidc",
 } as const;

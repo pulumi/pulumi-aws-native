@@ -205,6 +205,9 @@ class FlowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['FlowVersionFlowStatus']:
+        """
+        The status of the flow.
+        """
         return pulumi.get(self, "status")
 
     @property

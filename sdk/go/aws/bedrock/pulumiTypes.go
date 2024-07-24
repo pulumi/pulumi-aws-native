@@ -3589,14 +3589,16 @@ func (o FlowConditionalConnectionConfigurationPtrOutput) Condition() pulumi.Stri
 
 // Flow connection
 type FlowConnection struct {
+	// The configuration of the connection.
 	Configuration interface{} `pulumi:"configuration"`
 	// Name of a connection in a flow
 	Name string `pulumi:"name"`
 	// Name of a node in a flow
 	Source string `pulumi:"source"`
 	// Name of a node in a flow
-	Target string             `pulumi:"target"`
-	Type   FlowConnectionType `pulumi:"type"`
+	Target string `pulumi:"target"`
+	// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+	Type FlowConnectionType `pulumi:"type"`
 }
 
 // FlowConnectionInput is an input type that accepts FlowConnectionArgs and FlowConnectionOutput values.
@@ -3612,14 +3614,16 @@ type FlowConnectionInput interface {
 
 // Flow connection
 type FlowConnectionArgs struct {
+	// The configuration of the connection.
 	Configuration pulumi.Input `pulumi:"configuration"`
 	// Name of a connection in a flow
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of a node in a flow
 	Source pulumi.StringInput `pulumi:"source"`
 	// Name of a node in a flow
-	Target pulumi.StringInput      `pulumi:"target"`
-	Type   FlowConnectionTypeInput `pulumi:"type"`
+	Target pulumi.StringInput `pulumi:"target"`
+	// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+	Type FlowConnectionTypeInput `pulumi:"type"`
 }
 
 func (FlowConnectionArgs) ElementType() reflect.Type {
@@ -3674,6 +3678,7 @@ func (o FlowConnectionOutput) ToFlowConnectionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The configuration of the connection.
 func (o FlowConnectionOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v FlowConnection) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -3693,6 +3698,7 @@ func (o FlowConnectionOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowConnection) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
 func (o FlowConnectionOutput) Type() FlowConnectionTypeOutput {
 	return o.ApplyT(func(v FlowConnection) FlowConnectionType { return v.Type }).(FlowConnectionTypeOutput)
 }
@@ -4890,6 +4896,7 @@ func (o FlowLexFlowNodeConfigurationPtrOutput) LocaleId() pulumi.StringPtrOutput
 
 // Internal mixin for flow node
 type FlowNode struct {
+	// Contains configurations for the node.
 	Configuration interface{} `pulumi:"configuration"`
 	// List of node inputs in a flow
 	Inputs []FlowNodeInputType `pulumi:"inputs"`
@@ -4897,7 +4904,8 @@ type FlowNode struct {
 	Name string `pulumi:"name"`
 	// List of node outputs in a flow
 	Outputs []FlowNodeOutputType `pulumi:"outputs"`
-	Type    FlowNodeType         `pulumi:"type"`
+	// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+	Type FlowNodeType `pulumi:"type"`
 }
 
 // FlowNodeInput is an input type that accepts FlowNodeArgs and FlowNodeOutput values.
@@ -4913,6 +4921,7 @@ type FlowNodeInput interface {
 
 // Internal mixin for flow node
 type FlowNodeArgs struct {
+	// Contains configurations for the node.
 	Configuration pulumi.Input `pulumi:"configuration"`
 	// List of node inputs in a flow
 	Inputs FlowNodeInputTypeArrayInput `pulumi:"inputs"`
@@ -4920,7 +4929,8 @@ type FlowNodeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// List of node outputs in a flow
 	Outputs FlowNodeOutputTypeArrayInput `pulumi:"outputs"`
-	Type    FlowNodeTypeInput            `pulumi:"type"`
+	// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+	Type FlowNodeTypeInput `pulumi:"type"`
 }
 
 func (FlowNodeArgs) ElementType() reflect.Type {
@@ -4975,6 +4985,7 @@ func (o FlowNodeOutput) ToFlowNodeOutputWithContext(ctx context.Context) FlowNod
 	return o
 }
 
+// Contains configurations for the node.
 func (o FlowNodeOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v FlowNode) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -4994,6 +5005,7 @@ func (o FlowNodeOutput) Outputs() FlowNodeOutputTypeArrayOutput {
 	return o.ApplyT(func(v FlowNode) []FlowNodeOutputType { return v.Outputs }).(FlowNodeOutputTypeArrayOutput)
 }
 
+// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
 func (o FlowNodeOutput) Type() FlowNodeTypeOutput {
 	return o.ApplyT(func(v FlowNode) FlowNodeType { return v.Type }).(FlowNodeTypeOutput)
 }
@@ -5979,7 +5991,8 @@ type FlowNodeInputType struct {
 	// Expression for a node input in a flow
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
-	Name string             `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -5999,7 +6012,8 @@ type FlowNodeInputTypeArgs struct {
 	// Expression for a node input in a flow
 	Expression pulumi.StringInput `pulumi:"expression"`
 	// Name of a node input in a flow
-	Name pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataTypeInput `pulumi:"type"`
 }
 
@@ -6065,6 +6079,7 @@ func (o FlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowNodeInputTypeOutput) Type() FlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowNodeInputType) FlowNodeIoDataType { return v.Type }).(FlowNodeIoDataTypeOutput)
 }
@@ -6092,7 +6107,8 @@ func (o FlowNodeInputTypeArrayOutput) Index(i pulumi.IntInput) FlowNodeInputType
 // Output of a node in a flow
 type FlowNodeOutputType struct {
 	// Name of a node output in a flow
-	Name string             `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -6110,7 +6126,8 @@ type FlowNodeOutputTypeInput interface {
 // Output of a node in a flow
 type FlowNodeOutputTypeArgs struct {
 	// Name of a node output in a flow
-	Name pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataTypeInput `pulumi:"type"`
 }
 
@@ -6171,6 +6188,7 @@ func (o FlowNodeOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowNodeOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowNodeOutputTypeOutput) Type() FlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowNodeOutputType) FlowNodeIoDataType { return v.Type }).(FlowNodeIoDataTypeOutput)
 }
@@ -8169,14 +8187,16 @@ func (o FlowVersionFlowConditionalConnectionConfigurationPtrOutput) Condition() 
 
 // Flow connection
 type FlowVersionFlowConnection struct {
+	// The configuration of the connection.
 	Configuration interface{} `pulumi:"configuration"`
 	// Name of a connection in a flow
 	Name string `pulumi:"name"`
 	// Name of a node in a flow
 	Source string `pulumi:"source"`
 	// Name of a node in a flow
-	Target string                        `pulumi:"target"`
-	Type   FlowVersionFlowConnectionType `pulumi:"type"`
+	Target string `pulumi:"target"`
+	// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+	Type FlowVersionFlowConnectionType `pulumi:"type"`
 }
 
 // Flow connection
@@ -8194,6 +8214,7 @@ func (o FlowVersionFlowConnectionOutput) ToFlowVersionFlowConnectionOutputWithCo
 	return o
 }
 
+// The configuration of the connection.
 func (o FlowVersionFlowConnectionOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v FlowVersionFlowConnection) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -8213,6 +8234,7 @@ func (o FlowVersionFlowConnectionOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowConnection) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
 func (o FlowVersionFlowConnectionOutput) Type() FlowVersionFlowConnectionTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowConnection) FlowVersionFlowConnectionType { return v.Type }).(FlowVersionFlowConnectionTypeOutput)
 }
@@ -8511,6 +8533,7 @@ func (o FlowVersionFlowDefinitionPtrOutput) Nodes() FlowVersionFlowNodeArrayOutp
 
 // Internal mixin for flow node
 type FlowVersionFlowNode struct {
+	// Contains configurations for the node.
 	Configuration interface{} `pulumi:"configuration"`
 	// List of node inputs in a flow
 	Inputs []FlowVersionFlowNodeInputType `pulumi:"inputs"`
@@ -8518,7 +8541,8 @@ type FlowVersionFlowNode struct {
 	Name string `pulumi:"name"`
 	// List of node outputs in a flow
 	Outputs []FlowVersionFlowNodeOutputType `pulumi:"outputs"`
-	Type    FlowVersionFlowNodeType         `pulumi:"type"`
+	// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+	Type FlowVersionFlowNodeType `pulumi:"type"`
 }
 
 // Internal mixin for flow node
@@ -8536,6 +8560,7 @@ func (o FlowVersionFlowNodeOutput) ToFlowVersionFlowNodeOutputWithContext(ctx co
 	return o
 }
 
+// Contains configurations for the node.
 func (o FlowVersionFlowNodeOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v FlowVersionFlowNode) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -8555,6 +8580,7 @@ func (o FlowVersionFlowNodeOutput) Outputs() FlowVersionFlowNodeOutputTypeArrayO
 	return o.ApplyT(func(v FlowVersionFlowNode) []FlowVersionFlowNodeOutputType { return v.Outputs }).(FlowVersionFlowNodeOutputTypeArrayOutput)
 }
 
+// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
 func (o FlowVersionFlowNodeOutput) Type() FlowVersionFlowNodeTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowNode) FlowVersionFlowNodeType { return v.Type }).(FlowVersionFlowNodeTypeOutput)
 }
@@ -8995,7 +9021,8 @@ type FlowVersionFlowNodeInputType struct {
 	// Expression for a node input in a flow
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
-	Name string                        `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowVersionFlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -9024,6 +9051,7 @@ func (o FlowVersionFlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowVersionFlowNodeInputTypeOutput) Type() FlowVersionFlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) FlowVersionFlowNodeIoDataType { return v.Type }).(FlowVersionFlowNodeIoDataTypeOutput)
 }
@@ -9051,7 +9079,8 @@ func (o FlowVersionFlowNodeInputTypeArrayOutput) Index(i pulumi.IntInput) FlowVe
 // Output of a node in a flow
 type FlowVersionFlowNodeOutputType struct {
 	// Name of a node output in a flow
-	Name string                        `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowVersionFlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -9075,6 +9104,7 @@ func (o FlowVersionFlowNodeOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowVersionFlowNodeOutputTypeOutput) Type() FlowVersionFlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeOutputType) FlowVersionFlowNodeIoDataType { return v.Type }).(FlowVersionFlowNodeIoDataTypeOutput)
 }
@@ -14049,13 +14079,16 @@ func (o PromptTextS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 
 // Prompt variant
 type PromptVariant struct {
+	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
 	// ARN or name of a Bedrock model.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
-	Name                  string                                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Contains configurations for the prompt template.
 	TemplateConfiguration *PromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
-	TemplateType          PromptTemplateType                     `pulumi:"templateType"`
+	// The type of prompt template to use.
+	TemplateType PromptTemplateType `pulumi:"templateType"`
 }
 
 // PromptVariantInput is an input type that accepts PromptVariantArgs and PromptVariantOutput values.
@@ -14071,13 +14104,16 @@ type PromptVariantInput interface {
 
 // Prompt variant
 type PromptVariantArgs struct {
+	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration PromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
 	// ARN or name of a Bedrock model.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
 	// Name for a variant.
-	Name                  pulumi.StringInput                            `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Contains configurations for the prompt template.
 	TemplateConfiguration PromptTemplateConfigurationPropertiesPtrInput `pulumi:"templateConfiguration"`
-	TemplateType          PromptTemplateTypeInput                       `pulumi:"templateType"`
+	// The type of prompt template to use.
+	TemplateType PromptTemplateTypeInput `pulumi:"templateType"`
 }
 
 func (PromptVariantArgs) ElementType() reflect.Type {
@@ -14132,6 +14168,7 @@ func (o PromptVariantOutput) ToPromptVariantOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Contains inference configurations for the prompt variant.
 func (o PromptVariantOutput) InferenceConfiguration() PromptInferenceConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *PromptInferenceConfigurationProperties { return v.InferenceConfiguration }).(PromptInferenceConfigurationPropertiesPtrOutput)
 }
@@ -14146,10 +14183,12 @@ func (o PromptVariantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVariant) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains configurations for the prompt template.
 func (o PromptVariantOutput) TemplateConfiguration() PromptTemplateConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *PromptTemplateConfigurationProperties { return v.TemplateConfiguration }).(PromptTemplateConfigurationPropertiesPtrOutput)
 }
 
+// The type of prompt template to use.
 func (o PromptVariantOutput) TemplateType() PromptTemplateTypeOutput {
 	return o.ApplyT(func(v PromptVariant) PromptTemplateType { return v.TemplateType }).(PromptTemplateTypeOutput)
 }
@@ -14478,13 +14517,16 @@ func (o PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) Text() Prom
 
 // Prompt variant
 type PromptVersionPromptVariant struct {
+	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
 	// ARN or name of a Bedrock model.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
-	Name                  string                                              `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Contains configurations for the prompt template.
 	TemplateConfiguration *PromptVersionPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
-	TemplateType          PromptVersionPromptTemplateType                     `pulumi:"templateType"`
+	// The type of prompt template to use.
+	TemplateType PromptVersionPromptTemplateType `pulumi:"templateType"`
 }
 
 // Prompt variant
@@ -14502,6 +14544,7 @@ func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutputWith
 	return o
 }
 
+// Contains inference configurations for the prompt variant.
 func (o PromptVersionPromptVariantOutput) InferenceConfiguration() PromptVersionPromptInferenceConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptInferenceConfigurationProperties {
 		return v.InferenceConfiguration
@@ -14518,12 +14561,14 @@ func (o PromptVersionPromptVariantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains configurations for the prompt template.
 func (o PromptVersionPromptVariantOutput) TemplateConfiguration() PromptVersionPromptTemplateConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptTemplateConfigurationProperties {
 		return v.TemplateConfiguration
 	}).(PromptVersionPromptTemplateConfigurationPropertiesPtrOutput)
 }
 
+// The type of prompt template to use.
 func (o PromptVersionPromptVariantOutput) TemplateType() PromptVersionPromptTemplateTypeOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) PromptVersionPromptTemplateType { return v.TemplateType }).(PromptVersionPromptTemplateTypeOutput)
 }

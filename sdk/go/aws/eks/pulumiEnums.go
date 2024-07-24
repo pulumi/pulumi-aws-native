@@ -850,6 +850,172 @@ func (in *clusterLoggingTypeConfigTypePtr) ToClusterLoggingTypeConfigTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterLoggingTypeConfigTypePtrOutput)
 }
 
+// Specify the support type for your cluster.
+type ClusterUpgradePolicySupportType string
+
+const (
+	ClusterUpgradePolicySupportTypeStandard = ClusterUpgradePolicySupportType("STANDARD")
+	ClusterUpgradePolicySupportTypeExtended = ClusterUpgradePolicySupportType("EXTENDED")
+)
+
+func (ClusterUpgradePolicySupportType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicySupportType)(nil)).Elem()
+}
+
+func (e ClusterUpgradePolicySupportType) ToClusterUpgradePolicySupportTypeOutput() ClusterUpgradePolicySupportTypeOutput {
+	return pulumi.ToOutput(e).(ClusterUpgradePolicySupportTypeOutput)
+}
+
+func (e ClusterUpgradePolicySupportType) ToClusterUpgradePolicySupportTypeOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterUpgradePolicySupportTypeOutput)
+}
+
+func (e ClusterUpgradePolicySupportType) ToClusterUpgradePolicySupportTypePtrOutput() ClusterUpgradePolicySupportTypePtrOutput {
+	return e.ToClusterUpgradePolicySupportTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterUpgradePolicySupportType) ToClusterUpgradePolicySupportTypePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypePtrOutput {
+	return ClusterUpgradePolicySupportType(e).ToClusterUpgradePolicySupportTypeOutputWithContext(ctx).ToClusterUpgradePolicySupportTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterUpgradePolicySupportType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterUpgradePolicySupportType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterUpgradePolicySupportType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterUpgradePolicySupportType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterUpgradePolicySupportTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicySupportTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicySupportType)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToClusterUpgradePolicySupportTypeOutput() ClusterUpgradePolicySupportTypeOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToClusterUpgradePolicySupportTypeOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypeOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToClusterUpgradePolicySupportTypePtrOutput() ClusterUpgradePolicySupportTypePtrOutput {
+	return o.ToClusterUpgradePolicySupportTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToClusterUpgradePolicySupportTypePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicySupportType) *ClusterUpgradePolicySupportType {
+		return &v
+	}).(ClusterUpgradePolicySupportTypePtrOutput)
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradePolicySupportType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicySupportTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradePolicySupportType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradePolicySupportTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicySupportTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicySupportType)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicySupportTypePtrOutput) ToClusterUpgradePolicySupportTypePtrOutput() ClusterUpgradePolicySupportTypePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicySupportTypePtrOutput) ToClusterUpgradePolicySupportTypePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicySupportTypePtrOutput) Elem() ClusterUpgradePolicySupportTypeOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicySupportType) ClusterUpgradePolicySupportType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradePolicySupportType
+		return ret
+	}).(ClusterUpgradePolicySupportTypeOutput)
+}
+
+func (o ClusterUpgradePolicySupportTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicySupportTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterUpgradePolicySupportType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterUpgradePolicySupportTypeInput is an input type that accepts values of the ClusterUpgradePolicySupportType enum
+// A concrete instance of `ClusterUpgradePolicySupportTypeInput` can be one of the following:
+//
+//	ClusterUpgradePolicySupportTypeStandard
+//	ClusterUpgradePolicySupportTypeExtended
+type ClusterUpgradePolicySupportTypeInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicySupportTypeOutput() ClusterUpgradePolicySupportTypeOutput
+	ToClusterUpgradePolicySupportTypeOutputWithContext(context.Context) ClusterUpgradePolicySupportTypeOutput
+}
+
+var clusterUpgradePolicySupportTypePtrType = reflect.TypeOf((**ClusterUpgradePolicySupportType)(nil)).Elem()
+
+type ClusterUpgradePolicySupportTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicySupportTypePtrOutput() ClusterUpgradePolicySupportTypePtrOutput
+	ToClusterUpgradePolicySupportTypePtrOutputWithContext(context.Context) ClusterUpgradePolicySupportTypePtrOutput
+}
+
+type clusterUpgradePolicySupportTypePtr string
+
+func ClusterUpgradePolicySupportTypePtr(v string) ClusterUpgradePolicySupportTypePtrInput {
+	return (*clusterUpgradePolicySupportTypePtr)(&v)
+}
+
+func (*clusterUpgradePolicySupportTypePtr) ElementType() reflect.Type {
+	return clusterUpgradePolicySupportTypePtrType
+}
+
+func (in *clusterUpgradePolicySupportTypePtr) ToClusterUpgradePolicySupportTypePtrOutput() ClusterUpgradePolicySupportTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterUpgradePolicySupportTypePtrOutput)
+}
+
+func (in *clusterUpgradePolicySupportTypePtr) ToClusterUpgradePolicySupportTypePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicySupportTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterUpgradePolicySupportTypePtrOutput)
+}
+
 // The type of the identity provider configuration.
 type IdentityProviderConfigType string
 
@@ -1025,6 +1191,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigTypeInput)(nil)).Elem(), ClusterLoggingTypeConfigType("api"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigTypePtrInput)(nil)).Elem(), ClusterLoggingTypeConfigType("api"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicySupportTypeInput)(nil)).Elem(), ClusterUpgradePolicySupportType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicySupportTypePtrInput)(nil)).Elem(), ClusterUpgradePolicySupportType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypeInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypePtrInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
 	pulumi.RegisterOutputType(AccessEntryAccessScopeTypeOutput{})
@@ -1037,6 +1205,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingTypeConfigTypeOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingTypeConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicySupportTypeOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicySupportTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigTypeOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigTypePtrOutput{})
 }

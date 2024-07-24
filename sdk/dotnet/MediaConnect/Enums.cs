@@ -810,6 +810,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// An indication of whether the output should transmit data or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowOutputOutputStatus : IEquatable<FlowOutputOutputStatus>
+    {
+        private readonly string _value;
+
+        private FlowOutputOutputStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputOutputStatus Enabled { get; } = new FlowOutputOutputStatus("ENABLED");
+        public static FlowOutputOutputStatus Disabled { get; } = new FlowOutputOutputStatus("DISABLED");
+
+        public static bool operator ==(FlowOutputOutputStatus left, FlowOutputOutputStatus right) => left.Equals(right);
+        public static bool operator !=(FlowOutputOutputStatus left, FlowOutputOutputStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputOutputStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputOutputStatus other && Equals(other);
+        public bool Equals(FlowOutputOutputStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The protocol that is used by the source or output.
     /// </summary>
     [EnumType]

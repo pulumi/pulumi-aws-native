@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can use deep links that open automatically when connecting to a session.
+        /// </summary>
         [Output("deepLinkAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType?> DeepLinkAllowed { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// Specifies whether the user can use deep links that open automatically when connecting to a session.
+        /// </summary>
         [Input("deepLinkAllowed")]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType>? DeepLinkAllowed { get; set; }
 

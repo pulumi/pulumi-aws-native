@@ -279,6 +279,16 @@ export const FlowOutputMediaStreamOutputConfigurationEncodingName = {
  */
 export type FlowOutputMediaStreamOutputConfigurationEncodingName = (typeof FlowOutputMediaStreamOutputConfigurationEncodingName)[keyof typeof FlowOutputMediaStreamOutputConfigurationEncodingName];
 
+export const FlowOutputOutputStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * An indication of whether the output should transmit data or not.
+ */
+export type FlowOutputOutputStatus = (typeof FlowOutputOutputStatus)[keyof typeof FlowOutputOutputStatus];
+
 export const FlowOutputProtocol = {
     ZixiPush: "zixi-push",
     RtpFec: "rtp-fec",

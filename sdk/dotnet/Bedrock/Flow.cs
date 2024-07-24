@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("definition")]
         public Output<Outputs.FlowDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon S3 location.
+        /// </summary>
         [Output("definitionS3Location")]
         public Output<Outputs.FlowS3Location?> DefinitionS3Location { get; private set; } = null!;
 
@@ -72,6 +75,14 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the flow. The following statuses are possible:
+        /// 
+        /// - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+        /// - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+        /// - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+        /// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.FlowStatus> Status { get; private set; } = null!;
 
@@ -147,6 +158,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("definition")]
         public Input<Inputs.FlowDefinitionArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// An Amazon S3 location.
+        /// </summary>
         [Input("definitionS3Location")]
         public Input<Inputs.FlowS3LocationArgs>? DefinitionS3Location { get; set; }
 

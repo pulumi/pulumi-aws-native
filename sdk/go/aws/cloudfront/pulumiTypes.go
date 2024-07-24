@@ -2477,7 +2477,10 @@ type DistributionConfig struct {
 	Aliases []string `pulumi:"aliases"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	Cnames         []string                    `pulumi:"cnames"`
+	// An alias for the CloudFront distribution's domain name.
+	//
+	// > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+	Cnames []string `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment *string `pulumi:"comment"`
 	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -2488,7 +2491,10 @@ type DistributionConfig struct {
 	//
 	//  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
+	// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+	//
+	// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+	CustomOrigin *DistributionLegacyCustomOrigin `pulumi:"customOrigin"`
 	// A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
 	DefaultCacheBehavior DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
 	// The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
@@ -2525,8 +2531,11 @@ type DistributionConfig struct {
 	//  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 	PriceClass *string `pulumi:"priceClass"`
 	// A complex type that identifies ways in which you want to restrict distribution of your content.
-	Restrictions *DistributionRestrictions   `pulumi:"restrictions"`
-	S3Origin     *DistributionLegacyS3Origin `pulumi:"s3Origin"`
+	Restrictions *DistributionRestrictions `pulumi:"restrictions"`
+	// The origin as an Amazon S3 bucket.
+	//
+	// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+	S3Origin *DistributionLegacyS3Origin `pulumi:"s3Origin"`
 	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 	Staging *bool `pulumi:"staging"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
@@ -2553,7 +2562,10 @@ type DistributionConfigArgs struct {
 	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
-	Cnames         pulumi.StringArrayInput             `pulumi:"cnames"`
+	// An alias for the CloudFront distribution's domain name.
+	//
+	// > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -2564,7 +2576,10 @@ type DistributionConfigArgs struct {
 	//
 	//  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
-	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
+	// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+	//
+	// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+	CustomOrigin DistributionLegacyCustomOriginPtrInput `pulumi:"customOrigin"`
 	// A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput `pulumi:"defaultCacheBehavior"`
 	// The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
@@ -2601,8 +2616,11 @@ type DistributionConfigArgs struct {
 	//  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 	PriceClass pulumi.StringPtrInput `pulumi:"priceClass"`
 	// A complex type that identifies ways in which you want to restrict distribution of your content.
-	Restrictions DistributionRestrictionsPtrInput   `pulumi:"restrictions"`
-	S3Origin     DistributionLegacyS3OriginPtrInput `pulumi:"s3Origin"`
+	Restrictions DistributionRestrictionsPtrInput `pulumi:"restrictions"`
+	// The origin as an Amazon S3 bucket.
+	//
+	// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+	S3Origin DistributionLegacyS3OriginPtrInput `pulumi:"s3Origin"`
 	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 	Staging pulumi.BoolPtrInput `pulumi:"staging"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
@@ -2649,6 +2667,9 @@ func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArra
 	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
 }
 
+// An alias for the CloudFront distribution's domain name.
+//
+// > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 func (o DistributionConfigOutput) Cnames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []string { return v.Cnames }).(pulumi.StringArrayOutput)
 }
@@ -2674,6 +2695,9 @@ func (o DistributionConfigOutput) CustomErrorResponses() DistributionCustomError
 	return o.ApplyT(func(v DistributionConfig) []DistributionCustomErrorResponse { return v.CustomErrorResponses }).(DistributionCustomErrorResponseArrayOutput)
 }
 
+// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+//
+// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 func (o DistributionConfigOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyCustomOrigin { return v.CustomOrigin }).(DistributionLegacyCustomOriginPtrOutput)
 }
@@ -2750,6 +2774,9 @@ func (o DistributionConfigOutput) Restrictions() DistributionRestrictionsPtrOutp
 	return o.ApplyT(func(v DistributionConfig) *DistributionRestrictions { return v.Restrictions }).(DistributionRestrictionsPtrOutput)
 }
 
+// The origin as an Amazon S3 bucket.
+//
+// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 func (o DistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
 }
@@ -2815,6 +2842,9 @@ func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorA
 	}).(DistributionCacheBehaviorArrayOutput)
 }
 
+// An alias for the CloudFront distribution's domain name.
+//
+// > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 func (o DistributionConfigPtrOutput) Cnames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfig) []string {
 		if v == nil {
@@ -2860,6 +2890,9 @@ func (o DistributionConfigPtrOutput) CustomErrorResponses() DistributionCustomEr
 	}).(DistributionCustomErrorResponseArrayOutput)
 }
 
+// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+//
+// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 func (o DistributionConfigPtrOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyCustomOrigin {
 		if v == nil {
@@ -2991,6 +3024,9 @@ func (o DistributionConfigPtrOutput) Restrictions() DistributionRestrictionsPtrO
 	}).(DistributionRestrictionsPtrOutput)
 }
 
+// The origin as an Amazon S3 bucket.
+//
+// > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 func (o DistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyS3Origin {
 		if v == nil {
@@ -4974,11 +5010,18 @@ func (o DistributionLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type DistributionLegacyCustomOrigin struct {
-	DnsName              string   `pulumi:"dnsName"`
-	HttpPort             *int     `pulumi:"httpPort"`
-	HttpsPort            *int     `pulumi:"httpsPort"`
-	OriginProtocolPolicy string   `pulumi:"originProtocolPolicy"`
-	OriginSslProtocols   []string `pulumi:"originSslProtocols"`
+	// The domain name assigned to your CloudFront distribution.
+	DnsName string `pulumi:"dnsName"`
+	// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+	HttpPort *int `pulumi:"httpPort"`
+	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
+	// The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+	//
+	// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+	OriginSslProtocols []string `pulumi:"originSslProtocols"`
 }
 
 // DistributionLegacyCustomOriginInput is an input type that accepts DistributionLegacyCustomOriginArgs and DistributionLegacyCustomOriginOutput values.
@@ -4993,11 +5036,18 @@ type DistributionLegacyCustomOriginInput interface {
 }
 
 type DistributionLegacyCustomOriginArgs struct {
-	DnsName              pulumi.StringInput      `pulumi:"dnsName"`
-	HttpPort             pulumi.IntPtrInput      `pulumi:"httpPort"`
-	HttpsPort            pulumi.IntPtrInput      `pulumi:"httpsPort"`
-	OriginProtocolPolicy pulumi.StringInput      `pulumi:"originProtocolPolicy"`
-	OriginSslProtocols   pulumi.StringArrayInput `pulumi:"originSslProtocols"`
+	// The domain name assigned to your CloudFront distribution.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
+	// The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+	//
+	// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+	OriginSslProtocols pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
 func (DistributionLegacyCustomOriginArgs) ElementType() reflect.Type {
@@ -5077,22 +5127,29 @@ func (o DistributionLegacyCustomOriginOutput) ToDistributionLegacyCustomOriginPt
 	}).(DistributionLegacyCustomOriginPtrOutput)
 }
 
+// The domain name assigned to your CloudFront distribution.
 func (o DistributionLegacyCustomOriginOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
 func (o DistributionLegacyCustomOriginOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
+// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 func (o DistributionLegacyCustomOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
 func (o DistributionLegacyCustomOriginOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
+// The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+//
+// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
 func (o DistributionLegacyCustomOriginOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
@@ -5121,6 +5178,7 @@ func (o DistributionLegacyCustomOriginPtrOutput) Elem() DistributionLegacyCustom
 	}).(DistributionLegacyCustomOriginOutput)
 }
 
+// The domain name assigned to your CloudFront distribution.
 func (o DistributionLegacyCustomOriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *string {
 		if v == nil {
@@ -5130,6 +5188,7 @@ func (o DistributionLegacyCustomOriginPtrOutput) DnsName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
 func (o DistributionLegacyCustomOriginPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
@@ -5139,6 +5198,7 @@ func (o DistributionLegacyCustomOriginPtrOutput) HttpPort() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 func (o DistributionLegacyCustomOriginPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
@@ -5148,6 +5208,7 @@ func (o DistributionLegacyCustomOriginPtrOutput) HttpsPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
 func (o DistributionLegacyCustomOriginPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *string {
 		if v == nil {
@@ -5157,6 +5218,9 @@ func (o DistributionLegacyCustomOriginPtrOutput) OriginProtocolPolicy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+//
+// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
 func (o DistributionLegacyCustomOriginPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) []string {
 		if v == nil {
@@ -5167,7 +5231,11 @@ func (o DistributionLegacyCustomOriginPtrOutput) OriginSslProtocols() pulumi.Str
 }
 
 type DistributionLegacyS3Origin struct {
-	DnsName              string  `pulumi:"dnsName"`
+	// The domain name assigned to your CloudFront distribution.
+	DnsName string `pulumi:"dnsName"`
+	// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+	//
+	// > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -5183,7 +5251,11 @@ type DistributionLegacyS3OriginInput interface {
 }
 
 type DistributionLegacyS3OriginArgs struct {
-	DnsName              pulumi.StringInput    `pulumi:"dnsName"`
+	// The domain name assigned to your CloudFront distribution.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+	//
+	// > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -5264,10 +5336,14 @@ func (o DistributionLegacyS3OriginOutput) ToDistributionLegacyS3OriginPtrOutputW
 	}).(DistributionLegacyS3OriginPtrOutput)
 }
 
+// The domain name assigned to your CloudFront distribution.
 func (o DistributionLegacyS3OriginOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+//
+// > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
@@ -5296,6 +5372,7 @@ func (o DistributionLegacyS3OriginPtrOutput) Elem() DistributionLegacyS3OriginOu
 	}).(DistributionLegacyS3OriginOutput)
 }
 
+// The domain name assigned to your CloudFront distribution.
 func (o DistributionLegacyS3OriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
@@ -5305,6 +5382,9 @@ func (o DistributionLegacyS3OriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+//
+// > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {

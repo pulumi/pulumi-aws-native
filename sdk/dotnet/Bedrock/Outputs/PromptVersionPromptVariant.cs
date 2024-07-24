@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class PromptVersionPromptVariant
     {
+        /// <summary>
+        /// Contains inference configurations for the prompt variant.
+        /// </summary>
         public readonly Outputs.PromptVersionPromptInferenceConfigurationProperties? InferenceConfiguration;
         /// <summary>
         /// ARN or name of a Bedrock model.
@@ -25,7 +28,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Name for a variant.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Contains configurations for the prompt template.
+        /// </summary>
         public readonly Outputs.PromptVersionPromptTemplateConfigurationProperties? TemplateConfiguration;
+        /// <summary>
+        /// The type of prompt template to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.PromptVersionPromptTemplateType TemplateType;
 
         [OutputConstructor]

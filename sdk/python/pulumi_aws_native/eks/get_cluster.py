@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, version=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, upgrade_policy=None, version=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -55,6 +55,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -148,6 +151,11 @@ class GetClusterResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional['outputs.ClusterUpgradePolicy']:
+        return pulumi.get(self, "upgrade_policy")
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
@@ -173,6 +181,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
             resources_vpc_config=self.resources_vpc_config,
             tags=self.tags,
+            upgrade_policy=self.upgrade_policy,
             version=self.version)
 
 
@@ -201,6 +210,7 @@ def get_cluster(name: Optional[str] = None,
         open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
         resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
         tags=pulumi.get(__ret__, 'tags'),
+        upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'))
 
 

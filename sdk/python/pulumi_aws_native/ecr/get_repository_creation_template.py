@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRepositoryCreationTemplateResult:
-    def __init__(__self__, applied_for=None, created_at=None, description=None, encryption_configuration=None, image_tag_mutability=None, lifecycle_policy=None, repository_policy=None, resource_tags=None, updated_at=None):
+    def __init__(__self__, applied_for=None, created_at=None, custom_role_arn=None, description=None, encryption_configuration=None, image_tag_mutability=None, lifecycle_policy=None, repository_policy=None, resource_tags=None, updated_at=None):
         if applied_for and not isinstance(applied_for, list):
             raise TypeError("Expected argument 'applied_for' to be a list")
         pulumi.set(__self__, "applied_for", applied_for)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if custom_role_arn and not isinstance(custom_role_arn, str):
+            raise TypeError("Expected argument 'custom_role_arn' to be a str")
+        pulumi.set(__self__, "custom_role_arn", custom_role_arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,14 @@ class GetRepositoryCreationTemplateResult:
         Create timestamp of the template.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customRoleArn")
+    def custom_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        """
+        return pulumi.get(self, "custom_role_arn")
 
     @property
     @pulumi.getter
@@ -134,6 +145,7 @@ class AwaitableGetRepositoryCreationTemplateResult(GetRepositoryCreationTemplate
         return GetRepositoryCreationTemplateResult(
             applied_for=self.applied_for,
             created_at=self.created_at,
+            custom_role_arn=self.custom_role_arn,
             description=self.description,
             encryption_configuration=self.encryption_configuration,
             image_tag_mutability=self.image_tag_mutability,
@@ -159,6 +171,7 @@ def get_repository_creation_template(prefix: Optional[str] = None,
     return AwaitableGetRepositoryCreationTemplateResult(
         applied_for=pulumi.get(__ret__, 'applied_for'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        custom_role_arn=pulumi.get(__ret__, 'custom_role_arn'),
         description=pulumi.get(__ret__, 'description'),
         encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),

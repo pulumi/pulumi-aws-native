@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Name for the flow
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The status of the flow.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowVersionFlowStatus? Status;
         /// <summary>
         /// Numerical Version.

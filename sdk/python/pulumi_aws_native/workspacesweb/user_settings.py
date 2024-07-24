@@ -41,6 +41,7 @@ class UserSettingsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The additional encryption context of the user settings.
         :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         :param pulumi.Input[str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
+        :param pulumi.Input['UserSettingsEnabledType'] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session.
         :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
@@ -164,6 +165,9 @@ class UserSettingsArgs:
     @property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+        """
+        Specifies whether the user can use deep links that open automatically when connecting to a session.
+        """
         return pulumi.get(self, "deep_link_allowed")
 
     @deep_link_allowed.setter
@@ -234,6 +238,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserSettingsCookieSynchronizationConfigurationArgs']] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
         :param pulumi.Input[str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
+        :param pulumi.Input['UserSettingsEnabledType'] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session.
         :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input['UserSettingsEnabledType'] download_allowed: Specifies whether the user can download files from the streaming session to the local device.
         :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
@@ -394,6 +399,9 @@ class UserSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> pulumi.Output[Optional['UserSettingsEnabledType']]:
+        """
+        Specifies whether the user can use deep links that open automatically when connecting to a session.
+        """
         return pulumi.get(self, "deep_link_allowed")
 
     @property

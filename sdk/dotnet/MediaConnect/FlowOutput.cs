@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> OutputArn { get; private set; } = null!;
 
         /// <summary>
+        /// An indication of whether the output should transmit data or not.
+        /// </summary>
+        [Output("outputStatus")]
+        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputOutputStatus?> OutputStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The port to use when content is distributed to this output.
         /// </summary>
         [Output("port")]
@@ -225,6 +231,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An indication of whether the output should transmit data or not.
+        /// </summary>
+        [Input("outputStatus")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputOutputStatus>? OutputStatus { get; set; }
 
         /// <summary>
         /// The port to use when content is distributed to this output.

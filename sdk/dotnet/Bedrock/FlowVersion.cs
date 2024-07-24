@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the flow.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.FlowVersionFlowStatus> Status { get; private set; } = null!;
 

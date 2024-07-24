@@ -54,6 +54,9 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
     public readonly definition!: pulumi.Output<outputs.bedrock.FlowDefinition | undefined>;
+    /**
+     * An Amazon S3 location.
+     */
     public readonly definitionS3Location!: pulumi.Output<outputs.bedrock.FlowS3Location | undefined>;
     /**
      * A JSON string containing a Definition with the same schema as the Definition property of this resource
@@ -72,6 +75,14 @@ export class Flow extends pulumi.CustomResource {
      * Name for the flow
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The status of the flow. The following statuses are possible:
+     *
+     * - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+     * - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+     * - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+     * - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.FlowStatus>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly testAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -146,6 +157,9 @@ export interface FlowArgs {
      */
     customerEncryptionKeyArn?: pulumi.Input<string>;
     definition?: pulumi.Input<inputs.bedrock.FlowDefinitionArgs>;
+    /**
+     * An Amazon S3 location.
+     */
     definitionS3Location?: pulumi.Input<inputs.bedrock.FlowS3LocationArgs>;
     /**
      * A JSON string containing a Definition with the same schema as the Definition property of this resource

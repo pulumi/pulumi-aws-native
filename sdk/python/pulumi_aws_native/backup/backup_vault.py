@@ -27,7 +27,7 @@ class BackupVaultArgs:
         :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the backup vault.
         :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
                
@@ -66,7 +66,7 @@ class BackupVaultArgs:
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
         """
         return pulumi.get(self, "backup_vault_name")
 
@@ -145,7 +145,7 @@ class BackupVault(pulumi.CustomResource):
         :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the backup vault.
         :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
                
@@ -254,7 +254,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
         """
-        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
         """
         return pulumi.get(self, "backup_vault_name")
 

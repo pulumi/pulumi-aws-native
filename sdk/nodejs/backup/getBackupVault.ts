@@ -20,7 +20,7 @@ export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOpt
 
 export interface GetBackupVaultArgs {
     /**
-     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
      */
     backupVaultName: string;
 }
@@ -58,7 +58,7 @@ export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulu
 
 export interface GetBackupVaultOutputArgs {
     /**
-     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
      */
     backupVaultName: pulumi.Input<string>;
 }

@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
     /// <summary>
-    /// A target tracking scaling policy.
+    /// ``TargetTrackingScalingPolicyConfiguration`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a target tracking scaling policy configuration for Application Auto Scaling. Use a target tracking scaling policy to adjust the capacity of the specified scalable target in response to actual workloads, so that resource utilization remains at or near the target utilization value. 
+    ///  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) in the *Application Auto Scaling User Guide*.
     /// </summary>
     public sealed class ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +23,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public Input<Inputs.ScalingPolicyCustomizedMetricSpecificationArgs>? CustomizedMetricSpecification { get; set; }
 
         /// <summary>
-        /// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+        /// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is ``true``, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is ``false``.
         /// </summary>
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
@@ -34,13 +35,13 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public Input<Inputs.ScalingPolicyPredefinedMetricSpecificationArgs>? PredefinedMetricSpecification { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+        /// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start. For more information and for default values, see [Define cooldown periods](https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown) in the *Application Auto Scaling User Guide*.
         /// </summary>
         [Input("scaleInCooldown")]
         public Input<int>? ScaleInCooldown { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+        /// The amount of time, in seconds, to wait for a previous scale-out activity to take effect. For more information and for default values, see [Define cooldown periods](https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown) in the *Application Auto Scaling User Guide*.
         /// </summary>
         [Input("scaleOutCooldown")]
         public Input<int>? ScaleOutCooldown { get; set; }

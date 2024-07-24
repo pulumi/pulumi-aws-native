@@ -28,7 +28,8 @@ type FlowVersion struct {
 	// Identifier for a Flow
 	FlowId pulumi.StringOutput `pulumi:"flowId"`
 	// Name for the flow
-	Name   pulumi.StringOutput         `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The status of the flow.
 	Status FlowVersionFlowStatusOutput `pulumi:"status"`
 	// Numerical Version.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -167,6 +168,7 @@ func (o FlowVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the flow.
 func (o FlowVersionOutput) Status() FlowVersionFlowStatusOutput {
 	return o.ApplyT(func(v *FlowVersion) FlowVersionFlowStatusOutput { return v.Status }).(FlowVersionFlowStatusOutput)
 }

@@ -327,7 +327,6 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``DBClusterIdentifier`` 
         ///   +   ``DBName`` 
         ///   +   ``DeleteAutomatedBackups`` 
-        ///   +   ``EnablePerformanceInsights`` 
         ///   +   ``KmsKeyId`` 
         ///   +   ``MasterUsername`` 
         ///   +   ``MasterUserPassword`` 
@@ -1314,7 +1313,6 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``DBClusterIdentifier`` 
         ///   +   ``DBName`` 
         ///   +   ``DeleteAutomatedBackups`` 
-        ///   +   ``EnablePerformanceInsights`` 
         ///   +   ``KmsKeyId`` 
         ///   +   ``MasterUsername`` 
         ///   +   ``MasterUserPassword`` 

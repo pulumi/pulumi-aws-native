@@ -10,6 +10,7 @@ __all__ = [
     'ClusterAccessConfigAuthenticationMode',
     'ClusterKubernetesNetworkConfigIpFamily',
     'ClusterLoggingTypeConfigType',
+    'ClusterUpgradePolicySupportType',
     'IdentityProviderConfigType',
 ]
 
@@ -57,6 +58,14 @@ class ClusterLoggingTypeConfigType(str, Enum):
     AUTHENTICATOR = "authenticator"
     CONTROLLER_MANAGER = "controllerManager"
     SCHEDULER = "scheduler"
+
+
+class ClusterUpgradePolicySupportType(str, Enum):
+    """
+    Specify the support type for your cluster.
+    """
+    STANDARD = "STANDARD"
+    EXTENDED = "EXTENDED"
 
 
 class IdentityProviderConfigType(str, Enum):

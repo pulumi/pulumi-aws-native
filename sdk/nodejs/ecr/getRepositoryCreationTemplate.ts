@@ -35,6 +35,10 @@ export interface GetRepositoryCreationTemplateResult {
      */
     readonly createdAt?: string;
     /**
+     * The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+     */
+    readonly customRoleArn?: string;
+    /**
      * The description of the template.
      */
     readonly description?: string;

@@ -168,6 +168,37 @@ namespace Pulumi.AwsNative.Eks
     }
 
     /// <summary>
+    /// Specify the support type for your cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterUpgradePolicySupportType : IEquatable<ClusterUpgradePolicySupportType>
+    {
+        private readonly string _value;
+
+        private ClusterUpgradePolicySupportType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterUpgradePolicySupportType Standard { get; } = new ClusterUpgradePolicySupportType("STANDARD");
+        public static ClusterUpgradePolicySupportType Extended { get; } = new ClusterUpgradePolicySupportType("EXTENDED");
+
+        public static bool operator ==(ClusterUpgradePolicySupportType left, ClusterUpgradePolicySupportType right) => left.Equals(right);
+        public static bool operator !=(ClusterUpgradePolicySupportType left, ClusterUpgradePolicySupportType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterUpgradePolicySupportType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterUpgradePolicySupportType other && Equals(other);
+        public bool Equals(ClusterUpgradePolicySupportType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the identity provider configuration.
     /// </summary>
     [EnumType]

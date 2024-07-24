@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Name of a node input in a flow
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowVersionFlowNodeIoDataType Type;
 
         [OutputConstructor]

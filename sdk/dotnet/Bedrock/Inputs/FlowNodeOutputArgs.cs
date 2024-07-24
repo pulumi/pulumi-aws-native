@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.FlowNodeIoDataType> Type { get; set; } = null!;
 

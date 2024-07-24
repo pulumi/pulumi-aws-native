@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class FlowNodeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains configurations for the node.
+        /// </summary>
         [Input("configuration")]
         public object? Configuration { get; set; }
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
             set => _outputs = value;
         }
 
+        /// <summary>
+        /// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.FlowNodeType> Type { get; set; } = null!;
 

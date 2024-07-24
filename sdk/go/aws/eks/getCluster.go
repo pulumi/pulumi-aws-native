@@ -50,7 +50,8 @@ type LookupClusterResult struct {
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags          []aws.Tag             `pulumi:"tags"`
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `pulumi:"version"`
 }
@@ -144,6 +145,10 @@ func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfi
 // An array of key-value pairs to apply to this resource.
 func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupClusterResultOutput) UpgradePolicy() ClusterUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterUpgradePolicy { return v.UpgradePolicy }).(ClusterUpgradePolicyPtrOutput)
 }
 
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

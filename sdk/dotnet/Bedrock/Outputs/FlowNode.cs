@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class FlowNode
     {
+        /// <summary>
+        /// Contains configurations for the node.
+        /// </summary>
         public readonly object? Configuration;
         /// <summary>
         /// List of node inputs in a flow
@@ -29,6 +32,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// List of node outputs in a flow
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowNodeOutput> Outputs;
+        /// <summary>
+        /// The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowNodeType Type;
 
         [OutputConstructor]

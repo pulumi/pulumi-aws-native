@@ -31,6 +31,7 @@ class FlowArgs:
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input[str] execution_role_arn: ARN of a IAM role
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
+        :param pulumi.Input['FlowS3LocationArgs'] definition_s3_location: An Amazon S3 location.
         :param pulumi.Input[str] definition_string: A JSON string containing a Definition with the same schema as the Definition property of this resource
         :param pulumi.Input[str] description: Description of the flow
         :param pulumi.Input[str] name: Name for the flow
@@ -91,6 +92,9 @@ class FlowArgs:
     @property
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> Optional[pulumi.Input['FlowS3LocationArgs']]:
+        """
+        An Amazon S3 location.
+        """
         return pulumi.get(self, "definition_s3_location")
 
     @definition_s3_location.setter
@@ -183,6 +187,7 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
+        :param pulumi.Input[pulumi.InputType['FlowS3LocationArgs']] definition_s3_location: An Amazon S3 location.
         :param pulumi.Input[str] definition_string: A JSON string containing a Definition with the same schema as the Definition property of this resource
         :param pulumi.Input[str] description: Description of the flow
         :param pulumi.Input[str] execution_role_arn: ARN of a IAM role
@@ -329,6 +334,9 @@ class Flow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> pulumi.Output[Optional['outputs.FlowS3Location']]:
+        """
+        An Amazon S3 location.
+        """
         return pulumi.get(self, "definition_s3_location")
 
     @property
@@ -371,6 +379,14 @@ class Flow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['FlowStatus']:
+        """
+        The status of the flow. The following statuses are possible:
+
+        - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+        - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+        - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+        - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
+        """
         return pulumi.get(self, "status")
 
     @property

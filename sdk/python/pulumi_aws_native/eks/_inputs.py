@@ -23,6 +23,7 @@ __all__ = [
     'ClusterOutpostConfigArgs',
     'ClusterProviderArgs',
     'ClusterResourcesVpcConfigArgs',
+    'ClusterUpgradePolicyArgs',
     'FargateProfileLabelArgs',
     'FargateProfileSelectorArgs',
     'IdentityProviderConfigOidcIdentityProviderConfigArgs',
@@ -524,6 +525,30 @@ class ClusterResourcesVpcConfigArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+
+@pulumi.input_type
+class ClusterUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 support_type: Optional[pulumi.Input['ClusterUpgradePolicySupportType']] = None):
+        """
+        An object representing the Upgrade Policy to use for the cluster.
+        :param pulumi.Input['ClusterUpgradePolicySupportType'] support_type: Specify the support type for your cluster.
+        """
+        if support_type is not None:
+            pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> Optional[pulumi.Input['ClusterUpgradePolicySupportType']]:
+        """
+        Specify the support type for your cluster.
+        """
+        return pulumi.get(self, "support_type")
+
+    @support_type.setter
+    def support_type(self, value: Optional[pulumi.Input['ClusterUpgradePolicySupportType']]):
+        pulumi.set(self, "support_type", value)
 
 
 @pulumi.input_type

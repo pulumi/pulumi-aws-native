@@ -26,8 +26,9 @@ type UserSettings struct {
 	// Specifies whether the user can copy text from the streaming session to the local device.
 	CopyAllowed UserSettingsEnabledTypeOutput `pulumi:"copyAllowed"`
 	// The customer managed key used to encrypt sensitive information in the user settings.
-	CustomerManagedKey pulumi.StringPtrOutput           `pulumi:"customerManagedKey"`
-	DeepLinkAllowed    UserSettingsEnabledTypePtrOutput `pulumi:"deepLinkAllowed"`
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
+	DeepLinkAllowed UserSettingsEnabledTypePtrOutput `pulumi:"deepLinkAllowed"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInMinutes pulumi.Float64PtrOutput `pulumi:"disconnectTimeoutInMinutes"`
 	// Specifies whether the user can download files from the streaming session to the local device.
@@ -113,8 +114,9 @@ type userSettingsArgs struct {
 	// Specifies whether the user can copy text from the streaming session to the local device.
 	CopyAllowed UserSettingsEnabledType `pulumi:"copyAllowed"`
 	// The customer managed key used to encrypt sensitive information in the user settings.
-	CustomerManagedKey *string                  `pulumi:"customerManagedKey"`
-	DeepLinkAllowed    *UserSettingsEnabledType `pulumi:"deepLinkAllowed"`
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
+	DeepLinkAllowed *UserSettingsEnabledType `pulumi:"deepLinkAllowed"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInMinutes *float64 `pulumi:"disconnectTimeoutInMinutes"`
 	// Specifies whether the user can download files from the streaming session to the local device.
@@ -141,7 +143,8 @@ type UserSettingsArgs struct {
 	CopyAllowed UserSettingsEnabledTypeInput
 	// The customer managed key used to encrypt sensitive information in the user settings.
 	CustomerManagedKey pulumi.StringPtrInput
-	DeepLinkAllowed    UserSettingsEnabledTypePtrInput
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
+	DeepLinkAllowed UserSettingsEnabledTypePtrInput
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInMinutes pulumi.Float64PtrInput
 	// Specifies whether the user can download files from the streaming session to the local device.
@@ -222,6 +225,7 @@ func (o UserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the user can use deep links that open automatically when connecting to a session.
 func (o UserSettingsOutput) DeepLinkAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypePtrOutput { return v.DeepLinkAllowed }).(UserSettingsEnabledTypePtrOutput)
 }

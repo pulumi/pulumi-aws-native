@@ -36,6 +36,8 @@ type FlowOutputResource struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ARN of the output.
 	OutputArn pulumi.StringOutput `pulumi:"outputArn"`
+	// An indication of whether the output should transmit data or not.
+	OutputStatus FlowOutputOutputStatusPtrOutput `pulumi:"outputStatus"`
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The protocol that is used by the source or output.
@@ -118,6 +120,8 @@ type flowOutputResourceArgs struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name *string `pulumi:"name"`
+	// An indication of whether the output should transmit data or not.
+	OutputStatus *FlowOutputOutputStatus `pulumi:"outputStatus"`
 	// The port to use when content is distributed to this output.
 	Port *int `pulumi:"port"`
 	// The protocol that is used by the source or output.
@@ -152,6 +156,8 @@ type FlowOutputResourceArgs struct {
 	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrInput
+	// An indication of whether the output should transmit data or not.
+	OutputStatus FlowOutputOutputStatusPtrInput
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrInput
 	// The protocol that is used by the source or output.
@@ -253,6 +259,11 @@ func (o FlowOutputResourceOutput) Name() pulumi.StringPtrOutput {
 // The ARN of the output.
 func (o FlowOutputResourceOutput) OutputArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringOutput { return v.OutputArn }).(pulumi.StringOutput)
+}
+
+// An indication of whether the output should transmit data or not.
+func (o FlowOutputResourceOutput) OutputStatus() FlowOutputOutputStatusPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputOutputStatusPtrOutput { return v.OutputStatus }).(FlowOutputOutputStatusPtrOutput)
 }
 
 // The port to use when content is distributed to this output.

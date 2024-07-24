@@ -41,6 +41,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("cnames")]
         private InputList<string>? _cnames;
+
+        /// <summary>
+        /// An alias for the CloudFront distribution's domain name.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        /// </summary>
         public InputList<string> Cnames
         {
             get => _cnames ?? (_cnames = new InputList<string>());
@@ -75,6 +81,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _customErrorResponses = value;
         }
 
+        /// <summary>
+        /// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// </summary>
         [Input("customOrigin")]
         public Input<Inputs.DistributionLegacyCustomOriginArgs>? CustomOrigin { get; set; }
 
@@ -161,6 +172,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("restrictions")]
         public Input<Inputs.DistributionRestrictionsArgs>? Restrictions { get; set; }
 
+        /// <summary>
+        /// The origin as an Amazon S3 bucket.
+        /// 
+        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// </summary>
         [Input("s3Origin")]
         public Input<Inputs.DistributionLegacyS3OriginArgs>? S3Origin { get; set; }
 

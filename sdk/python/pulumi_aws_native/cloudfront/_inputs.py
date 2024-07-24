@@ -1232,6 +1232,9 @@ class DistributionConfigArgs:
         :param pulumi.Input[bool] enabled: From this field, you can enable or disable the selected distribution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cnames: An alias for the CloudFront distribution's domain name.
+               
+               > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param pulumi.Input[str] comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
         :param pulumi.Input[str] continuous_deployment_policy_id: The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: A complex type that controls the following:
@@ -1239,6 +1242,9 @@ class DistributionConfigArgs:
                  +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
                  
                 For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        :param pulumi.Input['DistributionLegacyCustomOriginArgs'] custom_origin: The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+               
+               > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param pulumi.Input[str] default_root_object: The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
                 Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
                 If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
@@ -1264,6 +1270,9 @@ class DistributionConfigArgs:
                 If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
                 For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: A complex type that identifies ways in which you want to restrict distribution of your content.
+        :param pulumi.Input['DistributionLegacyS3OriginArgs'] s3_origin: The origin as an Amazon S3 bucket.
+               
+               > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param pulumi.Input[bool] staging: A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
         :param pulumi.Input[str] web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
@@ -1361,6 +1370,11 @@ class DistributionConfigArgs:
     @property
     @pulumi.getter
     def cnames(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An alias for the CloudFront distribution's domain name.
+
+        > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        """
         return pulumi.get(self, "cnames")
 
     @cnames.setter
@@ -1410,6 +1424,11 @@ class DistributionConfigArgs:
     @property
     @pulumi.getter(name="customOrigin")
     def custom_origin(self) -> Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']]:
+        """
+        The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+
+        > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        """
         return pulumi.get(self, "custom_origin")
 
     @custom_origin.setter
@@ -1532,6 +1551,11 @@ class DistributionConfigArgs:
     @property
     @pulumi.getter(name="s3Origin")
     def s3_origin(self) -> Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]:
+        """
+        The origin as an Amazon S3 bucket.
+
+        > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        """
         return pulumi.get(self, "s3_origin")
 
     @s3_origin.setter
@@ -2483,6 +2507,15 @@ class DistributionLegacyCustomOriginArgs:
                  origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] dns_name: The domain name assigned to your CloudFront distribution.
+        :param pulumi.Input[str] origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+               
+               For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        :param pulumi.Input[int] http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        :param pulumi.Input[int] https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
@@ -2494,6 +2527,9 @@ class DistributionLegacyCustomOriginArgs:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Input[str]:
+        """
+        The domain name assigned to your CloudFront distribution.
+        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -2503,6 +2539,9 @@ class DistributionLegacyCustomOriginArgs:
     @property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> pulumi.Input[str]:
+        """
+        Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @origin_protocol_policy.setter
@@ -2512,6 +2551,11 @@ class DistributionLegacyCustomOriginArgs:
     @property
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+
+        For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "origin_ssl_protocols")
 
     @origin_ssl_protocols.setter
@@ -2521,6 +2565,9 @@ class DistributionLegacyCustomOriginArgs:
     @property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
@@ -2530,6 +2577,9 @@ class DistributionLegacyCustomOriginArgs:
     @property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
@@ -2542,6 +2592,12 @@ class DistributionLegacyS3OriginArgs:
     def __init__(__self__, *,
                  dns_name: pulumi.Input[str],
                  origin_access_identity: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] dns_name: The domain name assigned to your CloudFront distribution.
+        :param pulumi.Input[str] origin_access_identity: The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+               
+               > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        """
         pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
@@ -2549,6 +2605,9 @@ class DistributionLegacyS3OriginArgs:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Input[str]:
+        """
+        The domain name assigned to your CloudFront distribution.
+        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -2558,6 +2617,11 @@ class DistributionLegacyS3OriginArgs:
     @property
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+
+        > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        """
         return pulumi.get(self, "origin_access_identity")
 
     @origin_access_identity.setter

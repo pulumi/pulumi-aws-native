@@ -62,6 +62,9 @@ export class FlowVersion extends pulumi.CustomResource {
      * Name for the flow
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The status of the flow.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.FlowVersionFlowStatus>;
     /**
      * Numerical Version.

@@ -3987,15 +3987,24 @@ export namespace applicationautoscaling {
     }
 
     /**
-     * Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
+     * Contains customized metric specification information for a target tracking scaling policy for Application Auto Scaling. 
+     *  For information about the available metrics for a service, see [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*.
+     *  To create your customized metric specification:
+     *   +  Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish custom metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide*.
+     *   +  Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases, and increase when capacity decreases. 
+     *   
+     *  For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
+     *  For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html). 
+     *   ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
      */
     export interface ScalingPolicyCustomizedMetricSpecification {
         /**
-         * The dimensions of the metric.
+         * The dimensions of the metric. 
+         *  Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
          */
         dimensions?: outputs.applicationautoscaling.ScalingPolicyMetricDimension[];
         /**
-         * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+         * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that's returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
          */
         metricName?: string;
         /**
@@ -4011,13 +4020,13 @@ export namespace applicationautoscaling {
          */
         statistic?: string;
         /**
-         * The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+         * The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference*.
          */
         unit?: string;
     }
 
     /**
-     * Describes the dimension names and values associated with a metric.
+     * ``MetricDimension`` specifies a name/value pair that is part of the identity of a CloudWatch metric for the ``Dimensions`` property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
      */
     export interface ScalingPolicyMetricDimension {
         /**
@@ -4031,69 +4040,89 @@ export namespace applicationautoscaling {
     }
 
     /**
-     * Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
+     * Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
+     *   ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
      */
     export interface ScalingPolicyPredefinedMetricSpecification {
         /**
-         * The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
+         * The metric type. The ``ALBRequestCountPerTarget`` metric type applies only to Spot fleet requests and ECS services.
          */
         predefinedMetricType: string;
         /**
-         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
+         *  You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
+         *   ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+         *  Where:
+         *   +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
+         *   +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+         *   
+         *  To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
          */
         resourceLabel?: string;
     }
 
     /**
-     * Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+     * ``StepAdjustment`` specifies a step adjustment for the ``StepAdjustments`` property of the [AWS::ApplicationAutoScaling::ScalingPolicy StepScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html) property type. 
+     *  For the following examples, suppose that you have an alarm with a breach threshold of 50: 
+     *   +  To trigger a step adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10. 
+     *   +  To trigger a step adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0. 
+     *   
+     *  For more information, see [Step adjustments](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#as-scaling-steps) in the *Application Auto Scaling User Guide*.
+     *  You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#aws-resource-applicationautoscaling-scalingpolicy--examples) section of the ``AWS::ApplicationAutoScaling::ScalingPolicy`` documentation.
      */
     export interface ScalingPolicyStepAdjustment {
         /**
          * The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
+         *  You must specify at least one upper or lower bound.
          */
         metricIntervalLowerBound?: number;
         /**
          * The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
+         *  You must specify at least one upper or lower bound.
          */
         metricIntervalUpperBound?: number;
         /**
-         * The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+         * The amount by which to scale. The adjustment is based on the value that you specified in the ``AdjustmentType`` property (either an absolute number or a percentage). A positive value adds to the current capacity and a negative number subtracts from the current capacity.
          */
         scalingAdjustment: number;
     }
 
     /**
-     * A step scaling policy.
+     * ``StepScalingPolicyConfiguration`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a step scaling policy configuration for Application Auto Scaling. 
+     *  For more information, see [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
      */
     export interface ScalingPolicyStepScalingPolicyConfiguration {
         /**
-         * Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+         * Specifies whether the ``ScalingAdjustment`` value in the ``StepAdjustment`` property is an absolute number or a percentage of the current capacity.
          */
         adjustmentType?: string;
         /**
-         * The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+         * The amount of time, in seconds, to wait for a previous scaling activity to take effect. If not specified, the default value is 300. For more information, see [Cooldown period](https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown) in the *Application Auto Scaling User Guide*.
          */
         cooldown?: number;
         /**
-         * The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+         * The aggregation type for the CloudWatch metrics. Valid values are ``Minimum``, ``Maximum``, and ``Average``. If the aggregation type is null, the value is treated as ``Average``.
          */
         metricAggregationType?: string;
         /**
-         * The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+         * The minimum value to scale by when the adjustment type is ``PercentChangeInCapacity``. For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a ``MinAdjustmentMagnitude`` of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a ``MinAdjustmentMagnitude`` of 2, Application Auto Scaling scales out the service by 2 tasks.
          */
         minAdjustmentMagnitude?: number;
         /**
          * A set of adjustments that enable you to scale based on the size of the alarm breach.
+         *  At least one step adjustment is required if you are adding a new step scaling policy configuration.
          */
         stepAdjustments?: outputs.applicationautoscaling.ScalingPolicyStepAdjustment[];
     }
 
     /**
-     * Represents a specific metric.
+     * Represents a specific metric for a target tracking scaling policy for Application Auto Scaling.
+     *  Metric is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html) property type.
      */
     export interface ScalingPolicyTargetTrackingMetric {
         /**
-         * The dimensions for the metric.
+         * The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*. 
+         *  Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
          */
         dimensions?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricDimension[];
         /**
@@ -4101,21 +4130,25 @@ export namespace applicationautoscaling {
          */
         metricName?: string;
         /**
-         * The namespace of the metric.
+         * The namespace of the metric. For more information, see the table in [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*.
          */
         namespace?: string;
     }
 
     /**
      * The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+     *  You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
+     *  For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
+     *   ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
      */
     export interface ScalingPolicyTargetTrackingMetricDataQuery {
         /**
-         * The math expression to perform on the returned data, if this object is performing a math expression.
+         * The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
+         *  Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
          */
         expression?: string;
         /**
-         * A short name that identifies the object's results in the response.
+         * A short name that identifies the object's results in the response. This name must be unique among all ``MetricDataQuery`` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
          */
         id?: string;
         /**
@@ -4124,16 +4157,19 @@ export namespace applicationautoscaling {
         label?: string;
         /**
          * Information about the metric data to return.
+         *  Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
          */
         metricStat?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricStat;
         /**
-         * Indicates whether to return the timestamps and raw data values of this metric.
+         * Indicates whether to return the timestamps and raw data values of this metric. 
+         *  If you use any math expressions, specify ``true`` for this value for only the final math expression that the metric specification is based on. You must specify ``false`` for ``ReturnData`` for all the other metrics and expressions used in the metric specification.
+         *  If you are only retrieving metrics and not performing any math expressions, do not specify anything for ``ReturnData``. This sets it to its default (``true``).
          */
         returnData?: boolean;
     }
 
     /**
-     * Describes the dimension of a metric.
+     * ``TargetTrackingMetricDimension`` specifies a name/value pair that is part of the identity of a CloudWatch metric for the ``Dimensions`` property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html) property type. Duplicate dimensions are not allowed.
      */
     export interface ScalingPolicyTargetTrackingMetricDimension {
         /**
@@ -4147,25 +4183,29 @@ export namespace applicationautoscaling {
     }
 
     /**
-     * This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+     * This structure defines the CloudWatch metric to return, along with the statistic and unit.
+     *   ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+     *  For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
      */
     export interface ScalingPolicyTargetTrackingMetricStat {
         /**
-         * The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+         * The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
          */
         metric?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetric;
         /**
-         * The statistic to return. It can include any CloudWatch statistic or extended statistic.
+         * The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*.
+         *  The most commonly used metric for scaling is ``Average``.
          */
         stat?: string;
         /**
-         * The unit to use for the returned data points.
+         * The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference*.
          */
         unit?: string;
     }
 
     /**
-     * A target tracking scaling policy.
+     * ``TargetTrackingScalingPolicyConfiguration`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a target tracking scaling policy configuration for Application Auto Scaling. Use a target tracking scaling policy to adjust the capacity of the specified scalable target in response to actual workloads, so that resource utilization remains at or near the target utilization value. 
+     *  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) in the *Application Auto Scaling User Guide*.
      */
     export interface ScalingPolicyTargetTrackingScalingPolicyConfiguration {
         /**
@@ -4173,7 +4213,7 @@ export namespace applicationautoscaling {
          */
         customizedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyCustomizedMetricSpecification;
         /**
-         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is ``true``, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is ``false``.
          */
         disableScaleIn?: boolean;
         /**
@@ -4181,11 +4221,11 @@ export namespace applicationautoscaling {
          */
         predefinedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyPredefinedMetricSpecification;
         /**
-         * The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+         * The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start. For more information and for default values, see [Define cooldown periods](https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown) in the *Application Auto Scaling User Guide*.
          */
         scaleInCooldown?: number;
         /**
-         * The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+         * The amount of time, in seconds, to wait for a previous scale-out activity to take effect. For more information and for default values, see [Define cooldown periods](https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown) in the *Application Auto Scaling User Guide*.
          */
         scaleOutCooldown?: number;
         /**
@@ -8903,6 +8943,9 @@ export namespace bedrock {
      * Flow connection
      */
     export interface FlowConnection {
+        /**
+         * The configuration of the connection.
+         */
         configuration?: outputs.bedrock.FlowConnectionConfiguration0Properties | outputs.bedrock.FlowConnectionConfiguration1Properties;
         /**
          * Name of a connection in a flow
@@ -8916,6 +8959,9 @@ export namespace bedrock {
          * Name of a node in a flow
          */
         target: string;
+        /**
+         * Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+         */
         type: enums.bedrock.FlowConnectionType;
     }
 
@@ -9009,6 +9055,9 @@ export namespace bedrock {
      * Internal mixin for flow node
      */
     export interface FlowNode {
+        /**
+         * Contains configurations for the node.
+         */
         configuration?: outputs.bedrock.FlowNodeConfiguration0Properties | outputs.bedrock.FlowNodeConfiguration1Properties | outputs.bedrock.FlowNodeConfiguration2Properties | outputs.bedrock.FlowNodeConfiguration3Properties | outputs.bedrock.FlowNodeConfiguration4Properties | outputs.bedrock.FlowNodeConfiguration5Properties | outputs.bedrock.FlowNodeConfiguration6Properties;
         /**
          * List of node inputs in a flow
@@ -9022,6 +9071,9 @@ export namespace bedrock {
          * List of node outputs in a flow
          */
         outputs?: outputs.bedrock.FlowNodeOutput[];
+        /**
+         * The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+         */
         type: enums.bedrock.FlowNodeType;
     }
 
@@ -9086,6 +9138,9 @@ export namespace bedrock {
          * Name of a node input in a flow
          */
         name: string;
+        /**
+         * The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+         */
         type: enums.bedrock.FlowNodeIoDataType;
     }
 
@@ -9097,6 +9152,9 @@ export namespace bedrock {
          * Name of a node output in a flow
          */
         name: string;
+        /**
+         * The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+         */
         type: enums.bedrock.FlowNodeIoDataType;
     }
 
@@ -9270,6 +9328,9 @@ export namespace bedrock {
      * Flow connection
      */
     export interface FlowVersionFlowConnection {
+        /**
+         * The configuration of the connection.
+         */
         configuration?: outputs.bedrock.FlowVersionFlowConnectionConfiguration0Properties | outputs.bedrock.FlowVersionFlowConnectionConfiguration1Properties;
         /**
          * Name of a connection in a flow
@@ -9283,6 +9344,9 @@ export namespace bedrock {
          * Name of a node in a flow
          */
         target: string;
+        /**
+         * Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+         */
         type: enums.bedrock.FlowVersionFlowConnectionType;
     }
 
@@ -9332,6 +9396,9 @@ export namespace bedrock {
      * Internal mixin for flow node
      */
     export interface FlowVersionFlowNode {
+        /**
+         * Contains configurations for the node.
+         */
         configuration?: outputs.bedrock.FlowVersionFlowNodeConfiguration0Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration1Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration2Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration3Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration4Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration5Properties | outputs.bedrock.FlowVersionFlowNodeConfiguration6Properties;
         /**
          * List of node inputs in a flow
@@ -9345,6 +9412,9 @@ export namespace bedrock {
          * List of node outputs in a flow
          */
         outputs?: outputs.bedrock.FlowVersionFlowNodeOutput[];
+        /**
+         * The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+         */
         type: enums.bedrock.FlowVersionFlowNodeType;
     }
 
@@ -9409,6 +9479,9 @@ export namespace bedrock {
          * Name of a node input in a flow
          */
         name: string;
+        /**
+         * The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+         */
         type: enums.bedrock.FlowVersionFlowNodeIoDataType;
     }
 
@@ -9420,6 +9493,9 @@ export namespace bedrock {
          * Name of a node output in a flow
          */
         name: string;
+        /**
+         * The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+         */
         type: enums.bedrock.FlowVersionFlowNodeIoDataType;
     }
 
@@ -10095,6 +10171,9 @@ export namespace bedrock {
      * Prompt variant
      */
     export interface PromptVariant {
+        /**
+         * Contains inference configurations for the prompt variant.
+         */
         inferenceConfiguration?: outputs.bedrock.PromptInferenceConfigurationProperties;
         /**
          * ARN or name of a Bedrock model.
@@ -10104,7 +10183,13 @@ export namespace bedrock {
          * Name for a variant.
          */
         name: string;
+        /**
+         * Contains configurations for the prompt template.
+         */
         templateConfiguration?: outputs.bedrock.PromptTemplateConfigurationProperties;
+        /**
+         * The type of prompt template to use.
+         */
         templateType: enums.bedrock.PromptTemplateType;
     }
 
@@ -10162,6 +10247,9 @@ export namespace bedrock {
      * Prompt variant
      */
     export interface PromptVersionPromptVariant {
+        /**
+         * Contains inference configurations for the prompt variant.
+         */
         inferenceConfiguration?: outputs.bedrock.PromptVersionPromptInferenceConfigurationProperties;
         /**
          * ARN or name of a Bedrock model.
@@ -10171,7 +10259,13 @@ export namespace bedrock {
          * Name for a variant.
          */
         name: string;
+        /**
+         * Contains configurations for the prompt template.
+         */
         templateConfiguration?: outputs.bedrock.PromptVersionPromptTemplateConfigurationProperties;
+        /**
+         * The type of prompt template to use.
+         */
         templateType: enums.bedrock.PromptVersionPromptTemplateType;
     }
 
@@ -11382,6 +11476,11 @@ export namespace cloudfront {
          * A complex type that contains zero or more ``CacheBehavior`` elements.
          */
         cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
+        /**
+         * An alias for the CloudFront distribution's domain name.
+         *
+         * > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+         */
         cnames?: string[];
         /**
          * A comment to describe the distribution. The comment cannot be longer than 128 characters.
@@ -11399,6 +11498,11 @@ export namespace cloudfront {
          *  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
          */
         customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
+        /**
+         * The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
+         *
+         * > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+         */
         customOrigin?: outputs.cloudfront.DistributionLegacyCustomOrigin;
         /**
          * A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
@@ -11457,6 +11561,11 @@ export namespace cloudfront {
          * A complex type that identifies ways in which you want to restrict distribution of your content.
          */
         restrictions?: outputs.cloudfront.DistributionRestrictions;
+        /**
+         * The origin as an Amazon S3 bucket.
+         *
+         * > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+         */
         s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
         /**
          * A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
@@ -11780,15 +11889,40 @@ export namespace cloudfront {
     }
 
     export interface DistributionLegacyCustomOrigin {
+        /**
+         * The domain name assigned to your CloudFront distribution.
+         */
         dnsName: string;
+        /**
+         * The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+         */
         httpPort?: number;
+        /**
+         * The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+         */
         httpsPort?: number;
+        /**
+         * Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+         */
         originProtocolPolicy: string;
+        /**
+         * The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
+         *
+         * For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+         */
         originSslProtocols: string[];
     }
 
     export interface DistributionLegacyS3Origin {
+        /**
+         * The domain name assigned to your CloudFront distribution.
+         */
         dnsName: string;
+        /**
+         * The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
+         *
+         * > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+         */
         originAccessIdentity?: string;
     }
 
@@ -25430,6 +25564,16 @@ export namespace eks {
          * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
          */
         subnetIds: string[];
+    }
+
+    /**
+     * An object representing the Upgrade Policy to use for the cluster.
+     */
+    export interface ClusterUpgradePolicy {
+        /**
+         * Specify the support type for your cluster.
+         */
+        supportType?: enums.eks.ClusterUpgradePolicySupportType;
     }
 
     /**
@@ -76992,7 +77136,7 @@ export namespace rds {
          */
         kmsKeyId?: string;
         /**
-         * The Amazon Resource Name (ARN) of the secret.
+         * The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
          */
         secretArn?: string;
     }
@@ -77137,7 +77281,7 @@ export namespace rds {
          */
         kmsKeyId?: string;
         /**
-         * The Amazon Resource Name (ARN) of the secret.
+         * The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
          */
         secretArn?: string;
     }

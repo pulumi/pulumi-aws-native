@@ -27,6 +27,7 @@ class FlowOutputArgs:
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]] = None,
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
                  smoothing_latency: Optional[pulumi.Input[int]] = None,
@@ -44,6 +45,7 @@ class FlowOutputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
         :param pulumi.Input[int] port: The port to use when content is distributed to this output.
         :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
         :param pulumi.Input[int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -68,6 +70,8 @@ class FlowOutputArgs:
             pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if output_status is not None:
+            pulumi.set(__self__, "output_status", output_status)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if remote_id is not None:
@@ -200,6 +204,18 @@ class FlowOutputArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outputStatus")
+    def output_status(self) -> Optional[pulumi.Input['FlowOutputOutputStatus']]:
+        """
+        An indication of whether the output should transmit data or not.
+        """
+        return pulumi.get(self, "output_status")
+
+    @output_status.setter
+    def output_status(self, value: Optional[pulumi.Input['FlowOutputOutputStatus']]):
+        pulumi.set(self, "output_status", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -274,6 +290,7 @@ class FlowOutput(pulumi.CustomResource):
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]]] = None,
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
@@ -295,6 +312,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
         :param pulumi.Input[int] port: The port to use when content is distributed to this output.
         :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
@@ -335,6 +353,7 @@ class FlowOutput(pulumi.CustomResource):
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]]] = None,
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
@@ -361,6 +380,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["media_stream_output_configurations"] = media_stream_output_configurations
             __props__.__dict__["min_latency"] = min_latency
             __props__.__dict__["name"] = name
+            __props__.__dict__["output_status"] = output_status
             __props__.__dict__["port"] = port
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
@@ -404,6 +424,7 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["min_latency"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["output_arn"] = None
+        __props__.__dict__["output_status"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["remote_id"] = None
@@ -491,6 +512,14 @@ class FlowOutput(pulumi.CustomResource):
         The ARN of the output.
         """
         return pulumi.get(self, "output_arn")
+
+    @property
+    @pulumi.getter(name="outputStatus")
+    def output_status(self) -> pulumi.Output[Optional['FlowOutputOutputStatus']]:
+        """
+        An indication of whether the output should transmit data or not.
+        """
+        return pulumi.get(self, "output_status")
 
     @property
     @pulumi.getter

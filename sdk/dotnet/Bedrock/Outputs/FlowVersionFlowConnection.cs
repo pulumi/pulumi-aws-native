@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class FlowVersionFlowConnection
     {
+        /// <summary>
+        /// The configuration of the connection.
+        /// </summary>
         public readonly Union<Outputs.FlowVersionFlowConnectionConfiguration0Properties, Outputs.FlowVersionFlowConnectionConfiguration1Properties>? Configuration;
         /// <summary>
         /// Name of a connection in a flow
@@ -29,6 +32,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Name of a node in a flow
         /// </summary>
         public readonly string Target;
+        /// <summary>
+        /// Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowVersionFlowConnectionType Type;
 
         [OutputConstructor]

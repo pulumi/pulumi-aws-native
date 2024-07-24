@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
 export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { SecretArgs } from "./secret";
 export type Secret = import("./secret").Secret;
@@ -20,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:secretsmanager:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:secretsmanager:Secret":
                 return new Secret(name, <any>undefined, { urn })
             default:

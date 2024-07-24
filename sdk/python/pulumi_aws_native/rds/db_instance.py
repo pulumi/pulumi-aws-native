@@ -281,7 +281,6 @@ class DbInstanceArgs:
                  +   ``DBClusterIdentifier`` 
                  +   ``DBName`` 
                  +   ``DeleteAutomatedBackups`` 
-                 +   ``EnablePerformanceInsights`` 
                  +   ``KmsKeyId`` 
                  +   ``MasterUsername`` 
                  +   ``MasterUserPassword`` 
@@ -1190,7 +1189,6 @@ class DbInstanceArgs:
           +   ``DBClusterIdentifier`` 
           +   ``DBName`` 
           +   ``DeleteAutomatedBackups`` 
-          +   ``EnablePerformanceInsights`` 
           +   ``KmsKeyId`` 
           +   ``MasterUsername`` 
           +   ``MasterUserPassword`` 
@@ -2437,7 +2435,6 @@ class DbInstance(pulumi.CustomResource):
                  +   ``DBClusterIdentifier`` 
                  +   ``DBName`` 
                  +   ``DeleteAutomatedBackups`` 
-                 +   ``EnablePerformanceInsights`` 
                  +   ``KmsKeyId`` 
                  +   ``MasterUsername`` 
                  +   ``MasterUserPassword`` 
@@ -3432,7 +3429,6 @@ class DbInstance(pulumi.CustomResource):
           +   ``DBClusterIdentifier`` 
           +   ``DBName`` 
           +   ``DeleteAutomatedBackups`` 
-          +   ``EnablePerformanceInsights`` 
           +   ``KmsKeyId`` 
           +   ``MasterUsername`` 
           +   ``MasterUserPassword`` 

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Ecr
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        /// </summary>
+        [Output("customRoleArn")]
+        public Output<string?> CustomRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the template.
         /// </summary>
         [Output("description")]
@@ -139,6 +145,12 @@ namespace Pulumi.AwsNative.Ecr
             get => _appliedFor ?? (_appliedFor = new InputList<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem>());
             set => _appliedFor = value;
         }
+
+        /// <summary>
+        /// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        /// </summary>
+        [Input("customRoleArn")]
+        public Input<string>? CustomRoleArn { get; set; }
 
         /// <summary>
         /// The description of the template.

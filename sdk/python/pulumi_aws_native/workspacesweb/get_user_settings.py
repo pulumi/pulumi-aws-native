@@ -86,6 +86,9 @@ class GetUserSettingsResult:
     @property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can use deep links that open automatically when connecting to a session.
+        """
         return pulumi.get(self, "deep_link_allowed")
 
     @property

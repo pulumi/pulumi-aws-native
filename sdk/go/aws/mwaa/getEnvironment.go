@@ -44,7 +44,7 @@ type LookupEnvironmentResult struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// The ARN for the Amazon MWAA environment.
 	Arn *string `pulumi:"arn"`
@@ -173,7 +173,7 @@ func (o LookupEnvironmentResultOutput) AirflowConfigurationOptions() pulumi.AnyO
 //
 // If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 //
-// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
 func (o LookupEnvironmentResultOutput) AirflowVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.AirflowVersion }).(pulumi.StringPtrOutput)
 }

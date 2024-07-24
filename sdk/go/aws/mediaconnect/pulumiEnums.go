@@ -4155,6 +4155,172 @@ func (in *flowOutputMediaStreamOutputConfigurationEncodingNamePtr) ToFlowOutputM
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput)
 }
 
+// An indication of whether the output should transmit data or not.
+type FlowOutputOutputStatus string
+
+const (
+	FlowOutputOutputStatusEnabled  = FlowOutputOutputStatus("ENABLED")
+	FlowOutputOutputStatusDisabled = FlowOutputOutputStatus("DISABLED")
+)
+
+func (FlowOutputOutputStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputOutputStatus)(nil)).Elem()
+}
+
+func (e FlowOutputOutputStatus) ToFlowOutputOutputStatusOutput() FlowOutputOutputStatusOutput {
+	return pulumi.ToOutput(e).(FlowOutputOutputStatusOutput)
+}
+
+func (e FlowOutputOutputStatus) ToFlowOutputOutputStatusOutputWithContext(ctx context.Context) FlowOutputOutputStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowOutputOutputStatusOutput)
+}
+
+func (e FlowOutputOutputStatus) ToFlowOutputOutputStatusPtrOutput() FlowOutputOutputStatusPtrOutput {
+	return e.ToFlowOutputOutputStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputOutputStatus) ToFlowOutputOutputStatusPtrOutputWithContext(ctx context.Context) FlowOutputOutputStatusPtrOutput {
+	return FlowOutputOutputStatus(e).ToFlowOutputOutputStatusOutputWithContext(ctx).ToFlowOutputOutputStatusPtrOutputWithContext(ctx)
+}
+
+func (e FlowOutputOutputStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputOutputStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputOutputStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputOutputStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowOutputOutputStatusOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputOutputStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputOutputStatus)(nil)).Elem()
+}
+
+func (o FlowOutputOutputStatusOutput) ToFlowOutputOutputStatusOutput() FlowOutputOutputStatusOutput {
+	return o
+}
+
+func (o FlowOutputOutputStatusOutput) ToFlowOutputOutputStatusOutputWithContext(ctx context.Context) FlowOutputOutputStatusOutput {
+	return o
+}
+
+func (o FlowOutputOutputStatusOutput) ToFlowOutputOutputStatusPtrOutput() FlowOutputOutputStatusPtrOutput {
+	return o.ToFlowOutputOutputStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputOutputStatusOutput) ToFlowOutputOutputStatusPtrOutputWithContext(ctx context.Context) FlowOutputOutputStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputOutputStatus) *FlowOutputOutputStatus {
+		return &v
+	}).(FlowOutputOutputStatusPtrOutput)
+}
+
+func (o FlowOutputOutputStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowOutputOutputStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputOutputStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowOutputOutputStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputOutputStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputOutputStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowOutputOutputStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputOutputStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputOutputStatus)(nil)).Elem()
+}
+
+func (o FlowOutputOutputStatusPtrOutput) ToFlowOutputOutputStatusPtrOutput() FlowOutputOutputStatusPtrOutput {
+	return o
+}
+
+func (o FlowOutputOutputStatusPtrOutput) ToFlowOutputOutputStatusPtrOutputWithContext(ctx context.Context) FlowOutputOutputStatusPtrOutput {
+	return o
+}
+
+func (o FlowOutputOutputStatusPtrOutput) Elem() FlowOutputOutputStatusOutput {
+	return o.ApplyT(func(v *FlowOutputOutputStatus) FlowOutputOutputStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputOutputStatus
+		return ret
+	}).(FlowOutputOutputStatusOutput)
+}
+
+func (o FlowOutputOutputStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputOutputStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowOutputOutputStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowOutputOutputStatusInput is an input type that accepts values of the FlowOutputOutputStatus enum
+// A concrete instance of `FlowOutputOutputStatusInput` can be one of the following:
+//
+//	FlowOutputOutputStatusEnabled
+//	FlowOutputOutputStatusDisabled
+type FlowOutputOutputStatusInput interface {
+	pulumi.Input
+
+	ToFlowOutputOutputStatusOutput() FlowOutputOutputStatusOutput
+	ToFlowOutputOutputStatusOutputWithContext(context.Context) FlowOutputOutputStatusOutput
+}
+
+var flowOutputOutputStatusPtrType = reflect.TypeOf((**FlowOutputOutputStatus)(nil)).Elem()
+
+type FlowOutputOutputStatusPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputOutputStatusPtrOutput() FlowOutputOutputStatusPtrOutput
+	ToFlowOutputOutputStatusPtrOutputWithContext(context.Context) FlowOutputOutputStatusPtrOutput
+}
+
+type flowOutputOutputStatusPtr string
+
+func FlowOutputOutputStatusPtr(v string) FlowOutputOutputStatusPtrInput {
+	return (*flowOutputOutputStatusPtr)(&v)
+}
+
+func (*flowOutputOutputStatusPtr) ElementType() reflect.Type {
+	return flowOutputOutputStatusPtrType
+}
+
+func (in *flowOutputOutputStatusPtr) ToFlowOutputOutputStatusPtrOutput() FlowOutputOutputStatusPtrOutput {
+	return pulumi.ToOutput(in).(FlowOutputOutputStatusPtrOutput)
+}
+
+func (in *flowOutputOutputStatusPtr) ToFlowOutputOutputStatusPtrOutputWithContext(ctx context.Context) FlowOutputOutputStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputOutputStatusPtrOutput)
+}
+
 // The protocol that is used by the source or output.
 type FlowOutputProtocol string
 
@@ -5163,6 +5329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionKeyTypePtrInput)(nil)).Elem(), FlowOutputEncryptionKeyType("static-key"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNameInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNamePtrInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputOutputStatusInput)(nil)).Elem(), FlowOutputOutputStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputOutputStatusPtrInput)(nil)).Elem(), FlowOutputOutputStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolPtrInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
@@ -5223,6 +5391,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputOutputStatusOutput{})
+	pulumi.RegisterOutputType(FlowOutputOutputStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmOutput{})

@@ -2862,6 +2862,7 @@ _utilities.register(
   "mod": "secretsmanager",
   "fqn": "pulumi_aws_native.secretsmanager",
   "classes": {
+   "aws-native:secretsmanager:ResourcePolicy": "ResourcePolicy",
    "aws-native:secretsmanager:Secret": "Secret"
   }
  },

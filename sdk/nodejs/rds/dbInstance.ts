@@ -305,7 +305,6 @@ export class DbInstance extends pulumi.CustomResource {
      *   +   ``DBClusterIdentifier`` 
      *   +   ``DBName`` 
      *   +   ``DeleteAutomatedBackups`` 
-     *   +   ``EnablePerformanceInsights`` 
      *   +   ``KmsKeyId`` 
      *   +   ``MasterUsername`` 
      *   +   ``MasterUserPassword`` 
@@ -1246,7 +1245,6 @@ export interface DbInstanceArgs {
      *   +   ``DBClusterIdentifier`` 
      *   +   ``DBName`` 
      *   +   ``DeleteAutomatedBackups`` 
-     *   +   ``EnablePerformanceInsights`` 
      *   +   ``KmsKeyId`` 
      *   +   ``MasterUsername`` 
      *   +   ``MasterUserPassword`` 
