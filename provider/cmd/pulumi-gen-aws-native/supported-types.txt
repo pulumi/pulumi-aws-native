@@ -476,6 +476,7 @@ AWS::Glue::Registry
 AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
+AWS::Glue::Trigger
 AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
