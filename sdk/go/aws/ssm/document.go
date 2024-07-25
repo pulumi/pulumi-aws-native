@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("documentName", "SSM-SessionManagerRunShell")
+//			ctx.Export("documentName", pulumi.String("SSM-SessionManagerRunShell"))
 //			return nil
 //		})
 //	}
@@ -107,7 +107,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("documentName", "SSM-SessionManagerRunShell")
+//			ctx.Export("documentName", pulumi.String("SSM-SessionManagerRunShell"))
 //			return nil
 //		})
 //	}

@@ -310,7 +310,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			ctx.Export("webServerPublic", pulumi.String("EC2Instance.PublicDnsName"))
 //			return nil
 //		})
 //	}
@@ -472,7 +472,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			ctx.Export("webServerPublic", pulumi.String("EC2Instance.PublicDnsName"))
 //			return nil
 //		})
 //	}
@@ -774,7 +774,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			ctx.Export("webServerPublic", pulumi.String("EC2Instance.PublicDnsName"))
 //			return nil
 //		})
 //	}

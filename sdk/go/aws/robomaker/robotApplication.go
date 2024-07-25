@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("robotApplication", "BasicRobotApplication")
+//			ctx.Export("robotApplication", pulumi.String("BasicRobotApplication"))
 //			return nil
 //		})
 //	}
@@ -114,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("robotApplicationVersion", "BasicRobotApplicationVersion")
+//			ctx.Export("robotApplicationVersion", pulumi.String("BasicRobotApplicationVersion"))
 //			return nil
 //		})
 //	}

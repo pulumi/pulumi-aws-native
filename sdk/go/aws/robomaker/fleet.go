@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("fleet", "BasicFleet")
+//			ctx.Export("fleet", pulumi.String("BasicFleet"))
 //			return nil
 //		})
 //	}
@@ -107,7 +107,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("robot", "BasicRobot")
+//			ctx.Export("robot", pulumi.String("BasicRobot"))
 //			return nil
 //		})
 //	}
