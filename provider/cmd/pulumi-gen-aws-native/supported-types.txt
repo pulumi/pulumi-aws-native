@@ -5,6 +5,7 @@ AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
+AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
@@ -476,6 +477,7 @@ AWS::Glue::Registry
 AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
+AWS::Glue::Trigger
 AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment

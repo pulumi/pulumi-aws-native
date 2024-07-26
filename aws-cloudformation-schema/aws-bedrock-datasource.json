@@ -193,7 +193,7 @@
   "primaryIdentifier" : [ "/properties/KnowledgeBaseId", "/properties/DataSourceId" ],
   "tagging" : {
     "taggable" : false,
-    "cloudFormationSystemTags" : true
+    "cloudFormationSystemTags" : false
   },
   "handlers" : {
     "create" : {
