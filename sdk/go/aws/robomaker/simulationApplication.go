@@ -46,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("simulationApplication", "BasicSimulationApplication")
+//			ctx.Export("simulationApplication", pulumi.String("BasicSimulationApplication"))
 //			return nil
 //		})
 //	}
@@ -123,7 +123,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("simulationApplicationVersion", "BasicSimulationApplicationVersion")
+//			ctx.Export("simulationApplicationVersion", pulumi.String("BasicSimulationApplicationVersion"))
 //			return nil
 //		})
 //	}
