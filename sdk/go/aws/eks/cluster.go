@@ -50,7 +50,10 @@ type Cluster struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags          aws.TagArrayOutput            `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// This value indicates if extended support is enabled or disabled for the cluster.
+	//
+	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -131,7 +134,10 @@ type clusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags          []aws.Tag             `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// This value indicates if extended support is enabled or disabled for the cluster.
+	//
+	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `pulumi:"version"`
@@ -158,7 +164,10 @@ type ClusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags          aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// This value indicates if extended support is enabled or disabled for the cluster.
+	//
+	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrInput
@@ -286,6 +295,9 @@ func (o ClusterOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// This value indicates if extended support is enabled or disabled for the cluster.
+//
+// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 func (o ClusterOutput) UpgradePolicy() ClusterUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterUpgradePolicyPtrOutput { return v.UpgradePolicy }).(ClusterUpgradePolicyPtrOutput)
 }

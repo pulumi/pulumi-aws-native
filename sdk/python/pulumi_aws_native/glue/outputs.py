@@ -8,12 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
+    'TriggerAction',
+    'TriggerCondition',
+    'TriggerEventBatchingCondition',
+    'TriggerNotificationProperty',
+    'TriggerPredicate',
 ]
 
 @pulumi.output_type
@@ -171,5 +177,325 @@ class SchemaVersionSchema(dict):
         Name of the schema. This parameter requires RegistryName to be provided.
         """
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class TriggerAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerName":
+            suggest = "crawler_name"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "notificationProperty":
+            suggest = "notification_property"
+        elif key == "securityConfiguration":
+            suggest = "security_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments: Optional[Any] = None,
+                 crawler_name: Optional[str] = None,
+                 job_name: Optional[str] = None,
+                 notification_property: Optional['outputs.TriggerNotificationProperty'] = None,
+                 security_configuration: Optional[str] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param Any arguments: The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
+               
+               You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+               
+               For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
+               
+               For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
+        :param str crawler_name: The name of the crawler to be used with this action.
+        :param str job_name: The name of a job to be executed.
+        :param 'TriggerNotificationProperty' notification_property: Specifies configuration properties of a job run notification.
+        :param str security_configuration: The name of the `SecurityConfiguration` structure to be used with this action.
+        :param int timeout: The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if crawler_name is not None:
+            pulumi.set(__self__, "crawler_name", crawler_name)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
+        if notification_property is not None:
+            pulumi.set(__self__, "notification_property", notification_property)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[Any]:
+        """
+        The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
+
+        You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+
+        For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
+
+        For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="crawlerName")
+    def crawler_name(self) -> Optional[str]:
+        """
+        The name of the crawler to be used with this action.
+        """
+        return pulumi.get(self, "crawler_name")
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> Optional[str]:
+        """
+        The name of a job to be executed.
+        """
+        return pulumi.get(self, "job_name")
+
+    @property
+    @pulumi.getter(name="notificationProperty")
+    def notification_property(self) -> Optional['outputs.TriggerNotificationProperty']:
+        """
+        Specifies configuration properties of a job run notification.
+        """
+        return pulumi.get(self, "notification_property")
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[str]:
+        """
+        The name of the `SecurityConfiguration` structure to be used with this action.
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class TriggerCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlState":
+            suggest = "crawl_state"
+        elif key == "crawlerName":
+            suggest = "crawler_name"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "logicalOperator":
+            suggest = "logical_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawl_state: Optional[str] = None,
+                 crawler_name: Optional[str] = None,
+                 job_name: Optional[str] = None,
+                 logical_operator: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        :param str crawl_state: The state of the crawler to which this condition applies.
+        :param str crawler_name: The name of the crawler to which this condition applies.
+        :param str job_name: The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        :param str logical_operator: A logical operator.
+        :param str state: The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        """
+        if crawl_state is not None:
+            pulumi.set(__self__, "crawl_state", crawl_state)
+        if crawler_name is not None:
+            pulumi.set(__self__, "crawler_name", crawler_name)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
+        if logical_operator is not None:
+            pulumi.set(__self__, "logical_operator", logical_operator)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="crawlState")
+    def crawl_state(self) -> Optional[str]:
+        """
+        The state of the crawler to which this condition applies.
+        """
+        return pulumi.get(self, "crawl_state")
+
+    @property
+    @pulumi.getter(name="crawlerName")
+    def crawler_name(self) -> Optional[str]:
+        """
+        The name of the crawler to which this condition applies.
+        """
+        return pulumi.get(self, "crawler_name")
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> Optional[str]:
+        """
+        The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        """
+        return pulumi.get(self, "job_name")
+
+    @property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> Optional[str]:
+        """
+        A logical operator.
+        """
+        return pulumi.get(self, "logical_operator")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TriggerEventBatchingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchSize":
+            suggest = "batch_size"
+        elif key == "batchWindow":
+            suggest = "batch_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerEventBatchingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_size: int,
+                 batch_window: Optional[int] = None):
+        """
+        :param int batch_size: Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
+        :param int batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
+        """
+        pulumi.set(__self__, "batch_size", batch_size)
+        if batch_window is not None:
+            pulumi.set(__self__, "batch_window", batch_window)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> int:
+        """
+        Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="batchWindow")
+    def batch_window(self) -> Optional[int]:
+        """
+        Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
+        """
+        return pulumi.get(self, "batch_window")
+
+
+@pulumi.output_type
+class TriggerNotificationProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyDelayAfter":
+            suggest = "notify_delay_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerNotificationProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerNotificationProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerNotificationProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[int] = None):
+        """
+        :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[int]:
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+
+@pulumi.output_type
+class TriggerPredicate(dict):
+    def __init__(__self__, *,
+                 conditions: Optional[Sequence['outputs.TriggerCondition']] = None,
+                 logical: Optional[str] = None):
+        """
+        :param Sequence['TriggerCondition'] conditions: A list of the conditions that determine when the trigger will fire.
+        :param str logical: An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+        """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if logical is not None:
+            pulumi.set(__self__, "logical", logical)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.TriggerCondition']]:
+        """
+        A list of the conditions that determine when the trigger will fire.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def logical(self) -> Optional[str]:
+        """
+        An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+        """
+        return pulumi.get(self, "logical")
 
 

@@ -112,7 +112,11 @@ __all__ = [
     'GuardrailTopicPolicyConfig',
     'GuardrailWordConfig',
     'GuardrailWordPolicyConfig',
+    'KnowledgeBaseBedrockEmbeddingModelConfiguration',
     'KnowledgeBaseConfiguration',
+    'KnowledgeBaseEmbeddingModelConfiguration',
+    'KnowledgeBaseMongoDbAtlasConfiguration',
+    'KnowledgeBaseMongoDbAtlasFieldMapping',
     'KnowledgeBaseOpenSearchServerlessConfiguration',
     'KnowledgeBaseOpenSearchServerlessFieldMapping',
     'KnowledgeBasePineconeConfiguration',
@@ -4365,6 +4369,29 @@ class GuardrailWordPolicyConfig(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
+    """
+    The vector configuration details for the Bedrock embeddings model.
+    """
+    def __init__(__self__, *,
+                 dimensions: Optional[int] = None):
+        """
+        The vector configuration details for the Bedrock embeddings model.
+        :param int dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[int]:
+        """
+        The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        """
+        return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
 class KnowledgeBaseConfiguration(dict):
     """
     Contains details about the embeddings model used for the knowledge base.
@@ -4412,6 +4439,219 @@ class KnowledgeBaseConfiguration(dict):
         Contains details about the embeddings model that'sused to convert the data source.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseEmbeddingModelConfiguration(dict):
+    """
+    The embeddings model configuration details for the vector model used in Knowledge Base.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockEmbeddingModelConfiguration":
+            suggest = "bedrock_embedding_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_embedding_model_configuration: Optional['outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration'] = None):
+        """
+        The embeddings model configuration details for the vector model used in Knowledge Base.
+        """
+        if bedrock_embedding_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
+    def bedrock_embedding_model_configuration(self) -> Optional['outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration']:
+        return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseMongoDbAtlasConfiguration(dict):
+    """
+    Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "credentialsSecretArn":
+            suggest = "credentials_secret_arn"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "fieldMapping":
+            suggest = "field_mapping"
+        elif key == "vectorIndexName":
+            suggest = "vector_index_name"
+        elif key == "endpointServiceName":
+            suggest = "endpoint_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseMongoDbAtlasConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseMongoDbAtlasConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseMongoDbAtlasConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_name: str,
+                 credentials_secret_arn: str,
+                 database_name: str,
+                 endpoint: str,
+                 field_mapping: 'outputs.KnowledgeBaseMongoDbAtlasFieldMapping',
+                 vector_index_name: str,
+                 endpoint_service_name: Optional[str] = None):
+        """
+        Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+        :param str collection_name: Name of the collection within MongoDB Atlas.
+        :param str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+        :param str database_name: Name of the database within MongoDB Atlas.
+        :param str endpoint: MongoDB Atlas endpoint.
+        :param str vector_index_name: Name of a MongoDB Atlas index.
+        :param str endpoint_service_name: MongoDB Atlas endpoint service name.
+        """
+        pulumi.set(__self__, "collection_name", collection_name)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if endpoint_service_name is not None:
+            pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> str:
+        """
+        Name of the collection within MongoDB Atlas.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> str:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database within MongoDB Atlas.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        MongoDB Atlas endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.KnowledgeBaseMongoDbAtlasFieldMapping':
+        return pulumi.get(self, "field_mapping")
+
+    @property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> str:
+        """
+        Name of a MongoDB Atlas index.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @property
+    @pulumi.getter(name="endpointServiceName")
+    def endpoint_service_name(self) -> Optional[str]:
+        """
+        MongoDB Atlas endpoint service name.
+        """
+        return pulumi.get(self, "endpoint_service_name")
+
+
+@pulumi.output_type
+class KnowledgeBaseMongoDbAtlasFieldMapping(dict):
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataField":
+            suggest = "metadata_field"
+        elif key == "textField":
+            suggest = "text_field"
+        elif key == "vectorField":
+            suggest = "vector_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseMongoDbAtlasFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseMongoDbAtlasFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseMongoDbAtlasFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_field: str,
+                 text_field: str,
+                 vector_field: str):
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        :param str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
 
 
 @pulumi.output_type
@@ -4850,7 +5090,9 @@ class KnowledgeBaseStorageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "opensearchServerlessConfiguration":
+        if key == "mongoDbAtlasConfiguration":
+            suggest = "mongo_db_atlas_configuration"
+        elif key == "opensearchServerlessConfiguration":
             suggest = "opensearch_serverless_configuration"
         elif key == "pineconeConfiguration":
             suggest = "pinecone_configuration"
@@ -4870,6 +5112,7 @@ class KnowledgeBaseStorageConfiguration(dict):
 
     def __init__(__self__, *,
                  type: 'KnowledgeBaseStorageType',
+                 mongo_db_atlas_configuration: Optional['outputs.KnowledgeBaseMongoDbAtlasConfiguration'] = None,
                  opensearch_serverless_configuration: Optional['outputs.KnowledgeBaseOpenSearchServerlessConfiguration'] = None,
                  pinecone_configuration: Optional['outputs.KnowledgeBasePineconeConfiguration'] = None,
                  rds_configuration: Optional['outputs.KnowledgeBaseRdsConfiguration'] = None):
@@ -4881,6 +5124,8 @@ class KnowledgeBaseStorageConfiguration(dict):
         :param 'KnowledgeBaseRdsConfiguration' rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
         """
         pulumi.set(__self__, "type", type)
+        if mongo_db_atlas_configuration is not None:
+            pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -4895,6 +5140,11 @@ class KnowledgeBaseStorageConfiguration(dict):
         The vector store service in which the knowledge base is stored.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="mongoDbAtlasConfiguration")
+    def mongo_db_atlas_configuration(self) -> Optional['outputs.KnowledgeBaseMongoDbAtlasConfiguration']:
+        return pulumi.get(self, "mongo_db_atlas_configuration")
 
     @property
     @pulumi.getter(name="opensearchServerlessConfiguration")
@@ -4931,6 +5181,8 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         suggest = None
         if key == "embeddingModelArn":
             suggest = "embedding_model_arn"
+        elif key == "embeddingModelConfiguration":
+            suggest = "embedding_model_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVectorKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -4944,12 +5196,15 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 embedding_model_arn: str):
+                 embedding_model_arn: str,
+                 embedding_model_configuration: Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration'] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
         :param str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
 
     @property
     @pulumi.getter(name="embeddingModelArn")
@@ -4958,6 +5213,11 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         The ARN of the model used to create vector embeddings for the knowledge base.
         """
         return pulumi.get(self, "embedding_model_arn")
+
+    @property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration']:
+        return pulumi.get(self, "embedding_model_configuration")
 
 
 @pulumi.output_type

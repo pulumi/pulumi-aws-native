@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? MembershipArn;
         /// <summary>
-        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// Specifies the epsilon and noise parameters for the privacy budget template.
         /// </summary>
         public readonly Outputs.ParametersProperties? Parameters;
         /// <summary>

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaVersion{}
 	case "aws-native:glue:SchemaVersionMetadata":
 		r = &SchemaVersionMetadata{}
+	case "aws-native:glue:Trigger":
+		r = &Trigger{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

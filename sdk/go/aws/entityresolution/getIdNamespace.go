@@ -47,7 +47,7 @@ type LookupIdNamespaceResult struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type *IdNamespaceType `pulumi:"type"`
 	// The date and time when the IdNamespace was updated
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -130,7 +130,7 @@ func (o LookupIdNamespaceResultOutput) Tags() aws.TagArrayOutput {
 //
 // The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 //
-// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 func (o LookupIdNamespaceResultOutput) Type() IdNamespaceTypePtrOutput {
 	return o.ApplyT(func(v LookupIdNamespaceResult) *IdNamespaceType { return v.Type }).(IdNamespaceTypePtrOutput)
 }

@@ -11793,6 +11793,146 @@ func (o GuardrailWordPolicyConfigPtrOutput) WordsConfig() GuardrailWordConfigArr
 	}).(GuardrailWordConfigArrayOutput)
 }
 
+// The vector configuration details for the Bedrock embeddings model.
+type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
+	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
+	Dimensions *int `pulumi:"dimensions"`
+}
+
+// KnowledgeBaseBedrockEmbeddingModelConfigurationInput is an input type that accepts KnowledgeBaseBedrockEmbeddingModelConfigurationArgs and KnowledgeBaseBedrockEmbeddingModelConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockEmbeddingModelConfigurationInput` via:
+//
+//	KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{...}
+type KnowledgeBaseBedrockEmbeddingModelConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationOutput
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutputWithContext(context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationOutput
+}
+
+// The vector configuration details for the Bedrock embeddings model.
+type KnowledgeBaseBedrockEmbeddingModelConfigurationArgs struct {
+	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
+	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
+}
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationOutput {
+	return i.ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput)
+}
+
+func (i KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput).ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput is an input type that accepts KnowledgeBaseBedrockEmbeddingModelConfigurationArgs, KnowledgeBaseBedrockEmbeddingModelConfigurationPtr and KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput
+}
+
+type knowledgeBaseBedrockEmbeddingModelConfigurationPtrType KnowledgeBaseBedrockEmbeddingModelConfigurationArgs
+
+func KnowledgeBaseBedrockEmbeddingModelConfigurationPtr(v *KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput {
+	return (*knowledgeBaseBedrockEmbeddingModelConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseBedrockEmbeddingModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseBedrockEmbeddingModelConfigurationPtrType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseBedrockEmbeddingModelConfigurationPtrType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+// The vector configuration details for the Bedrock embeddings model.
+type KnowledgeBaseBedrockEmbeddingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseBedrockEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfiguration {
+		return &v
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+// The dimensions details for the vector configuration used on the Bedrock embeddings model.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Dimensions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) *int { return v.Dimensions }).(pulumi.IntPtrOutput)
+}
+
+type KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Elem() KnowledgeBaseBedrockEmbeddingModelConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) KnowledgeBaseBedrockEmbeddingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseBedrockEmbeddingModelConfiguration
+		return ret
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput)
+}
+
+// The dimensions details for the vector configuration used on the Bedrock embeddings model.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(pulumi.IntPtrOutput)
+}
+
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfiguration struct {
 	// The type of data that the data source is converted into for the knowledge base.
@@ -11857,6 +11997,574 @@ func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() Kno
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
 	}).(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput)
+}
+
+// The embeddings model configuration details for the vector model used in Knowledge Base.
+type KnowledgeBaseEmbeddingModelConfiguration struct {
+	BedrockEmbeddingModelConfiguration *KnowledgeBaseBedrockEmbeddingModelConfiguration `pulumi:"bedrockEmbeddingModelConfiguration"`
+}
+
+// KnowledgeBaseEmbeddingModelConfigurationInput is an input type that accepts KnowledgeBaseEmbeddingModelConfigurationArgs and KnowledgeBaseEmbeddingModelConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseEmbeddingModelConfigurationInput` via:
+//
+//	KnowledgeBaseEmbeddingModelConfigurationArgs{...}
+type KnowledgeBaseEmbeddingModelConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseEmbeddingModelConfigurationOutput() KnowledgeBaseEmbeddingModelConfigurationOutput
+	ToKnowledgeBaseEmbeddingModelConfigurationOutputWithContext(context.Context) KnowledgeBaseEmbeddingModelConfigurationOutput
+}
+
+// The embeddings model configuration details for the vector model used in Knowledge Base.
+type KnowledgeBaseEmbeddingModelConfigurationArgs struct {
+	BedrockEmbeddingModelConfiguration KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput `pulumi:"bedrockEmbeddingModelConfiguration"`
+}
+
+func (KnowledgeBaseEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseEmbeddingModelConfigurationArgs) ToKnowledgeBaseEmbeddingModelConfigurationOutput() KnowledgeBaseEmbeddingModelConfigurationOutput {
+	return i.ToKnowledgeBaseEmbeddingModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseEmbeddingModelConfigurationArgs) ToKnowledgeBaseEmbeddingModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseEmbeddingModelConfigurationOutput)
+}
+
+func (i KnowledgeBaseEmbeddingModelConfigurationArgs) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutput() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseEmbeddingModelConfigurationArgs) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseEmbeddingModelConfigurationOutput).ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseEmbeddingModelConfigurationPtrInput is an input type that accepts KnowledgeBaseEmbeddingModelConfigurationArgs, KnowledgeBaseEmbeddingModelConfigurationPtr and KnowledgeBaseEmbeddingModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseEmbeddingModelConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseEmbeddingModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseEmbeddingModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseEmbeddingModelConfigurationPtrOutput() KnowledgeBaseEmbeddingModelConfigurationPtrOutput
+	ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseEmbeddingModelConfigurationPtrOutput
+}
+
+type knowledgeBaseEmbeddingModelConfigurationPtrType KnowledgeBaseEmbeddingModelConfigurationArgs
+
+func KnowledgeBaseEmbeddingModelConfigurationPtr(v *KnowledgeBaseEmbeddingModelConfigurationArgs) KnowledgeBaseEmbeddingModelConfigurationPtrInput {
+	return (*knowledgeBaseEmbeddingModelConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseEmbeddingModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseEmbeddingModelConfigurationPtrType) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutput() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseEmbeddingModelConfigurationPtrType) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+// The embeddings model configuration details for the vector model used in Knowledge Base.
+type KnowledgeBaseEmbeddingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseEmbeddingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationOutput) ToKnowledgeBaseEmbeddingModelConfigurationOutput() KnowledgeBaseEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationOutput) ToKnowledgeBaseEmbeddingModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationOutput) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutput() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationOutput) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseEmbeddingModelConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
+		return &v
+	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationOutput) BedrockEmbeddingModelConfiguration() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfiguration {
+		return v.BedrockEmbeddingModelConfiguration
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+type KnowledgeBaseEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseEmbeddingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutput() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) ToKnowledgeBaseEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) Elem() KnowledgeBaseEmbeddingModelConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseEmbeddingModelConfiguration) KnowledgeBaseEmbeddingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseEmbeddingModelConfiguration
+		return ret
+	}).(KnowledgeBaseEmbeddingModelConfigurationOutput)
+}
+
+func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModelConfiguration() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockEmbeddingModelConfiguration
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+type KnowledgeBaseMongoDbAtlasConfiguration struct {
+	// Name of the collection within MongoDB Atlas.
+	CollectionName string `pulumi:"collectionName"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// Name of the database within MongoDB Atlas.
+	DatabaseName string `pulumi:"databaseName"`
+	// MongoDB Atlas endpoint.
+	Endpoint string `pulumi:"endpoint"`
+	// MongoDB Atlas endpoint service name.
+	EndpointServiceName *string                               `pulumi:"endpointServiceName"`
+	FieldMapping        KnowledgeBaseMongoDbAtlasFieldMapping `pulumi:"fieldMapping"`
+	// Name of a MongoDB Atlas index.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// KnowledgeBaseMongoDbAtlasConfigurationInput is an input type that accepts KnowledgeBaseMongoDbAtlasConfigurationArgs and KnowledgeBaseMongoDbAtlasConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseMongoDbAtlasConfigurationInput` via:
+//
+//	KnowledgeBaseMongoDbAtlasConfigurationArgs{...}
+type KnowledgeBaseMongoDbAtlasConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseMongoDbAtlasConfigurationOutput() KnowledgeBaseMongoDbAtlasConfigurationOutput
+	ToKnowledgeBaseMongoDbAtlasConfigurationOutputWithContext(context.Context) KnowledgeBaseMongoDbAtlasConfigurationOutput
+}
+
+// Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+type KnowledgeBaseMongoDbAtlasConfigurationArgs struct {
+	// Name of the collection within MongoDB Atlas.
+	CollectionName pulumi.StringInput `pulumi:"collectionName"`
+	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// Name of the database within MongoDB Atlas.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// MongoDB Atlas endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// MongoDB Atlas endpoint service name.
+	EndpointServiceName pulumi.StringPtrInput                      `pulumi:"endpointServiceName"`
+	FieldMapping        KnowledgeBaseMongoDbAtlasFieldMappingInput `pulumi:"fieldMapping"`
+	// Name of a MongoDB Atlas index.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (KnowledgeBaseMongoDbAtlasConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseMongoDbAtlasConfigurationArgs) ToKnowledgeBaseMongoDbAtlasConfigurationOutput() KnowledgeBaseMongoDbAtlasConfigurationOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseMongoDbAtlasConfigurationArgs) ToKnowledgeBaseMongoDbAtlasConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasConfigurationOutput)
+}
+
+func (i KnowledgeBaseMongoDbAtlasConfigurationArgs) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutput() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseMongoDbAtlasConfigurationArgs) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasConfigurationOutput).ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseMongoDbAtlasConfigurationPtrInput is an input type that accepts KnowledgeBaseMongoDbAtlasConfigurationArgs, KnowledgeBaseMongoDbAtlasConfigurationPtr and KnowledgeBaseMongoDbAtlasConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseMongoDbAtlasConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseMongoDbAtlasConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseMongoDbAtlasConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutput() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput
+	ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseMongoDbAtlasConfigurationPtrOutput
+}
+
+type knowledgeBaseMongoDbAtlasConfigurationPtrType KnowledgeBaseMongoDbAtlasConfigurationArgs
+
+func KnowledgeBaseMongoDbAtlasConfigurationPtr(v *KnowledgeBaseMongoDbAtlasConfigurationArgs) KnowledgeBaseMongoDbAtlasConfigurationPtrInput {
+	return (*knowledgeBaseMongoDbAtlasConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseMongoDbAtlasConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseMongoDbAtlasConfigurationPtrType) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutput() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseMongoDbAtlasConfigurationPtrType) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+type KnowledgeBaseMongoDbAtlasConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseMongoDbAtlasConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) ToKnowledgeBaseMongoDbAtlasConfigurationOutput() KnowledgeBaseMongoDbAtlasConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) ToKnowledgeBaseMongoDbAtlasConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutput() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o.ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseMongoDbAtlasConfiguration) *KnowledgeBaseMongoDbAtlasConfiguration {
+		return &v
+	}).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
+}
+
+// Name of the collection within MongoDB Atlas.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) CollectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.CollectionName }).(pulumi.StringOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
+}
+
+// Name of the database within MongoDB Atlas.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// MongoDB Atlas endpoint.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MongoDB Atlas endpoint service name.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) EndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) *string { return v.EndpointServiceName }).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) FieldMapping() KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) KnowledgeBaseMongoDbAtlasFieldMapping {
+		return v.FieldMapping
+	}).(KnowledgeBaseMongoDbAtlasFieldMappingOutput)
+}
+
+// Name of a MongoDB Atlas index.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.VectorIndexName }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseMongoDbAtlasConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseMongoDbAtlasConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutput() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) ToKnowledgeBaseMongoDbAtlasConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) Elem() KnowledgeBaseMongoDbAtlasConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) KnowledgeBaseMongoDbAtlasConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseMongoDbAtlasConfiguration
+		return ret
+	}).(KnowledgeBaseMongoDbAtlasConfigurationOutput)
+}
+
+// Name of the collection within MongoDB Atlas.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database within MongoDB Atlas.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// MongoDB Atlas endpoint.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MongoDB Atlas endpoint service name.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) EndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) FieldMapping() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *KnowledgeBaseMongoDbAtlasFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldMapping
+	}).(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput)
+}
+
+// Name of a MongoDB Atlas index.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+type KnowledgeBaseMongoDbAtlasFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField string `pulumi:"vectorField"`
+}
+
+// KnowledgeBaseMongoDbAtlasFieldMappingInput is an input type that accepts KnowledgeBaseMongoDbAtlasFieldMappingArgs and KnowledgeBaseMongoDbAtlasFieldMappingOutput values.
+// You can construct a concrete instance of `KnowledgeBaseMongoDbAtlasFieldMappingInput` via:
+//
+//	KnowledgeBaseMongoDbAtlasFieldMappingArgs{...}
+type KnowledgeBaseMongoDbAtlasFieldMappingInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseMongoDbAtlasFieldMappingOutput() KnowledgeBaseMongoDbAtlasFieldMappingOutput
+	ToKnowledgeBaseMongoDbAtlasFieldMappingOutputWithContext(context.Context) KnowledgeBaseMongoDbAtlasFieldMappingOutput
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+type KnowledgeBaseMongoDbAtlasFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
+}
+
+func (KnowledgeBaseMongoDbAtlasFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMapping)(nil)).Elem()
+}
+
+func (i KnowledgeBaseMongoDbAtlasFieldMappingArgs) ToKnowledgeBaseMongoDbAtlasFieldMappingOutput() KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasFieldMappingOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseMongoDbAtlasFieldMappingArgs) ToKnowledgeBaseMongoDbAtlasFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasFieldMappingOutput)
+}
+
+func (i KnowledgeBaseMongoDbAtlasFieldMappingArgs) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutput() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseMongoDbAtlasFieldMappingArgs) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasFieldMappingOutput).ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseMongoDbAtlasFieldMappingPtrInput is an input type that accepts KnowledgeBaseMongoDbAtlasFieldMappingArgs, KnowledgeBaseMongoDbAtlasFieldMappingPtr and KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseMongoDbAtlasFieldMappingPtrInput` via:
+//
+//	        KnowledgeBaseMongoDbAtlasFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseMongoDbAtlasFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutput() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput
+	ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(context.Context) KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput
+}
+
+type knowledgeBaseMongoDbAtlasFieldMappingPtrType KnowledgeBaseMongoDbAtlasFieldMappingArgs
+
+func KnowledgeBaseMongoDbAtlasFieldMappingPtr(v *KnowledgeBaseMongoDbAtlasFieldMappingArgs) KnowledgeBaseMongoDbAtlasFieldMappingPtrInput {
+	return (*knowledgeBaseMongoDbAtlasFieldMappingPtrType)(v)
+}
+
+func (*knowledgeBaseMongoDbAtlasFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseMongoDbAtlasFieldMapping)(nil)).Elem()
+}
+
+func (i *knowledgeBaseMongoDbAtlasFieldMappingPtrType) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutput() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseMongoDbAtlasFieldMappingPtrType) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+type KnowledgeBaseMongoDbAtlasFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseMongoDbAtlasFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingOutput() KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutput() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return o.ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseMongoDbAtlasFieldMapping) *KnowledgeBaseMongoDbAtlasFieldMapping {
+		return &v
+	}).(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasFieldMapping) string { return v.MetadataField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasFieldMapping) string { return v.TextField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasFieldMapping) string { return v.VectorField }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseMongoDbAtlasFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutput() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) ToKnowledgeBaseMongoDbAtlasFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) Elem() KnowledgeBaseMongoDbAtlasFieldMappingOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasFieldMapping) KnowledgeBaseMongoDbAtlasFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseMongoDbAtlasFieldMapping
+		return ret
+	}).(KnowledgeBaseMongoDbAtlasFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorField
+	}).(pulumi.StringPtrOutput)
 }
 
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -12988,6 +13696,7 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) VectorField() pulumi.StringPtrOut
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfiguration struct {
+	MongoDbAtlasConfiguration *KnowledgeBaseMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -13011,6 +13720,7 @@ type KnowledgeBaseStorageConfigurationInput interface {
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfigurationArgs struct {
+	MongoDbAtlasConfiguration KnowledgeBaseMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -13048,6 +13758,12 @@ func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigura
 	return o
 }
 
+func (o KnowledgeBaseStorageConfigurationOutput) MongoDbAtlasConfiguration() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseMongoDbAtlasConfiguration {
+		return v.MongoDbAtlasConfiguration
+	}).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
+}
+
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 func (o KnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchServerlessConfiguration {
@@ -13075,7 +13791,8 @@ func (o KnowledgeBaseStorageConfigurationOutput) Type() KnowledgeBaseStorageType
 // Contains details about the model used to create vector embeddings for the knowledge base.
 type KnowledgeBaseVectorKnowledgeBaseConfiguration struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn           string                                    `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration *KnowledgeBaseEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
 }
 
 // KnowledgeBaseVectorKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseVectorKnowledgeBaseConfigurationArgs and KnowledgeBaseVectorKnowledgeBaseConfigurationOutput values.
@@ -13092,7 +13809,8 @@ type KnowledgeBaseVectorKnowledgeBaseConfigurationInput interface {
 // Contains details about the model used to create vector embeddings for the knowledge base.
 type KnowledgeBaseVectorKnowledgeBaseConfigurationArgs struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn           pulumi.StringInput                               `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration KnowledgeBaseEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
 }
 
 func (KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -13125,6 +13843,12 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) ToKnowledgeBaseVect
 // The ARN of the model used to create vector embeddings for the knowledge base.
 func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) string { return v.EmbeddingModelArn }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
+		return v.EmbeddingModelConfiguration
+	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
 }
 
 // Model inference configuration
@@ -14803,7 +15527,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordConfigArrayInput)(nil)).Elem(), GuardrailWordConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigPtrInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfigurationInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessFieldMappingInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessFieldMappingArgs{})
@@ -15032,7 +15764,15 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailWordConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessFieldMappingOutput{})

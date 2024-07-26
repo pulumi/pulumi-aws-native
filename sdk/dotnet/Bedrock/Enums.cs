@@ -1086,6 +1086,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStorageType OpensearchServerless { get; } = new KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS");
         public static KnowledgeBaseStorageType Pinecone { get; } = new KnowledgeBaseStorageType("PINECONE");
         public static KnowledgeBaseStorageType Rds { get; } = new KnowledgeBaseStorageType("RDS");
+        public static KnowledgeBaseStorageType MongoDbAtlas { get; } = new KnowledgeBaseStorageType("MONGO_DB_ATLAS");
 
         public static bool operator ==(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => !left.Equals(right);

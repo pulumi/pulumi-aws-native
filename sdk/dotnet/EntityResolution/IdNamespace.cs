@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// 
         /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
         /// 
-        /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        /// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.EntityResolution.IdNamespaceType> Type { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// 
         /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
         /// 
-        /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        /// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.EntityResolution.IdNamespaceType> Type { get; set; } = null!;

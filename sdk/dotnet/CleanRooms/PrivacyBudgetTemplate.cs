@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// Specifies the epsilon and noise parameters for the privacy budget template.
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.ParametersProperties> Parameters { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// Specifies the epsilon and noise parameters for the privacy budget template.
         /// </summary>
         [Input("parameters", required: true)]
         public Input<Inputs.ParametersPropertiesArgs> Parameters { get; set; } = null!;

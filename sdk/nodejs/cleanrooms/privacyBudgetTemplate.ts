@@ -64,7 +64,7 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
      */
     public readonly membershipIdentifier!: pulumi.Output<string>;
     /**
-     * Specifies the epislon and noise parameters for the privacy budget template.
+     * Specifies the epsilon and noise parameters for the privacy budget template.
      */
     public readonly parameters!: pulumi.Output<outputs.cleanrooms.ParametersProperties>;
     /**
@@ -147,7 +147,7 @@ export interface PrivacyBudgetTemplateArgs {
      */
     membershipIdentifier: pulumi.Input<string>;
     /**
-     * Specifies the epislon and noise parameters for the privacy budget template.
+     * Specifies the epsilon and noise parameters for the privacy budget template.
      */
     parameters: pulumi.Input<inputs.cleanrooms.ParametersPropertiesArgs>;
     /**

@@ -9919,6 +9919,16 @@ export namespace bedrock {
     }
 
     /**
+     * The vector configuration details for the Bedrock embeddings model.
+     */
+    export interface KnowledgeBaseBedrockEmbeddingModelConfiguration {
+        /**
+         * The dimensions details for the vector configuration used on the Bedrock embeddings model.
+         */
+        dimensions?: number;
+    }
+
+    /**
      * Contains details about the embeddings model used for the knowledge base.
      */
     export interface KnowledgeBaseConfiguration {
@@ -9930,6 +9940,62 @@ export namespace bedrock {
          * Contains details about the embeddings model that'sused to convert the data source.
          */
         vectorKnowledgeBaseConfiguration: outputs.bedrock.KnowledgeBaseVectorKnowledgeBaseConfiguration;
+    }
+
+    /**
+     * The embeddings model configuration details for the vector model used in Knowledge Base.
+     */
+    export interface KnowledgeBaseEmbeddingModelConfiguration {
+        bedrockEmbeddingModelConfiguration?: outputs.bedrock.KnowledgeBaseBedrockEmbeddingModelConfiguration;
+    }
+
+    /**
+     * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+     */
+    export interface KnowledgeBaseMongoDbAtlasConfiguration {
+        /**
+         * Name of the collection within MongoDB Atlas.
+         */
+        collectionName: string;
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+         */
+        credentialsSecretArn: string;
+        /**
+         * Name of the database within MongoDB Atlas.
+         */
+        databaseName: string;
+        /**
+         * MongoDB Atlas endpoint.
+         */
+        endpoint: string;
+        /**
+         * MongoDB Atlas endpoint service name.
+         */
+        endpointServiceName?: string;
+        fieldMapping: outputs.bedrock.KnowledgeBaseMongoDbAtlasFieldMapping;
+        /**
+         * Name of a MongoDB Atlas index.
+         */
+        vectorIndexName: string;
+    }
+
+    /**
+     * Contains the names of the fields to which to map information about the vector store.
+     */
+    export interface KnowledgeBaseMongoDbAtlasFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField: string;
     }
 
     /**
@@ -10056,6 +10122,7 @@ export namespace bedrock {
      * The vector store service in which the knowledge base is stored.
      */
     export interface KnowledgeBaseStorageConfiguration {
+        mongoDbAtlasConfiguration?: outputs.bedrock.KnowledgeBaseMongoDbAtlasConfiguration;
         /**
          * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
          */
@@ -10082,6 +10149,7 @@ export namespace bedrock {
          * The ARN of the model used to create vector embeddings for the knowledge base.
          */
         embeddingModelArn: string;
+        embeddingModelConfiguration?: outputs.bedrock.KnowledgeBaseEmbeddingModelConfiguration;
     }
 
     /**
@@ -10856,7 +10924,7 @@ export namespace cleanrooms {
     }
 
     /**
-     * Specifies the epislon and noise parameters for the privacy budget template.
+     * Specifies the epsilon and noise parameters for the privacy budget template.
      */
     export interface ParametersProperties {
         /**
@@ -27028,9 +27096,29 @@ export namespace emrserverless {
 
 export namespace entityresolution {
     export interface IdMappingWorkflowIdMappingRuleBasedProperties {
+        /**
+         * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+         *
+         * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+         *
+         * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+         */
         attributeMatchingModel: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel;
+        /**
+         * The type of matching record that is allowed to be used in an ID mapping workflow.
+         *
+         * If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+         *
+         * If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+         */
         recordMatchingModel: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel;
+        /**
+         * The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+         */
         ruleDefinitionType?: enums.entityresolution.IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType;
+        /**
+         * The rules that can be used for ID mapping.
+         */
         rules?: outputs.entityresolution.IdMappingWorkflowRule[];
     }
 
@@ -27044,6 +27132,9 @@ export namespace entityresolution {
          * An object which defines any additional configurations required by the provider service.
          */
         providerProperties?: outputs.entityresolution.IdMappingWorkflowProviderProperties;
+        /**
+         * An object which defines any additional configurations required by rule-based matching.
+         */
         ruleBasedProperties?: outputs.entityresolution.IdMappingWorkflowIdMappingRuleBasedProperties;
     }
 
@@ -27061,7 +27152,7 @@ export namespace entityresolution {
          *
          * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
          *
-         * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+         * The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
          */
         type?: enums.entityresolution.IdMappingWorkflowInputSourceType;
     }
@@ -27100,7 +27191,13 @@ export namespace entityresolution {
     }
 
     export interface IdMappingWorkflowRule {
+        /**
+         * A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+         */
         matchingKeys: string[];
+        /**
+         * A name for the matching rule.
+         */
         ruleName: string;
     }
 
@@ -27113,12 +27210,15 @@ export namespace entityresolution {
          * An object which defines any additional configurations required by the provider service.
          */
         providerProperties?: outputs.entityresolution.IdNamespaceNamespaceProviderProperties;
+        /**
+         * An object which defines any additional configurations required by rule-based matching.
+         */
         ruleBasedProperties?: outputs.entityresolution.IdNamespaceNamespaceRuleBasedProperties;
     }
 
     export interface IdNamespaceInputSource {
         /**
-         * An AWS Glue table ARN for the input source table.
+         * An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
          */
         inputSourceArn: string;
         /**
@@ -27139,14 +27239,40 @@ export namespace entityresolution {
     }
 
     export interface IdNamespaceNamespaceRuleBasedProperties {
+        /**
+         * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+         *
+         * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+         *
+         * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+         */
         attributeMatchingModel?: enums.entityresolution.IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel;
+        /**
+         * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+         *
+         * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+         *
+         * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+         */
         recordMatchingModels?: enums.entityresolution.IdNamespaceRecordMatchingModel[];
+        /**
+         * The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+         */
         ruleDefinitionTypes?: enums.entityresolution.IdNamespaceRuleDefinitionType[];
+        /**
+         * The rules for the ID namespace.
+         */
         rules?: outputs.entityresolution.IdNamespaceRule[];
     }
 
     export interface IdNamespaceRule {
+        /**
+         * A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+         */
         matchingKeys: string[];
+        /**
+         * A name for the matching rule.
+         */
         ruleName: string;
     }
 
@@ -27245,9 +27371,20 @@ export namespace entityresolution {
 
     export interface MatchingWorkflowRuleBasedProperties {
         /**
-         * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+         * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+         *
+         * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+         *
+         * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
          */
         attributeMatchingModel: enums.entityresolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel;
+        /**
+         * An indicator of whether to generate IDs and index the data or not.
+         *
+         * If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+         *
+         * If you choose `INDEXING` , the process indexes the data without generating IDs.
+         */
         matchPurpose?: enums.entityresolution.MatchingWorkflowRuleBasedPropertiesMatchPurpose;
         /**
          * A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
@@ -29751,6 +29888,91 @@ export namespace glue {
          * Name of the schema. This parameter requires RegistryName to be provided.
          */
         schemaName?: string;
+    }
+
+    export interface TriggerAction {
+        /**
+         * The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
+         *
+         * You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+         *
+         * For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
+         *
+         * For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
+         */
+        arguments?: any;
+        /**
+         * The name of the crawler to be used with this action.
+         */
+        crawlerName?: string;
+        /**
+         * The name of a job to be executed.
+         */
+        jobName?: string;
+        /**
+         * Specifies configuration properties of a job run notification.
+         */
+        notificationProperty?: outputs.glue.TriggerNotificationProperty;
+        /**
+         * The name of the `SecurityConfiguration` structure to be used with this action.
+         */
+        securityConfiguration?: string;
+        /**
+         * The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+         */
+        timeout?: number;
+    }
+
+    export interface TriggerCondition {
+        /**
+         * The state of the crawler to which this condition applies.
+         */
+        crawlState?: string;
+        /**
+         * The name of the crawler to which this condition applies.
+         */
+        crawlerName?: string;
+        /**
+         * The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+         */
+        jobName?: string;
+        /**
+         * A logical operator.
+         */
+        logicalOperator?: string;
+        /**
+         * The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+         */
+        state?: string;
+    }
+
+    export interface TriggerEventBatchingCondition {
+        /**
+         * Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
+         */
+        batchSize: number;
+        /**
+         * Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
+         */
+        batchWindow?: number;
+    }
+
+    export interface TriggerNotificationProperty {
+        /**
+         * After a job run starts, the number of minutes to wait before sending a job run delay notification
+         */
+        notifyDelayAfter?: number;
+    }
+
+    export interface TriggerPredicate {
+        /**
+         * A list of the conditions that determine when the trigger will fire.
+         */
+        conditions?: outputs.glue.TriggerCondition[];
+        /**
+         * An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+         */
+        logical?: string;
     }
 
 }

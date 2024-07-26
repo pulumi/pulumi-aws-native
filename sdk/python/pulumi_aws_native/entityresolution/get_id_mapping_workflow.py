@@ -67,7 +67,7 @@ class GetIdMappingWorkflowResult:
     @pulumi.getter(name="idMappingTechniques")
     def id_mapping_techniques(self) -> Optional['outputs.IdMappingWorkflowIdMappingTechniques']:
         """
-        An object which defines the `idMappingType` and the `providerProperties` .
+        An object which defines the ID mapping technique and any additional configurations.
         """
         return pulumi.get(self, "id_mapping_techniques")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 {
 
     /// <summary>
-    /// Specifies the epislon and noise parameters for the privacy budget template.
+    /// Specifies the epsilon and noise parameters for the privacy budget template.
     /// </summary>
     [OutputType]
     public sealed class ParametersProperties

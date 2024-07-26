@@ -32,7 +32,7 @@ type LookupIdMappingWorkflowResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the IdMappingWorkflow
 	Description *string `pulumi:"description"`
-	// An object which defines the `idMappingType` and the `providerProperties` .
+	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques *IdMappingWorkflowIdMappingTechniques `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdMappingWorkflowInputSource `pulumi:"inputSourceConfig"`
@@ -91,7 +91,7 @@ func (o LookupIdMappingWorkflowResultOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupIdMappingWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object which defines the `idMappingType` and the `providerProperties` .
+// An object which defines the ID mapping technique and any additional configurations.
 func (o LookupIdMappingWorkflowResultOutput) IdMappingTechniques() IdMappingWorkflowIdMappingTechniquesPtrOutput {
 	return o.ApplyT(func(v LookupIdMappingWorkflowResult) *IdMappingWorkflowIdMappingTechniques {
 		return v.IdMappingTechniques

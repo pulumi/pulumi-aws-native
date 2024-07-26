@@ -14,10 +14,22 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdMappingWorkflowIdMappingRuleBasedProperties struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
-	RecordMatchingModel    IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel    `pulumi:"recordMatchingModel"`
-	RuleDefinitionType     *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType    `pulumi:"ruleDefinitionType"`
-	Rules                  []IdMappingWorkflowRule                                             `pulumi:"rules"`
+	// The type of matching record that is allowed to be used in an ID mapping workflow.
+	//
+	// If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+	//
+	// If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+	RecordMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel `pulumi:"recordMatchingModel"`
+	// The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+	RuleDefinitionType *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType `pulumi:"ruleDefinitionType"`
+	// The rules that can be used for ID mapping.
+	Rules []IdMappingWorkflowRule `pulumi:"rules"`
 }
 
 // IdMappingWorkflowIdMappingRuleBasedPropertiesInput is an input type that accepts IdMappingWorkflowIdMappingRuleBasedPropertiesArgs and IdMappingWorkflowIdMappingRuleBasedPropertiesOutput values.
@@ -32,10 +44,22 @@ type IdMappingWorkflowIdMappingRuleBasedPropertiesInput interface {
 }
 
 type IdMappingWorkflowIdMappingRuleBasedPropertiesArgs struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
-	RecordMatchingModel    IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelInput    `pulumi:"recordMatchingModel"`
-	RuleDefinitionType     IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrInput  `pulumi:"ruleDefinitionType"`
-	Rules                  IdMappingWorkflowRuleArrayInput                                          `pulumi:"rules"`
+	// The type of matching record that is allowed to be used in an ID mapping workflow.
+	//
+	// If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+	//
+	// If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+	RecordMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelInput `pulumi:"recordMatchingModel"`
+	// The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+	RuleDefinitionType IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrInput `pulumi:"ruleDefinitionType"`
+	// The rules that can be used for ID mapping.
+	Rules IdMappingWorkflowRuleArrayInput `pulumi:"rules"`
 }
 
 func (IdMappingWorkflowIdMappingRuleBasedPropertiesArgs) ElementType() reflect.Type {
@@ -115,24 +139,36 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflow
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelOutput)
 }
 
+// The type of matching record that is allowed to be used in an ID mapping workflow.
+//
+// If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+//
+// If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) RecordMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel {
 		return v.RecordMatchingModel
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelOutput)
 }
 
+// The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) RuleDefinitionType() IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType {
 		return v.RuleDefinitionType
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput)
 }
 
+// The rules that can be used for ID mapping.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) Rules() IdMappingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) []IdMappingWorkflowRule { return v.Rules }).(IdMappingWorkflowRuleArrayOutput)
 }
@@ -161,6 +197,11 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Elem() IdMapping
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -170,6 +211,11 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) AttributeMatchin
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+// The type of matching record that is allowed to be used in an ID mapping workflow.
+//
+// If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+//
+// If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RecordMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel {
 		if v == nil {
@@ -179,6 +225,7 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RecordMatchingMo
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModelPtrOutput)
 }
 
+// The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RuleDefinitionType() IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType {
 		if v == nil {
@@ -188,6 +235,7 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) RuleDefinitionTy
 	}).(IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionTypePtrOutput)
 }
 
+// The rules that can be used for ID mapping.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Rules() IdMappingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) []IdMappingWorkflowRule {
 		if v == nil {
@@ -202,7 +250,8 @@ type IdMappingWorkflowIdMappingTechniques struct {
 	IdMappingType        *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
 	NormalizationVersion *string                                            `pulumi:"normalizationVersion"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties  *IdMappingWorkflowProviderProperties           `pulumi:"providerProperties"`
+	ProviderProperties *IdMappingWorkflowProviderProperties `pulumi:"providerProperties"`
+	// An object which defines any additional configurations required by rule-based matching.
 	RuleBasedProperties *IdMappingWorkflowIdMappingRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
 
@@ -222,7 +271,8 @@ type IdMappingWorkflowIdMappingTechniquesArgs struct {
 	IdMappingType        IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
 	NormalizationVersion pulumi.StringPtrInput                                     `pulumi:"normalizationVersion"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties  IdMappingWorkflowProviderPropertiesPtrInput           `pulumi:"providerProperties"`
+	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
+	// An object which defines any additional configurations required by rule-based matching.
 	RuleBasedProperties IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
 
@@ -270,6 +320,7 @@ func (o IdMappingWorkflowIdMappingTechniquesOutput) ProviderProperties() IdMappi
 	}).(IdMappingWorkflowProviderPropertiesPtrOutput)
 }
 
+// An object which defines any additional configurations required by rule-based matching.
 func (o IdMappingWorkflowIdMappingTechniquesOutput) RuleBasedProperties() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingRuleBasedProperties {
 		return v.RuleBasedProperties
@@ -329,6 +380,7 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMa
 	}).(IdMappingWorkflowProviderPropertiesPtrOutput)
 }
 
+// An object which defines any additional configurations required by rule-based matching.
 func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) RuleBasedProperties() IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingRuleBasedProperties {
 		if v == nil {
@@ -347,7 +399,7 @@ type IdMappingWorkflowInputSource struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type *IdMappingWorkflowInputSourceType `pulumi:"type"`
 }
 
@@ -371,7 +423,7 @@ type IdMappingWorkflowInputSourceArgs struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type IdMappingWorkflowInputSourceTypePtrInput `pulumi:"type"`
 }
 
@@ -440,7 +492,7 @@ func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringPtrOutput {
 //
 // The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 //
-// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 func (o IdMappingWorkflowInputSourceOutput) Type() IdMappingWorkflowInputSourceTypePtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) *IdMappingWorkflowInputSourceType { return v.Type }).(IdMappingWorkflowInputSourceTypePtrOutput)
 }
@@ -886,8 +938,10 @@ func (o IdMappingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulum
 }
 
 type IdMappingWorkflowRule struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys []string `pulumi:"matchingKeys"`
-	RuleName     string   `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // IdMappingWorkflowRuleInput is an input type that accepts IdMappingWorkflowRuleArgs and IdMappingWorkflowRuleOutput values.
@@ -902,8 +956,10 @@ type IdMappingWorkflowRuleInput interface {
 }
 
 type IdMappingWorkflowRuleArgs struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys pulumi.StringArrayInput `pulumi:"matchingKeys"`
-	RuleName     pulumi.StringInput      `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
 func (IdMappingWorkflowRuleArgs) ElementType() reflect.Type {
@@ -957,10 +1013,12 @@ func (o IdMappingWorkflowRuleOutput) ToIdMappingWorkflowRuleOutputWithContext(ct
 	return o
 }
 
+// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 func (o IdMappingWorkflowRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdMappingWorkflowRule) []string { return v.MatchingKeys }).(pulumi.StringArrayOutput)
 }
 
+// A name for the matching rule.
 func (o IdMappingWorkflowRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v IdMappingWorkflowRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
@@ -997,7 +1055,8 @@ type IdNamespaceIdMappingWorkflowProperties struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties  *IdNamespaceNamespaceProviderProperties  `pulumi:"providerProperties"`
+	ProviderProperties *IdNamespaceNamespaceProviderProperties `pulumi:"providerProperties"`
+	// An object which defines any additional configurations required by rule-based matching.
 	RuleBasedProperties *IdNamespaceNamespaceRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
 
@@ -1016,7 +1075,8 @@ type IdNamespaceIdMappingWorkflowPropertiesArgs struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
-	ProviderProperties  IdNamespaceNamespaceProviderPropertiesPtrInput  `pulumi:"providerProperties"`
+	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput `pulumi:"providerProperties"`
+	// An object which defines any additional configurations required by rule-based matching.
 	RuleBasedProperties IdNamespaceNamespaceRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
 
@@ -1085,6 +1145,7 @@ func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ProviderProperties() IdNam
 	}).(IdNamespaceNamespaceProviderPropertiesPtrOutput)
 }
 
+// An object which defines any additional configurations required by rule-based matching.
 func (o IdNamespaceIdMappingWorkflowPropertiesOutput) RuleBasedProperties() IdNamespaceNamespaceRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceRuleBasedProperties {
 		return v.RuleBasedProperties
@@ -1112,7 +1173,7 @@ func (o IdNamespaceIdMappingWorkflowPropertiesArrayOutput) Index(i pulumi.IntInp
 }
 
 type IdNamespaceInputSource struct {
-	// An AWS Glue table ARN for the input source table.
+	// An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
 	InputSourceArn string `pulumi:"inputSourceArn"`
 	// The name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
@@ -1130,7 +1191,7 @@ type IdNamespaceInputSourceInput interface {
 }
 
 type IdNamespaceInputSourceArgs struct {
-	// An AWS Glue table ARN for the input source table.
+	// An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
 	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
 	// The name of the schema.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
@@ -1187,7 +1248,7 @@ func (o IdNamespaceInputSourceOutput) ToIdNamespaceInputSourceOutputWithContext(
 	return o
 }
 
-// An AWS Glue table ARN for the input source table.
+// An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
 func (o IdNamespaceInputSourceOutput) InputSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdNamespaceInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
@@ -1374,10 +1435,22 @@ func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderServiceArn() pu
 }
 
 type IdNamespaceNamespaceRuleBasedProperties struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
-	RecordMatchingModels   []IdNamespaceRecordMatchingModel                               `pulumi:"recordMatchingModels"`
-	RuleDefinitionTypes    []IdNamespaceRuleDefinitionType                                `pulumi:"ruleDefinitionTypes"`
-	Rules                  []IdNamespaceRule                                              `pulumi:"rules"`
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	RecordMatchingModels []IdNamespaceRecordMatchingModel `pulumi:"recordMatchingModels"`
+	// The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+	RuleDefinitionTypes []IdNamespaceRuleDefinitionType `pulumi:"ruleDefinitionTypes"`
+	// The rules for the ID namespace.
+	Rules []IdNamespaceRule `pulumi:"rules"`
 }
 
 // IdNamespaceNamespaceRuleBasedPropertiesInput is an input type that accepts IdNamespaceNamespaceRuleBasedPropertiesArgs and IdNamespaceNamespaceRuleBasedPropertiesOutput values.
@@ -1392,10 +1465,22 @@ type IdNamespaceNamespaceRuleBasedPropertiesInput interface {
 }
 
 type IdNamespaceNamespaceRuleBasedPropertiesArgs struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrInput `pulumi:"attributeMatchingModel"`
-	RecordMatchingModels   IdNamespaceRecordMatchingModelArrayInput                              `pulumi:"recordMatchingModels"`
-	RuleDefinitionTypes    IdNamespaceRuleDefinitionTypeArrayInput                               `pulumi:"ruleDefinitionTypes"`
-	Rules                  IdNamespaceRuleArrayInput                                             `pulumi:"rules"`
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	RecordMatchingModels IdNamespaceRecordMatchingModelArrayInput `pulumi:"recordMatchingModels"`
+	// The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+	RuleDefinitionTypes IdNamespaceRuleDefinitionTypeArrayInput `pulumi:"ruleDefinitionTypes"`
+	// The rules for the ID namespace.
+	Rules IdNamespaceRuleArrayInput `pulumi:"rules"`
 }
 
 func (IdNamespaceNamespaceRuleBasedPropertiesArgs) ElementType() reflect.Type {
@@ -1475,24 +1560,36 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRul
 	}).(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
 	}).(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) RecordMatchingModels() IdNamespaceRecordMatchingModelArrayOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRecordMatchingModel {
 		return v.RecordMatchingModels
 	}).(IdNamespaceRecordMatchingModelArrayOutput)
 }
 
+// The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
 func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) RuleDefinitionTypes() IdNamespaceRuleDefinitionTypeArrayOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRuleDefinitionType {
 		return v.RuleDefinitionTypes
 	}).(IdNamespaceRuleDefinitionTypeArrayOutput)
 }
 
+// The rules for the ID namespace.
 func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) Rules() IdNamespaceRuleArrayOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRule { return v.Rules }).(IdNamespaceRuleArrayOutput)
 }
@@ -1521,6 +1618,11 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Elem() IdNamespaceName
 	}).(IdNamespaceNamespaceRuleBasedPropertiesOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -1530,6 +1632,11 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) AttributeMatchingModel
 	}).(IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RecordMatchingModels() IdNamespaceRecordMatchingModelArrayOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRecordMatchingModel {
 		if v == nil {
@@ -1539,6 +1646,7 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RecordMatchingModels()
 	}).(IdNamespaceRecordMatchingModelArrayOutput)
 }
 
+// The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
 func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RuleDefinitionTypes() IdNamespaceRuleDefinitionTypeArrayOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRuleDefinitionType {
 		if v == nil {
@@ -1548,6 +1656,7 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) RuleDefinitionTypes() 
 	}).(IdNamespaceRuleDefinitionTypeArrayOutput)
 }
 
+// The rules for the ID namespace.
 func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Rules() IdNamespaceRuleArrayOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) []IdNamespaceRule {
 		if v == nil {
@@ -1558,8 +1667,10 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Rules() IdNamespaceRul
 }
 
 type IdNamespaceRule struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys []string `pulumi:"matchingKeys"`
-	RuleName     string   `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // IdNamespaceRuleInput is an input type that accepts IdNamespaceRuleArgs and IdNamespaceRuleOutput values.
@@ -1574,8 +1685,10 @@ type IdNamespaceRuleInput interface {
 }
 
 type IdNamespaceRuleArgs struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys pulumi.StringArrayInput `pulumi:"matchingKeys"`
-	RuleName     pulumi.StringInput      `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
 func (IdNamespaceRuleArgs) ElementType() reflect.Type {
@@ -1629,10 +1742,12 @@ func (o IdNamespaceRuleOutput) ToIdNamespaceRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 func (o IdNamespaceRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdNamespaceRule) []string { return v.MatchingKeys }).(pulumi.StringArrayOutput)
 }
 
+// A name for the matching rule.
 func (o IdNamespaceRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v IdNamespaceRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
@@ -2559,9 +2674,18 @@ func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkfl
 }
 
 type MatchingWorkflowRuleBasedProperties struct {
-	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
-	MatchPurpose           *MatchingWorkflowRuleBasedPropertiesMatchPurpose          `pulumi:"matchPurpose"`
+	// An indicator of whether to generate IDs and index the data or not.
+	//
+	// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+	//
+	// If you choose `INDEXING` , the process indexes the data without generating IDs.
+	MatchPurpose *MatchingWorkflowRuleBasedPropertiesMatchPurpose `pulumi:"matchPurpose"`
 	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules []MatchingWorkflowRule `pulumi:"rules"`
 }
@@ -2578,9 +2702,18 @@ type MatchingWorkflowRuleBasedPropertiesInput interface {
 }
 
 type MatchingWorkflowRuleBasedPropertiesArgs struct {
-	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+	//
+	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
-	MatchPurpose           MatchingWorkflowRuleBasedPropertiesMatchPurposePtrInput        `pulumi:"matchPurpose"`
+	// An indicator of whether to generate IDs and index the data or not.
+	//
+	// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+	//
+	// If you choose `INDEXING` , the process indexes the data without generating IDs.
+	MatchPurpose MatchingWorkflowRuleBasedPropertiesMatchPurposePtrInput `pulumi:"matchPurpose"`
 	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules MatchingWorkflowRuleArrayInput `pulumi:"rules"`
 }
@@ -2662,13 +2795,22 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) ToMatchingWorkflowRuleBasedPr
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
 }
 
-// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput)
 }
 
+// An indicator of whether to generate IDs and index the data or not.
+//
+// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+//
+// If you choose `INDEXING` , the process indexes the data without generating IDs.
 func (o MatchingWorkflowRuleBasedPropertiesOutput) MatchPurpose() MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesMatchPurpose {
 		return v.MatchPurpose
@@ -2704,7 +2846,11 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Elem() MatchingWorkflowRul
 	}).(MatchingWorkflowRuleBasedPropertiesOutput)
 }
 
-// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+//
+// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -2714,6 +2860,11 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() M
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+// An indicator of whether to generate IDs and index the data or not.
+//
+// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+//
+// If you choose `INDEXING` , the process indexes the data without generating IDs.
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) MatchPurpose() MatchingWorkflowRuleBasedPropertiesMatchPurposePtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesMatchPurpose {
 		if v == nil {

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// An object which defines any additional configurations required by the provider service.
         /// </summary>
         public readonly Outputs.IdMappingWorkflowProviderProperties? ProviderProperties;
+        /// <summary>
+        /// An object which defines any additional configurations required by rule-based matching.
+        /// </summary>
         public readonly Outputs.IdMappingWorkflowIdMappingRuleBasedProperties? RuleBasedProperties;
 
         [OutputConstructor]

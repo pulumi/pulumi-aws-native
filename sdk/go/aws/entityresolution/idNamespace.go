@@ -37,7 +37,7 @@ type IdNamespace struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type IdNamespaceTypeOutput `pulumi:"type"`
 	// The date and time when the IdNamespace was updated
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -106,7 +106,7 @@ type idNamespaceArgs struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type IdNamespaceType `pulumi:"type"`
 }
 
@@ -128,7 +128,7 @@ type IdNamespaceArgs struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	Type IdNamespaceTypeInput
 }
 
@@ -215,7 +215,7 @@ func (o IdNamespaceOutput) Tags() aws.TagArrayOutput {
 //
 // The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 //
-// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 func (o IdNamespaceOutput) Type() IdNamespaceTypeOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceTypeOutput { return v.Type }).(IdNamespaceTypeOutput)
 }

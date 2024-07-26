@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class IdNamespaceRule
     {
+        /// <summary>
+        /// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        /// </summary>
         public readonly ImmutableArray<string> MatchingKeys;
+        /// <summary>
+        /// A name for the matching rule.
+        /// </summary>
         public readonly string RuleName;
 
         [OutputConstructor]

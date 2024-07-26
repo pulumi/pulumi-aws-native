@@ -378,6 +378,7 @@ class KnowledgeBaseStorageType(str, Enum):
     OPENSEARCH_SERVERLESS = "OPENSEARCH_SERVERLESS"
     PINECONE = "PINECONE"
     RDS = "RDS"
+    MONGO_DB_ATLAS = "MONGO_DB_ATLAS"
 
 
 class KnowledgeBaseType(str, Enum):

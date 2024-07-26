@@ -79,7 +79,7 @@ class GetPrivacyBudgetTemplateResult:
     @pulumi.getter
     def parameters(self) -> Optional['outputs.ParametersProperties']:
         """
-        Specifies the epislon and noise parameters for the privacy budget template.
+        Specifies the epsilon and noise parameters for the privacy budget template.
         """
         return pulumi.get(self, "parameters")
 

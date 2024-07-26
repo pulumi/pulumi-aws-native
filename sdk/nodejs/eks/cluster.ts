@@ -105,6 +105,11 @@ export class Cluster extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * This value indicates if extended support is enabled or disabled for the cluster.
+     *
+     * [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+     */
     public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy | undefined>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
@@ -219,6 +224,11 @@ export interface ClusterArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * This value indicates if extended support is enabled or disabled for the cluster.
+     *
+     * [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+     */
     upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicyArgs>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

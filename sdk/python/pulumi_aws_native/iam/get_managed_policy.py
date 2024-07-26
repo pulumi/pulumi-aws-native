@@ -59,27 +59,16 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="attachmentCount")
     def attachment_count(self) -> Optional[int]:
-        """
-        The number of principal entities (users, groups, and roles) that the policy is attached to.
-        """
         return pulumi.get(self, "attachment_count")
 
     @property
     @pulumi.getter(name="createDate")
     def create_date(self) -> Optional[str]:
-        """
-        The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
-        """
         return pulumi.get(self, "create_date")
 
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> Optional[str]:
-        """
-        The identifier for the version of the policy that is set as the default (operative) version.
-
-        For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
-        """
         return pulumi.get(self, "default_version_id")
 
     @property
@@ -94,19 +83,11 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="isAttachable")
     def is_attachable(self) -> Optional[bool]:
-        """
-        Specifies whether the policy can be attached to an IAM user, group, or role.
-        """
         return pulumi.get(self, "is_attachable")
 
     @property
     @pulumi.getter(name="permissionsBoundaryUsageCount")
     def permissions_boundary_usage_count(self) -> Optional[int]:
-        """
-        The number of entities (users and roles) for which the policy is used as the permissions boundary.
-
-        For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
-        """
         return pulumi.get(self, "permissions_boundary_usage_count")
 
     @property
@@ -134,11 +115,6 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[str]:
-        """
-        The stable and unique string identifying the policy.
-
-        For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
-        """
         return pulumi.get(self, "policy_id")
 
     @property
@@ -154,11 +130,6 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="updateDate")
     def update_date(self) -> Optional[str]:
-        """
-        The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
-
-        When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
-        """
         return pulumi.get(self, "update_date")
 
     @property

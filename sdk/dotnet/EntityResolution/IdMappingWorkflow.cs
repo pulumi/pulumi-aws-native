@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An object which defines the `idMappingType` and the `providerProperties` .
+        /// An object which defines the ID mapping technique and any additional configurations.
         /// </summary>
         [Output("idMappingTechniques")]
         public Output<Outputs.IdMappingWorkflowIdMappingTechniques> IdMappingTechniques { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An object which defines the `idMappingType` and the `providerProperties` .
+        /// An object which defines the ID mapping technique and any additional configurations.
         /// </summary>
         [Input("idMappingTechniques", required: true)]
         public Input<Inputs.IdMappingWorkflowIdMappingTechniquesArgs> IdMappingTechniques { get; set; } = null!;

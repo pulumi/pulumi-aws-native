@@ -1758,7 +1758,8 @@ _utilities.register(
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
    "aws-native:glue:SchemaVersion": "SchemaVersion",
-   "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata"
+   "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata",
+   "aws-native:glue:Trigger": "Trigger"
   }
  },
  {

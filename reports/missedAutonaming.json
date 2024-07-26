@@ -1419,7 +1419,7 @@
       },
       "parameters": {
         "$ref": "#/types/aws-native:cleanrooms:ParametersProperties",
-        "description": "Specifies the epislon and noise parameters for the privacy budget template."
+        "description": "Specifies the epsilon and noise parameters for the privacy budget template."
       },
       "privacyBudgetType": {
         "$ref": "#/types/aws-native:cleanrooms:PrivacyBudgetTemplatePrivacyBudgetType",
@@ -7189,7 +7189,7 @@
         "items": {
           "type": "string"
         },
-        "description": "A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) ."
+        "description": "A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .\n\nThis property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate."
       },
       "url": {
         "type": "string",

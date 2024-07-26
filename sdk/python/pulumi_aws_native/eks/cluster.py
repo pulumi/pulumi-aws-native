@@ -43,6 +43,9 @@ class ClusterArgs:
         :param pulumi.Input[str] name: The unique name to give to your cluster.
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: This value indicates if extended support is enabled or disabled for the cluster.
+               
+               [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         """
         pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
@@ -191,6 +194,11 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+        """
+        This value indicates if extended support is enabled or disabled for the cluster.
+
+        [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @upgrade_policy.setter
@@ -243,6 +251,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_policy: This value indicates if extended support is enabled or disabled for the cluster.
+               
+               [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         """
         ...
@@ -497,6 +508,11 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicy']]:
+        """
+        This value indicates if extended support is enabled or disabled for the cluster.
+
+        [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @property

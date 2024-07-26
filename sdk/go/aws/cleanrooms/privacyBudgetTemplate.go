@@ -31,7 +31,7 @@ type PrivacyBudgetTemplate struct {
 	MembershipArn pulumi.StringOutput `pulumi:"membershipArn"`
 	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
-	// Specifies the epislon and noise parameters for the privacy budget template.
+	// Specifies the epsilon and noise parameters for the privacy budget template.
 	Parameters ParametersPropertiesOutput `pulumi:"parameters"`
 	// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 	PrivacyBudgetTemplateIdentifier pulumi.StringOutput `pulumi:"privacyBudgetTemplateIdentifier"`
@@ -105,7 +105,7 @@ type privacyBudgetTemplateArgs struct {
 	AutoRefresh PrivacyBudgetTemplateAutoRefresh `pulumi:"autoRefresh"`
 	// The identifier for a membership resource.
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
-	// Specifies the epislon and noise parameters for the privacy budget template.
+	// Specifies the epsilon and noise parameters for the privacy budget template.
 	Parameters ParametersProperties `pulumi:"parameters"`
 	// Specifies the type of the privacy budget template.
 	PrivacyBudgetType PrivacyBudgetTemplatePrivacyBudgetType `pulumi:"privacyBudgetType"`
@@ -121,7 +121,7 @@ type PrivacyBudgetTemplateArgs struct {
 	AutoRefresh PrivacyBudgetTemplateAutoRefreshInput
 	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringInput
-	// Specifies the epislon and noise parameters for the privacy budget template.
+	// Specifies the epsilon and noise parameters for the privacy budget template.
 	Parameters ParametersPropertiesInput
 	// Specifies the type of the privacy budget template.
 	PrivacyBudgetType PrivacyBudgetTemplatePrivacyBudgetTypeInput
@@ -198,7 +198,7 @@ func (o PrivacyBudgetTemplateOutput) MembershipIdentifier() pulumi.StringOutput 
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
 }
 
-// Specifies the epislon and noise parameters for the privacy budget template.
+// Specifies the epsilon and noise parameters for the privacy budget template.
 func (o PrivacyBudgetTemplateOutput) Parameters() ParametersPropertiesOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) ParametersPropertiesOutput { return v.Parameters }).(ParametersPropertiesOutput)
 }

@@ -7,6 +7,13 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.EntityResolution
 {
+    /// <summary>
+    /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+    /// 
+    /// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+    /// 
+    /// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+    /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel>
     {
@@ -35,6 +42,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of matching record that is allowed to be used in an ID mapping workflow.
+    /// 
+    /// If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+    /// 
+    /// If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+    /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel>
     {
@@ -63,6 +77,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+    /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType : IEquatable<IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType>
     {
@@ -127,7 +144,7 @@ namespace Pulumi.AwsNative.EntityResolution
     /// 
     /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
     /// 
-    /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    /// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
     /// </summary>
     [EnumType]
     public readonly struct IdMappingWorkflowInputSourceType : IEquatable<IdMappingWorkflowInputSourceType>
@@ -188,6 +205,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+    /// 
+    /// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+    /// 
+    /// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+    /// </summary>
     [EnumType]
     public readonly struct IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel : IEquatable<IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel>
     {
@@ -277,7 +301,7 @@ namespace Pulumi.AwsNative.EntityResolution
     /// 
     /// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
     /// 
-    /// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+    /// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
     /// </summary>
     [EnumType]
     public readonly struct IdNamespaceType : IEquatable<IdNamespaceType>
@@ -337,7 +361,11 @@ namespace Pulumi.AwsNative.EntityResolution
     }
 
     /// <summary>
-    /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+    /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+    /// 
+    /// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+    /// 
+    /// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
     /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel : IEquatable<MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel>
@@ -367,6 +395,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// An indicator of whether to generate IDs and index the data or not.
+    /// 
+    /// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+    /// 
+    /// If you choose `INDEXING` , the process indexes the data without generating IDs.
+    /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowRuleBasedPropertiesMatchPurpose : IEquatable<MatchingWorkflowRuleBasedPropertiesMatchPurpose>
     {

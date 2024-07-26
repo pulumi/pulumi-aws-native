@@ -63,6 +63,20 @@ class IdMappingWorkflowIdMappingRuleBasedProperties(dict):
                  record_matching_model: 'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel',
                  rule_definition_type: Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType'] = None,
                  rules: Optional[Sequence['outputs.IdMappingWorkflowRule']] = None):
+        """
+        :param 'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+               
+               If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        :param 'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel' record_matching_model: The type of matching record that is allowed to be used in an ID mapping workflow.
+               
+               If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+               
+               If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+        :param 'IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType' rule_definition_type: The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+        :param Sequence['IdMappingWorkflowRule'] rules: The rules that can be used for ID mapping.
+        """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         pulumi.set(__self__, "record_matching_model", record_matching_model)
         if rule_definition_type is not None:
@@ -73,21 +87,41 @@ class IdMappingWorkflowIdMappingRuleBasedProperties(dict):
     @property
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> 'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel':
+        """
+        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+
+        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        """
         return pulumi.get(self, "attribute_matching_model")
 
     @property
     @pulumi.getter(name="recordMatchingModel")
     def record_matching_model(self) -> 'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel':
+        """
+        The type of matching record that is allowed to be used in an ID mapping workflow.
+
+        If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+
+        If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+        """
         return pulumi.get(self, "record_matching_model")
 
     @property
     @pulumi.getter(name="ruleDefinitionType")
     def rule_definition_type(self) -> Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']:
+        """
+        The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+        """
         return pulumi.get(self, "rule_definition_type")
 
     @property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.IdMappingWorkflowRule']]:
+        """
+        The rules that can be used for ID mapping.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -124,6 +158,7 @@ class IdMappingWorkflowIdMappingTechniques(dict):
         """
         :param 'IdMappingWorkflowIdMappingTechniquesIdMappingType' id_mapping_type: The type of ID mapping.
         :param 'IdMappingWorkflowProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
+        :param 'IdMappingWorkflowIdMappingRuleBasedProperties' rule_based_properties: An object which defines any additional configurations required by rule-based matching.
         """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
@@ -158,6 +193,9 @@ class IdMappingWorkflowIdMappingTechniques(dict):
     @property
     @pulumi.getter(name="ruleBasedProperties")
     def rule_based_properties(self) -> Optional['outputs.IdMappingWorkflowIdMappingRuleBasedProperties']:
+        """
+        An object which defines any additional configurations required by rule-based matching.
+        """
         return pulumi.get(self, "rule_based_properties")
 
 
@@ -193,7 +231,7 @@ class IdMappingWorkflowInputSource(dict):
                
                The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
                
-               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+               The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
         if schema_arn is not None:
@@ -225,7 +263,7 @@ class IdMappingWorkflowInputSource(dict):
 
         The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 
-        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         """
         return pulumi.get(self, "type")
 
@@ -401,17 +439,27 @@ class IdMappingWorkflowRule(dict):
     def __init__(__self__, *,
                  matching_keys: Sequence[str],
                  rule_name: str):
+        """
+        :param Sequence[str] matching_keys: A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        :param str rule_name: A name for the matching rule.
+        """
         pulumi.set(__self__, "matching_keys", matching_keys)
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="matchingKeys")
     def matching_keys(self) -> Sequence[str]:
+        """
+        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        """
         return pulumi.get(self, "matching_keys")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
+        """
+        A name for the matching rule.
+        """
         return pulumi.get(self, "rule_name")
 
 
@@ -445,6 +493,7 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
         """
         :param 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType' id_mapping_type: The type of ID mapping.
         :param 'IdNamespaceNamespaceProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
+        :param 'IdNamespaceNamespaceRuleBasedProperties' rule_based_properties: An object which defines any additional configurations required by rule-based matching.
         """
         pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
@@ -471,6 +520,9 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
     @property
     @pulumi.getter(name="ruleBasedProperties")
     def rule_based_properties(self) -> Optional['outputs.IdNamespaceNamespaceRuleBasedProperties']:
+        """
+        An object which defines any additional configurations required by rule-based matching.
+        """
         return pulumi.get(self, "rule_based_properties")
 
 
@@ -499,7 +551,7 @@ class IdNamespaceInputSource(dict):
                  input_source_arn: str,
                  schema_name: Optional[str] = None):
         """
-        :param str input_source_arn: An AWS Glue table ARN for the input source table.
+        :param str input_source_arn: An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
         :param str schema_name: The name of the schema.
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
@@ -510,7 +562,7 @@ class IdNamespaceInputSource(dict):
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> str:
         """
-        An AWS Glue table ARN for the input source table.
+        An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
         """
         return pulumi.get(self, "input_source_arn")
 
@@ -600,6 +652,20 @@ class IdNamespaceNamespaceRuleBasedProperties(dict):
                  record_matching_models: Optional[Sequence['IdNamespaceRecordMatchingModel']] = None,
                  rule_definition_types: Optional[Sequence['IdNamespaceRuleDefinitionType']] = None,
                  rules: Optional[Sequence['outputs.IdNamespaceRule']] = None):
+        """
+        :param 'IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+               
+               If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        :param Sequence['IdNamespaceRecordMatchingModel'] record_matching_models: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+               
+               If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        :param Sequence['IdNamespaceRuleDefinitionType'] rule_definition_types: The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+        :param Sequence['IdNamespaceRule'] rules: The rules for the ID namespace.
+        """
         if attribute_matching_model is not None:
             pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         if record_matching_models is not None:
@@ -612,21 +678,41 @@ class IdNamespaceNamespaceRuleBasedProperties(dict):
     @property
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']:
+        """
+        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+
+        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        """
         return pulumi.get(self, "attribute_matching_model")
 
     @property
     @pulumi.getter(name="recordMatchingModels")
     def record_matching_models(self) -> Optional[Sequence['IdNamespaceRecordMatchingModel']]:
+        """
+        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+
+        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        """
         return pulumi.get(self, "record_matching_models")
 
     @property
     @pulumi.getter(name="ruleDefinitionTypes")
     def rule_definition_types(self) -> Optional[Sequence['IdNamespaceRuleDefinitionType']]:
+        """
+        The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+        """
         return pulumi.get(self, "rule_definition_types")
 
     @property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.IdNamespaceRule']]:
+        """
+        The rules for the ID namespace.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -654,17 +740,27 @@ class IdNamespaceRule(dict):
     def __init__(__self__, *,
                  matching_keys: Sequence[str],
                  rule_name: str):
+        """
+        :param Sequence[str] matching_keys: A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        :param str rule_name: A name for the matching rule.
+        """
         pulumi.set(__self__, "matching_keys", matching_keys)
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="matchingKeys")
     def matching_keys(self) -> Sequence[str]:
+        """
+        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+        """
         return pulumi.get(self, "matching_keys")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
+        """
+        A name for the matching rule.
+        """
         return pulumi.get(self, "rule_name")
 
 
@@ -1070,8 +1166,17 @@ class MatchingWorkflowRuleBasedProperties(dict):
                  rules: Sequence['outputs.MatchingWorkflowRule'],
                  match_purpose: Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose'] = None):
         """
-        :param 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+        :param 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+               
+               If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
         :param Sequence['MatchingWorkflowRule'] rules: A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
+        :param 'MatchingWorkflowRuleBasedPropertiesMatchPurpose' match_purpose: An indicator of whether to generate IDs and index the data or not.
+               
+               If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+               
+               If you choose `INDEXING` , the process indexes the data without generating IDs.
         """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         pulumi.set(__self__, "rules", rules)
@@ -1082,7 +1187,11 @@ class MatchingWorkflowRuleBasedProperties(dict):
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel':
         """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+
+        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
         """
         return pulumi.get(self, "attribute_matching_model")
 
@@ -1097,6 +1206,13 @@ class MatchingWorkflowRuleBasedProperties(dict):
     @property
     @pulumi.getter(name="matchPurpose")
     def match_purpose(self) -> Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']:
+        """
+        An indicator of whether to generate IDs and index the data or not.
+
+        If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+
+        If you choose `INDEXING` , the process indexes the data without generating IDs.
+        """
         return pulumi.get(self, "match_purpose")
 
 

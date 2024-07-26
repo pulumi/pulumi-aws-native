@@ -70,6 +70,11 @@ export interface GetClusterResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * This value indicates if extended support is enabled or disabled for the cluster.
+     *
+     * [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+     */
     readonly upgradePolicy?: outputs.eks.ClusterUpgradePolicy;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

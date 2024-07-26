@@ -74,7 +74,7 @@ export class IdNamespace extends pulumi.CustomResource {
      *
      * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
      *
-     * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+     * The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
      */
     public readonly type!: pulumi.Output<enums.entityresolution.IdNamespaceType>;
     /**
@@ -158,7 +158,7 @@ export interface IdNamespaceArgs {
      *
      * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
      *
-     * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+     * The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
      */
     type: pulumi.Input<enums.entityresolution.IdNamespaceType>;
 }

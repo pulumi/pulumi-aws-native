@@ -77,7 +77,11 @@ __all__ = [
     'GuardrailTopicPolicyConfigArgs',
     'GuardrailWordConfigArgs',
     'GuardrailWordPolicyConfigArgs',
+    'KnowledgeBaseBedrockEmbeddingModelConfigurationArgs',
     'KnowledgeBaseConfigurationArgs',
+    'KnowledgeBaseEmbeddingModelConfigurationArgs',
+    'KnowledgeBaseMongoDbAtlasConfigurationArgs',
+    'KnowledgeBaseMongoDbAtlasFieldMappingArgs',
     'KnowledgeBaseOpenSearchServerlessConfigurationArgs',
     'KnowledgeBaseOpenSearchServerlessFieldMappingArgs',
     'KnowledgeBasePineconeConfigurationArgs',
@@ -2830,6 +2834,30 @@ class GuardrailWordPolicyConfigArgs:
 
 
 @pulumi.input_type
+class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input[int]] = None):
+        """
+        The vector configuration details for the Bedrock embeddings model.
+        :param pulumi.Input[int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[int]]:
+        """
+        The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dimensions", value)
+
+
+@pulumi.input_type
 class KnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseType'],
@@ -2865,6 +2893,189 @@ class KnowledgeBaseConfigurationArgs:
     @vector_knowledge_base_configuration.setter
     def vector_knowledge_base_configuration(self, value: pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']):
         pulumi.set(self, "vector_knowledge_base_configuration", value)
+
+
+@pulumi.input_type
+class KnowledgeBaseEmbeddingModelConfigurationArgs:
+    def __init__(__self__, *,
+                 bedrock_embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']] = None):
+        """
+        The embeddings model configuration details for the vector model used in Knowledge Base.
+        """
+        if bedrock_embedding_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
+    def bedrock_embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]:
+        return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+    @bedrock_embedding_model_configuration.setter
+    def bedrock_embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]):
+        pulumi.set(self, "bedrock_embedding_model_configuration", value)
+
+
+@pulumi.input_type
+class KnowledgeBaseMongoDbAtlasConfigurationArgs:
+    def __init__(__self__, *,
+                 collection_name: pulumi.Input[str],
+                 credentials_secret_arn: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 endpoint: pulumi.Input[str],
+                 field_mapping: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs'],
+                 vector_index_name: pulumi.Input[str],
+                 endpoint_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+        :param pulumi.Input[str] collection_name: Name of the collection within MongoDB Atlas.
+        :param pulumi.Input[str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+        :param pulumi.Input[str] database_name: Name of the database within MongoDB Atlas.
+        :param pulumi.Input[str] endpoint: MongoDB Atlas endpoint.
+        :param pulumi.Input[str] vector_index_name: Name of a MongoDB Atlas index.
+        :param pulumi.Input[str] endpoint_service_name: MongoDB Atlas endpoint service name.
+        """
+        pulumi.set(__self__, "collection_name", collection_name)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+        if endpoint_service_name is not None:
+            pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> pulumi.Input[str]:
+        """
+        Name of the collection within MongoDB Atlas.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_name", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Name of the database within MongoDB Atlas.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        MongoDB Atlas endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs']:
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> pulumi.Input[str]:
+        """
+        Name of a MongoDB Atlas index.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+    @vector_index_name.setter
+    def vector_index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vector_index_name", value)
+
+    @property
+    @pulumi.getter(name="endpointServiceName")
+    def endpoint_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        MongoDB Atlas endpoint service name.
+        """
+        return pulumi.get(self, "endpoint_service_name")
+
+    @endpoint_service_name.setter
+    def endpoint_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_service_name", value)
+
+
+@pulumi.input_type
+class KnowledgeBaseMongoDbAtlasFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[str],
+                 text_field: pulumi.Input[str],
+                 vector_field: pulumi.Input[str]):
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param pulumi.Input[str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_field", value)
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+    @vector_field.setter
+    def vector_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vector_field", value)
 
 
 @pulumi.input_type
@@ -3235,6 +3446,7 @@ class KnowledgeBaseRdsFieldMappingArgs:
 class KnowledgeBaseStorageConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseStorageType'],
+                 mongo_db_atlas_configuration: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']] = None,
                  opensearch_serverless_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']] = None,
                  pinecone_configuration: Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']] = None,
                  rds_configuration: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']] = None):
@@ -3246,6 +3458,8 @@ class KnowledgeBaseStorageConfigurationArgs:
         :param pulumi.Input['KnowledgeBaseRdsConfigurationArgs'] rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
         """
         pulumi.set(__self__, "type", type)
+        if mongo_db_atlas_configuration is not None:
+            pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -3264,6 +3478,15 @@ class KnowledgeBaseStorageConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input['KnowledgeBaseStorageType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mongoDbAtlasConfiguration")
+    def mongo_db_atlas_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']]:
+        return pulumi.get(self, "mongo_db_atlas_configuration")
+
+    @mongo_db_atlas_configuration.setter
+    def mongo_db_atlas_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']]):
+        pulumi.set(self, "mongo_db_atlas_configuration", value)
 
     @property
     @pulumi.getter(name="opensearchServerlessConfiguration")
@@ -3305,12 +3528,15 @@ class KnowledgeBaseStorageConfigurationArgs:
 @pulumi.input_type
 class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
-                 embedding_model_arn: pulumi.Input[str]):
+                 embedding_model_arn: pulumi.Input[str],
+                 embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
         :param pulumi.Input[str] embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
 
     @property
     @pulumi.getter(name="embeddingModelArn")
@@ -3323,6 +3549,15 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
     @embedding_model_arn.setter
     def embedding_model_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "embedding_model_arn", value)
+
+    @property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @embedding_model_configuration.setter
+    def embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
+        pulumi.set(self, "embedding_model_configuration", value)
 
 
 @pulumi.input_type

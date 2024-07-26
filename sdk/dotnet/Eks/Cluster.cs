@@ -117,6 +117,11 @@ namespace Pulumi.AwsNative.Eks
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// This value indicates if extended support is enabled or disabled for the cluster.
+        /// 
+        /// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        /// </summary>
         [Output("upgradePolicy")]
         public Output<Outputs.ClusterUpgradePolicy?> UpgradePolicy { get; private set; } = null!;
 
@@ -253,6 +258,11 @@ namespace Pulumi.AwsNative.Eks
             set => _tags = value;
         }
 
+        /// <summary>
+        /// This value indicates if extended support is enabled or disabled for the cluster.
+        /// 
+        /// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
 

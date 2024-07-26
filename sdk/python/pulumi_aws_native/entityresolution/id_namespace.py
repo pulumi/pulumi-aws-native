@@ -32,7 +32,7 @@ class IdNamespaceArgs:
                
                The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
                
-               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+               The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         :param pulumi.Input[str] description: The description of the ID namespace.
         :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]] id_mapping_workflow_properties: Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         :param pulumi.Input[str] id_namespace_name: The name of the ID namespace.
@@ -62,7 +62,7 @@ class IdNamespaceArgs:
 
         The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 
-        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         """
         return pulumi.get(self, "type")
 
@@ -171,7 +171,7 @@ class IdNamespace(pulumi.CustomResource):
                
                The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
                
-               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+               The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         """
         ...
     @overload
@@ -333,7 +333,7 @@ class IdNamespace(pulumi.CustomResource):
 
         The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 
-        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
         """
         return pulumi.get(self, "type")
 

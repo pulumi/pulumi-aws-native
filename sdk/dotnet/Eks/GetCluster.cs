@@ -101,6 +101,11 @@ namespace Pulumi.AwsNative.Eks
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// This value indicates if extended support is enabled or disabled for the cluster.
+        /// 
+        /// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        /// </summary>
         public readonly Outputs.ClusterUpgradePolicy? UpgradePolicy;
         /// <summary>
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

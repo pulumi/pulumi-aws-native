@@ -12,11 +12,26 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class IdNamespaceNamespaceRuleBasedPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+        /// 
+        /// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+        /// 
+        /// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        /// </summary>
         [Input("attributeMatchingModel")]
         public Input<Pulumi.AwsNative.EntityResolution.IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel>? AttributeMatchingModel { get; set; }
 
         [Input("recordMatchingModels")]
         private InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRecordMatchingModel>? _recordMatchingModels;
+
+        /// <summary>
+        /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+        /// 
+        /// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+        /// 
+        /// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        /// </summary>
         public InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRecordMatchingModel> RecordMatchingModels
         {
             get => _recordMatchingModels ?? (_recordMatchingModels = new InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRecordMatchingModel>());
@@ -25,6 +40,10 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
         [Input("ruleDefinitionTypes")]
         private InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRuleDefinitionType>? _ruleDefinitionTypes;
+
+        /// <summary>
+        /// The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+        /// </summary>
         public InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRuleDefinitionType> RuleDefinitionTypes
         {
             get => _ruleDefinitionTypes ?? (_ruleDefinitionTypes = new InputList<Pulumi.AwsNative.EntityResolution.IdNamespaceRuleDefinitionType>());
@@ -33,6 +52,10 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
         [Input("rules")]
         private InputList<Inputs.IdNamespaceRuleArgs>? _rules;
+
+        /// <summary>
+        /// The rules for the ID namespace.
+        /// </summary>
         public InputList<Inputs.IdNamespaceRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.IdNamespaceRuleArgs>());

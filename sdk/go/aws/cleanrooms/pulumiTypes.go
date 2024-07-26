@@ -2747,7 +2747,7 @@ type MembershipTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Specifies the epislon and noise parameters for the privacy budget template.
+// Specifies the epsilon and noise parameters for the privacy budget template.
 type ParametersProperties struct {
 	// The epsilon value that you want to use.
 	Epsilon int `pulumi:"epsilon"`
@@ -2766,7 +2766,7 @@ type ParametersPropertiesInput interface {
 	ToParametersPropertiesOutputWithContext(context.Context) ParametersPropertiesOutput
 }
 
-// Specifies the epislon and noise parameters for the privacy budget template.
+// Specifies the epsilon and noise parameters for the privacy budget template.
 type ParametersPropertiesArgs struct {
 	// The epsilon value that you want to use.
 	Epsilon pulumi.IntInput `pulumi:"epsilon"`
@@ -2786,7 +2786,7 @@ func (i ParametersPropertiesArgs) ToParametersPropertiesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParametersPropertiesOutput)
 }
 
-// Specifies the epislon and noise parameters for the privacy budget template.
+// Specifies the epsilon and noise parameters for the privacy budget template.
 type ParametersPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ParametersPropertiesOutput) ElementType() reflect.Type {

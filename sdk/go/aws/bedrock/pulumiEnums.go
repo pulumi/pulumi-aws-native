@@ -4617,6 +4617,7 @@ const (
 	KnowledgeBaseStorageTypeOpensearchServerless = KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS")
 	KnowledgeBaseStorageTypePinecone             = KnowledgeBaseStorageType("PINECONE")
 	KnowledgeBaseStorageTypeRds                  = KnowledgeBaseStorageType("RDS")
+	KnowledgeBaseStorageTypeMongoDbAtlas         = KnowledgeBaseStorageType("MONGO_DB_ATLAS")
 )
 
 func (KnowledgeBaseStorageType) ElementType() reflect.Type {
@@ -4744,6 +4745,7 @@ func (o KnowledgeBaseStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	KnowledgeBaseStorageTypeOpensearchServerless
 //	KnowledgeBaseStorageTypePinecone
 //	KnowledgeBaseStorageTypeRds
+//	KnowledgeBaseStorageTypeMongoDbAtlas
 type KnowledgeBaseStorageTypeInput interface {
 	pulumi.Input
 

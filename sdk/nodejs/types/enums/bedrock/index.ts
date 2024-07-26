@@ -397,6 +397,7 @@ export const KnowledgeBaseStorageType = {
     OpensearchServerless: "OPENSEARCH_SERVERLESS",
     Pinecone: "PINECONE",
     Rds: "RDS",
+    MongoDbAtlas: "MONGO_DB_ATLAS",
 } as const;
 
 /**

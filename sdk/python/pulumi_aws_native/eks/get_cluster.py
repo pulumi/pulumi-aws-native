@@ -153,6 +153,11 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> Optional['outputs.ClusterUpgradePolicy']:
+        """
+        This value indicates if extended support is enabled or disabled for the cluster.
+
+        [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @property

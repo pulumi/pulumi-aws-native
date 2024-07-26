@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An object which defines the `idMappingType` and the `providerProperties` .
+        /// An object which defines the ID mapping technique and any additional configurations.
         /// </summary>
         public readonly Outputs.IdMappingWorkflowIdMappingTechniques? IdMappingTechniques;
         /// <summary>

@@ -30,7 +30,7 @@ class PrivacyBudgetTemplateArgs:
                
                > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
         :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
-        :param pulumi.Input['ParametersPropertiesArgs'] parameters: Specifies the epislon and noise parameters for the privacy budget template.
+        :param pulumi.Input['ParametersPropertiesArgs'] parameters: Specifies the epsilon and noise parameters for the privacy budget template.
         :param pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'] privacy_budget_type: Specifies the type of the privacy budget template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
@@ -71,7 +71,7 @@ class PrivacyBudgetTemplateArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input['ParametersPropertiesArgs']:
         """
-        Specifies the epislon and noise parameters for the privacy budget template.
+        Specifies the epsilon and noise parameters for the privacy budget template.
         """
         return pulumi.get(self, "parameters")
 
@@ -124,7 +124,7 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
                
                > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
         :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
-        :param pulumi.Input[pulumi.InputType['ParametersPropertiesArgs']] parameters: Specifies the epislon and noise parameters for the privacy budget template.
+        :param pulumi.Input[pulumi.InputType['ParametersPropertiesArgs']] parameters: Specifies the epsilon and noise parameters for the privacy budget template.
         :param pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'] privacy_budget_type: Specifies the type of the privacy budget template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
@@ -274,7 +274,7 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.ParametersProperties']:
         """
-        Specifies the epislon and noise parameters for the privacy budget template.
+        Specifies the epsilon and noise parameters for the privacy budget template.
         """
         return pulumi.get(self, "parameters")
 

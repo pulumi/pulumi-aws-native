@@ -32,7 +32,7 @@ export interface GetIdMappingWorkflowResult {
      */
     readonly description?: string;
     /**
-     * An object which defines the `idMappingType` and the `providerProperties` .
+     * An object which defines the ID mapping technique and any additional configurations.
      */
     readonly idMappingTechniques?: outputs.entityresolution.IdMappingWorkflowIdMappingTechniques;
     /**

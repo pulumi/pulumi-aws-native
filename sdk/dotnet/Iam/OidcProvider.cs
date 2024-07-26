@@ -35,6 +35,8 @@ namespace Pulumi.AwsNative.Iam
 
         /// <summary>
         /// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// 
+        /// This property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.
         /// </summary>
         [Output("thumbprintList")]
         public Output<ImmutableArray<string>> ThumbprintList { get; private set; } = null!;
@@ -123,6 +125,8 @@ namespace Pulumi.AwsNative.Iam
 
         /// <summary>
         /// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// 
+        /// This property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.
         /// </summary>
         public InputList<string> ThumbprintList
         {

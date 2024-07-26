@@ -1035,7 +1035,7 @@ class MembershipQueryComputePaymentConfig(dict):
 @pulumi.output_type
 class ParametersProperties(dict):
     """
-    Specifies the epislon and noise parameters for the privacy budget template.
+    Specifies the epsilon and noise parameters for the privacy budget template.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1058,7 +1058,7 @@ class ParametersProperties(dict):
                  epsilon: int,
                  users_noise_per_query: int):
         """
-        Specifies the epislon and noise parameters for the privacy budget template.
+        Specifies the epsilon and noise parameters for the privacy budget template.
         :param int epsilon: The epsilon value that you want to use.
         :param int users_noise_per_query: Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """

@@ -48,7 +48,7 @@ export interface GetPrivacyBudgetTemplateResult {
      */
     readonly membershipArn?: string;
     /**
-     * Specifies the epislon and noise parameters for the privacy budget template.
+     * Specifies the epsilon and noise parameters for the privacy budget template.
      */
     readonly parameters?: outputs.cleanrooms.ParametersProperties;
     /**

@@ -20,6 +20,11 @@ export const getSchemaVersion: typeof import("./getSchemaVersion").getSchemaVers
 export const getSchemaVersionOutput: typeof import("./getSchemaVersion").getSchemaVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaVersion","getSchemaVersionOutput"], () => require("./getSchemaVersion"));
 
+export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
+export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
+export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
+
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
 export const Registry: typeof import("./registry").Registry = null as any;
@@ -40,6 +45,11 @@ export type SchemaVersionMetadata = import("./schemaVersionMetadata").SchemaVers
 export const SchemaVersionMetadata: typeof import("./schemaVersionMetadata").SchemaVersionMetadata = null as any;
 utilities.lazyLoad(exports, ["SchemaVersionMetadata"], () => require("./schemaVersionMetadata"));
 
+export { TriggerArgs } from "./trigger";
+export type Trigger = import("./trigger").Trigger;
+export const Trigger: typeof import("./trigger").Trigger = null as any;
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
+
 
 // Export enums:
 export * from "../types/enums/glue";
@@ -56,6 +66,8 @@ const _module = {
                 return new SchemaVersion(name, <any>undefined, { urn })
             case "aws-native:glue:SchemaVersionMetadata":
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
+            case "aws-native:glue:Trigger":
+                return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

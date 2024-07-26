@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("embeddingModelArn", required: true)]
         public Input<string> EmbeddingModelArn { get; set; } = null!;
 
+        [Input("embeddingModelConfiguration")]
+        public Input<Inputs.KnowledgeBaseEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }
+
         public KnowledgeBaseVectorKnowledgeBaseConfigurationArgs()
         {
         }

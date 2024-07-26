@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("providerProperties")]
         public Input<Inputs.IdNamespaceNamespaceProviderPropertiesArgs>? ProviderProperties { get; set; }
 
+        /// <summary>
+        /// An object which defines any additional configurations required by rule-based matching.
+        /// </summary>
         [Input("ruleBasedProperties")]
         public Input<Inputs.IdNamespaceNamespaceRuleBasedPropertiesArgs>? RuleBasedProperties { get; set; }
 
