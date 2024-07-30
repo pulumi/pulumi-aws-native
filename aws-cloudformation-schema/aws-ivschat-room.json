@@ -114,7 +114,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ivschat:TagResource", "ivschat:ListTagsForResource", "ivschat:UntagResource" ]
   },
   "required" : [ ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],

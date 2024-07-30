@@ -5,6 +5,7 @@ AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
+AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
