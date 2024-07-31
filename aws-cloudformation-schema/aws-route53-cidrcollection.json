@@ -68,7 +68,7 @@
       "permissions" : [ "route53:ChangeCidrCollection" ]
     },
     "delete" : {
-      "permissions" : [ "route53:DeleteCidrCollection", "route53:ChangeCidrCollection" ]
+      "permissions" : [ "route53:DeleteCidrCollection", "route53:ChangeCidrCollection", "route53:ListCidrBlocks" ]
     },
     "list" : {
       "permissions" : [ "route53:ListCidrCollections", "route53:ListCidrBlocks" ]
