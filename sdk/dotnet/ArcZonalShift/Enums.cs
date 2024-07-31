@@ -8,25 +8,25 @@ using Pulumi;
 namespace Pulumi.AwsNative.ArcZonalShift
 {
     [EnumType]
-    public readonly struct AutoshiftObserverNotificationStatus : IEquatable<AutoshiftObserverNotificationStatus>
+    public readonly struct AutoshiftObserverNotificationStatusEnum : IEquatable<AutoshiftObserverNotificationStatusEnum>
     {
         private readonly string _value;
 
-        private AutoshiftObserverNotificationStatus(string value)
+        private AutoshiftObserverNotificationStatusEnum(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AutoshiftObserverNotificationStatus Enabled { get; } = new AutoshiftObserverNotificationStatus("ENABLED");
+        public static AutoshiftObserverNotificationStatusEnum Enabled { get; } = new AutoshiftObserverNotificationStatusEnum("ENABLED");
 
-        public static bool operator ==(AutoshiftObserverNotificationStatus left, AutoshiftObserverNotificationStatus right) => left.Equals(right);
-        public static bool operator !=(AutoshiftObserverNotificationStatus left, AutoshiftObserverNotificationStatus right) => !left.Equals(right);
+        public static bool operator ==(AutoshiftObserverNotificationStatusEnum left, AutoshiftObserverNotificationStatusEnum right) => left.Equals(right);
+        public static bool operator !=(AutoshiftObserverNotificationStatusEnum left, AutoshiftObserverNotificationStatusEnum right) => !left.Equals(right);
 
-        public static explicit operator string(AutoshiftObserverNotificationStatus value) => value._value;
+        public static explicit operator string(AutoshiftObserverNotificationStatusEnum value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AutoshiftObserverNotificationStatus other && Equals(other);
-        public bool Equals(AutoshiftObserverNotificationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AutoshiftObserverNotificationStatusEnum other && Equals(other);
+        public bool Equals(AutoshiftObserverNotificationStatusEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -1117,7 +1117,7 @@
     "cfTypeName": "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus",
     "properties": {
       "status": {
-        "$ref": "#/types/aws-native:arczonalshift:AutoshiftObserverNotificationStatus"
+        "$ref": "#/types/aws-native:arczonalshift:AutoshiftObserverNotificationStatusEnum"
       }
     }
   },

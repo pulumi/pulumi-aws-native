@@ -13,7 +13,7 @@ import (
 )
 
 // Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
-type AutoshiftObserverNotificationStatusEnum struct {
+type AutoshiftObserverNotificationStatus struct {
 	pulumi.CustomResourceState
 
 	AccountId pulumi.StringOutput                           `pulumi:"accountId"`
@@ -21,9 +21,9 @@ type AutoshiftObserverNotificationStatusEnum struct {
 	Status    AutoshiftObserverNotificationStatusEnumOutput `pulumi:"status"`
 }
 
-// NewAutoshiftObserverNotificationStatusEnum registers a new resource with the given unique name, arguments, and options.
-func NewAutoshiftObserverNotificationStatusEnum(ctx *pulumi.Context,
-	name string, args *AutoshiftObserverNotificationStatusEnumArgs, opts ...pulumi.ResourceOption) (*AutoshiftObserverNotificationStatusEnum, error) {
+// NewAutoshiftObserverNotificationStatus registers a new resource with the given unique name, arguments, and options.
+func NewAutoshiftObserverNotificationStatus(ctx *pulumi.Context,
+	name string, args *AutoshiftObserverNotificationStatusArgs, opts ...pulumi.ResourceOption) (*AutoshiftObserverNotificationStatus, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -36,7 +36,7 @@ func NewAutoshiftObserverNotificationStatusEnum(ctx *pulumi.Context,
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource AutoshiftObserverNotificationStatusEnum
+	var resource AutoshiftObserverNotificationStatus
 	err := ctx.RegisterResource("aws-native:arczonalshift:AutoshiftObserverNotificationStatus", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -44,11 +44,11 @@ func NewAutoshiftObserverNotificationStatusEnum(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetAutoshiftObserverNotificationStatusEnum gets an existing AutoshiftObserverNotificationStatusEnum resource's state with the given name, ID, and optional
+// GetAutoshiftObserverNotificationStatus gets an existing AutoshiftObserverNotificationStatus resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetAutoshiftObserverNotificationStatusEnum(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *AutoshiftObserverNotificationStatusEnumState, opts ...pulumi.ResourceOption) (*AutoshiftObserverNotificationStatusEnum, error) {
-	var resource AutoshiftObserverNotificationStatusEnum
+func GetAutoshiftObserverNotificationStatus(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *AutoshiftObserverNotificationStatusState, opts ...pulumi.ResourceOption) (*AutoshiftObserverNotificationStatus, error) {
+	var resource AutoshiftObserverNotificationStatus
 	err := ctx.ReadResource("aws-native:arczonalshift:AutoshiftObserverNotificationStatus", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -56,78 +56,78 @@ func GetAutoshiftObserverNotificationStatusEnum(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering AutoshiftObserverNotificationStatusEnum resources.
-type autoshiftObserverNotificationStatusEnumState struct {
+// Input properties used for looking up and filtering AutoshiftObserverNotificationStatus resources.
+type autoshiftObserverNotificationStatusState struct {
 }
 
-type AutoshiftObserverNotificationStatusEnumState struct {
+type AutoshiftObserverNotificationStatusState struct {
 }
 
-func (AutoshiftObserverNotificationStatusEnumState) ElementType() reflect.Type {
-	return reflect.TypeOf((*autoshiftObserverNotificationStatusEnumState)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusState) ElementType() reflect.Type {
+	return reflect.TypeOf((*autoshiftObserverNotificationStatusState)(nil)).Elem()
 }
 
-type autoshiftObserverNotificationStatusEnumArgs struct {
+type autoshiftObserverNotificationStatusArgs struct {
 	Status AutoshiftObserverNotificationStatusEnum `pulumi:"status"`
 }
 
-// The set of arguments for constructing a AutoshiftObserverNotificationStatusEnum resource.
-type AutoshiftObserverNotificationStatusEnumArgs struct {
+// The set of arguments for constructing a AutoshiftObserverNotificationStatus resource.
+type AutoshiftObserverNotificationStatusArgs struct {
 	Status AutoshiftObserverNotificationStatusEnumInput
 }
 
-func (AutoshiftObserverNotificationStatusEnumArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*autoshiftObserverNotificationStatusEnumArgs)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*autoshiftObserverNotificationStatusArgs)(nil)).Elem()
 }
 
-type AutoshiftObserverNotificationStatusEnumInput interface {
+type AutoshiftObserverNotificationStatusInput interface {
 	pulumi.Input
 
-	ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput
-	ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumOutput
+	ToAutoshiftObserverNotificationStatusOutput() AutoshiftObserverNotificationStatusOutput
+	ToAutoshiftObserverNotificationStatusOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusOutput
 }
 
-func (*AutoshiftObserverNotificationStatusEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
+func (*AutoshiftObserverNotificationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoshiftObserverNotificationStatus)(nil)).Elem()
 }
 
-func (i *AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput {
-	return i.ToAutoshiftObserverNotificationStatusEnumOutputWithContext(context.Background())
+func (i *AutoshiftObserverNotificationStatus) ToAutoshiftObserverNotificationStatusOutput() AutoshiftObserverNotificationStatusOutput {
+	return i.ToAutoshiftObserverNotificationStatusOutputWithContext(context.Background())
 }
 
-func (i *AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoshiftObserverNotificationStatusEnumOutput)
+func (i *AutoshiftObserverNotificationStatus) ToAutoshiftObserverNotificationStatusOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoshiftObserverNotificationStatusOutput)
 }
 
-type AutoshiftObserverNotificationStatusEnumOutput struct{ *pulumi.OutputState }
+type AutoshiftObserverNotificationStatusOutput struct{ *pulumi.OutputState }
 
-func (AutoshiftObserverNotificationStatusEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoshiftObserverNotificationStatus)(nil)).Elem()
 }
 
-func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput {
+func (o AutoshiftObserverNotificationStatusOutput) ToAutoshiftObserverNotificationStatusOutput() AutoshiftObserverNotificationStatusOutput {
 	return o
 }
 
-func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumOutput {
+func (o AutoshiftObserverNotificationStatusOutput) ToAutoshiftObserverNotificationStatusOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusOutput {
 	return o
 }
 
-func (o AutoshiftObserverNotificationStatusEnumOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AutoshiftObserverNotificationStatusEnum) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o AutoshiftObserverNotificationStatusOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoshiftObserverNotificationStatus) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-func (o AutoshiftObserverNotificationStatusEnumOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *AutoshiftObserverNotificationStatusEnum) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o AutoshiftObserverNotificationStatusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoshiftObserverNotificationStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o AutoshiftObserverNotificationStatusEnumOutput) Status() AutoshiftObserverNotificationStatusEnumOutput {
-	return o.ApplyT(func(v *AutoshiftObserverNotificationStatusEnum) AutoshiftObserverNotificationStatusEnumOutput {
+func (o AutoshiftObserverNotificationStatusOutput) Status() AutoshiftObserverNotificationStatusEnumOutput {
+	return o.ApplyT(func(v *AutoshiftObserverNotificationStatus) AutoshiftObserverNotificationStatusEnumOutput {
 		return v.Status
 	}).(AutoshiftObserverNotificationStatusEnumOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoshiftObserverNotificationStatusEnumInput)(nil)).Elem(), &AutoshiftObserverNotificationStatusEnum{})
-	pulumi.RegisterOutputType(AutoshiftObserverNotificationStatusEnumOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoshiftObserverNotificationStatusInput)(nil)).Elem(), &AutoshiftObserverNotificationStatus{})
+	pulumi.RegisterOutputType(AutoshiftObserverNotificationStatusOutput{})
 }

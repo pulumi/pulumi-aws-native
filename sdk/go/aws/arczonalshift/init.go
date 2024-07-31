@@ -22,7 +22,7 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws-native:arczonalshift:AutoshiftObserverNotificationStatus":
-		r = &AutoshiftObserverNotificationStatusEnum{}
+		r = &AutoshiftObserverNotificationStatus{}
 	case "aws-native:arczonalshift:ZonalAutoshiftConfiguration":
 		r = &ZonalAutoshiftConfiguration{}
 	default:

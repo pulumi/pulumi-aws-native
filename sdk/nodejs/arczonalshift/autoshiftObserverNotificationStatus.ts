@@ -39,7 +39,7 @@ export class AutoshiftObserverNotificationStatus extends pulumi.CustomResource {
 
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     public /*out*/ readonly region!: pulumi.Output<string>;
-    public readonly status!: pulumi.Output<enums.arczonalshift.AutoshiftObserverNotificationStatus>;
+    public readonly status!: pulumi.Output<enums.arczonalshift.AutoshiftObserverNotificationStatusEnum>;
 
     /**
      * Create a AutoshiftObserverNotificationStatus resource with the given unique name, arguments, and options.
@@ -74,5 +74,5 @@ export class AutoshiftObserverNotificationStatus extends pulumi.CustomResource {
  * The set of arguments for constructing a AutoshiftObserverNotificationStatus resource.
  */
 export interface AutoshiftObserverNotificationStatusArgs {
-    status: pulumi.Input<enums.arczonalshift.AutoshiftObserverNotificationStatus>;
+    status: pulumi.Input<enums.arczonalshift.AutoshiftObserverNotificationStatusEnum>;
 }

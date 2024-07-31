@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ArcZonalShift
         public Output<string> Region { get; private set; } = null!;
 
         [Output("status")]
-        public Output<Pulumi.AwsNative.ArcZonalShift.AutoshiftObserverNotificationStatus> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ArcZonalShift.AutoshiftObserverNotificationStatusEnum> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ArcZonalShift
     public sealed class AutoshiftObserverNotificationStatusArgs : global::Pulumi.ResourceArgs
     {
         [Input("status", required: true)]
-        public Input<Pulumi.AwsNative.ArcZonalShift.AutoshiftObserverNotificationStatus> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ArcZonalShift.AutoshiftObserverNotificationStatusEnum> Status { get; set; } = null!;
 
         public AutoshiftObserverNotificationStatusArgs()
         {

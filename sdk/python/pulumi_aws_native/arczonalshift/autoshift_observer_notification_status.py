@@ -15,7 +15,7 @@ __all__ = ['AutoshiftObserverNotificationStatusArgs', 'AutoshiftObserverNotifica
 @pulumi.input_type
 class AutoshiftObserverNotificationStatusArgs:
     def __init__(__self__, *,
-                 status: pulumi.Input['AutoshiftObserverNotificationStatus']):
+                 status: pulumi.Input['AutoshiftObserverNotificationStatusEnum']):
         """
         The set of arguments for constructing a AutoshiftObserverNotificationStatus resource.
         """
@@ -23,11 +23,11 @@ class AutoshiftObserverNotificationStatusArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input['AutoshiftObserverNotificationStatus']:
+    def status(self) -> pulumi.Input['AutoshiftObserverNotificationStatusEnum']:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input['AutoshiftObserverNotificationStatus']):
+    def status(self, value: pulumi.Input['AutoshiftObserverNotificationStatusEnum']):
         pulumi.set(self, "status", value)
 
 
@@ -36,7 +36,7 @@ class AutoshiftObserverNotificationStatus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 status: Optional[pulumi.Input['AutoshiftObserverNotificationStatus']] = None,
+                 status: Optional[pulumi.Input['AutoshiftObserverNotificationStatusEnum']] = None,
                  __props__=None):
         """
         Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
@@ -68,7 +68,7 @@ class AutoshiftObserverNotificationStatus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 status: Optional[pulumi.Input['AutoshiftObserverNotificationStatus']] = None,
+                 status: Optional[pulumi.Input['AutoshiftObserverNotificationStatusEnum']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -124,6 +124,6 @@ class AutoshiftObserverNotificationStatus(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['AutoshiftObserverNotificationStatus']:
+    def status(self) -> pulumi.Output['AutoshiftObserverNotificationStatusEnum']:
         return pulumi.get(self, "status")
 

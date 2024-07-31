@@ -5,12 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'AutoshiftObserverNotificationStatus',
+    'AutoshiftObserverNotificationStatusEnum',
     'ZonalAutoshiftConfigurationZonalAutoshiftStatus',
 ]
 
 
-class AutoshiftObserverNotificationStatus(str, Enum):
+class AutoshiftObserverNotificationStatusEnum(str, Enum):
     ENABLED = "ENABLED"
 
 
