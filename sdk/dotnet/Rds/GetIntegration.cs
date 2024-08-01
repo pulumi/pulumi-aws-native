@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Rds
     public static class GetIntegration
     {
         /// <summary>
-        /// Creates a zero-ETL integration with Amazon Redshift.
+        /// A zero-ETL integration with Amazon Redshift.
         /// </summary>
         public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Creates a zero-ETL integration with Amazon Redshift.
+        /// A zero-ETL integration with Amazon Redshift.
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? CreateTime;
         /// <summary>
-        /// The data filter for the integration.
+        /// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
         /// </summary>
         public readonly string? DataFilter;
         /// <summary>
-        /// The description of the integration.
+        /// A description of the integration.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? IntegrationName;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

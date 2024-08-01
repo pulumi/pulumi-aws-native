@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseStorageConfiguration
     {
+        /// <summary>
+        /// Contains the storage configuration of the knowledge base in MongoDB Atlas.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseMongoDbAtlasConfiguration? MongoDbAtlasConfiguration;
         /// <summary>
         /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.

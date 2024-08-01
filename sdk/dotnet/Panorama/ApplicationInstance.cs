@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama
 {
     /// <summary>
-    /// Schema for ApplicationInstance CloudFormation Resource
+    /// Creates an application instance and deploys it to a device.
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:ApplicationInstance")]
     public partial class ApplicationInstance : global::Pulumi.CustomResource

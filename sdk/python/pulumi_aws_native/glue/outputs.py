@@ -181,6 +181,9 @@ class SchemaVersionSchema(dict):
 
 @pulumi.output_type
 class TriggerAction(dict):
+    """
+    The actions initiated by this trigger.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,18 +215,13 @@ class TriggerAction(dict):
                  security_configuration: Optional[str] = None,
                  timeout: Optional[int] = None):
         """
+        The actions initiated by this trigger.
         :param Any arguments: The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-               
-               You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-               
-               For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-               
-               For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
         :param str crawler_name: The name of the crawler to be used with this action.
         :param str job_name: The name of a job to be executed.
         :param 'TriggerNotificationProperty' notification_property: Specifies configuration properties of a job run notification.
-        :param str security_configuration: The name of the `SecurityConfiguration` structure to be used with this action.
-        :param int timeout: The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        :param str security_configuration: The name of the SecurityConfiguration structure to be used with this action.
+        :param int timeout: The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -243,12 +241,6 @@ class TriggerAction(dict):
     def arguments(self) -> Optional[Any]:
         """
         The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-
-        You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-
-        For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-
-        For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
         """
         return pulumi.get(self, "arguments")
 
@@ -280,7 +272,7 @@ class TriggerAction(dict):
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[str]:
         """
-        The name of the `SecurityConfiguration` structure to be used with this action.
+        The name of the SecurityConfiguration structure to be used with this action.
         """
         return pulumi.get(self, "security_configuration")
 
@@ -288,13 +280,16 @@ class TriggerAction(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
         """
         return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type
 class TriggerCondition(dict):
+    """
+    Defines a condition under which a trigger fires.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -325,11 +320,12 @@ class TriggerCondition(dict):
                  logical_operator: Optional[str] = None,
                  state: Optional[str] = None):
         """
+        Defines a condition under which a trigger fires.
         :param str crawl_state: The state of the crawler to which this condition applies.
         :param str crawler_name: The name of the crawler to which this condition applies.
-        :param str job_name: The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        :param str job_name: The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
         :param str logical_operator: A logical operator.
-        :param str state: The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        :param str state: The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
         """
         if crawl_state is not None:
             pulumi.set(__self__, "crawl_state", crawl_state)
@@ -362,7 +358,7 @@ class TriggerCondition(dict):
     @pulumi.getter(name="jobName")
     def job_name(self) -> Optional[str]:
         """
-        The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
         """
         return pulumi.get(self, "job_name")
 
@@ -378,13 +374,16 @@ class TriggerCondition(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
         """
         return pulumi.get(self, "state")
 
 
 @pulumi.output_type
 class TriggerEventBatchingCondition(dict):
+    """
+    Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -408,6 +407,7 @@ class TriggerEventBatchingCondition(dict):
                  batch_size: int,
                  batch_window: Optional[int] = None):
         """
+        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param int batch_size: Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
         :param int batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
         """
@@ -434,6 +434,9 @@ class TriggerEventBatchingCondition(dict):
 
 @pulumi.output_type
 class TriggerNotificationProperty(dict):
+    """
+    Specifies configuration properties of a job run notification.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -454,6 +457,7 @@ class TriggerNotificationProperty(dict):
     def __init__(__self__, *,
                  notify_delay_after: Optional[int] = None):
         """
+        Specifies configuration properties of a job run notification.
         :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification
         """
         if notify_delay_after is not None:
@@ -470,10 +474,14 @@ class TriggerNotificationProperty(dict):
 
 @pulumi.output_type
 class TriggerPredicate(dict):
+    """
+    The predicate of this trigger, which defines when it will fire.
+    """
     def __init__(__self__, *,
                  conditions: Optional[Sequence['outputs.TriggerCondition']] = None,
                  logical: Optional[str] = None):
         """
+        The predicate of this trigger, which defines when it will fire.
         :param Sequence['TriggerCondition'] conditions: A list of the conditions that determine when the trigger will fire.
         :param str logical: An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
         """

@@ -39,11 +39,14 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("customerEncryptionKeyArn")]
         public Output<string?> CustomerEncryptionKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of the nodes and connections between the nodes in the flow.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.FlowDefinition?> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// An Amazon S3 location.
+        /// The Amazon S3 location of the flow definition.
         /// </summary>
         [Output("definitionS3Location")]
         public Output<Outputs.FlowS3Location?> DefinitionS3Location { get; private set; } = null!;
@@ -54,6 +57,11 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("definitionString")]
         public Output<string?> DefinitionString { get; private set; } = null!;
 
+        /// <summary>
+        /// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+        /// 
+        /// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        /// </summary>
         [Output("definitionSubstitutions")]
         public Output<ImmutableDictionary<string, object>?> DefinitionSubstitutions { get; private set; } = null!;
 
@@ -86,6 +94,12 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.FlowStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -155,11 +169,14 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
 
+        /// <summary>
+        /// The definition of the nodes and connections between the nodes in the flow.
+        /// </summary>
         [Input("definition")]
         public Input<Inputs.FlowDefinitionArgs>? Definition { get; set; }
 
         /// <summary>
-        /// An Amazon S3 location.
+        /// The Amazon S3 location of the flow definition.
         /// </summary>
         [Input("definitionS3Location")]
         public Input<Inputs.FlowS3LocationArgs>? DefinitionS3Location { get; set; }
@@ -172,6 +189,12 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("definitionSubstitutions")]
         private InputMap<object>? _definitionSubstitutions;
+
+        /// <summary>
+        /// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+        /// 
+        /// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        /// </summary>
         public InputMap<object> DefinitionSubstitutions
         {
             get => _definitionSubstitutions ?? (_definitionSubstitutions = new InputMap<object>());
@@ -198,6 +221,13 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

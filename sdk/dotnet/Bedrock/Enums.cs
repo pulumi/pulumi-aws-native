@@ -817,6 +817,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Type of contextual grounding filter
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailContextualGroundingFilterType : IEquatable<GuardrailContextualGroundingFilterType>
+    {
+        private readonly string _value;
+
+        private GuardrailContextualGroundingFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailContextualGroundingFilterType Grounding { get; } = new GuardrailContextualGroundingFilterType("GROUNDING");
+        public static GuardrailContextualGroundingFilterType Relevance { get; } = new GuardrailContextualGroundingFilterType("RELEVANCE");
+
+        public static bool operator ==(GuardrailContextualGroundingFilterType left, GuardrailContextualGroundingFilterType right) => left.Equals(right);
+        public static bool operator !=(GuardrailContextualGroundingFilterType left, GuardrailContextualGroundingFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailContextualGroundingFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailContextualGroundingFilterType other && Equals(other);
+        public bool Equals(GuardrailContextualGroundingFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Strength for filters
     /// </summary>
     [EnumType]

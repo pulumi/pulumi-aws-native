@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseEmbeddingModelConfiguration
     {
+        /// <summary>
+        /// The vector configuration details on the Bedrock embeddings model.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration? BedrockEmbeddingModelConfiguration;
 
         [OutputConstructor]

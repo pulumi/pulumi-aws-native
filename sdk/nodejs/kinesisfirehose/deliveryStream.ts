@@ -85,6 +85,12 @@ export class DeliveryStream extends pulumi.CustomResource {
      */
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
     /**
+     * Specifies the destination configure settings for Apache Iceberg Table.
+     *
+     * Amazon Data Firehose is in preview release and is subject to change.
+     */
+    public readonly icebergDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfiguration | undefined>;
+    /**
      * When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
      */
     public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
@@ -150,6 +156,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["elasticsearchDestinationConfiguration"] = args ? args.elasticsearchDestinationConfiguration : undefined;
             resourceInputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
             resourceInputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
+            resourceInputs["icebergDestinationConfiguration"] = args ? args.icebergDestinationConfiguration : undefined;
             resourceInputs["kinesisStreamSourceConfiguration"] = args ? args.kinesisStreamSourceConfiguration : undefined;
             resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
             resourceInputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
@@ -168,6 +175,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["elasticsearchDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["extendedS3DestinationConfiguration"] = undefined /*out*/;
             resourceInputs["httpEndpointDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["icebergDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["kinesisStreamSourceConfiguration"] = undefined /*out*/;
             resourceInputs["mskSourceConfiguration"] = undefined /*out*/;
             resourceInputs["redshiftDestinationConfiguration"] = undefined /*out*/;
@@ -177,7 +185,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -230,6 +238,12 @@ export interface DeliveryStreamArgs {
      * Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
      */
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;
+    /**
+     * Specifies the destination configure settings for Apache Iceberg Table.
+     *
+     * Amazon Data Firehose is in preview release and is subject to change.
+     */
+    icebergDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfigurationArgs>;
     /**
      * When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
      */

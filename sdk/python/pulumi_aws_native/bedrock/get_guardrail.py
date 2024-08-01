@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGuardrailResult:
-    def __init__(__self__, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, created_at=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
+    def __init__(__self__, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, created_at=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
         if blocked_input_messaging and not isinstance(blocked_input_messaging, str):
             raise TypeError("Expected argument 'blocked_input_messaging' to be a str")
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
@@ -31,6 +31,9 @@ class GetGuardrailResult:
         if content_policy_config and not isinstance(content_policy_config, dict):
             raise TypeError("Expected argument 'content_policy_config' to be a dict")
         pulumi.set(__self__, "content_policy_config", content_policy_config)
+        if contextual_grounding_policy_config and not isinstance(contextual_grounding_policy_config, dict):
+            raise TypeError("Expected argument 'contextual_grounding_policy_config' to be a dict")
+        pulumi.set(__self__, "contextual_grounding_policy_config", contextual_grounding_policy_config)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -100,6 +103,11 @@ class GetGuardrailResult:
         The content filter policies to configure for the guardrail.
         """
         return pulumi.get(self, "content_policy_config")
+
+    @property
+    @pulumi.getter(name="contextualGroundingPolicyConfig")
+    def contextual_grounding_policy_config(self) -> Optional['outputs.GuardrailContextualGroundingPolicyConfig']:
+        return pulumi.get(self, "contextual_grounding_policy_config")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -231,6 +239,7 @@ class AwaitableGetGuardrailResult(GetGuardrailResult):
             blocked_input_messaging=self.blocked_input_messaging,
             blocked_outputs_messaging=self.blocked_outputs_messaging,
             content_policy_config=self.content_policy_config,
+            contextual_grounding_policy_config=self.contextual_grounding_policy_config,
             created_at=self.created_at,
             description=self.description,
             failure_recommendations=self.failure_recommendations,
@@ -265,6 +274,7 @@ def get_guardrail(guardrail_arn: Optional[str] = None,
         blocked_input_messaging=pulumi.get(__ret__, 'blocked_input_messaging'),
         blocked_outputs_messaging=pulumi.get(__ret__, 'blocked_outputs_messaging'),
         content_policy_config=pulumi.get(__ret__, 'content_policy_config'),
+        contextual_grounding_policy_config=pulumi.get(__ret__, 'contextual_grounding_policy_config'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         failure_recommendations=pulumi.get(__ret__, 'failure_recommendations'),

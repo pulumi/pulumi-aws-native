@@ -22,7 +22,8 @@ type Guardrail struct {
 	// Messaging for when violations are detected in text
 	BlockedOutputsMessaging pulumi.StringOutput `pulumi:"blockedOutputsMessaging"`
 	// The content filter policies to configure for the guardrail.
-	ContentPolicyConfig GuardrailContentPolicyConfigPtrOutput `pulumi:"contentPolicyConfig"`
+	ContentPolicyConfig             GuardrailContentPolicyConfigPtrOutput             `pulumi:"contentPolicyConfig"`
+	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrOutput `pulumi:"contextualGroundingPolicyConfig"`
 	// Time Stamp
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the guardrail or its version
@@ -106,7 +107,8 @@ type guardrailArgs struct {
 	// Messaging for when violations are detected in text
 	BlockedOutputsMessaging string `pulumi:"blockedOutputsMessaging"`
 	// The content filter policies to configure for the guardrail.
-	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	ContentPolicyConfig             *GuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
+	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
 	Description *string `pulumi:"description"`
 	// The KMS key with which the guardrail was encrypted at rest
@@ -130,7 +132,8 @@ type GuardrailArgs struct {
 	// Messaging for when violations are detected in text
 	BlockedOutputsMessaging pulumi.StringInput
 	// The content filter policies to configure for the guardrail.
-	ContentPolicyConfig GuardrailContentPolicyConfigPtrInput
+	ContentPolicyConfig             GuardrailContentPolicyConfigPtrInput
+	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrInput
 	// Description of the guardrail or its version
 	Description pulumi.StringPtrInput
 	// The KMS key with which the guardrail was encrypted at rest
@@ -197,6 +200,12 @@ func (o GuardrailOutput) BlockedOutputsMessaging() pulumi.StringOutput {
 // The content filter policies to configure for the guardrail.
 func (o GuardrailOutput) ContentPolicyConfig() GuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailContentPolicyConfigPtrOutput { return v.ContentPolicyConfig }).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+func (o GuardrailOutput) ContextualGroundingPolicyConfig() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ApplyT(func(v *Guardrail) GuardrailContextualGroundingPolicyConfigPtrOutput {
+		return v.ContextualGroundingPolicyConfig
+	}).(GuardrailContextualGroundingPolicyConfigPtrOutput)
 }
 
 // Time Stamp

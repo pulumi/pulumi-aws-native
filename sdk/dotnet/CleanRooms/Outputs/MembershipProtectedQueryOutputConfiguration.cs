@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class MembershipProtectedQueryOutputConfiguration
     {
         /// <summary>
-        /// Required configuration for a protected query with an `S3` output type.
+        /// Required configuration for a protected query with an `s3` output type.
         /// </summary>
         public readonly Outputs.MembershipProtectedQueryS3OutputConfiguration S3;
 

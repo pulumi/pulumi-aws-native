@@ -44,7 +44,11 @@ type LookupFlowAliasResult struct {
 	Name *string `pulumi:"name"`
 	// Routing configuration for a Flow alias.
 	RoutingConfiguration []FlowAliasRoutingConfigurationListItem `pulumi:"routingConfiguration"`
-	Tags                 map[string]string                       `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -122,6 +126,10 @@ func (o LookupFlowAliasResultOutput) RoutingConfiguration() FlowAliasRoutingConf
 	return o.ApplyT(func(v LookupFlowAliasResult) []FlowAliasRoutingConfigurationListItem { return v.RoutingConfiguration }).(FlowAliasRoutingConfigurationListItemArrayOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupFlowAliasResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFlowAliasResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

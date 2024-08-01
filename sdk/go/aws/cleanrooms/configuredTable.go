@@ -21,7 +21,7 @@ type ConfiguredTable struct {
 	AllowedColumns pulumi.StringArrayOutput `pulumi:"allowedColumns"`
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethodOutput `pulumi:"analysisMethod"`
-	// The entire created analysis rule.
+	// The analysis rule that was created for the configured table.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayOutput `pulumi:"analysisRules"`
 	// Returns the Amazon Resource Name (ARN) of the specified configured table.
 	//
@@ -100,7 +100,7 @@ type configuredTableArgs struct {
 	AllowedColumns []string `pulumi:"allowedColumns"`
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethod `pulumi:"analysisMethod"`
-	// The entire created analysis rule.
+	// The analysis rule that was created for the configured table.
 	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
 	// A description for the configured table.
 	Description *string `pulumi:"description"`
@@ -118,7 +118,7 @@ type ConfiguredTableArgs struct {
 	AllowedColumns pulumi.StringArrayInput
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethodInput
-	// The entire created analysis rule.
+	// The analysis rule that was created for the configured table.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayInput
 	// A description for the configured table.
 	Description pulumi.StringPtrInput
@@ -177,7 +177,7 @@ func (o ConfiguredTableOutput) AnalysisMethod() ConfiguredTableAnalysisMethodOut
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisMethodOutput { return v.AnalysisMethod }).(ConfiguredTableAnalysisMethodOutput)
 }
 
-// The entire created analysis rule.
+// The analysis rule that was created for the configured table.
 func (o ConfiguredTableOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisRuleArrayOutput { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
 }

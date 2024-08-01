@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Outputs
 {
 
+    /// <summary>
+    /// A storage location.
+    /// </summary>
     [OutputType]
     public sealed class PackageStorageLocation
     {

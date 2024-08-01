@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
         /// <summary>
+        /// This is an object that represents the properties of the node range for a multi-node parallel job.
+        /// </summary>
+        public readonly Outputs.JobDefinitionEksProperties? EksProperties;
+        /// <summary>
         /// The instance types of the underlying host infrastructure of a multi-node parallel job.
         /// 
         /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -40,12 +44,15 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             Outputs.JobDefinitionEcsProperties? ecsProperties,
 
+            Outputs.JobDefinitionEksProperties? eksProperties,
+
             ImmutableArray<string> instanceTypes,
 
             string targetNodes)
         {
             Container = container;
             EcsProperties = ecsProperties;
+            EksProperties = eksProperties;
             InstanceTypes = instanceTypes;
             TargetNodes = targetNodes;
         }

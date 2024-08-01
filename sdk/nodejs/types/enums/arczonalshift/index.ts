@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ZonalAutoshiftConfigurationControlConditionType = {
-    Cloudwatch: "CLOUDWATCH",
+export const AutoshiftObserverNotificationStatusEnum = {
+    Enabled: "ENABLED",
 } as const;
 
-export type ZonalAutoshiftConfigurationControlConditionType = (typeof ZonalAutoshiftConfigurationControlConditionType)[keyof typeof ZonalAutoshiftConfigurationControlConditionType];
+export type AutoshiftObserverNotificationStatusEnum = (typeof AutoshiftObserverNotificationStatusEnum)[keyof typeof AutoshiftObserverNotificationStatusEnum];
 
 export const ZonalAutoshiftConfigurationZonalAutoshiftStatus = {
     Enabled: "ENABLED",

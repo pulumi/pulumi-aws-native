@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Panorama
     public static class GetApplicationInstance
     {
         /// <summary>
-        /// Schema for ApplicationInstance CloudFormation Resource
+        /// Creates an application instance and deploys it to a device.
         /// </summary>
         public static Task<GetApplicationInstanceResult> InvokeAsync(GetApplicationInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for ApplicationInstance CloudFormation Resource
+        /// Creates an application instance and deploys it to a device.
         /// </summary>
         public static Output<GetApplicationInstanceResult> Invoke(GetApplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceInvokeArgs(), options.WithDefaults());

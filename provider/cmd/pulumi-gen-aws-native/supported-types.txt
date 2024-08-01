@@ -5,6 +5,7 @@ AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
+AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
@@ -935,6 +936,7 @@ AWS::SageMaker::MonitoringSchedule
 AWS::SageMaker::Pipeline
 AWS::SageMaker::Project
 AWS::SageMaker::Space
+AWS::SageMaker::StudioLifecycleConfig
 AWS::SageMaker::UserProfile
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Inputs
 {
 
+    /// <summary>
+    /// Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
+    /// </summary>
     public sealed class ApplicationInstanceManifestOverridesPayloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

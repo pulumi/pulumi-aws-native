@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Encryption option for an activity.
 type ActivityEncryptionConfigurationType string
 
 const (
@@ -343,6 +344,7 @@ func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToStateMachineAliasDeplo
 	return pulumi.ToOutputWithContext(ctx, in).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
 }
 
+// Encryption option for a state machine.
 type StateMachineEncryptionConfigurationType string
 
 const (

@@ -14,6 +14,9 @@ __all__ = [
 
 
 class ActivityEncryptionConfigurationType(str, Enum):
+    """
+    Encryption option for an activity.
+    """
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
     AWS_OWNED_KEY = "AWS_OWNED_KEY"
 
@@ -28,6 +31,9 @@ class StateMachineAliasDeploymentPreferenceType(str, Enum):
 
 
 class StateMachineEncryptionConfigurationType(str, Enum):
+    """
+    Encryption option for a state machine.
+    """
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
     AWS_OWNED_KEY = "AWS_OWNED_KEY"
 

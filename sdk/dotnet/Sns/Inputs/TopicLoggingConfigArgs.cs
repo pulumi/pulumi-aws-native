@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Sns.Inputs
 {
 
+    /// <summary>
+    /// The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
+    /// </summary>
     public sealed class TopicLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -20,8 +23,7 @@ namespace Pulumi.AwsNative.Sns.Inputs
 
         /// <summary>
         /// Indicates one of the supported protocols for the Amazon SNS topic.
-        /// 
-        /// &gt; At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+        ///   At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<Pulumi.AwsNative.Sns.TopicLoggingConfigProtocol> Protocol { get; set; } = null!;

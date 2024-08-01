@@ -79,6 +79,8 @@ export class SecurityControl extends pulumi.CustomResource {
             resourceInputs["securityControlId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["securityControlId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityControl.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a zero-ETL integration with Amazon Redshift.
+// A zero-ETL integration with Amazon Redshift.
 func LookupIntegration(ctx *pulumi.Context, args *LookupIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntegrationResult
@@ -31,15 +31,15 @@ type LookupIntegrationArgs struct {
 type LookupIntegrationResult struct {
 	// The time when the integration was created, in Universal Coordinated Time (UTC).
 	CreateTime *string `pulumi:"createTime"`
-	// The data filter for the integration.
+	// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 	DataFilter *string `pulumi:"dataFilter"`
-	// The description of the integration.
+	// A description of the integration.
 	Description *string `pulumi:"description"`
 	// The ARN of the integration.
 	IntegrationArn *string `pulumi:"integrationArn"`
 	// The name of the integration.
 	IntegrationName *string `pulumi:"integrationName"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -84,12 +84,12 @@ func (o LookupIntegrationResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
-// The data filter for the integration.
+// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 func (o LookupIntegrationResultOutput) DataFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.DataFilter }).(pulumi.StringPtrOutput)
 }
 
-// The description of the integration.
+// A description of the integration.
 func (o LookupIntegrationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -104,7 +104,7 @@ func (o LookupIntegrationResultOutput) IntegrationName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.IntegrationName }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 func (o LookupIntegrationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

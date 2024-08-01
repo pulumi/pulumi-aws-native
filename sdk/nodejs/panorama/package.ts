@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for Package CloudFormation Resource
+ * Creates a package and storage location in an Amazon S3 access point.
  */
 export class Package extends pulumi.CustomResource {
     /**

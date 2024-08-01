@@ -192,7 +192,7 @@ export const DomainMlTools = {
     DataWrangler: "DataWrangler",
     FeatureStore: "FeatureStore",
     EmrClusters: "EmrClusters",
-    AutoMl: "AutoML",
+    AutoMl: "AutoMl",
     Experiments: "Experiments",
     Training: "Training",
     ModelEvaluation: "ModelEvaluation",
@@ -1050,6 +1050,18 @@ export const SpaceSharingSettingsSharingType = {
  */
 export type SpaceSharingSettingsSharingType = (typeof SpaceSharingSettingsSharingType)[keyof typeof SpaceSharingSettingsSharingType];
 
+export const StudioLifecycleConfigAppType = {
+    JupyterServer: "JupyterServer",
+    KernelGateway: "KernelGateway",
+    CodeEditor: "CodeEditor",
+    JupyterLab: "JupyterLab",
+} as const;
+
+/**
+ * The App type that the Lifecycle Configuration is attached to.
+ */
+export type StudioLifecycleConfigAppType = (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
+
 export const UserProfileAppType = {
     JupyterServer: "JupyterServer",
     TensorBoard: "TensorBoard",
@@ -1066,7 +1078,7 @@ export const UserProfileMlTools = {
     DataWrangler: "DataWrangler",
     FeatureStore: "FeatureStore",
     EmrClusters: "EmrClusters",
-    AutoMl: "AutoML",
+    AutoMl: "AutoMl",
     Experiments: "Experiments",
     Training: "Training",
     ModelEvaluation: "ModelEvaluation",

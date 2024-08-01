@@ -46,7 +46,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly analysisMethod!: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
-     * The entire created analysis rule.
+     * The analysis rule that was created for the configured table.
      */
     public readonly analysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAnalysisRule[] | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface ConfiguredTableArgs {
      */
     analysisMethod: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
-     * The entire created analysis rule.
+     * The analysis rule that was created for the configured table.
      */
     analysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleArgs>[]>;
     /**

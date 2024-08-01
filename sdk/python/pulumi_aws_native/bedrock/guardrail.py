@@ -22,6 +22,7 @@ class GuardrailArgs:
                  blocked_input_messaging: pulumi.Input[str],
                  blocked_outputs_messaging: pulumi.Input[str],
                  content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
+                 contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,8 @@ class GuardrailArgs:
         pulumi.set(__self__, "blocked_outputs_messaging", blocked_outputs_messaging)
         if content_policy_config is not None:
             pulumi.set(__self__, "content_policy_config", content_policy_config)
+        if contextual_grounding_policy_config is not None:
+            pulumi.set(__self__, "contextual_grounding_policy_config", contextual_grounding_policy_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
@@ -96,6 +99,15 @@ class GuardrailArgs:
     @content_policy_config.setter
     def content_policy_config(self, value: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]):
         pulumi.set(self, "content_policy_config", value)
+
+    @property
+    @pulumi.getter(name="contextualGroundingPolicyConfig")
+    def contextual_grounding_policy_config(self) -> Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]:
+        return pulumi.get(self, "contextual_grounding_policy_config")
+
+    @contextual_grounding_policy_config.setter
+    def contextual_grounding_policy_config(self, value: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]):
+        pulumi.set(self, "contextual_grounding_policy_config", value)
 
     @property
     @pulumi.getter
@@ -190,6 +202,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_input_messaging: Optional[pulumi.Input[str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[str]] = None,
                  content_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']]] = None,
+                 contextual_grounding_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContextualGroundingPolicyConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -241,6 +254,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_input_messaging: Optional[pulumi.Input[str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[str]] = None,
                  content_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']]] = None,
+                 contextual_grounding_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContextualGroundingPolicyConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -264,6 +278,7 @@ class Guardrail(pulumi.CustomResource):
                 raise TypeError("Missing required property 'blocked_outputs_messaging'")
             __props__.__dict__["blocked_outputs_messaging"] = blocked_outputs_messaging
             __props__.__dict__["content_policy_config"] = content_policy_config
+            __props__.__dict__["contextual_grounding_policy_config"] = contextual_grounding_policy_config
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
@@ -304,6 +319,7 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["blocked_input_messaging"] = None
         __props__.__dict__["blocked_outputs_messaging"] = None
         __props__.__dict__["content_policy_config"] = None
+        __props__.__dict__["contextual_grounding_policy_config"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["failure_recommendations"] = None
@@ -344,6 +360,11 @@ class Guardrail(pulumi.CustomResource):
         The content filter policies to configure for the guardrail.
         """
         return pulumi.get(self, "content_policy_config")
+
+    @property
+    @pulumi.getter(name="contextualGroundingPolicyConfig")
+    def contextual_grounding_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailContextualGroundingPolicyConfig']]:
+        return pulumi.get(self, "contextual_grounding_policy_config")
 
     @property
     @pulumi.getter(name="createdAt")

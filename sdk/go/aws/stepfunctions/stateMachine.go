@@ -188,7 +188,8 @@ type StateMachine struct {
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
 	//
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
-	DefinitionSubstitutions pulumi.MapOutput                             `pulumi:"definitionSubstitutions"`
+	DefinitionSubstitutions pulumi.MapOutput `pulumi:"definitionSubstitutions"`
+	// Encryption configuration for the state machine.
 	EncryptionConfiguration StateMachineEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged.
 	//
@@ -291,7 +292,8 @@ type stateMachineArgs struct {
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
 	//
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
-	DefinitionSubstitutions map[string]interface{}               `pulumi:"definitionSubstitutions"`
+	DefinitionSubstitutions map[string]interface{} `pulumi:"definitionSubstitutions"`
+	// Encryption configuration for the state machine.
 	EncryptionConfiguration *StateMachineEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged.
 	//
@@ -333,6 +335,7 @@ type StateMachineArgs struct {
 	//
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions pulumi.MapInput
+	// Encryption configuration for the state machine.
 	EncryptionConfiguration StateMachineEncryptionConfigurationPtrInput
 	// Defines what execution history events are logged and where they are logged.
 	//
@@ -426,6 +429,7 @@ func (o StateMachineOutput) DefinitionSubstitutions() pulumi.MapOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.MapOutput { return v.DefinitionSubstitutions }).(pulumi.MapOutput)
 }
 
+// Encryption configuration for the state machine.
 func (o StateMachineOutput) EncryptionConfiguration() StateMachineEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(StateMachineEncryptionConfigurationPtrOutput)
 }

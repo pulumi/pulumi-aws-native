@@ -38,6 +38,9 @@ export interface GetFlowResult {
      * A KMS key ARN
      */
     readonly customerEncryptionKeyArn?: string;
+    /**
+     * The definition of the nodes and connections between the nodes in the flow.
+     */
     readonly definition?: outputs.bedrock.FlowDefinition;
     /**
      * Description of the flow
@@ -64,6 +67,12 @@ export interface GetFlowResult {
      * - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
      */
     readonly status?: enums.bedrock.FlowStatus;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     readonly tags?: {[key: string]: string};
     readonly testAliasTags?: {[key: string]: string};
     /**

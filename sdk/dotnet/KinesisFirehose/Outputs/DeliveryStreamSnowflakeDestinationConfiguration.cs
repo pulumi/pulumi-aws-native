@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
         /// </summary>
         public readonly string AccountUrl;
+        /// <summary>
+        /// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+        /// </summary>
+        public readonly Outputs.DeliveryStreamSnowflakeBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>
         /// The name of the record content column
@@ -42,6 +46,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         /// </summary>
         public readonly string? PrivateKey;
+        /// <summary>
+        /// Specifies configuration for Snowflake.
+        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
         /// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -85,6 +92,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         private DeliveryStreamSnowflakeDestinationConfiguration(
             string accountUrl,
 
+            Outputs.DeliveryStreamSnowflakeBufferingHints? bufferingHints,
+
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
             string? contentColumnName,
@@ -122,6 +131,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             string? user)
         {
             AccountUrl = accountUrl;
+            BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             ContentColumnName = contentColumnName;
             DataLoadingOption = dataLoadingOption;

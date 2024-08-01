@@ -14,15 +14,15 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getTrigger", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetTriggerArgs {
     /**
-     * Reserved for future use.
+     * The name of the trigger.
      */
-    id: string;
+    name: string;
 }
 
 export interface GetTriggerResult {
@@ -39,21 +39,13 @@ export interface GetTriggerResult {
      */
     readonly eventBatchingCondition?: outputs.glue.TriggerEventBatchingCondition;
     /**
-     * Reserved for future use.
-     */
-    readonly id?: string;
-    /**
      * The predicate of this trigger, which defines when it will fire.
      */
     readonly predicate?: outputs.glue.TriggerPredicate;
     /**
-     * A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+     * A cron expression used to specify the schedule.
      */
     readonly schedule?: string;
-    /**
-     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-     */
-    readonly startOnCreation?: boolean;
     /**
      * The tags to use with this trigger.
      *
@@ -70,7 +62,7 @@ export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.Invok
 
 export interface GetTriggerOutputArgs {
     /**
-     * Reserved for future use.
+     * The name of the trigger.
      */
-    id: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

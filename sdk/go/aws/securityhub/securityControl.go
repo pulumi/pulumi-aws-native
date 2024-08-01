@@ -36,6 +36,10 @@ func NewSecurityControl(ctx *pulumi.Context,
 	if args.Parameters == nil {
 		return nil, errors.New("invalid value for required argument 'Parameters'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"securityControlId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityControl
 	err := ctx.RegisterResource("aws-native:securityhub:SecurityControl", name, args, &resource, opts...)

@@ -13,6 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Parameter overrides for an application instance. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the overrides document.
 type ApplicationInstanceManifestOverridesPayload struct {
 	// The overrides document.
 	PayloadData *string `pulumi:"payloadData"`
@@ -29,6 +30,7 @@ type ApplicationInstanceManifestOverridesPayloadInput interface {
 	ToApplicationInstanceManifestOverridesPayloadOutputWithContext(context.Context) ApplicationInstanceManifestOverridesPayloadOutput
 }
 
+// Parameter overrides for an application instance. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the overrides document.
 type ApplicationInstanceManifestOverridesPayloadArgs struct {
 	// The overrides document.
 	PayloadData pulumi.StringPtrInput `pulumi:"payloadData"`
@@ -87,6 +89,7 @@ func (i *applicationInstanceManifestOverridesPayloadPtrType) ToApplicationInstan
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
+// Parameter overrides for an application instance. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the overrides document.
 type ApplicationInstanceManifestOverridesPayloadOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceManifestOverridesPayloadOutput) ElementType() reflect.Type {
@@ -150,6 +153,7 @@ func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) PayloadData() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A application verion's manifest file. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the application manifest (“graph.json“). This file is located in the “graphs“ folder in your application source.
 type ApplicationInstanceManifestPayload struct {
 	// The application manifest.
 	PayloadData *string `pulumi:"payloadData"`
@@ -166,6 +170,7 @@ type ApplicationInstanceManifestPayloadInput interface {
 	ToApplicationInstanceManifestPayloadOutputWithContext(context.Context) ApplicationInstanceManifestPayloadOutput
 }
 
+// A application verion's manifest file. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the application manifest (“graph.json“). This file is located in the “graphs“ folder in your application source.
 type ApplicationInstanceManifestPayloadArgs struct {
 	// The application manifest.
 	PayloadData pulumi.StringPtrInput `pulumi:"payloadData"`
@@ -183,6 +188,7 @@ func (i ApplicationInstanceManifestPayloadArgs) ToApplicationInstanceManifestPay
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestPayloadOutput)
 }
 
+// A application verion's manifest file. This is a JSON document that has a single key (“PayloadData“) where the value is an escaped string representation of the application manifest (“graph.json“). This file is located in the “graphs“ folder in your application source.
 type ApplicationInstanceManifestPayloadOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceManifestPayloadOutput) ElementType() reflect.Type {
@@ -203,12 +209,11 @@ func (o ApplicationInstanceManifestPayloadOutput) PayloadData() pulumi.StringPtr
 }
 
 type ApplicationInstanceTag struct {
-	// A string used to identify this tag
-	Key string `pulumi:"key"`
-	// A string containing the value for the tag
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
+// A storage location.
 type PackageStorageLocation struct {
 	// The location's binary prefix.
 	BinaryPrefixLocation *string `pulumi:"binaryPrefixLocation"`
@@ -233,6 +238,7 @@ type PackageStorageLocationInput interface {
 	ToPackageStorageLocationOutputWithContext(context.Context) PackageStorageLocationOutput
 }
 
+// A storage location.
 type PackageStorageLocationArgs struct {
 	// The location's binary prefix.
 	BinaryPrefixLocation pulumi.StringPtrInput `pulumi:"binaryPrefixLocation"`
@@ -299,6 +305,7 @@ func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationPtrOutput)
 }
 
+// A storage location.
 type PackageStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (PackageStorageLocationOutput) ElementType() reflect.Type {

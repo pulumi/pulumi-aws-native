@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a zero-ETL integration with Amazon Redshift.
+ * A zero-ETL integration with Amazon Redshift.
  */
 export class Integration extends pulumi.CustomResource {
     /**
@@ -38,9 +38,8 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
-     * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
-     *
-     * You can only include this parameter if you specify the `KMSKeyId` parameter.
+     * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
+     *  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
      */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -48,11 +47,11 @@ export class Integration extends pulumi.CustomResource {
      */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
-     * The data filter for the integration.
+     * Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
      */
     public readonly dataFilter!: pulumi.Output<string | undefined>;
     /**
-     * The description of the integration.
+     * A description of the integration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -64,15 +63,15 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly integrationName!: pulumi.Output<string | undefined>;
     /**
-     * An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+     * The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+     * The Amazon Resource Name (ARN) of the database to use as the source for replication.
      */
     public readonly sourceArn!: pulumi.Output<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -131,17 +130,16 @@ export class Integration extends pulumi.CustomResource {
  */
 export interface IntegrationArgs {
     /**
-     * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
-     *
-     * You can only include this parameter if you specify the `KMSKeyId` parameter.
+     * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
+     *  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
      */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The data filter for the integration.
+     * Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
      */
     dataFilter?: pulumi.Input<string>;
     /**
-     * The description of the integration.
+     * A description of the integration.
      */
     description?: pulumi.Input<string>;
     /**
@@ -149,15 +147,15 @@ export interface IntegrationArgs {
      */
     integrationName?: pulumi.Input<string>;
     /**
-     * An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+     * The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+     * The Amazon Resource Name (ARN) of the database to use as the source for replication.
      */
     sourceArn: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

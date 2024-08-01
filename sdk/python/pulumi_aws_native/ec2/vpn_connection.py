@@ -20,6 +20,7 @@ class VpnConnectionArgs:
     def __init__(__self__, *,
                  customer_gateway_id: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -29,14 +30,19 @@ class VpnConnectionArgs:
         The set of arguments for constructing a VpnConnection resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[str] type: The type of VPN connection.
-        :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only.
+        :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+                If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
+                You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
+                You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
         pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
         pulumi.set(__self__, "type", type)
+        if enable_acceleration is not None:
+            pulumi.set(__self__, "enable_acceleration", enable_acceleration)
         if static_routes_only is not None:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
@@ -73,10 +79,20 @@ class VpnConnectionArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="enableAcceleration")
+    def enable_acceleration(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_acceleration")
+
+    @enable_acceleration.setter
+    def enable_acceleration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_acceleration", value)
+
+    @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the VPN connection uses static routes only.
+        Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+         If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         """
         return pulumi.get(self, "static_routes_only")
 
@@ -101,6 +117,7 @@ class VpnConnectionArgs:
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the transit gateway associated with the VPN connection.
+         You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -113,6 +130,7 @@ class VpnConnectionArgs:
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the virtual private gateway at the AWS side of the VPN connection.
+         You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
@@ -139,6 +157,7 @@ class VpnConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
+                 enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -147,16 +166,22 @@ class VpnConnection(pulumi.CustomResource):
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::VPNConnection
+        Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+         To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+         To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+         For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
-        :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only.
+        :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+                If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
+                You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[str] type: The type of VPN connection.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
+                You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
         ...
@@ -166,7 +191,10 @@ class VpnConnection(pulumi.CustomResource):
                  args: VpnConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::VPNConnection
+        Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+         To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+         To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+         For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -184,6 +212,7 @@ class VpnConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
+                 enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -202,6 +231,7 @@ class VpnConnection(pulumi.CustomResource):
             if customer_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_gateway_id'")
             __props__.__dict__["customer_gateway_id"] = customer_gateway_id
+            __props__.__dict__["enable_acceleration"] = enable_acceleration
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
@@ -211,7 +241,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnection, __self__).__init__(
             'aws-native:ec2:VpnConnection',
@@ -236,6 +266,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
         __props__.__dict__["customer_gateway_id"] = None
+        __props__.__dict__["enable_acceleration"] = None
         __props__.__dict__["static_routes_only"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_id"] = None
@@ -254,10 +285,16 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "customer_gateway_id")
 
     @property
+    @pulumi.getter(name="enableAcceleration")
+    def enable_acceleration(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_acceleration")
+
+    @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the VPN connection uses static routes only.
+        Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+         If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         """
         return pulumi.get(self, "static_routes_only")
 
@@ -274,6 +311,7 @@ class VpnConnection(pulumi.CustomResource):
     def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the transit gateway associated with the VPN connection.
+         You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -289,7 +327,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Output[str]:
         """
-        The provider-assigned unique ID for this managed resource
+        The ID of the VPN connection.
         """
         return pulumi.get(self, "vpn_connection_id")
 
@@ -298,6 +336,7 @@ class VpnConnection(pulumi.CustomResource):
     def vpn_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the virtual private gateway at the AWS side of the VPN connection.
+         You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         """
         return pulumi.get(self, "vpn_gateway_id")
 

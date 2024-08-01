@@ -29,6 +29,11 @@ class ActivityEncryptionConfigurationArgs:
                  type: pulumi.Input['ActivityEncryptionConfigurationType'],
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ActivityEncryptionConfigurationType'] type: Encryption option for an activity.
+        :param pulumi.Input[int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        :param pulumi.Input[str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
         pulumi.set(__self__, "type", type)
         if kms_data_key_reuse_period_seconds is not None:
             pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
@@ -38,6 +43,9 @@ class ActivityEncryptionConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['ActivityEncryptionConfigurationType']:
+        """
+        Encryption option for an activity.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -47,6 +55,9 @@ class ActivityEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
     def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
@@ -56,6 +67,9 @@ class ActivityEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -225,6 +239,11 @@ class StateMachineEncryptionConfigurationArgs:
                  type: pulumi.Input['StateMachineEncryptionConfigurationType'],
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['StateMachineEncryptionConfigurationType'] type: Encryption option for a state machine.
+        :param pulumi.Input[int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        :param pulumi.Input[str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
         pulumi.set(__self__, "type", type)
         if kms_data_key_reuse_period_seconds is not None:
             pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
@@ -234,6 +253,9 @@ class StateMachineEncryptionConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['StateMachineEncryptionConfigurationType']:
+        """
+        Encryption option for a state machine.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -243,6 +265,9 @@ class StateMachineEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
     def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
@@ -252,6 +277,9 @@ class StateMachineEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

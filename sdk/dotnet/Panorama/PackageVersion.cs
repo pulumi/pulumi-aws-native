@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama
 {
     /// <summary>
-    /// Schema for PackageVersion Resource Type
+    /// Registers a package version.
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:PackageVersion")]
     public partial class PackageVersion : global::Pulumi.CustomResource

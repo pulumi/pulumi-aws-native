@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// The predicate of this trigger, which defines when it will fire.
+    /// </summary>
     public sealed class TriggerPredicateArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]

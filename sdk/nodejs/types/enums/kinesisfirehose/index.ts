@@ -136,6 +136,18 @@ export const DeliveryStreamHttpEndpointRequestConfigurationContentEncoding = {
  */
 export type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding = (typeof DeliveryStreamHttpEndpointRequestConfigurationContentEncoding)[keyof typeof DeliveryStreamHttpEndpointRequestConfigurationContentEncoding];
 
+export const DeliveryStreamIcebergDestinationConfigurations3BackupMode = {
+    AllData: "AllData",
+    FailedDataOnly: "FailedDataOnly",
+} as const;
+
+/**
+ * Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+ *
+ * Amazon Data Firehose is in preview release and is subject to change.
+ */
+export type DeliveryStreamIcebergDestinationConfigurations3BackupMode = (typeof DeliveryStreamIcebergDestinationConfigurations3BackupMode)[keyof typeof DeliveryStreamIcebergDestinationConfigurations3BackupMode];
+
 export const DeliveryStreamProcessorType = {
     RecordDeAggregation: "RecordDeAggregation",
     Decompression: "Decompression",

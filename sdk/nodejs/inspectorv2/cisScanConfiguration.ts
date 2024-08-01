@@ -44,15 +44,15 @@ export class CisScanConfiguration extends pulumi.CustomResource {
     /**
      * Name of the scan
      */
-    public readonly scanName!: pulumi.Output<string | undefined>;
+    public readonly scanName!: pulumi.Output<string>;
     /**
      * The CIS scan configuration's schedule.
      */
-    public readonly schedule!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule>;
     /**
      * The CIS scan configuration's CIS Benchmark level.
      */
-    public readonly securityLevel!: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel | undefined>;
+    public readonly securityLevel!: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
     /**
      * The CIS scan configuration's tags.
      */
@@ -60,7 +60,7 @@ export class CisScanConfiguration extends pulumi.CustomResource {
     /**
      * The CIS scan configuration's targets.
      */
-    public readonly targets!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets | undefined>;
+    public readonly targets!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets>;
 
     /**
      * Create a CisScanConfiguration resource with the given unique name, arguments, and options.
@@ -69,10 +69,22 @@ export class CisScanConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CisScanConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CisScanConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.scanName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scanName'");
+            }
+            if ((!args || args.schedule === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'schedule'");
+            }
+            if ((!args || args.securityLevel === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'securityLevel'");
+            }
+            if ((!args || args.targets === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'targets'");
+            }
             resourceInputs["scanName"] = args ? args.scanName : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["securityLevel"] = args ? args.securityLevel : undefined;
@@ -99,15 +111,15 @@ export interface CisScanConfigurationArgs {
     /**
      * Name of the scan
      */
-    scanName?: pulumi.Input<string>;
+    scanName: pulumi.Input<string>;
     /**
      * The CIS scan configuration's schedule.
      */
-    schedule?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationScheduleArgs>;
+    schedule: pulumi.Input<inputs.inspectorv2.CisScanConfigurationScheduleArgs>;
     /**
      * The CIS scan configuration's CIS Benchmark level.
      */
-    securityLevel?: pulumi.Input<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
+    securityLevel: pulumi.Input<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
     /**
      * The CIS scan configuration's tags.
      */
@@ -115,5 +127,5 @@ export interface CisScanConfigurationArgs {
     /**
      * The CIS scan configuration's targets.
      */
-    targets?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationCisTargetsArgs>;
+    targets: pulumi.Input<inputs.inspectorv2.CisScanConfigurationCisTargetsArgs>;
 }

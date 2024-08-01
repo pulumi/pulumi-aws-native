@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for ApplicationInstance CloudFormation Resource
+ * Creates an application instance and deploys it to a device.
  */
 export class ApplicationInstance extends pulumi.CustomResource {
     /**

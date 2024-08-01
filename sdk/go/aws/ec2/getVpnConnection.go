@@ -12,7 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPNConnection
+// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+//
+//	To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+//	To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+//	For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 func LookupVpnConnection(ctx *pulumi.Context, args *LookupVpnConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpnConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpnConnectionResult
@@ -24,14 +28,14 @@ func LookupVpnConnection(ctx *pulumi.Context, args *LookupVpnConnectionArgs, opt
 }
 
 type LookupVpnConnectionArgs struct {
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN connection.
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
 type LookupVpnConnectionResult struct {
 	// Any tags assigned to the VPN connection.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN connection.
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
 
@@ -49,7 +53,7 @@ func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutp
 }
 
 type LookupVpnConnectionOutputArgs struct {
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringInput `pulumi:"vpnConnectionId"`
 }
 
@@ -76,7 +80,7 @@ func (o LookupVpnConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The provider-assigned unique ID for this managed resource
+// The ID of the VPN connection.
 func (o LookupVpnConnectionResultOutput) VpnConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.VpnConnectionId }).(pulumi.StringPtrOutput)
 }

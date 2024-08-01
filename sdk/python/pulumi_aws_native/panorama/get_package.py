@@ -94,7 +94,7 @@ class AwaitableGetPackageResult(GetPackageResult):
 def get_package(package_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
-    Schema for Package CloudFormation Resource
+    Creates a package and storage location in an Amazon S3 access point.
 
 
     :param str package_id: The package's ID.
@@ -116,7 +116,7 @@ def get_package(package_id: Optional[str] = None,
 def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
-    Schema for Package CloudFormation Resource
+    Creates a package and storage location in an Amazon S3 access point.
 
 
     :param str package_id: The package's ID.

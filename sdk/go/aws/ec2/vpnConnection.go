@@ -13,23 +13,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPNConnection
+// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+//
+//	To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+//	To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+//	For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
-	// Indicates whether the VPN connection uses static routes only.
+	CustomerGatewayId  pulumi.StringOutput  `pulumi:"customerGatewayId"`
+	EnableAcceleration pulumi.BoolPtrOutput `pulumi:"enableAcceleration"`
+	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
 	StaticRoutesOnly pulumi.BoolPtrOutput `pulumi:"staticRoutesOnly"`
 	// Any tags assigned to the VPN connection.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway associated with the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The type of VPN connection.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications VpnConnectionVpnTunnelOptionsSpecificationArrayOutput `pulumi:"vpnTunnelOptionsSpecifications"`
@@ -50,6 +58,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"customerGatewayId",
+		"enableAcceleration",
 		"staticRoutesOnly",
 		"transitGatewayId",
 		"type",
@@ -91,16 +100,20 @@ func (VpnConnectionState) ElementType() reflect.Type {
 
 type vpnConnectionArgs struct {
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId string `pulumi:"customerGatewayId"`
-	// Indicates whether the VPN connection uses static routes only.
+	CustomerGatewayId  string `pulumi:"customerGatewayId"`
+	EnableAcceleration *bool  `pulumi:"enableAcceleration"`
+	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Any tags assigned to the VPN connection.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway associated with the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The type of VPN connection.
 	Type string `pulumi:"type"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications []VpnConnectionVpnTunnelOptionsSpecification `pulumi:"vpnTunnelOptionsSpecifications"`
@@ -109,16 +122,20 @@ type vpnConnectionArgs struct {
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId pulumi.StringInput
-	// Indicates whether the VPN connection uses static routes only.
+	CustomerGatewayId  pulumi.StringInput
+	EnableAcceleration pulumi.BoolPtrInput
+	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Any tags assigned to the VPN connection.
 	Tags aws.TagArrayInput
 	// The ID of the transit gateway associated with the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	TransitGatewayId pulumi.StringPtrInput
 	// The type of VPN connection.
 	Type pulumi.StringInput
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId pulumi.StringPtrInput
 	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications VpnConnectionVpnTunnelOptionsSpecificationArrayInput
@@ -166,7 +183,13 @@ func (o VpnConnectionOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }
 
-// Indicates whether the VPN connection uses static routes only.
+func (o VpnConnectionOutput) EnableAcceleration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.EnableAcceleration }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+//
+//	If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
 func (o VpnConnectionOutput) StaticRoutesOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.StaticRoutesOnly }).(pulumi.BoolPtrOutput)
 }
@@ -177,6 +200,8 @@ func (o VpnConnectionOutput) Tags() aws.TagArrayOutput {
 }
 
 // The ID of the transit gateway associated with the VPN connection.
+//
+//	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 func (o VpnConnectionOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
@@ -186,12 +211,14 @@ func (o VpnConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource
+// The ID of the VPN connection.
 func (o VpnConnectionOutput) VpnConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.VpnConnectionId }).(pulumi.StringOutput)
 }
 
 // The ID of the virtual private gateway at the AWS side of the VPN connection.
+//
+//	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 func (o VpnConnectionOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

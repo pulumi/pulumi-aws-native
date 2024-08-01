@@ -8,7 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::VPNConnection
+ * Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+ *  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+ *  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+ *  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**
@@ -41,8 +44,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * The ID of the customer gateway at your end of the VPN connection.
      */
     public readonly customerGatewayId!: pulumi.Output<string>;
+    public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether the VPN connection uses static routes only.
+     * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+     *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
      */
     public readonly staticRoutesOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -51,6 +56,7 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
@@ -58,11 +64,12 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN connection.
      */
     public /*out*/ readonly vpnConnectionId!: pulumi.Output<string>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
     /**
@@ -88,6 +95,7 @@ export class VpnConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
+            resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
@@ -97,6 +105,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
         } else {
             resourceInputs["customerGatewayId"] = undefined /*out*/;
+            resourceInputs["enableAcceleration"] = undefined /*out*/;
             resourceInputs["staticRoutesOnly"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
@@ -106,7 +115,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -120,8 +129,10 @@ export interface VpnConnectionArgs {
      * The ID of the customer gateway at your end of the VPN connection.
      */
     customerGatewayId: pulumi.Input<string>;
+    enableAcceleration?: pulumi.Input<boolean>;
     /**
-     * Indicates whether the VPN connection uses static routes only.
+     * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+     *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
      */
     staticRoutesOnly?: pulumi.Input<boolean>;
     /**
@@ -130,6 +141,7 @@ export interface VpnConnectionArgs {
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     transitGatewayId?: pulumi.Input<string>;
     /**
@@ -138,6 +150,7 @@ export interface VpnConnectionArgs {
     type: pulumi.Input<string>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     vpnGatewayId?: pulumi.Input<string>;
     /**

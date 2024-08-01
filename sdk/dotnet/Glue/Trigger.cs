@@ -150,12 +150,6 @@ namespace Pulumi.AwsNative.Glue
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
-        /// <summary>
         /// A description of this trigger.
         /// </summary>
         [Output("description")]
@@ -180,13 +174,13 @@ namespace Pulumi.AwsNative.Glue
         public Output<Outputs.TriggerPredicate?> Predicate { get; private set; } = null!;
 
         /// <summary>
-        /// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        /// A cron expression used to specify the schedule.
         /// </summary>
         [Output("schedule")]
         public Output<string?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        /// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         /// </summary>
         [Output("startOnCreation")]
         public Output<bool?> StartOnCreation { get; private set; } = null!;
@@ -299,13 +293,13 @@ namespace Pulumi.AwsNative.Glue
         public Input<Inputs.TriggerPredicateArgs>? Predicate { get; set; }
 
         /// <summary>
-        /// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        /// A cron expression used to specify the schedule.
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        /// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         /// </summary>
         [Input("startOnCreation")]
         public Input<bool>? StartOnCreation { get; set; }

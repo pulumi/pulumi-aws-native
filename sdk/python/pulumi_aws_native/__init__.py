@@ -864,6 +864,7 @@ _utilities.register(
   "mod": "arczonalshift",
   "fqn": "pulumi_aws_native.arczonalshift",
   "classes": {
+   "aws-native:arczonalshift:AutoshiftObserverNotificationStatus": "AutoshiftObserverNotificationStatus",
    "aws-native:arczonalshift:ZonalAutoshiftConfiguration": "ZonalAutoshiftConfiguration"
   }
  },
@@ -2846,6 +2847,7 @@ _utilities.register(
    "aws-native:sagemaker:Pipeline": "Pipeline",
    "aws-native:sagemaker:Project": "Project",
    "aws-native:sagemaker:Space": "Space",
+   "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",
    "aws-native:sagemaker:UserProfile": "UserProfile"
   }
  },

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class MembershipProtectedQueryOutputConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required configuration for a protected query with an `S3` output type.
+        /// Required configuration for a protected query with an `s3` output type.
         /// </summary>
         [Input("s3", required: true)]
         public Input<Inputs.MembershipProtectedQueryS3OutputConfigurationArgs> S3 { get; set; } = null!;

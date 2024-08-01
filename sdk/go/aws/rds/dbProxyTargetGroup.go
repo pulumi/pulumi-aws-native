@@ -16,7 +16,7 @@ import (
 type DbProxyTargetGroup struct {
 	pulumi.CustomResourceState
 
-	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	ConnectionPoolConfigurationInfo DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput `pulumi:"connectionPoolConfigurationInfo"`
 	// One or more DB cluster identifiers.
 	DbClusterIdentifiers pulumi.StringArrayOutput `pulumi:"dbClusterIdentifiers"`
@@ -81,7 +81,7 @@ func (DbProxyTargetGroupState) ElementType() reflect.Type {
 }
 
 type dbProxyTargetGroupArgs struct {
-	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	ConnectionPoolConfigurationInfo *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
 	// One or more DB cluster identifiers.
 	DbClusterIdentifiers []string `pulumi:"dbClusterIdentifiers"`
@@ -95,7 +95,7 @@ type dbProxyTargetGroupArgs struct {
 
 // The set of arguments for constructing a DbProxyTargetGroup resource.
 type DbProxyTargetGroupArgs struct {
-	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	ConnectionPoolConfigurationInfo DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput
 	// One or more DB cluster identifiers.
 	DbClusterIdentifiers pulumi.StringArrayInput
@@ -144,7 +144,7 @@ func (o DbProxyTargetGroupOutput) ToDbProxyTargetGroupOutputWithContext(ctx cont
 	return o
 }
 
-// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 func (o DbProxyTargetGroupOutput) ConnectionPoolConfigurationInfo() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroup) DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 		return v.ConnectionPoolConfigurationInfo

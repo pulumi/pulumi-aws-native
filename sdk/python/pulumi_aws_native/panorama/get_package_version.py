@@ -119,7 +119,7 @@ def get_package_version(package_id: Optional[str] = None,
                         patch_version: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageVersionResult:
     """
-    Schema for PackageVersion Resource Type
+    Registers a package version.
 
 
     :param str package_id: A package ID.
@@ -149,7 +149,7 @@ def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
                                patch_version: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageVersionResult]:
     """
-    Schema for PackageVersion Resource Type
+    Registers a package version.
 
 
     :param str package_id: A package ID.

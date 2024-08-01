@@ -47,6 +47,13 @@ type LookupCapacityReservationResult struct {
 	//
 	// Valid range: 1 - 1000
 	InstanceCount *int `pulumi:"instanceCount"`
+	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+	//
+	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+	//
+	// Default: `open`
+	InstanceMatchCriteria *string `pulumi:"instanceMatchCriteria"`
 	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 	TotalInstanceCount *int `pulumi:"totalInstanceCount"`
 }
@@ -119,6 +126,16 @@ func (o LookupCapacityReservationResultOutput) Id() pulumi.StringPtrOutput {
 // Valid range: 1 - 1000
 func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+//
+// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+//
+// Default: `open`
+func (o LookupCapacityReservationResultOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.InstanceMatchCriteria }).(pulumi.StringPtrOutput)
 }
 
 // Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseEmbeddingModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The vector configuration details on the Bedrock embeddings model.
+        /// </summary>
         [Input("bedrockEmbeddingModelConfiguration")]
         public Input<Inputs.KnowledgeBaseBedrockEmbeddingModelConfigurationArgs>? BedrockEmbeddingModelConfiguration { get; set; }
 

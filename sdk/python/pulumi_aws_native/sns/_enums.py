@@ -12,8 +12,7 @@ __all__ = [
 class TopicLoggingConfigProtocol(str, Enum):
     """
     Indicates one of the supported protocols for the Amazon SNS topic.
-
-    > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+      At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
     """
     HTTPS = "http/s"
     SQS = "sqs"

@@ -10,7 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::VPNConnection
+    /// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+    ///  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+    ///  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+    ///  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource
@@ -21,8 +24,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
+        [Output("enableAcceleration")]
+        public Output<bool?> EnableAcceleration { get; private set; } = null!;
+
         /// <summary>
-        /// Indicates whether the VPN connection uses static routes only.
+        /// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+        ///  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         /// </summary>
         [Output("staticRoutesOnly")]
         public Output<bool?> StaticRoutesOnly { get; private set; } = null!;
@@ -35,6 +42,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The ID of the transit gateway associated with the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
@@ -46,13 +54,14 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN connection.
         /// </summary>
         [Output("vpnConnectionId")]
         public Output<string> VpnConnectionId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the virtual private gateway at the AWS side of the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         /// </summary>
         [Output("vpnGatewayId")]
         public Output<string?> VpnGatewayId { get; private set; } = null!;
@@ -89,6 +98,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "customerGatewayId",
+                    "enableAcceleration",
                     "staticRoutesOnly",
                     "transitGatewayId",
                     "type",
@@ -123,8 +133,12 @@ namespace Pulumi.AwsNative.Ec2
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
+        [Input("enableAcceleration")]
+        public Input<bool>? EnableAcceleration { get; set; }
+
         /// <summary>
-        /// Indicates whether the VPN connection uses static routes only.
+        /// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+        ///  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         /// </summary>
         [Input("staticRoutesOnly")]
         public Input<bool>? StaticRoutesOnly { get; set; }
@@ -143,6 +157,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The ID of the transit gateway associated with the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
@@ -155,6 +170,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The ID of the virtual private gateway at the AWS side of the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         /// </summary>
         [Input("vpnGatewayId")]
         public Input<string>? VpnGatewayId { get; set; }

@@ -17,6 +17,9 @@ __all__ = [
 
 @pulumi.output_type
 class TopicLoggingConfig(dict):
+    """
+    The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -44,9 +47,9 @@ class TopicLoggingConfig(dict):
                  success_feedback_role_arn: Optional[str] = None,
                  success_feedback_sample_rate: Optional[str] = None):
         """
+        The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
         :param 'TopicLoggingConfigProtocol' protocol: Indicates one of the supported protocols for the Amazon SNS topic.
-               
-               > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+                 At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
         :param str failure_feedback_role_arn: The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
         :param str success_feedback_role_arn: The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
         :param str success_feedback_sample_rate: The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
@@ -64,8 +67,7 @@ class TopicLoggingConfig(dict):
     def protocol(self) -> 'TopicLoggingConfigProtocol':
         """
         Indicates one of the supported protocols for the Amazon SNS topic.
-
-        > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+          At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
         """
         return pulumi.get(self, "protocol")
 

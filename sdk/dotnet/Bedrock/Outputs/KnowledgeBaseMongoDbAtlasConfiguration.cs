@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// MongoDB Atlas endpoint service name.
         /// </summary>
         public readonly string? EndpointServiceName;
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseMongoDbAtlasFieldMapping FieldMapping;
         /// <summary>
         /// Name of a MongoDB Atlas index.

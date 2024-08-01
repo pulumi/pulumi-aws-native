@@ -10,123 +10,123 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ZonalAutoshiftConfigurationControlConditionType string
+type AutoshiftObserverNotificationStatusEnum string
 
 const (
-	ZonalAutoshiftConfigurationControlConditionTypeCloudwatch = ZonalAutoshiftConfigurationControlConditionType("CLOUDWATCH")
+	AutoshiftObserverNotificationStatusEnumEnabled = AutoshiftObserverNotificationStatusEnum("ENABLED")
 )
 
-func (ZonalAutoshiftConfigurationControlConditionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonalAutoshiftConfigurationControlConditionType)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToZonalAutoshiftConfigurationControlConditionTypeOutput() ZonalAutoshiftConfigurationControlConditionTypeOutput {
-	return pulumi.ToOutput(e).(ZonalAutoshiftConfigurationControlConditionTypeOutput)
+func (e AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput {
+	return pulumi.ToOutput(e).(AutoshiftObserverNotificationStatusEnumOutput)
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToZonalAutoshiftConfigurationControlConditionTypeOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ZonalAutoshiftConfigurationControlConditionTypeOutput)
+func (e AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutoshiftObserverNotificationStatusEnumOutput)
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToZonalAutoshiftConfigurationControlConditionTypePtrOutput() ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return e.ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(context.Background())
+func (e AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumPtrOutput() AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return e.ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(context.Background())
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return ZonalAutoshiftConfigurationControlConditionType(e).ToZonalAutoshiftConfigurationControlConditionTypeOutputWithContext(ctx).ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx)
+func (e AutoshiftObserverNotificationStatusEnum) ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return AutoshiftObserverNotificationStatusEnum(e).ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx).ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(ctx)
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToStringOutput() pulumi.StringOutput {
+func (e AutoshiftObserverNotificationStatusEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e AutoshiftObserverNotificationStatusEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e AutoshiftObserverNotificationStatusEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ZonalAutoshiftConfigurationControlConditionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e AutoshiftObserverNotificationStatusEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ZonalAutoshiftConfigurationControlConditionTypeOutput struct{ *pulumi.OutputState }
+type AutoshiftObserverNotificationStatusEnumOutput struct{ *pulumi.OutputState }
 
-func (ZonalAutoshiftConfigurationControlConditionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonalAutoshiftConfigurationControlConditionType)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToZonalAutoshiftConfigurationControlConditionTypeOutput() ZonalAutoshiftConfigurationControlConditionTypeOutput {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput {
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToZonalAutoshiftConfigurationControlConditionTypeOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypeOutput {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumOutput {
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToZonalAutoshiftConfigurationControlConditionTypePtrOutput() ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return o.ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(context.Background())
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumPtrOutput() AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return o.ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(context.Background())
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZonalAutoshiftConfigurationControlConditionType) *ZonalAutoshiftConfigurationControlConditionType {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoshiftObserverNotificationStatusEnum) *AutoshiftObserverNotificationStatusEnum {
 		return &v
-	}).(ZonalAutoshiftConfigurationControlConditionTypePtrOutput)
+	}).(AutoshiftObserverNotificationStatusEnumPtrOutput)
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ZonalAutoshiftConfigurationControlConditionType) string {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoshiftObserverNotificationStatusEnum) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ZonalAutoshiftConfigurationControlConditionType) *string {
+func (o AutoshiftObserverNotificationStatusEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoshiftObserverNotificationStatusEnum) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ZonalAutoshiftConfigurationControlConditionTypePtrOutput struct{ *pulumi.OutputState }
+type AutoshiftObserverNotificationStatusEnumPtrOutput struct{ *pulumi.OutputState }
 
-func (ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZonalAutoshiftConfigurationControlConditionType)(nil)).Elem()
+func (AutoshiftObserverNotificationStatusEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToZonalAutoshiftConfigurationControlConditionTypePtrOutput() ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
+func (o AutoshiftObserverNotificationStatusEnumPtrOutput) ToAutoshiftObserverNotificationStatusEnumPtrOutput() AutoshiftObserverNotificationStatusEnumPtrOutput {
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
+func (o AutoshiftObserverNotificationStatusEnumPtrOutput) ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumPtrOutput {
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) Elem() ZonalAutoshiftConfigurationControlConditionTypeOutput {
-	return o.ApplyT(func(v *ZonalAutoshiftConfigurationControlConditionType) ZonalAutoshiftConfigurationControlConditionType {
+func (o AutoshiftObserverNotificationStatusEnumPtrOutput) Elem() AutoshiftObserverNotificationStatusEnumOutput {
+	return o.ApplyT(func(v *AutoshiftObserverNotificationStatusEnum) AutoshiftObserverNotificationStatusEnum {
 		if v != nil {
 			return *v
 		}
-		var ret ZonalAutoshiftConfigurationControlConditionType
+		var ret AutoshiftObserverNotificationStatusEnum
 		return ret
-	}).(ZonalAutoshiftConfigurationControlConditionTypeOutput)
+	}).(AutoshiftObserverNotificationStatusEnumOutput)
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o AutoshiftObserverNotificationStatusEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ZonalAutoshiftConfigurationControlConditionType) *string {
+func (o AutoshiftObserverNotificationStatusEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutoshiftObserverNotificationStatusEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -135,42 +135,42 @@ func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ZonalAutoshiftConfigurationControlConditionTypeInput is an input type that accepts values of the ZonalAutoshiftConfigurationControlConditionType enum
-// A concrete instance of `ZonalAutoshiftConfigurationControlConditionTypeInput` can be one of the following:
+// AutoshiftObserverNotificationStatusEnumInput is an input type that accepts values of the AutoshiftObserverNotificationStatusEnum enum
+// A concrete instance of `AutoshiftObserverNotificationStatusEnumInput` can be one of the following:
 //
-//	ZonalAutoshiftConfigurationControlConditionTypeCloudwatch
-type ZonalAutoshiftConfigurationControlConditionTypeInput interface {
+//	AutoshiftObserverNotificationStatusEnumEnabled
+type AutoshiftObserverNotificationStatusEnumInput interface {
 	pulumi.Input
 
-	ToZonalAutoshiftConfigurationControlConditionTypeOutput() ZonalAutoshiftConfigurationControlConditionTypeOutput
-	ToZonalAutoshiftConfigurationControlConditionTypeOutputWithContext(context.Context) ZonalAutoshiftConfigurationControlConditionTypeOutput
+	ToAutoshiftObserverNotificationStatusEnumOutput() AutoshiftObserverNotificationStatusEnumOutput
+	ToAutoshiftObserverNotificationStatusEnumOutputWithContext(context.Context) AutoshiftObserverNotificationStatusEnumOutput
 }
 
-var zonalAutoshiftConfigurationControlConditionTypePtrType = reflect.TypeOf((**ZonalAutoshiftConfigurationControlConditionType)(nil)).Elem()
+var autoshiftObserverNotificationStatusEnumPtrType = reflect.TypeOf((**AutoshiftObserverNotificationStatusEnum)(nil)).Elem()
 
-type ZonalAutoshiftConfigurationControlConditionTypePtrInput interface {
+type AutoshiftObserverNotificationStatusEnumPtrInput interface {
 	pulumi.Input
 
-	ToZonalAutoshiftConfigurationControlConditionTypePtrOutput() ZonalAutoshiftConfigurationControlConditionTypePtrOutput
-	ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput
+	ToAutoshiftObserverNotificationStatusEnumPtrOutput() AutoshiftObserverNotificationStatusEnumPtrOutput
+	ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(context.Context) AutoshiftObserverNotificationStatusEnumPtrOutput
 }
 
-type zonalAutoshiftConfigurationControlConditionTypePtr string
+type autoshiftObserverNotificationStatusEnumPtr string
 
-func ZonalAutoshiftConfigurationControlConditionTypePtr(v string) ZonalAutoshiftConfigurationControlConditionTypePtrInput {
-	return (*zonalAutoshiftConfigurationControlConditionTypePtr)(&v)
+func AutoshiftObserverNotificationStatusEnumPtr(v string) AutoshiftObserverNotificationStatusEnumPtrInput {
+	return (*autoshiftObserverNotificationStatusEnumPtr)(&v)
 }
 
-func (*zonalAutoshiftConfigurationControlConditionTypePtr) ElementType() reflect.Type {
-	return zonalAutoshiftConfigurationControlConditionTypePtrType
+func (*autoshiftObserverNotificationStatusEnumPtr) ElementType() reflect.Type {
+	return autoshiftObserverNotificationStatusEnumPtrType
 }
 
-func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToZonalAutoshiftConfigurationControlConditionTypePtrOutput() ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return pulumi.ToOutput(in).(ZonalAutoshiftConfigurationControlConditionTypePtrOutput)
+func (in *autoshiftObserverNotificationStatusEnumPtr) ToAutoshiftObserverNotificationStatusEnumPtrOutput() AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return pulumi.ToOutput(in).(AutoshiftObserverNotificationStatusEnumPtrOutput)
 }
 
-func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ZonalAutoshiftConfigurationControlConditionTypePtrOutput)
+func (in *autoshiftObserverNotificationStatusEnumPtr) ToAutoshiftObserverNotificationStatusEnumPtrOutputWithContext(ctx context.Context) AutoshiftObserverNotificationStatusEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutoshiftObserverNotificationStatusEnumPtrOutput)
 }
 
 type ZonalAutoshiftConfigurationZonalAutoshiftStatus string
@@ -337,12 +337,12 @@ func (in *zonalAutoshiftConfigurationZonalAutoshiftStatusPtr) ToZonalAutoshiftCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ZonalAutoshiftConfigurationControlConditionTypeInput)(nil)).Elem(), ZonalAutoshiftConfigurationControlConditionType("CLOUDWATCH"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ZonalAutoshiftConfigurationControlConditionTypePtrInput)(nil)).Elem(), ZonalAutoshiftConfigurationControlConditionType("CLOUDWATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoshiftObserverNotificationStatusEnumInput)(nil)).Elem(), AutoshiftObserverNotificationStatusEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoshiftObserverNotificationStatusEnumPtrInput)(nil)).Elem(), AutoshiftObserverNotificationStatusEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ZonalAutoshiftConfigurationZonalAutoshiftStatusInput)(nil)).Elem(), ZonalAutoshiftConfigurationZonalAutoshiftStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrInput)(nil)).Elem(), ZonalAutoshiftConfigurationZonalAutoshiftStatus("ENABLED"))
-	pulumi.RegisterOutputType(ZonalAutoshiftConfigurationControlConditionTypeOutput{})
-	pulumi.RegisterOutputType(ZonalAutoshiftConfigurationControlConditionTypePtrOutput{})
+	pulumi.RegisterOutputType(AutoshiftObserverNotificationStatusEnumOutput{})
+	pulumi.RegisterOutputType(AutoshiftObserverNotificationStatusEnumPtrOutput{})
 	pulumi.RegisterOutputType(ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput{})
 	pulumi.RegisterOutputType(ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput{})
 }

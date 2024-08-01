@@ -19,10 +19,12 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceRetryOptionsArgs',
     'DeliveryStreamAuthenticationConfigurationArgs',
     'DeliveryStreamBufferingHintsArgs',
+    'DeliveryStreamCatalogConfigurationArgs',
     'DeliveryStreamCloudWatchLoggingOptionsArgs',
     'DeliveryStreamCopyCommandArgs',
     'DeliveryStreamDataFormatConversionConfigurationArgs',
     'DeliveryStreamDeserializerArgs',
+    'DeliveryStreamDestinationTableConfigurationArgs',
     'DeliveryStreamDocumentIdOptionsArgs',
     'DeliveryStreamDynamicPartitioningConfigurationArgs',
     'DeliveryStreamElasticsearchBufferingHintsArgs',
@@ -36,6 +38,7 @@ __all__ = [
     'DeliveryStreamHttpEndpointConfigurationArgs',
     'DeliveryStreamHttpEndpointDestinationConfigurationArgs',
     'DeliveryStreamHttpEndpointRequestConfigurationArgs',
+    'DeliveryStreamIcebergDestinationConfigurationArgs',
     'DeliveryStreamInputFormatConfigurationArgs',
     'DeliveryStreamKinesisStreamSourceConfigurationArgs',
     'DeliveryStreamKmsEncryptionConfigArgs',
@@ -54,6 +57,7 @@ __all__ = [
     'DeliveryStreamSchemaConfigurationArgs',
     'DeliveryStreamSecretsManagerConfigurationArgs',
     'DeliveryStreamSerializerArgs',
+    'DeliveryStreamSnowflakeBufferingHintsArgs',
     'DeliveryStreamSnowflakeDestinationConfigurationArgs',
     'DeliveryStreamSnowflakeRetryOptionsArgs',
     'DeliveryStreamSnowflakeRoleConfigurationArgs',
@@ -645,6 +649,33 @@ class DeliveryStreamBufferingHintsArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamCatalogConfigurationArgs:
+    def __init__(__self__, *,
+                 catalog_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] catalog_arn: Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
+        if catalog_arn is not None:
+            pulumi.set(__self__, "catalog_arn", catalog_arn)
+
+    @property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "catalog_arn")
+
+    @catalog_arn.setter
+    def catalog_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_arn", value)
+
+
+@pulumi.input_type
 class DeliveryStreamCloudWatchLoggingOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -869,6 +900,57 @@ class DeliveryStreamDeserializerArgs:
     @open_x_json_ser_de.setter
     def open_x_json_ser_de(self, value: Optional[pulumi.Input['DeliveryStreamOpenXJsonSerDeArgs']]):
         pulumi.set(self, "open_x_json_ser_de", value)
+
+
+@pulumi.input_type
+class DeliveryStreamDestinationTableConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_database_name: pulumi.Input[str],
+                 destination_table_name: pulumi.Input[str],
+                 s3_error_output_prefix: Optional[pulumi.Input[str]] = None,
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "destination_database_name", destination_database_name)
+        pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if s3_error_output_prefix is not None:
+            pulumi.set(__self__, "s3_error_output_prefix", s3_error_output_prefix)
+        if unique_keys is not None:
+            pulumi.set(__self__, "unique_keys", unique_keys)
+
+    @property
+    @pulumi.getter(name="destinationDatabaseName")
+    def destination_database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination_database_name")
+
+    @destination_database_name.setter
+    def destination_database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_database_name", value)
+
+    @property
+    @pulumi.getter(name="destinationTableName")
+    def destination_table_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination_table_name")
+
+    @destination_table_name.setter
+    def destination_table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_table_name", value)
+
+    @property
+    @pulumi.getter(name="s3ErrorOutputPrefix")
+    def s3_error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_error_output_prefix")
+
+    @s3_error_output_prefix.setter
+    def s3_error_output_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_error_output_prefix", value)
+
+    @property
+    @pulumi.getter(name="uniqueKeys")
+    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "unique_keys")
+
+    @unique_keys.setter
+    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "unique_keys", value)
 
 
 @pulumi.input_type
@@ -1879,6 +1961,150 @@ class DeliveryStreamHttpEndpointRequestConfigurationArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamIcebergDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 catalog_configuration: pulumi.Input['DeliveryStreamCatalogConfigurationArgs'],
+                 role_arn: pulumi.Input[str],
+                 s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+                 buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
+                 cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
+                 destination_table_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]]] = None,
+                 processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
+                 retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None,
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']] = None):
+        """
+        :param pulumi.Input['DeliveryStreamCatalogConfigurationArgs'] catalog_configuration: Configuration describing where the destination Apache Iceberg Tables are persisted.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]] destination_table_configuration_list: Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode'] s3_backup_mode: Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
+        pulumi.set(__self__, "catalog_configuration", catalog_configuration)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if buffering_hints is not None:
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
+        if cloud_watch_logging_options is not None:
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
+        if destination_table_configuration_list is not None:
+            pulumi.set(__self__, "destination_table_configuration_list", destination_table_configuration_list)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if retry_options is not None:
+            pulumi.set(__self__, "retry_options", retry_options)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+
+    @property
+    @pulumi.getter(name="catalogConfiguration")
+    def catalog_configuration(self) -> pulumi.Input['DeliveryStreamCatalogConfigurationArgs']:
+        """
+        Configuration describing where the destination Apache Iceberg Tables are persisted.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "catalog_configuration")
+
+    @catalog_configuration.setter
+    def catalog_configuration(self, value: pulumi.Input['DeliveryStreamCatalogConfigurationArgs']):
+        pulumi.set(self, "catalog_configuration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']):
+        pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="bufferingHints")
+    def buffering_hints(self) -> Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']]:
+        return pulumi.get(self, "buffering_hints")
+
+    @buffering_hints.setter
+    def buffering_hints(self, value: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']]):
+        pulumi.set(self, "buffering_hints", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingOptions")
+    def cloud_watch_logging_options(self) -> Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]:
+        return pulumi.get(self, "cloud_watch_logging_options")
+
+    @cloud_watch_logging_options.setter
+    def cloud_watch_logging_options(self, value: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloud_watch_logging_options", value)
+
+    @property
+    @pulumi.getter(name="destinationTableConfigurationList")
+    def destination_table_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]]]:
+        """
+        Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "destination_table_configuration_list")
+
+    @destination_table_configuration_list.setter
+    def destination_table_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]]]):
+        pulumi.set(self, "destination_table_configuration_list", value)
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
+        return pulumi.get(self, "processing_configuration")
+
+    @processing_configuration.setter
+    def processing_configuration(self, value: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]):
+        pulumi.set(self, "processing_configuration", value)
+
+    @property
+    @pulumi.getter(name="retryOptions")
+    def retry_options(self) -> Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']]:
+        return pulumi.get(self, "retry_options")
+
+    @retry_options.setter
+    def retry_options(self, value: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']]):
+        pulumi.set(self, "retry_options", value)
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']]:
+        """
+        Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "s3_backup_mode")
+
+    @s3_backup_mode.setter
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']]):
+        pulumi.set(self, "s3_backup_mode", value)
+
+
+@pulumi.input_type
 class DeliveryStreamInputFormatConfigurationArgs:
     def __init__(__self__, *,
                  deserializer: Optional[pulumi.Input['DeliveryStreamDeserializerArgs']] = None):
@@ -1965,15 +2191,21 @@ class DeliveryStreamMskSourceConfigurationArgs:
     def __init__(__self__, *,
                  authentication_configuration: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'],
                  msk_cluster_arn: pulumi.Input[str],
-                 topic_name: pulumi.Input[str]):
+                 topic_name: pulumi.Input[str],
+                 read_from_timestamp: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'] authentication_configuration: The authentication configuration of the Amazon MSK cluster.
         :param pulumi.Input[str] msk_cluster_arn: The ARN of the Amazon MSK cluster.
         :param pulumi.Input[str] topic_name: The topic name within the Amazon MSK cluster.
+        :param pulumi.Input[str] read_from_timestamp: The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+               
+               If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
         """
         pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
         pulumi.set(__self__, "topic_name", topic_name)
+        if read_from_timestamp is not None:
+            pulumi.set(__self__, "read_from_timestamp", read_from_timestamp)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
@@ -2010,6 +2242,20 @@ class DeliveryStreamMskSourceConfigurationArgs:
     @topic_name.setter
     def topic_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_name", value)
+
+    @property
+    @pulumi.getter(name="readFromTimestamp")
+    def read_from_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+
+        If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+        """
+        return pulumi.get(self, "read_from_timestamp")
+
+    @read_from_timestamp.setter
+    def read_from_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "read_from_timestamp", value)
 
 
 @pulumi.input_type
@@ -3069,6 +3315,45 @@ class DeliveryStreamSerializerArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamSnowflakeBufferingHintsArgs:
+    def __init__(__self__, *,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 size_in_mbs: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] interval_in_seconds: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+        :param pulumi.Input[int] size_in_mbs: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+        """
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if size_in_mbs is not None:
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="sizeInMbs")
+    def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+        """
+        return pulumi.get(self, "size_in_mbs")
+
+    @size_in_mbs.setter
+    def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_mbs", value)
+
+
+@pulumi.input_type
 class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     def __init__(__self__, *,
                  account_url: pulumi.Input[str],
@@ -3077,6 +3362,7 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  schema: pulumi.Input[str],
                  table: pulumi.Input[str],
+                 buffering_hints: Optional[pulumi.Input['DeliveryStreamSnowflakeBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  content_column_name: Optional[pulumi.Input[str]] = None,
                  data_loading_option: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']] = None,
@@ -3096,11 +3382,13 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the Snowflake role
         :param pulumi.Input[str] schema: Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         :param pulumi.Input[str] table: All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
+        :param pulumi.Input['DeliveryStreamSnowflakeBufferingHintsArgs'] buffering_hints: Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
         :param pulumi.Input[str] content_column_name: The name of the record content column
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption'] data_loading_option: Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
         :param pulumi.Input[str] key_passphrase: Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param pulumi.Input[str] meta_data_column_name: The name of the record metadata column
         :param pulumi.Input[str] private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        :param pulumi.Input['DeliveryStreamProcessingConfigurationArgs'] processing_configuration: Specifies configuration for Snowflake.
         :param pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs'] retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode'] s3_backup_mode: Choose an S3 backup mode
         :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for Snowflake.
@@ -3114,6 +3402,8 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "table", table)
+        if buffering_hints is not None:
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if content_column_name is not None:
@@ -3211,6 +3501,18 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         pulumi.set(self, "table", value)
 
     @property
+    @pulumi.getter(name="bufferingHints")
+    def buffering_hints(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeBufferingHintsArgs']]:
+        """
+        Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+        """
+        return pulumi.get(self, "buffering_hints")
+
+    @buffering_hints.setter
+    def buffering_hints(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeBufferingHintsArgs']]):
+        pulumi.set(self, "buffering_hints", value)
+
+    @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]:
         return pulumi.get(self, "cloud_watch_logging_options")
@@ -3282,6 +3584,9 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
+        """
+        Specifies configuration for Snowflake.
+        """
         return pulumi.get(self, "processing_configuration")
 
     @processing_configuration.setter

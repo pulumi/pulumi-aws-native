@@ -39,7 +39,7 @@ class GetVpnConnectionResult:
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> Optional[str]:
         """
-        The provider-assigned unique ID for this managed resource
+        The ID of the VPN connection.
         """
         return pulumi.get(self, "vpn_connection_id")
 
@@ -57,10 +57,13 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
 def get_vpn_connection(vpn_connection_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    Resource Type definition for AWS::EC2::VPNConnection
+    Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+     To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+     To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+     For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
 
-    :param str vpn_connection_id: The provider-assigned unique ID for this managed resource
+    :param str vpn_connection_id: The ID of the VPN connection.
     """
     __args__ = dict()
     __args__['vpnConnectionId'] = vpn_connection_id
@@ -76,9 +79,12 @@ def get_vpn_connection(vpn_connection_id: Optional[str] = None,
 def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
-    Resource Type definition for AWS::EC2::VPNConnection
+    Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+     To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+     To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+     For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
 
-    :param str vpn_connection_id: The provider-assigned unique ID for this managed resource
+    :param str vpn_connection_id: The ID of the VPN connection.
     """
     ...

@@ -126,7 +126,7 @@ class PackageVersion(pulumi.CustomResource):
                  updated_latest_patch_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Schema for PackageVersion Resource Type
+        Registers a package version.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class PackageVersion(pulumi.CustomResource):
                  args: PackageVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for PackageVersion Resource Type
+        Registers a package version.
 
         :param str resource_name: The name of the resource.
         :param PackageVersionArgs args: The arguments to use to populate this resource's properties.

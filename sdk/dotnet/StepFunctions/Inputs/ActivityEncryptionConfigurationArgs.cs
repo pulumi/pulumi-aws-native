@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
 
     public sealed class ActivityEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        /// </summary>
         [Input("kmsDataKeyReusePeriodSeconds")]
         public Input<int>? KmsDataKeyReusePeriodSeconds { get; set; }
 
+        /// <summary>
+        /// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Encryption option for an activity.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.StepFunctions.ActivityEncryptionConfigurationType> Type { get; set; } = null!;
 

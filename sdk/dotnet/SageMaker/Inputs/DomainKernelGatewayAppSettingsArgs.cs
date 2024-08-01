@@ -33,6 +33,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }
 
+        [Input("lifecycleConfigArns")]
+        private InputList<string>? _lifecycleConfigArns;
+
+        /// <summary>
+        /// A list of LifecycleConfigArns available for use with KernelGateway apps.
+        /// </summary>
+        public InputList<string> LifecycleConfigArns
+        {
+            get => _lifecycleConfigArns ?? (_lifecycleConfigArns = new InputList<string>());
+            set => _lifecycleConfigArns = value;
+        }
+
         public DomainKernelGatewayAppSettingsArgs()
         {
         }

@@ -38,10 +38,6 @@ export interface GetSecurityControlResult {
      * The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
      */
     readonly securityControlArn?: string;
-    /**
-     * The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
-     */
-    readonly securityControlId?: string;
 }
 /**
  * A security control in Security Hub describes a security best practice related to a specific resource.

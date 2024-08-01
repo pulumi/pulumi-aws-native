@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Outputs
 {
 
+    /// <summary>
+    /// A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationInstanceManifestPayload
     {

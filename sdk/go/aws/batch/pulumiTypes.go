@@ -6275,6 +6275,8 @@ type JobDefinitionNodeRangeProperty struct {
 	Container *JobDefinitionContainerProperties `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
 	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
+	// This is an object that represents the properties of the node range for a multi-node parallel job.
+	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// The instance types of the underlying host infrastructure of a multi-node parallel job.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -6301,6 +6303,8 @@ type JobDefinitionNodeRangePropertyArgs struct {
 	Container JobDefinitionContainerPropertiesPtrInput `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
 	EcsProperties JobDefinitionEcsPropertiesPtrInput `pulumi:"ecsProperties"`
+	// This is an object that represents the properties of the node range for a multi-node parallel job.
+	EksProperties JobDefinitionEksPropertiesPtrInput `pulumi:"eksProperties"`
 	// The instance types of the underlying host infrastructure of a multi-node parallel job.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -6370,6 +6374,11 @@ func (o JobDefinitionNodeRangePropertyOutput) Container() JobDefinitionContainer
 // This is an object that represents the properties of the node range for a multi-node parallel job.
 func (o JobDefinitionNodeRangePropertyOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
 	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionEcsProperties { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
+}
+
+// This is an object that represents the properties of the node range for a multi-node parallel job.
+func (o JobDefinitionNodeRangePropertyOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionEksProperties { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
 // The instance types of the underlying host infrastructure of a multi-node parallel job.

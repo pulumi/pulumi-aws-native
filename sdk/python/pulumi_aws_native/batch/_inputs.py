@@ -2755,11 +2755,13 @@ class JobDefinitionNodeRangePropertyArgs:
                  target_nodes: pulumi.Input[str],
                  container: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
                  ecs_properties: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']] = None,
+                 eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] target_nodes: The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
         :param pulumi.Input['JobDefinitionContainerPropertiesArgs'] container: The container details for the node range.
         :param pulumi.Input['JobDefinitionEcsPropertiesArgs'] ecs_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
+        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the underlying host infrastructure of a multi-node parallel job.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -2771,6 +2773,8 @@ class JobDefinitionNodeRangePropertyArgs:
             pulumi.set(__self__, "container", container)
         if ecs_properties is not None:
             pulumi.set(__self__, "ecs_properties", ecs_properties)
+        if eks_properties is not None:
+            pulumi.set(__self__, "eks_properties", eks_properties)
         if instance_types is not None:
             pulumi.set(__self__, "instance_types", instance_types)
 
@@ -2809,6 +2813,18 @@ class JobDefinitionNodeRangePropertyArgs:
     @ecs_properties.setter
     def ecs_properties(self, value: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]):
         pulumi.set(self, "ecs_properties", value)
+
+    @property
+    @pulumi.getter(name="eksProperties")
+    def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
+        """
+        This is an object that represents the properties of the node range for a multi-node parallel job.
+        """
+        return pulumi.get(self, "eks_properties")
+
+    @eks_properties.setter
+    def eks_properties(self, value: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]):
+        pulumi.set(self, "eks_properties", value)
 
     @property
     @pulumi.getter(name="instanceTypes")

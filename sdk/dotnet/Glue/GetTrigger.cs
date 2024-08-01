@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.Glue
     public sealed class GetTriggerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Reserved for future use.
+        /// The name of the trigger.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetTriggerArgs()
         {
@@ -42,10 +42,10 @@ namespace Pulumi.AwsNative.Glue
     public sealed class GetTriggerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Reserved for future use.
+        /// The name of the trigger.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetTriggerInvokeArgs()
         {
@@ -70,21 +70,13 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public readonly Outputs.TriggerEventBatchingCondition? EventBatchingCondition;
         /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// The predicate of this trigger, which defines when it will fire.
         /// </summary>
         public readonly Outputs.TriggerPredicate? Predicate;
         /// <summary>
-        /// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        /// A cron expression used to specify the schedule.
         /// </summary>
         public readonly string? Schedule;
-        /// <summary>
-        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        /// </summary>
-        public readonly bool? StartOnCreation;
         /// <summary>
         /// The tags to use with this trigger.
         /// 
@@ -100,23 +92,17 @@ namespace Pulumi.AwsNative.Glue
 
             Outputs.TriggerEventBatchingCondition? eventBatchingCondition,
 
-            string? id,
-
             Outputs.TriggerPredicate? predicate,
 
             string? schedule,
-
-            bool? startOnCreation,
 
             object? tags)
         {
             Actions = actions;
             Description = description;
             EventBatchingCondition = eventBatchingCondition;
-            Id = id;
             Predicate = predicate;
             Schedule = schedule;
-            StartOnCreation = startOnCreation;
             Tags = tags;
         }
     }

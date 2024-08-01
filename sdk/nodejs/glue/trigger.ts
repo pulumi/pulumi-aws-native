@@ -126,10 +126,6 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
-     * Reserved for future use.
-     */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    /**
      * A description of this trigger.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -146,11 +142,11 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     /**
-     * A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+     * A cron expression used to specify the schedule.
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
-     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+     * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
      */
     public readonly startOnCreation!: pulumi.Output<boolean | undefined>;
     /**
@@ -195,10 +191,8 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventBatchingCondition"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -241,11 +235,11 @@ export interface TriggerArgs {
      */
     predicate?: pulumi.Input<inputs.glue.TriggerPredicateArgs>;
     /**
-     * A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+     * A cron expression used to specify the schedule.
      */
     schedule?: pulumi.Input<string>;
     /**
-     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+     * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
      */
     startOnCreation?: pulumi.Input<boolean>;
     /**

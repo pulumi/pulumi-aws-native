@@ -5477,7 +5477,7 @@ export namespace arczonalshift {
         /**
          * The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
          */
-        type: enums.arczonalshift.ZonalAutoshiftConfigurationControlConditionType;
+        type: string;
     }
 
     export interface ZonalAutoshiftConfigurationPracticeRunConfiguration {
@@ -8128,6 +8128,10 @@ export namespace batch {
          */
         ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
         /**
+         * This is an object that represents the properties of the node range for a multi-node parallel job.
+         */
+        eksProperties?: outputs.batch.JobDefinitionEksProperties;
+        /**
          * The instance types of the underlying host infrastructure of a multi-node parallel job.
          *
          * > This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -9686,6 +9690,27 @@ export namespace bedrock {
     }
 
     /**
+     * A config for grounding filter.
+     */
+    export interface GuardrailContextualGroundingFilterConfig {
+        /**
+         * The threshold for this filter.
+         */
+        threshold: number;
+        type: enums.bedrock.GuardrailContextualGroundingFilterType;
+    }
+
+    /**
+     * Contextual grounding policy config for a guardrail.
+     */
+    export interface GuardrailContextualGroundingPolicyConfig {
+        /**
+         * List of contextual grounding filter configs.
+         */
+        filtersConfig: outputs.bedrock.GuardrailContextualGroundingFilterConfig[];
+    }
+
+    /**
      * A managed words config.
      */
     export interface GuardrailManagedWordsConfig {
@@ -9946,6 +9971,9 @@ export namespace bedrock {
      * The embeddings model configuration details for the vector model used in Knowledge Base.
      */
     export interface KnowledgeBaseEmbeddingModelConfiguration {
+        /**
+         * The vector configuration details on the Bedrock embeddings model.
+         */
         bedrockEmbeddingModelConfiguration?: outputs.bedrock.KnowledgeBaseBedrockEmbeddingModelConfiguration;
     }
 
@@ -9973,6 +10001,9 @@ export namespace bedrock {
          * MongoDB Atlas endpoint service name.
          */
         endpointServiceName?: string;
+        /**
+         * Contains the names of the fields to which to map information about the vector store.
+         */
         fieldMapping: outputs.bedrock.KnowledgeBaseMongoDbAtlasFieldMapping;
         /**
          * Name of a MongoDB Atlas index.
@@ -10122,6 +10153,9 @@ export namespace bedrock {
      * The vector store service in which the knowledge base is stored.
      */
     export interface KnowledgeBaseStorageConfiguration {
+        /**
+         * Contains the storage configuration of the knowledge base in MongoDB Atlas.
+         */
         mongoDbAtlasConfiguration?: outputs.bedrock.KnowledgeBaseMongoDbAtlasConfiguration;
         /**
          * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -10149,6 +10183,9 @@ export namespace bedrock {
          * The ARN of the model used to create vector embeddings for the knowledge base.
          */
         embeddingModelArn: string;
+        /**
+         * The embeddings model configuration details for the vector model used in Knowledge Base.
+         */
         embeddingModelConfiguration?: outputs.bedrock.KnowledgeBaseEmbeddingModelConfiguration;
     }
 
@@ -10878,7 +10915,7 @@ export namespace cleanrooms {
 
     export interface MembershipProtectedQueryOutputConfiguration {
         /**
-         * Required configuration for a protected query with an `S3` output type.
+         * Required configuration for a protected query with an `s3` output type.
          */
         s3: outputs.cleanrooms.MembershipProtectedQueryS3OutputConfiguration;
     }
@@ -23455,25 +23492,25 @@ export namespace ec2 {
         userInfoEndpoint?: string;
     }
 
+    /**
+     * The tunnel options for a single VPN tunnel.
+     */
     export interface VpnConnectionVpnTunnelOptionsSpecification {
         /**
          * The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
-         *
-         * Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+         *  Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
          */
         preSharedKey?: string;
         /**
-         * The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
-         *
-         * Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
-         *
-         * - `169.254.0.0/30`
-         * - `169.254.1.0/30`
-         * - `169.254.2.0/30`
-         * - `169.254.3.0/30`
-         * - `169.254.4.0/30`
-         * - `169.254.5.0/30`
-         * - `169.254.169.252/30`
+         * The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
+         *  Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
+         *   +   ``169.254.0.0/30`` 
+         *   +   ``169.254.1.0/30`` 
+         *   +   ``169.254.2.0/30`` 
+         *   +   ``169.254.3.0/30`` 
+         *   +   ``169.254.4.0/30`` 
+         *   +   ``169.254.5.0/30`` 
+         *   +   ``169.254.169.252/30``
          */
         tunnelInsideCidr?: string;
     }
@@ -23544,7 +23581,7 @@ export namespace ecr {
          *
          * If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
          *
-         * If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+         * If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
          */
         encryptionType: enums.ecr.RepositoryCreationTemplateEncryptionType;
         /**
@@ -23578,7 +23615,7 @@ export namespace ecr {
          *
          * If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
          *
-         * If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+         * If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
          */
         encryptionType: enums.ecr.RepositoryEncryptionType;
         /**
@@ -27127,7 +27164,6 @@ export namespace entityresolution {
          * The type of ID mapping.
          */
         idMappingType?: enums.entityresolution.IdMappingWorkflowIdMappingTechniquesIdMappingType;
-        normalizationVersion?: string;
         /**
          * An object which defines any additional configurations required by the provider service.
          */
@@ -29507,7 +29543,7 @@ export namespace gamelift {
      */
     export interface FleetLocationConfiguration {
         /**
-         * An AWS Region code, such as `us-west-2` .
+         * An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
          */
         location: string;
         /**
@@ -29890,15 +29926,12 @@ export namespace glue {
         schemaName?: string;
     }
 
+    /**
+     * The actions initiated by this trigger.
+     */
     export interface TriggerAction {
         /**
          * The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-         *
-         * You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-         *
-         * For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-         *
-         * For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
          */
         arguments?: any;
         /**
@@ -29914,15 +29947,18 @@ export namespace glue {
          */
         notificationProperty?: outputs.glue.TriggerNotificationProperty;
         /**
-         * The name of the `SecurityConfiguration` structure to be used with this action.
+         * The name of the SecurityConfiguration structure to be used with this action.
          */
         securityConfiguration?: string;
         /**
-         * The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+         * The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
          */
         timeout?: number;
     }
 
+    /**
+     * Defines a condition under which a trigger fires.
+     */
     export interface TriggerCondition {
         /**
          * The state of the crawler to which this condition applies.
@@ -29933,7 +29969,7 @@ export namespace glue {
          */
         crawlerName?: string;
         /**
-         * The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+         * The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
          */
         jobName?: string;
         /**
@@ -29941,11 +29977,14 @@ export namespace glue {
          */
         logicalOperator?: string;
         /**
-         * The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+         * The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
          */
         state?: string;
     }
 
+    /**
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+     */
     export interface TriggerEventBatchingCondition {
         /**
          * Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
@@ -29957,6 +29996,9 @@ export namespace glue {
         batchWindow?: number;
     }
 
+    /**
+     * Specifies configuration properties of a job run notification.
+     */
     export interface TriggerNotificationProperty {
         /**
          * After a job run starts, the number of minutes to wait before sending a job run delay notification
@@ -29964,6 +30006,9 @@ export namespace glue {
         notifyDelayAfter?: number;
     }
 
+    /**
+     * The predicate of this trigger, which defines when it will fire.
+     */
     export interface TriggerPredicate {
         /**
          * A list of the conditions that determine when the trigger will fire.
@@ -38870,6 +38915,15 @@ export namespace kinesisfirehose {
         sizeInMbs?: number;
     }
 
+    export interface DeliveryStreamCatalogConfiguration {
+        /**
+         * Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+         *
+         * Amazon Data Firehose is in preview release and is subject to change.
+         */
+        catalogArn?: string;
+    }
+
     export interface DeliveryStreamCloudWatchLoggingOptions {
         /**
          * Indicates whether CloudWatch Logs logging is enabled.
@@ -38932,6 +38986,13 @@ export namespace kinesisfirehose {
          * The OpenX SerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
          */
         openXJsonSerDe?: outputs.kinesisfirehose.DeliveryStreamOpenXJsonSerDe;
+    }
+
+    export interface DeliveryStreamDestinationTableConfiguration {
+        destinationDatabaseName: string;
+        destinationTableName: string;
+        s3ErrorOutputPrefix?: string;
+        uniqueKeys?: string[];
     }
 
     export interface DeliveryStreamDocumentIdOptions {
@@ -39209,6 +39270,38 @@ export namespace kinesisfirehose {
         contentEncoding?: enums.kinesisfirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding;
     }
 
+    export interface DeliveryStreamIcebergDestinationConfiguration {
+        bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
+        /**
+         * Configuration describing where the destination Apache Iceberg Tables are persisted.
+         *
+         * Amazon Data Firehose is in preview release and is subject to change.
+         */
+        catalogConfiguration: outputs.kinesisfirehose.DeliveryStreamCatalogConfiguration;
+        cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
+        /**
+         * Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+         *
+         * Amazon Data Firehose is in preview release and is subject to change.
+         */
+        destinationTableConfigurationList?: outputs.kinesisfirehose.DeliveryStreamDestinationTableConfiguration[];
+        processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
+        retryOptions?: outputs.kinesisfirehose.DeliveryStreamRetryOptions;
+        /**
+         * The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+         *
+         * Amazon Data Firehose is in preview release and is subject to change.
+         */
+        roleArn: string;
+        /**
+         * Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+         *
+         * Amazon Data Firehose is in preview release and is subject to change.
+         */
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamIcebergDestinationConfigurations3BackupMode;
+        s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+    }
+
     export interface DeliveryStreamInputFormatConfiguration {
         /**
          * Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
@@ -39243,6 +39336,12 @@ export namespace kinesisfirehose {
          * The ARN of the Amazon MSK cluster.
          */
         mskClusterArn: string;
+        /**
+         * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+         *
+         * If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         */
+        readFromTimestamp?: string;
         /**
          * The topic name within the Amazon MSK cluster.
          */
@@ -39539,11 +39638,26 @@ export namespace kinesisfirehose {
         parquetSerDe?: outputs.kinesisfirehose.DeliveryStreamParquetSerDe;
     }
 
+    export interface DeliveryStreamSnowflakeBufferingHints {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+         */
+        intervalInSeconds?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+         */
+        sizeInMbs?: number;
+    }
+
     export interface DeliveryStreamSnowflakeDestinationConfiguration {
         /**
          * URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
          */
         accountUrl: string;
+        /**
+         * Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+         */
+        bufferingHints?: outputs.kinesisfirehose.DeliveryStreamSnowflakeBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         /**
          * The name of the record content column
@@ -39569,6 +39683,9 @@ export namespace kinesisfirehose {
          * The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
          */
         privateKey?: string;
+        /**
+         * Specifies configuration for Snowflake.
+         */
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         /**
          * The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -48004,6 +48121,9 @@ export namespace osis {
 }
 
 export namespace panorama {
+    /**
+     * Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
+     */
     export interface ApplicationInstanceManifestOverridesPayload {
         /**
          * The overrides document.
@@ -48011,6 +48131,9 @@ export namespace panorama {
         payloadData?: string;
     }
 
+    /**
+     * A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
+     */
     export interface ApplicationInstanceManifestPayload {
         /**
          * The application manifest.
@@ -48018,6 +48141,9 @@ export namespace panorama {
         payloadData?: string;
     }
 
+    /**
+     * A storage location.
+     */
     export interface PackageStorageLocation {
         /**
          * The location's binary prefix.
@@ -80968,6 +81094,10 @@ export namespace sagemaker {
          */
         instanceType?: enums.sagemaker.AppResourceSpecInstanceType;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sageMakerImageArn?: string;
@@ -81467,6 +81597,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterServer apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -81481,6 +81615,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with KernelGateway apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -84491,6 +84629,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
          */
         defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterServer apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -84505,6 +84647,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
          */
         defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with KernelGateway apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     export interface SpaceOwnershipSettings {
@@ -84519,6 +84665,10 @@ export namespace sagemaker {
          * The instance type that the image version runs on.
          */
         instanceType?: enums.sagemaker.SpaceResourceSpecInstanceType;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+         */
+        lifecycleConfigArn?: string;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -84703,6 +84853,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterServer apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -84717,6 +84871,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with KernelGateway apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -84738,6 +84896,10 @@ export namespace sagemaker {
          * The instance type that the image version runs on.
          */
         instanceType?: enums.sagemaker.UserProfileResourceSpecInstanceType;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+         */
+        lifecycleConfigArn?: string;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -87379,6 +87541,9 @@ export namespace simspaceweaver {
 }
 
 export namespace sns {
+    /**
+     * The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
+     */
     export interface TopicLoggingConfig {
         /**
          * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
@@ -87386,8 +87551,7 @@ export namespace sns {
         failureFeedbackRoleArn?: string;
         /**
          * Indicates one of the supported protocols for the Amazon SNS topic.
-         *
-         * > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+         *   At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
          */
         protocol: enums.sns.TopicLoggingConfigProtocol;
         /**
@@ -88106,8 +88270,17 @@ export namespace sso {
 
 export namespace stepfunctions {
     export interface ActivityEncryptionConfiguration {
+        /**
+         * Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+         */
         kmsDataKeyReusePeriodSeconds?: number;
+        /**
+         * An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+         */
         kmsKeyId?: string;
+        /**
+         * Encryption option for an activity.
+         */
         type: enums.stepfunctions.ActivityEncryptionConfigurationType;
     }
 
@@ -88161,8 +88334,17 @@ export namespace stepfunctions {
     }
 
     export interface StateMachineEncryptionConfiguration {
+        /**
+         * Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+         */
         kmsDataKeyReusePeriodSeconds?: number;
+        /**
+         * An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+         */
         kmsKeyId?: string;
+        /**
+         * Encryption option for a state machine.
+         */
         type: enums.stepfunctions.StateMachineEncryptionConfigurationType;
     }
 

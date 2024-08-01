@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a zero-ETL integration with Amazon Redshift.
+ * A zero-ETL integration with Amazon Redshift.
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
 
@@ -31,11 +31,11 @@ export interface GetIntegrationResult {
      */
     readonly createTime?: string;
     /**
-     * The data filter for the integration.
+     * Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
      */
     readonly dataFilter?: string;
     /**
-     * The description of the integration.
+     * A description of the integration.
      */
     readonly description?: string;
     /**
@@ -47,12 +47,12 @@ export interface GetIntegrationResult {
      */
     readonly integrationName?: string;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Creates a zero-ETL integration with Amazon Redshift.
+ * A zero-ETL integration with Amazon Redshift.
  */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getIntegration(a, opts))

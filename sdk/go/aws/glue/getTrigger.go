@@ -23,8 +23,8 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 }
 
 type LookupTriggerArgs struct {
-	// Reserved for future use.
-	Id string `pulumi:"id"`
+	// The name of the trigger.
+	Name string `pulumi:"name"`
 }
 
 type LookupTriggerResult struct {
@@ -34,14 +34,10 @@ type LookupTriggerResult struct {
 	Description *string `pulumi:"description"`
 	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 	EventBatchingCondition *TriggerEventBatchingCondition `pulumi:"eventBatchingCondition"`
-	// Reserved for future use.
-	Id *string `pulumi:"id"`
 	// The predicate of this trigger, which defines when it will fire.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
-	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+	// A cron expression used to specify the schedule.
 	Schedule *string `pulumi:"schedule"`
-	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-	StartOnCreation *bool `pulumi:"startOnCreation"`
 	// The tags to use with this trigger.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
@@ -62,8 +58,8 @@ func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts
 }
 
 type LookupTriggerOutputArgs struct {
-	// Reserved for future use.
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the trigger.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupTriggerOutputArgs) ElementType() reflect.Type {
@@ -99,24 +95,14 @@ func (o LookupTriggerResultOutput) EventBatchingCondition() TriggerEventBatching
 	return o.ApplyT(func(v LookupTriggerResult) *TriggerEventBatchingCondition { return v.EventBatchingCondition }).(TriggerEventBatchingConditionPtrOutput)
 }
 
-// Reserved for future use.
-func (o LookupTriggerResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTriggerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 // The predicate of this trigger, which defines when it will fire.
 func (o LookupTriggerResultOutput) Predicate() TriggerPredicatePtrOutput {
 	return o.ApplyT(func(v LookupTriggerResult) *TriggerPredicate { return v.Predicate }).(TriggerPredicatePtrOutput)
 }
 
-// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+// A cron expression used to specify the schedule.
 func (o LookupTriggerResultOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTriggerResult) *string { return v.Schedule }).(pulumi.StringPtrOutput)
-}
-
-// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-func (o LookupTriggerResultOutput) StartOnCreation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupTriggerResult) *bool { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }
 
 // The tags to use with this trigger.

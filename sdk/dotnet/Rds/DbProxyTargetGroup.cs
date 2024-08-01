@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Rds
     public partial class DbProxyTargetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        /// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         /// </summary>
         [Output("connectionPoolConfigurationInfo")]
         public Output<Outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Rds
     public sealed class DbProxyTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        /// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         /// </summary>
         [Input("connectionPoolConfigurationInfo")]
         public Input<Inputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }

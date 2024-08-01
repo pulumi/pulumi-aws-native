@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("contentPolicyConfig")]
         public Output<Outputs.GuardrailContentPolicyConfig?> ContentPolicyConfig { get; private set; } = null!;
 
+        [Output("contextualGroundingPolicyConfig")]
+        public Output<Outputs.GuardrailContextualGroundingPolicyConfig?> ContextualGroundingPolicyConfig { get; private set; } = null!;
+
         /// <summary>
         /// Time Stamp
         /// </summary>
@@ -185,6 +188,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigArgs>? ContentPolicyConfig { get; set; }
+
+        [Input("contextualGroundingPolicyConfig")]
+        public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
         /// <summary>
         /// Description of the guardrail or its version

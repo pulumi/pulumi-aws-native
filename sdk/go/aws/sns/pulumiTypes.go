@@ -13,12 +13,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The “LoggingConfig“ property type specifies the “Delivery“ status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
 type TopicLoggingConfig struct {
 	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
 	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
 	// Indicates one of the supported protocols for the Amazon SNS topic.
-	//
-	// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+	//   At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
 	Protocol TopicLoggingConfigProtocol `pulumi:"protocol"`
 	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
@@ -37,12 +37,12 @@ type TopicLoggingConfigInput interface {
 	ToTopicLoggingConfigOutputWithContext(context.Context) TopicLoggingConfigOutput
 }
 
+// The “LoggingConfig“ property type specifies the “Delivery“ status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
 type TopicLoggingConfigArgs struct {
 	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
 	FailureFeedbackRoleArn pulumi.StringPtrInput `pulumi:"failureFeedbackRoleArn"`
 	// Indicates one of the supported protocols for the Amazon SNS topic.
-	//
-	// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+	//   At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
 	Protocol TopicLoggingConfigProtocolInput `pulumi:"protocol"`
 	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput `pulumi:"successFeedbackRoleArn"`
@@ -87,6 +87,7 @@ func (i TopicLoggingConfigArray) ToTopicLoggingConfigArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TopicLoggingConfigArrayOutput)
 }
 
+// The “LoggingConfig“ property type specifies the “Delivery“ status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
 type TopicLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (TopicLoggingConfigOutput) ElementType() reflect.Type {
@@ -108,7 +109,7 @@ func (o TopicLoggingConfigOutput) FailureFeedbackRoleArn() pulumi.StringPtrOutpu
 
 // Indicates one of the supported protocols for the Amazon SNS topic.
 //
-// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+//	At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
 func (o TopicLoggingConfigOutput) Protocol() TopicLoggingConfigProtocolOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) TopicLoggingConfigProtocol { return v.Protocol }).(TopicLoggingConfigProtocolOutput)
 }

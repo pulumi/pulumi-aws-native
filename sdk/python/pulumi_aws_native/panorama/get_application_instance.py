@@ -142,7 +142,7 @@ class AwaitableGetApplicationInstanceResult(GetApplicationInstanceResult):
 def get_application_instance(application_instance_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationInstanceResult:
     """
-    Schema for ApplicationInstance CloudFormation Resource
+    Creates an application instance and deploys it to a device.
 
 
     :param str application_instance_id: The application instance's ID.
@@ -168,7 +168,7 @@ def get_application_instance(application_instance_id: Optional[str] = None,
 def get_application_instance_output(application_instance_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationInstanceResult]:
     """
-    Schema for ApplicationInstance CloudFormation Resource
+    Creates an application instance and deploys it to a device.
 
 
     :param str application_instance_id: The application instance's ID.

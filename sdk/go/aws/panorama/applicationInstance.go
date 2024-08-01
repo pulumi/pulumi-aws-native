@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for ApplicationInstance CloudFormation Resource
+// Creates an application instance and deploys it to a device.
 type ApplicationInstance struct {
 	pulumi.CustomResourceState
 

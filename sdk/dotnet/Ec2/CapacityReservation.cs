@@ -156,7 +156,6 @@ namespace Pulumi.AwsNative.Ec2
                     "availabilityZone",
                     "ebsOptimized",
                     "ephemeralStorage",
-                    "instanceMatchCriteria",
                     "instancePlatform",
                     "instanceType",
                     "outPostArn",

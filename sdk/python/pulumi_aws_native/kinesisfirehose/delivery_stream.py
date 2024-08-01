@@ -27,6 +27,7 @@ class DeliveryStreamArgs:
                  elasticsearch_destination_configuration: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] = None,
+                 iceberg_destination_configuration: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurationArgs']] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']] = None,
                  msk_source_configuration: Optional[pulumi.Input['DeliveryStreamMskSourceConfigurationArgs']] = None,
                  redshift_destination_configuration: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']] = None,
@@ -55,6 +56,9 @@ class DeliveryStreamArgs:
                
                If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
         :param pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs'] http_endpoint_destination_configuration: Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+        :param pulumi.Input['DeliveryStreamIcebergDestinationConfigurationArgs'] iceberg_destination_configuration: Specifies the destination configure settings for Apache Iceberg Table.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         :param pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs'] kinesis_stream_source_configuration: When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
         :param pulumi.Input['DeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
         :param pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs'] redshift_destination_configuration: An Amazon Redshift destination for the delivery stream.
@@ -97,6 +101,8 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "extended_s3_destination_configuration", extended_s3_destination_configuration)
         if http_endpoint_destination_configuration is not None:
             pulumi.set(__self__, "http_endpoint_destination_configuration", http_endpoint_destination_configuration)
+        if iceberg_destination_configuration is not None:
+            pulumi.set(__self__, "iceberg_destination_configuration", iceberg_destination_configuration)
         if kinesis_stream_source_configuration is not None:
             pulumi.set(__self__, "kinesis_stream_source_configuration", kinesis_stream_source_configuration)
         if msk_source_configuration is not None:
@@ -220,6 +226,20 @@ class DeliveryStreamArgs:
         pulumi.set(self, "http_endpoint_destination_configuration", value)
 
     @property
+    @pulumi.getter(name="icebergDestinationConfiguration")
+    def iceberg_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurationArgs']]:
+        """
+        Specifies the destination configure settings for Apache Iceberg Table.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "iceberg_destination_configuration")
+
+    @iceberg_destination_configuration.setter
+    def iceberg_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurationArgs']]):
+        pulumi.set(self, "iceberg_destination_configuration", value)
+
+    @property
     @pulumi.getter(name="kinesisStreamSourceConfiguration")
     def kinesis_stream_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']]:
         """
@@ -335,6 +355,7 @@ class DeliveryStream(pulumi.CustomResource):
                  elasticsearch_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamElasticsearchDestinationConfigurationArgs']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
+                 iceberg_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamIcebergDestinationConfigurationArgs']]] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']]] = None,
                  msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
@@ -367,6 +388,9 @@ class DeliveryStream(pulumi.CustomResource):
                
                If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
         :param pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] http_endpoint_destination_configuration: Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+        :param pulumi.Input[pulumi.InputType['DeliveryStreamIcebergDestinationConfigurationArgs']] iceberg_destination_configuration: Specifies the destination configure settings for Apache Iceberg Table.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         :param pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']] kinesis_stream_source_configuration: When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
         :param pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
         :param pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']] redshift_destination_configuration: An Amazon Redshift destination for the delivery stream.
@@ -425,6 +449,7 @@ class DeliveryStream(pulumi.CustomResource):
                  elasticsearch_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamElasticsearchDestinationConfigurationArgs']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
+                 iceberg_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamIcebergDestinationConfigurationArgs']]] = None,
                  kinesis_stream_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']]] = None,
                  msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
@@ -449,6 +474,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["elasticsearch_destination_configuration"] = elasticsearch_destination_configuration
             __props__.__dict__["extended_s3_destination_configuration"] = extended_s3_destination_configuration
             __props__.__dict__["http_endpoint_destination_configuration"] = http_endpoint_destination_configuration
+            __props__.__dict__["iceberg_destination_configuration"] = iceberg_destination_configuration
             __props__.__dict__["kinesis_stream_source_configuration"] = kinesis_stream_source_configuration
             __props__.__dict__["msk_source_configuration"] = msk_source_configuration
             __props__.__dict__["redshift_destination_configuration"] = redshift_destination_configuration
@@ -457,7 +483,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',
@@ -490,6 +516,7 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["elasticsearch_destination_configuration"] = None
         __props__.__dict__["extended_s3_destination_configuration"] = None
         __props__.__dict__["http_endpoint_destination_configuration"] = None
+        __props__.__dict__["iceberg_destination_configuration"] = None
         __props__.__dict__["kinesis_stream_source_configuration"] = None
         __props__.__dict__["msk_source_configuration"] = None
         __props__.__dict__["redshift_destination_configuration"] = None
@@ -581,6 +608,16 @@ class DeliveryStream(pulumi.CustomResource):
         Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
         """
         return pulumi.get(self, "http_endpoint_destination_configuration")
+
+    @property
+    @pulumi.getter(name="icebergDestinationConfiguration")
+    def iceberg_destination_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamIcebergDestinationConfiguration']]:
+        """
+        Specifies the destination configure settings for Apache Iceberg Table.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
+        return pulumi.get(self, "iceberg_destination_configuration")
 
     @property
     @pulumi.getter(name="kinesisStreamSourceConfiguration")

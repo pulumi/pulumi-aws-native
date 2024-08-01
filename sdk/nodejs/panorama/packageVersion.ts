@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for PackageVersion Resource Type
+ * Registers a package version.
  */
 export class PackageVersion extends pulumi.CustomResource {
     /**

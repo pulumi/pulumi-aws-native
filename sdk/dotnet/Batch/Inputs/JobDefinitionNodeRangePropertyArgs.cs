@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("ecsProperties")]
         public Input<Inputs.JobDefinitionEcsPropertiesArgs>? EcsProperties { get; set; }
 
+        /// <summary>
+        /// This is an object that represents the properties of the node range for a multi-node parallel job.
+        /// </summary>
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
+
         [Input("instanceTypes")]
         private InputList<string>? _instanceTypes;
 

@@ -162,8 +162,6 @@ type Trigger struct {
 
 	// The actions initiated by this trigger.
 	Actions TriggerActionArrayOutput `pulumi:"actions"`
-	// Reserved for future use.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A description of this trigger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
@@ -172,9 +170,9 @@ type Trigger struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The predicate of this trigger, which defines when it will fire.
 	Predicate TriggerPredicatePtrOutput `pulumi:"predicate"`
-	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+	// A cron expression used to specify the schedule.
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
-	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+	// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
 	StartOnCreation pulumi.BoolPtrOutput `pulumi:"startOnCreation"`
 	// The tags to use with this trigger.
 	//
@@ -248,9 +246,9 @@ type triggerArgs struct {
 	Name *string `pulumi:"name"`
 	// The predicate of this trigger, which defines when it will fire.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
-	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+	// A cron expression used to specify the schedule.
 	Schedule *string `pulumi:"schedule"`
-	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+	// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
 	StartOnCreation *bool `pulumi:"startOnCreation"`
 	// The tags to use with this trigger.
 	//
@@ -274,9 +272,9 @@ type TriggerArgs struct {
 	Name pulumi.StringPtrInput
 	// The predicate of this trigger, which defines when it will fire.
 	Predicate TriggerPredicatePtrInput
-	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+	// A cron expression used to specify the schedule.
 	Schedule pulumi.StringPtrInput
-	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+	// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
 	StartOnCreation pulumi.BoolPtrInput
 	// The tags to use with this trigger.
 	//
@@ -330,11 +328,6 @@ func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerActionArrayOutput { return v.Actions }).(TriggerActionArrayOutput)
 }
 
-// Reserved for future use.
-func (o TriggerOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
-}
-
 // A description of this trigger.
 func (o TriggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -355,12 +348,12 @@ func (o TriggerOutput) Predicate() TriggerPredicatePtrOutput {
 	return o.ApplyT(func(v *Trigger) TriggerPredicatePtrOutput { return v.Predicate }).(TriggerPredicatePtrOutput)
 }
 
-// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+// A cron expression used to specify the schedule.
 func (o TriggerOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
 }
 
-// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+// Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
 func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }

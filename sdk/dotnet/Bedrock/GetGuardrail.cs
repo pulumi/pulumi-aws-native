@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// The content filter policies to configure for the guardrail.
         /// </summary>
         public readonly Outputs.GuardrailContentPolicyConfig? ContentPolicyConfig;
+        public readonly Outputs.GuardrailContextualGroundingPolicyConfig? ContextualGroundingPolicyConfig;
         /// <summary>
         /// Time Stamp
         /// </summary>
@@ -138,6 +139,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             Outputs.GuardrailContentPolicyConfig? contentPolicyConfig,
 
+            Outputs.GuardrailContextualGroundingPolicyConfig? contextualGroundingPolicyConfig,
+
             string? createdAt,
 
             string? description,
@@ -171,6 +174,7 @@ namespace Pulumi.AwsNative.Bedrock
             BlockedInputMessaging = blockedInputMessaging;
             BlockedOutputsMessaging = blockedOutputsMessaging;
             ContentPolicyConfig = contentPolicyConfig;
+            ContextualGroundingPolicyConfig = contextualGroundingPolicyConfig;
             CreatedAt = createdAt;
             Description = description;
             FailureRecommendations = failureRecommendations;

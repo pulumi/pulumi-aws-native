@@ -165,7 +165,7 @@ class ApplicationInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Schema for ApplicationInstance CloudFormation Resource
+        Creates an application instance and deploys it to a device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class ApplicationInstance(pulumi.CustomResource):
                  args: ApplicationInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for ApplicationInstance CloudFormation Resource
+        Creates an application instance and deploys it to a device.
 
         :param str resource_name: The name of the resource.
         :param ApplicationInstanceArgs args: The arguments to use to populate this resource's properties.

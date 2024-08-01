@@ -88,6 +88,9 @@ class GetFlowResult:
     @property
     @pulumi.getter
     def definition(self) -> Optional['outputs.FlowDefinition']:
+        """
+        The definition of the nodes and connections between the nodes in the flow.
+        """
         return pulumi.get(self, "definition")
 
     @property
@@ -138,6 +141,12 @@ class GetFlowResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

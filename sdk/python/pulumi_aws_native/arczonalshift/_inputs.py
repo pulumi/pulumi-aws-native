@@ -19,10 +19,10 @@ __all__ = [
 class ZonalAutoshiftConfigurationControlConditionArgs:
     def __init__(__self__, *,
                  alarm_identifier: pulumi.Input[str],
-                 type: pulumi.Input['ZonalAutoshiftConfigurationControlConditionType']):
+                 type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] alarm_identifier: The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
-        :param pulumi.Input['ZonalAutoshiftConfigurationControlConditionType'] type: The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        :param pulumi.Input[str] type: The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
         """
         pulumi.set(__self__, "alarm_identifier", alarm_identifier)
         pulumi.set(__self__, "type", type)
@@ -41,14 +41,14 @@ class ZonalAutoshiftConfigurationControlConditionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ZonalAutoshiftConfigurationControlConditionType']:
+    def type(self) -> pulumi.Input[str]:
         """
         The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ZonalAutoshiftConfigurationControlConditionType']):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
 

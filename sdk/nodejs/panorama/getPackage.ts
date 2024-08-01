@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for Package CloudFormation Resource
+ * Creates a package and storage location in an Amazon S3 access point.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
 
@@ -48,7 +48,7 @@ export interface GetPackageResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Schema for Package CloudFormation Resource
+ * Creates a package and storage location in an Amazon S3 access point.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
     return pulumi.output(args).apply((a: any) => getPackage(a, opts))

@@ -12,7 +12,7 @@ import (
 
 // Indicates one of the supported protocols for the Amazon SNS topic.
 //
-// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+//	At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
 type TopicLoggingConfigProtocol string
 
 const (

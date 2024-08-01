@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ActivityEncryptionConfiguration struct {
-	KmsDataKeyReusePeriodSeconds *int                                `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsKeyId                     *string                             `pulumi:"kmsKeyId"`
-	Type                         ActivityEncryptionConfigurationType `pulumi:"type"`
+	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Encryption option for an activity.
+	Type ActivityEncryptionConfigurationType `pulumi:"type"`
 }
 
 // ActivityEncryptionConfigurationInput is an input type that accepts ActivityEncryptionConfigurationArgs and ActivityEncryptionConfigurationOutput values.
@@ -31,9 +34,12 @@ type ActivityEncryptionConfigurationInput interface {
 }
 
 type ActivityEncryptionConfigurationArgs struct {
-	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput                       `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsKeyId                     pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
-	Type                         ActivityEncryptionConfigurationTypeInput `pulumi:"type"`
+	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Encryption option for an activity.
+	Type ActivityEncryptionConfigurationTypeInput `pulumi:"type"`
 }
 
 func (ActivityEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -113,14 +119,17 @@ func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfiguration
 	}).(ActivityEncryptionConfigurationPtrOutput)
 }
 
+// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 func (o ActivityEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
 func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for an activity.
 func (o ActivityEncryptionConfigurationOutput) Type() ActivityEncryptionConfigurationTypeOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) ActivityEncryptionConfigurationType { return v.Type }).(ActivityEncryptionConfigurationTypeOutput)
 }
@@ -149,6 +158,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) Elem() ActivityEncryptionConfi
 	}).(ActivityEncryptionConfigurationOutput)
 }
 
+// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *int {
 		if v == nil {
@@ -158,6 +168,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
 func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
 		if v == nil {
@@ -167,6 +178,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for an activity.
 func (o ActivityEncryptionConfigurationPtrOutput) Type() ActivityEncryptionConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *ActivityEncryptionConfigurationType {
 		if v == nil {
@@ -769,9 +781,12 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 }
 
 type StateMachineEncryptionConfiguration struct {
-	KmsDataKeyReusePeriodSeconds *int                                    `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsKeyId                     *string                                 `pulumi:"kmsKeyId"`
-	Type                         StateMachineEncryptionConfigurationType `pulumi:"type"`
+	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Encryption option for a state machine.
+	Type StateMachineEncryptionConfigurationType `pulumi:"type"`
 }
 
 // StateMachineEncryptionConfigurationInput is an input type that accepts StateMachineEncryptionConfigurationArgs and StateMachineEncryptionConfigurationOutput values.
@@ -786,9 +801,12 @@ type StateMachineEncryptionConfigurationInput interface {
 }
 
 type StateMachineEncryptionConfigurationArgs struct {
-	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput                           `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsKeyId                     pulumi.StringPtrInput                        `pulumi:"kmsKeyId"`
-	Type                         StateMachineEncryptionConfigurationTypeInput `pulumi:"type"`
+	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Encryption option for a state machine.
+	Type StateMachineEncryptionConfigurationTypeInput `pulumi:"type"`
 }
 
 func (StateMachineEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -868,14 +886,17 @@ func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfi
 	}).(StateMachineEncryptionConfigurationPtrOutput)
 }
 
+// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 func (o StateMachineEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
 func (o StateMachineEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for a state machine.
 func (o StateMachineEncryptionConfigurationOutput) Type() StateMachineEncryptionConfigurationTypeOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) StateMachineEncryptionConfigurationType { return v.Type }).(StateMachineEncryptionConfigurationTypeOutput)
 }
@@ -904,6 +925,7 @@ func (o StateMachineEncryptionConfigurationPtrOutput) Elem() StateMachineEncrypt
 	}).(StateMachineEncryptionConfigurationOutput)
 }
 
+// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *int {
 		if v == nil {
@@ -913,6 +935,7 @@ func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSecon
 	}).(pulumi.IntPtrOutput)
 }
 
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
 func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
 		if v == nil {
@@ -922,6 +945,7 @@ func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for a state machine.
 func (o StateMachineEncryptionConfigurationPtrOutput) Type() StateMachineEncryptionConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *StateMachineEncryptionConfigurationType {
 		if v == nil {

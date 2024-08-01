@@ -34,6 +34,7 @@ from .get_monitoring_schedule import *
 from .get_pipeline import *
 from .get_project import *
 from .get_space import *
+from .get_studio_lifecycle_config import *
 from .get_user_profile import *
 from .image import *
 from .image_version import *
@@ -50,6 +51,7 @@ from .monitoring_schedule import *
 from .pipeline import *
 from .project import *
 from .space import *
+from .studio_lifecycle_config import *
 from .user_profile import *
 from ._inputs import *
 from . import outputs

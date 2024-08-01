@@ -32,7 +32,11 @@ type FlowAlias struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Routing configuration for a Flow alias.
 	RoutingConfiguration FlowAliasRoutingConfigurationListItemArrayOutput `pulumi:"routingConfiguration"`
-	Tags                 pulumi.StringMapOutput                           `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -95,7 +99,11 @@ type flowAliasArgs struct {
 	Name *string `pulumi:"name"`
 	// Routing configuration for a Flow alias.
 	RoutingConfiguration []FlowAliasRoutingConfigurationListItem `pulumi:"routingConfiguration"`
-	Tags                 map[string]string                       `pulumi:"tags"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FlowAlias resource.
@@ -108,7 +116,11 @@ type FlowAliasArgs struct {
 	Name pulumi.StringPtrInput
 	// Routing configuration for a Flow alias.
 	RoutingConfiguration FlowAliasRoutingConfigurationListItemArrayInput
-	Tags                 pulumi.StringMapInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+	Tags pulumi.StringMapInput
 }
 
 func (FlowAliasArgs) ElementType() reflect.Type {
@@ -188,6 +200,10 @@ func (o FlowAliasOutput) RoutingConfiguration() FlowAliasRoutingConfigurationLis
 	return o.ApplyT(func(v *FlowAlias) FlowAliasRoutingConfigurationListItemArrayOutput { return v.RoutingConfiguration }).(FlowAliasRoutingConfigurationListItemArrayOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o FlowAliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowAlias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

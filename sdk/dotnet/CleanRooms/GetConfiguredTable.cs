@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.CleanRooms
     public sealed class GetConfiguredTableResult
     {
         /// <summary>
-        /// The entire created analysis rule.
+        /// The analysis rule that was created for the configured table.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfiguredTableAnalysisRule> AnalysisRules;
         /// <summary>

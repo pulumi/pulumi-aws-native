@@ -159,6 +159,9 @@ export class StateMachine extends pulumi.CustomResource {
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
     public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
+    /**
+     * Encryption configuration for the state machine.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineEncryptionConfiguration | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged.
@@ -292,6 +295,9 @@ export interface StateMachineArgs {
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
     definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>}>;
+    /**
+     * Encryption configuration for the state machine.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineEncryptionConfigurationArgs>;
     /**
      * Defines what execution history events are logged and where they are logged.

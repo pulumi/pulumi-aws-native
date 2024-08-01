@@ -167,18 +167,13 @@ class TriggerActionArgs:
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
+        The actions initiated by this trigger.
         :param Any arguments: The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-               
-               You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-               
-               For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-               
-               For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] crawler_name: The name of the crawler to be used with this action.
         :param pulumi.Input[str] job_name: The name of a job to be executed.
         :param pulumi.Input['TriggerNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification.
-        :param pulumi.Input[str] security_configuration: The name of the `SecurityConfiguration` structure to be used with this action.
-        :param pulumi.Input[int] timeout: The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        :param pulumi.Input[str] security_configuration: The name of the SecurityConfiguration structure to be used with this action.
+        :param pulumi.Input[int] timeout: The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -198,12 +193,6 @@ class TriggerActionArgs:
     def arguments(self) -> Optional[Any]:
         """
         The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-
-        You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-
-        For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-
-        For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
         """
         return pulumi.get(self, "arguments")
 
@@ -251,7 +240,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the `SecurityConfiguration` structure to be used with this action.
+        The name of the SecurityConfiguration structure to be used with this action.
         """
         return pulumi.get(self, "security_configuration")
 
@@ -263,7 +252,7 @@ class TriggerActionArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
         """
         return pulumi.get(self, "timeout")
 
@@ -281,11 +270,12 @@ class TriggerConditionArgs:
                  logical_operator: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
+        Defines a condition under which a trigger fires.
         :param pulumi.Input[str] crawl_state: The state of the crawler to which this condition applies.
         :param pulumi.Input[str] crawler_name: The name of the crawler to which this condition applies.
-        :param pulumi.Input[str] job_name: The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        :param pulumi.Input[str] job_name: The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
         :param pulumi.Input[str] logical_operator: A logical operator.
-        :param pulumi.Input[str] state: The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        :param pulumi.Input[str] state: The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
         """
         if crawl_state is not None:
             pulumi.set(__self__, "crawl_state", crawl_state)
@@ -326,7 +316,7 @@ class TriggerConditionArgs:
     @pulumi.getter(name="jobName")
     def job_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
         """
         return pulumi.get(self, "job_name")
 
@@ -350,7 +340,7 @@ class TriggerConditionArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
         """
         return pulumi.get(self, "state")
 
@@ -365,6 +355,7 @@ class TriggerEventBatchingConditionArgs:
                  batch_size: pulumi.Input[int],
                  batch_window: Optional[pulumi.Input[int]] = None):
         """
+        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param pulumi.Input[int] batch_size: Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
         :param pulumi.Input[int] batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
         """
@@ -402,6 +393,7 @@ class TriggerNotificationPropertyArgs:
     def __init__(__self__, *,
                  notify_delay_after: Optional[pulumi.Input[int]] = None):
         """
+        Specifies configuration properties of a job run notification.
         :param pulumi.Input[int] notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification
         """
         if notify_delay_after is not None:
@@ -426,6 +418,7 @@ class TriggerPredicateArgs:
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]]] = None,
                  logical: Optional[pulumi.Input[str]] = None):
         """
+        The predicate of this trigger, which defines when it will fire.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]] conditions: A list of the conditions that determine when the trigger will fire.
         :param pulumi.Input[str] logical: An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
         """

@@ -10411,6 +10411,254 @@ func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfig() GuardrailContentF
 	}).(GuardrailContentFilterConfigArrayOutput)
 }
 
+// A config for grounding filter.
+type GuardrailContextualGroundingFilterConfig struct {
+	// The threshold for this filter.
+	Threshold float64                                `pulumi:"threshold"`
+	Type      GuardrailContextualGroundingFilterType `pulumi:"type"`
+}
+
+// GuardrailContextualGroundingFilterConfigInput is an input type that accepts GuardrailContextualGroundingFilterConfigArgs and GuardrailContextualGroundingFilterConfigOutput values.
+// You can construct a concrete instance of `GuardrailContextualGroundingFilterConfigInput` via:
+//
+//	GuardrailContextualGroundingFilterConfigArgs{...}
+type GuardrailContextualGroundingFilterConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingFilterConfigOutput() GuardrailContextualGroundingFilterConfigOutput
+	ToGuardrailContextualGroundingFilterConfigOutputWithContext(context.Context) GuardrailContextualGroundingFilterConfigOutput
+}
+
+// A config for grounding filter.
+type GuardrailContextualGroundingFilterConfigArgs struct {
+	// The threshold for this filter.
+	Threshold pulumi.Float64Input                         `pulumi:"threshold"`
+	Type      GuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
+}
+
+func (GuardrailContextualGroundingFilterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (i GuardrailContextualGroundingFilterConfigArgs) ToGuardrailContextualGroundingFilterConfigOutput() GuardrailContextualGroundingFilterConfigOutput {
+	return i.ToGuardrailContextualGroundingFilterConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContextualGroundingFilterConfigArgs) ToGuardrailContextualGroundingFilterConfigOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContextualGroundingFilterConfigOutput)
+}
+
+// GuardrailContextualGroundingFilterConfigArrayInput is an input type that accepts GuardrailContextualGroundingFilterConfigArray and GuardrailContextualGroundingFilterConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailContextualGroundingFilterConfigArrayInput` via:
+//
+//	GuardrailContextualGroundingFilterConfigArray{ GuardrailContextualGroundingFilterConfigArgs{...} }
+type GuardrailContextualGroundingFilterConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingFilterConfigArrayOutput() GuardrailContextualGroundingFilterConfigArrayOutput
+	ToGuardrailContextualGroundingFilterConfigArrayOutputWithContext(context.Context) GuardrailContextualGroundingFilterConfigArrayOutput
+}
+
+type GuardrailContextualGroundingFilterConfigArray []GuardrailContextualGroundingFilterConfigInput
+
+func (GuardrailContextualGroundingFilterConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (i GuardrailContextualGroundingFilterConfigArray) ToGuardrailContextualGroundingFilterConfigArrayOutput() GuardrailContextualGroundingFilterConfigArrayOutput {
+	return i.ToGuardrailContextualGroundingFilterConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailContextualGroundingFilterConfigArray) ToGuardrailContextualGroundingFilterConfigArrayOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
+// A config for grounding filter.
+type GuardrailContextualGroundingFilterConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingFilterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingFilterConfigOutput) ToGuardrailContextualGroundingFilterConfigOutput() GuardrailContextualGroundingFilterConfigOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterConfigOutput) ToGuardrailContextualGroundingFilterConfigOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterConfigOutput {
+	return o
+}
+
+// The threshold for this filter.
+func (o GuardrailContextualGroundingFilterConfigOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+func (o GuardrailContextualGroundingFilterConfigOutput) Type() GuardrailContextualGroundingFilterTypeOutput {
+	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) GuardrailContextualGroundingFilterType { return v.Type }).(GuardrailContextualGroundingFilterTypeOutput)
+}
+
+type GuardrailContextualGroundingFilterConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingFilterConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingFilterConfigArrayOutput) ToGuardrailContextualGroundingFilterConfigArrayOutput() GuardrailContextualGroundingFilterConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterConfigArrayOutput) ToGuardrailContextualGroundingFilterConfigArrayOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterConfigArrayOutput) Index(i pulumi.IntInput) GuardrailContextualGroundingFilterConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailContextualGroundingFilterConfig {
+		return vs[0].([]GuardrailContextualGroundingFilterConfig)[vs[1].(int)]
+	}).(GuardrailContextualGroundingFilterConfigOutput)
+}
+
+// Contextual grounding policy config for a guardrail.
+type GuardrailContextualGroundingPolicyConfig struct {
+	// List of contextual grounding filter configs.
+	FiltersConfig []GuardrailContextualGroundingFilterConfig `pulumi:"filtersConfig"`
+}
+
+// GuardrailContextualGroundingPolicyConfigInput is an input type that accepts GuardrailContextualGroundingPolicyConfigArgs and GuardrailContextualGroundingPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailContextualGroundingPolicyConfigInput` via:
+//
+//	GuardrailContextualGroundingPolicyConfigArgs{...}
+type GuardrailContextualGroundingPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingPolicyConfigOutput() GuardrailContextualGroundingPolicyConfigOutput
+	ToGuardrailContextualGroundingPolicyConfigOutputWithContext(context.Context) GuardrailContextualGroundingPolicyConfigOutput
+}
+
+// Contextual grounding policy config for a guardrail.
+type GuardrailContextualGroundingPolicyConfigArgs struct {
+	// List of contextual grounding filter configs.
+	FiltersConfig GuardrailContextualGroundingFilterConfigArrayInput `pulumi:"filtersConfig"`
+}
+
+func (GuardrailContextualGroundingPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailContextualGroundingPolicyConfigArgs) ToGuardrailContextualGroundingPolicyConfigOutput() GuardrailContextualGroundingPolicyConfigOutput {
+	return i.ToGuardrailContextualGroundingPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContextualGroundingPolicyConfigArgs) ToGuardrailContextualGroundingPolicyConfigOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContextualGroundingPolicyConfigOutput)
+}
+
+func (i GuardrailContextualGroundingPolicyConfigArgs) ToGuardrailContextualGroundingPolicyConfigPtrOutput() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return i.ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailContextualGroundingPolicyConfigArgs) ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContextualGroundingPolicyConfigOutput).ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailContextualGroundingPolicyConfigPtrInput is an input type that accepts GuardrailContextualGroundingPolicyConfigArgs, GuardrailContextualGroundingPolicyConfigPtr and GuardrailContextualGroundingPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailContextualGroundingPolicyConfigPtrInput` via:
+//
+//	        GuardrailContextualGroundingPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailContextualGroundingPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingPolicyConfigPtrOutput() GuardrailContextualGroundingPolicyConfigPtrOutput
+	ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Context) GuardrailContextualGroundingPolicyConfigPtrOutput
+}
+
+type guardrailContextualGroundingPolicyConfigPtrType GuardrailContextualGroundingPolicyConfigArgs
+
+func GuardrailContextualGroundingPolicyConfigPtr(v *GuardrailContextualGroundingPolicyConfigArgs) GuardrailContextualGroundingPolicyConfigPtrInput {
+	return (*guardrailContextualGroundingPolicyConfigPtrType)(v)
+}
+
+func (*guardrailContextualGroundingPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailContextualGroundingPolicyConfigPtrType) ToGuardrailContextualGroundingPolicyConfigPtrOutput() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return i.ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailContextualGroundingPolicyConfigPtrType) ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContextualGroundingPolicyConfigPtrOutput)
+}
+
+// Contextual grounding policy config for a guardrail.
+type GuardrailContextualGroundingPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGroundingPolicyConfigOutput() GuardrailContextualGroundingPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGroundingPolicyConfigOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGroundingPolicyConfigPtrOutput() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContextualGroundingPolicyConfig) *GuardrailContextualGroundingPolicyConfig {
+		return &v
+	}).(GuardrailContextualGroundingPolicyConfigPtrOutput)
+}
+
+// List of contextual grounding filter configs.
+func (o GuardrailContextualGroundingPolicyConfigOutput) FiltersConfig() GuardrailContextualGroundingFilterConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingFilterConfig {
+		return v.FiltersConfig
+	}).(GuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
+type GuardrailContextualGroundingPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingPolicyConfigPtrOutput) ToGuardrailContextualGroundingPolicyConfigPtrOutput() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingPolicyConfigPtrOutput) ToGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingPolicyConfigPtrOutput) Elem() GuardrailContextualGroundingPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailContextualGroundingPolicyConfig) GuardrailContextualGroundingPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContextualGroundingPolicyConfig
+		return ret
+	}).(GuardrailContextualGroundingPolicyConfigOutput)
+}
+
+// List of contextual grounding filter configs.
+func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfig() GuardrailContextualGroundingFilterConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingFilterConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FiltersConfig
+	}).(GuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
 // A managed words config.
 type GuardrailManagedWordsConfig struct {
 	// The managed word type to configure for the guardrail.
@@ -12001,6 +12249,7 @@ func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() Kno
 
 // The embeddings model configuration details for the vector model used in Knowledge Base.
 type KnowledgeBaseEmbeddingModelConfiguration struct {
+	// The vector configuration details on the Bedrock embeddings model.
 	BedrockEmbeddingModelConfiguration *KnowledgeBaseBedrockEmbeddingModelConfiguration `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -12017,6 +12266,7 @@ type KnowledgeBaseEmbeddingModelConfigurationInput interface {
 
 // The embeddings model configuration details for the vector model used in Knowledge Base.
 type KnowledgeBaseEmbeddingModelConfigurationArgs struct {
+	// The vector configuration details on the Bedrock embeddings model.
 	BedrockEmbeddingModelConfiguration KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -12098,6 +12348,7 @@ func (o KnowledgeBaseEmbeddingModelConfigurationOutput) ToKnowledgeBaseEmbedding
 	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
 }
 
+// The vector configuration details on the Bedrock embeddings model.
 func (o KnowledgeBaseEmbeddingModelConfigurationOutput) BedrockEmbeddingModelConfiguration() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfiguration {
 		return v.BedrockEmbeddingModelConfiguration
@@ -12128,6 +12379,7 @@ func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) Elem() KnowledgeBaseE
 	}).(KnowledgeBaseEmbeddingModelConfigurationOutput)
 }
 
+// The vector configuration details on the Bedrock embeddings model.
 func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModelConfiguration() KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfiguration {
 		if v == nil {
@@ -12148,8 +12400,9 @@ type KnowledgeBaseMongoDbAtlasConfiguration struct {
 	// MongoDB Atlas endpoint.
 	Endpoint string `pulumi:"endpoint"`
 	// MongoDB Atlas endpoint service name.
-	EndpointServiceName *string                               `pulumi:"endpointServiceName"`
-	FieldMapping        KnowledgeBaseMongoDbAtlasFieldMapping `pulumi:"fieldMapping"`
+	EndpointServiceName *string `pulumi:"endpointServiceName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseMongoDbAtlasFieldMapping `pulumi:"fieldMapping"`
 	// Name of a MongoDB Atlas index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -12176,8 +12429,9 @@ type KnowledgeBaseMongoDbAtlasConfigurationArgs struct {
 	// MongoDB Atlas endpoint.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// MongoDB Atlas endpoint service name.
-	EndpointServiceName pulumi.StringPtrInput                      `pulumi:"endpointServiceName"`
-	FieldMapping        KnowledgeBaseMongoDbAtlasFieldMappingInput `pulumi:"fieldMapping"`
+	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseMongoDbAtlasFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of a MongoDB Atlas index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -12285,6 +12539,7 @@ func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) EndpointServiceName() pulu
 	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) *string { return v.EndpointServiceName }).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) FieldMapping() KnowledgeBaseMongoDbAtlasFieldMappingOutput {
 	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) KnowledgeBaseMongoDbAtlasFieldMapping {
 		return v.FieldMapping
@@ -12370,6 +12625,7 @@ func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) EndpointServiceName() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) FieldMapping() KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *KnowledgeBaseMongoDbAtlasFieldMapping {
 		if v == nil {
@@ -13696,6 +13952,7 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) VectorField() pulumi.StringPtrOut
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfiguration struct {
+	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration *KnowledgeBaseMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
@@ -13720,6 +13977,7 @@ type KnowledgeBaseStorageConfigurationInput interface {
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfigurationArgs struct {
+	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration KnowledgeBaseMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
@@ -13758,6 +14016,7 @@ func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigura
 	return o
 }
 
+// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 func (o KnowledgeBaseStorageConfigurationOutput) MongoDbAtlasConfiguration() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseMongoDbAtlasConfiguration {
 		return v.MongoDbAtlasConfiguration
@@ -13791,7 +14050,8 @@ func (o KnowledgeBaseStorageConfigurationOutput) Type() KnowledgeBaseStorageType
 // Contains details about the model used to create vector embeddings for the knowledge base.
 type KnowledgeBaseVectorKnowledgeBaseConfiguration struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn           string                                    `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
+	// The embeddings model configuration details for the vector model used in Knowledge Base.
 	EmbeddingModelConfiguration *KnowledgeBaseEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
 }
 
@@ -13809,7 +14069,8 @@ type KnowledgeBaseVectorKnowledgeBaseConfigurationInput interface {
 // Contains details about the model used to create vector embeddings for the knowledge base.
 type KnowledgeBaseVectorKnowledgeBaseConfigurationArgs struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn           pulumi.StringInput                               `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
+	// The embeddings model configuration details for the vector model used in Knowledge Base.
 	EmbeddingModelConfiguration KnowledgeBaseEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
 }
 
@@ -13845,6 +14106,7 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelArn()
 	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) string { return v.EmbeddingModelArn }).(pulumi.StringOutput)
 }
 
+// The embeddings model configuration details for the vector model used in Knowledge Base.
 func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
 		return v.EmbeddingModelConfiguration
@@ -15511,6 +15773,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigArrayInput)(nil)).Elem(), GuardrailContentFilterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigPtrInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterConfigInput)(nil)).Elem(), GuardrailContextualGroundingFilterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterConfigArrayInput)(nil)).Elem(), GuardrailContextualGroundingFilterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingPolicyConfigInput)(nil)).Elem(), GuardrailContextualGroundingPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingPolicyConfigPtrInput)(nil)).Elem(), GuardrailContextualGroundingPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigInput)(nil)).Elem(), GuardrailManagedWordsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigArrayInput)(nil)).Elem(), GuardrailManagedWordsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityConfigInput)(nil)).Elem(), GuardrailPiiEntityConfigArgs{})
@@ -15748,6 +16014,10 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailPiiEntityConfigOutput{})

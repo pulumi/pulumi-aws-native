@@ -2549,7 +2549,7 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfiguration struct {
-	// An AWS Region code, such as `us-west-2` .
+	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location string `pulumi:"location"`
 	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
@@ -2570,7 +2570,7 @@ type FleetLocationConfigurationInput interface {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfigurationArgs struct {
-	// An AWS Region code, such as `us-west-2` .
+	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
@@ -2630,7 +2630,7 @@ func (o FleetLocationConfigurationOutput) ToFleetLocationConfigurationOutputWith
 	return o
 }
 
-// An AWS Region code, such as `us-west-2` .
+// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }

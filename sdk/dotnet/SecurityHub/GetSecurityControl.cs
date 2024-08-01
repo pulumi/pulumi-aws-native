@@ -69,10 +69,6 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
         /// </summary>
         public readonly string? SecurityControlArn;
-        /// <summary>
-        /// The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
-        /// </summary>
-        public readonly string? SecurityControlId;
 
         [OutputConstructor]
         private GetSecurityControlResult(
@@ -80,14 +76,11 @@ namespace Pulumi.AwsNative.SecurityHub
 
             ImmutableDictionary<string, Outputs.SecurityControlParameterConfiguration>? parameters,
 
-            string? securityControlArn,
-
-            string? securityControlId)
+            string? securityControlArn)
         {
             LastUpdateReason = lastUpdateReason;
             Parameters = parameters;
             SecurityControlArn = securityControlArn;
-            SecurityControlId = securityControlId;
         }
     }
 }

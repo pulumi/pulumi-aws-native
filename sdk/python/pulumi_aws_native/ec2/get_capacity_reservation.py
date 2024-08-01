@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityReservationResult:
-    def __init__(__self__, available_instance_count=None, end_date=None, end_date_type=None, id=None, instance_count=None, total_instance_count=None):
+    def __init__(__self__, available_instance_count=None, end_date=None, end_date_type=None, id=None, instance_count=None, instance_match_criteria=None, total_instance_count=None):
         if available_instance_count and not isinstance(available_instance_count, int):
             raise TypeError("Expected argument 'available_instance_count' to be a int")
         pulumi.set(__self__, "available_instance_count", available_instance_count)
@@ -34,6 +34,9 @@ class GetCapacityReservationResult:
         if instance_count and not isinstance(instance_count, int):
             raise TypeError("Expected argument 'instance_count' to be a int")
         pulumi.set(__self__, "instance_count", instance_count)
+        if instance_match_criteria and not isinstance(instance_match_criteria, str):
+            raise TypeError("Expected argument 'instance_match_criteria' to be a str")
+        pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
         if total_instance_count and not isinstance(total_instance_count, int):
             raise TypeError("Expected argument 'total_instance_count' to be a int")
         pulumi.set(__self__, "total_instance_count", total_instance_count)
@@ -88,6 +91,19 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "instance_count")
 
     @property
+    @pulumi.getter(name="instanceMatchCriteria")
+    def instance_match_criteria(self) -> Optional[str]:
+        """
+        Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+
+        - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+        - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+
+        Default: `open`
+        """
+        return pulumi.get(self, "instance_match_criteria")
+
+    @property
     @pulumi.getter(name="totalInstanceCount")
     def total_instance_count(self) -> Optional[int]:
         """
@@ -107,6 +123,7 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             end_date_type=self.end_date_type,
             id=self.id,
             instance_count=self.instance_count,
+            instance_match_criteria=self.instance_match_criteria,
             total_instance_count=self.total_instance_count)
 
 
@@ -129,6 +146,7 @@ def get_capacity_reservation(id: Optional[str] = None,
         end_date_type=pulumi.get(__ret__, 'end_date_type'),
         id=pulumi.get(__ret__, 'id'),
         instance_count=pulumi.get(__ret__, 'instance_count'),
+        instance_match_criteria=pulumi.get(__ret__, 'instance_match_criteria'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
 
 

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for Package CloudFormation Resource
+// Creates a package and storage location in an Amazon S3 access point.
 type Package struct {
 	pulumi.CustomResourceState
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// The predicate of this trigger, which defines when it will fire.
+    /// </summary>
     [OutputType]
     public sealed class TriggerPredicate
     {

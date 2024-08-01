@@ -13,29 +13,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a zero-ETL integration with Amazon Redshift.
+// A zero-ETL integration with Amazon Redshift.
 type Integration struct {
 	pulumi.CustomResourceState
 
-	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
-	//
-	// You can only include this parameter if you specify the `KMSKeyId` parameter.
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
+	//  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
 	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
 	// The time when the integration was created, in Universal Coordinated Time (UTC).
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// The data filter for the integration.
+	// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 	DataFilter pulumi.StringPtrOutput `pulumi:"dataFilter"`
-	// The description of the integration.
+	// A description of the integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the integration.
 	IntegrationArn pulumi.StringOutput `pulumi:"integrationArn"`
 	// The name of the integration.
 	IntegrationName pulumi.StringPtrOutput `pulumi:"integrationName"`
-	// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+	// The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -94,21 +93,20 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
-	//
-	// You can only include this parameter if you specify the `KMSKeyId` parameter.
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
+	//  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// The data filter for the integration.
+	// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 	DataFilter *string `pulumi:"dataFilter"`
-	// The description of the integration.
+	// A description of the integration.
 	Description *string `pulumi:"description"`
 	// The name of the integration.
 	IntegrationName *string `pulumi:"integrationName"`
-	// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+	// The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication.
 	SourceArn string `pulumi:"sourceArn"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn string `pulumi:"targetArn"`
@@ -116,21 +114,20 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
-	//
-	// You can only include this parameter if you specify the `KMSKeyId` parameter.
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
+	//  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// The data filter for the integration.
+	// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 	DataFilter pulumi.StringPtrInput
-	// The description of the integration.
+	// A description of the integration.
 	Description pulumi.StringPtrInput
 	// The name of the integration.
 	IntegrationName pulumi.StringPtrInput
-	// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+	// The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
 	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication.
 	SourceArn pulumi.StringInput
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 	Tags aws.TagArrayInput
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn pulumi.StringInput
@@ -173,9 +170,9 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
 //
-// You can only include this parameter if you specify the `KMSKeyId` parameter.
+//	You can only include this parameter if you specify the ``KMSKeyId`` parameter.
 func (o IntegrationOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
@@ -185,12 +182,12 @@ func (o IntegrationOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The data filter for the integration.
+// Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
 func (o IntegrationOutput) DataFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.DataFilter }).(pulumi.StringPtrOutput)
 }
 
-// The description of the integration.
+// A description of the integration.
 func (o IntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -205,17 +202,17 @@ func (o IntegrationOutput) IntegrationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationName }).(pulumi.StringPtrOutput)
 }
 
-// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
+// The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
 func (o IntegrationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
+// The Amazon Resource Name (ARN) of the database to use as the source for replication.
 func (o IntegrationOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
 func (o IntegrationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Integration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

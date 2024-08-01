@@ -86,6 +86,7 @@ __all__ = [
     'SpaceAppType',
     'SpaceResourceSpecInstanceType',
     'SpaceSharingSettingsSharingType',
+    'StudioLifecycleConfigAppType',
     'UserProfileAppType',
     'UserProfileMlTools',
     'UserProfileRStudioServerProAppSettingsAccessStatus',
@@ -262,7 +263,7 @@ class DomainMlTools(str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
     EMR_CLUSTERS = "EmrClusters"
-    AUTO_ML = "AutoML"
+    AUTO_ML = "AutoMl"
     EXPERIMENTS = "Experiments"
     TRAINING = "Training"
     MODEL_EVALUATION = "ModelEvaluation"
@@ -982,6 +983,16 @@ class SpaceSharingSettingsSharingType(str, Enum):
     SHARED = "Shared"
 
 
+class StudioLifecycleConfigAppType(str, Enum):
+    """
+    The App type that the Lifecycle Configuration is attached to.
+    """
+    JUPYTER_SERVER = "JupyterServer"
+    KERNEL_GATEWAY = "KernelGateway"
+    CODE_EDITOR = "CodeEditor"
+    JUPYTER_LAB = "JupyterLab"
+
+
 class UserProfileAppType(str, Enum):
     JUPYTER_SERVER = "JupyterServer"
     TENSOR_BOARD = "TensorBoard"
@@ -996,7 +1007,7 @@ class UserProfileMlTools(str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
     EMR_CLUSTERS = "EmrClusters"
-    AUTO_ML = "AutoML"
+    AUTO_ML = "AutoMl"
     EXPERIMENTS = "Experiments"
     TRAINING = "Training"
     MODEL_EVALUATION = "ModelEvaluation"

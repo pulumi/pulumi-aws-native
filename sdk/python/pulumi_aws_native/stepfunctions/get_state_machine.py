@@ -69,6 +69,9 @@ class GetStateMachineResult:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.StateMachineEncryptionConfiguration']:
+        """
+        Encryption configuration for the state machine.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

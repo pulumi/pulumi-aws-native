@@ -45,6 +45,10 @@ type DeliveryStream struct {
 	ExtendedS3DestinationConfiguration DeliveryStreamExtendedS3DestinationConfigurationPtrOutput `pulumi:"extendedS3DestinationConfiguration"`
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 	HttpEndpointDestinationConfiguration DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput `pulumi:"httpEndpointDestinationConfiguration"`
+	// Specifies the destination configure settings for Apache Iceberg Table.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	IcebergDestinationConfiguration DeliveryStreamIcebergDestinationConfigurationPtrOutput `pulumi:"icebergDestinationConfiguration"`
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
 	KinesisStreamSourceConfiguration DeliveryStreamKinesisStreamSourceConfigurationPtrOutput `pulumi:"kinesisStreamSourceConfiguration"`
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
@@ -92,6 +96,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 		"deliveryStreamName",
 		"deliveryStreamType",
 		"elasticsearchDestinationConfiguration.vpcConfiguration",
+		"icebergDestinationConfiguration",
 		"kinesisStreamSourceConfiguration",
 		"mskSourceConfiguration",
 		"snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
@@ -157,6 +162,10 @@ type deliveryStreamArgs struct {
 	ExtendedS3DestinationConfiguration *DeliveryStreamExtendedS3DestinationConfiguration `pulumi:"extendedS3DestinationConfiguration"`
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 	HttpEndpointDestinationConfiguration *DeliveryStreamHttpEndpointDestinationConfiguration `pulumi:"httpEndpointDestinationConfiguration"`
+	// Specifies the destination configure settings for Apache Iceberg Table.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	IcebergDestinationConfiguration *DeliveryStreamIcebergDestinationConfiguration `pulumi:"icebergDestinationConfiguration"`
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
 	KinesisStreamSourceConfiguration *DeliveryStreamKinesisStreamSourceConfiguration `pulumi:"kinesisStreamSourceConfiguration"`
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
@@ -220,6 +229,10 @@ type DeliveryStreamArgs struct {
 	ExtendedS3DestinationConfiguration DeliveryStreamExtendedS3DestinationConfigurationPtrInput
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 	HttpEndpointDestinationConfiguration DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
+	// Specifies the destination configure settings for Apache Iceberg Table.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	IcebergDestinationConfiguration DeliveryStreamIcebergDestinationConfigurationPtrInput
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
 	KinesisStreamSourceConfiguration DeliveryStreamKinesisStreamSourceConfigurationPtrInput
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
@@ -357,6 +370,15 @@ func (o DeliveryStreamOutput) HttpEndpointDestinationConfiguration() DeliveryStr
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
 		return v.HttpEndpointDestinationConfiguration
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+// Specifies the destination configure settings for Apache Iceberg Table.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamOutput) IcebergDestinationConfiguration() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+		return v.IcebergDestinationConfiguration
+	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
 }
 
 // When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.

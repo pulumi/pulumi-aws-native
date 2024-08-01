@@ -81,7 +81,7 @@ class Package(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Schema for Package CloudFormation Resource
+        Creates a package and storage location in an Amazon S3 access point.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,7 +96,7 @@ class Package(pulumi.CustomResource):
                  args: Optional[PackageArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for Package CloudFormation Resource
+        Creates a package and storage location in an Amazon S3 access point.
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

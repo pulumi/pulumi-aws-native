@@ -17,65 +17,73 @@ __all__ = ['CisScanConfigurationArgs', 'CisScanConfiguration']
 @pulumi.input_type
 class CisScanConfigurationArgs:
     def __init__(__self__, *,
-                 scan_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input['CisScanConfigurationScheduleArgs']] = None,
-                 security_level: Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']] = None):
+                 scan_name: pulumi.Input[str],
+                 schedule: pulumi.Input['CisScanConfigurationScheduleArgs'],
+                 security_level: pulumi.Input['CisScanConfigurationCisSecurityLevel'],
+                 targets: pulumi.Input['CisScanConfigurationCisTargetsArgs'],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CisScanConfiguration resource.
         :param pulumi.Input[str] scan_name: Name of the scan
         :param pulumi.Input['CisScanConfigurationScheduleArgs'] schedule: The CIS scan configuration's schedule.
         :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
         :param pulumi.Input['CisScanConfigurationCisTargetsArgs'] targets: The CIS scan configuration's targets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
         """
-        if scan_name is not None:
-            pulumi.set(__self__, "scan_name", scan_name)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-        if security_level is not None:
-            pulumi.set(__self__, "security_level", security_level)
+        pulumi.set(__self__, "scan_name", scan_name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "security_level", security_level)
+        pulumi.set(__self__, "targets", targets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if targets is not None:
-            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="scanName")
-    def scan_name(self) -> Optional[pulumi.Input[str]]:
+    def scan_name(self) -> pulumi.Input[str]:
         """
         Name of the scan
         """
         return pulumi.get(self, "scan_name")
 
     @scan_name.setter
-    def scan_name(self, value: Optional[pulumi.Input[str]]):
+    def scan_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scan_name", value)
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['CisScanConfigurationScheduleArgs']]:
+    def schedule(self) -> pulumi.Input['CisScanConfigurationScheduleArgs']:
         """
         The CIS scan configuration's schedule.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['CisScanConfigurationScheduleArgs']]):
+    def schedule(self, value: pulumi.Input['CisScanConfigurationScheduleArgs']):
         pulumi.set(self, "schedule", value)
 
     @property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']]:
+    def security_level(self) -> pulumi.Input['CisScanConfigurationCisSecurityLevel']:
         """
         The CIS scan configuration's CIS Benchmark level.
         """
         return pulumi.get(self, "security_level")
 
     @security_level.setter
-    def security_level(self, value: Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']]):
+    def security_level(self, value: pulumi.Input['CisScanConfigurationCisSecurityLevel']):
         pulumi.set(self, "security_level", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input['CisScanConfigurationCisTargetsArgs']:
+        """
+        The CIS scan configuration's targets.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input['CisScanConfigurationCisTargetsArgs']):
+        pulumi.set(self, "targets", value)
 
     @property
     @pulumi.getter
@@ -88,18 +96,6 @@ class CisScanConfigurationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']]:
-        """
-        The CIS scan configuration's targets.
-        """
-        return pulumi.get(self, "targets")
-
-    @targets.setter
-    def targets(self, value: Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']]):
-        pulumi.set(self, "targets", value)
 
 
 class CisScanConfiguration(pulumi.CustomResource):
@@ -128,7 +124,7 @@ class CisScanConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CisScanConfigurationArgs] = None,
+                 args: CisScanConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CIS Scan Configuration resource schema
@@ -162,10 +158,18 @@ class CisScanConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CisScanConfigurationArgs.__new__(CisScanConfigurationArgs)
 
+            if scan_name is None and not opts.urn:
+                raise TypeError("Missing required property 'scan_name'")
             __props__.__dict__["scan_name"] = scan_name
+            if schedule is None and not opts.urn:
+                raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
+            if security_level is None and not opts.urn:
+                raise TypeError("Missing required property 'security_level'")
             __props__.__dict__["security_level"] = security_level
             __props__.__dict__["tags"] = tags
+            if targets is None and not opts.urn:
+                raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
         super(CisScanConfiguration, __self__).__init__(
@@ -208,7 +212,7 @@ class CisScanConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scanName")
-    def scan_name(self) -> pulumi.Output[Optional[str]]:
+    def scan_name(self) -> pulumi.Output[str]:
         """
         Name of the scan
         """
@@ -216,7 +220,7 @@ class CisScanConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationSchedule']]:
+    def schedule(self) -> pulumi.Output['outputs.CisScanConfigurationSchedule']:
         """
         The CIS scan configuration's schedule.
         """
@@ -224,7 +228,7 @@ class CisScanConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> pulumi.Output[Optional['CisScanConfigurationCisSecurityLevel']]:
+    def security_level(self) -> pulumi.Output['CisScanConfigurationCisSecurityLevel']:
         """
         The CIS scan configuration's CIS Benchmark level.
         """
@@ -240,7 +244,7 @@ class CisScanConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationCisTargets']]:
+    def targets(self) -> pulumi.Output['outputs.CisScanConfigurationCisTargets']:
         """
         The CIS scan configuration's targets.
         """

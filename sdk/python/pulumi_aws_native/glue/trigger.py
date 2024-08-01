@@ -34,8 +34,8 @@ class TriggerArgs:
         :param pulumi.Input['TriggerEventBatchingConditionArgs'] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: The predicate of this trigger, which defines when it will fire.
-        :param pulumi.Input[str] schedule: A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        :param pulumi.Input[str] schedule: A cron expression used to specify the schedule.
+        :param pulumi.Input[bool] start_on_creation: Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         :param Any tags: The tags to use with this trigger.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
@@ -136,7 +136,7 @@ class TriggerArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[str]]:
         """
-        A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        A cron expression used to specify the schedule.
         """
         return pulumi.get(self, "schedule")
 
@@ -148,7 +148,7 @@ class TriggerArgs:
     @pulumi.getter(name="startOnCreation")
     def start_on_creation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         """
         return pulumi.get(self, "start_on_creation")
 
@@ -289,8 +289,8 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: The predicate of this trigger, which defines when it will fire.
-        :param pulumi.Input[str] schedule: A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        :param pulumi.Input[str] schedule: A cron expression used to specify the schedule.
+        :param pulumi.Input[bool] start_on_creation: Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         :param Any tags: The tags to use with this trigger.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
@@ -434,7 +434,6 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["workflow_name"] = workflow_name
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type", "workflowName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Trigger, __self__).__init__(
@@ -460,7 +459,6 @@ class Trigger(pulumi.CustomResource):
         __props__ = TriggerArgs.__new__(TriggerArgs)
 
         __props__.__dict__["actions"] = None
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["event_batching_condition"] = None
         __props__.__dict__["name"] = None
@@ -479,14 +477,6 @@ class Trigger(pulumi.CustomResource):
         The actions initiated by this trigger.
         """
         return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        """
-        Reserved for future use.
-        """
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
@@ -524,7 +514,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional[str]]:
         """
-        A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        A cron expression used to specify the schedule.
         """
         return pulumi.get(self, "schedule")
 
@@ -532,7 +522,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter(name="startOnCreation")
     def start_on_creation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         """
         return pulumi.get(self, "start_on_creation")
 

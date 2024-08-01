@@ -2104,7 +2104,7 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryC
 }
 
 type MembershipProtectedQueryOutputConfiguration struct {
-	// Required configuration for a protected query with an `S3` output type.
+	// Required configuration for a protected query with an `s3` output type.
 	S3 MembershipProtectedQueryS3OutputConfiguration `pulumi:"s3"`
 }
 
@@ -2120,7 +2120,7 @@ type MembershipProtectedQueryOutputConfigurationInput interface {
 }
 
 type MembershipProtectedQueryOutputConfigurationArgs struct {
-	// Required configuration for a protected query with an `S3` output type.
+	// Required configuration for a protected query with an `s3` output type.
 	S3 MembershipProtectedQueryS3OutputConfigurationInput `pulumi:"s3"`
 }
 
@@ -2201,7 +2201,7 @@ func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
-// Required configuration for a protected query with an `S3` output type.
+// Required configuration for a protected query with an `s3` output type.
 func (o MembershipProtectedQueryOutputConfigurationOutput) S3() MembershipProtectedQueryS3OutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
 		return v.S3
@@ -2232,7 +2232,7 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) Elem() MembershipP
 	}).(MembershipProtectedQueryOutputConfigurationOutput)
 }
 
-// Required configuration for a protected query with an `S3` output type.
+// Required configuration for a protected query with an `s3` output type.
 func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryOutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
 		if v == nil {

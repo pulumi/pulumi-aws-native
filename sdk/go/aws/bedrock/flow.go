@@ -23,13 +23,17 @@ type Flow struct {
 	// Time Stamp.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A KMS key ARN
-	CustomerEncryptionKeyArn pulumi.StringPtrOutput  `pulumi:"customerEncryptionKeyArn"`
-	Definition               FlowDefinitionPtrOutput `pulumi:"definition"`
-	// An Amazon S3 location.
+	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
+	// The definition of the nodes and connections between the nodes in the flow.
+	Definition FlowDefinitionPtrOutput `pulumi:"definition"`
+	// The Amazon S3 location of the flow definition.
 	DefinitionS3Location FlowS3LocationPtrOutput `pulumi:"definitionS3Location"`
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
-	DefinitionString        pulumi.StringPtrOutput `pulumi:"definitionString"`
-	DefinitionSubstitutions pulumi.MapOutput       `pulumi:"definitionSubstitutions"`
+	DefinitionString pulumi.StringPtrOutput `pulumi:"definitionString"`
+	// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+	//
+	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+	DefinitionSubstitutions pulumi.MapOutput `pulumi:"definitionSubstitutions"`
 	// Description of the flow
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN of a IAM role
@@ -42,7 +46,11 @@ type Flow struct {
 	// - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
 	// - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
 	// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
-	Status        FlowStatusOutput       `pulumi:"status"`
+	Status FlowStatusOutput `pulumi:"status"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
 	TestAliasTags pulumi.StringMapOutput `pulumi:"testAliasTags"`
 	// Time Stamp.
@@ -95,19 +103,27 @@ func (FlowState) ElementType() reflect.Type {
 
 type flowArgs struct {
 	// A KMS key ARN
-	CustomerEncryptionKeyArn *string         `pulumi:"customerEncryptionKeyArn"`
-	Definition               *FlowDefinition `pulumi:"definition"`
-	// An Amazon S3 location.
+	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
+	// The definition of the nodes and connections between the nodes in the flow.
+	Definition *FlowDefinition `pulumi:"definition"`
+	// The Amazon S3 location of the flow definition.
 	DefinitionS3Location *FlowS3Location `pulumi:"definitionS3Location"`
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
-	DefinitionString        *string                `pulumi:"definitionString"`
+	DefinitionString *string `pulumi:"definitionString"`
+	// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+	//
+	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions map[string]interface{} `pulumi:"definitionSubstitutions"`
 	// Description of the flow
 	Description *string `pulumi:"description"`
 	// ARN of a IAM role
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Name for the flow
-	Name          *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags          map[string]string `pulumi:"tags"`
 	TestAliasTags map[string]string `pulumi:"testAliasTags"`
 }
@@ -116,18 +132,26 @@ type flowArgs struct {
 type FlowArgs struct {
 	// A KMS key ARN
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
-	Definition               FlowDefinitionPtrInput
-	// An Amazon S3 location.
+	// The definition of the nodes and connections between the nodes in the flow.
+	Definition FlowDefinitionPtrInput
+	// The Amazon S3 location of the flow definition.
 	DefinitionS3Location FlowS3LocationPtrInput
 	// A JSON string containing a Definition with the same schema as the Definition property of this resource
-	DefinitionString        pulumi.StringPtrInput
+	DefinitionString pulumi.StringPtrInput
+	// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+	//
+	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions pulumi.MapInput
 	// Description of the flow
 	Description pulumi.StringPtrInput
 	// ARN of a IAM role
 	ExecutionRoleArn pulumi.StringInput
 	// Name for the flow
-	Name          pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags          pulumi.StringMapInput
 	TestAliasTags pulumi.StringMapInput
 }
@@ -189,11 +213,12 @@ func (o FlowOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The definition of the nodes and connections between the nodes in the flow.
 func (o FlowOutput) Definition() FlowDefinitionPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowDefinitionPtrOutput { return v.Definition }).(FlowDefinitionPtrOutput)
 }
 
-// An Amazon S3 location.
+// The Amazon S3 location of the flow definition.
 func (o FlowOutput) DefinitionS3Location() FlowS3LocationPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowS3LocationPtrOutput { return v.DefinitionS3Location }).(FlowS3LocationPtrOutput)
 }
@@ -203,6 +228,9 @@ func (o FlowOutput) DefinitionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.DefinitionString }).(pulumi.StringPtrOutput)
 }
 
+// A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+//
+// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 func (o FlowOutput) DefinitionSubstitutions() pulumi.MapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.MapOutput { return v.DefinitionSubstitutions }).(pulumi.MapOutput)
 }
@@ -232,6 +260,10 @@ func (o FlowOutput) Status() FlowStatusOutput {
 	return o.ApplyT(func(v *Flow) FlowStatusOutput { return v.Status }).(FlowStatusOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o FlowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

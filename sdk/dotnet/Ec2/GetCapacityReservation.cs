@@ -87,6 +87,15 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly int? InstanceCount;
         /// <summary>
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+        /// 
+        /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+        /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+        /// 
+        /// Default: `open`
+        /// </summary>
+        public readonly string? InstanceMatchCriteria;
+        /// <summary>
         /// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
         /// </summary>
         public readonly int? TotalInstanceCount;
@@ -103,6 +112,8 @@ namespace Pulumi.AwsNative.Ec2
 
             int? instanceCount,
 
+            string? instanceMatchCriteria,
+
             int? totalInstanceCount)
         {
             AvailableInstanceCount = availableInstanceCount;
@@ -110,6 +121,7 @@ namespace Pulumi.AwsNative.Ec2
             EndDateType = endDateType;
             Id = id;
             InstanceCount = instanceCount;
+            InstanceMatchCriteria = instanceMatchCriteria;
             TotalInstanceCount = totalInstanceCount;
         }
     }

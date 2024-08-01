@@ -49,6 +49,7 @@ export class Guardrail extends pulumi.CustomResource {
      * The content filter policies to configure for the guardrail.
      */
     public readonly contentPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailContentPolicyConfig | undefined>;
+    public readonly contextualGroundingPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
      * Time Stamp
      */
@@ -130,6 +131,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
             resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
             resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
+            resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -149,6 +151,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["blockedInputMessaging"] = undefined /*out*/;
             resourceInputs["blockedOutputsMessaging"] = undefined /*out*/;
             resourceInputs["contentPolicyConfig"] = undefined /*out*/;
+            resourceInputs["contextualGroundingPolicyConfig"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["failureRecommendations"] = undefined /*out*/;
@@ -186,6 +189,7 @@ export interface GuardrailArgs {
      * The content filter policies to configure for the guardrail.
      */
     contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs>;
+    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigArgs>;
     /**
      * Description of the guardrail or its version
      */

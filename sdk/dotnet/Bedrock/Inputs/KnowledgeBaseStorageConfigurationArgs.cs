@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the storage configuration of the knowledge base in MongoDB Atlas.
+        /// </summary>
         [Input("mongoDbAtlasConfiguration")]
         public Input<Inputs.KnowledgeBaseMongoDbAtlasConfigurationArgs>? MongoDbAtlasConfiguration { get; set; }
 

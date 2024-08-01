@@ -148,6 +148,8 @@ class SecurityControl(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["security_control_arn"] = security_control_arn
             __props__.__dict__["security_control_id"] = security_control_id
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["securityControlId"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityControl, __self__).__init__(
             'aws-native:securityhub:SecurityControl',
             resource_name,

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for PackageVersion Resource Type
+// Registers a package version.
 type PackageVersion struct {
 	pulumi.CustomResourceState
 

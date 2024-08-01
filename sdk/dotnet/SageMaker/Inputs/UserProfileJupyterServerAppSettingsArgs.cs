@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileResourceSpecArgs>? DefaultResourceSpec { get; set; }
 
+        [Input("lifecycleConfigArns")]
+        private InputList<string>? _lifecycleConfigArns;
+
+        /// <summary>
+        /// A list of LifecycleConfigArns available for use with JupyterServer apps.
+        /// </summary>
+        public InputList<string> LifecycleConfigArns
+        {
+            get => _lifecycleConfigArns ?? (_lifecycleConfigArns = new InputList<string>());
+            set => _lifecycleConfigArns = value;
+        }
+
         public UserProfileJupyterServerAppSettingsArgs()
         {
         }

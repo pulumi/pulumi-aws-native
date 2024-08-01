@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+    /// </summary>
     public sealed class TriggerEventBatchingConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

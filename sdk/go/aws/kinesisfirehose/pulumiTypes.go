@@ -1633,6 +1633,151 @@ func (o DeliveryStreamBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type DeliveryStreamCatalogConfiguration struct {
+	// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	CatalogArn *string `pulumi:"catalogArn"`
+}
+
+// DeliveryStreamCatalogConfigurationInput is an input type that accepts DeliveryStreamCatalogConfigurationArgs and DeliveryStreamCatalogConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamCatalogConfigurationInput` via:
+//
+//	DeliveryStreamCatalogConfigurationArgs{...}
+type DeliveryStreamCatalogConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamCatalogConfigurationOutput() DeliveryStreamCatalogConfigurationOutput
+	ToDeliveryStreamCatalogConfigurationOutputWithContext(context.Context) DeliveryStreamCatalogConfigurationOutput
+}
+
+type DeliveryStreamCatalogConfigurationArgs struct {
+	// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	CatalogArn pulumi.StringPtrInput `pulumi:"catalogArn"`
+}
+
+func (DeliveryStreamCatalogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamCatalogConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamCatalogConfigurationArgs) ToDeliveryStreamCatalogConfigurationOutput() DeliveryStreamCatalogConfigurationOutput {
+	return i.ToDeliveryStreamCatalogConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamCatalogConfigurationArgs) ToDeliveryStreamCatalogConfigurationOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCatalogConfigurationOutput)
+}
+
+func (i DeliveryStreamCatalogConfigurationArgs) ToDeliveryStreamCatalogConfigurationPtrOutput() DeliveryStreamCatalogConfigurationPtrOutput {
+	return i.ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamCatalogConfigurationArgs) ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCatalogConfigurationOutput).ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamCatalogConfigurationPtrInput is an input type that accepts DeliveryStreamCatalogConfigurationArgs, DeliveryStreamCatalogConfigurationPtr and DeliveryStreamCatalogConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamCatalogConfigurationPtrInput` via:
+//
+//	        DeliveryStreamCatalogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamCatalogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamCatalogConfigurationPtrOutput() DeliveryStreamCatalogConfigurationPtrOutput
+	ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(context.Context) DeliveryStreamCatalogConfigurationPtrOutput
+}
+
+type deliveryStreamCatalogConfigurationPtrType DeliveryStreamCatalogConfigurationArgs
+
+func DeliveryStreamCatalogConfigurationPtr(v *DeliveryStreamCatalogConfigurationArgs) DeliveryStreamCatalogConfigurationPtrInput {
+	return (*deliveryStreamCatalogConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamCatalogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamCatalogConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamCatalogConfigurationPtrType) ToDeliveryStreamCatalogConfigurationPtrOutput() DeliveryStreamCatalogConfigurationPtrOutput {
+	return i.ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamCatalogConfigurationPtrType) ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCatalogConfigurationPtrOutput)
+}
+
+type DeliveryStreamCatalogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamCatalogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamCatalogConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamCatalogConfigurationOutput) ToDeliveryStreamCatalogConfigurationOutput() DeliveryStreamCatalogConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamCatalogConfigurationOutput) ToDeliveryStreamCatalogConfigurationOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamCatalogConfigurationOutput) ToDeliveryStreamCatalogConfigurationPtrOutput() DeliveryStreamCatalogConfigurationPtrOutput {
+	return o.ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamCatalogConfigurationOutput) ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamCatalogConfiguration) *DeliveryStreamCatalogConfiguration {
+		return &v
+	}).(DeliveryStreamCatalogConfigurationPtrOutput)
+}
+
+// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamCatalogConfigurationOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.CatalogArn }).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamCatalogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamCatalogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamCatalogConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamCatalogConfigurationPtrOutput) ToDeliveryStreamCatalogConfigurationPtrOutput() DeliveryStreamCatalogConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamCatalogConfigurationPtrOutput) ToDeliveryStreamCatalogConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamCatalogConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamCatalogConfigurationPtrOutput) Elem() DeliveryStreamCatalogConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamCatalogConfiguration) DeliveryStreamCatalogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamCatalogConfiguration
+		return ret
+	}).(DeliveryStreamCatalogConfigurationOutput)
+}
+
+// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamCatalogConfigurationPtrOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamCatalogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamCloudWatchLoggingOptions struct {
 	// Indicates whether CloudWatch Logs logging is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -2353,6 +2498,118 @@ func (o DeliveryStreamDeserializerPtrOutput) OpenXJsonSerDe() DeliveryStreamOpen
 		}
 		return v.OpenXJsonSerDe
 	}).(DeliveryStreamOpenXJsonSerDePtrOutput)
+}
+
+type DeliveryStreamDestinationTableConfiguration struct {
+	DestinationDatabaseName string   `pulumi:"destinationDatabaseName"`
+	DestinationTableName    string   `pulumi:"destinationTableName"`
+	S3ErrorOutputPrefix     *string  `pulumi:"s3ErrorOutputPrefix"`
+	UniqueKeys              []string `pulumi:"uniqueKeys"`
+}
+
+// DeliveryStreamDestinationTableConfigurationInput is an input type that accepts DeliveryStreamDestinationTableConfigurationArgs and DeliveryStreamDestinationTableConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDestinationTableConfigurationInput` via:
+//
+//	DeliveryStreamDestinationTableConfigurationArgs{...}
+type DeliveryStreamDestinationTableConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDestinationTableConfigurationOutput() DeliveryStreamDestinationTableConfigurationOutput
+	ToDeliveryStreamDestinationTableConfigurationOutputWithContext(context.Context) DeliveryStreamDestinationTableConfigurationOutput
+}
+
+type DeliveryStreamDestinationTableConfigurationArgs struct {
+	DestinationDatabaseName pulumi.StringInput      `pulumi:"destinationDatabaseName"`
+	DestinationTableName    pulumi.StringInput      `pulumi:"destinationTableName"`
+	S3ErrorOutputPrefix     pulumi.StringPtrInput   `pulumi:"s3ErrorOutputPrefix"`
+	UniqueKeys              pulumi.StringArrayInput `pulumi:"uniqueKeys"`
+}
+
+func (DeliveryStreamDestinationTableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDestinationTableConfigurationArgs) ToDeliveryStreamDestinationTableConfigurationOutput() DeliveryStreamDestinationTableConfigurationOutput {
+	return i.ToDeliveryStreamDestinationTableConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDestinationTableConfigurationArgs) ToDeliveryStreamDestinationTableConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDestinationTableConfigurationOutput)
+}
+
+// DeliveryStreamDestinationTableConfigurationArrayInput is an input type that accepts DeliveryStreamDestinationTableConfigurationArray and DeliveryStreamDestinationTableConfigurationArrayOutput values.
+// You can construct a concrete instance of `DeliveryStreamDestinationTableConfigurationArrayInput` via:
+//
+//	DeliveryStreamDestinationTableConfigurationArray{ DeliveryStreamDestinationTableConfigurationArgs{...} }
+type DeliveryStreamDestinationTableConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDestinationTableConfigurationArrayOutput() DeliveryStreamDestinationTableConfigurationArrayOutput
+	ToDeliveryStreamDestinationTableConfigurationArrayOutputWithContext(context.Context) DeliveryStreamDestinationTableConfigurationArrayOutput
+}
+
+type DeliveryStreamDestinationTableConfigurationArray []DeliveryStreamDestinationTableConfigurationInput
+
+func (DeliveryStreamDestinationTableConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDestinationTableConfigurationArray) ToDeliveryStreamDestinationTableConfigurationArrayOutput() DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return i.ToDeliveryStreamDestinationTableConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDestinationTableConfigurationArray) ToDeliveryStreamDestinationTableConfigurationArrayOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDestinationTableConfigurationArrayOutput)
+}
+
+type DeliveryStreamDestinationTableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDestinationTableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) ToDeliveryStreamDestinationTableConfigurationOutput() DeliveryStreamDestinationTableConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) ToDeliveryStreamDestinationTableConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) DestinationDatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) string { return v.DestinationDatabaseName }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) DestinationTableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) string { return v.DestinationTableName }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) S3ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) *string { return v.S3ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDestinationTableConfigurationOutput) UniqueKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) []string { return v.UniqueKeys }).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDestinationTableConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDestinationTableConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDestinationTableConfigurationArrayOutput) ToDeliveryStreamDestinationTableConfigurationArrayOutput() DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationArrayOutput) ToDeliveryStreamDestinationTableConfigurationArrayOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationArrayOutput) Index(i pulumi.IntInput) DeliveryStreamDestinationTableConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryStreamDestinationTableConfiguration {
+		return vs[0].([]DeliveryStreamDestinationTableConfiguration)[vs[1].(int)]
+	}).(DeliveryStreamDestinationTableConfigurationOutput)
 }
 
 type DeliveryStreamDocumentIdOptions struct {
@@ -5020,6 +5277,323 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding
 	}).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
+type DeliveryStreamIcebergDestinationConfiguration struct {
+	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
+	// Configuration describing where the destination Apache Iceberg Tables are persisted.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	CatalogConfiguration     DeliveryStreamCatalogConfiguration      `pulumi:"catalogConfiguration"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
+	// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DestinationTableConfigurationList []DeliveryStreamDestinationTableConfiguration `pulumi:"destinationTableConfigurationList"`
+	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration        `pulumi:"processingConfiguration"`
+	RetryOptions                      *DeliveryStreamRetryOptions                   `pulumi:"retryOptions"`
+	// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	RoleArn string `pulumi:"roleArn"`
+	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	S3BackupMode    *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
+}
+
+// DeliveryStreamIcebergDestinationConfigurationInput is an input type that accepts DeliveryStreamIcebergDestinationConfigurationArgs and DeliveryStreamIcebergDestinationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamIcebergDestinationConfigurationInput` via:
+//
+//	DeliveryStreamIcebergDestinationConfigurationArgs{...}
+type DeliveryStreamIcebergDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamIcebergDestinationConfigurationOutput() DeliveryStreamIcebergDestinationConfigurationOutput
+	ToDeliveryStreamIcebergDestinationConfigurationOutputWithContext(context.Context) DeliveryStreamIcebergDestinationConfigurationOutput
+}
+
+type DeliveryStreamIcebergDestinationConfigurationArgs struct {
+	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
+	// Configuration describing where the destination Apache Iceberg Tables are persisted.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	CatalogConfiguration     DeliveryStreamCatalogConfigurationInput        `pulumi:"catalogConfiguration"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
+	// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DestinationTableConfigurationList DeliveryStreamDestinationTableConfigurationArrayInput `pulumi:"destinationTableConfigurationList"`
+	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput         `pulumi:"processingConfiguration"`
+	RetryOptions                      DeliveryStreamRetryOptionsPtrInput                    `pulumi:"retryOptions"`
+	// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	S3BackupMode    DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
+}
+
+func (DeliveryStreamIcebergDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamIcebergDestinationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamIcebergDestinationConfigurationArgs) ToDeliveryStreamIcebergDestinationConfigurationOutput() DeliveryStreamIcebergDestinationConfigurationOutput {
+	return i.ToDeliveryStreamIcebergDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamIcebergDestinationConfigurationArgs) ToDeliveryStreamIcebergDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamIcebergDestinationConfigurationOutput)
+}
+
+func (i DeliveryStreamIcebergDestinationConfigurationArgs) ToDeliveryStreamIcebergDestinationConfigurationPtrOutput() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamIcebergDestinationConfigurationArgs) ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamIcebergDestinationConfigurationOutput).ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamIcebergDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamIcebergDestinationConfigurationArgs, DeliveryStreamIcebergDestinationConfigurationPtr and DeliveryStreamIcebergDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamIcebergDestinationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamIcebergDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamIcebergDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamIcebergDestinationConfigurationPtrOutput() DeliveryStreamIcebergDestinationConfigurationPtrOutput
+	ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamIcebergDestinationConfigurationPtrOutput
+}
+
+type deliveryStreamIcebergDestinationConfigurationPtrType DeliveryStreamIcebergDestinationConfigurationArgs
+
+func DeliveryStreamIcebergDestinationConfigurationPtr(v *DeliveryStreamIcebergDestinationConfigurationArgs) DeliveryStreamIcebergDestinationConfigurationPtrInput {
+	return (*deliveryStreamIcebergDestinationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamIcebergDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamIcebergDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamIcebergDestinationConfigurationPtrType) ToDeliveryStreamIcebergDestinationConfigurationPtrOutput() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamIcebergDestinationConfigurationPtrType) ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
+}
+
+type DeliveryStreamIcebergDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamIcebergDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamIcebergDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIcebergDestinationConfigurationOutput() DeliveryStreamIcebergDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIcebergDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIcebergDestinationConfigurationPtrOutput() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o.ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamIcebergDestinationConfiguration {
+		return &v
+	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamBufferingHints {
+		return v.BufferingHints
+	}).(DeliveryStreamBufferingHintsPtrOutput)
+}
+
+// Configuration describing where the destination Apache Iceberg Tables are persisted.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) CatalogConfiguration() DeliveryStreamCatalogConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) DeliveryStreamCatalogConfiguration {
+		return v.CatalogConfiguration
+	}).(DeliveryStreamCatalogConfigurationOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) DestinationTableConfigurationList() DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) []DeliveryStreamDestinationTableConfiguration {
+		return v.DestinationTableConfigurationList
+	}).(DeliveryStreamDestinationTableConfigurationArrayOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamRetryOptions {
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) S3BackupMode() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamIcebergDestinationConfigurations3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
+		return v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationOutput)
+}
+
+type DeliveryStreamIcebergDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamIcebergDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamIcebergDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) ToDeliveryStreamIcebergDestinationConfigurationPtrOutput() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) ToDeliveryStreamIcebergDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) Elem() DeliveryStreamIcebergDestinationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) DeliveryStreamIcebergDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamIcebergDestinationConfiguration
+		return ret
+	}).(DeliveryStreamIcebergDestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamBufferingHints {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingHints
+	}).(DeliveryStreamBufferingHintsPtrOutput)
+}
+
+// Configuration describing where the destination Apache Iceberg Tables are persisted.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) CatalogConfiguration() DeliveryStreamCatalogConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamCatalogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogConfiguration
+	}).(DeliveryStreamCatalogConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) DestinationTableConfigurationList() DeliveryStreamDestinationTableConfigurationArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) []DeliveryStreamDestinationTableConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTableConfigurationList
+	}).(DeliveryStreamDestinationTableConfigurationArrayOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamRetryOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamIcebergDestinationConfigurations3BackupMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
 type DeliveryStreamInputFormatConfiguration struct {
 	// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
 	Deserializer *DeliveryStreamDeserializer `pulumi:"deserializer"`
@@ -5455,6 +6029,10 @@ type DeliveryStreamMskSourceConfiguration struct {
 	AuthenticationConfiguration DeliveryStreamAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// The ARN of the Amazon MSK cluster.
 	MskClusterArn string `pulumi:"mskClusterArn"`
+	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+	//
+	// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	ReadFromTimestamp *string `pulumi:"readFromTimestamp"`
 	// The topic name within the Amazon MSK cluster.
 	TopicName string `pulumi:"topicName"`
 }
@@ -5475,6 +6053,10 @@ type DeliveryStreamMskSourceConfigurationArgs struct {
 	AuthenticationConfiguration DeliveryStreamAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
 	// The ARN of the Amazon MSK cluster.
 	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
+	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+	//
+	// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	ReadFromTimestamp pulumi.StringPtrInput `pulumi:"readFromTimestamp"`
 	// The topic name within the Amazon MSK cluster.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
@@ -5568,6 +6150,13 @@ func (o DeliveryStreamMskSourceConfigurationOutput) MskClusterArn() pulumi.Strin
 	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
 
+// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+//
+// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+func (o DeliveryStreamMskSourceConfigurationOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) *string { return v.ReadFromTimestamp }).(pulumi.StringPtrOutput)
+}
+
 // The topic name within the Amazon MSK cluster.
 func (o DeliveryStreamMskSourceConfigurationOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.TopicName }).(pulumi.StringOutput)
@@ -5614,6 +6203,18 @@ func (o DeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() pulumi.St
 			return nil
 		}
 		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+//
+// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReadFromTimestamp
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8370,9 +8971,167 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 	}).(DeliveryStreamParquetSerDePtrOutput)
 }
 
+type DeliveryStreamSnowflakeBufferingHints struct {
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+	SizeInMbs *int `pulumi:"sizeInMbs"`
+}
+
+// DeliveryStreamSnowflakeBufferingHintsInput is an input type that accepts DeliveryStreamSnowflakeBufferingHintsArgs and DeliveryStreamSnowflakeBufferingHintsOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeBufferingHintsInput` via:
+//
+//	DeliveryStreamSnowflakeBufferingHintsArgs{...}
+type DeliveryStreamSnowflakeBufferingHintsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeBufferingHintsOutput() DeliveryStreamSnowflakeBufferingHintsOutput
+	ToDeliveryStreamSnowflakeBufferingHintsOutputWithContext(context.Context) DeliveryStreamSnowflakeBufferingHintsOutput
+}
+
+type DeliveryStreamSnowflakeBufferingHintsArgs struct {
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+	SizeInMbs pulumi.IntPtrInput `pulumi:"sizeInMbs"`
+}
+
+func (DeliveryStreamSnowflakeBufferingHintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeBufferingHints)(nil)).Elem()
+}
+
+func (i DeliveryStreamSnowflakeBufferingHintsArgs) ToDeliveryStreamSnowflakeBufferingHintsOutput() DeliveryStreamSnowflakeBufferingHintsOutput {
+	return i.ToDeliveryStreamSnowflakeBufferingHintsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeBufferingHintsArgs) ToDeliveryStreamSnowflakeBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeBufferingHintsOutput)
+}
+
+func (i DeliveryStreamSnowflakeBufferingHintsArgs) ToDeliveryStreamSnowflakeBufferingHintsPtrOutput() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeBufferingHintsArgs) ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeBufferingHintsOutput).ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSnowflakeBufferingHintsPtrInput is an input type that accepts DeliveryStreamSnowflakeBufferingHintsArgs, DeliveryStreamSnowflakeBufferingHintsPtr and DeliveryStreamSnowflakeBufferingHintsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeBufferingHintsPtrInput` via:
+//
+//	        DeliveryStreamSnowflakeBufferingHintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSnowflakeBufferingHintsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeBufferingHintsPtrOutput() DeliveryStreamSnowflakeBufferingHintsPtrOutput
+	ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeBufferingHintsPtrOutput
+}
+
+type deliveryStreamSnowflakeBufferingHintsPtrType DeliveryStreamSnowflakeBufferingHintsArgs
+
+func DeliveryStreamSnowflakeBufferingHintsPtr(v *DeliveryStreamSnowflakeBufferingHintsArgs) DeliveryStreamSnowflakeBufferingHintsPtrInput {
+	return (*deliveryStreamSnowflakeBufferingHintsPtrType)(v)
+}
+
+func (*deliveryStreamSnowflakeBufferingHintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeBufferingHints)(nil)).Elem()
+}
+
+func (i *deliveryStreamSnowflakeBufferingHintsPtrType) ToDeliveryStreamSnowflakeBufferingHintsPtrOutput() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSnowflakeBufferingHintsPtrType) ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeBufferingHintsPtrOutput)
+}
+
+type DeliveryStreamSnowflakeBufferingHintsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeBufferingHintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) ToDeliveryStreamSnowflakeBufferingHintsOutput() DeliveryStreamSnowflakeBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) ToDeliveryStreamSnowflakeBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) ToDeliveryStreamSnowflakeBufferingHintsPtrOutput() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o.ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeBufferingHints) *DeliveryStreamSnowflakeBufferingHints {
+		return &v
+	}).(DeliveryStreamSnowflakeBufferingHintsPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+func (o DeliveryStreamSnowflakeBufferingHintsOutput) SizeInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeBufferingHints) *int { return v.SizeInMbs }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamSnowflakeBufferingHintsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeBufferingHintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) ToDeliveryStreamSnowflakeBufferingHintsPtrOutput() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) ToDeliveryStreamSnowflakeBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) Elem() DeliveryStreamSnowflakeBufferingHintsOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeBufferingHints) DeliveryStreamSnowflakeBufferingHints {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeBufferingHints
+		return ret
+	}).(DeliveryStreamSnowflakeBufferingHintsOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInMbs
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
-	AccountUrl               string                                  `pulumi:"accountUrl"`
+	AccountUrl string `pulumi:"accountUrl"`
+	// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+	BufferingHints           *DeliveryStreamSnowflakeBufferingHints  `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The name of the record content column
 	ContentColumnName *string `pulumi:"contentColumnName"`
@@ -8385,7 +9144,8 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// The name of the record metadata column
 	MetaDataColumnName *string `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey              *string                                `pulumi:"privateKey"`
+	PrivateKey *string `pulumi:"privateKey"`
+	// Specifies configuration for Snowflake.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions *DeliveryStreamSnowflakeRetryOptions `pulumi:"retryOptions"`
@@ -8421,7 +9181,9 @@ type DeliveryStreamSnowflakeDestinationConfigurationInput interface {
 
 type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
-	AccountUrl               pulumi.StringInput                             `pulumi:"accountUrl"`
+	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
+	// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+	BufferingHints           DeliveryStreamSnowflakeBufferingHintsPtrInput  `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The name of the record content column
 	ContentColumnName pulumi.StringPtrInput `pulumi:"contentColumnName"`
@@ -8434,7 +9196,8 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// The name of the record metadata column
 	MetaDataColumnName pulumi.StringPtrInput `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey              pulumi.StringPtrInput                         `pulumi:"privateKey"`
+	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
+	// Specifies configuration for Snowflake.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions DeliveryStreamSnowflakeRetryOptionsPtrInput `pulumi:"retryOptions"`
@@ -8539,6 +9302,13 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) AccountUrl() pulu
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
 }
 
+// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) BufferingHints() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeBufferingHints {
+		return v.BufferingHints
+	}).(DeliveryStreamSnowflakeBufferingHintsPtrOutput)
+}
+
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -8577,6 +9347,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulu
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -8678,6 +9449,16 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) AccountUrl() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamSnowflakeBufferingHintsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeBufferingHints {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingHints
+	}).(DeliveryStreamSnowflakeBufferingHintsPtrOutput)
+}
+
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -8747,6 +9528,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) PrivateKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -10178,6 +10960,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAuthenticationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBufferingHintsInput)(nil)).Elem(), DeliveryStreamBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamBufferingHintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCatalogConfigurationInput)(nil)).Elem(), DeliveryStreamCatalogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCatalogConfigurationPtrInput)(nil)).Elem(), DeliveryStreamCatalogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCloudWatchLoggingOptionsInput)(nil)).Elem(), DeliveryStreamCloudWatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCloudWatchLoggingOptionsPtrInput)(nil)).Elem(), DeliveryStreamCloudWatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCopyCommandInput)(nil)).Elem(), DeliveryStreamCopyCommandArgs{})
@@ -10186,6 +10970,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDataFormatConversionConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDataFormatConversionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerPtrInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationArrayInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsPtrInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDynamicPartitioningConfigurationInput)(nil)).Elem(), DeliveryStreamDynamicPartitioningConfigurationArgs{})
@@ -10212,6 +10998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamHttpEndpointDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfigurationInput)(nil)).Elem(), DeliveryStreamHttpEndpointRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfigurationPtrInput)(nil)).Elem(), DeliveryStreamHttpEndpointRequestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamIcebergDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamIcebergDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInputFormatConfigurationInput)(nil)).Elem(), DeliveryStreamInputFormatConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInputFormatConfigurationPtrInput)(nil)).Elem(), DeliveryStreamInputFormatConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamKinesisStreamSourceConfigurationInput)(nil)).Elem(), DeliveryStreamKinesisStreamSourceConfigurationArgs{})
@@ -10248,6 +11036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSecretsManagerConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerPtrInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeBufferingHintsInput)(nil)).Elem(), DeliveryStreamSnowflakeBufferingHintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeRetryOptionsInput)(nil)).Elem(), DeliveryStreamSnowflakeRetryOptionsArgs{})
@@ -10280,6 +11070,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamBufferingHintsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamBufferingHintsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamCatalogConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamCatalogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamCloudWatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamCloudWatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamCopyCommandOutput{})
@@ -10288,6 +11080,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamDataFormatConversionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDynamicPartitioningConfigurationOutput{})
@@ -10314,6 +11108,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamIcebergDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamIcebergDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKinesisStreamSourceConfigurationOutput{})
@@ -10350,6 +11146,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeBufferingHintsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSnowflakeRetryOptionsOutput{})

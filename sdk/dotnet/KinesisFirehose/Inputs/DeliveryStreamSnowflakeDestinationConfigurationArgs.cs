@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("accountUrl", required: true)]
         public Input<string> AccountUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+        /// </summary>
+        [Input("bufferingHints")]
+        public Input<Inputs.DeliveryStreamSnowflakeBufferingHintsArgs>? BufferingHints { get; set; }
+
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
+        /// <summary>
+        /// Specifies configuration for Snowflake.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 

@@ -51,7 +51,7 @@ class GetIntegrationResult:
     @pulumi.getter(name="dataFilter")
     def data_filter(self) -> Optional[str]:
         """
-        The data filter for the integration.
+        Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
         """
         return pulumi.get(self, "data_filter")
 
@@ -59,7 +59,7 @@ class GetIntegrationResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of the integration.
+        A description of the integration.
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +83,7 @@ class GetIntegrationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
         """
         return pulumi.get(self, "tags")
 
@@ -105,7 +105,7 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
 def get_integration(integration_arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationResult:
     """
-    Creates a zero-ETL integration with Amazon Redshift.
+    A zero-ETL integration with Amazon Redshift.
 
 
     :param str integration_arn: The ARN of the integration.
@@ -128,7 +128,7 @@ def get_integration(integration_arn: Optional[str] = None,
 def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
     """
-    Creates a zero-ETL integration with Amazon Redshift.
+    A zero-ETL integration with Amazon Redshift.
 
 
     :param str integration_arn: The ARN of the integration.

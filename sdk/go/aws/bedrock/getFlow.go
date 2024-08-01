@@ -33,8 +33,9 @@ type LookupFlowResult struct {
 	// Time Stamp.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A KMS key ARN
-	CustomerEncryptionKeyArn *string         `pulumi:"customerEncryptionKeyArn"`
-	Definition               *FlowDefinition `pulumi:"definition"`
+	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
+	// The definition of the nodes and connections between the nodes in the flow.
+	Definition *FlowDefinition `pulumi:"definition"`
 	// Description of the flow
 	Description *string `pulumi:"description"`
 	// ARN of a IAM role
@@ -49,7 +50,11 @@ type LookupFlowResult struct {
 	// - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
 	// - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
 	// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
-	Status        *FlowStatus       `pulumi:"status"`
+	Status *FlowStatus `pulumi:"status"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags          map[string]string `pulumi:"tags"`
 	TestAliasTags map[string]string `pulumi:"testAliasTags"`
 	// Time Stamp.
@@ -109,6 +114,7 @@ func (o LookupFlowResultOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The definition of the nodes and connections between the nodes in the flow.
 func (o LookupFlowResultOutput) Definition() FlowDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowDefinition { return v.Definition }).(FlowDefinitionPtrOutput)
 }
@@ -143,6 +149,10 @@ func (o LookupFlowResultOutput) Status() FlowStatusPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowStatus { return v.Status }).(FlowStatusPtrOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupFlowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFlowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

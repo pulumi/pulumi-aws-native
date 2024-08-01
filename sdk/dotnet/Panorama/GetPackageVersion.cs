@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Panorama
     public static class GetPackageVersion
     {
         /// <summary>
-        /// Schema for PackageVersion Resource Type
+        /// Registers a package version.
         /// </summary>
         public static Task<GetPackageVersionResult> InvokeAsync(GetPackageVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageVersionResult>("aws-native:panorama:getPackageVersion", args ?? new GetPackageVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for PackageVersion Resource Type
+        /// Registers a package version.
         /// </summary>
         public static Output<GetPackageVersionResult> Invoke(GetPackageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageVersionResult>("aws-native:panorama:getPackageVersion", args ?? new GetPackageVersionInvokeArgs(), options.WithDefaults());

@@ -39,6 +39,7 @@ class StateMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
                
                Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the state machine.
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged.
                
                > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
@@ -146,6 +147,9 @@ class StateMachineArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
+        """
+        Encryption configuration for the state machine.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -351,6 +355,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
                
                Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        :param pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']] encryption_configuration: Encryption configuration for the state machine.
         :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged.
                
                > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
@@ -613,6 +618,9 @@ class StateMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineEncryptionConfiguration']]:
+        """
+        Encryption configuration for the state machine.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

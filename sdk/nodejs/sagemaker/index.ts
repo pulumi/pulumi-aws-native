@@ -145,6 +145,11 @@ export const getSpace: typeof import("./getSpace").getSpace = null as any;
 export const getSpaceOutput: typeof import("./getSpace").getSpaceOutput = null as any;
 utilities.lazyLoad(exports, ["getSpace","getSpaceOutput"], () => require("./getSpace"));
 
+export { GetStudioLifecycleConfigArgs, GetStudioLifecycleConfigResult, GetStudioLifecycleConfigOutputArgs } from "./getStudioLifecycleConfig";
+export const getStudioLifecycleConfig: typeof import("./getStudioLifecycleConfig").getStudioLifecycleConfig = null as any;
+export const getStudioLifecycleConfigOutput: typeof import("./getStudioLifecycleConfig").getStudioLifecycleConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getStudioLifecycleConfig","getStudioLifecycleConfigOutput"], () => require("./getStudioLifecycleConfig"));
+
 export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
 export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
 export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
@@ -225,6 +230,11 @@ export type Space = import("./space").Space;
 export const Space: typeof import("./space").Space = null as any;
 utilities.lazyLoad(exports, ["Space"], () => require("./space"));
 
+export { StudioLifecycleConfigArgs } from "./studioLifecycleConfig";
+export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLifecycleConfig;
+export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
+utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
+
 export { UserProfileArgs } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
@@ -282,6 +292,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Space":
                 return new Space(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:StudioLifecycleConfig":
+                return new StudioLifecycleConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             default:

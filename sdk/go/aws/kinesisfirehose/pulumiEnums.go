@@ -2024,6 +2024,174 @@ func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDe
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
+// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+type DeliveryStreamIcebergDestinationConfigurations3BackupMode string
+
+const (
+	DeliveryStreamIcebergDestinationConfigurations3BackupModeAllData        = DeliveryStreamIcebergDestinationConfigurations3BackupMode("AllData")
+	DeliveryStreamIcebergDestinationConfigurations3BackupModeFailedDataOnly = DeliveryStreamIcebergDestinationConfigurations3BackupMode("FailedDataOnly")
+)
+
+func (DeliveryStreamIcebergDestinationConfigurations3BackupMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurations3BackupMode)(nil)).Elem()
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput)
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput)
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return e.ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return DeliveryStreamIcebergDestinationConfigurations3BackupMode(e).ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutputWithContext(ctx).ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamIcebergDestinationConfigurations3BackupMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurations3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o.ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamIcebergDestinationConfigurations3BackupMode) *DeliveryStreamIcebergDestinationConfigurations3BackupMode {
+		return &v
+	}).(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamIcebergDestinationConfigurations3BackupMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamIcebergDestinationConfigurations3BackupMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamIcebergDestinationConfigurations3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) Elem() DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfigurations3BackupMode) DeliveryStreamIcebergDestinationConfigurations3BackupMode {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamIcebergDestinationConfigurations3BackupMode
+		return ret
+	}).(DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamIcebergDestinationConfigurations3BackupMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamIcebergDestinationConfigurations3BackupModeInput is an input type that accepts values of the DeliveryStreamIcebergDestinationConfigurations3BackupMode enum
+// A concrete instance of `DeliveryStreamIcebergDestinationConfigurations3BackupModeInput` can be one of the following:
+//
+//	DeliveryStreamIcebergDestinationConfigurations3BackupModeAllData
+//	DeliveryStreamIcebergDestinationConfigurations3BackupModeFailedDataOnly
+type DeliveryStreamIcebergDestinationConfigurations3BackupModeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput
+	ToDeliveryStreamIcebergDestinationConfigurations3BackupModeOutputWithContext(context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput
+}
+
+var deliveryStreamIcebergDestinationConfigurations3BackupModePtrType = reflect.TypeOf((**DeliveryStreamIcebergDestinationConfigurations3BackupMode)(nil)).Elem()
+
+type DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput
+	ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput
+}
+
+type deliveryStreamIcebergDestinationConfigurations3BackupModePtr string
+
+func DeliveryStreamIcebergDestinationConfigurations3BackupModePtr(v string) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput {
+	return (*deliveryStreamIcebergDestinationConfigurations3BackupModePtr)(&v)
+}
+
+func (*deliveryStreamIcebergDestinationConfigurations3BackupModePtr) ElementType() reflect.Type {
+	return deliveryStreamIcebergDestinationConfigurations3BackupModePtrType
+}
+
+func (in *deliveryStreamIcebergDestinationConfigurations3BackupModePtr) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamIcebergDestinationConfigurations3BackupModePtr) ToDeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput)
+}
+
 // The type of processor. Valid values: `Lambda` .
 type DeliveryStreamProcessorType string
 
@@ -3232,6 +3400,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput)(nil)).Elem(), DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrInput)(nil)).Elem(), DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurations3BackupModeInput)(nil)).Elem(), DeliveryStreamIcebergDestinationConfigurations3BackupMode("AllData"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput)(nil)).Elem(), DeliveryStreamIcebergDestinationConfigurations3BackupMode("AllData"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamProcessorTypeInput)(nil)).Elem(), DeliveryStreamProcessorType("RecordDeAggregation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamProcessorTypePtrInput)(nil)).Elem(), DeliveryStreamProcessorType("RecordDeAggregation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Disabled"))
@@ -3270,6 +3440,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamIcebergDestinationConfigurations3BackupModeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamProcessorTypeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamProcessorTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput{})

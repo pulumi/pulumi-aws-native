@@ -37,10 +37,10 @@ class ZonalAutoshiftConfigurationControlCondition(dict):
 
     def __init__(__self__, *,
                  alarm_identifier: str,
-                 type: 'ZonalAutoshiftConfigurationControlConditionType'):
+                 type: str):
         """
         :param str alarm_identifier: The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
-        :param 'ZonalAutoshiftConfigurationControlConditionType' type: The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        :param str type: The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
         """
         pulumi.set(__self__, "alarm_identifier", alarm_identifier)
         pulumi.set(__self__, "type", type)
@@ -55,7 +55,7 @@ class ZonalAutoshiftConfigurationControlCondition(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> 'ZonalAutoshiftConfigurationControlConditionType':
+    def type(self) -> str:
         """
         The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
         """

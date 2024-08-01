@@ -53,15 +53,23 @@ export class Flow extends pulumi.CustomResource {
      * A KMS key ARN
      */
     public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The definition of the nodes and connections between the nodes in the flow.
+     */
     public readonly definition!: pulumi.Output<outputs.bedrock.FlowDefinition | undefined>;
     /**
-     * An Amazon S3 location.
+     * The Amazon S3 location of the flow definition.
      */
     public readonly definitionS3Location!: pulumi.Output<outputs.bedrock.FlowS3Location | undefined>;
     /**
      * A JSON string containing a Definition with the same schema as the Definition property of this resource
      */
     public readonly definitionString!: pulumi.Output<string | undefined>;
+    /**
+     * A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+     *
+     * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+     */
     public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
     /**
      * Description of the flow
@@ -84,6 +92,12 @@ export class Flow extends pulumi.CustomResource {
      * - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.FlowStatus>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly testAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -156,15 +170,23 @@ export interface FlowArgs {
      * A KMS key ARN
      */
     customerEncryptionKeyArn?: pulumi.Input<string>;
+    /**
+     * The definition of the nodes and connections between the nodes in the flow.
+     */
     definition?: pulumi.Input<inputs.bedrock.FlowDefinitionArgs>;
     /**
-     * An Amazon S3 location.
+     * The Amazon S3 location of the flow definition.
      */
     definitionS3Location?: pulumi.Input<inputs.bedrock.FlowS3LocationArgs>;
     /**
      * A JSON string containing a Definition with the same schema as the Definition property of this resource
      */
     definitionString?: pulumi.Input<string>;
+    /**
+     * A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+     *
+     * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+     */
     definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>}>;
     /**
      * Description of the flow
@@ -178,6 +200,12 @@ export interface FlowArgs {
      * Name for the flow
      */
     name?: pulumi.Input<string>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     testAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

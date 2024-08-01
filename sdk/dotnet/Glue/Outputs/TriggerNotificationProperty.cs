@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// Specifies configuration properties of a job run notification.
+    /// </summary>
     [OutputType]
     public sealed class TriggerNotificationProperty
     {

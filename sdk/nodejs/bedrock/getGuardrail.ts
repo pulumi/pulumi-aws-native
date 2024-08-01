@@ -38,6 +38,7 @@ export interface GetGuardrailResult {
      * The content filter policies to configure for the guardrail.
      */
     readonly contentPolicyConfig?: outputs.bedrock.GuardrailContentPolicyConfig;
+    readonly contextualGroundingPolicyConfig?: outputs.bedrock.GuardrailContextualGroundingPolicyConfig;
     /**
      * Time Stamp
      */

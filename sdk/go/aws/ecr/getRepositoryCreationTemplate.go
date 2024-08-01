@@ -36,11 +36,7 @@ type LookupRepositoryCreationTemplateResult struct {
 	CustomRoleArn *string `pulumi:"customRoleArn"`
 	// The description of the template.
 	Description *string `pulumi:"description"`
-	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-	//
-	// By default, when no encryption configuration is set or the `AES256` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-	//
-	// For more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The image tag mutability setting for the repository.
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
@@ -112,11 +108,7 @@ func (o LookupRepositoryCreationTemplateResultOutput) Description() pulumi.Strin
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-//
-// By default, when no encryption configuration is set or the `AES256` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-//
-// For more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+// The encryption configuration associated with the repository creation template.
 func (o LookupRepositoryCreationTemplateResultOutput) EncryptionConfiguration() RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *RepositoryCreationTemplateEncryptionConfiguration {
 		return v.EncryptionConfiguration

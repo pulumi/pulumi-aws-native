@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutoshiftObserverNotificationStatusArgs } from "./autoshiftObserverNotificationStatus";
+export type AutoshiftObserverNotificationStatus = import("./autoshiftObserverNotificationStatus").AutoshiftObserverNotificationStatus;
+export const AutoshiftObserverNotificationStatus: typeof import("./autoshiftObserverNotificationStatus").AutoshiftObserverNotificationStatus = null as any;
+utilities.lazyLoad(exports, ["AutoshiftObserverNotificationStatus"], () => require("./autoshiftObserverNotificationStatus"));
+
+export { GetAutoshiftObserverNotificationStatusArgs, GetAutoshiftObserverNotificationStatusResult, GetAutoshiftObserverNotificationStatusOutputArgs } from "./getAutoshiftObserverNotificationStatus";
+export const getAutoshiftObserverNotificationStatus: typeof import("./getAutoshiftObserverNotificationStatus").getAutoshiftObserverNotificationStatus = null as any;
+export const getAutoshiftObserverNotificationStatusOutput: typeof import("./getAutoshiftObserverNotificationStatus").getAutoshiftObserverNotificationStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoshiftObserverNotificationStatus","getAutoshiftObserverNotificationStatusOutput"], () => require("./getAutoshiftObserverNotificationStatus"));
+
 export { GetZonalAutoshiftConfigurationArgs, GetZonalAutoshiftConfigurationResult, GetZonalAutoshiftConfigurationOutputArgs } from "./getZonalAutoshiftConfiguration";
 export const getZonalAutoshiftConfiguration: typeof import("./getZonalAutoshiftConfiguration").getZonalAutoshiftConfiguration = null as any;
 export const getZonalAutoshiftConfigurationOutput: typeof import("./getZonalAutoshiftConfiguration").getZonalAutoshiftConfigurationOutput = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:arczonalshift:AutoshiftObserverNotificationStatus":
+                return new AutoshiftObserverNotificationStatus(name, <any>undefined, { urn })
             case "aws-native:arczonalshift:ZonalAutoshiftConfiguration":
                 return new ZonalAutoshiftConfiguration(name, <any>undefined, { urn })
             default:

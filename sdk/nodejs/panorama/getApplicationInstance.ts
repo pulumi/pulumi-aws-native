@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for ApplicationInstance CloudFormation Resource
+ * Creates an application instance and deploys it to a device.
  */
 export function getApplicationInstance(args: GetApplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationInstanceResult> {
 
@@ -64,7 +64,7 @@ export interface GetApplicationInstanceResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Schema for ApplicationInstance CloudFormation Resource
+ * Creates an application instance and deploys it to a device.
  */
 export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
     return pulumi.output(args).apply((a: any) => getApplicationInstance(a, opts))

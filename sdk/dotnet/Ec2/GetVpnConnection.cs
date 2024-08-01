@@ -12,13 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetVpnConnection
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPNConnection
+        /// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+        ///  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("aws-native:ec2:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPNConnection
+        /// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+        ///  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("aws-native:ec2:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
@@ -28,7 +34,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpnConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN connection.
         /// </summary>
         [Input("vpnConnectionId", required: true)]
         public string VpnConnectionId { get; set; } = null!;
@@ -42,7 +48,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpnConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN connection.
         /// </summary>
         [Input("vpnConnectionId", required: true)]
         public Input<string> VpnConnectionId { get; set; } = null!;
@@ -62,7 +68,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN connection.
         /// </summary>
         public readonly string? VpnConnectionId;
 

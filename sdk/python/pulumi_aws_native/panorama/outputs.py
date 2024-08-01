@@ -18,6 +18,9 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationInstanceManifestOverridesPayload(dict):
+    """
+    Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38,6 +41,7 @@ class ApplicationInstanceManifestOverridesPayload(dict):
     def __init__(__self__, *,
                  payload_data: Optional[str] = None):
         """
+        Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
         :param str payload_data: The overrides document.
         """
         if payload_data is not None:
@@ -54,6 +58,9 @@ class ApplicationInstanceManifestOverridesPayload(dict):
 
 @pulumi.output_type
 class ApplicationInstanceManifestPayload(dict):
+    """
+    A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,6 +81,7 @@ class ApplicationInstanceManifestPayload(dict):
     def __init__(__self__, *,
                  payload_data: Optional[str] = None):
         """
+        A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
         :param str payload_data: The application manifest.
         """
         if payload_data is not None:
@@ -90,6 +98,9 @@ class ApplicationInstanceManifestPayload(dict):
 
 @pulumi.output_type
 class PackageStorageLocation(dict):
+    """
+    A storage location.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -120,6 +131,7 @@ class PackageStorageLocation(dict):
                  manifest_prefix_location: Optional[str] = None,
                  repo_prefix_location: Optional[str] = None):
         """
+        A storage location.
         :param str binary_prefix_location: The location's binary prefix.
         :param str bucket: The location's bucket.
         :param str generated_prefix_location: The location's generated prefix.

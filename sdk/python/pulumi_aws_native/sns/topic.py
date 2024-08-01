@@ -46,15 +46,14 @@ class TopicArgs:
                 Length Constraints: Maximum length of 30,720.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]] delivery_status_logging: The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-               
-               - HTTP
-               - Amazon Kinesis Data Firehose
-               - AWS Lambda
-               - Platform application endpoint
-               - Amazon Simple Queue Service
-               
-               Once configured, log entries are sent to Amazon CloudWatch Logs.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+                 +  HTTP 
+                 +  Amazon Kinesis Data Firehose
+                 +   AWS Lambda
+                 +  Platform application endpoint
+                 +  Amazon Simple Queue Service
+                 
+                Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
@@ -144,15 +143,14 @@ class TopicArgs:
     @pulumi.getter(name="deliveryStatusLogging")
     def delivery_status_logging(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]:
         """
-        The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-
-        - HTTP
-        - Amazon Kinesis Data Firehose
-        - AWS Lambda
-        - Platform application endpoint
-        - Amazon Simple Queue Service
-
-        Once configured, log entries are sent to Amazon CloudWatch Logs.
+        The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+          +  HTTP 
+          +  Amazon Kinesis Data Firehose
+          +   AWS Lambda
+          +  Platform application endpoint
+          +  Amazon Simple Queue Service
+          
+         Once configured, log entries are sent to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_logging")
 
@@ -300,15 +298,14 @@ class Topic(pulumi.CustomResource):
                 Length Constraints: Maximum length of 30,720.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]] delivery_status_logging: The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-               
-               - HTTP
-               - Amazon Kinesis Data Firehose
-               - AWS Lambda
-               - Platform application endpoint
-               - Amazon Simple Queue Service
-               
-               Once configured, log entries are sent to Amazon CloudWatch Logs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+                 +  HTTP 
+                 +  Amazon Kinesis Data Firehose
+                 +   AWS Lambda
+                 +  Platform application endpoint
+                 +  Amazon Simple Queue Service
+                 
+                Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
@@ -460,15 +457,14 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="deliveryStatusLogging")
     def delivery_status_logging(self) -> pulumi.Output[Optional[Sequence['outputs.TopicLoggingConfig']]]:
         """
-        The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-
-        - HTTP
-        - Amazon Kinesis Data Firehose
-        - AWS Lambda
-        - Platform application endpoint
-        - Amazon Simple Queue Service
-
-        Once configured, log entries are sent to Amazon CloudWatch Logs.
+        The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+          +  HTTP 
+          +  Amazon Kinesis Data Firehose
+          +   AWS Lambda
+          +  Platform application endpoint
+          +  Amazon Simple Queue Service
+          
+         Once configured, log entries are sent to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_logging")
 

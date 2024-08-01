@@ -177,7 +177,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "cleanrooms-ml:TagResource", "cleanrooms-ml:UntagResource" ]
   },
   "handlers" : {
     "create" : {

@@ -30,6 +30,7 @@ __all__ = [
     'FlowVersionFlowStatus',
     'FlowVersionPromptTemplateType',
     'GuardrailContentFilterType',
+    'GuardrailContextualGroundingFilterType',
     'GuardrailFilterStrength',
     'GuardrailManagedWordsType',
     'GuardrailPiiEntityType',
@@ -276,6 +277,14 @@ class GuardrailContentFilterType(str, Enum):
     INSULTS = "INSULTS"
     MISCONDUCT = "MISCONDUCT"
     PROMPT_ATTACK = "PROMPT_ATTACK"
+
+
+class GuardrailContextualGroundingFilterType(str, Enum):
+    """
+    Type of contextual grounding filter
+    """
+    GROUNDING = "GROUNDING"
+    RELEVANCE = "RELEVANCE"
 
 
 class GuardrailFilterStrength(str, Enum):

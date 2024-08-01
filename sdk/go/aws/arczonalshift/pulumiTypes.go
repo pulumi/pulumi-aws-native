@@ -17,7 +17,7 @@ type ZonalAutoshiftConfigurationControlCondition struct {
 	// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
 	AlarmIdentifier string `pulumi:"alarmIdentifier"`
 	// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
-	Type ZonalAutoshiftConfigurationControlConditionType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ZonalAutoshiftConfigurationControlConditionInput is an input type that accepts ZonalAutoshiftConfigurationControlConditionArgs and ZonalAutoshiftConfigurationControlConditionOutput values.
@@ -35,7 +35,7 @@ type ZonalAutoshiftConfigurationControlConditionArgs struct {
 	// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
 	AlarmIdentifier pulumi.StringInput `pulumi:"alarmIdentifier"`
 	// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
-	Type ZonalAutoshiftConfigurationControlConditionTypeInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ZonalAutoshiftConfigurationControlConditionArgs) ElementType() reflect.Type {
@@ -95,10 +95,8 @@ func (o ZonalAutoshiftConfigurationControlConditionOutput) AlarmIdentifier() pul
 }
 
 // The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
-func (o ZonalAutoshiftConfigurationControlConditionOutput) Type() ZonalAutoshiftConfigurationControlConditionTypeOutput {
-	return o.ApplyT(func(v ZonalAutoshiftConfigurationControlCondition) ZonalAutoshiftConfigurationControlConditionType {
-		return v.Type
-	}).(ZonalAutoshiftConfigurationControlConditionTypeOutput)
+func (o ZonalAutoshiftConfigurationControlConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ZonalAutoshiftConfigurationControlCondition) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ZonalAutoshiftConfigurationControlConditionArrayOutput struct{ *pulumi.OutputState }

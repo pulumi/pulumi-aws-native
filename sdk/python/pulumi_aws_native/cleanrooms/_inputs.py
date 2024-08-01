@@ -762,7 +762,7 @@ class MembershipProtectedQueryOutputConfigurationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
         """
-        :param pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs'] s3: Required configuration for a protected query with an `S3` output type.
+        :param pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs'] s3: Required configuration for a protected query with an `s3` output type.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -770,7 +770,7 @@ class MembershipProtectedQueryOutputConfigurationArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']:
         """
-        Required configuration for a protected query with an `S3` output type.
+        Required configuration for a protected query with an `s3` output type.
         """
         return pulumi.get(self, "s3")
 

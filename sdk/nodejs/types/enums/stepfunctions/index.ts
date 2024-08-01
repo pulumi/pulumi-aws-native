@@ -7,6 +7,9 @@ export const ActivityEncryptionConfigurationType = {
     AwsOwnedKey: "AWS_OWNED_KEY",
 } as const;
 
+/**
+ * Encryption option for an activity.
+ */
 export type ActivityEncryptionConfigurationType = (typeof ActivityEncryptionConfigurationType)[keyof typeof ActivityEncryptionConfigurationType];
 
 export const StateMachineAliasDeploymentPreferenceType = {
@@ -25,6 +28,9 @@ export const StateMachineEncryptionConfigurationType = {
     AwsOwnedKey: "AWS_OWNED_KEY",
 } as const;
 
+/**
+ * Encryption option for a state machine.
+ */
 export type StateMachineEncryptionConfigurationType = (typeof StateMachineEncryptionConfigurationType)[keyof typeof StateMachineEncryptionConfigurationType];
 
 export const StateMachineLoggingConfigurationLevel = {

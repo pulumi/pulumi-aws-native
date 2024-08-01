@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,24 +19,36 @@ type CisScanConfiguration struct {
 	// CIS Scan configuration unique identifier
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the scan
-	ScanName pulumi.StringPtrOutput `pulumi:"scanName"`
+	ScanName pulumi.StringOutput `pulumi:"scanName"`
 	// The CIS scan configuration's schedule.
-	Schedule CisScanConfigurationSchedulePtrOutput `pulumi:"schedule"`
+	Schedule CisScanConfigurationScheduleOutput `pulumi:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
-	SecurityLevel CisScanConfigurationCisSecurityLevelPtrOutput `pulumi:"securityLevel"`
+	SecurityLevel CisScanConfigurationCisSecurityLevelOutput `pulumi:"securityLevel"`
 	// The CIS scan configuration's tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The CIS scan configuration's targets.
-	Targets CisScanConfigurationCisTargetsPtrOutput `pulumi:"targets"`
+	Targets CisScanConfigurationCisTargetsOutput `pulumi:"targets"`
 }
 
 // NewCisScanConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewCisScanConfiguration(ctx *pulumi.Context,
 	name string, args *CisScanConfigurationArgs, opts ...pulumi.ResourceOption) (*CisScanConfiguration, error) {
 	if args == nil {
-		args = &CisScanConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ScanName == nil {
+		return nil, errors.New("invalid value for required argument 'ScanName'")
+	}
+	if args.Schedule == nil {
+		return nil, errors.New("invalid value for required argument 'Schedule'")
+	}
+	if args.SecurityLevel == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityLevel'")
+	}
+	if args.Targets == nil {
+		return nil, errors.New("invalid value for required argument 'Targets'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CisScanConfiguration
 	err := ctx.RegisterResource("aws-native:inspectorv2:CisScanConfiguration", name, args, &resource, opts...)
@@ -70,29 +83,29 @@ func (CisScanConfigurationState) ElementType() reflect.Type {
 
 type cisScanConfigurationArgs struct {
 	// Name of the scan
-	ScanName *string `pulumi:"scanName"`
+	ScanName string `pulumi:"scanName"`
 	// The CIS scan configuration's schedule.
-	Schedule *CisScanConfigurationSchedule `pulumi:"schedule"`
+	Schedule CisScanConfigurationSchedule `pulumi:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
-	SecurityLevel *CisScanConfigurationCisSecurityLevel `pulumi:"securityLevel"`
+	SecurityLevel CisScanConfigurationCisSecurityLevel `pulumi:"securityLevel"`
 	// The CIS scan configuration's tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The CIS scan configuration's targets.
-	Targets *CisScanConfigurationCisTargets `pulumi:"targets"`
+	Targets CisScanConfigurationCisTargets `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a CisScanConfiguration resource.
 type CisScanConfigurationArgs struct {
 	// Name of the scan
-	ScanName pulumi.StringPtrInput
+	ScanName pulumi.StringInput
 	// The CIS scan configuration's schedule.
-	Schedule CisScanConfigurationSchedulePtrInput
+	Schedule CisScanConfigurationScheduleInput
 	// The CIS scan configuration's CIS Benchmark level.
-	SecurityLevel CisScanConfigurationCisSecurityLevelPtrInput
+	SecurityLevel CisScanConfigurationCisSecurityLevelInput
 	// The CIS scan configuration's tags.
 	Tags pulumi.StringMapInput
 	// The CIS scan configuration's targets.
-	Targets CisScanConfigurationCisTargetsPtrInput
+	Targets CisScanConfigurationCisTargetsInput
 }
 
 func (CisScanConfigurationArgs) ElementType() reflect.Type {
@@ -138,18 +151,18 @@ func (o CisScanConfigurationOutput) Arn() pulumi.StringOutput {
 }
 
 // Name of the scan
-func (o CisScanConfigurationOutput) ScanName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CisScanConfiguration) pulumi.StringPtrOutput { return v.ScanName }).(pulumi.StringPtrOutput)
+func (o CisScanConfigurationOutput) ScanName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CisScanConfiguration) pulumi.StringOutput { return v.ScanName }).(pulumi.StringOutput)
 }
 
 // The CIS scan configuration's schedule.
-func (o CisScanConfigurationOutput) Schedule() CisScanConfigurationSchedulePtrOutput {
-	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationSchedulePtrOutput { return v.Schedule }).(CisScanConfigurationSchedulePtrOutput)
+func (o CisScanConfigurationOutput) Schedule() CisScanConfigurationScheduleOutput {
+	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationScheduleOutput { return v.Schedule }).(CisScanConfigurationScheduleOutput)
 }
 
 // The CIS scan configuration's CIS Benchmark level.
-func (o CisScanConfigurationOutput) SecurityLevel() CisScanConfigurationCisSecurityLevelPtrOutput {
-	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisSecurityLevelPtrOutput { return v.SecurityLevel }).(CisScanConfigurationCisSecurityLevelPtrOutput)
+func (o CisScanConfigurationOutput) SecurityLevel() CisScanConfigurationCisSecurityLevelOutput {
+	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisSecurityLevelOutput { return v.SecurityLevel }).(CisScanConfigurationCisSecurityLevelOutput)
 }
 
 // The CIS scan configuration's tags.
@@ -158,8 +171,8 @@ func (o CisScanConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The CIS scan configuration's targets.
-func (o CisScanConfigurationOutput) Targets() CisScanConfigurationCisTargetsPtrOutput {
-	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisTargetsPtrOutput { return v.Targets }).(CisScanConfigurationCisTargetsPtrOutput)
+func (o CisScanConfigurationOutput) Targets() CisScanConfigurationCisTargetsOutput {
+	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisTargetsOutput { return v.Targets }).(CisScanConfigurationCisTargetsOutput)
 }
 
 func init() {

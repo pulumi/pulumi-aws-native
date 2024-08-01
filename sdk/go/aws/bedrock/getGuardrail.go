@@ -34,7 +34,8 @@ type LookupGuardrailResult struct {
 	// Messaging for when violations are detected in text
 	BlockedOutputsMessaging *string `pulumi:"blockedOutputsMessaging"`
 	// The content filter policies to configure for the guardrail.
-	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	ContentPolicyConfig             *GuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
+	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Time Stamp
 	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the guardrail or its version
@@ -116,6 +117,12 @@ func (o LookupGuardrailResultOutput) BlockedOutputsMessaging() pulumi.StringPtrO
 // The content filter policies to configure for the guardrail.
 func (o LookupGuardrailResultOutput) ContentPolicyConfig() GuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailContentPolicyConfig { return v.ContentPolicyConfig }).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+func (o LookupGuardrailResultOutput) ContextualGroundingPolicyConfig() GuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailContextualGroundingPolicyConfig {
+		return v.ContextualGroundingPolicyConfig
+	}).(GuardrailContextualGroundingPolicyConfigPtrOutput)
 }
 
 // Time Stamp

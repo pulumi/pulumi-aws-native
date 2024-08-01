@@ -47,9 +47,7 @@ type Fleet struct {
 	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrOutput `pulumi:"instanceRoleCredentialsProvider"`
-	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
-	//
-	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
+	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Locations FleetLocationConfigurationArrayOutput `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
@@ -173,9 +171,7 @@ type fleetArgs struct {
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider *FleetInstanceRoleCredentialsProvider `pulumi:"instanceRoleCredentialsProvider"`
-	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
-	//
-	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
+	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Locations []FleetLocationConfiguration `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths []string `pulumi:"logPaths"`
@@ -243,9 +239,7 @@ type FleetArgs struct {
 	InstanceRoleArn pulumi.StringPtrInput
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrInput
-	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
-	//
-	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
+	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Locations FleetLocationConfigurationArrayInput
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayInput
@@ -392,9 +386,7 @@ func (o FleetOutput) InstanceRoleCredentialsProvider() FleetInstanceRoleCredenti
 	return o.ApplyT(func(v *Fleet) FleetInstanceRoleCredentialsProviderPtrOutput { return v.InstanceRoleCredentialsProvider }).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
-// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
-//
-// When using this parameter, Amazon GameLift requires you to include your home location in the request.
+// A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetLocationConfigurationArrayOutput { return v.Locations }).(FleetLocationConfigurationArrayOutput)
 }

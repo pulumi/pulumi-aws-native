@@ -10,17 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// The actions initiated by this trigger.
+    /// </summary>
     [OutputType]
     public sealed class TriggerAction
     {
         /// <summary>
         /// The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-        /// 
-        /// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-        /// 
-        /// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-        /// 
-        /// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
         /// </summary>
         public readonly object? Arguments;
         /// <summary>
@@ -36,11 +33,11 @@ namespace Pulumi.AwsNative.Glue.Outputs
         /// </summary>
         public readonly Outputs.TriggerNotificationProperty? NotificationProperty;
         /// <summary>
-        /// The name of the `SecurityConfiguration` structure to be used with this action.
+        /// The name of the SecurityConfiguration structure to be used with this action.
         /// </summary>
         public readonly string? SecurityConfiguration;
         /// <summary>
-        /// The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+        /// The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
         /// </summary>
         public readonly int? Timeout;
 

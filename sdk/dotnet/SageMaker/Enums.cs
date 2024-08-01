@@ -458,7 +458,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainMlTools DataWrangler { get; } = new DomainMlTools("DataWrangler");
         public static DomainMlTools FeatureStore { get; } = new DomainMlTools("FeatureStore");
         public static DomainMlTools EmrClusters { get; } = new DomainMlTools("EmrClusters");
-        public static DomainMlTools AutoMl { get; } = new DomainMlTools("AutoML");
+        public static DomainMlTools AutoMl { get; } = new DomainMlTools("AutoMl");
         public static DomainMlTools Experiments { get; } = new DomainMlTools("Experiments");
         public static DomainMlTools Training { get; } = new DomainMlTools("Training");
         public static DomainMlTools ModelEvaluation { get; } = new DomainMlTools("ModelEvaluation");
@@ -2756,6 +2756,39 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The App type that the Lifecycle Configuration is attached to.
+    /// </summary>
+    [EnumType]
+    public readonly struct StudioLifecycleConfigAppType : IEquatable<StudioLifecycleConfigAppType>
+    {
+        private readonly string _value;
+
+        private StudioLifecycleConfigAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StudioLifecycleConfigAppType JupyterServer { get; } = new StudioLifecycleConfigAppType("JupyterServer");
+        public static StudioLifecycleConfigAppType KernelGateway { get; } = new StudioLifecycleConfigAppType("KernelGateway");
+        public static StudioLifecycleConfigAppType CodeEditor { get; } = new StudioLifecycleConfigAppType("CodeEditor");
+        public static StudioLifecycleConfigAppType JupyterLab { get; } = new StudioLifecycleConfigAppType("JupyterLab");
+
+        public static bool operator ==(StudioLifecycleConfigAppType left, StudioLifecycleConfigAppType right) => left.Equals(right);
+        public static bool operator !=(StudioLifecycleConfigAppType left, StudioLifecycleConfigAppType right) => !left.Equals(right);
+
+        public static explicit operator string(StudioLifecycleConfigAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StudioLifecycleConfigAppType other && Equals(other);
+        public bool Equals(StudioLifecycleConfigAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct UserProfileAppType : IEquatable<UserProfileAppType>
     {
@@ -2802,7 +2835,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileMlTools DataWrangler { get; } = new UserProfileMlTools("DataWrangler");
         public static UserProfileMlTools FeatureStore { get; } = new UserProfileMlTools("FeatureStore");
         public static UserProfileMlTools EmrClusters { get; } = new UserProfileMlTools("EmrClusters");
-        public static UserProfileMlTools AutoMl { get; } = new UserProfileMlTools("AutoML");
+        public static UserProfileMlTools AutoMl { get; } = new UserProfileMlTools("AutoMl");
         public static UserProfileMlTools Experiments { get; } = new UserProfileMlTools("Experiments");
         public static UserProfileMlTools Training { get; } = new UserProfileMlTools("Training");
         public static UserProfileMlTools ModelEvaluation { get; } = new UserProfileMlTools("ModelEvaluation");

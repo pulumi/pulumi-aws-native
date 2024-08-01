@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityControlResult:
-    def __init__(__self__, last_update_reason=None, parameters=None, security_control_arn=None, security_control_id=None):
+    def __init__(__self__, last_update_reason=None, parameters=None, security_control_arn=None):
         if last_update_reason and not isinstance(last_update_reason, str):
             raise TypeError("Expected argument 'last_update_reason' to be a str")
         pulumi.set(__self__, "last_update_reason", last_update_reason)
@@ -30,9 +30,6 @@ class GetSecurityControlResult:
         if security_control_arn and not isinstance(security_control_arn, str):
             raise TypeError("Expected argument 'security_control_arn' to be a str")
         pulumi.set(__self__, "security_control_arn", security_control_arn)
-        if security_control_id and not isinstance(security_control_id, str):
-            raise TypeError("Expected argument 'security_control_id' to be a str")
-        pulumi.set(__self__, "security_control_id", security_control_id)
 
     @property
     @pulumi.getter(name="lastUpdateReason")
@@ -58,14 +55,6 @@ class GetSecurityControlResult:
         """
         return pulumi.get(self, "security_control_arn")
 
-    @property
-    @pulumi.getter(name="securityControlId")
-    def security_control_id(self) -> Optional[str]:
-        """
-        The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
-        """
-        return pulumi.get(self, "security_control_id")
-
 
 class AwaitableGetSecurityControlResult(GetSecurityControlResult):
     # pylint: disable=using-constant-test
@@ -75,8 +64,7 @@ class AwaitableGetSecurityControlResult(GetSecurityControlResult):
         return GetSecurityControlResult(
             last_update_reason=self.last_update_reason,
             parameters=self.parameters,
-            security_control_arn=self.security_control_arn,
-            security_control_id=self.security_control_id)
+            security_control_arn=self.security_control_arn)
 
 
 def get_security_control(security_control_id: Optional[str] = None,
@@ -95,8 +83,7 @@ def get_security_control(security_control_id: Optional[str] = None,
     return AwaitableGetSecurityControlResult(
         last_update_reason=pulumi.get(__ret__, 'last_update_reason'),
         parameters=pulumi.get(__ret__, 'parameters'),
-        security_control_arn=pulumi.get(__ret__, 'security_control_arn'),
-        security_control_id=pulumi.get(__ret__, 'security_control_id'))
+        security_control_arn=pulumi.get(__ret__, 'security_control_arn'))
 
 
 @_utilities.lift_output_func(get_security_control)

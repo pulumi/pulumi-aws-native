@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Defines a condition under which a trigger fires.
+    /// </summary>
     public sealed class TriggerConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+        /// The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
@@ -37,7 +40,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public Input<string>? LogicalOperator { get; set; }
 
         /// <summary>
-        /// The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+        /// The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

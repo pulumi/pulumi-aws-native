@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Specifies configuration properties of a job run notification.
+    /// </summary>
     public sealed class TriggerNotificationPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

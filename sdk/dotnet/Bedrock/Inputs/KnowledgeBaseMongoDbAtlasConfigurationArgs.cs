@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("endpointServiceName")]
         public Input<string>? EndpointServiceName { get; set; }
 
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.KnowledgeBaseMongoDbAtlasFieldMappingArgs> FieldMapping { get; set; } = null!;
 

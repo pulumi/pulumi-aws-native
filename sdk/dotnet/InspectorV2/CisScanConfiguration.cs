@@ -25,19 +25,19 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Name of the scan
         /// </summary>
         [Output("scanName")]
-        public Output<string?> ScanName { get; private set; } = null!;
+        public Output<string> ScanName { get; private set; } = null!;
 
         /// <summary>
         /// The CIS scan configuration's schedule.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.CisScanConfigurationSchedule?> Schedule { get; private set; } = null!;
+        public Output<Outputs.CisScanConfigurationSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// The CIS scan configuration's CIS Benchmark level.
         /// </summary>
         [Output("securityLevel")]
-        public Output<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel?> SecurityLevel { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel> SecurityLevel { get; private set; } = null!;
 
         /// <summary>
         /// The CIS scan configuration's tags.
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.InspectorV2
         /// The CIS scan configuration's targets.
         /// </summary>
         [Output("targets")]
-        public Output<Outputs.CisScanConfigurationCisTargets?> Targets { get; private set; } = null!;
+        public Output<Outputs.CisScanConfigurationCisTargets> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CisScanConfiguration(string name, CisScanConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public CisScanConfiguration(string name, CisScanConfigurationArgs args, CustomResourceOptions? options = null)
             : base("aws-native:inspectorv2:CisScanConfiguration", name, args ?? new CisScanConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,20 +99,20 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <summary>
         /// Name of the scan
         /// </summary>
-        [Input("scanName")]
-        public Input<string>? ScanName { get; set; }
+        [Input("scanName", required: true)]
+        public Input<string> ScanName { get; set; } = null!;
 
         /// <summary>
         /// The CIS scan configuration's schedule.
         /// </summary>
-        [Input("schedule")]
-        public Input<Inputs.CisScanConfigurationScheduleArgs>? Schedule { get; set; }
+        [Input("schedule", required: true)]
+        public Input<Inputs.CisScanConfigurationScheduleArgs> Schedule { get; set; } = null!;
 
         /// <summary>
         /// The CIS scan configuration's CIS Benchmark level.
         /// </summary>
-        [Input("securityLevel")]
-        public Input<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel>? SecurityLevel { get; set; }
+        [Input("securityLevel", required: true)]
+        public Input<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel> SecurityLevel { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <summary>
         /// The CIS scan configuration's targets.
         /// </summary>
-        [Input("targets")]
-        public Input<Inputs.CisScanConfigurationCisTargetsArgs>? Targets { get; set; }
+        [Input("targets", required: true)]
+        public Input<Inputs.CisScanConfigurationCisTargetsArgs> Targets { get; set; } = null!;
 
         public CisScanConfigurationArgs()
         {

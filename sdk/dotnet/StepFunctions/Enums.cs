@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.StepFunctions
 {
+    /// <summary>
+    /// Encryption option for an activity.
+    /// </summary>
     [EnumType]
     public readonly struct ActivityEncryptionConfigurationType : IEquatable<ActivityEncryptionConfigurationType>
     {
@@ -67,6 +70,9 @@ namespace Pulumi.AwsNative.StepFunctions
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Encryption option for a state machine.
+    /// </summary>
     [EnumType]
     public readonly struct StateMachineEncryptionConfigurationType : IEquatable<StateMachineEncryptionConfigurationType>
     {

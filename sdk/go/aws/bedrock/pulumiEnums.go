@@ -3532,6 +3532,172 @@ func (in *guardrailContentFilterTypePtr) ToGuardrailContentFilterTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailContentFilterTypePtrOutput)
 }
 
+// Type of contextual grounding filter
+type GuardrailContextualGroundingFilterType string
+
+const (
+	GuardrailContextualGroundingFilterTypeGrounding = GuardrailContextualGroundingFilterType("GROUNDING")
+	GuardrailContextualGroundingFilterTypeRelevance = GuardrailContextualGroundingFilterType("RELEVANCE")
+)
+
+func (GuardrailContextualGroundingFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (e GuardrailContextualGroundingFilterType) ToGuardrailContextualGroundingFilterTypeOutput() GuardrailContextualGroundingFilterTypeOutput {
+	return pulumi.ToOutput(e).(GuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (e GuardrailContextualGroundingFilterType) ToGuardrailContextualGroundingFilterTypeOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (e GuardrailContextualGroundingFilterType) ToGuardrailContextualGroundingFilterTypePtrOutput() GuardrailContextualGroundingFilterTypePtrOutput {
+	return e.ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContextualGroundingFilterType) ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypePtrOutput {
+	return GuardrailContextualGroundingFilterType(e).ToGuardrailContextualGroundingFilterTypeOutputWithContext(ctx).ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailContextualGroundingFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContextualGroundingFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContextualGroundingFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContextualGroundingFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailContextualGroundingFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToGuardrailContextualGroundingFilterTypeOutput() GuardrailContextualGroundingFilterTypeOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToGuardrailContextualGroundingFilterTypeOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypeOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToGuardrailContextualGroundingFilterTypePtrOutput() GuardrailContextualGroundingFilterTypePtrOutput {
+	return o.ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContextualGroundingFilterType) *GuardrailContextualGroundingFilterType {
+		return &v
+	}).(GuardrailContextualGroundingFilterTypePtrOutput)
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContextualGroundingFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContextualGroundingFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContextualGroundingFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailContextualGroundingFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContextualGroundingFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (o GuardrailContextualGroundingFilterTypePtrOutput) ToGuardrailContextualGroundingFilterTypePtrOutput() GuardrailContextualGroundingFilterTypePtrOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterTypePtrOutput) ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypePtrOutput {
+	return o
+}
+
+func (o GuardrailContextualGroundingFilterTypePtrOutput) Elem() GuardrailContextualGroundingFilterTypeOutput {
+	return o.ApplyT(func(v *GuardrailContextualGroundingFilterType) GuardrailContextualGroundingFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContextualGroundingFilterType
+		return ret
+	}).(GuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (o GuardrailContextualGroundingFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContextualGroundingFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailContextualGroundingFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailContextualGroundingFilterTypeInput is an input type that accepts values of the GuardrailContextualGroundingFilterType enum
+// A concrete instance of `GuardrailContextualGroundingFilterTypeInput` can be one of the following:
+//
+//	GuardrailContextualGroundingFilterTypeGrounding
+//	GuardrailContextualGroundingFilterTypeRelevance
+type GuardrailContextualGroundingFilterTypeInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingFilterTypeOutput() GuardrailContextualGroundingFilterTypeOutput
+	ToGuardrailContextualGroundingFilterTypeOutputWithContext(context.Context) GuardrailContextualGroundingFilterTypeOutput
+}
+
+var guardrailContextualGroundingFilterTypePtrType = reflect.TypeOf((**GuardrailContextualGroundingFilterType)(nil)).Elem()
+
+type GuardrailContextualGroundingFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContextualGroundingFilterTypePtrOutput() GuardrailContextualGroundingFilterTypePtrOutput
+	ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Context) GuardrailContextualGroundingFilterTypePtrOutput
+}
+
+type guardrailContextualGroundingFilterTypePtr string
+
+func GuardrailContextualGroundingFilterTypePtr(v string) GuardrailContextualGroundingFilterTypePtrInput {
+	return (*guardrailContextualGroundingFilterTypePtr)(&v)
+}
+
+func (*guardrailContextualGroundingFilterTypePtr) ElementType() reflect.Type {
+	return guardrailContextualGroundingFilterTypePtrType
+}
+
+func (in *guardrailContextualGroundingFilterTypePtr) ToGuardrailContextualGroundingFilterTypePtrOutput() GuardrailContextualGroundingFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailContextualGroundingFilterTypePtrOutput)
+}
+
+func (in *guardrailContextualGroundingFilterTypePtr) ToGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailContextualGroundingFilterTypePtrOutput)
+}
+
 // Strength for filters
 type GuardrailFilterStrength string
 
@@ -5231,6 +5397,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypePtrInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypePtrInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterTypeInput)(nil)).Elem(), GuardrailContextualGroundingFilterType("GROUNDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterTypePtrInput)(nil)).Elem(), GuardrailContextualGroundingFilterType("GROUNDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthPtrInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsTypeInput)(nil)).Elem(), GuardrailManagedWordsType("PROFANITY"))
@@ -5297,6 +5465,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterTypeOutput{})
+	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailFilterStrengthOutput{})
 	pulumi.RegisterOutputType(GuardrailFilterStrengthPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsTypeOutput{})

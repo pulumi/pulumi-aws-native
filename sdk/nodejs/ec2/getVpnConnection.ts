@@ -8,7 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::VPNConnection
+ * Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+ *  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+ *  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+ *  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
  */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
 
@@ -20,7 +23,7 @@ export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.Invok
 
 export interface GetVpnConnectionArgs {
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN connection.
      */
     vpnConnectionId: string;
 }
@@ -31,12 +34,15 @@ export interface GetVpnConnectionResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN connection.
      */
     readonly vpnConnectionId?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::VPNConnection
+ * Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+ *  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+ *  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+ *  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
  */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
@@ -44,7 +50,7 @@ export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: 
 
 export interface GetVpnConnectionOutputArgs {
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN connection.
      */
     vpnConnectionId: pulumi.Input<string>;
 }

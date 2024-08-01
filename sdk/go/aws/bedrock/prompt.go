@@ -28,7 +28,11 @@ type Prompt struct {
 	// Name for a prompt resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name for a prompt resource.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -85,7 +89,11 @@ type promptArgs struct {
 	// Name for a prompt resource.
 	Description *string `pulumi:"description"`
 	// Name for a prompt resource.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags map[string]string `pulumi:"tags"`
 	// List of prompt variants
 	Variants []PromptVariant `pulumi:"variants"`
@@ -101,6 +109,10 @@ type PromptArgs struct {
 	Description pulumi.StringPtrInput
 	// Name for a prompt resource.
 	Name pulumi.StringPtrInput
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags pulumi.StringMapInput
 	// List of prompt variants
 	Variants PromptVariantArrayInput
@@ -178,6 +190,10 @@ func (o PromptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Prompt) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o PromptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Prompt) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

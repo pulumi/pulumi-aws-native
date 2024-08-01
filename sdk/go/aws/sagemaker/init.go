@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws-native:sagemaker:Space":
 		r = &Space{}
+	case "aws-native:sagemaker:StudioLifecycleConfig":
+		r = &StudioLifecycleConfig{}
 	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
 	default:

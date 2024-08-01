@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Panorama
     public static class GetPackage
     {
         /// <summary>
-        /// Schema for Package CloudFormation Resource
+        /// Creates a package and storage location in an Amazon S3 access point.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for Package CloudFormation Resource
+        /// Creates a package and storage location in an Amazon S3 access point.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());

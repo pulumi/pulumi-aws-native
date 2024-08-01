@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama
 {
     /// <summary>
-    /// Schema for Package CloudFormation Resource
+    /// Creates a package and storage location in an Amazon S3 access point.
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:Package")]
     public partial class Package : global::Pulumi.CustomResource

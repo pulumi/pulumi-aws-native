@@ -1038,6 +1038,8 @@ type AppImageConfigTag struct {
 type AppResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *AppResourceSpecInstanceType `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -1058,6 +1060,8 @@ type AppResourceSpecInput interface {
 type AppResourceSpecArgs struct {
 	// The instance type that the image version runs on.
 	InstanceType AppResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -1146,6 +1150,11 @@ func (o AppResourceSpecOutput) InstanceType() AppResourceSpecInstanceTypePtrOutp
 	return o.ApplyT(func(v AppResourceSpec) *AppResourceSpecInstanceType { return v.InstanceType }).(AppResourceSpecInstanceTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o AppResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the SageMaker image that the image version belongs to.
 func (o AppResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
@@ -1188,6 +1197,16 @@ func (o AppResourceSpecPtrOutput) InstanceType() AppResourceSpecInstanceTypePtrO
 		}
 		return v.InstanceType
 	}).(AppResourceSpecInstanceTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o AppResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -5657,6 +5676,8 @@ func (o DomainJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.Strin
 type DomainJupyterServerAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainJupyterServerAppSettingsInput is an input type that accepts DomainJupyterServerAppSettingsArgs and DomainJupyterServerAppSettingsOutput values.
@@ -5674,6 +5695,8 @@ type DomainJupyterServerAppSettingsInput interface {
 type DomainJupyterServerAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -5759,6 +5782,11 @@ func (o DomainJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainResour
 	return o.ApplyT(func(v DomainJupyterServerAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o DomainJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type DomainJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -5793,12 +5821,24 @@ func (o DomainJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 	}).(DomainResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o DomainJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainJupyterServerAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // The kernel gateway app settings.
 type DomainKernelGatewayAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainKernelGatewayAppSettingsInput is an input type that accepts DomainKernelGatewayAppSettingsArgs and DomainKernelGatewayAppSettingsOutput values.
@@ -5818,6 +5858,8 @@ type DomainKernelGatewayAppSettingsArgs struct {
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -5908,6 +5950,11 @@ func (o DomainKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainResour
 	return o.ApplyT(func(v DomainKernelGatewayAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o DomainKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type DomainKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -5950,6 +5997,16 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 		}
 		return v.DefaultResourceSpec
 	}).(DomainResourceSpecPtrOutput)
+}
+
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o DomainKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // A collection of settings that apply to an RSessionGateway app.
@@ -32326,6 +32383,8 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceResource
 type SpaceJupyterServerAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // SpaceJupyterServerAppSettingsInput is an input type that accepts SpaceJupyterServerAppSettingsArgs and SpaceJupyterServerAppSettingsOutput values.
@@ -32343,6 +32402,8 @@ type SpaceJupyterServerAppSettingsInput interface {
 type SpaceJupyterServerAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (SpaceJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -32428,6 +32489,11 @@ func (o SpaceJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceResource
 	return o.ApplyT(func(v SpaceJupyterServerAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o SpaceJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpaceJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type SpaceJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (SpaceJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -32462,12 +32528,24 @@ func (o SpaceJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceResou
 	}).(SpaceResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o SpaceJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpaceJupyterServerAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // The kernel gateway app settings.
 type SpaceKernelGatewayAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []SpaceCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // SpaceKernelGatewayAppSettingsInput is an input type that accepts SpaceKernelGatewayAppSettingsArgs and SpaceKernelGatewayAppSettingsOutput values.
@@ -32487,6 +32565,8 @@ type SpaceKernelGatewayAppSettingsArgs struct {
 	CustomImages SpaceCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (SpaceKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -32577,6 +32657,11 @@ func (o SpaceKernelGatewayAppSettingsOutput) DefaultResourceSpec() SpaceResource
 	return o.ApplyT(func(v SpaceKernelGatewayAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o SpaceKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpaceKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type SpaceKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (SpaceKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -32619,6 +32704,16 @@ func (o SpaceKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() SpaceResou
 		}
 		return v.DefaultResourceSpec
 	}).(SpaceResourceSpecPtrOutput)
+}
+
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o SpaceKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpaceKernelGatewayAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type SpaceOwnershipSettings struct {
@@ -32761,6 +32856,8 @@ func (o SpaceOwnershipSettingsPtrOutput) OwnerUserProfileName() pulumi.StringPtr
 type SpaceResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *SpaceResourceSpecInstanceType `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -32781,6 +32878,8 @@ type SpaceResourceSpecInput interface {
 type SpaceResourceSpecArgs struct {
 	// The instance type that the image version runs on.
 	InstanceType SpaceResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -32869,6 +32968,11 @@ func (o SpaceResourceSpecOutput) InstanceType() SpaceResourceSpecInstanceTypePtr
 	return o.ApplyT(func(v SpaceResourceSpec) *SpaceResourceSpecInstanceType { return v.InstanceType }).(SpaceResourceSpecInstanceTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o SpaceResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the SageMaker image that the image version belongs to.
 func (o SpaceResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
@@ -32911,6 +33015,16 @@ func (o SpaceResourceSpecPtrOutput) InstanceType() SpaceResourceSpecInstanceType
 		}
 		return v.InstanceType
 	}).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o SpaceResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -33465,6 +33579,11 @@ type SpaceTag struct {
 	// The tag key. Tag keys must be unique per resource.
 	Key string `pulumi:"key"`
 	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+type StudioLifecycleConfigTag struct {
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -34774,6 +34893,8 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.
 type UserProfileJupyterServerAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // UserProfileJupyterServerAppSettingsInput is an input type that accepts UserProfileJupyterServerAppSettingsArgs and UserProfileJupyterServerAppSettingsOutput values.
@@ -34791,6 +34912,8 @@ type UserProfileJupyterServerAppSettingsInput interface {
 type UserProfileJupyterServerAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with JupyterServer apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (UserProfileJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -34876,6 +34999,11 @@ func (o UserProfileJupyterServerAppSettingsOutput) DefaultResourceSpec() UserPro
 	return o.ApplyT(func(v UserProfileJupyterServerAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o UserProfileJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type UserProfileJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (UserProfileJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -34910,12 +35038,24 @@ func (o UserProfileJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() User
 	}).(UserProfileResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with JupyterServer apps.
+func (o UserProfileJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileJupyterServerAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // The kernel gateway app settings.
 type UserProfileKernelGatewayAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // UserProfileKernelGatewayAppSettingsInput is an input type that accepts UserProfileKernelGatewayAppSettingsArgs and UserProfileKernelGatewayAppSettingsOutput values.
@@ -34935,6 +35075,8 @@ type UserProfileKernelGatewayAppSettingsArgs struct {
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// A list of LifecycleConfigArns available for use with KernelGateway apps.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (UserProfileKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -35025,6 +35167,11 @@ func (o UserProfileKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserPro
 	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
 
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o UserProfileKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
 type UserProfileKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (UserProfileKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -35067,6 +35214,16 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() User
 		}
 		return v.DefaultResourceSpec
 	}).(UserProfileResourceSpecPtrOutput)
+}
+
+// A list of LifecycleConfigArns available for use with KernelGateway apps.
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // A collection of settings that configure user interaction with the RStudioServerPro app.
@@ -35235,6 +35392,8 @@ func (o UserProfileRStudioServerProAppSettingsPtrOutput) UserGroup() UserProfile
 type UserProfileResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *UserProfileResourceSpecInstanceType `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -35255,6 +35414,8 @@ type UserProfileResourceSpecInput interface {
 type UserProfileResourceSpecArgs struct {
 	// The instance type that the image version runs on.
 	InstanceType UserProfileResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -35343,6 +35504,11 @@ func (o UserProfileResourceSpecOutput) InstanceType() UserProfileResourceSpecIns
 	return o.ApplyT(func(v UserProfileResourceSpec) *UserProfileResourceSpecInstanceType { return v.InstanceType }).(UserProfileResourceSpecInstanceTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o UserProfileResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
@@ -35385,6 +35551,16 @@ func (o UserProfileResourceSpecPtrOutput) InstanceType() UserProfileResourceSpec
 		}
 		return v.InstanceType
 	}).(UserProfileResourceSpecInstanceTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o UserProfileResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.

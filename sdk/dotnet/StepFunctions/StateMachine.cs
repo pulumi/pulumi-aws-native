@@ -183,6 +183,9 @@ namespace Pulumi.AwsNative.StepFunctions
         [Output("definitionSubstitutions")]
         public Output<ImmutableDictionary<string, object>?> DefinitionSubstitutions { get; private set; } = null!;
 
+        /// <summary>
+        /// Encryption configuration for the state machine.
+        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.StateMachineEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
@@ -342,6 +345,9 @@ namespace Pulumi.AwsNative.StepFunctions
             set => _definitionSubstitutions = value;
         }
 
+        /// <summary>
+        /// Encryption configuration for the state machine.
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.StateMachineEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 

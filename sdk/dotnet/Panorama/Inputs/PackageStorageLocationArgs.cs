@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Inputs
 {
 
+    /// <summary>
+    /// A storage location.
+    /// </summary>
     public sealed class PackageStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

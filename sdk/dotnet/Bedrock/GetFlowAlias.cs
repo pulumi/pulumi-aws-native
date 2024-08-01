@@ -97,6 +97,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// Routing configuration for a Flow alias.
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowAliasRoutingConfigurationListItem> RoutingConfiguration;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time Stamp.

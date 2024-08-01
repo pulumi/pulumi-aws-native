@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .autoshift_observer_notification_status import *
+from .get_autoshift_observer_notification_status import *
 from .get_zonal_autoshift_configuration import *
 from .zonal_autoshift_configuration import *
 from ._inputs import *

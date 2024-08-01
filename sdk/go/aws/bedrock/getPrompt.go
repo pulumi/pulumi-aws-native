@@ -41,7 +41,11 @@ type LookupPromptResult struct {
 	// Identifier for a Prompt
 	Id *string `pulumi:"id"`
 	// Name for a prompt resource.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	Tags map[string]string `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -122,6 +126,10 @@ func (o LookupPromptResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPromptResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+//
+// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 func (o LookupPromptResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPromptResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

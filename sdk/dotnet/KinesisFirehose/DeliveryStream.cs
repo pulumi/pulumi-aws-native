@@ -81,6 +81,14 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Output<Outputs.DeliveryStreamHttpEndpointDestinationConfiguration?> HttpEndpointDestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the destination configure settings for Apache Iceberg Table.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
+        [Output("icebergDestinationConfiguration")]
+        public Output<Outputs.DeliveryStreamIcebergDestinationConfiguration?> IcebergDestinationConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
         /// </summary>
         [Output("kinesisStreamSourceConfiguration")]
@@ -170,6 +178,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                     "deliveryStreamName",
                     "deliveryStreamType",
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
+                    "icebergDestinationConfiguration",
                     "kinesisStreamSourceConfiguration",
                     "mskSourceConfiguration",
                     "snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
@@ -254,6 +263,14 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// </summary>
         [Input("httpEndpointDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamHttpEndpointDestinationConfigurationArgs>? HttpEndpointDestinationConfiguration { get; set; }
+
+        /// <summary>
+        /// Specifies the destination configure settings for Apache Iceberg Table.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
+        [Input("icebergDestinationConfiguration")]
+        public Input<Inputs.DeliveryStreamIcebergDestinationConfigurationArgs>? IcebergDestinationConfiguration { get; set; }
 
         /// <summary>
         /// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.

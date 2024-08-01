@@ -255,6 +255,16 @@
       "properties" : {
         "DefaultResourceSpec" : {
           "$ref" : "#/definitions/ResourceSpec"
+        },
+        "LifecycleConfigArns" : {
+          "type" : "array",
+          "description" : "A list of LifecycleConfigArns available for use with JupyterServer apps.",
+          "uniqueItems" : false,
+          "minItems" : 0,
+          "maxItems" : 30,
+          "items" : {
+            "$ref" : "#/definitions/StudioLifecycleConfigArn"
+          }
         }
       }
     },
@@ -306,6 +316,16 @@
         "DefaultResourceSpec" : {
           "$ref" : "#/definitions/ResourceSpec",
           "description" : "The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app."
+        },
+        "LifecycleConfigArns" : {
+          "type" : "array",
+          "description" : "A list of LifecycleConfigArns available for use with KernelGateway apps.",
+          "uniqueItems" : false,
+          "minItems" : 0,
+          "maxItems" : 30,
+          "items" : {
+            "$ref" : "#/definitions/StudioLifecycleConfigArn"
+          }
         }
       }
     },
@@ -689,7 +709,7 @@
     },
     "MlTools" : {
       "type" : "string",
-      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoML", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects" ]
+      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoMl", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects" ]
     },
     "AppType" : {
       "type" : "string",

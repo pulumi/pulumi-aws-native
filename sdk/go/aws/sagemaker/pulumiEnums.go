@@ -2190,7 +2190,7 @@ const (
 	DomainMlToolsDataWrangler         = DomainMlTools("DataWrangler")
 	DomainMlToolsFeatureStore         = DomainMlTools("FeatureStore")
 	DomainMlToolsEmrClusters          = DomainMlTools("EmrClusters")
-	DomainMlToolsAutoMl               = DomainMlTools("AutoML")
+	DomainMlToolsAutoMl               = DomainMlTools("AutoMl")
 	DomainMlToolsExperiments          = DomainMlTools("Experiments")
 	DomainMlToolsTraining             = DomainMlTools("Training")
 	DomainMlToolsModelEvaluation      = DomainMlTools("ModelEvaluation")
@@ -13515,6 +13515,176 @@ func (in *spaceSharingSettingsSharingTypePtr) ToSpaceSharingSettingsSharingTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(SpaceSharingSettingsSharingTypePtrOutput)
 }
 
+// The App type that the Lifecycle Configuration is attached to.
+type StudioLifecycleConfigAppType string
+
+const (
+	StudioLifecycleConfigAppTypeJupyterServer = StudioLifecycleConfigAppType("JupyterServer")
+	StudioLifecycleConfigAppTypeKernelGateway = StudioLifecycleConfigAppType("KernelGateway")
+	StudioLifecycleConfigAppTypeCodeEditor    = StudioLifecycleConfigAppType("CodeEditor")
+	StudioLifecycleConfigAppTypeJupyterLab    = StudioLifecycleConfigAppType("JupyterLab")
+)
+
+func (StudioLifecycleConfigAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioLifecycleConfigAppType)(nil)).Elem()
+}
+
+func (e StudioLifecycleConfigAppType) ToStudioLifecycleConfigAppTypeOutput() StudioLifecycleConfigAppTypeOutput {
+	return pulumi.ToOutput(e).(StudioLifecycleConfigAppTypeOutput)
+}
+
+func (e StudioLifecycleConfigAppType) ToStudioLifecycleConfigAppTypeOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StudioLifecycleConfigAppTypeOutput)
+}
+
+func (e StudioLifecycleConfigAppType) ToStudioLifecycleConfigAppTypePtrOutput() StudioLifecycleConfigAppTypePtrOutput {
+	return e.ToStudioLifecycleConfigAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e StudioLifecycleConfigAppType) ToStudioLifecycleConfigAppTypePtrOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypePtrOutput {
+	return StudioLifecycleConfigAppType(e).ToStudioLifecycleConfigAppTypeOutputWithContext(ctx).ToStudioLifecycleConfigAppTypePtrOutputWithContext(ctx)
+}
+
+func (e StudioLifecycleConfigAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StudioLifecycleConfigAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StudioLifecycleConfigAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StudioLifecycleConfigAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StudioLifecycleConfigAppTypeOutput struct{ *pulumi.OutputState }
+
+func (StudioLifecycleConfigAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioLifecycleConfigAppType)(nil)).Elem()
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStudioLifecycleConfigAppTypeOutput() StudioLifecycleConfigAppTypeOutput {
+	return o
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStudioLifecycleConfigAppTypeOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypeOutput {
+	return o
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStudioLifecycleConfigAppTypePtrOutput() StudioLifecycleConfigAppTypePtrOutput {
+	return o.ToStudioLifecycleConfigAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStudioLifecycleConfigAppTypePtrOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioLifecycleConfigAppType) *StudioLifecycleConfigAppType {
+		return &v
+	}).(StudioLifecycleConfigAppTypePtrOutput)
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StudioLifecycleConfigAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StudioLifecycleConfigAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StudioLifecycleConfigAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StudioLifecycleConfigAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StudioLifecycleConfigAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioLifecycleConfigAppType)(nil)).Elem()
+}
+
+func (o StudioLifecycleConfigAppTypePtrOutput) ToStudioLifecycleConfigAppTypePtrOutput() StudioLifecycleConfigAppTypePtrOutput {
+	return o
+}
+
+func (o StudioLifecycleConfigAppTypePtrOutput) ToStudioLifecycleConfigAppTypePtrOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypePtrOutput {
+	return o
+}
+
+func (o StudioLifecycleConfigAppTypePtrOutput) Elem() StudioLifecycleConfigAppTypeOutput {
+	return o.ApplyT(func(v *StudioLifecycleConfigAppType) StudioLifecycleConfigAppType {
+		if v != nil {
+			return *v
+		}
+		var ret StudioLifecycleConfigAppType
+		return ret
+	}).(StudioLifecycleConfigAppTypeOutput)
+}
+
+func (o StudioLifecycleConfigAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StudioLifecycleConfigAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StudioLifecycleConfigAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StudioLifecycleConfigAppTypeInput is an input type that accepts values of the StudioLifecycleConfigAppType enum
+// A concrete instance of `StudioLifecycleConfigAppTypeInput` can be one of the following:
+//
+//	StudioLifecycleConfigAppTypeJupyterServer
+//	StudioLifecycleConfigAppTypeKernelGateway
+//	StudioLifecycleConfigAppTypeCodeEditor
+//	StudioLifecycleConfigAppTypeJupyterLab
+type StudioLifecycleConfigAppTypeInput interface {
+	pulumi.Input
+
+	ToStudioLifecycleConfigAppTypeOutput() StudioLifecycleConfigAppTypeOutput
+	ToStudioLifecycleConfigAppTypeOutputWithContext(context.Context) StudioLifecycleConfigAppTypeOutput
+}
+
+var studioLifecycleConfigAppTypePtrType = reflect.TypeOf((**StudioLifecycleConfigAppType)(nil)).Elem()
+
+type StudioLifecycleConfigAppTypePtrInput interface {
+	pulumi.Input
+
+	ToStudioLifecycleConfigAppTypePtrOutput() StudioLifecycleConfigAppTypePtrOutput
+	ToStudioLifecycleConfigAppTypePtrOutputWithContext(context.Context) StudioLifecycleConfigAppTypePtrOutput
+}
+
+type studioLifecycleConfigAppTypePtr string
+
+func StudioLifecycleConfigAppTypePtr(v string) StudioLifecycleConfigAppTypePtrInput {
+	return (*studioLifecycleConfigAppTypePtr)(&v)
+}
+
+func (*studioLifecycleConfigAppTypePtr) ElementType() reflect.Type {
+	return studioLifecycleConfigAppTypePtrType
+}
+
+func (in *studioLifecycleConfigAppTypePtr) ToStudioLifecycleConfigAppTypePtrOutput() StudioLifecycleConfigAppTypePtrOutput {
+	return pulumi.ToOutput(in).(StudioLifecycleConfigAppTypePtrOutput)
+}
+
+func (in *studioLifecycleConfigAppTypePtr) ToStudioLifecycleConfigAppTypePtrOutputWithContext(ctx context.Context) StudioLifecycleConfigAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StudioLifecycleConfigAppTypePtrOutput)
+}
+
 type UserProfileAppType string
 
 const (
@@ -13741,7 +13911,7 @@ const (
 	UserProfileMlToolsDataWrangler         = UserProfileMlTools("DataWrangler")
 	UserProfileMlToolsFeatureStore         = UserProfileMlTools("FeatureStore")
 	UserProfileMlToolsEmrClusters          = UserProfileMlTools("EmrClusters")
-	UserProfileMlToolsAutoMl               = UserProfileMlTools("AutoML")
+	UserProfileMlToolsAutoMl               = UserProfileMlTools("AutoMl")
 	UserProfileMlToolsExperiments          = UserProfileMlTools("Experiments")
 	UserProfileMlToolsTraining             = UserProfileMlTools("Training")
 	UserProfileMlToolsModelEvaluation      = UserProfileMlTools("ModelEvaluation")
@@ -15070,6 +15240,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypePtrInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypeInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypePtrInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypeInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypePtrInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypePtrInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeArrayInput)(nil)).Elem(), UserProfileAppTypeArray{})
@@ -15250,6 +15422,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypeOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypePtrOutput{})
+	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypeOutput{})
+	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypeArrayOutput{})

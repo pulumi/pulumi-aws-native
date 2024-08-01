@@ -51,15 +51,14 @@ export interface GetTopicResult {
      */
     readonly dataProtectionPolicy?: any;
     /**
-     * The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-     *
-     * - HTTP
-     * - Amazon Kinesis Data Firehose
-     * - AWS Lambda
-     * - Platform application endpoint
-     * - Amazon Simple Queue Service
-     *
-     * Once configured, log entries are sent to Amazon CloudWatch Logs.
+     * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+     *   +  HTTP 
+     *   +  Amazon Kinesis Data Firehose
+     *   +   AWS Lambda
+     *   +  Platform application endpoint
+     *   +  Amazon Simple Queue Service
+     *   
+     *  Once configured, log entries are sent to Amazon CloudWatch Logs.
      */
     readonly deliveryStatusLogging?: outputs.sns.TopicLoggingConfig[];
     /**

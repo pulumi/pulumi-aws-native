@@ -46,47 +46,6 @@ func (i CisScanConfigurationCisTargetsArgs) ToCisScanConfigurationCisTargetsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTargetsOutput)
 }
 
-func (i CisScanConfigurationCisTargetsArgs) ToCisScanConfigurationCisTargetsPtrOutput() CisScanConfigurationCisTargetsPtrOutput {
-	return i.ToCisScanConfigurationCisTargetsPtrOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationCisTargetsArgs) ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTargetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTargetsOutput).ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx)
-}
-
-// CisScanConfigurationCisTargetsPtrInput is an input type that accepts CisScanConfigurationCisTargetsArgs, CisScanConfigurationCisTargetsPtr and CisScanConfigurationCisTargetsPtrOutput values.
-// You can construct a concrete instance of `CisScanConfigurationCisTargetsPtrInput` via:
-//
-//	        CisScanConfigurationCisTargetsArgs{...}
-//
-//	or:
-//
-//	        nil
-type CisScanConfigurationCisTargetsPtrInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationCisTargetsPtrOutput() CisScanConfigurationCisTargetsPtrOutput
-	ToCisScanConfigurationCisTargetsPtrOutputWithContext(context.Context) CisScanConfigurationCisTargetsPtrOutput
-}
-
-type cisScanConfigurationCisTargetsPtrType CisScanConfigurationCisTargetsArgs
-
-func CisScanConfigurationCisTargetsPtr(v *CisScanConfigurationCisTargetsArgs) CisScanConfigurationCisTargetsPtrInput {
-	return (*cisScanConfigurationCisTargetsPtrType)(v)
-}
-
-func (*cisScanConfigurationCisTargetsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationCisTargets)(nil)).Elem()
-}
-
-func (i *cisScanConfigurationCisTargetsPtrType) ToCisScanConfigurationCisTargetsPtrOutput() CisScanConfigurationCisTargetsPtrOutput {
-	return i.ToCisScanConfigurationCisTargetsPtrOutputWithContext(context.Background())
-}
-
-func (i *cisScanConfigurationCisTargetsPtrType) ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTargetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTargetsPtrOutput)
-}
-
 type CisScanConfigurationCisTargetsOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationCisTargetsOutput) ElementType() reflect.Type {
@@ -99,16 +58,6 @@ func (o CisScanConfigurationCisTargetsOutput) ToCisScanConfigurationCisTargetsOu
 
 func (o CisScanConfigurationCisTargetsOutput) ToCisScanConfigurationCisTargetsOutputWithContext(ctx context.Context) CisScanConfigurationCisTargetsOutput {
 	return o
-}
-
-func (o CisScanConfigurationCisTargetsOutput) ToCisScanConfigurationCisTargetsPtrOutput() CisScanConfigurationCisTargetsPtrOutput {
-	return o.ToCisScanConfigurationCisTargetsPtrOutputWithContext(context.Background())
-}
-
-func (o CisScanConfigurationCisTargetsOutput) ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTargetsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationCisTargets) *CisScanConfigurationCisTargets {
-		return &v
-	}).(CisScanConfigurationCisTargetsPtrOutput)
 }
 
 func (o CisScanConfigurationCisTargetsOutput) AccountIds() pulumi.StringArrayOutput {
@@ -599,47 +548,6 @@ func (i CisScanConfigurationScheduleArgs) ToCisScanConfigurationScheduleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationScheduleOutput)
 }
 
-func (i CisScanConfigurationScheduleArgs) ToCisScanConfigurationSchedulePtrOutput() CisScanConfigurationSchedulePtrOutput {
-	return i.ToCisScanConfigurationSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationScheduleArgs) ToCisScanConfigurationSchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationScheduleOutput).ToCisScanConfigurationSchedulePtrOutputWithContext(ctx)
-}
-
-// CisScanConfigurationSchedulePtrInput is an input type that accepts CisScanConfigurationScheduleArgs, CisScanConfigurationSchedulePtr and CisScanConfigurationSchedulePtrOutput values.
-// You can construct a concrete instance of `CisScanConfigurationSchedulePtrInput` via:
-//
-//	        CisScanConfigurationScheduleArgs{...}
-//
-//	or:
-//
-//	        nil
-type CisScanConfigurationSchedulePtrInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationSchedulePtrOutput() CisScanConfigurationSchedulePtrOutput
-	ToCisScanConfigurationSchedulePtrOutputWithContext(context.Context) CisScanConfigurationSchedulePtrOutput
-}
-
-type cisScanConfigurationSchedulePtrType CisScanConfigurationScheduleArgs
-
-func CisScanConfigurationSchedulePtr(v *CisScanConfigurationScheduleArgs) CisScanConfigurationSchedulePtrInput {
-	return (*cisScanConfigurationSchedulePtrType)(v)
-}
-
-func (*cisScanConfigurationSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationSchedule)(nil)).Elem()
-}
-
-func (i *cisScanConfigurationSchedulePtrType) ToCisScanConfigurationSchedulePtrOutput() CisScanConfigurationSchedulePtrOutput {
-	return i.ToCisScanConfigurationSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *cisScanConfigurationSchedulePtrType) ToCisScanConfigurationSchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationSchedulePtrOutput)
-}
-
 // Choose a Schedule cadence
 type CisScanConfigurationScheduleOutput struct{ *pulumi.OutputState }
 
@@ -653,16 +561,6 @@ func (o CisScanConfigurationScheduleOutput) ToCisScanConfigurationScheduleOutput
 
 func (o CisScanConfigurationScheduleOutput) ToCisScanConfigurationScheduleOutputWithContext(ctx context.Context) CisScanConfigurationScheduleOutput {
 	return o
-}
-
-func (o CisScanConfigurationScheduleOutput) ToCisScanConfigurationSchedulePtrOutput() CisScanConfigurationSchedulePtrOutput {
-	return o.ToCisScanConfigurationSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o CisScanConfigurationScheduleOutput) ToCisScanConfigurationSchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationSchedule) *CisScanConfigurationSchedule {
-		return &v
-	}).(CisScanConfigurationSchedulePtrOutput)
 }
 
 func (o CisScanConfigurationScheduleOutput) Daily() CisScanConfigurationDailySchedulePtrOutput {
@@ -2511,7 +2409,6 @@ func (o FilterStringFilterArrayOutput) Index(i pulumi.IntInput) FilterStringFilt
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTargetsInput)(nil)).Elem(), CisScanConfigurationCisTargetsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTargetsPtrInput)(nil)).Elem(), CisScanConfigurationCisTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDailyScheduleInput)(nil)).Elem(), CisScanConfigurationDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDailySchedulePtrInput)(nil)).Elem(), CisScanConfigurationDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationMonthlyScheduleInput)(nil)).Elem(), CisScanConfigurationMonthlyScheduleArgs{})
@@ -2519,7 +2416,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationOneTimeScheduleInput)(nil)).Elem(), CisScanConfigurationOneTimeScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationOneTimeSchedulePtrInput)(nil)).Elem(), CisScanConfigurationOneTimeScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationScheduleInput)(nil)).Elem(), CisScanConfigurationScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationSchedulePtrInput)(nil)).Elem(), CisScanConfigurationScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTimeInput)(nil)).Elem(), CisScanConfigurationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTimePtrInput)(nil)).Elem(), CisScanConfigurationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationWeeklyScheduleInput)(nil)).Elem(), CisScanConfigurationWeeklyScheduleArgs{})

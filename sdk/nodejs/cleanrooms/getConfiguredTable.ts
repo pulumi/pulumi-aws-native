@@ -29,7 +29,7 @@ export interface GetConfiguredTableArgs {
 
 export interface GetConfiguredTableResult {
     /**
-     * The entire created analysis rule.
+     * The analysis rule that was created for the configured table.
      */
     readonly analysisRules?: outputs.cleanrooms.ConfiguredTableAnalysisRule[];
     /**

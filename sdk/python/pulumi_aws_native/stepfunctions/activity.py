@@ -24,6 +24,11 @@ class ActivityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Activity resource.
+        :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the activity.
+               
+               Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+               
+               To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
         :param pulumi.Input[str] name: The name of the activity.
                
                A name must *not* contain:
@@ -49,6 +54,13 @@ class ActivityArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]:
+        """
+        Encryption configuration for the activity.
+
+        Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+
+        To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -148,6 +160,11 @@ class Activity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']] encryption_configuration: Encryption configuration for the activity.
+               
+               Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+               
+               To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
         :param pulumi.Input[str] name: The name of the activity.
                
                A name must *not* contain:
@@ -286,6 +303,13 @@ class Activity(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ActivityEncryptionConfiguration']]:
+        """
+        Encryption configuration for the activity.
+
+        Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+
+        To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

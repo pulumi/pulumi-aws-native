@@ -104,6 +104,8 @@ __all__ = [
     'FlowVersionTextPromptTemplateConfiguration',
     'GuardrailContentFilterConfig',
     'GuardrailContentPolicyConfig',
+    'GuardrailContextualGroundingFilterConfig',
+    'GuardrailContextualGroundingPolicyConfig',
     'GuardrailManagedWordsConfig',
     'GuardrailPiiEntityConfig',
     'GuardrailRegexConfig',
@@ -3799,6 +3801,74 @@ class GuardrailContentPolicyConfig(dict):
 
 
 @pulumi.output_type
+class GuardrailContextualGroundingFilterConfig(dict):
+    """
+    A config for grounding filter.
+    """
+    def __init__(__self__, *,
+                 threshold: float,
+                 type: 'GuardrailContextualGroundingFilterType'):
+        """
+        A config for grounding filter.
+        :param float threshold: The threshold for this filter.
+        """
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        The threshold for this filter.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GuardrailContextualGroundingFilterType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailContextualGroundingPolicyConfig(dict):
+    """
+    Contextual grounding policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfig":
+            suggest = "filters_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContextualGroundingPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_config: Sequence['outputs.GuardrailContextualGroundingFilterConfig']):
+        """
+        Contextual grounding policy config for a guardrail.
+        :param Sequence['GuardrailContextualGroundingFilterConfig'] filters_config: List of contextual grounding filter configs.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> Sequence['outputs.GuardrailContextualGroundingFilterConfig']:
+        """
+        List of contextual grounding filter configs.
+        """
+        return pulumi.get(self, "filters_config")
+
+
+@pulumi.output_type
 class GuardrailManagedWordsConfig(dict):
     """
     A managed words config.
@@ -4467,6 +4537,7 @@ class KnowledgeBaseEmbeddingModelConfiguration(dict):
                  bedrock_embedding_model_configuration: Optional['outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration'] = None):
         """
         The embeddings model configuration details for the vector model used in Knowledge Base.
+        :param 'KnowledgeBaseBedrockEmbeddingModelConfiguration' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.
         """
         if bedrock_embedding_model_configuration is not None:
             pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
@@ -4474,6 +4545,9 @@ class KnowledgeBaseEmbeddingModelConfiguration(dict):
     @property
     @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
     def bedrock_embedding_model_configuration(self) -> Optional['outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration']:
+        """
+        The vector configuration details on the Bedrock embeddings model.
+        """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
 
 
@@ -4523,6 +4597,7 @@ class KnowledgeBaseMongoDbAtlasConfiguration(dict):
         :param str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
         :param str database_name: Name of the database within MongoDB Atlas.
         :param str endpoint: MongoDB Atlas endpoint.
+        :param 'KnowledgeBaseMongoDbAtlasFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param str vector_index_name: Name of a MongoDB Atlas index.
         :param str endpoint_service_name: MongoDB Atlas endpoint service name.
         """
@@ -4570,6 +4645,9 @@ class KnowledgeBaseMongoDbAtlasConfiguration(dict):
     @property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.KnowledgeBaseMongoDbAtlasFieldMapping':
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
         return pulumi.get(self, "field_mapping")
 
     @property
@@ -5119,6 +5197,7 @@ class KnowledgeBaseStorageConfiguration(dict):
         """
         The vector store service in which the knowledge base is stored.
         :param 'KnowledgeBaseStorageType' type: The vector store service in which the knowledge base is stored.
+        :param 'KnowledgeBaseMongoDbAtlasConfiguration' mongo_db_atlas_configuration: Contains the storage configuration of the knowledge base in MongoDB Atlas.
         :param 'KnowledgeBaseOpenSearchServerlessConfiguration' opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         :param 'KnowledgeBasePineconeConfiguration' pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
         :param 'KnowledgeBaseRdsConfiguration' rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
@@ -5144,6 +5223,9 @@ class KnowledgeBaseStorageConfiguration(dict):
     @property
     @pulumi.getter(name="mongoDbAtlasConfiguration")
     def mongo_db_atlas_configuration(self) -> Optional['outputs.KnowledgeBaseMongoDbAtlasConfiguration']:
+        """
+        Contains the storage configuration of the knowledge base in MongoDB Atlas.
+        """
         return pulumi.get(self, "mongo_db_atlas_configuration")
 
     @property
@@ -5201,6 +5283,7 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
         :param str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
+        :param 'KnowledgeBaseEmbeddingModelConfiguration' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
@@ -5217,6 +5300,9 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
     @property
     @pulumi.getter(name="embeddingModelConfiguration")
     def embedding_model_configuration(self) -> Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration']:
+        """
+        The embeddings model configuration details for the vector model used in Knowledge Base.
+        """
         return pulumi.get(self, "embedding_model_configuration")
 
 

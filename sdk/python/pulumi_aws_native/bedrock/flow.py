@@ -31,10 +31,18 @@ class FlowArgs:
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input[str] execution_role_arn: ARN of a IAM role
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
-        :param pulumi.Input['FlowS3LocationArgs'] definition_s3_location: An Amazon S3 location.
+        :param pulumi.Input['FlowDefinitionArgs'] definition: The definition of the nodes and connections between the nodes in the flow.
+        :param pulumi.Input['FlowS3LocationArgs'] definition_s3_location: The Amazon S3 location of the flow definition.
         :param pulumi.Input[str] definition_string: A JSON string containing a Definition with the same schema as the Definition property of this resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+               
+               Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
         :param pulumi.Input[str] description: Description of the flow
         :param pulumi.Input[str] name: Name for the flow
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if customer_encryption_key_arn is not None:
@@ -83,6 +91,9 @@ class FlowArgs:
     @property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input['FlowDefinitionArgs']]:
+        """
+        The definition of the nodes and connections between the nodes in the flow.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -93,7 +104,7 @@ class FlowArgs:
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> Optional[pulumi.Input['FlowS3LocationArgs']]:
         """
-        An Amazon S3 location.
+        The Amazon S3 location of the flow definition.
         """
         return pulumi.get(self, "definition_s3_location")
 
@@ -116,6 +127,11 @@ class FlowArgs:
     @property
     @pulumi.getter(name="definitionSubstitutions")
     def definition_substitutions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]]:
+        """
+        A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+
+        Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        """
         return pulumi.get(self, "definition_substitutions")
 
     @definition_substitutions.setter
@@ -149,6 +165,12 @@ class FlowArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,11 +209,19 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
-        :param pulumi.Input[pulumi.InputType['FlowS3LocationArgs']] definition_s3_location: An Amazon S3 location.
+        :param pulumi.Input[pulumi.InputType['FlowDefinitionArgs']] definition: The definition of the nodes and connections between the nodes in the flow.
+        :param pulumi.Input[pulumi.InputType['FlowS3LocationArgs']] definition_s3_location: The Amazon S3 location of the flow definition.
         :param pulumi.Input[str] definition_string: A JSON string containing a Definition with the same schema as the Definition property of this resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+               
+               Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
         :param pulumi.Input[str] description: Description of the flow
         :param pulumi.Input[str] execution_role_arn: ARN of a IAM role
         :param pulumi.Input[str] name: Name for the flow
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         ...
     @overload
@@ -329,13 +359,16 @@ class Flow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.FlowDefinition']]:
+        """
+        The definition of the nodes and connections between the nodes in the flow.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> pulumi.Output[Optional['outputs.FlowS3Location']]:
         """
-        An Amazon S3 location.
+        The Amazon S3 location of the flow definition.
         """
         return pulumi.get(self, "definition_s3_location")
 
@@ -350,6 +383,11 @@ class Flow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="definitionSubstitutions")
     def definition_substitutions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
+
+        Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
+        """
         return pulumi.get(self, "definition_substitutions")
 
     @property
@@ -392,6 +430,12 @@ class Flow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

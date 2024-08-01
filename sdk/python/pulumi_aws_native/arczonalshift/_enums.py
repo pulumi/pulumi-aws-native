@@ -5,13 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'ZonalAutoshiftConfigurationControlConditionType',
+    'AutoshiftObserverNotificationStatusEnum',
     'ZonalAutoshiftConfigurationZonalAutoshiftStatus',
 ]
 
 
-class ZonalAutoshiftConfigurationControlConditionType(str, Enum):
-    CLOUDWATCH = "CLOUDWATCH"
+class AutoshiftObserverNotificationStatusEnum(str, Enum):
+    ENABLED = "ENABLED"
 
 
 class ZonalAutoshiftConfigurationZonalAutoshiftStatus(str, Enum):

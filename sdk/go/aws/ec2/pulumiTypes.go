@@ -30722,6 +30722,7 @@ type VpcTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type VpnConnectionTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -30729,22 +30730,20 @@ type VpnConnectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The tunnel options for a single VPN tunnel.
 type VpnConnectionVpnTunnelOptionsSpecification struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
-	//
-	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+	//  Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
 	PreSharedKey *string `pulumi:"preSharedKey"`
 	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
-	//
-	// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
-	//
-	// - `169.254.0.0/30`
-	// - `169.254.1.0/30`
-	// - `169.254.2.0/30`
-	// - `169.254.3.0/30`
-	// - `169.254.4.0/30`
-	// - `169.254.5.0/30`
-	// - `169.254.169.252/30`
+	//  Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
+	//   +   ``169.254.0.0/30``
+	//   +   ``169.254.1.0/30``
+	//   +   ``169.254.2.0/30``
+	//   +   ``169.254.3.0/30``
+	//   +   ``169.254.4.0/30``
+	//   +   ``169.254.5.0/30``
+	//   +   ``169.254.169.252/30``
 	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
 }
 
@@ -30759,22 +30758,20 @@ type VpnConnectionVpnTunnelOptionsSpecificationInput interface {
 	ToVpnConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationOutput
 }
 
+// The tunnel options for a single VPN tunnel.
 type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
-	//
-	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+	//  Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
 	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
 	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
-	//
-	// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
-	//
-	// - `169.254.0.0/30`
-	// - `169.254.1.0/30`
-	// - `169.254.2.0/30`
-	// - `169.254.3.0/30`
-	// - `169.254.4.0/30`
-	// - `169.254.5.0/30`
-	// - `169.254.169.252/30`
+	//  Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
+	//   +   ``169.254.0.0/30``
+	//   +   ``169.254.1.0/30``
+	//   +   ``169.254.2.0/30``
+	//   +   ``169.254.3.0/30``
+	//   +   ``169.254.4.0/30``
+	//   +   ``169.254.5.0/30``
+	//   +   ``169.254.169.252/30``
 	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
 }
 
@@ -30815,6 +30812,7 @@ func (i VpnConnectionVpnTunnelOptionsSpecificationArray) ToVpnConnectionVpnTunne
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionVpnTunnelOptionsSpecificationArrayOutput)
 }
 
+// The tunnel options for a single VPN tunnel.
 type VpnConnectionVpnTunnelOptionsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionVpnTunnelOptionsSpecificationOutput) ElementType() reflect.Type {
@@ -30831,22 +30829,21 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ToVpnConnectionVpnTunn
 
 // The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 //
-// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+//	Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
 }
 
 // The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
 //
-// Constraints: A size /30 CIDR block from the `169.254.0.0/16` range. The following CIDR blocks are reserved and cannot be used:
-//
-// - `169.254.0.0/30`
-// - `169.254.1.0/30`
-// - `169.254.2.0/30`
-// - `169.254.3.0/30`
-// - `169.254.4.0/30`
-// - `169.254.5.0/30`
-// - `169.254.169.252/30`
+//	Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
+//	 +   ``169.254.0.0/30``
+//	 +   ``169.254.1.0/30``
+//	 +   ``169.254.2.0/30``
+//	 +   ``169.254.3.0/30``
+//	 +   ``169.254.4.0/30``
+//	 +   ``169.254.5.0/30``
+//	 +   ``169.254.169.252/30``
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
 }

@@ -247,8 +247,7 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Rules() IdMappin
 
 type IdMappingWorkflowIdMappingTechniques struct {
 	// The type of ID mapping.
-	IdMappingType        *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
-	NormalizationVersion *string                                            `pulumi:"normalizationVersion"`
+	IdMappingType *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties *IdMappingWorkflowProviderProperties `pulumi:"providerProperties"`
 	// An object which defines any additional configurations required by rule-based matching.
@@ -268,8 +267,7 @@ type IdMappingWorkflowIdMappingTechniquesInput interface {
 
 type IdMappingWorkflowIdMappingTechniquesArgs struct {
 	// The type of ID mapping.
-	IdMappingType        IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
-	NormalizationVersion pulumi.StringPtrInput                                     `pulumi:"normalizationVersion"`
+	IdMappingType IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
 	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 	// An object which defines any additional configurations required by rule-based matching.
@@ -307,10 +305,6 @@ func (o IdMappingWorkflowIdMappingTechniquesOutput) IdMappingType() IdMappingWor
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingTechniquesIdMappingType {
 		return v.IdMappingType
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
-}
-
-func (o IdMappingWorkflowIdMappingTechniquesOutput) NormalizationVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *string { return v.NormalizationVersion }).(pulumi.StringPtrOutput)
 }
 
 // An object which defines any additional configurations required by the provider service.
@@ -359,15 +353,6 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) IdMappingType() IdMapping
 		}
 		return v.IdMappingType
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
-}
-
-func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) NormalizationVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NormalizationVersion
-	}).(pulumi.StringPtrOutput)
 }
 
 // An object which defines any additional configurations required by the provider service.

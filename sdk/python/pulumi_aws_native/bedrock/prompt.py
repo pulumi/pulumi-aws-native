@@ -29,6 +29,10 @@ class PromptArgs:
         :param pulumi.Input[str] default_variant: Name for a variant.
         :param pulumi.Input[str] description: Name for a prompt resource.
         :param pulumi.Input[str] name: Name for a prompt resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         :param pulumi.Input[Sequence[pulumi.Input['PromptVariantArgs']]] variants: List of prompt variants
         """
         if customer_encryption_key_arn is not None:
@@ -95,6 +99,12 @@ class PromptArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,6 +145,10 @@ class Prompt(pulumi.CustomResource):
         :param pulumi.Input[str] default_variant: Name for a variant.
         :param pulumi.Input[str] description: Name for a prompt resource.
         :param pulumi.Input[str] name: Name for a prompt resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PromptVariantArgs']]]] variants: List of prompt variants
         """
         ...
@@ -281,6 +295,12 @@ class Prompt(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

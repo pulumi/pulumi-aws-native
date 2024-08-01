@@ -394,6 +394,39 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     /// <summary>
+    /// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+    /// 
+    /// Amazon Data Firehose is in preview release and is subject to change.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeliveryStreamIcebergDestinationConfigurations3BackupMode : IEquatable<DeliveryStreamIcebergDestinationConfigurations3BackupMode>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamIcebergDestinationConfigurations3BackupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamIcebergDestinationConfigurations3BackupMode AllData { get; } = new DeliveryStreamIcebergDestinationConfigurations3BackupMode("AllData");
+        public static DeliveryStreamIcebergDestinationConfigurations3BackupMode FailedDataOnly { get; } = new DeliveryStreamIcebergDestinationConfigurations3BackupMode("FailedDataOnly");
+
+        public static bool operator ==(DeliveryStreamIcebergDestinationConfigurations3BackupMode left, DeliveryStreamIcebergDestinationConfigurations3BackupMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamIcebergDestinationConfigurations3BackupMode left, DeliveryStreamIcebergDestinationConfigurations3BackupMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamIcebergDestinationConfigurations3BackupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamIcebergDestinationConfigurations3BackupMode other && Equals(other);
+        public bool Equals(DeliveryStreamIcebergDestinationConfigurations3BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of processor. Valid values: `Lambda` .
     /// </summary>
     [EnumType]

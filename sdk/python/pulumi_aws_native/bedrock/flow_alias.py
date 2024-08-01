@@ -27,6 +27,10 @@ class FlowAliasArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]] routing_configuration: Routing configuration for a Flow alias.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] name: Name for a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
         pulumi.set(__self__, "routing_configuration", routing_configuration)
@@ -88,6 +92,12 @@ class FlowAliasArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +125,10 @@ class FlowAlias(pulumi.CustomResource):
         :param pulumi.Input[str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[str] name: Name for a resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowAliasRoutingConfigurationListItemArgs']]]] routing_configuration: Routing configuration for a Flow alias.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+               
+               - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+               - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
         """
         ...
     @overload
@@ -271,6 +285,12 @@ class FlowAlias(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

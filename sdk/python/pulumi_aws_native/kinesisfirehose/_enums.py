@@ -17,6 +17,7 @@ __all__ = [
     'DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat',
     'DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode',
     'DeliveryStreamHttpEndpointRequestConfigurationContentEncoding',
+    'DeliveryStreamIcebergDestinationConfigurations3BackupMode',
     'DeliveryStreamProcessorType',
     'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode',
     'DeliveryStreamS3DestinationConfigurationCompressionFormat',
@@ -135,6 +136,16 @@ class DeliveryStreamHttpEndpointRequestConfigurationContentEncoding(str, Enum):
     """
     NONE = "NONE"
     GZIP = "GZIP"
+
+
+class DeliveryStreamIcebergDestinationConfigurations3BackupMode(str, Enum):
+    """
+    Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+
+    Amazon Data Firehose is in preview release and is subject to change.
+    """
+    ALL_DATA = "AllData"
+    FAILED_DATA_ONLY = "FailedDataOnly"
 
 
 class DeliveryStreamProcessorType(str, Enum):

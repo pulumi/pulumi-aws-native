@@ -418,14 +418,9 @@ func (o SchemaVersionSchemaOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
+// The actions initiated by this trigger.
 type TriggerAction struct {
 	// The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-	//
-	// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-	//
-	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-	//
-	// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 	Arguments interface{} `pulumi:"arguments"`
 	// The name of the crawler to be used with this action.
 	CrawlerName *string `pulumi:"crawlerName"`
@@ -433,9 +428,9 @@ type TriggerAction struct {
 	JobName *string `pulumi:"jobName"`
 	// Specifies configuration properties of a job run notification.
 	NotificationProperty *TriggerNotificationProperty `pulumi:"notificationProperty"`
-	// The name of the `SecurityConfiguration` structure to be used with this action.
+	// The name of the SecurityConfiguration structure to be used with this action.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+	// The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -450,14 +445,9 @@ type TriggerActionInput interface {
 	ToTriggerActionOutputWithContext(context.Context) TriggerActionOutput
 }
 
+// The actions initiated by this trigger.
 type TriggerActionArgs struct {
 	// The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-	//
-	// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-	//
-	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-	//
-	// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 	Arguments pulumi.Input `pulumi:"arguments"`
 	// The name of the crawler to be used with this action.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
@@ -465,9 +455,9 @@ type TriggerActionArgs struct {
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
 	// Specifies configuration properties of a job run notification.
 	NotificationProperty TriggerNotificationPropertyPtrInput `pulumi:"notificationProperty"`
-	// The name of the `SecurityConfiguration` structure to be used with this action.
+	// The name of the SecurityConfiguration structure to be used with this action.
 	SecurityConfiguration pulumi.StringPtrInput `pulumi:"securityConfiguration"`
-	// The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+	// The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -508,6 +498,7 @@ func (i TriggerActionArray) ToTriggerActionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionArrayOutput)
 }
 
+// The actions initiated by this trigger.
 type TriggerActionOutput struct{ *pulumi.OutputState }
 
 func (TriggerActionOutput) ElementType() reflect.Type {
@@ -523,12 +514,6 @@ func (o TriggerActionOutput) ToTriggerActionOutputWithContext(ctx context.Contex
 }
 
 // The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-//
-// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-//
-// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
-//
-// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 func (o TriggerActionOutput) Arguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v TriggerAction) interface{} { return v.Arguments }).(pulumi.AnyOutput)
 }
@@ -548,12 +533,12 @@ func (o TriggerActionOutput) NotificationProperty() TriggerNotificationPropertyP
 	return o.ApplyT(func(v TriggerAction) *TriggerNotificationProperty { return v.NotificationProperty }).(TriggerNotificationPropertyPtrOutput)
 }
 
-// The name of the `SecurityConfiguration` structure to be used with this action.
+// The name of the SecurityConfiguration structure to be used with this action.
 func (o TriggerActionOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+// The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
 func (o TriggerActionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -578,16 +563,17 @@ func (o TriggerActionArrayOutput) Index(i pulumi.IntInput) TriggerActionOutput {
 	}).(TriggerActionOutput)
 }
 
+// Defines a condition under which a trigger fires.
 type TriggerCondition struct {
 	// The state of the crawler to which this condition applies.
 	CrawlState *string `pulumi:"crawlState"`
 	// The name of the crawler to which this condition applies.
 	CrawlerName *string `pulumi:"crawlerName"`
-	// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+	// The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
 	JobName *string `pulumi:"jobName"`
 	// A logical operator.
 	LogicalOperator *string `pulumi:"logicalOperator"`
-	// The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+	// The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
 	State *string `pulumi:"state"`
 }
 
@@ -602,16 +588,17 @@ type TriggerConditionInput interface {
 	ToTriggerConditionOutputWithContext(context.Context) TriggerConditionOutput
 }
 
+// Defines a condition under which a trigger fires.
 type TriggerConditionArgs struct {
 	// The state of the crawler to which this condition applies.
 	CrawlState pulumi.StringPtrInput `pulumi:"crawlState"`
 	// The name of the crawler to which this condition applies.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
-	// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+	// The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
 	// A logical operator.
 	LogicalOperator pulumi.StringPtrInput `pulumi:"logicalOperator"`
-	// The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+	// The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -652,6 +639,7 @@ func (i TriggerConditionArray) ToTriggerConditionArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionArrayOutput)
 }
 
+// Defines a condition under which a trigger fires.
 type TriggerConditionOutput struct{ *pulumi.OutputState }
 
 func (TriggerConditionOutput) ElementType() reflect.Type {
@@ -676,7 +664,7 @@ func (o TriggerConditionOutput) CrawlerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
+// The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
 func (o TriggerConditionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
@@ -686,7 +674,7 @@ func (o TriggerConditionOutput) LogicalOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *string { return v.LogicalOperator }).(pulumi.StringPtrOutput)
 }
 
-// The condition state. Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
+// The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
 func (o TriggerConditionOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerCondition) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -711,6 +699,7 @@ func (o TriggerConditionArrayOutput) Index(i pulumi.IntInput) TriggerConditionOu
 	}).(TriggerConditionOutput)
 }
 
+// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 type TriggerEventBatchingCondition struct {
 	// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
 	BatchSize int `pulumi:"batchSize"`
@@ -729,6 +718,7 @@ type TriggerEventBatchingConditionInput interface {
 	ToTriggerEventBatchingConditionOutputWithContext(context.Context) TriggerEventBatchingConditionOutput
 }
 
+// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 type TriggerEventBatchingConditionArgs struct {
 	// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
 	BatchSize pulumi.IntInput `pulumi:"batchSize"`
@@ -789,6 +779,7 @@ func (i *triggerEventBatchingConditionPtrType) ToTriggerEventBatchingConditionPt
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionPtrOutput)
 }
 
+// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 type TriggerEventBatchingConditionOutput struct{ *pulumi.OutputState }
 
 func (TriggerEventBatchingConditionOutput) ElementType() reflect.Type {
@@ -867,6 +858,7 @@ func (o TriggerEventBatchingConditionPtrOutput) BatchWindow() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies configuration properties of a job run notification.
 type TriggerNotificationProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification
 	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
@@ -883,6 +875,7 @@ type TriggerNotificationPropertyInput interface {
 	ToTriggerNotificationPropertyOutputWithContext(context.Context) TriggerNotificationPropertyOutput
 }
 
+// Specifies configuration properties of a job run notification.
 type TriggerNotificationPropertyArgs struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification
 	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
@@ -941,6 +934,7 @@ func (i *triggerNotificationPropertyPtrType) ToTriggerNotificationPropertyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerNotificationPropertyPtrOutput)
 }
 
+// Specifies configuration properties of a job run notification.
 type TriggerNotificationPropertyOutput struct{ *pulumi.OutputState }
 
 func (TriggerNotificationPropertyOutput) ElementType() reflect.Type {
@@ -1004,6 +998,7 @@ func (o TriggerNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The predicate of this trigger, which defines when it will fire.
 type TriggerPredicate struct {
 	// A list of the conditions that determine when the trigger will fire.
 	Conditions []TriggerCondition `pulumi:"conditions"`
@@ -1022,6 +1017,7 @@ type TriggerPredicateInput interface {
 	ToTriggerPredicateOutputWithContext(context.Context) TriggerPredicateOutput
 }
 
+// The predicate of this trigger, which defines when it will fire.
 type TriggerPredicateArgs struct {
 	// A list of the conditions that determine when the trigger will fire.
 	Conditions TriggerConditionArrayInput `pulumi:"conditions"`
@@ -1082,6 +1078,7 @@ func (i *triggerPredicatePtrType) ToTriggerPredicatePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicatePtrOutput)
 }
 
+// The predicate of this trigger, which defines when it will fire.
 type TriggerPredicateOutput struct{ *pulumi.OutputState }
 
 func (TriggerPredicateOutput) ElementType() reflect.Type {

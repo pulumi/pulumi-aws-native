@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetDbProxyTargetGroupResult
     {
         /// <summary>
-        /// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        /// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         /// </summary>
         public readonly Outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat? ConnectionPoolConfigurationInfo;
         /// <summary>

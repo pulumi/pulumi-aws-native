@@ -286,6 +286,16 @@ export const GuardrailContentFilterType = {
  */
 export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
 
+export const GuardrailContextualGroundingFilterType = {
+    Grounding: "GROUNDING",
+    Relevance: "RELEVANCE",
+} as const;
+
+/**
+ * Type of contextual grounding filter
+ */
+export type GuardrailContextualGroundingFilterType = (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
+
 export const GuardrailFilterStrength = {
     None: "NONE",
     Low: "LOW",

@@ -34,6 +34,9 @@ export interface GetStateMachineResult {
      * The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
      */
     readonly definitionString?: string;
+    /**
+     * Encryption configuration for the state machine.
+     */
     readonly encryptionConfiguration?: outputs.stepfunctions.StateMachineEncryptionConfiguration;
     /**
      * Defines what execution history events are logged and where they are logged.

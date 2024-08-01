@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// A KMS key ARN
         /// </summary>
         public readonly string? CustomerEncryptionKeyArn;
+        /// <summary>
+        /// The definition of the nodes and connections between the nodes in the flow.
+        /// </summary>
         public readonly Outputs.FlowDefinition? Definition;
         /// <summary>
         /// Description of the flow
@@ -95,6 +98,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowStatus? Status;
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableDictionary<string, string>? TestAliasTags;
         /// <summary>

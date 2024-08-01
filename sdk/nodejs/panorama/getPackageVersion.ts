@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schema for PackageVersion Resource Type
+ * Registers a package version.
  */
 export function getPackageVersion(args: GetPackageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageVersionResult> {
 
@@ -66,7 +66,7 @@ export interface GetPackageVersionResult {
     readonly statusDescription?: string;
 }
 /**
- * Schema for PackageVersion Resource Type
+ * Registers a package version.
  */
 export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageVersionResult> {
     return pulumi.output(args).apply((a: any) => getPackageVersion(a, opts))

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("embeddingModelArn", required: true)]
         public Input<string> EmbeddingModelArn { get; set; } = null!;
 
+        /// <summary>
+        /// The embeddings model configuration details for the vector model used in Knowledge Base.
+        /// </summary>
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.KnowledgeBaseEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }
 

@@ -34,8 +34,6 @@ type LookupSecurityControlResult struct {
 	Parameters map[string]SecurityControlParameterConfiguration `pulumi:"parameters"`
 	// The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
 	SecurityControlArn *string `pulumi:"securityControlArn"`
-	// The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
-	SecurityControlId *string `pulumi:"securityControlId"`
 }
 
 func LookupSecurityControlOutput(ctx *pulumi.Context, args LookupSecurityControlOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityControlResultOutput {
@@ -89,11 +87,6 @@ func (o LookupSecurityControlResultOutput) Parameters() SecurityControlParameter
 // The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
 func (o LookupSecurityControlResultOutput) SecurityControlArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityControlResult) *string { return v.SecurityControlArn }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
-func (o LookupSecurityControlResultOutput) SecurityControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSecurityControlResult) *string { return v.SecurityControlId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The entire created analysis rule.
+        /// The analysis rule that was created for the configured table.
         /// </summary>
         [Output("analysisRules")]
         public Output<ImmutableArray<Outputs.ConfiguredTableAnalysisRule>> AnalysisRules { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.CleanRooms
         private InputList<Inputs.ConfiguredTableAnalysisRuleArgs>? _analysisRules;
 
         /// <summary>
-        /// The entire created analysis rule.
+        /// The analysis rule that was created for the configured table.
         /// </summary>
         public InputList<Inputs.ConfiguredTableAnalysisRuleArgs> AnalysisRules
         {

@@ -1407,9 +1407,11 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 		typName = "RuleGroupTypeEnum" // Go SDK name conflict vs. RuleGroup resource
 	}
 
-	switch ctx.cfTypeName + "   " + enumName {
-	case "AWS::QBusiness::Index   Status":
+	switch ctx.cfTypeName + ":" + enumName {
+	case "AWS::QBusiness::Index:Status":
 		typName = "QBusinessIndexStatus"
+	case "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus":
+		typName = "AutoshiftObserverNotificationStatusEnum" // enumName matches typName which causes a conflict
 	}
 
 	tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
