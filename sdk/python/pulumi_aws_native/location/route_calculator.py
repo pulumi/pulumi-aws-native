@@ -150,7 +150,7 @@ class RouteCalculator(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
@@ -181,7 +181,7 @@ class RouteCalculator(pulumi.CustomResource):
         :param pulumi.Input['RouteCalculatorPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
                
                *Allowed Values* : `RequestBasedUsage`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -211,7 +211,7 @@ class RouteCalculator(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

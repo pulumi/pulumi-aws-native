@@ -110,7 +110,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_s3_key: Optional[pulumi.Input[str]] = None,
                  ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
@@ -121,7 +121,7 @@ class TrustStore(pulumi.CustomResource):
         :param pulumi.Input[str] ca_certificates_bundle_s3_key: The name of the S3 object to fetch the CA certificate bundle from.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: The version of the S3 bucket that contains the CA certificate bundle.
         :param pulumi.Input[str] name: The name of the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the trust store.
         """
         ...
     @overload
@@ -151,7 +151,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_s3_key: Optional[pulumi.Input[str]] = None,
                  ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

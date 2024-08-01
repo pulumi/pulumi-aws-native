@@ -124,7 +124,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a table that can be queried within a collaboration
@@ -136,7 +136,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] membership_identifier: The unique ID for the membership this configured table association belongs to.
         :param pulumi.Input[str] name: The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
         :param pulumi.Input[str] role_arn: The service will assume this role to access catalog metadata and query the table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
     @overload
@@ -167,7 +167,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

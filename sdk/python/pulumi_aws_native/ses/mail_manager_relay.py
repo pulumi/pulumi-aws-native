@@ -105,22 +105,22 @@ class MailManagerRelay(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union[pulumi.InputType['MailManagerRelayRelayAuthentication0PropertiesArgs'], pulumi.InputType['MailManagerRelayRelayAuthentication1PropertiesArgs']]]] = None,
+                 authentication: Optional[pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerRelay Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['MailManagerRelayRelayAuthentication0PropertiesArgs'], pulumi.InputType['MailManagerRelayRelayAuthentication1PropertiesArgs']]] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
+        :param pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
         :param pulumi.Input[str] relay_name: The unique relay name.
         :param pulumi.Input[str] server_name: The destination relay server address.
         :param pulumi.Input[float] server_port: The destination relay server port.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -146,11 +146,11 @@ class MailManagerRelay(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union[pulumi.InputType['MailManagerRelayRelayAuthentication0PropertiesArgs'], pulumi.InputType['MailManagerRelayRelayAuthentication1PropertiesArgs']]]] = None,
+                 authentication: Optional[pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

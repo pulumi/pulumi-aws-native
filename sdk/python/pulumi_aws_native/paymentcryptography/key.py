@@ -109,9 +109,9 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
-                 key_attributes: Optional[pulumi.Input[pulumi.InputType['KeyAttributesArgs']]] = None,
+                 key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::PaymentCryptography::Key Resource Type
@@ -120,7 +120,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Specifies whether the key is enabled.
         :param pulumi.Input[bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
-        :param pulumi.Input[pulumi.InputType['KeyAttributesArgs']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        :param pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
@@ -151,9 +151,9 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
-                 key_attributes: Optional[pulumi.Input[pulumi.InputType['KeyAttributesArgs']]] = None,
+                 key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

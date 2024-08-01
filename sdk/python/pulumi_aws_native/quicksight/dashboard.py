@@ -265,17 +265,17 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
                  link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 link_sharing_configuration: Optional[pulumi.Input[pulumi.InputType['DashboardLinkSharingConfigurationArgs']]] = None,
+                 link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
+                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
-                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['DashboardValidationStrategyArgs']]] = None,
+                 validation_strategy: Optional[pulumi.Input[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -285,24 +285,24 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you want to create the dashboard.
         :param pulumi.Input[str] dashboard_id: The ID for the dashboard, also added to the IAM policy.
-        :param pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']] dashboard_publish_options: Options for publishing the dashboard when you create it:
+        :param pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard when you create it:
                
                - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
                - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
                - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] link_entities: A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardLinkSharingConfigurationArgs']] link_sharing_configuration: A structure that contains the link sharing configurations that you want to apply overrides to.
+        :param pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']] link_sharing_configuration: A structure that contains the link sharing configurations that you want to apply overrides to.
         :param pulumi.Input[str] name: The display name of the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardParametersArgs']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]] permissions: A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]] permissions: A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
                
                To specify no permissions, omit the permissions list.
-        :param pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
                
                Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardValidationStrategyArgs']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        :param pulumi.Input[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         :param pulumi.Input[str] version_description: A description for the first version of the dashboard being created.
         """
         ...
@@ -331,17 +331,17 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
                  link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 link_sharing_configuration: Optional[pulumi.Input[pulumi.InputType['DashboardLinkSharingConfigurationArgs']]] = None,
+                 link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
+                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
-                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['DashboardValidationStrategyArgs']]] = None,
+                 validation_strategy: Optional[pulumi.Input[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

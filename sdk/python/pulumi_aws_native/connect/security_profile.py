@@ -188,15 +188,15 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]]] = None,
+                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::SecurityProfile
@@ -204,15 +204,15 @@ class SecurityProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]] applications: A list of third-party applications that the security profile will give access to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[str] description: The description of the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hierarchy_restricted_resources: The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_name: The name of the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_restricted_resources: The list of resources that a security profile applies tag restrictions to in Amazon Connect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -239,15 +239,15 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]]] = None,
+                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

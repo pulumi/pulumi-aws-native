@@ -445,7 +445,7 @@ class Server(pulumi.CustomResource):
                  custom_private_key: Optional[pulumi.Input[str]] = None,
                  disable_automated_backup: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
-                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerEngineAttributeArgs']]]]] = None,
+                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
                  engine_model: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -457,7 +457,7 @@ class Server(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::OpsWorksCM::Server
@@ -481,14 +481,14 @@ class Server(pulumi.CustomResource):
             engine="ChefAutomate",
             engine_version="2",
             engine_attributes=[
-                aws_native.opsworkscm.ServerEngineAttributeArgs(
-                    name="CHEF_AUTOMATE_PIVOTAL_KEY",
-                    value=pivotal_key,
-                ),
-                aws_native.opsworkscm.ServerEngineAttributeArgs(
-                    name="CHEF_AUTOMATE_ADMIN_PASSWORD",
-                    value=password,
-                ),
+                {
+                    "name": "CHEF_AUTOMATE_PIVOTAL_KEY",
+                    "value": pivotal_key,
+                },
+                {
+                    "name": "CHEF_AUTOMATE_ADMIN_PASSWORD",
+                    "value": password,
+                },
             ],
             engine_model="Single",
             instance_profile_arn="INSTANCE-PROFILE-ARN",
@@ -497,14 +497,14 @@ class Server(pulumi.CustomResource):
             preferred_maintenance_window="Fri:08:00",
             service_role_arn="SERVICE-ROLE-ARN",
             tags=[
-                aws_native.TagArgs(
-                    key="Stage",
-                    value="Production",
-                ),
-                aws_native.TagArgs(
-                    key="Name",
-                    value="test-owcm-server",
-                ),
+                {
+                    "key": "Stage",
+                    "value": "Production",
+                },
+                {
+                    "key": "Name",
+                    "value": "test-owcm-server",
+                },
             ])
         pulumi.export("endpoint", my_chef_server.endpoint)
 
@@ -526,7 +526,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] custom_private_key: Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
         :param pulumi.Input[bool] disable_automated_backup: Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
         :param pulumi.Input[str] engine: The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerEngineAttributeArgs']]]] engine_attributes: Optional engine attributes on a specified server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]] engine_attributes: Optional engine attributes on a specified server.
                
                **Attributes accepted in a Chef createServer request:** - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is generated and returned in the response. When you are specifying the value of CHEF_AUTOMATE_PIVOTAL_KEY as a parameter in the AWS CloudFormation console, you must add newline ( `\\n` ) characters at the end of each line of the pivotal key value.
                - `CHEF_AUTOMATE_ADMIN_PASSWORD` : The password for the administrative user in the Chef Automate web-based dashboard. The password length is a minimum of eight characters, and a maximum of 32. The password can contain letters, numbers, and special characters (!/@#$%^&+=_). The password must contain at least one lower case letter, one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is generated and returned in the response.
@@ -564,7 +564,7 @@ class Server(pulumi.CustomResource):
                EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
                
                For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
                
                - The key cannot be empty.
                - The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
@@ -600,14 +600,14 @@ class Server(pulumi.CustomResource):
             engine="ChefAutomate",
             engine_version="2",
             engine_attributes=[
-                aws_native.opsworkscm.ServerEngineAttributeArgs(
-                    name="CHEF_AUTOMATE_PIVOTAL_KEY",
-                    value=pivotal_key,
-                ),
-                aws_native.opsworkscm.ServerEngineAttributeArgs(
-                    name="CHEF_AUTOMATE_ADMIN_PASSWORD",
-                    value=password,
-                ),
+                {
+                    "name": "CHEF_AUTOMATE_PIVOTAL_KEY",
+                    "value": pivotal_key,
+                },
+                {
+                    "name": "CHEF_AUTOMATE_ADMIN_PASSWORD",
+                    "value": password,
+                },
             ],
             engine_model="Single",
             instance_profile_arn="INSTANCE-PROFILE-ARN",
@@ -616,14 +616,14 @@ class Server(pulumi.CustomResource):
             preferred_maintenance_window="Fri:08:00",
             service_role_arn="SERVICE-ROLE-ARN",
             tags=[
-                aws_native.TagArgs(
-                    key="Stage",
-                    value="Production",
-                ),
-                aws_native.TagArgs(
-                    key="Name",
-                    value="test-owcm-server",
-                ),
+                {
+                    "key": "Stage",
+                    "value": "Production",
+                },
+                {
+                    "key": "Name",
+                    "value": "test-owcm-server",
+                },
             ])
         pulumi.export("endpoint", my_chef_server.endpoint)
 
@@ -652,7 +652,7 @@ class Server(pulumi.CustomResource):
                  custom_private_key: Optional[pulumi.Input[str]] = None,
                  disable_automated_backup: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
-                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerEngineAttributeArgs']]]]] = None,
+                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
                  engine_model: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -664,7 +664,7 @@ class Server(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

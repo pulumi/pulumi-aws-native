@@ -153,28 +153,28 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  farm_id: Optional[pulumi.Input[str]] = None,
                  max_worker_count: Optional[pulumi.Input[int]] = None,
                  min_worker_count: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Fleet Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]] configuration: The configuration details for the fleet.
+        :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -200,14 +200,14 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  farm_id: Optional[pulumi.Input[str]] = None,
                  max_worker_count: Optional[pulumi.Input[int]] = None,
                  min_worker_count: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

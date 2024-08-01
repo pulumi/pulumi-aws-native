@@ -144,9 +144,9 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A domain defined for 3rd party data source in Profile Service
@@ -157,9 +157,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input[pulumi.InputType['DomainMatchingArgs']] matching: The process of matching duplicate profiles.
-        :param pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the domain
+        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: The process of matching duplicate profiles.
+        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the domain
         """
         ...
     @overload
@@ -189,9 +189,9 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

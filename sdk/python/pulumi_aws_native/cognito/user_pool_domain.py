@@ -76,7 +76,7 @@ class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: Optional[pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']]] = None,
+                 custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -85,7 +85,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         :param pulumi.Input[str] domain: The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
                
                This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
@@ -115,7 +115,7 @@ class UserPoolDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: Optional[pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']]] = None,
+                 custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

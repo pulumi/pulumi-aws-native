@@ -122,10 +122,10 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -134,10 +134,10 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
-        :param pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']] options: Vpc options of the attachment.
-        :param pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']] options: Vpc options of the attachment.
+        :param pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: Subnet Arn list
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
         ...
@@ -165,10 +165,10 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

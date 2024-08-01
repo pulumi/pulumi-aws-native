@@ -128,7 +128,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  environment_blueprint_identifier: Optional[pulumi.Input[str]] = None,
                  manage_access_role_arn: Optional[pulumi.Input[str]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-                 regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]]] = None,
+                 regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
@@ -142,7 +142,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
         :param pulumi.Input[str] manage_access_role_arn: The ARN of the manage access role.
         :param pulumi.Input[str] provisioning_role_arn: The ARN of the provisioning role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] regional_parameters: The regional parameters of the environment blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]] regional_parameters: The regional parameters of the environment blueprint.
         """
         ...
     @overload
@@ -173,7 +173,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  environment_blueprint_identifier: Optional[pulumi.Input[str]] = None,
                  manage_access_role_arn: Optional[pulumi.Input[str]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-                 regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]]] = None,
+                 regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

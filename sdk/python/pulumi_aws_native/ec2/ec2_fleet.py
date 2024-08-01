@@ -243,12 +243,12 @@ class Ec2Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input['Ec2FleetExcessCapacityTerminationPolicy']] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
-                 on_demand_options: Optional[pulumi.Input[pulumi.InputType['Ec2FleetOnDemandOptionsRequestArgs']]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetFleetLaunchTemplateConfigRequestArgs', 'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict']]]]] = None,
+                 on_demand_options: Optional[pulumi.Input[Union['Ec2FleetOnDemandOptionsRequestArgs', 'Ec2FleetOnDemandOptionsRequestArgsDict']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
-                 spot_options: Optional[pulumi.Input[pulumi.InputType['Ec2FleetSpotOptionsRequestArgs']]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetTagSpecificationArgs']]]]] = None,
-                 target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['Ec2FleetTargetCapacitySpecificationRequestArgs']]] = None,
+                 spot_options: Optional[pulumi.Input[Union['Ec2FleetSpotOptionsRequestArgs', 'Ec2FleetSpotOptionsRequestArgsDict']]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetTagSpecificationArgs', 'Ec2FleetTagSpecificationArgsDict']]]]] = None,
+                 target_capacity_specification: Optional[pulumi.Input[Union['Ec2FleetTargetCapacitySpecificationRequestArgs', 'Ec2FleetTargetCapacitySpecificationRequestArgsDict']]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input['Ec2FleetType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
@@ -263,16 +263,16 @@ class Ec2Fleet(pulumi.CustomResource):
         :param pulumi.Input['Ec2FleetExcessCapacityTerminationPolicy'] excess_capacity_termination_policy: Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
                
                Supported only for fleets of type `maintain` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]]] launch_template_configs: The configuration for the EC2 Fleet.
-        :param pulumi.Input[pulumi.InputType['Ec2FleetOnDemandOptionsRequestArgs']] on_demand_options: Describes the configuration of On-Demand Instances in an EC2 Fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetFleetLaunchTemplateConfigRequestArgs', 'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict']]]] launch_template_configs: The configuration for the EC2 Fleet.
+        :param pulumi.Input[Union['Ec2FleetOnDemandOptionsRequestArgs', 'Ec2FleetOnDemandOptionsRequestArgsDict']] on_demand_options: Describes the configuration of On-Demand Instances in an EC2 Fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[pulumi.InputType['Ec2FleetSpotOptionsRequestArgs']] spot_options: Describes the configuration of Spot Instances in an EC2 Fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetTagSpecificationArgs']]]] tag_specifications: The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+        :param pulumi.Input[Union['Ec2FleetSpotOptionsRequestArgs', 'Ec2FleetSpotOptionsRequestArgsDict']] spot_options: Describes the configuration of Spot Instances in an EC2 Fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetTagSpecificationArgs', 'Ec2FleetTagSpecificationArgsDict']]]] tag_specifications: The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
                
                If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
                
                If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
-        :param pulumi.Input[pulumi.InputType['Ec2FleetTargetCapacitySpecificationRequestArgs']] target_capacity_specification: The number of units to request.
+        :param pulumi.Input[Union['Ec2FleetTargetCapacitySpecificationRequestArgs', 'Ec2FleetTargetCapacitySpecificationRequestArgsDict']] target_capacity_specification: The number of units to request.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running instances should be terminated when the EC2 Fleet expires.
         :param pulumi.Input['Ec2FleetType'] type: The fleet type. The default value is `maintain` .
                
@@ -310,12 +310,12 @@ class Ec2Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input['Ec2FleetExcessCapacityTerminationPolicy']] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
-                 on_demand_options: Optional[pulumi.Input[pulumi.InputType['Ec2FleetOnDemandOptionsRequestArgs']]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetFleetLaunchTemplateConfigRequestArgs', 'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict']]]]] = None,
+                 on_demand_options: Optional[pulumi.Input[Union['Ec2FleetOnDemandOptionsRequestArgs', 'Ec2FleetOnDemandOptionsRequestArgsDict']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
-                 spot_options: Optional[pulumi.Input[pulumi.InputType['Ec2FleetSpotOptionsRequestArgs']]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Ec2FleetTagSpecificationArgs']]]]] = None,
-                 target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['Ec2FleetTargetCapacitySpecificationRequestArgs']]] = None,
+                 spot_options: Optional[pulumi.Input[Union['Ec2FleetSpotOptionsRequestArgs', 'Ec2FleetSpotOptionsRequestArgsDict']]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetTagSpecificationArgs', 'Ec2FleetTagSpecificationArgsDict']]]]] = None,
+                 target_capacity_specification: Optional[pulumi.Input[Union['Ec2FleetTargetCapacitySpecificationRequestArgs', 'Ec2FleetTargetCapacitySpecificationRequestArgsDict']]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input['Ec2FleetType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,

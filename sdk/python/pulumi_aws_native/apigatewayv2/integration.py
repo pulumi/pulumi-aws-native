@@ -401,7 +401,7 @@ class Integration(pulumi.CustomResource):
                  response_parameters: Optional[Any] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGatewayV2::Integration
@@ -461,7 +461,7 @@ class Integration(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration. Supported only for WebSocket APIs.
         :param pulumi.Input[int] timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
         """
         ...
     @overload
@@ -504,7 +504,7 @@ class Integration(pulumi.CustomResource):
                  response_parameters: Optional[Any] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

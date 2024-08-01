@@ -74,8 +74,8 @@ class TransitGatewayConnect(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Union['TransitGatewayConnectOptionsArgs', 'TransitGatewayConnectOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -83,8 +83,8 @@ class TransitGatewayConnect(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']] options: The Connect attachment options.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the attachment.
+        :param pulumi.Input[Union['TransitGatewayConnectOptionsArgs', 'TransitGatewayConnectOptionsArgsDict']] options: The Connect attachment options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the attachment.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
         """
         ...
@@ -111,8 +111,8 @@ class TransitGatewayConnect(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Union['TransitGatewayConnectOptionsArgs', 'TransitGatewayConnectOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

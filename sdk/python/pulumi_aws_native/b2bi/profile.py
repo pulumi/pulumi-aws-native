@@ -117,7 +117,7 @@ class Profile(pulumi.CustomResource):
                  logging: Optional[pulumi.Input['ProfileLogging']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Profile Resource Type
@@ -127,7 +127,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[str] name: Returns the display name for profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class Profile(pulumi.CustomResource):
                  logging: Optional[pulumi.Input['ProfileLogging']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -244,9 +244,9 @@ class ScalableTarget(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalableTargetScheduledActionArgs']]]]] = None,
+                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 suspended_state: Optional[pulumi.Input[pulumi.InputType['ScalableTargetSuspendedStateArgs']]] = None,
+                 suspended_state: Optional[pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
@@ -301,9 +301,9 @@ class ScalableTarget(pulumi.CustomResource):
                  +   ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
                  +   ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
                  +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalableTargetScheduledActionArgs']]]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
         :param pulumi.Input[str] service_namespace: The namespace of the AWS service that provides the resource, or a ``custom-resource``.
-        :param pulumi.Input[pulumi.InputType['ScalableTargetSuspendedStateArgs']] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
+        :param pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
                  *Suspension Outcomes* 
                  +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
                  +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
@@ -340,9 +340,9 @@ class ScalableTarget(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalableTargetScheduledActionArgs']]]]] = None,
+                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 suspended_state: Optional[pulumi.Input[pulumi.InputType['ScalableTargetSuspendedStateArgs']]] = None,
+                 suspended_state: Optional[pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

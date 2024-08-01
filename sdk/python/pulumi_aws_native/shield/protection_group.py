@@ -131,7 +131,7 @@ class ProtectionGroup(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input['ProtectionGroupPattern']] = None,
                  protection_group_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input['ProtectionGroupResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
@@ -198,7 +198,7 @@ class ProtectionGroup(pulumi.CustomResource):
         :param pulumi.Input['ProtectionGroupPattern'] pattern: The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
         :param pulumi.Input[str] protection_group_id: The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
         :param pulumi.Input['ProtectionGroupResourceType'] resource_type: The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tag key-value pairs for the Protection object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tag key-value pairs for the Protection object.
         """
         ...
     @overload
@@ -281,7 +281,7 @@ class ProtectionGroup(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input['ProtectionGroupPattern']] = None,
                  protection_group_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input['ProtectionGroupResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

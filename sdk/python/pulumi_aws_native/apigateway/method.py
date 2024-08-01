@@ -239,8 +239,8 @@ class Method(pulumi.CustomResource):
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
-                 integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
+                 integration: Optional[pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
+                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None,
@@ -259,8 +259,8 @@ class Method(pulumi.CustomResource):
                  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         :param pulumi.Input[str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
         :param pulumi.Input[str] http_method: The method's HTTP verb.
-        :param pulumi.Input[pulumi.InputType['MethodIntegrationArgs']] integration: Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]] method_responses: Gets a method response associated with a given HTTP status code.
+        :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']] integration: Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]] method_responses: Gets a method response associated with a given HTTP status code.
         :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
@@ -297,8 +297,8 @@ class Method(pulumi.CustomResource):
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
-                 integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
+                 integration: Optional[pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
+                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None,

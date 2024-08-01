@@ -73,7 +73,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
-                 member_id: Optional[pulumi.Input[pulumi.InputType['GroupMembershipMemberIdArgs']]] = None,
+                 member_id: Optional[pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
@@ -82,7 +82,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The unique identifier for a group in the identity store.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
-        :param pulumi.Input[pulumi.InputType['GroupMembershipMemberIdArgs']] member_id: An object containing the identifier of a group member.
+        :param pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']] member_id: An object containing the identifier of a group member.
         """
         ...
     @overload
@@ -110,7 +110,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
-                 member_id: Optional[pulumi.Input[pulumi.InputType['GroupMembershipMemberIdArgs']]] = None,
+                 member_id: Optional[pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

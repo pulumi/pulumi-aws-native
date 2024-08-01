@@ -94,7 +94,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EC2::NetworkInsightsAnalysis
@@ -104,7 +104,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
         :param pulumi.Input[str] network_insights_path_id: The ID of the path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply.
         """
         ...
     @overload
@@ -133,7 +133,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

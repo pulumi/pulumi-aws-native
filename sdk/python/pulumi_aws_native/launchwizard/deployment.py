@@ -107,7 +107,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_pattern_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workload_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -118,7 +118,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_pattern_name: Workload deployment pattern name
         :param pulumi.Input[str] name: Name of LaunchWizard deployment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] specifications: LaunchWizard deployment specifications
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for LaunchWizard deployment
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for LaunchWizard deployment
         :param pulumi.Input[str] workload_name: Workload Name for LaunchWizard deployment
         """
         ...
@@ -148,7 +148,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_pattern_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workload_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

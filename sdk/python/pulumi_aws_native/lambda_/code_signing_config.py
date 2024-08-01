@@ -74,8 +74,8 @@ class CodeSigningConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']]] = None,
-                 code_signing_policies: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigCodeSigningPoliciesArgs']]] = None,
+                 allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
+                 code_signing_policies: Optional[pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -83,8 +83,8 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
-        :param pulumi.Input[pulumi.InputType['CodeSigningConfigCodeSigningPoliciesArgs']] code_signing_policies: Policies to control how to act if a signature is invalid
+        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+        :param pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']] code_signing_policies: Policies to control how to act if a signature is invalid
         :param pulumi.Input[str] description: A description of the CodeSigningConfig
         """
         ...
@@ -111,8 +111,8 @@ class CodeSigningConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']]] = None,
-                 code_signing_policies: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigCodeSigningPoliciesArgs']]] = None,
+                 allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
+                 code_signing_policies: Optional[pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

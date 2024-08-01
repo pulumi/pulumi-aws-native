@@ -147,10 +147,10 @@ class EvaluationForm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]]] = None,
-                 scoring_strategy: Optional[pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
+                 scoring_strategy: Optional[pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']]] = None,
                  status: Optional[pulumi.Input['EvaluationFormStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -161,13 +161,13 @@ class EvaluationForm(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the evaluation form.
                  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
                  *Minimum size*: 1
                  *Maximum size*: 100
-        :param pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']] scoring_strategy: A scoring strategy of the evaluation form.
+        :param pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
                  *Allowed values*: ``DRAFT`` | ``ACTIVE``
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         :param pulumi.Input[str] title: A title of the evaluation form.
         """
         ...
@@ -196,10 +196,10 @@ class EvaluationForm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]]] = None,
-                 scoring_strategy: Optional[pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
+                 scoring_strategy: Optional[pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']]] = None,
                  status: Optional[pulumi.Input['EvaluationFormStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

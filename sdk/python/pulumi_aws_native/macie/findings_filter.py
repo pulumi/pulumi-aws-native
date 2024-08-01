@@ -126,10 +126,10 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
+                 finding_criteria: Optional[pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Macie FindingsFilter resource schema.
@@ -138,10 +138,10 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[str] description: Findings filter description
-        :param pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']] finding_criteria: Findings filter criteria.
+        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']] finding_criteria: Findings filter criteria.
         :param pulumi.Input[str] name: Findings filter name
         :param pulumi.Input[int] position: Findings filter position.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -169,10 +169,10 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
+                 finding_criteria: Optional[pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -93,7 +93,7 @@ class SecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['SecurityConfigSamlConfigOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input['SecurityConfigType']] = None,
                  __props__=None):
         """
@@ -110,12 +110,12 @@ class SecurityConfig(pulumi.CustomResource):
             name="my-provider",
             type=aws_native.opensearchserverless.SecurityConfigType.SAML,
             description="Serverless SAML configuration",
-            saml_options=aws_native.opensearchserverless.SecurityConfigSamlConfigOptionsArgs(
-                metadata="<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
-                user_attribute="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-                group_attribute="ALLGroups",
-                session_timeout=120,
-            ))
+            saml_options={
+                "metadata": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
+                "user_attribute": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                "group_attribute": "ALLGroups",
+                "session_timeout": 120,
+            })
 
         ```
         ### Example
@@ -128,12 +128,12 @@ class SecurityConfig(pulumi.CustomResource):
             name="my-provider",
             type=aws_native.opensearchserverless.SecurityConfigType.SAML,
             description="Serverless SAML configuration",
-            saml_options=aws_native.opensearchserverless.SecurityConfigSamlConfigOptionsArgs(
-                metadata="<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
-                user_attribute="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-                group_attribute="ALLGroups",
-                session_timeout=120,
-            ))
+            saml_options={
+                "metadata": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
+                "user_attribute": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                "group_attribute": "ALLGroups",
+                "session_timeout": 120,
+            })
 
         ```
 
@@ -141,7 +141,7 @@ class SecurityConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Security config description
         :param pulumi.Input[str] name: The friendly name of the security config
-        :param pulumi.Input[pulumi.InputType['SecurityConfigSamlConfigOptionsArgs']] saml_options: SAML options for the security configuration in the form of a key-value map.
+        :param pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']] saml_options: SAML options for the security configuration in the form of a key-value map.
         :param pulumi.Input['SecurityConfigType'] type: The type of security configuration. Currently the only option is `saml` .
         """
         ...
@@ -164,12 +164,12 @@ class SecurityConfig(pulumi.CustomResource):
             name="my-provider",
             type=aws_native.opensearchserverless.SecurityConfigType.SAML,
             description="Serverless SAML configuration",
-            saml_options=aws_native.opensearchserverless.SecurityConfigSamlConfigOptionsArgs(
-                metadata="<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
-                user_attribute="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-                group_attribute="ALLGroups",
-                session_timeout=120,
-            ))
+            saml_options={
+                "metadata": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
+                "user_attribute": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                "group_attribute": "ALLGroups",
+                "session_timeout": 120,
+            })
 
         ```
         ### Example
@@ -182,12 +182,12 @@ class SecurityConfig(pulumi.CustomResource):
             name="my-provider",
             type=aws_native.opensearchserverless.SecurityConfigType.SAML,
             description="Serverless SAML configuration",
-            saml_options=aws_native.opensearchserverless.SecurityConfigSamlConfigOptionsArgs(
-                metadata="<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
-                user_attribute="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-                group_attribute="ALLGroups",
-                session_timeout=120,
-            ))
+            saml_options={
+                "metadata": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?><md:EntityDescriptor entityID=\\"http://www.okta.com/foobar\\" xmlns:md=\\"urn:oasis:names:tc:SAML:2.0:metadata\\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\\"false\\" protocolSupportEnumeration=\\"urn:oasis:names:tc:SAML:2.0:protocol\\"><md:KeyDescriptor use=\\"signing\\"><ds:KeyInfo xmlns:ds=\\"http://www.w3.org/2000/09/xmldsig#\\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/><md:SingleSignOnService Binding=\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\" Location=\\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\\"/></md:IDPSSODescriptor></md:EntityDescriptor>",
+                "user_attribute": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                "group_attribute": "ALLGroups",
+                "session_timeout": 120,
+            })
 
         ```
 
@@ -208,7 +208,7 @@ class SecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['SecurityConfigSamlConfigOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input['SecurityConfigType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

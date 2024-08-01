@@ -92,8 +92,8 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 replication_specification: Optional[pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Keyspace
@@ -108,14 +108,14 @@ class Keyspace(pulumi.CustomResource):
         my_new_keyspace = aws_native.cassandra.Keyspace("myNewKeyspace",
             keyspace_name="MyNewKeyspace",
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -127,14 +127,14 @@ class Keyspace(pulumi.CustomResource):
 
         multi_region_keyspace = aws_native.cassandra.Keyspace("multiRegionKeyspace",
             keyspace_name="MultiRegionKeyspace",
-            replication_specification=aws_native.cassandra.KeyspaceReplicationSpecificationArgs(
-                replication_strategy=aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
-                region_list=[
+            replication_specification={
+                "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
+                "region_list": [
                     aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
                     aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
                     aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -145,27 +145,27 @@ class Keyspace(pulumi.CustomResource):
 
         multi_region_keyspace = aws_native.cassandra.Keyspace("multiRegionKeyspace",
             keyspace_name="MultiRegionKeyspace",
-            replication_specification=aws_native.cassandra.KeyspaceReplicationSpecificationArgs(
-                replication_strategy=aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
-                region_list=[
+            replication_specification={
+                "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
+                "region_list": [
                     aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
                     aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
                     aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
                 ],
-            ))
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
-        :param pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
                
                - `SINGLE_REGION` for a single Region keyspace (optional) or
                - `MULTI_REGION` for a multi-Region keyspace
                
                If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -188,14 +188,14 @@ class Keyspace(pulumi.CustomResource):
         my_new_keyspace = aws_native.cassandra.Keyspace("myNewKeyspace",
             keyspace_name="MyNewKeyspace",
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -207,14 +207,14 @@ class Keyspace(pulumi.CustomResource):
 
         multi_region_keyspace = aws_native.cassandra.Keyspace("multiRegionKeyspace",
             keyspace_name="MultiRegionKeyspace",
-            replication_specification=aws_native.cassandra.KeyspaceReplicationSpecificationArgs(
-                replication_strategy=aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
-                region_list=[
+            replication_specification={
+                "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
+                "region_list": [
                     aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
                     aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
                     aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -225,14 +225,14 @@ class Keyspace(pulumi.CustomResource):
 
         multi_region_keyspace = aws_native.cassandra.Keyspace("multiRegionKeyspace",
             keyspace_name="MultiRegionKeyspace",
-            replication_specification=aws_native.cassandra.KeyspaceReplicationSpecificationArgs(
-                replication_strategy=aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
-                region_list=[
+            replication_specification={
+                "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
+                "region_list": [
                     aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
                     aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
                     aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
                 ],
-            ))
+            })
 
         ```
 
@@ -252,8 +252,8 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 replication_specification: Optional[pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

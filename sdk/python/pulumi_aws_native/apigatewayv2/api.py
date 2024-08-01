@@ -305,8 +305,8 @@ class Api(pulumi.CustomResource):
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  base_path: Optional[pulumi.Input[str]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: Optional[pulumi.Input[pulumi.InputType['ApiBodyS3LocationArgs']]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsArgs']]] = None,
+                 body_s3_location: Optional[pulumi.Input[Union['ApiBodyS3LocationArgs', 'ApiBodyS3LocationArgsDict']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsArgs', 'ApiCorsArgsDict']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -330,8 +330,8 @@ class Api(pulumi.CustomResource):
         :param Any body: The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Api` for more information about the expected schema for this property.
-        :param pulumi.Input[pulumi.InputType['ApiBodyS3LocationArgs']] body_s3_location: The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
-        :param pulumi.Input[pulumi.InputType['ApiCorsArgs']] cors_configuration: A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+        :param pulumi.Input[Union['ApiBodyS3LocationArgs', 'ApiBodyS3LocationArgsDict']] body_s3_location: The S3 location of an OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+        :param pulumi.Input[Union['ApiCorsArgs', 'ApiCorsArgsDict']] cors_configuration: A CORS configuration. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
         :param pulumi.Input[str] credentials_arn: This property is part of quick create. It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify ``arn:aws:iam::*:user/*``. To use resource-based permissions on supported AWS services, specify ``null``. Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
@@ -372,8 +372,8 @@ class Api(pulumi.CustomResource):
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  base_path: Optional[pulumi.Input[str]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: Optional[pulumi.Input[pulumi.InputType['ApiBodyS3LocationArgs']]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsArgs']]] = None,
+                 body_s3_location: Optional[pulumi.Input[Union['ApiBodyS3LocationArgs', 'ApiBodyS3LocationArgsDict']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsArgs', 'ApiCorsArgsDict']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,

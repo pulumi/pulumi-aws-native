@@ -71,18 +71,18 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_identity: Optional[pulumi.Input[pulumi.InputType['AccessPolicyIdentityArgs']]] = None,
+                 access_policy_identity: Optional[pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
                  access_policy_permission: Optional[pulumi.Input[str]] = None,
-                 access_policy_resource: Optional[pulumi.Input[pulumi.InputType['AccessPolicyResourceArgs']]] = None,
+                 access_policy_resource: Optional[pulumi.Input[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::AccessPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyIdentityArgs']] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
+        :param pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
         :param pulumi.Input[str] access_policy_permission: The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyResourceArgs']] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+        :param pulumi.Input[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
         ...
     @overload
@@ -108,9 +108,9 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_identity: Optional[pulumi.Input[pulumi.InputType['AccessPolicyIdentityArgs']]] = None,
+                 access_policy_identity: Optional[pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
                  access_policy_permission: Optional[pulumi.Input[str]] = None,
-                 access_policy_resource: Optional[pulumi.Input[pulumi.InputType['AccessPolicyResourceArgs']]] = None,
+                 access_policy_resource: Optional[pulumi.Input[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

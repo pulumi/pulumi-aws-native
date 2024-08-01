@@ -155,10 +155,10 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThemeResourcePermissionArgs', 'ThemeResourcePermissionArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -169,10 +169,10 @@ class Theme(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you want to store the new theme.
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
-        :param pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']] configuration: The theme configuration, which contains the theme display properties.
+        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties.
         :param pulumi.Input[str] name: A display name for the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]] permissions: A valid grouping of resource permissions to apply to the new theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeResourcePermissionArgs', 'ThemeResourcePermissionArgsDict']]]] permissions: A valid grouping of resource permissions to apply to the new theme.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
         :param pulumi.Input[str] theme_id: An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
         :param pulumi.Input[str] version_description: A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
         """
@@ -202,10 +202,10 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThemeResourcePermissionArgs', 'ThemeResourcePermissionArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -174,10 +174,10 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
+                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
                  sync_name: Optional[pulumi.Input[str]] = None,
-                 sync_source: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']]] = None,
+                 sync_source: Optional[pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
                  sync_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -193,13 +193,13 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncToDestination",
-            s3_destination=aws_native.ssm.ResourceDataSyncS3DestinationArgs(
-                bucket_name="test-bucket",
-                bucket_region="us-east-2",
-                sync_format="JsonSerDe",
-                bucket_prefix="cfn",
-                kms_key_arn="kmsKeyARN",
-            ))
+            s3_destination={
+                "bucket_name": "test-bucket",
+                "bucket_region": "us-east-2",
+                "sync_format": "JsonSerDe",
+                "bucket_prefix": "cfn",
+                "kms_key_arn": "kmsKeyARN",
+            })
 
         ```
         ### Example
@@ -211,13 +211,13 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncToDestination",
-            s3_destination=aws_native.ssm.ResourceDataSyncS3DestinationArgs(
-                bucket_name="test-bucket",
-                bucket_region="us-east-2",
-                sync_format="JsonSerDe",
-                bucket_prefix="cfn",
-                kms_key_arn="kmsKeyARN",
-            ))
+            s3_destination={
+                "bucket_name": "test-bucket",
+                "bucket_region": "us-east-2",
+                "sync_format": "JsonSerDe",
+                "bucket_prefix": "cfn",
+                "kms_key_arn": "kmsKeyARN",
+            })
 
         ```
         ### Example
@@ -229,15 +229,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="SingleAccountMultiRegions",
-                source_regions=[
+            sync_source={
+                "source_type": "SingleAccountMultiRegions",
+                "source_regions": [
                     "us-east-1",
                     "us-west-1",
                     "us-west-2",
                 ],
-                include_future_regions=False,
-            ))
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -249,15 +249,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="SingleAccountMultiRegions",
-                source_regions=[
+            sync_source={
+                "source_type": "SingleAccountMultiRegions",
+                "source_regions": [
                     "us-east-1",
                     "us-west-1",
                     "us-west-2",
                 ],
-                include_future_regions=False,
-            ))
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -269,14 +269,14 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="EntireOrganization",
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "EntireOrganization",
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -288,14 +288,14 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="EntireOrganization",
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "EntireOrganization",
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -307,15 +307,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="OrganizationalUnits",
-                    organizational_units=["ou-12345"],
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "OrganizationalUnits",
+                    "organizational_units": ["ou-12345"],
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -327,15 +327,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="OrganizationalUnits",
-                    organizational_units=["ou-12345"],
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "OrganizationalUnits",
+                    "organizational_units": ["ou-12345"],
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
 
@@ -345,10 +345,10 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_prefix: An Amazon S3 prefix for the bucket.
         :param pulumi.Input[str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']] s3_destination: Configuration information for the target S3 bucket.
+        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Configuration information for the target S3 bucket.
         :param pulumi.Input[str] sync_format: A supported sync format. The following format is currently supported: JsonSerDe
         :param pulumi.Input[str] sync_name: A name for the resource data sync.
-        :param pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']] sync_source: Information about the source where the data was synchronized.
+        :param pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']] sync_source: Information about the source where the data was synchronized.
         :param pulumi.Input[str] sync_type: The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
         """
         ...
@@ -370,13 +370,13 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncToDestination",
-            s3_destination=aws_native.ssm.ResourceDataSyncS3DestinationArgs(
-                bucket_name="test-bucket",
-                bucket_region="us-east-2",
-                sync_format="JsonSerDe",
-                bucket_prefix="cfn",
-                kms_key_arn="kmsKeyARN",
-            ))
+            s3_destination={
+                "bucket_name": "test-bucket",
+                "bucket_region": "us-east-2",
+                "sync_format": "JsonSerDe",
+                "bucket_prefix": "cfn",
+                "kms_key_arn": "kmsKeyARN",
+            })
 
         ```
         ### Example
@@ -388,13 +388,13 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncToDestination",
-            s3_destination=aws_native.ssm.ResourceDataSyncS3DestinationArgs(
-                bucket_name="test-bucket",
-                bucket_region="us-east-2",
-                sync_format="JsonSerDe",
-                bucket_prefix="cfn",
-                kms_key_arn="kmsKeyARN",
-            ))
+            s3_destination={
+                "bucket_name": "test-bucket",
+                "bucket_region": "us-east-2",
+                "sync_format": "JsonSerDe",
+                "bucket_prefix": "cfn",
+                "kms_key_arn": "kmsKeyARN",
+            })
 
         ```
         ### Example
@@ -406,15 +406,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="SingleAccountMultiRegions",
-                source_regions=[
+            sync_source={
+                "source_type": "SingleAccountMultiRegions",
+                "source_regions": [
                     "us-east-1",
                     "us-west-1",
                     "us-west-2",
                 ],
-                include_future_regions=False,
-            ))
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -426,15 +426,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="SingleAccountMultiRegions",
-                source_regions=[
+            sync_source={
+                "source_type": "SingleAccountMultiRegions",
+                "source_regions": [
                     "us-east-1",
                     "us-west-1",
                     "us-west-2",
                 ],
-                include_future_regions=False,
-            ))
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -446,14 +446,14 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="EntireOrganization",
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "EntireOrganization",
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -465,14 +465,14 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="EntireOrganization",
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "EntireOrganization",
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -484,15 +484,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="OrganizationalUnits",
-                    organizational_units=["ou-12345"],
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "OrganizationalUnits",
+                    "organizational_units": ["ou-12345"],
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
         ### Example
@@ -504,15 +504,15 @@ class ResourceDataSync(pulumi.CustomResource):
         basic_resource_data_sync = aws_native.ssm.ResourceDataSync("basicResourceDataSync",
             sync_name="test-sync",
             sync_type="SyncFromSource",
-            sync_source=aws_native.ssm.ResourceDataSyncSyncSourceArgs(
-                source_type="AwsOrganizations",
-                aws_organizations_source=aws_native.ssm.ResourceDataSyncAwsOrganizationsSourceArgs(
-                    organization_source_type="OrganizationalUnits",
-                    organizational_units=["ou-12345"],
-                ),
-                source_regions=["us-west-1"],
-                include_future_regions=False,
-            ))
+            sync_source={
+                "source_type": "AwsOrganizations",
+                "aws_organizations_source": {
+                    "organization_source_type": "OrganizationalUnits",
+                    "organizational_units": ["ou-12345"],
+                },
+                "source_regions": ["us-west-1"],
+                "include_future_regions": False,
+            })
 
         ```
 
@@ -535,10 +535,10 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
+                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
                  sync_name: Optional[pulumi.Input[str]] = None,
-                 sync_source: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']]] = None,
+                 sync_source: Optional[pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
                  sync_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

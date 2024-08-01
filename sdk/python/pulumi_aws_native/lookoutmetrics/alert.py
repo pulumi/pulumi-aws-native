@@ -103,7 +103,7 @@ class Alert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['AlertActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['AlertActionArgs', 'AlertActionArgsDict']]] = None,
                  alert_description: Optional[pulumi.Input[str]] = None,
                  alert_name: Optional[pulumi.Input[str]] = None,
                  alert_sensitivity_threshold: Optional[pulumi.Input[int]] = None,
@@ -114,7 +114,7 @@ class Alert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlertActionArgs']] action: The action to be taken by the alert when an anomaly is detected.
+        :param pulumi.Input[Union['AlertActionArgs', 'AlertActionArgsDict']] action: The action to be taken by the alert when an anomaly is detected.
         :param pulumi.Input[str] alert_description: A description for the alert.
         :param pulumi.Input[str] alert_name: The name of the alert. If not provided, a name is generated automatically.
         :param pulumi.Input[int] alert_sensitivity_threshold: A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
@@ -144,7 +144,7 @@ class Alert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['AlertActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['AlertActionArgs', 'AlertActionArgsDict']]] = None,
                  alert_description: Optional[pulumi.Input[str]] = None,
                  alert_name: Optional[pulumi.Input[str]] = None,
                  alert_sensitivity_threshold: Optional[pulumi.Input[int]] = None,

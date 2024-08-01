@@ -56,7 +56,7 @@ class SchemaVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaVersionSchemaArgs', 'SchemaVersionSchemaArgsDict']]] = None,
                  schema_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -64,7 +64,7 @@ class SchemaVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']] schema: The schema that includes the schema version.
+        :param pulumi.Input[Union['SchemaVersionSchemaArgs', 'SchemaVersionSchemaArgsDict']] schema: The schema that includes the schema version.
         :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
         ...
@@ -91,7 +91,7 @@ class SchemaVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaVersionSchemaArgs', 'SchemaVersionSchemaArgsDict']]] = None,
                  schema_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -414,18 +414,18 @@ class Alarm(pulumi.CustomResource):
                  alarm_name: Optional[pulumi.Input[str]] = None,
                  comparison_operator: Optional[pulumi.Input[str]] = None,
                  datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmDimensionArgs']]]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[str]] = None,
                  evaluation_periods: Optional[pulumi.Input[int]] = None,
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmMetricDataQueryArgs', 'AlarmMetricDataQueryArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  threshold_metric_id: Optional[pulumi.Input[str]] = None,
                  treat_missing_data: Optional[pulumi.Input[str]] = None,
@@ -446,7 +446,7 @@ class Alarm(pulumi.CustomResource):
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
                 If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmDimensionArgs']]]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
         :param pulumi.Input[str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
         :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -455,7 +455,7 @@ class Alarm(pulumi.CustomResource):
                 For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]] metrics: An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlarmMetricDataQueryArgs', 'AlarmMetricDataQueryArgsDict']]]] metrics: An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
                 If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
         :param pulumi.Input[str] namespace: The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
                 For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
@@ -466,7 +466,7 @@ class Alarm(pulumi.CustomResource):
         :param pulumi.Input[str] statistic: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         :param pulumi.Input[float] threshold: The value to compare with the specified statistic.
@@ -508,18 +508,18 @@ class Alarm(pulumi.CustomResource):
                  alarm_name: Optional[pulumi.Input[str]] = None,
                  comparison_operator: Optional[pulumi.Input[str]] = None,
                  datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmDimensionArgs']]]]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[str]] = None,
                  evaluation_periods: Optional[pulumi.Input[int]] = None,
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmMetricDataQueryArgs', 'AlarmMetricDataQueryArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  threshold_metric_id: Optional[pulumi.Input[str]] = None,
                  treat_missing_data: Optional[pulumi.Input[str]] = None,

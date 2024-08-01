@@ -174,13 +174,13 @@ class GameSessionQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_event_data: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueDestinationArgs']]]]] = None,
-                 filter_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueueFilterConfigurationArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]]] = None,
+                 filter_configuration: Optional[pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
-                 player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
-                 priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]]] = None,
+                 priority_configuration: Optional[pulumi.Input[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -198,35 +198,35 @@ class GameSessionQueue(pulumi.CustomResource):
             timeout_in_seconds=60,
             notification_target="arn:aws:sns:us-west-2:111122223333:My_Placement_SNS_Topic",
             destinations=[
-                aws_native.gamelift.GameSessionQueueDestinationArgs(
-                    destination_arn="arn:aws:gamelift:us-west-2:012345678912:fleet/fleet-id",
-                ),
-                aws_native.gamelift.GameSessionQueueDestinationArgs(
-                    destination_arn="arn:aws:gamelift:us-west-2:012345678912:alias/alias-id",
-                ),
+                {
+                    "destination_arn": "arn:aws:gamelift:us-west-2:012345678912:fleet/fleet-id",
+                },
+                {
+                    "destination_arn": "arn:aws:gamelift:us-west-2:012345678912:alias/alias-id",
+                },
             ],
-            player_latency_policies=[aws_native.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                maximum_individual_player_latency_milliseconds=1000,
-                policy_duration_seconds=60,
-            )],
-            priority_configuration=aws_native.gamelift.GameSessionQueuePriorityConfigurationArgs(
-                location_order=[
+            player_latency_policies=[{
+                "maximum_individual_player_latency_milliseconds": 1000,
+                "policy_duration_seconds": 60,
+            }],
+            priority_configuration={
+                "location_order": [
                     "us-west-2",
                     "us-east-1",
                 ],
-                priority_order=[
+                "priority_order": [
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.COST,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.LATENCY,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.LOCATION,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.DESTINATION,
                 ],
-            ),
-            filter_configuration=aws_native.gamelift.GameSessionQueueFilterConfigurationArgs(
-                allowed_locations=[
+            },
+            filter_configuration={
+                "allowed_locations": [
                     "us-east-1",
                     "us-west-2",
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -250,14 +250,14 @@ class GameSessionQueue(pulumi.CustomResource):
             flex_match_mode=aws_native.gamelift.MatchmakingConfigurationFlexMatchMode.WITH_QUEUE,
             game_session_data="MyGameSessionData",
             game_properties=[
-                aws_native.gamelift.MatchmakingConfigurationGamePropertyArgs(
-                    key="level",
-                    value="10",
-                ),
-                aws_native.gamelift.MatchmakingConfigurationGamePropertyArgs(
-                    key="gameMode",
-                    value="hard",
-                ),
+                {
+                    "key": "level",
+                    "value": "10",
+                },
+                {
+                    "key": "gameMode",
+                    "value": "hard",
+                },
             ],
             game_session_queue_arns=[queue_resource.arn],
             request_timeout_seconds=100,
@@ -272,13 +272,13 @@ class GameSessionQueue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_event_data: Information that is added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueDestinationArgs']]]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
-        :param pulumi.Input[pulumi.InputType['GameSessionQueueFilterConfigurationArgs']] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+        :param pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
         :param pulumi.Input[str] name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
-        :param pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
+        :param pulumi.Input[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] timeout_in_seconds: The maximum time, in seconds, that a new game session placement request remains in the queue.
         """
         ...
@@ -302,35 +302,35 @@ class GameSessionQueue(pulumi.CustomResource):
             timeout_in_seconds=60,
             notification_target="arn:aws:sns:us-west-2:111122223333:My_Placement_SNS_Topic",
             destinations=[
-                aws_native.gamelift.GameSessionQueueDestinationArgs(
-                    destination_arn="arn:aws:gamelift:us-west-2:012345678912:fleet/fleet-id",
-                ),
-                aws_native.gamelift.GameSessionQueueDestinationArgs(
-                    destination_arn="arn:aws:gamelift:us-west-2:012345678912:alias/alias-id",
-                ),
+                {
+                    "destination_arn": "arn:aws:gamelift:us-west-2:012345678912:fleet/fleet-id",
+                },
+                {
+                    "destination_arn": "arn:aws:gamelift:us-west-2:012345678912:alias/alias-id",
+                },
             ],
-            player_latency_policies=[aws_native.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                maximum_individual_player_latency_milliseconds=1000,
-                policy_duration_seconds=60,
-            )],
-            priority_configuration=aws_native.gamelift.GameSessionQueuePriorityConfigurationArgs(
-                location_order=[
+            player_latency_policies=[{
+                "maximum_individual_player_latency_milliseconds": 1000,
+                "policy_duration_seconds": 60,
+            }],
+            priority_configuration={
+                "location_order": [
                     "us-west-2",
                     "us-east-1",
                 ],
-                priority_order=[
+                "priority_order": [
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.COST,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.LATENCY,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.LOCATION,
                     aws_native.gamelift.GameSessionQueuePriorityOrderItem.DESTINATION,
                 ],
-            ),
-            filter_configuration=aws_native.gamelift.GameSessionQueueFilterConfigurationArgs(
-                allowed_locations=[
+            },
+            filter_configuration={
+                "allowed_locations": [
                     "us-east-1",
                     "us-west-2",
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -354,14 +354,14 @@ class GameSessionQueue(pulumi.CustomResource):
             flex_match_mode=aws_native.gamelift.MatchmakingConfigurationFlexMatchMode.WITH_QUEUE,
             game_session_data="MyGameSessionData",
             game_properties=[
-                aws_native.gamelift.MatchmakingConfigurationGamePropertyArgs(
-                    key="level",
-                    value="10",
-                ),
-                aws_native.gamelift.MatchmakingConfigurationGamePropertyArgs(
-                    key="gameMode",
-                    value="hard",
-                ),
+                {
+                    "key": "level",
+                    "value": "10",
+                },
+                {
+                    "key": "gameMode",
+                    "value": "hard",
+                },
             ],
             game_session_queue_arns=[queue_resource.arn],
             request_timeout_seconds=100,
@@ -389,13 +389,13 @@ class GameSessionQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_event_data: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueDestinationArgs']]]]] = None,
-                 filter_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueueFilterConfigurationArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]]] = None,
+                 filter_configuration: Optional[pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
-                 player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
-                 priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]]] = None,
+                 priority_configuration: Optional[pulumi.Input[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

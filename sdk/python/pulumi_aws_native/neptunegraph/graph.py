@@ -176,8 +176,8 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: Optional[pulumi.Input[int]] = None,
                  public_connectivity: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 vector_search_configuration: Optional[pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_search_configuration: Optional[pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
@@ -205,8 +205,8 @@ class Graph(pulumi.CustomResource):
                Replica Count should always be less than or equal to 2.
                
                _Default_: If not specified, the default value is 1.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with this graph.
-        :param pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']] vector_search_configuration: Vector Search Configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with this graph.
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration
         """
         ...
     @overload
@@ -237,8 +237,8 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: Optional[pulumi.Input[int]] = None,
                  public_connectivity: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 vector_search_configuration: Optional[pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_search_configuration: Optional[pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

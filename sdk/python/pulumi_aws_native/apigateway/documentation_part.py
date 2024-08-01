@@ -72,7 +72,7 @@ class DocumentationPart(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
                  properties: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -81,7 +81,7 @@ class DocumentationPart(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the targeted API entity of the to-be-created documentation part.
+        :param pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']] location: The location of the targeted API entity of the to-be-created documentation part.
         :param pulumi.Input[str] properties: The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
@@ -109,7 +109,7 @@ class DocumentationPart(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
                  properties: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

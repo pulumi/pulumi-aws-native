@@ -213,15 +213,15 @@ class DomainConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']]] = None,
+                 authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_configuration_name: Optional[pulumi.Input[str]] = None,
                  domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 server_certificate_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationServerCertificateConfigArgs']]] = None,
+                 server_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -229,27 +229,27 @@ class DomainConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']] authorizer_config: An object that specifies the authorization service for a domain.
+        :param pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']] authorizer_config: An object that specifies the authorization service for a domain.
         :param pulumi.Input[str] domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input['DomainConfigurationStatus'] domain_configuration_status: The status to which the domain configuration should be updated.
                
                Valid values: `ENABLED` | `DISABLED`
         :param pulumi.Input[str] domain_name: The name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_arns: The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationServerCertificateConfigArgs']] server_certificate_config: The server certificate configuration.
+        :param pulumi.Input[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']] server_certificate_config: The server certificate configuration.
                
                For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         :param pulumi.Input['DomainConfigurationServiceType'] service_type: The type of service delivered by the endpoint.
                
                > AWS IoT Core currently supports only the `DATA` service type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the domain configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the domain configuration.
                
                > For URI Request parameters use format: ...key1=value1&key2=value2...
                > 
                > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
                > 
                > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain.
+        :param pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']] tls_config: An object that specifies the TLS configuration for a domain.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
         """
         ...
@@ -276,15 +276,15 @@ class DomainConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']]] = None,
+                 authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_configuration_name: Optional[pulumi.Input[str]] = None,
                  domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 server_certificate_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationServerCertificateConfigArgs']]] = None,
+                 server_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

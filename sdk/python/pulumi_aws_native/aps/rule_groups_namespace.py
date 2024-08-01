@@ -90,7 +90,7 @@ class RuleGroupsNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -100,7 +100,7 @@ class RuleGroupsNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data: The RuleGroupsNamespace data.
         :param pulumi.Input[str] name: The RuleGroupsNamespace name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] workspace: Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
         """
         ...
@@ -129,7 +129,7 @@ class RuleGroupsNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

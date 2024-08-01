@@ -124,7 +124,7 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]]] = None,
+                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]] data_sets: The data sets that the topic is associated with.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]] data_sets: The data sets that the topic is associated with.
         :param pulumi.Input[str] description: The description of the topic.
         :param pulumi.Input[str] name: The name of the topic.
         :param pulumi.Input[str] topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -167,7 +167,7 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]]] = None,
+                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,

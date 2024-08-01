@@ -272,7 +272,7 @@ class Portal(pulumi.CustomResource):
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[float]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                  user_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -305,7 +305,7 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[str] ip_access_settings_arn: The ARN of the IP access settings that is associated with the web portal.
         :param pulumi.Input[float] max_concurrent_sessions: The maximum number of concurrent sessions for the portal.
         :param pulumi.Input[str] network_settings_arn: The ARN of the network settings that is associated with the web portal.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the web portal. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the web portal. A tag is a key-value pair.
         :param pulumi.Input[str] trust_store_arn: The ARN of the trust store that is associated with the web portal.
         :param pulumi.Input[str] user_access_logging_settings_arn: The ARN of the user access logging settings that is associated with the web portal.
         :param pulumi.Input[str] user_settings_arn: The ARN of the user settings that is associated with the web portal.
@@ -343,7 +343,7 @@ class Portal(pulumi.CustomResource):
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[float]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                  user_settings_arn: Optional[pulumi.Input[str]] = None,

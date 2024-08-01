@@ -159,7 +159,7 @@ class SimpleAd(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
@@ -173,7 +173,7 @@ class SimpleAd(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password for the default administrative user named Admin.
         :param pulumi.Input[str] short_name: The NetBIOS name for your domain.
         :param pulumi.Input[str] size: The size of the directory.
-        :param pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
+        :param pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         """
         ...
     @overload
@@ -206,7 +206,7 @@ class SimpleAd(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleAdVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

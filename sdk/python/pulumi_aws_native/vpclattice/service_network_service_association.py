@@ -93,20 +93,20 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_entry: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]] = None,
+                 dns_entry: Optional[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
                  service_network_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Associates a service with a service network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']] dns_entry: The DNS information of the service.
+        :param pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']] dns_entry: The DNS information of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the association.
         """
         ...
     @overload
@@ -132,10 +132,10 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_entry: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]] = None,
+                 dns_entry: Optional[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
                  service_network_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

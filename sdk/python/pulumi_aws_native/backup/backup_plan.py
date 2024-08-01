@@ -57,7 +57,7 @@ class BackupPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
+                 backup_plan: Optional[pulumi.Input[Union['BackupPlanResourceTypeArgs', 'BackupPlanResourceTypeArgsDict']]] = None,
                  backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -65,7 +65,7 @@ class BackupPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
+        :param pulumi.Input[Union['BackupPlanResourceTypeArgs', 'BackupPlanResourceTypeArgsDict']] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
         ...
@@ -92,7 +92,7 @@ class BackupPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
+                 backup_plan: Optional[pulumi.Input[Union['BackupPlanResourceTypeArgs', 'BackupPlanResourceTypeArgsDict']]] = None,
                  backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

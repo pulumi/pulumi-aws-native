@@ -97,9 +97,9 @@ class ThingType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_type_name: Optional[pulumi.Input[str]] = None,
-                 thing_type_properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']]] = None,
+                 thing_type_properties: Optional[pulumi.Input[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::ThingType
@@ -109,9 +109,9 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
                
                Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] thing_type_name: The name of the thing type.
-        :param pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']] thing_type_properties: The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        :param pulumi.Input[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']] thing_type_properties: The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
         """
         ...
     @overload
@@ -138,9 +138,9 @@ class ThingType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_type_name: Optional[pulumi.Input[str]] = None,
-                 thing_type_properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']]] = None,
+                 thing_type_properties: Optional[pulumi.Input[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

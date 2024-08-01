@@ -141,9 +141,9 @@ class Multiplexprogram(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
-                 multiplex_program_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramSettingsArgs']]] = None,
-                 packet_identifiers_map: Optional[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]] = None,
-                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]] = None,
+                 multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
+                 packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
+                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
                  preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
                  program_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,9 +154,9 @@ class Multiplexprogram(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_id: The MediaLive channel associated with the program.
         :param pulumi.Input[str] multiplex_id: The ID of the multiplex that the program belongs to.
-        :param pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramSettingsArgs']] multiplex_program_settings: The settings for this multiplex program.
-        :param pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']] packet_identifiers_map: The packet identifier map for this multiplex program.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]] pipeline_details: Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+        :param pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']] multiplex_program_settings: The settings for this multiplex program.
+        :param pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']] packet_identifiers_map: The packet identifier map for this multiplex program.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]] pipeline_details: Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
         :param pulumi.Input['MultiplexprogramPreferredChannelPipeline'] preferred_channel_pipeline: The settings for this multiplex program.
         :param pulumi.Input[str] program_name: The name of the multiplex program.
         """
@@ -186,9 +186,9 @@ class Multiplexprogram(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
-                 multiplex_program_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramSettingsArgs']]] = None,
-                 packet_identifiers_map: Optional[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]] = None,
-                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]] = None,
+                 multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
+                 packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
+                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
                  preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
                  program_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

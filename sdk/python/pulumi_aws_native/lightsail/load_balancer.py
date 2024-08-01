@@ -176,7 +176,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -191,7 +191,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         ...
@@ -225,7 +225,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

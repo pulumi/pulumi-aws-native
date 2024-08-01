@@ -118,7 +118,7 @@ class KeyPair(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a key pair for use with an EC2long instance as follows:
@@ -193,7 +193,7 @@ class KeyPair(pulumi.CustomResource):
                 If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
                 Default: ``rsa``
         :param pulumi.Input[str] public_key_material: The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags to apply to the key pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags to apply to the key pair.
         """
         ...
     @overload
@@ -283,7 +283,7 @@ class KeyPair(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

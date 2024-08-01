@@ -105,7 +105,7 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_group_arn: Optional[pulumi.Input[str]] = None,
-                 dataset_import_job: Optional[pulumi.Input[pulumi.InputType['DatasetImportJobArgs']]] = None,
+                 dataset_import_job: Optional[pulumi.Input[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
                  dataset_type: Optional[pulumi.Input['DatasetType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_arn: Optional[pulumi.Input[str]] = None,
@@ -125,13 +125,13 @@ class Dataset(pulumi.CustomResource):
             dataset_type=aws_native.personalize.DatasetType.INTERACTIONS,
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name",
             schema_arn="arn:aws:personalize:us-west-2:123456789012:schema/schema-name",
-            dataset_import_job=aws_native.personalize.DatasetImportJobArgs(
-                job_name="my-import-job-name",
-                data_source=aws_native.personalize.DatasetImportJobDataSourcePropertiesArgs(
-                    data_location="s3://bucket-name/file-name.csv",
-                ),
-                role_arn="arn:aws:iam::123456789012:role/personalize-role",
-            ))
+            dataset_import_job={
+                "job_name": "my-import-job-name",
+                "data_source": {
+                    "data_location": "s3://bucket-name/file-name.csv",
+                },
+                "role_arn": "arn:aws:iam::123456789012:role/personalize-role",
+            })
 
         ```
         ### Example
@@ -145,20 +145,20 @@ class Dataset(pulumi.CustomResource):
             dataset_type=aws_native.personalize.DatasetType.INTERACTIONS,
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name",
             schema_arn="arn:aws:personalize:us-west-2:123456789012:schema/schema-name",
-            dataset_import_job=aws_native.personalize.DatasetImportJobArgs(
-                job_name="my-import-job-name",
-                data_source=aws_native.personalize.DatasetImportJobDataSourcePropertiesArgs(
-                    data_location="s3://bucket-name/file-name.csv",
-                ),
-                role_arn="arn:aws:iam::123456789012:role/personalize-role",
-            ))
+            dataset_import_job={
+                "job_name": "my-import-job-name",
+                "data_source": {
+                    "data_location": "s3://bucket-name/file-name.csv",
+                },
+                "role_arn": "arn:aws:iam::123456789012:role/personalize-role",
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to add the dataset to
-        :param pulumi.Input[pulumi.InputType['DatasetImportJobArgs']] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        :param pulumi.Input[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         :param pulumi.Input['DatasetType'] dataset_type: The type of dataset
         :param pulumi.Input[str] name: The name for the dataset
         :param pulumi.Input[str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
@@ -184,13 +184,13 @@ class Dataset(pulumi.CustomResource):
             dataset_type=aws_native.personalize.DatasetType.INTERACTIONS,
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name",
             schema_arn="arn:aws:personalize:us-west-2:123456789012:schema/schema-name",
-            dataset_import_job=aws_native.personalize.DatasetImportJobArgs(
-                job_name="my-import-job-name",
-                data_source=aws_native.personalize.DatasetImportJobDataSourcePropertiesArgs(
-                    data_location="s3://bucket-name/file-name.csv",
-                ),
-                role_arn="arn:aws:iam::123456789012:role/personalize-role",
-            ))
+            dataset_import_job={
+                "job_name": "my-import-job-name",
+                "data_source": {
+                    "data_location": "s3://bucket-name/file-name.csv",
+                },
+                "role_arn": "arn:aws:iam::123456789012:role/personalize-role",
+            })
 
         ```
         ### Example
@@ -204,13 +204,13 @@ class Dataset(pulumi.CustomResource):
             dataset_type=aws_native.personalize.DatasetType.INTERACTIONS,
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name",
             schema_arn="arn:aws:personalize:us-west-2:123456789012:schema/schema-name",
-            dataset_import_job=aws_native.personalize.DatasetImportJobArgs(
-                job_name="my-import-job-name",
-                data_source=aws_native.personalize.DatasetImportJobDataSourcePropertiesArgs(
-                    data_location="s3://bucket-name/file-name.csv",
-                ),
-                role_arn="arn:aws:iam::123456789012:role/personalize-role",
-            ))
+            dataset_import_job={
+                "job_name": "my-import-job-name",
+                "data_source": {
+                    "data_location": "s3://bucket-name/file-name.csv",
+                },
+                "role_arn": "arn:aws:iam::123456789012:role/personalize-role",
+            })
 
         ```
 
@@ -230,7 +230,7 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_group_arn: Optional[pulumi.Input[str]] = None,
-                 dataset_import_job: Optional[pulumi.Input[pulumi.InputType['DatasetImportJobArgs']]] = None,
+                 dataset_import_job: Optional[pulumi.Input[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
                  dataset_type: Optional[pulumi.Input['DatasetType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_arn: Optional[pulumi.Input[str]] = None,

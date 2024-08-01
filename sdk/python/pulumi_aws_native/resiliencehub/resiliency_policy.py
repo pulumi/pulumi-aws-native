@@ -122,7 +122,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -134,7 +134,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
-        :param pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']] policy: The resiliency policy.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']] policy: The resiliency policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
         :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
@@ -165,7 +165,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

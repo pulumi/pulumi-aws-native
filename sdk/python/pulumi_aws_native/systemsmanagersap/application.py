@@ -141,11 +141,11 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
-                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]]] = None,
+                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sap_instance_number: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SystemsManagerSAP::Application
@@ -154,11 +154,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]] credentials: The credentials of the SAP application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[str] sid: The System ID of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of a SystemsManagerSAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of a SystemsManagerSAP application.
         """
         ...
     @overload
@@ -186,11 +186,11 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
-                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]]] = None,
+                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sap_instance_number: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

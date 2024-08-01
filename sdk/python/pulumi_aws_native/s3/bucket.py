@@ -367,26 +367,26 @@ class Bucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
+                 accelerate_configuration: Optional[pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']]] = None,
                  access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
-                 analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
-                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
+                 analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
+                 bucket_encryption: Optional[pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']]] = None,
-                 intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]]] = None,
-                 inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLoggingConfigurationArgs']]] = None,
-                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['BucketNotificationConfigurationArgs']]] = None,
-                 object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']]] = None,
+                 intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]]] = None,
+                 inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
+                 object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  object_lock_enabled: Optional[pulumi.Input[bool]] = None,
-                 ownership_controls: Optional[pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']]] = None,
-                 website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
+                 ownership_controls: Optional[pulumi.Input[Union['BucketOwnershipControlsArgs', 'BucketOwnershipControlsArgsDict']]] = None,
+                 public_access_block_configuration: Optional[pulumi.Input[Union['BucketPublicAccessBlockConfigurationArgs', 'BucketPublicAccessBlockConfigurationArgsDict']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningConfigurationArgs', 'BucketVersioningConfigurationArgsDict']]] = None,
+                 website_configuration: Optional[pulumi.Input[Union['BucketWebsiteConfigurationArgs', 'BucketWebsiteConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
@@ -403,27 +403,27 @@ class Bucket(pulumi.CustomResource):
         s3_bucket = aws_native.s3.Bucket("s3Bucket")
         recording_configuration = aws_native.ivs.RecordingConfiguration("recordingConfiguration",
             name="MyRecordingConfiguration",
-            destination_configuration=aws_native.ivs.RecordingConfigurationDestinationConfigurationArgs(
-                s3=aws_native.ivs.RecordingConfigurationS3DestinationConfigurationArgs(
-                    bucket_name=s3_bucket.id,
-                ),
-            ),
-            thumbnail_configuration=aws_native.ivs.RecordingConfigurationThumbnailConfigurationArgs(
-                recording_mode=aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
-                target_interval_seconds=60,
-                storage=[
+            destination_configuration={
+                "s3": {
+                    "bucket_name": s3_bucket.id,
+                },
+            },
+            thumbnail_configuration={
+                "recording_mode": aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
+                "target_interval_seconds": 60,
+                "storage": [
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.SEQUENTIAL,
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.LATEST,
                 ],
-                resolution=aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
-            ),
-            rendition_configuration=aws_native.ivs.RecordingConfigurationRenditionConfigurationArgs(
-                rendition_selection=aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
-                renditions=[
+                "resolution": aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
+            },
+            rendition_configuration={
+                "rendition_selection": aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
+                "renditions": [
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.HD,
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
-            ),
+            },
             opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
@@ -440,27 +440,27 @@ class Bucket(pulumi.CustomResource):
         s3_bucket = aws_native.s3.Bucket("s3Bucket")
         recording_configuration = aws_native.ivs.RecordingConfiguration("recordingConfiguration",
             name="MyRecordingConfiguration",
-            destination_configuration=aws_native.ivs.RecordingConfigurationDestinationConfigurationArgs(
-                s3=aws_native.ivs.RecordingConfigurationS3DestinationConfigurationArgs(
-                    bucket_name=s3_bucket.id,
-                ),
-            ),
-            thumbnail_configuration=aws_native.ivs.RecordingConfigurationThumbnailConfigurationArgs(
-                recording_mode=aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
-                target_interval_seconds=60,
-                resolution=aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
-                storage=[
+            destination_configuration={
+                "s3": {
+                    "bucket_name": s3_bucket.id,
+                },
+            },
+            thumbnail_configuration={
+                "recording_mode": aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
+                "target_interval_seconds": 60,
+                "resolution": aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
+                "storage": [
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.SEQUENTIAL,
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.LATEST,
                 ],
-            ),
-            rendition_configuration=aws_native.ivs.RecordingConfigurationRenditionConfigurationArgs(
-                rendition_selection=aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
-                renditions=[
+            },
+            rendition_configuration={
+                "rendition_selection": aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
+                "renditions": [
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.HD,
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
-            ),
+            },
             opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
@@ -485,8 +485,8 @@ class Bucket(pulumi.CustomResource):
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -501,10 +501,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -520,8 +520,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=["arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"],
@@ -545,16 +545,16 @@ class Bucket(pulumi.CustomResource):
             iam_instance_profile="SSMInstanceProfile")
         ansible_association = aws_native.ssm.Association("ansibleAssociation",
             name="AWS-ApplyAnsiblePlaybooks",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["EC2Instance"],
-            )],
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["EC2Instance"],
+            }],
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             parameters={
                 "sourceType": ["GitHub"],
                 "sourceInfo": [\"\"\"{"owner":"${GitHubOwner}",
@@ -585,8 +585,8 @@ class Bucket(pulumi.CustomResource):
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -601,10 +601,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -620,8 +620,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=[
@@ -646,22 +646,22 @@ class Bucket(pulumi.CustomResource):
             image_id="LatestAmiId",
             instance_type="t3.medium",
             iam_instance_profile="SSMInstanceProfile",
-            tags=[aws_native.TagArgs(
-                key="nginx",
-                value="yes",
-            )])
+            tags=[{
+                "key": "nginx",
+                "value": "yes",
+            }])
         nginx_association = aws_native.ssm.Association("nginxAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:nginx",
-                values=["yes"],
-            )],
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            targets=[{
+                "key": "tag:nginx",
+                "values": ["yes"],
+            }],
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             parameters={
                 "commands": [\"\"\"sudo amazon-linux-extras install nginx1 -y
         sudo service nginx start
@@ -759,8 +759,8 @@ class Bucket(pulumi.CustomResource):
                 ],
             })
         ssm_execution_role = aws_native.iam.Role("ssmExecutionRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_document={
+            policies=[{
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "action": [
@@ -773,8 +773,8 @@ class Bucket(pulumi.CustomResource):
                         "effect": "Allow",
                     }],
                 },
-                policy_name="ssm-association",
-            )],
+                "policy_name": "ssm-association",
+            }],
             path="/",
             managed_policy_arns=["arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole"],
             assume_role_policy_document={
@@ -792,8 +792,8 @@ class Bucket(pulumi.CustomResource):
             })
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -808,10 +808,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -827,8 +827,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=[
@@ -853,26 +853,26 @@ class Bucket(pulumi.CustomResource):
             image_id="LatestAmiId",
             instance_type="t3.medium",
             iam_instance_profile="SSMInstanceProfile",
-            tags=[aws_native.TagArgs(
-                key="nginx",
-                value="true",
-            )])
+            tags=[{
+                "key": "nginx",
+                "value": "true",
+            }])
         nginx_association = aws_native.ssm.Association("nginxAssociation",
             name="nginxInstallAutomation",
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             automation_target_parameter_name="InstanceId",
             parameters={
                 "automationAssumeRole": ["SSMExecutionRole.Arn"],
             },
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:nginx",
-                values=["true"],
-            )],
+            targets=[{
+                "key": "tag:nginx",
+                "values": ["true"],
+            }],
             opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
@@ -880,35 +880,35 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketAccessControl'] access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
                  A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
                  S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
                  The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['BucketEncryptionArgs']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        :param pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-        :param pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
-        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
-        :param pulumi.Input[pulumi.InputType['BucketLoggingConfigurationArgs']] logging_configuration: Settings that define where logs are stored.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
-        :param pulumi.Input[pulumi.InputType['BucketNotificationConfigurationArgs']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
-        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: This operation is not supported by directory buckets.
+        :param pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']] logging_configuration: Settings that define where logs are stored.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
+        :param pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
+        :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: This operation is not supported by directory buckets.
                  Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
                  +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
-        :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
-        :param pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
-        :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
+        :param pulumi.Input[Union['BucketOwnershipControlsArgs', 'BucketOwnershipControlsArgsDict']] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
+        :param pulumi.Input[Union['BucketPublicAccessBlockConfigurationArgs', 'BucketPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
+        :param pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']] replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
                 Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
-        :param pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        :param pulumi.Input[Union['BucketVersioningConfigurationArgs', 'BucketVersioningConfigurationArgsDict']] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        :param pulumi.Input[Union['BucketWebsiteConfigurationArgs', 'BucketWebsiteConfigurationArgsDict']] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
         ...
     @overload
@@ -931,27 +931,27 @@ class Bucket(pulumi.CustomResource):
         s3_bucket = aws_native.s3.Bucket("s3Bucket")
         recording_configuration = aws_native.ivs.RecordingConfiguration("recordingConfiguration",
             name="MyRecordingConfiguration",
-            destination_configuration=aws_native.ivs.RecordingConfigurationDestinationConfigurationArgs(
-                s3=aws_native.ivs.RecordingConfigurationS3DestinationConfigurationArgs(
-                    bucket_name=s3_bucket.id,
-                ),
-            ),
-            thumbnail_configuration=aws_native.ivs.RecordingConfigurationThumbnailConfigurationArgs(
-                recording_mode=aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
-                target_interval_seconds=60,
-                storage=[
+            destination_configuration={
+                "s3": {
+                    "bucket_name": s3_bucket.id,
+                },
+            },
+            thumbnail_configuration={
+                "recording_mode": aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
+                "target_interval_seconds": 60,
+                "storage": [
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.SEQUENTIAL,
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.LATEST,
                 ],
-                resolution=aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
-            ),
-            rendition_configuration=aws_native.ivs.RecordingConfigurationRenditionConfigurationArgs(
-                rendition_selection=aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
-                renditions=[
+                "resolution": aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
+            },
+            rendition_configuration={
+                "rendition_selection": aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
+                "renditions": [
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.HD,
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
-            ),
+            },
             opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
@@ -968,27 +968,27 @@ class Bucket(pulumi.CustomResource):
         s3_bucket = aws_native.s3.Bucket("s3Bucket")
         recording_configuration = aws_native.ivs.RecordingConfiguration("recordingConfiguration",
             name="MyRecordingConfiguration",
-            destination_configuration=aws_native.ivs.RecordingConfigurationDestinationConfigurationArgs(
-                s3=aws_native.ivs.RecordingConfigurationS3DestinationConfigurationArgs(
-                    bucket_name=s3_bucket.id,
-                ),
-            ),
-            thumbnail_configuration=aws_native.ivs.RecordingConfigurationThumbnailConfigurationArgs(
-                recording_mode=aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
-                target_interval_seconds=60,
-                resolution=aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
-                storage=[
+            destination_configuration={
+                "s3": {
+                    "bucket_name": s3_bucket.id,
+                },
+            },
+            thumbnail_configuration={
+                "recording_mode": aws_native.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode.INTERVAL,
+                "target_interval_seconds": 60,
+                "resolution": aws_native.ivs.RecordingConfigurationThumbnailConfigurationResolution.HD,
+                "storage": [
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.SEQUENTIAL,
                     aws_native.ivs.RecordingConfigurationThumbnailConfigurationStorageItem.LATEST,
                 ],
-            ),
-            rendition_configuration=aws_native.ivs.RecordingConfigurationRenditionConfigurationArgs(
-                rendition_selection=aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
-                renditions=[
+            },
+            rendition_configuration={
+                "rendition_selection": aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionSelection.CUSTOM,
+                "renditions": [
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.HD,
                     aws_native.ivs.RecordingConfigurationRenditionConfigurationRenditionsItem.SD,
                 ],
-            ),
+            },
             opts = pulumi.ResourceOptions(depends_on=[s3_bucket]))
         channel = aws_native.ivs.Channel("channel",
             name="MyRecordedChannel",
@@ -1013,8 +1013,8 @@ class Bucket(pulumi.CustomResource):
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -1029,10 +1029,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -1048,8 +1048,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=["arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"],
@@ -1073,16 +1073,16 @@ class Bucket(pulumi.CustomResource):
             iam_instance_profile="SSMInstanceProfile")
         ansible_association = aws_native.ssm.Association("ansibleAssociation",
             name="AWS-ApplyAnsiblePlaybooks",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["EC2Instance"],
-            )],
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["EC2Instance"],
+            }],
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             parameters={
                 "sourceType": ["GitHub"],
                 "sourceInfo": [\"\"\"{"owner":"${GitHubOwner}",
@@ -1113,8 +1113,8 @@ class Bucket(pulumi.CustomResource):
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -1129,10 +1129,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -1148,8 +1148,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=[
@@ -1174,22 +1174,22 @@ class Bucket(pulumi.CustomResource):
             image_id="LatestAmiId",
             instance_type="t3.medium",
             iam_instance_profile="SSMInstanceProfile",
-            tags=[aws_native.TagArgs(
-                key="nginx",
-                value="yes",
-            )])
+            tags=[{
+                "key": "nginx",
+                "value": "yes",
+            }])
         nginx_association = aws_native.ssm.Association("nginxAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:nginx",
-                values=["yes"],
-            )],
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            targets=[{
+                "key": "tag:nginx",
+                "values": ["yes"],
+            }],
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             parameters={
                 "commands": [\"\"\"sudo amazon-linux-extras install nginx1 -y
         sudo service nginx start
@@ -1287,8 +1287,8 @@ class Bucket(pulumi.CustomResource):
                 ],
             })
         ssm_execution_role = aws_native.iam.Role("ssmExecutionRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_document={
+            policies=[{
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "action": [
@@ -1301,8 +1301,8 @@ class Bucket(pulumi.CustomResource):
                         "effect": "Allow",
                     }],
                 },
-                policy_name="ssm-association",
-            )],
+                "policy_name": "ssm-association",
+            }],
             path="/",
             managed_policy_arns=["arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole"],
             assume_role_policy_document={
@@ -1320,8 +1320,8 @@ class Bucket(pulumi.CustomResource):
             })
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": ["s3:GetObject"],
@@ -1336,10 +1336,10 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="ssm-custom-s3-policy",
-                ),
-                aws_native.iam.RolePolicyArgs(
-                    policy_document={
+                    "policy_name": "ssm-custom-s3-policy",
+                },
+                {
+                    "policy_document": {
                         "version": "2012-10-17",
                         "statement": [{
                             "action": [
@@ -1355,8 +1355,8 @@ class Bucket(pulumi.CustomResource):
                             "effect": "Allow",
                         }],
                     },
-                    policy_name="s3-instance-bucket-policy",
-                ),
+                    "policy_name": "s3-instance-bucket-policy",
+                },
             ],
             path="/",
             managed_policy_arns=[
@@ -1381,26 +1381,26 @@ class Bucket(pulumi.CustomResource):
             image_id="LatestAmiId",
             instance_type="t3.medium",
             iam_instance_profile="SSMInstanceProfile",
-            tags=[aws_native.TagArgs(
-                key="nginx",
-                value="true",
-            )])
+            tags=[{
+                "key": "nginx",
+                "value": "true",
+            }])
         nginx_association = aws_native.ssm.Association("nginxAssociation",
             name="nginxInstallAutomation",
-            output_location=aws_native.ssm.AssociationInstanceAssociationOutputLocationArgs(
-                s3_location=aws_native.ssm.AssociationS3OutputLocationArgs(
-                    output_s3_bucket_name="SSMAssocLogs",
-                    output_s3_key_prefix="logs/",
-                ),
-            ),
+            output_location={
+                "s3_location": {
+                    "output_s3_bucket_name": "SSMAssocLogs",
+                    "output_s3_key_prefix": "logs/",
+                },
+            },
             automation_target_parameter_name="InstanceId",
             parameters={
                 "automationAssumeRole": ["SSMExecutionRole.Arn"],
             },
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:nginx",
-                values=["true"],
-            )],
+            targets=[{
+                "key": "tag:nginx",
+                "values": ["true"],
+            }],
             opts = pulumi.ResourceOptions(depends_on=[ec2_instance]))
         pulumi.export("webServerPublic", "EC2Instance.PublicDnsName")
 
@@ -1421,26 +1421,26 @@ class Bucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
+                 accelerate_configuration: Optional[pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']]] = None,
                  access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
-                 analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
-                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
+                 analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
+                 bucket_encryption: Optional[pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']]] = None,
-                 intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]]] = None,
-                 inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLoggingConfigurationArgs']]] = None,
-                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['BucketNotificationConfigurationArgs']]] = None,
-                 object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']]] = None,
+                 intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]]] = None,
+                 inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
+                 object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  object_lock_enabled: Optional[pulumi.Input[bool]] = None,
-                 ownership_controls: Optional[pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']]] = None,
-                 website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
+                 ownership_controls: Optional[pulumi.Input[Union['BucketOwnershipControlsArgs', 'BucketOwnershipControlsArgsDict']]] = None,
+                 public_access_block_configuration: Optional[pulumi.Input[Union['BucketPublicAccessBlockConfigurationArgs', 'BucketPublicAccessBlockConfigurationArgsDict']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['BucketReplicationConfigurationArgs', 'BucketReplicationConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningConfigurationArgs', 'BucketVersioningConfigurationArgsDict']]] = None,
+                 website_configuration: Optional[pulumi.Input[Union['BucketWebsiteConfigurationArgs', 'BucketWebsiteConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

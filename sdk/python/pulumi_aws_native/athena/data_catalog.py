@@ -109,7 +109,7 @@ class DataCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
         """
@@ -127,14 +127,14 @@ class DataCatalog(pulumi.CustomResource):
             type=aws_native.athena.DataCatalogType.HIVE,
             description="Custom Hive Catalog Description",
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
             parameters={
                 "metadata-function": "arn:aws:lambda:us-west-2:111122223333:function:lambdaname",
@@ -152,14 +152,14 @@ class DataCatalog(pulumi.CustomResource):
             type=aws_native.athena.DataCatalogType.HIVE,
             description="Custom Hive Catalog Description",
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
             parameters={
                 "metadata-function": "arn:aws:lambda:us-west-2:111122223333:function:lambdaname",
@@ -172,7 +172,7 @@ class DataCatalog(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the data catalog to be created. 
         :param pulumi.Input[str] name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of comma separated tags to add to the data catalog that is created. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of comma separated tags to add to the data catalog that is created. 
         :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         """
         ...
@@ -196,14 +196,14 @@ class DataCatalog(pulumi.CustomResource):
             type=aws_native.athena.DataCatalogType.HIVE,
             description="Custom Hive Catalog Description",
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
             parameters={
                 "metadata-function": "arn:aws:lambda:us-west-2:111122223333:function:lambdaname",
@@ -221,14 +221,14 @@ class DataCatalog(pulumi.CustomResource):
             type=aws_native.athena.DataCatalogType.HIVE,
             description="Custom Hive Catalog Description",
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
             parameters={
                 "metadata-function": "arn:aws:lambda:us-west-2:111122223333:function:lambdaname",
@@ -254,7 +254,7 @@ class DataCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -174,7 +174,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -189,7 +189,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the configuration
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         ...
@@ -223,7 +223,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

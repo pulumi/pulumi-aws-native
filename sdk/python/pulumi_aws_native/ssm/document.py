@@ -192,13 +192,13 @@ class Document(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[Any] = None,
                  document_format: Optional[pulumi.Input['DocumentFormat']] = None,
                  document_type: Optional[pulumi.Input['DocumentType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
@@ -283,10 +283,10 @@ class Document(pulumi.CustomResource):
         example_package_document = aws_native.ssm.Document("examplePackageDocument",
             content="{\\"files\\": {\\"NewPackage_WINDOWS.zip\\": {\\"checksums\\": {\\"sha256\\": \\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\"}}}, \\"publisher\\": \\"publisherName\\", \\"schemaVersion\\": \\"2.0\\", \\"packages\\": {\\"_any\\": {\\"_any\\": {\\"x86_64\\": {\\"file\\": \\"NewPackage_WINDOWS.zip\\"}}}}, \\"version\\": \\"1.0\\"}",
             document_type=aws_native.ssm.DocumentType.PACKAGE,
-            attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(
-                key=aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
-                values=["s3://example-package-path/valid-package"],
-            )])
+            attachments=[{
+                "key": aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
+                "values": ["s3://example-package-path/valid-package"],
+            }])
 
         ```
         ### Example
@@ -298,10 +298,10 @@ class Document(pulumi.CustomResource):
         example_package_document = aws_native.ssm.Document("examplePackageDocument",
             content="{\\\\\\"files\\\\\\": {\\\\\\"NewPackage_WINDOWS.zip\\\\\\": {\\\\\\"checksums\\\\\\": {\\\\\\"sha256\\\\\\": \\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\"}}}, \\\\\\"publisher\\\\\\": \\\\\\"publisherName\\\\\\", \\\\\\"schemaVersion\\\\\\": \\\\\\"2.0\\\\\\", \\\\\\"packages\\\\\\": {\\\\\\"_any\\\\\\": {\\\\\\"_any\\\\\\": {\\\\\\"x86_64\\\\\\": {\\\\\\"file\\\\\\": \\\\\\"NewPackage_WINDOWS.zip\\\\\\"}}}}, \\\\\\"version\\\\\\": \\\\\\"1.0\\\\\\"}",
             document_type=aws_native.ssm.DocumentType.PACKAGE,
-            attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(
-                key=aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
-                values=["s3://example-package-path/valid-package"],
-            )])
+            attachments=[{
+                "key": aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
+                "values": ["s3://example-package-path/valid-package"],
+            }])
 
         ```
         ### Example
@@ -353,15 +353,15 @@ class Document(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         :param pulumi.Input['DocumentType'] document_type: The type of document to create.
         :param pulumi.Input[str] name: A name for the Systems Manager document.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
         :param pulumi.Input['DocumentUpdateMethod'] update_method: Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
@@ -452,10 +452,10 @@ class Document(pulumi.CustomResource):
         example_package_document = aws_native.ssm.Document("examplePackageDocument",
             content="{\\"files\\": {\\"NewPackage_WINDOWS.zip\\": {\\"checksums\\": {\\"sha256\\": \\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\"}}}, \\"publisher\\": \\"publisherName\\", \\"schemaVersion\\": \\"2.0\\", \\"packages\\": {\\"_any\\": {\\"_any\\": {\\"x86_64\\": {\\"file\\": \\"NewPackage_WINDOWS.zip\\"}}}}, \\"version\\": \\"1.0\\"}",
             document_type=aws_native.ssm.DocumentType.PACKAGE,
-            attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(
-                key=aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
-                values=["s3://example-package-path/valid-package"],
-            )])
+            attachments=[{
+                "key": aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
+                "values": ["s3://example-package-path/valid-package"],
+            }])
 
         ```
         ### Example
@@ -467,10 +467,10 @@ class Document(pulumi.CustomResource):
         example_package_document = aws_native.ssm.Document("examplePackageDocument",
             content="{\\\\\\"files\\\\\\": {\\\\\\"NewPackage_WINDOWS.zip\\\\\\": {\\\\\\"checksums\\\\\\": {\\\\\\"sha256\\\\\\": \\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\"}}}, \\\\\\"publisher\\\\\\": \\\\\\"publisherName\\\\\\", \\\\\\"schemaVersion\\\\\\": \\\\\\"2.0\\\\\\", \\\\\\"packages\\\\\\": {\\\\\\"_any\\\\\\": {\\\\\\"_any\\\\\\": {\\\\\\"x86_64\\\\\\": {\\\\\\"file\\\\\\": \\\\\\"NewPackage_WINDOWS.zip\\\\\\"}}}}, \\\\\\"version\\\\\\": \\\\\\"1.0\\\\\\"}",
             document_type=aws_native.ssm.DocumentType.PACKAGE,
-            attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(
-                key=aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
-                values=["s3://example-package-path/valid-package"],
-            )])
+            attachments=[{
+                "key": aws_native.ssm.DocumentAttachmentsSourceKey.SOURCE_URL,
+                "values": ["s3://example-package-path/valid-package"],
+            }])
 
         ```
         ### Example
@@ -535,13 +535,13 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[Any] = None,
                  document_format: Optional[pulumi.Input['DocumentFormat']] = None,
                  document_type: Optional[pulumi.Input['DocumentType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
                  version_name: Optional[pulumi.Input[str]] = None,

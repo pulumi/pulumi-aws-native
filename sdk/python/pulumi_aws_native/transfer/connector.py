@@ -140,11 +140,11 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
-                 as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
+                 as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -153,11 +153,11 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the connector.
-        :param pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']] as2_config: Configuration for an AS2 connector.
+        :param pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
         :param pulumi.Input[str] security_policy_name: Security policy for SFTP Connector
-        :param pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']] sftp_config: Configuration for an SFTP connector.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
+        :param pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']] sftp_config: Configuration for an SFTP connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         :param pulumi.Input[str] url: URL for Connector
         """
         ...
@@ -185,11 +185,11 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
-                 as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
+                 as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

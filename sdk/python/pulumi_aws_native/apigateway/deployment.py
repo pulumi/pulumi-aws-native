@@ -105,10 +105,10 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
+                 deployment_canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 stage_description: Optional[pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']]] = None,
+                 stage_description: Optional[pulumi.Input[Union['DeploymentStageDescriptionArgs', 'DeploymentStageDescriptionArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -116,10 +116,10 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] deployment_canary_settings: The input configuration for a canary deployment.
+        :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] deployment_canary_settings: The input configuration for a canary deployment.
         :param pulumi.Input[str] description: The description for the Deployment resource to create.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
-        :param pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']] stage_description: The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
+        :param pulumi.Input[Union['DeploymentStageDescriptionArgs', 'DeploymentStageDescriptionArgsDict']] stage_description: The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
         :param pulumi.Input[str] stage_name: The name of the Stage resource for the Deployment resource to create.
         """
         ...
@@ -146,10 +146,10 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
+                 deployment_canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 stage_description: Optional[pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']]] = None,
+                 stage_description: Optional[pulumi.Input[Union['DeploymentStageDescriptionArgs', 'DeploymentStageDescriptionArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -329,12 +329,12 @@ class Association(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -349,10 +349,10 @@ class Association(pulumi.CustomResource):
 
         specific_instance_id_association = aws_native.ssm.Association("specificInstanceIdAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["i-1234567890abcdef0"],
+            }],
             parameters={
                 "commands": ["ls"],
                 "workingDirectory": ["/"],
@@ -367,10 +367,10 @@ class Association(pulumi.CustomResource):
 
         specific_instance_id_association = aws_native.ssm.Association("specificInstanceIdAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["i-1234567890abcdef0"],
+            }],
             parameters={
                 "commands": ["ls"],
                 "workingDirectory": ["/"],
@@ -387,10 +387,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["*"],
-            )])
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["*"],
+            }])
 
         ```
         ### Example
@@ -403,10 +403,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["*"],
-            )])
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["*"],
+            }])
 
         ```
         ### Example
@@ -419,10 +419,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="rate(7 days)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:Environment",
-                values=["Production"],
-            )])
+            targets=[{
+                "key": "tag:Environment",
+                "values": ["Production"],
+            }])
 
         ```
         ### Example
@@ -435,10 +435,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="rate(7 days)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:Environment",
-                values=["Production"],
-            )])
+            targets=[{
+                "key": "tag:Environment",
+                "values": ["Production"],
+            }])
 
         ```
 
@@ -458,7 +458,7 @@ class Association(pulumi.CustomResource):
                
                Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
         :param pulumi.Input[str] name: The name of the SSM document.
-        :param pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+        :param pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[int] schedule_offset: Number of days to wait after the scheduled day to run an association.
@@ -467,7 +467,7 @@ class Association(pulumi.CustomResource):
                In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
                
                By default, all associations use `AUTO` mode.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: The targets that the SSM document sends commands to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]] targets: The targets that the SSM document sends commands to.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
                
                > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
@@ -490,10 +490,10 @@ class Association(pulumi.CustomResource):
 
         specific_instance_id_association = aws_native.ssm.Association("specificInstanceIdAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["i-1234567890abcdef0"],
+            }],
             parameters={
                 "commands": ["ls"],
                 "workingDirectory": ["/"],
@@ -508,10 +508,10 @@ class Association(pulumi.CustomResource):
 
         specific_instance_id_association = aws_native.ssm.Association("specificInstanceIdAssociation",
             name="AWS-RunShellScript",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["i-1234567890abcdef0"],
+            }],
             parameters={
                 "commands": ["ls"],
                 "workingDirectory": ["/"],
@@ -528,10 +528,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["*"],
-            )])
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["*"],
+            }])
 
         ```
         ### Example
@@ -544,10 +544,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=["*"],
-            )])
+            targets=[{
+                "key": "InstanceIds",
+                "values": ["*"],
+            }])
 
         ```
         ### Example
@@ -560,10 +560,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="rate(7 days)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:Environment",
-                values=["Production"],
-            )])
+            targets=[{
+                "key": "tag:Environment",
+                "values": ["Production"],
+            }])
 
         ```
         ### Example
@@ -576,10 +576,10 @@ class Association(pulumi.CustomResource):
             association_name="UpdateSSMAgent",
             name="AWS-UpdateSSMAgent",
             schedule_expression="rate(7 days)",
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="tag:Environment",
-                values=["Production"],
-            )])
+            targets=[{
+                "key": "tag:Environment",
+                "values": ["Production"],
+            }])
 
         ```
 
@@ -608,12 +608,12 @@ class Association(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

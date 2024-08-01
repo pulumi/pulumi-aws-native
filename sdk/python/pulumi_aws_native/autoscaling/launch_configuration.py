@@ -329,7 +329,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationBlockDeviceMappingArgs']]]]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
                  classic_link_vpc_id: Optional[pulumi.Input[str]] = None,
                  classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -341,7 +341,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
-                 metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -354,7 +354,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationBlockDeviceMappingArgs']]]] block_device_mappings: Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]] block_device_mappings: Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
         :param pulumi.Input[str] classic_link_vpc_id: The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classic_link_vpc_security_groups: The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
         :param pulumi.Input[bool] ebs_optimized: Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
@@ -366,7 +366,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] kernel_id: Provides the ID of the kernel associated with the EC2 AMI.
         :param pulumi.Input[str] key_name: Provides the name of the EC2 key pair.
         :param pulumi.Input[str] launch_configuration_name: The name of the launch configuration. This name must be unique per Region per account.
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instances.
+        :param pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']] metadata_options: The metadata options for the instances.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance, either default or dedicated.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk to select.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list that contains the security groups to assign to the instances in the Auto Scaling group.
@@ -398,7 +398,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationBlockDeviceMappingArgs']]]]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
                  classic_link_vpc_id: Optional[pulumi.Input[str]] = None,
                  classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -410,7 +410,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
-                 metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -74,7 +74,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 source_bundle: Optional[pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']]] = None,
+                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -83,7 +83,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
         :param pulumi.Input[str] description: A description of this application version.
-        :param pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         """
         ...
     @overload
@@ -111,7 +111,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 source_bundle: Optional[pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']]] = None,
+                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

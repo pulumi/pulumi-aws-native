@@ -166,11 +166,11 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
@@ -182,12 +182,12 @@ class Cluster(pulumi.CustomResource):
                 To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
                 The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
         :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
-        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: The execute command configuration for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+        :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
                 Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
                  +  For each resource, each tag key must be unique, and each tag key can have only one value.
@@ -223,11 +223,11 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

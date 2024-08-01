@@ -74,7 +74,7 @@ class PredefinedAttribute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[pulumi.InputType['ValuesPropertiesArgs']]] = None,
+                 values: Optional[pulumi.Input[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::PredefinedAttribute
@@ -83,7 +83,7 @@ class PredefinedAttribute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the predefined attribute.
-        :param pulumi.Input[pulumi.InputType['ValuesPropertiesArgs']] values: The values of a predefined attribute.
+        :param pulumi.Input[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']] values: The values of a predefined attribute.
         """
         ...
     @overload
@@ -111,7 +111,7 @@ class PredefinedAttribute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[pulumi.InputType['ValuesPropertiesArgs']]] = None,
+                 values: Optional[pulumi.Input[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

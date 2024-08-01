@@ -275,12 +275,12 @@ class InfluxDbInstance(pulumi.CustomResource):
                  db_parameter_group_identifier: Optional[pulumi.Input[str]] = None,
                  db_storage_type: Optional[pulumi.Input['InfluxDbInstanceDbStorageType']] = None,
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
-                 log_delivery_configuration: Optional[pulumi.Input[pulumi.InputType['LogDeliveryConfigurationPropertiesArgs']]] = None,
+                 log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -296,12 +296,12 @@ class InfluxDbInstance(pulumi.CustomResource):
         :param pulumi.Input[str] db_parameter_group_identifier: The name of an existing InfluxDB parameter group.
         :param pulumi.Input['InfluxDbInstanceDbStorageType'] db_storage_type: The storage type of the InfluxDB instance.
         :param pulumi.Input['InfluxDbInstanceDeploymentType'] deployment_type: Deployment type of the InfluxDB Instance.
-        :param pulumi.Input[pulumi.InputType['LogDeliveryConfigurationPropertiesArgs']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
         :param pulumi.Input[str] name: The unique name that is associated with the InfluxDB instance.
         :param pulumi.Input[str] organization: The organization for the InfluxDB instance.
         :param pulumi.Input[str] password: The password for the InfluxDB instance.
         :param pulumi.Input[bool] publicly_accessible: Attach a public IP to the customer ENI.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         :param pulumi.Input[str] username: The username for the InfluxDB instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Amazon EC2 VPC security groups to associate with this InfluxDB instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: A list of EC2 subnet IDs for this InfluxDB instance.
@@ -336,12 +336,12 @@ class InfluxDbInstance(pulumi.CustomResource):
                  db_parameter_group_identifier: Optional[pulumi.Input[str]] = None,
                  db_storage_type: Optional[pulumi.Input['InfluxDbInstanceDbStorageType']] = None,
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
-                 log_delivery_configuration: Optional[pulumi.Input[pulumi.InputType['LogDeliveryConfigurationPropertiesArgs']]] = None,
+                 log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

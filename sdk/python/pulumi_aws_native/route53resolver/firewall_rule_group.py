@@ -77,18 +77,18 @@ class FirewallRuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleGroupFirewallRuleArgs', 'FirewallRuleGroupFirewallRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]] firewall_rules: FirewallRules
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleGroupFirewallRuleArgs', 'FirewallRuleGroupFirewallRuleArgsDict']]]] firewall_rules: FirewallRules
         :param pulumi.Input[str] name: FirewallRuleGroupName
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags
         """
         ...
     @overload
@@ -114,9 +114,9 @@ class FirewallRuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleGroupFirewallRuleArgs', 'FirewallRuleGroupFirewallRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

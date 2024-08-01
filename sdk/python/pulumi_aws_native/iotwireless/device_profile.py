@@ -76,18 +76,18 @@ class DeviceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['DeviceProfileLoRaWanDeviceProfileArgs', 'DeviceProfileLoRaWanDeviceProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Device Profile's resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+        :param pulumi.Input[Union['DeviceProfileLoRaWanDeviceProfileArgs', 'DeviceProfileLoRaWanDeviceProfileArgsDict']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[str] name: Name of service profile
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the device profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
         ...
     @overload
@@ -113,9 +113,9 @@ class DeviceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['DeviceProfileLoRaWanDeviceProfileArgs', 'DeviceProfileLoRaWanDeviceProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

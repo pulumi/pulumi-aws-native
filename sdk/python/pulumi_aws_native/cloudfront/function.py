@@ -106,8 +106,8 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigArgs']]] = None,
-                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionMetadataArgs']]] = None,
+                 function_config: Optional[pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
+                 function_metadata: Optional[pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,8 +117,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
         :param pulumi.Input[str] function_code: The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
-        :param pulumi.Input[pulumi.InputType['FunctionConfigArgs']] function_config: Contains configuration information about a CloudFront function.
-        :param pulumi.Input[pulumi.InputType['FunctionMetadataArgs']] function_metadata: Contains metadata about a CloudFront function.
+        :param pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']] function_config: Contains configuration information about a CloudFront function.
+        :param pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']] function_metadata: Contains metadata about a CloudFront function.
         :param pulumi.Input[str] name: A name to identify the function.
         """
         ...
@@ -147,8 +147,8 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigArgs']]] = None,
-                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionMetadataArgs']]] = None,
+                 function_config: Optional[pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
+                 function_metadata: Optional[pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

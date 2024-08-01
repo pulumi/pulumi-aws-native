@@ -76,7 +76,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: Optional[pulumi.Input[str]] = None,
                  rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Engagement Plan for a SSM Incident Manager Contact.
@@ -85,7 +85,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rotation_ids: Rotation Ids to associate with Oncall Contact for engagement.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: Optional[pulumi.Input[str]] = None,
                  rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

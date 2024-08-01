@@ -191,13 +191,13 @@ class Environment(pulumi.CustomResource):
                  desired_software_set_id: Optional[pulumi.Input[str]] = None,
                  desktop_arn: Optional[pulumi.Input[str]] = None,
                  desktop_endpoint: Optional[pulumi.Input[str]] = None,
-                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
+                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
                  software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::WorkSpacesThinClient::Environment.
@@ -207,13 +207,13 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] desired_software_set_id: The ID of the software set to apply.
         :param pulumi.Input[str] desktop_arn: The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
         :param pulumi.Input[str] desktop_endpoint: The URL for the identity provider login (only for environments that use AppStream 2.0).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] device_creation_tags: An array of key-value pairs to apply to the newly created devices for this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]] device_creation_tags: An array of key-value pairs to apply to the newly created devices for this environment.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']] maintenance_window: A specification for a time window to apply software updates.
+        :param pulumi.Input[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']] maintenance_window: A specification for a time window to apply software updates.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateMode'] software_set_update_mode: An option to define which software updates to apply.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateSchedule'] software_set_update_schedule: An option to define if software updates should be applied within a maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -242,13 +242,13 @@ class Environment(pulumi.CustomResource):
                  desired_software_set_id: Optional[pulumi.Input[str]] = None,
                  desktop_arn: Optional[pulumi.Input[str]] = None,
                  desktop_endpoint: Optional[pulumi.Input[str]] = None,
-                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
+                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['EnvironmentMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
                  software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

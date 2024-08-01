@@ -138,7 +138,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
                  entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class FlowEntitlement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         :param pulumi.Input[str] description: A description of the entitlement.
-        :param pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
+        :param pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
         :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
         :param pulumi.Input[str] name: The name of the entitlement.
@@ -183,7 +183,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
                  entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

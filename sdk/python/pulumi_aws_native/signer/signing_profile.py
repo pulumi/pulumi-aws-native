@@ -94,8 +94,8 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A signing profile is a signing template that can be used to carry out a pre-defined signing job.
@@ -104,8 +104,8 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input[str] profile_name: A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
-        :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: Signature validity period of the profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags associated with the signing profile.
+        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: Signature validity period of the profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags associated with the signing profile.
         """
         ...
     @overload
@@ -133,8 +133,8 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

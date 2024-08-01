@@ -160,8 +160,8 @@ class Faq(pulumi.CustomResource):
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A Kendra FAQ resource
@@ -174,8 +174,8 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[str] role_arn: FAQ role ARN
-        :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: FAQ S3 path
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for labeling the FAQ
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: FAQ S3 path
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the FAQ
         """
         ...
     @overload
@@ -207,8 +207,8 @@ class Faq(pulumi.CustomResource):
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

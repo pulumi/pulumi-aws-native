@@ -110,7 +110,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_specification: Optional[pulumi.Input[str]] = None,
                  monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyMonitorResourceTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -234,10 +234,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -262,10 +262,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -290,10 +290,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -318,10 +318,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
 
@@ -331,7 +331,7 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] monitor_name: The name of the monitor.
         :param pulumi.Input[str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
         :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyMonitorResourceTagArgs']]]] resource_tags: Tags to assign to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]] resource_tags: Tags to assign to monitor.
         """
         ...
     @overload
@@ -461,10 +461,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -489,10 +489,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -517,10 +517,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -545,10 +545,10 @@ class AnomalyMonitor(pulumi.CustomResource):
                 custom_anomaly_monitor_with_linked_account.id,
                 anomaly_service_monitor.id,
             ],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
 
@@ -571,7 +571,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_specification: Optional[pulumi.Input[str]] = None,
                  monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyMonitorResourceTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

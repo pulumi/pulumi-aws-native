@@ -122,11 +122,11 @@ class HoursOfOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
+                 config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -144,31 +144,31 @@ class HoursOfOperation(pulumi.CustomResource):
             description="hours of operation created using cfn",
             instance_arn="arn:aws:connect:region-name:aws-account-id:instance/instance-arn",
             time_zone="Pacific/Midway",
-            config=[aws_native.connect.HoursOfOperationConfigArgs(
-                day=aws_native.connect.HoursOfOperationConfigDay.SUNDAY,
-                end_time=aws_native.connect.HoursOfOperationTimeSliceArgs(
-                    hours=11,
-                    minutes=59,
-                ),
-                start_time=aws_native.connect.HoursOfOperationTimeSliceArgs(
-                    hours=10,
-                    minutes=1,
-                ),
-            )],
-            tags=[aws_native.TagArgs(
-                key="tagKey",
-                value="tagValue",
-            )])
+            config=[{
+                "day": aws_native.connect.HoursOfOperationConfigDay.SUNDAY,
+                "end_time": {
+                    "hours": 11,
+                    "minutes": 59,
+                },
+                "start_time": {
+                    "hours": 10,
+                    "minutes": 1,
+                },
+            }],
+            tags=[{
+                "key": "tagKey",
+                "value": "tagValue",
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] config: Configuration information for the hours of operation: day, start time, and end time.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[str] description: The description of the hours of operation.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the hours of operation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         :param pulumi.Input[str] time_zone: The time zone of the hours of operation.
         """
         ...
@@ -192,21 +192,21 @@ class HoursOfOperation(pulumi.CustomResource):
             description="hours of operation created using cfn",
             instance_arn="arn:aws:connect:region-name:aws-account-id:instance/instance-arn",
             time_zone="Pacific/Midway",
-            config=[aws_native.connect.HoursOfOperationConfigArgs(
-                day=aws_native.connect.HoursOfOperationConfigDay.SUNDAY,
-                end_time=aws_native.connect.HoursOfOperationTimeSliceArgs(
-                    hours=11,
-                    minutes=59,
-                ),
-                start_time=aws_native.connect.HoursOfOperationTimeSliceArgs(
-                    hours=10,
-                    minutes=1,
-                ),
-            )],
-            tags=[aws_native.TagArgs(
-                key="tagKey",
-                value="tagValue",
-            )])
+            config=[{
+                "day": aws_native.connect.HoursOfOperationConfigDay.SUNDAY,
+                "end_time": {
+                    "hours": 11,
+                    "minutes": 59,
+                },
+                "start_time": {
+                    "hours": 10,
+                    "minutes": 1,
+                },
+            }],
+            tags=[{
+                "key": "tagKey",
+                "value": "tagValue",
+            }])
 
         ```
 
@@ -225,11 +225,11 @@ class HoursOfOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
+                 config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

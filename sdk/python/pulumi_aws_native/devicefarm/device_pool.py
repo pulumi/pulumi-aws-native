@@ -135,8 +135,8 @@ class DevicePool(pulumi.CustomResource):
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
@@ -149,8 +149,8 @@ class DevicePool(pulumi.CustomResource):
                By specifying the maximum number of devices, you can control the costs that you incur by running tests.
         :param pulumi.Input[str] name: The device pool's name.
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: The device pool's rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]] rules: The device pool's rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
@@ -182,8 +182,8 @@ class DevicePool(pulumi.CustomResource):
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

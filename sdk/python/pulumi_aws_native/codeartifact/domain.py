@@ -97,7 +97,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The resource schema to create a CodeArtifact domain.
@@ -196,14 +196,14 @@ class Domain(pulumi.CustomResource):
         my_code_artifact_domain = aws_native.codeartifact.Domain("myCodeArtifactDomain",
             domain_name="my-domain",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -216,14 +216,14 @@ class Domain(pulumi.CustomResource):
         my_code_artifact_domain = aws_native.codeartifact.Domain("myCodeArtifactDomain",
             domain_name="my-domain",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -296,14 +296,14 @@ class Domain(pulumi.CustomResource):
             repository_name="my-repo",
             domain_name=my_code_artifact_domain.name,
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -318,14 +318,14 @@ class Domain(pulumi.CustomResource):
             repository_name="my-repo",
             domain_name=my_code_artifact_domain.name,
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -337,7 +337,7 @@ class Domain(pulumi.CustomResource):
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -442,14 +442,14 @@ class Domain(pulumi.CustomResource):
         my_code_artifact_domain = aws_native.codeartifact.Domain("myCodeArtifactDomain",
             domain_name="my-domain",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -462,14 +462,14 @@ class Domain(pulumi.CustomResource):
         my_code_artifact_domain = aws_native.codeartifact.Domain("myCodeArtifactDomain",
             domain_name="my-domain",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -542,14 +542,14 @@ class Domain(pulumi.CustomResource):
             repository_name="my-repo",
             domain_name=my_code_artifact_domain.name,
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -564,14 +564,14 @@ class Domain(pulumi.CustomResource):
             repository_name="my-repo",
             domain_name=my_code_artifact_domain.name,
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -594,7 +594,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

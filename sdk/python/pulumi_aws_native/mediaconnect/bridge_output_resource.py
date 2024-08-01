@@ -75,7 +75,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_output: Optional[pulumi.Input[pulumi.InputType['BridgeOutputResourceBridgeNetworkOutputArgs']]] = None,
+                 network_output: Optional[pulumi.Input[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::BridgeOutput
@@ -84,7 +84,7 @@ class BridgeOutputResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input[str] name: The network output name.
-        :param pulumi.Input[pulumi.InputType['BridgeOutputResourceBridgeNetworkOutputArgs']] network_output: The output of the bridge.
+        :param pulumi.Input[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']] network_output: The output of the bridge.
         """
         ...
     @overload
@@ -112,7 +112,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_output: Optional[pulumi.Input[pulumi.InputType['BridgeOutputResourceBridgeNetworkOutputArgs']]] = None,
+                 network_output: Optional[pulumi.Input[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

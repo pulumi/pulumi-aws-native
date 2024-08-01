@@ -138,13 +138,13 @@ class ConfigurationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
+                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
-                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
-                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
-                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
-                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
+                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ConfigurationSet.
@@ -193,29 +193,29 @@ class ConfigurationSet(pulumi.CustomResource):
         config_set = aws_native.ses.ConfigurationSet("configSet", name=config_set_name)
         cw_event_destination = aws_native.ses.ConfigurationSetEventDestination("cwEventDestination",
             configuration_set_name=config_set.id,
-            event_destination=aws_native.ses.ConfigurationSetEventDestinationEventDestinationArgs(
-                name=event_destination_name,
-                enabled=True,
-                matching_event_types=[
+            event_destination={
+                "name": event_destination_name,
+                "enabled": True,
+                "matching_event_types": [
                     event_type1,
                     event_type2,
                     event_type3,
                 ],
-                cloud_watch_destination=aws_native.ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs(
-                    dimension_configurations=[
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name1,
-                            dimension_value_source=dimension_value_source1,
-                            default_dimension_value=default_dimension_value1,
-                        ),
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name2,
-                            dimension_value_source=dimension_value_source2,
-                            default_dimension_value=default_dimension_value2,
-                        ),
+                "cloud_watch_destination": {
+                    "dimension_configurations": [
+                        {
+                            "dimension_name": dimension_name1,
+                            "dimension_value_source": dimension_value_source1,
+                            "default_dimension_value": default_dimension_value1,
+                        },
+                        {
+                            "dimension_name": dimension_name2,
+                            "dimension_value_source": dimension_value_source2,
+                            "default_dimension_value": default_dimension_value2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
 
         ```
         ### Example
@@ -239,41 +239,41 @@ class ConfigurationSet(pulumi.CustomResource):
         config_set = aws_native.ses.ConfigurationSet("configSet", name=config_set_name)
         cw_event_destination = aws_native.ses.ConfigurationSetEventDestination("cwEventDestination",
             configuration_set_name=config_set.id,
-            event_destination=aws_native.ses.ConfigurationSetEventDestinationEventDestinationArgs(
-                name=event_destination_name,
-                enabled=True,
-                matching_event_types=[
+            event_destination={
+                "name": event_destination_name,
+                "enabled": True,
+                "matching_event_types": [
                     event_type1,
                     event_type2,
                     event_type3,
                 ],
-                cloud_watch_destination=aws_native.ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs(
-                    dimension_configurations=[
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name1,
-                            dimension_value_source=dimension_value_source1,
-                            default_dimension_value=default_dimension_value1,
-                        ),
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name2,
-                            dimension_value_source=dimension_value_source2,
-                            default_dimension_value=default_dimension_value2,
-                        ),
+                "cloud_watch_destination": {
+                    "dimension_configurations": [
+                        {
+                            "dimension_name": dimension_name1,
+                            "dimension_value_source": dimension_value_source1,
+                            "default_dimension_value": default_dimension_value1,
+                        },
+                        {
+                            "dimension_name": dimension_name2,
+                            "dimension_value_source": dimension_value_source2,
+                            "default_dimension_value": default_dimension_value2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[str] name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         ...
     @overload
@@ -328,29 +328,29 @@ class ConfigurationSet(pulumi.CustomResource):
         config_set = aws_native.ses.ConfigurationSet("configSet", name=config_set_name)
         cw_event_destination = aws_native.ses.ConfigurationSetEventDestination("cwEventDestination",
             configuration_set_name=config_set.id,
-            event_destination=aws_native.ses.ConfigurationSetEventDestinationEventDestinationArgs(
-                name=event_destination_name,
-                enabled=True,
-                matching_event_types=[
+            event_destination={
+                "name": event_destination_name,
+                "enabled": True,
+                "matching_event_types": [
                     event_type1,
                     event_type2,
                     event_type3,
                 ],
-                cloud_watch_destination=aws_native.ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs(
-                    dimension_configurations=[
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name1,
-                            dimension_value_source=dimension_value_source1,
-                            default_dimension_value=default_dimension_value1,
-                        ),
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name2,
-                            dimension_value_source=dimension_value_source2,
-                            default_dimension_value=default_dimension_value2,
-                        ),
+                "cloud_watch_destination": {
+                    "dimension_configurations": [
+                        {
+                            "dimension_name": dimension_name1,
+                            "dimension_value_source": dimension_value_source1,
+                            "default_dimension_value": default_dimension_value1,
+                        },
+                        {
+                            "dimension_name": dimension_name2,
+                            "dimension_value_source": dimension_value_source2,
+                            "default_dimension_value": default_dimension_value2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
 
         ```
         ### Example
@@ -374,29 +374,29 @@ class ConfigurationSet(pulumi.CustomResource):
         config_set = aws_native.ses.ConfigurationSet("configSet", name=config_set_name)
         cw_event_destination = aws_native.ses.ConfigurationSetEventDestination("cwEventDestination",
             configuration_set_name=config_set.id,
-            event_destination=aws_native.ses.ConfigurationSetEventDestinationEventDestinationArgs(
-                name=event_destination_name,
-                enabled=True,
-                matching_event_types=[
+            event_destination={
+                "name": event_destination_name,
+                "enabled": True,
+                "matching_event_types": [
                     event_type1,
                     event_type2,
                     event_type3,
                 ],
-                cloud_watch_destination=aws_native.ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs(
-                    dimension_configurations=[
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name1,
-                            dimension_value_source=dimension_value_source1,
-                            default_dimension_value=default_dimension_value1,
-                        ),
-                        aws_native.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs(
-                            dimension_name=dimension_name2,
-                            dimension_value_source=dimension_value_source2,
-                            default_dimension_value=default_dimension_value2,
-                        ),
+                "cloud_watch_destination": {
+                    "dimension_configurations": [
+                        {
+                            "dimension_name": dimension_name1,
+                            "dimension_value_source": dimension_value_source1,
+                            "default_dimension_value": default_dimension_value1,
+                        },
+                        {
+                            "dimension_name": dimension_name2,
+                            "dimension_value_source": dimension_value_source2,
+                            "default_dimension_value": default_dimension_value2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
 
         ```
 
@@ -415,13 +415,13 @@ class ConfigurationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
+                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
-                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
-                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
-                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
-                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
+                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

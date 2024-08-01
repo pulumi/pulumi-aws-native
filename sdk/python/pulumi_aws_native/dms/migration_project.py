@@ -227,10 +227,10 @@ class MigrationProject(pulumi.CustomResource):
                  migration_project_creation_time: Optional[pulumi.Input[str]] = None,
                  migration_project_identifier: Optional[pulumi.Input[str]] = None,
                  migration_project_name: Optional[pulumi.Input[str]] = None,
-                 schema_conversion_application_attributes: Optional[pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']]] = None,
-                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
+                 schema_conversion_application_attributes: Optional[pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
+                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
                  transformation_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -245,10 +245,10 @@ class MigrationProject(pulumi.CustomResource):
         :param pulumi.Input[str] migration_project_creation_time: The property describes a creating time of the migration project.
         :param pulumi.Input[str] migration_project_identifier: The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
         :param pulumi.Input[str] migration_project_name: The property describes a name to identify the migration project.
-        :param pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]] target_data_provider_descriptors: The property describes target data provider descriptors for the migration project.
+        :param pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]] target_data_provider_descriptors: The property describes target data provider descriptors for the migration project.
         :param pulumi.Input[str] transformation_rules: The property describes transformation rules for the migration project.
         """
         ...
@@ -282,10 +282,10 @@ class MigrationProject(pulumi.CustomResource):
                  migration_project_creation_time: Optional[pulumi.Input[str]] = None,
                  migration_project_identifier: Optional[pulumi.Input[str]] = None,
                  migration_project_name: Optional[pulumi.Input[str]] = None,
-                 schema_conversion_application_attributes: Optional[pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']]] = None,
-                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
+                 schema_conversion_application_attributes: Optional[pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
+                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
                  transformation_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

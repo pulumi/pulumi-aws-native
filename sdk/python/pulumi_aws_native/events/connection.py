@@ -93,7 +93,7 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthParametersArgs']]] = None,
+                 auth_parameters: Optional[pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,12 +113,12 @@ class Connection(pulumi.CustomResource):
         my_connection = aws_native.events.Connection("myConnection",
             authorization_type=aws_native.events.ConnectionAuthorizationType.API_KEY,
             description="Connection to PagerDuty API",
-            auth_parameters=aws_native.events.ConnectionAuthParametersArgs(
-                api_key_auth_parameters=aws_native.events.ConnectionApiKeyAuthParametersArgs(
-                    api_key_name="PagerDuty Authorization",
-                    api_key_value=pager_duty_api_key_param,
-                ),
-            ))
+            auth_parameters={
+                "api_key_auth_parameters": {
+                    "api_key_name": "PagerDuty Authorization",
+                    "api_key_value": pager_duty_api_key_param,
+                },
+            })
         my_api_destination = aws_native.events.ApiDestination("myApiDestination",
             connection_arn=my_connection.arn,
             description="API Destination to send events to PagerDuty",
@@ -129,7 +129,7 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConnectionAuthParametersArgs']] auth_parameters: A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']] auth_parameters: A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         :param pulumi.Input['ConnectionAuthorizationType'] authorization_type: The type of authorization to use for the connection.
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
@@ -157,12 +157,12 @@ class Connection(pulumi.CustomResource):
         my_connection = aws_native.events.Connection("myConnection",
             authorization_type=aws_native.events.ConnectionAuthorizationType.API_KEY,
             description="Connection to PagerDuty API",
-            auth_parameters=aws_native.events.ConnectionAuthParametersArgs(
-                api_key_auth_parameters=aws_native.events.ConnectionApiKeyAuthParametersArgs(
-                    api_key_name="PagerDuty Authorization",
-                    api_key_value=pager_duty_api_key_param,
-                ),
-            ))
+            auth_parameters={
+                "api_key_auth_parameters": {
+                    "api_key_name": "PagerDuty Authorization",
+                    "api_key_value": pager_duty_api_key_param,
+                },
+            })
         my_api_destination = aws_native.events.ApiDestination("myApiDestination",
             connection_arn=my_connection.arn,
             description="API Destination to send events to PagerDuty",
@@ -186,7 +186,7 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthParametersArgs']]] = None,
+                 auth_parameters: Optional[pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

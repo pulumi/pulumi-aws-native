@@ -314,11 +314,11 @@ class FlowSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 decryption: Optional[pulumi.Input[pulumi.InputType['FlowSourceEncryptionArgs']]] = None,
+                 decryption: Optional[pulumi.Input[Union['FlowSourceEncryptionArgs', 'FlowSourceEncryptionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
-                 gateway_bridge_source: Optional[pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input[Union['FlowSourceGatewayBridgeSourceArgs', 'FlowSourceGatewayBridgeSourceArgsDict']]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
@@ -338,11 +338,11 @@ class FlowSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FlowSourceEncryptionArgs']] decryption: The type of encryption that is used on the content ingested from this source.
+        :param pulumi.Input[Union['FlowSourceEncryptionArgs', 'FlowSourceEncryptionArgsDict']] decryption: The type of encryption that is used on the content ingested from this source.
         :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
-        :param pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
+        :param pulumi.Input[Union['FlowSourceGatewayBridgeSourceArgs', 'FlowSourceGatewayBridgeSourceArgsDict']] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
@@ -381,11 +381,11 @@ class FlowSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 decryption: Optional[pulumi.Input[pulumi.InputType['FlowSourceEncryptionArgs']]] = None,
+                 decryption: Optional[pulumi.Input[Union['FlowSourceEncryptionArgs', 'FlowSourceEncryptionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
-                 gateway_bridge_source: Optional[pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input[Union['FlowSourceGatewayBridgeSourceArgs', 'FlowSourceGatewayBridgeSourceArgsDict']]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,

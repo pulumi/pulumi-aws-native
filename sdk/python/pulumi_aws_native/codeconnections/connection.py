@@ -93,7 +93,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  host_arn: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Schema for AWS::CodeConnections::Connection resource which can be used to connect external source providers with other AWS services (i.e. AWS CodePipeline)
@@ -103,7 +103,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_name: The name of the connection. Connection names must be unique in an AWS user account.
         :param pulumi.Input[str] host_arn: The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the tags applied to a connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the tags applied to a connection.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  host_arn: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

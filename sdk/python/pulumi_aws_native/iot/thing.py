@@ -62,7 +62,7 @@ class Thing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: Optional[pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']]] = None,
+                 attribute_payload: Optional[pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
                  thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -88,19 +88,19 @@ class Thing(pulumi.CustomResource):
             my_attribute_value_c = "myStringC123"
         my_thing = aws_native.iot.Thing("myThing",
             thing_name=name_parameter,
-            attribute_payload=aws_native.iot.ThingAttributePayloadArgs(
-                attributes={
-                    "myAttributeA": my_attribute_value_a,
-                    "myAttributeB": my_attribute_value_b,
-                    "myAttributeC": my_attribute_value_c,
+            attribute_payload={
+                "attributes": {
+                    "my_attribute_a": my_attribute_value_a,
+                    "my_attribute_b": my_attribute_value_b,
+                    "my_attribute_c": my_attribute_value_c,
                 },
-            ))
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
+        :param pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         :param pulumi.Input[str] thing_name: The name of the thing to update.
                
                You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -134,13 +134,13 @@ class Thing(pulumi.CustomResource):
             my_attribute_value_c = "myStringC123"
         my_thing = aws_native.iot.Thing("myThing",
             thing_name=name_parameter,
-            attribute_payload=aws_native.iot.ThingAttributePayloadArgs(
-                attributes={
-                    "myAttributeA": my_attribute_value_a,
-                    "myAttributeB": my_attribute_value_b,
-                    "myAttributeC": my_attribute_value_c,
+            attribute_payload={
+                "attributes": {
+                    "my_attribute_a": my_attribute_value_a,
+                    "my_attribute_b": my_attribute_value_b,
+                    "my_attribute_c": my_attribute_value_c,
                 },
-            ))
+            })
 
         ```
 
@@ -159,7 +159,7 @@ class Thing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: Optional[pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']]] = None,
+                 attribute_payload: Optional[pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
                  thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

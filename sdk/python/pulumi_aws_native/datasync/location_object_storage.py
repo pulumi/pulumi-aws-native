@@ -195,7 +195,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationObjectStorage.
@@ -227,7 +227,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -278,7 +278,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

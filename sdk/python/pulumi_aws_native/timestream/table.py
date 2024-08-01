@@ -125,11 +125,11 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']]] = None,
-                 retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
+                 magnetic_store_write_properties: Optional[pulumi.Input[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
+                 retention_properties: Optional[pulumi.Input[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Timestream::Table resource creates a Timestream Table.
@@ -137,11 +137,11 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name for the database which the table to be created belongs to.
-        :param pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']] magnetic_store_write_properties: The properties that determine whether magnetic store writes are enabled.
-        :param pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']] retention_properties: The retention duration of the memory store and the magnetic store.
-        :param pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']] schema: A Schema specifies the expected data model of the table.
+        :param pulumi.Input[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']] magnetic_store_write_properties: The properties that determine whether magnetic store writes are enabled.
+        :param pulumi.Input[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']] retention_properties: The retention duration of the memory store and the magnetic store.
+        :param pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']] schema: A Schema specifies the expected data model of the table.
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -168,11 +168,11 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']]] = None,
-                 retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
+                 magnetic_store_write_properties: Optional[pulumi.Input[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
+                 retention_properties: Optional[pulumi.Input[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

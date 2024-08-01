@@ -143,9 +143,9 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 portal_options: Optional[pulumi.Input[pulumi.InputType['ApplicationPortalOptionsConfigurationArgs']]] = None,
+                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
                  status: Optional[pulumi.Input['ApplicationStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for Identity Center (SSO) Application
@@ -156,9 +156,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description information for the Identity Center (SSO) Application
         :param pulumi.Input[str] instance_arn: The ARN of the instance of IAM Identity Center under which the operation will run
         :param pulumi.Input[str] name: The name you want to assign to this Identity Center (SSO) Application
-        :param pulumi.Input[pulumi.InputType['ApplicationPortalOptionsConfigurationArgs']] portal_options: A structure that describes the options for the portal associated with an application
+        :param pulumi.Input[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']] portal_options: A structure that describes the options for the portal associated with an application
         :param pulumi.Input['ApplicationStatus'] status: Specifies whether the application is enabled or disabled
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies tags to be attached to the application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies tags to be attached to the application
         """
         ...
     @overload
@@ -188,9 +188,9 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 portal_options: Optional[pulumi.Input[pulumi.InputType['ApplicationPortalOptionsConfigurationArgs']]] = None,
+                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
                  status: Optional[pulumi.Input['ApplicationStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

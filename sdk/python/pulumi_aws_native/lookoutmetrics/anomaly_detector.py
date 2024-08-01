@@ -105,22 +105,22 @@ class AnomalyDetector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_detector_config: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorConfigArgs']]] = None,
+                 anomaly_detector_config: Optional[pulumi.Input[Union['AnomalyDetectorConfigArgs', 'AnomalyDetectorConfigArgsDict']]] = None,
                  anomaly_detector_description: Optional[pulumi.Input[str]] = None,
                  anomaly_detector_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]]] = None,
+                 metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyDetectorMetricSetArgs', 'AnomalyDetectorMetricSetArgsDict']]]]] = None,
                  __props__=None):
         """
         An Amazon Lookout for Metrics Detector
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnomalyDetectorConfigArgs']] anomaly_detector_config: Configuration options for the AnomalyDetector
+        :param pulumi.Input[Union['AnomalyDetectorConfigArgs', 'AnomalyDetectorConfigArgsDict']] anomaly_detector_config: Configuration options for the AnomalyDetector
         :param pulumi.Input[str] anomaly_detector_description: A description for the AnomalyDetector.
         :param pulumi.Input[str] anomaly_detector_name: Name for the Amazon Lookout for Metrics Anomaly Detector
         :param pulumi.Input[str] kms_key_arn: KMS key used to encrypt the AnomalyDetector data
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]] metric_set_list: List of metric sets for anomaly detection
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalyDetectorMetricSetArgs', 'AnomalyDetectorMetricSetArgsDict']]]] metric_set_list: List of metric sets for anomaly detection
         """
         ...
     @overload
@@ -146,11 +146,11 @@ class AnomalyDetector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_detector_config: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorConfigArgs']]] = None,
+                 anomaly_detector_config: Optional[pulumi.Input[Union['AnomalyDetectorConfigArgs', 'AnomalyDetectorConfigArgsDict']]] = None,
                  anomaly_detector_description: Optional[pulumi.Input[str]] = None,
                  anomaly_detector_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]]] = None,
+                 metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyDetectorMetricSetArgs', 'AnomalyDetectorMetricSetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

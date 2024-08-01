@@ -109,11 +109,11 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
-                 posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
-                 root_directory: Optional[pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']]] = None,
+                 posix_user: Optional[pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 root_directory: Optional[pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
@@ -121,12 +121,12 @@ class AccessPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] access_point_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] access_point_tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input[str] client_token: The opaque string specified in the request to ensure idempotent creation.
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
-        :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
-        :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
+        :param pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']] posix_user: The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
+        :param pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']] root_directory: The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
         """
         ...
     @overload
@@ -153,11 +153,11 @@ class AccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
-                 posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
-                 root_directory: Optional[pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']]] = None,
+                 posix_user: Optional[pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 root_directory: Optional[pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

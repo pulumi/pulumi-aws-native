@@ -124,9 +124,9 @@ class FargateProfile(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  fargate_profile_name: Optional[pulumi.Input[str]] = None,
                  pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::EKS::FargateProfile
@@ -136,9 +136,9 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]] selectors: The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,9 +167,9 @@ class FargateProfile(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  fargate_profile_name: Optional[pulumi.Input[str]] = None,
                  pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

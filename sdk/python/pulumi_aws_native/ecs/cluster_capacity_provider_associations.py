@@ -74,7 +74,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]]] = None,
                  __props__=None):
         """
         Associate a set of ECS Capacity Providers with a specified ECS Cluster
@@ -95,16 +95,16 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
-                ),
+                {
+                    "base": 2,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                },
+                {
+                    "base": 0,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
+                },
             ])
 
         ```
@@ -123,16 +123,16 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
-                ),
+                {
+                    "base": 2,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                },
+                {
+                    "base": 0,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
+                },
             ])
 
         ```
@@ -141,7 +141,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]] capacity_providers: The capacity providers to associate with the cluster.
         :param pulumi.Input[str] cluster: The cluster the capacity provider association is the target of.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
         """
         ...
     @overload
@@ -168,16 +168,16 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
-                ),
+                {
+                    "base": 2,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                },
+                {
+                    "base": 0,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
+                },
             ])
 
         ```
@@ -196,16 +196,16 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=1,
-                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
-                ),
+                {
+                    "base": 2,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                },
+                {
+                    "base": 0,
+                    "weight": 1,
+                    "capacity_provider": aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
+                },
             ])
 
         ```
@@ -227,7 +227,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

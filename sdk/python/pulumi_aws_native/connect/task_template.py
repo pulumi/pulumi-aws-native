@@ -189,15 +189,15 @@ class TaskTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
-                 constraints: Optional[pulumi.Input[pulumi.InputType['ConstraintsPropertiesArgs']]] = None,
+                 constraints: Optional[pulumi.Input[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict']]] = None,
                  contact_flow_arn: Optional[pulumi.Input[str]] = None,
-                 defaults: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]]] = None,
+                 defaults: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateFieldArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::TaskTemplate.
@@ -205,15 +205,15 @@ class TaskTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-        :param pulumi.Input[pulumi.InputType['ConstraintsPropertiesArgs']] constraints: The constraints for the task template
+        :param pulumi.Input[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict']] constraints: The constraints for the task template
         :param pulumi.Input[str] contact_flow_arn: The identifier of the contact flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]] defaults: The default values for fields when a task is created by referencing this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict']]]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[str] description: The description of the task template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateFieldArgs']]]] fields: The list of task template's fields
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]] fields: The list of task template's fields
         :param pulumi.Input[str] instance_arn: The identifier (arn) of the instance.
         :param pulumi.Input[str] name: The name of the task template.
         :param pulumi.Input['TaskTemplateStatus'] status: The status of the task template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -240,15 +240,15 @@ class TaskTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
-                 constraints: Optional[pulumi.Input[pulumi.InputType['ConstraintsPropertiesArgs']]] = None,
+                 constraints: Optional[pulumi.Input[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict']]] = None,
                  contact_flow_arn: Optional[pulumi.Input[str]] = None,
-                 defaults: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]]] = None,
+                 defaults: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateFieldArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

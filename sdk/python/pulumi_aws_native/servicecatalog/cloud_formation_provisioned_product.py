@@ -268,9 +268,9 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  provisioned_product_name: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]]] = None,
-                 provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProvisionedProductProvisioningParameterArgs', 'CloudFormationProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 provisioning_preferences: Optional[pulumi.Input[Union['CloudFormationProvisionedProductProvisioningPreferencesArgs', 'CloudFormationProvisionedProductProvisioningPreferencesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
@@ -303,9 +303,9 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_artifact_name: The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
                
                > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
-        :param pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']] provisioning_preferences: StackSet preferences that are required for provisioning the product or updating a provisioned product.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProvisionedProductProvisioningParameterArgs', 'CloudFormationProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
+        :param pulumi.Input[Union['CloudFormationProvisionedProductProvisioningPreferencesArgs', 'CloudFormationProvisionedProductProvisioningPreferencesArgsDict']] provisioning_preferences: StackSet preferences that are required for provisioning the product or updating a provisioned product.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
                
                > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
@@ -342,9 +342,9 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  provisioned_product_name: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]]] = None,
-                 provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProvisionedProductProvisioningParameterArgs', 'CloudFormationProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 provisioning_preferences: Optional[pulumi.Input[Union['CloudFormationProvisionedProductProvisioningPreferencesArgs', 'CloudFormationProvisionedProductProvisioningPreferencesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

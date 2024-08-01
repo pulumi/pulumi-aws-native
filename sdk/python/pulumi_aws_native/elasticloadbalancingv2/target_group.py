@@ -340,15 +340,15 @@ class TargetGroup(pulumi.CustomResource):
                  health_check_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  healthy_threshold_count: Optional[pulumi.Input[int]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 matcher: Optional[pulumi.Input[pulumi.InputType['TargetGroupMatcherArgs']]] = None,
+                 matcher: Optional[pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -365,15 +365,15 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_timeout_seconds: The amount of time, in seconds, during which no response from a target means a failed health check.
         :param pulumi.Input[int] healthy_threshold_count: The number of consecutive health checks successes required before considering an unhealthy target healthy. 
         :param pulumi.Input[str] ip_address_type: The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
-        :param pulumi.Input[pulumi.InputType['TargetGroupMatcherArgs']] matcher: [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
+        :param pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']] matcher: [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
         :param pulumi.Input[str] name: The name of the target group.
         :param pulumi.Input[int] port: The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets.
         :param pulumi.Input[str] protocol_version: [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]] target_group_attributes: The attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]] target_group_attributes: The attributes.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]] targets: The targets.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]] targets: The targets.
         :param pulumi.Input[int] unhealthy_threshold_count: The number of consecutive health check failures required before considering a target unhealthy.
         :param pulumi.Input[str] vpc_id: The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
         """
@@ -409,15 +409,15 @@ class TargetGroup(pulumi.CustomResource):
                  health_check_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  healthy_threshold_count: Optional[pulumi.Input[int]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 matcher: Optional[pulumi.Input[pulumi.InputType['TargetGroupMatcherArgs']]] = None,
+                 matcher: Optional[pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

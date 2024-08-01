@@ -156,10 +156,10 @@ class SimulationApplication(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rendering_engine: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']]] = None,
-                 robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
-                 simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
+                 rendering_engine: Optional[pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
+                 robot_software_suite: Optional[pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 simulation_software_suite: Optional[pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -175,12 +175,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            },
             tags={
                 "name": "BasicSimulationApplication",
                 "type": "CFN",
@@ -197,12 +197,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            },
             tags={
                 "name": "BasicSimulationApplication",
                 "type": "CFN",
@@ -219,12 +219,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            })
         basic_simulation_application_version = aws_native.robomaker.SimulationApplicationVersion("basicSimulationApplicationVersion",
             application=basic_simulation_application.arn,
             current_revision_id=basic_simulation_application.current_revision_id)
@@ -240,12 +240,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            })
         basic_simulation_application_version = aws_native.robomaker.SimulationApplicationVersion("basicSimulationApplicationVersion",
             application=basic_simulation_application.arn,
             current_revision_id=basic_simulation_application.current_revision_id)
@@ -258,10 +258,10 @@ class SimulationApplication(pulumi.CustomResource):
         :param pulumi.Input[str] current_revision_id: The current revision id.
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[str] name: The name of the simulation application.
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']] rendering_engine: The rendering engine for the simulation application.
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite used by the simulation application.
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']] simulation_software_suite: The simulation software suite used by the simulation application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]] sources: The sources of the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']] rendering_engine: The rendering engine for the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']] robot_software_suite: The robot software suite used by the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']] simulation_software_suite: The simulation software suite used by the simulation application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]] sources: The sources of the simulation application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the simulation application.
         """
         ...
@@ -283,12 +283,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            },
             tags={
                 "name": "BasicSimulationApplication",
                 "type": "CFN",
@@ -305,12 +305,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            },
             tags={
                 "name": "BasicSimulationApplication",
                 "type": "CFN",
@@ -327,12 +327,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            })
         basic_simulation_application_version = aws_native.robomaker.SimulationApplicationVersion("basicSimulationApplicationVersion",
             application=basic_simulation_application.arn,
             current_revision_id=basic_simulation_application.current_revision_id)
@@ -348,12 +348,12 @@ class SimulationApplication(pulumi.CustomResource):
         basic_simulation_application = aws_native.robomaker.SimulationApplication("basicSimulationApplication",
             name="MySimulationApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-sim-app:latest",
-            robot_software_suite=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
-            simulation_software_suite=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs(
-                name=aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationRobotSoftwareSuiteName.GENERAL,
+            },
+            simulation_software_suite={
+                "name": aws_native.robomaker.SimulationApplicationSimulationSoftwareSuiteName.SIMULATION_RUNTIME,
+            })
         basic_simulation_application_version = aws_native.robomaker.SimulationApplicationVersion("basicSimulationApplicationVersion",
             application=basic_simulation_application.arn,
             current_revision_id=basic_simulation_application.current_revision_id)
@@ -379,10 +379,10 @@ class SimulationApplication(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rendering_engine: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']]] = None,
-                 robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
-                 simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
+                 rendering_engine: Optional[pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
+                 robot_software_suite: Optional[pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 simulation_software_suite: Optional[pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

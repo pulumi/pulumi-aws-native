@@ -75,7 +75,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
@@ -84,7 +84,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         :param pulumi.Input[str] firewall_name: The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']] logging_configuration: Defines how AWS Network Firewall performs logging for a `Firewall` .
+        :param pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']] logging_configuration: Defines how AWS Network Firewall performs logging for a `Firewall` .
         """
         ...
     @overload
@@ -112,7 +112,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

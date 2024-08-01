@@ -105,9 +105,9 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -116,9 +116,9 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']] options: The options for the transit gateway vpc attachment.
+        :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']] options: The options for the transit gateway vpc attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
@@ -146,9 +146,9 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

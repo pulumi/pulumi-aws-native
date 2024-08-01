@@ -93,8 +93,8 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_rule_payload: Optional[pulumi.Input[Union['TopicRulePayloadArgs', 'TopicRulePayloadArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::TopicRule
@@ -104,14 +104,14 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the rule.
                
                *Pattern* : `^[a-zA-Z0-9_]+$`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the topic rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the topic rule.
                
                > For URI Request parameters use format: ...key1=value1&key2=value2...
                > 
                > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
                > 
                > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-        :param pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']] topic_rule_payload: The rule payload.
+        :param pulumi.Input[Union['TopicRulePayloadArgs', 'TopicRulePayloadArgsDict']] topic_rule_payload: The rule payload.
         """
         ...
     @overload
@@ -138,8 +138,8 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_rule_payload: Optional[pulumi.Input[Union['TopicRulePayloadArgs', 'TopicRulePayloadArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

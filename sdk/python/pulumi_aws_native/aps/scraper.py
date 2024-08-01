@@ -106,10 +106,10 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ScraperDestinationArgs']]] = None,
-                 scrape_configuration: Optional[pulumi.Input[pulumi.InputType['ScraperScrapeConfigurationArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ScraperSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
+                 source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Scraper
@@ -117,10 +117,10 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Scraper alias.
-        :param pulumi.Input[pulumi.InputType['ScraperDestinationArgs']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-        :param pulumi.Input[pulumi.InputType['ScraperScrapeConfigurationArgs']] scrape_configuration: The configuration in use by the scraper.
-        :param pulumi.Input[pulumi.InputType['ScraperSourceArgs']] source: The Amazon EKS cluster from which the scraper collects metrics.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        :param pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']] scrape_configuration: The configuration in use by the scraper.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: The Amazon EKS cluster from which the scraper collects metrics.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -147,10 +147,10 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ScraperDestinationArgs']]] = None,
-                 scrape_configuration: Optional[pulumi.Input[pulumi.InputType['ScraperScrapeConfigurationArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ScraperSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
+                 source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

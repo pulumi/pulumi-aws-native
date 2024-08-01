@@ -118,7 +118,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
-                 link_configuration: Optional[pulumi.Input[pulumi.InputType['LinkConfigurationArgs']]] = None,
+                 link_configuration: Optional[pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -135,7 +135,7 @@ class Link(pulumi.CustomResource):
                - `$AccountName` is the name of the account
                - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
                - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
-        :param pulumi.Input[pulumi.InputType['LinkConfigurationArgs']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        :param pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
         :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
         :param pulumi.Input[str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the link
@@ -165,7 +165,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
-                 link_configuration: Optional[pulumi.Input[pulumi.InputType['LinkConfigurationArgs']]] = None,
+                 link_configuration: Optional[pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

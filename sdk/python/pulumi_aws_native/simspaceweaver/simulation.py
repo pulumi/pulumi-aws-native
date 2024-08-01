@@ -124,8 +124,8 @@ class Simulation(pulumi.CustomResource):
                  maximum_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 schema_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
-                 snapshot_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
+                 schema_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 snapshot_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
                  __props__=None):
         """
         AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -140,10 +140,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation",
             role_arn="arn:aws:iam::111122223333:role/my-test-simulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="MyTestSimulationBucket",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "MyTestSimulationBucket",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -155,10 +155,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation",
             role_arn="arn:aws:iam::111122223333:role/my-test-simulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="MyTestSimulationBucket",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "MyTestSimulationBucket",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -170,10 +170,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-schemas-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-schemas-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -185,10 +185,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-schemas-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-schemas-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -200,10 +200,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -215,10 +215,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -231,10 +231,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="1H",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -247,10 +247,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="1H",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -263,10 +263,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="2D",
             name="MyTestSimulation_from_snapshot",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy",
-            snapshot_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
-            ))
+            snapshot_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
+            })
 
         ```
         ### Example
@@ -279,10 +279,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="2D",
             name="MyTestSimulation_from_snapshot",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy",
-            snapshot_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
-            ))
+            snapshot_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
+            })
 
         ```
 
@@ -291,12 +291,12 @@ class Simulation(pulumi.CustomResource):
         :param pulumi.Input[str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[str] name: The name of the simulation.
         :param pulumi.Input[str] role_arn: Role ARN.
-        :param pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']] schema_s3_location: The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']] schema_s3_location: The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
                
                Provide a `SchemaS3Location` to start your simulation from a schema.
                
                If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
-        :param pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']] snapshot_s3_location: The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']] snapshot_s3_location: The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
                
                Provide a `SnapshotS3Location` to start your simulation from a snapshot.
                
@@ -321,10 +321,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation",
             role_arn="arn:aws:iam::111122223333:role/my-test-simulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="MyTestSimulationBucket",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "MyTestSimulationBucket",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -336,10 +336,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation",
             role_arn="arn:aws:iam::111122223333:role/my-test-simulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="MyTestSimulationBucket",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "MyTestSimulationBucket",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -351,10 +351,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-schemas-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-schemas-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -366,10 +366,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-schemas-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-schemas-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -381,10 +381,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -396,10 +396,10 @@ class Simulation(pulumi.CustomResource):
         my_test_simulation = aws_native.simspaceweaver.Simulation("myTestSimulation",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -412,10 +412,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="1H",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -428,10 +428,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="1H",
             name="MyTestSimulation_22-12-15_12_00_00",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role",
-            schema_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="MyTestSimulation-schema.yaml",
-            ))
+            schema_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "MyTestSimulation-schema.yaml",
+            })
 
         ```
         ### Example
@@ -444,10 +444,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="2D",
             name="MyTestSimulation_from_snapshot",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy",
-            snapshot_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
-            ))
+            snapshot_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
+            })
 
         ```
         ### Example
@@ -460,10 +460,10 @@ class Simulation(pulumi.CustomResource):
             maximum_duration="2D",
             name="MyTestSimulation_from_snapshot",
             role_arn="arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy",
-            snapshot_s3_location=aws_native.simspaceweaver.SimulationS3LocationArgs(
-                bucket_name="weaver-mytestsimulation-111122223333-artifacts-us-west-2",
-                object_key="snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
-            ))
+            snapshot_s3_location={
+                "bucket_name": "weaver-mytestsimulation-111122223333-artifacts-us-west-2",
+                "object_key": "snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip",
+            })
 
         ```
 
@@ -485,8 +485,8 @@ class Simulation(pulumi.CustomResource):
                  maximum_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 schema_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
-                 snapshot_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
+                 schema_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 snapshot_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

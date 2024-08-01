@@ -74,7 +74,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fairshare_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairsharePolicyArgs']]] = None,
+                 fairshare_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -83,7 +83,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchedulingPolicyFairsharePolicyArgs']] fairshare_policy: The fair share policy of the scheduling policy.
+        :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']] fairshare_policy: The fair share policy of the scheduling policy.
         :param pulumi.Input[str] name: Name of Scheduling Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
@@ -111,7 +111,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fairshare_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairsharePolicyArgs']]] = None,
+                 fairshare_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

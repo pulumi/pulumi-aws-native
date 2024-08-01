@@ -193,8 +193,8 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionArgs']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[pulumi.InputType['FlowS3LocationArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
+                 definition_s3_location: Optional[pulumi.Input[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -209,8 +209,8 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionArgs']] definition: The definition of the nodes and connections between the nodes in the flow.
-        :param pulumi.Input[pulumi.InputType['FlowS3LocationArgs']] definition_s3_location: The Amazon S3 location of the flow definition.
+        :param pulumi.Input[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']] definition: The definition of the nodes and connections between the nodes in the flow.
+        :param pulumi.Input[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']] definition_s3_location: The Amazon S3 location of the flow definition.
         :param pulumi.Input[str] definition_string: A JSON string containing a Definition with the same schema as the Definition property of this resource
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
                
@@ -248,8 +248,8 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionArgs']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[pulumi.InputType['FlowS3LocationArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
+                 definition_s3_location: Optional[pulumi.Input[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,

@@ -91,7 +91,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -101,7 +101,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: The distributions of the distribution configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]] distributions: The distributions of the distribution configuration.
         :param pulumi.Input[str] name: The name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         """
@@ -130,7 +130,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

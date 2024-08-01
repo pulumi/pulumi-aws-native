@@ -93,8 +93,8 @@ class ListenerRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -104,9 +104,9 @@ class ListenerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: The actions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]] actions: The actions.
                 The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]] conditions: The conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]] conditions: The conditions.
                 The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[int] priority: The rule priority. A listener can't have multiple rules with the same priority.
@@ -137,8 +137,8 @@ class ListenerRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  __props__=None):

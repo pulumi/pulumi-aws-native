@@ -161,10 +161,10 @@ class AppBlock(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  packaging_type: Optional[pulumi.Input[str]] = None,
-                 post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
-                 setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
-                 source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AppBlockTag0PropertiesArgs'], pulumi.InputType['AppBlockTag1PropertiesArgs']]]]]] = None,
+                 post_setup_script_details: Optional[pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']]] = None,
+                 setup_script_details: Optional[pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']]] = None,
+                 source_s3_location: Optional[pulumi.Input[Union['AppBlockS3LocationArgs', 'AppBlockS3LocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag0PropertiesArgsDict'], Union['AppBlockTag1PropertiesArgs', 'AppBlockTag1PropertiesArgsDict']]]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::AppBlock
@@ -177,10 +177,10 @@ class AppBlock(pulumi.CustomResource):
                
                *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
         :param pulumi.Input[str] packaging_type: The packaging type of the app block.
-        :param pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']] post_setup_script_details: The post setup script details of the app block.
-        :param pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']] setup_script_details: The setup script details of the app block.
-        :param pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']] source_s3_location: The source S3 location of the app block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AppBlockTag0PropertiesArgs'], pulumi.InputType['AppBlockTag1PropertiesArgs']]]]] tags: The tags of the app block.
+        :param pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']] post_setup_script_details: The post setup script details of the app block.
+        :param pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']] setup_script_details: The setup script details of the app block.
+        :param pulumi.Input[Union['AppBlockS3LocationArgs', 'AppBlockS3LocationArgsDict']] source_s3_location: The source S3 location of the app block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag0PropertiesArgsDict'], Union['AppBlockTag1PropertiesArgs', 'AppBlockTag1PropertiesArgsDict']]]]] tags: The tags of the app block.
         """
         ...
     @overload
@@ -210,10 +210,10 @@ class AppBlock(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  packaging_type: Optional[pulumi.Input[str]] = None,
-                 post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
-                 setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
-                 source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AppBlockTag0PropertiesArgs'], pulumi.InputType['AppBlockTag1PropertiesArgs']]]]]] = None,
+                 post_setup_script_details: Optional[pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']]] = None,
+                 setup_script_details: Optional[pulumi.Input[Union['AppBlockScriptDetailsArgs', 'AppBlockScriptDetailsArgsDict']]] = None,
+                 source_s3_location: Optional[pulumi.Input[Union['AppBlockS3LocationArgs', 'AppBlockS3LocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag0PropertiesArgsDict'], Union['AppBlockTag1PropertiesArgs', 'AppBlockTag1PropertiesArgsDict']]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

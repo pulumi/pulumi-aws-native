@@ -109,9 +109,9 @@ class Activity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for Activity
@@ -126,14 +126,14 @@ class Activity(pulumi.CustomResource):
         my_activity = aws_native.stepfunctions.Activity("myActivity",
             name="myActivity",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -146,21 +146,21 @@ class Activity(pulumi.CustomResource):
         my_activity = aws_native.stepfunctions.Activity("myActivity",
             name="myActivity",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']] encryption_configuration: Encryption configuration for the activity.
+        :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the activity.
                
                Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
                
@@ -176,7 +176,7 @@ class Activity(pulumi.CustomResource):
                - control characters ( `U+0000-001F` , `U+007F-009F` )
                
                To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags to add to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags to add to a resource.
                
                Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
@@ -199,14 +199,14 @@ class Activity(pulumi.CustomResource):
         my_activity = aws_native.stepfunctions.Activity("myActivity",
             name="myActivity",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -219,14 +219,14 @@ class Activity(pulumi.CustomResource):
         my_activity = aws_native.stepfunctions.Activity("myActivity",
             name="myActivity",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -246,9 +246,9 @@ class Activity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ActivityEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -105,7 +105,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_index: Optional[pulumi.Input[str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -116,7 +116,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
+        :param pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
         """
@@ -146,7 +146,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_index: Optional[pulumi.Input[str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

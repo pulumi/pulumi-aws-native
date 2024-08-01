@@ -110,9 +110,9 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustAnchorNotificationSettingArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
@@ -121,9 +121,9 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Indicates whether the trust anchor is enabled.
         :param pulumi.Input[str] name: The name of the trust anchor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustAnchorNotificationSettingArgs']]]] notification_settings: A list of notification settings to be associated to the trust anchor.
-        :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The trust anchor type and its related certificate data.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to attach to the trust anchor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]] notification_settings: A list of notification settings to be associated to the trust anchor.
+        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The trust anchor type and its related certificate data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to attach to the trust anchor.
         """
         ...
     @overload
@@ -151,9 +151,9 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustAnchorNotificationSettingArgs']]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
+                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -92,20 +92,20 @@ class ExecutionPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[pulumi.InputType['ExecutionPlanCapacityUnitsConfigurationArgs']]] = None,
+                 capacity_units: Optional[pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A KendraRanking Rescore execution plan
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExecutionPlanCapacityUnitsConfigurationArgs']] capacity_units: Capacity units
+        :param pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the execution plan
         :param pulumi.Input[str] name: A name for the rescore execution plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for labeling the execution plan
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the execution plan
         """
         ...
     @overload
@@ -131,10 +131,10 @@ class ExecutionPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[pulumi.InputType['ExecutionPlanCapacityUnitsConfigurationArgs']]] = None,
+                 capacity_units: Optional[pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

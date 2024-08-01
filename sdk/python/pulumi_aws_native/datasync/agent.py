@@ -127,7 +127,7 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -163,7 +163,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
         ...
@@ -218,7 +218,7 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

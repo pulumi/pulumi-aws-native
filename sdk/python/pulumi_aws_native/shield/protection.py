@@ -112,24 +112,24 @@ class Protection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_layer_automatic_response_configuration: Optional[pulumi.Input[pulumi.InputType['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]] = None,
+                 application_layer_automatic_response_configuration: Optional[pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
                  health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+        :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
                
                If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[str] name: Friendly name for the Protection.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tag key-value pairs for the Protection object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tag key-value pairs for the Protection object.
         """
         ...
     @overload
@@ -155,11 +155,11 @@ class Protection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_layer_automatic_response_configuration: Optional[pulumi.Input[pulumi.InputType['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]] = None,
+                 application_layer_automatic_response_configuration: Optional[pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
                  health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

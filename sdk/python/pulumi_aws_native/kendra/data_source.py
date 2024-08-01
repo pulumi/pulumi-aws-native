@@ -203,15 +203,15 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_document_enrichment_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
+                 custom_document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataSourceType']] = None,
                  __props__=None):
         """
@@ -219,8 +219,8 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
-        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] data_source_configuration: Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+        :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']] data_source_configuration: Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
                
                You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
                
@@ -235,7 +235,7 @@ class DataSource(pulumi.CustomResource):
                
                The `RoleArn` parameter is required for all other data sources.
         :param pulumi.Input[str] schedule: Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for labeling the data source
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the data source
         :param pulumi.Input['DataSourceType'] type: The type of the data source.
         """
         ...
@@ -262,15 +262,15 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_document_enrichment_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
+                 custom_document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataSourceType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

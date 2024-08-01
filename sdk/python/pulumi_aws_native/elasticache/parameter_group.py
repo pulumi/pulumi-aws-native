@@ -91,7 +91,7 @@ class ParameterGroup(pulumi.CustomResource):
                  cache_parameter_group_family: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElastiCache::ParameterGroup
@@ -101,7 +101,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cache_parameter_group_family: The name of the cache parameter group family that this cache parameter group is compatible with.
         :param pulumi.Input[str] description: The description for this cache parameter group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A comma-delimited list of parameter name/value pairs. For more information see ModifyCacheParameterGroup in the Amazon ElastiCache API Reference Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
         """
         ...
     @overload
@@ -130,7 +130,7 @@ class ParameterGroup(pulumi.CustomResource):
                  cache_parameter_group_family: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

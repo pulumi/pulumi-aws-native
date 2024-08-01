@@ -108,7 +108,7 @@ class Crl(pulumi.CustomResource):
                  crl_data: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -119,7 +119,7 @@ class Crl(pulumi.CustomResource):
         :param pulumi.Input[str] crl_data: The x509 v3 specified certificate revocation list (CRL).
         :param pulumi.Input[bool] enabled: Specifies whether the certificate revocation list (CRL) is enabled.
         :param pulumi.Input[str] name: The name of the certificate revocation list (CRL).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to attach to the certificate revocation list (CRL).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach to the certificate revocation list (CRL).
         :param pulumi.Input[str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         ...
@@ -149,7 +149,7 @@ class Crl(pulumi.CustomResource):
                  crl_data: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_anchor_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

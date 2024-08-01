@@ -127,8 +127,8 @@ class ResolverRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
                  rule_type: Optional[pulumi.Input['ResolverRuleRuleType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetAddressArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53Resolver::ResolverRule
@@ -139,8 +139,8 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the Resolver rule
         :param pulumi.Input[str] resolver_endpoint_id: The ID of the endpoint that the rule is associated with.
         :param pulumi.Input['ResolverRuleRuleType'] rule_type: When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetAddressArgs']]]] target_ips: An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]] target_ips: An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
         """
         ...
     @overload
@@ -170,8 +170,8 @@ class ResolverRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
                  rule_type: Optional[pulumi.Input['ResolverRuleRuleType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetAddressArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

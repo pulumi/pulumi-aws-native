@@ -97,9 +97,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
@@ -107,9 +107,9 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the firewall policy.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyArgs']] firewall_policy: The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        :param pulumi.Input[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']] firewall_policy: The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
         :param pulumi.Input[str] firewall_policy_name: The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -138,9 +138,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

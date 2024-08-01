@@ -104,7 +104,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_visibility: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_visibility: Specifies whether to entitle all apps or only selected apps.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]] attributes: The attributes of the entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]] attributes: The attributes of the entitlement.
         :param pulumi.Input[str] description: The description of the entitlement.
         :param pulumi.Input[str] name: The name of the entitlement.
         :param pulumi.Input[str] stack_name: The name of the stack.
@@ -145,7 +145,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_visibility: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,

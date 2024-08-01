@@ -136,26 +136,26 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['RuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']]] = None,
                  function: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish_status: Optional[pulumi.Input['RulePublishStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 trigger_event_source: Optional[pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trigger_event_source: Optional[pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS:Connect::Rule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RuleActionsArgs']] actions: The list of actions that will be executed when a rule is triggered.
+        :param pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']] actions: The list of actions that will be executed when a rule is triggered.
         :param pulumi.Input[str] function: The conditions of a rule.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of a rule, either draft or published.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
-        :param pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']] trigger_event_source: The event source that triggers the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']] trigger_event_source: The event source that triggers the rule.
         """
         ...
     @overload
@@ -181,13 +181,13 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['RuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']]] = None,
                  function: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish_status: Optional[pulumi.Input['RulePublishStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 trigger_event_source: Optional[pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trigger_event_source: Optional[pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

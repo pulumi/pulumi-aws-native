@@ -171,30 +171,30 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
+                 application_configuration: Optional[pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
-                 application_maintenance_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']]] = None,
+                 application_maintenance_configuration: Optional[pulumi.Input[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
                  application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 run_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']]] = None,
+                 run_configuration: Optional[pulumi.Input[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']] application_configuration: Use this parameter to configure the application.
+        :param pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']] application_configuration: Use this parameter to configure the application.
         :param pulumi.Input[str] application_description: The description of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']] application_maintenance_configuration: Used to configure start of maintenance window.
+        :param pulumi.Input[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']] application_maintenance_configuration: Used to configure start of maintenance window.
         :param pulumi.Input['ApplicationMode'] application_mode: To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         :param pulumi.Input[str] application_name: The name of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']] run_configuration: Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+        :param pulumi.Input[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']] run_configuration: Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application.
         :param pulumi.Input[str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
         ...
     @overload
@@ -220,15 +220,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
+                 application_configuration: Optional[pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
-                 application_maintenance_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']]] = None,
+                 application_maintenance_configuration: Optional[pulumi.Input[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
                  application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 run_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']]] = None,
+                 run_configuration: Optional[pulumi.Input[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

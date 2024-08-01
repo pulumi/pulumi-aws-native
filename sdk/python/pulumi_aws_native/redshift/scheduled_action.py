@@ -162,7 +162,7 @@ class ScheduledAction(pulumi.CustomResource):
                  scheduled_action_description: Optional[pulumi.Input[str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTypeArgs']]] = None,
+                 target_action: Optional[pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
                  __props__=None):
         """
         The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
@@ -176,7 +176,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] scheduled_action_description: The description of the scheduled action.
         :param pulumi.Input[str] scheduled_action_name: The name of the scheduled action. The name must be unique within an account.
         :param pulumi.Input[str] start_time: The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
-        :param pulumi.Input[pulumi.InputType['ScheduledActionTypeArgs']] target_action: A JSON format string of the Amazon Redshift API operation with input parameters.
+        :param pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']] target_action: A JSON format string of the Amazon Redshift API operation with input parameters.
         """
         ...
     @overload
@@ -209,7 +209,7 @@ class ScheduledAction(pulumi.CustomResource):
                  scheduled_action_description: Optional[pulumi.Input[str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTypeArgs']]] = None,
+                 target_action: Optional[pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

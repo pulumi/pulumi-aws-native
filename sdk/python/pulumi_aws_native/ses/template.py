@@ -42,7 +42,7 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::Template
@@ -59,12 +59,12 @@ class Template(pulumi.CustomResource):
         subject_part = config.require("subjectPart")
         text_part = config.require("textPart")
         html_part = config.require("htmlPart")
-        template = aws_native.ses.Template("template", template=aws_native.ses.TemplateArgs(
-            template_name=template_name,
-            subject_part=subject_part,
-            text_part=text_part,
-            html_part=html_part,
-        ))
+        template = aws_native.ses.Template("template", template={
+            "template_name": template_name,
+            "subject_part": subject_part,
+            "text_part": text_part,
+            "html_part": html_part,
+        })
 
         ```
         ### Example
@@ -78,18 +78,18 @@ class Template(pulumi.CustomResource):
         subject_part = config.require("subjectPart")
         text_part = config.require("textPart")
         html_part = config.require("htmlPart")
-        template = aws_native.ses.Template("template", template=aws_native.ses.TemplateArgs(
-            template_name=template_name,
-            subject_part=subject_part,
-            text_part=text_part,
-            html_part=html_part,
-        ))
+        template = aws_native.ses.Template("template", template={
+            "template_name": template_name,
+            "subject_part": subject_part,
+            "text_part": text_part,
+            "html_part": html_part,
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TemplateArgs']] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        :param pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
         """
         ...
     @overload
@@ -112,12 +112,12 @@ class Template(pulumi.CustomResource):
         subject_part = config.require("subjectPart")
         text_part = config.require("textPart")
         html_part = config.require("htmlPart")
-        template = aws_native.ses.Template("template", template=aws_native.ses.TemplateArgs(
-            template_name=template_name,
-            subject_part=subject_part,
-            text_part=text_part,
-            html_part=html_part,
-        ))
+        template = aws_native.ses.Template("template", template={
+            "template_name": template_name,
+            "subject_part": subject_part,
+            "text_part": text_part,
+            "html_part": html_part,
+        })
 
         ```
         ### Example
@@ -131,12 +131,12 @@ class Template(pulumi.CustomResource):
         subject_part = config.require("subjectPart")
         text_part = config.require("textPart")
         html_part = config.require("htmlPart")
-        template = aws_native.ses.Template("template", template=aws_native.ses.TemplateArgs(
-            template_name=template_name,
-            subject_part=subject_part,
-            text_part=text_part,
-            html_part=html_part,
-        ))
+        template = aws_native.ses.Template("template", template={
+            "template_name": template_name,
+            "subject_part": subject_part,
+            "text_part": text_part,
+            "html_part": html_part,
+        })
 
         ```
 
@@ -155,7 +155,7 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

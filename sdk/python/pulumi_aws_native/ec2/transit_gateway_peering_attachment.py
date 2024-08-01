@@ -106,7 +106,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,7 +117,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] peer_account_id: The ID of the peer account
         :param pulumi.Input[str] peer_region: Peer Region
         :param pulumi.Input[str] peer_transit_gateway_id: The ID of the peer transit gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the transit gateway peering attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the transit gateway peering attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         """
         ...
@@ -147,7 +147,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

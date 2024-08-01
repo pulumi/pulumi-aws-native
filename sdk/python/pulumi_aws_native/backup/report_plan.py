@@ -106,22 +106,22 @@ class ReportPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']]] = None,
+                 report_delivery_channel: Optional[pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
                  report_plan_description: Optional[pulumi.Input[str]] = None,
                  report_plan_name: Optional[pulumi.Input[str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']]] = None,
+                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_setting: Optional[pulumi.Input[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Contains detailed information about a report plan in AWS Backup Audit Manager.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+        :param pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
         :param pulumi.Input[str] report_plan_description: An optional description of the report plan with a maximum of 1,024 characters.
         :param pulumi.Input[str] report_plan_name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-        :param pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']] report_setting: Identifies the report template for the report. Reports are built using a report template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']] report_setting: Identifies the report template for the report. Reports are built using a report template.
         """
         ...
     @overload
@@ -147,11 +147,11 @@ class ReportPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']]] = None,
+                 report_delivery_channel: Optional[pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
                  report_plan_description: Optional[pulumi.Input[str]] = None,
                  report_plan_name: Optional[pulumi.Input[str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']]] = None,
+                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_setting: Optional[pulumi.Input[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

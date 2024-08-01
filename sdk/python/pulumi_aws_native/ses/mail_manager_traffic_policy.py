@@ -113,8 +113,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input['MailManagerTrafficPolicyAcceptAction']] = None,
                  max_message_size_bytes: Optional[pulumi.Input[float]] = None,
-                 policy_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MailManagerTrafficPolicyPolicyStatementArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 policy_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -124,8 +124,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['MailManagerTrafficPolicyAcceptAction'] default_action: Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
         :param pulumi.Input[float] max_message_size_bytes: The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MailManagerTrafficPolicyPolicyStatementArgs']]]] policy_statements: Conditional statements for filtering email traffic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Conditional statements for filtering email traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         :param pulumi.Input[str] traffic_policy_name: The name of the policy.
                
                The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
@@ -156,8 +156,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input['MailManagerTrafficPolicyAcceptAction']] = None,
                  max_message_size_bytes: Optional[pulumi.Input[float]] = None,
-                 policy_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MailManagerTrafficPolicyPolicyStatementArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 policy_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

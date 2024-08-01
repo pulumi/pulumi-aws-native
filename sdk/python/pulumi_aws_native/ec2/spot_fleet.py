@@ -42,14 +42,14 @@ class SpotFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestConfigDataArgs']]] = None,
+                 spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SpotFleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpotFleetRequestConfigDataArgs']] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
+        :param pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
         """
         ...
     @overload
@@ -75,7 +75,7 @@ class SpotFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestConfigDataArgs']]] = None,
+                 spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

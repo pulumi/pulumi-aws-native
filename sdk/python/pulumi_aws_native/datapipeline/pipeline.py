@@ -143,10 +143,10 @@ class Pipeline(pulumi.CustomResource):
                  activate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]]] = None,
-                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]]] = None,
+                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]]] = None,
+                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -156,10 +156,10 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
         :param pulumi.Input[str] description: A description of the pipeline.
         :param pulumi.Input[str] name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]] parameter_objects: The parameter objects used with the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]] parameter_values: The parameter values used with the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]] parameter_objects: The parameter objects used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]] parameter_values: The parameter values used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """
         ...
     @overload
@@ -188,10 +188,10 @@ class Pipeline(pulumi.CustomResource):
                  activate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]]] = None,
-                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]]] = None,
+                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]]] = None,
+                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

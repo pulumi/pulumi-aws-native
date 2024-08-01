@@ -152,12 +152,12 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertiesArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -166,12 +166,12 @@ class CustomActionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the custom action, such as a build action or a test action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertiesArgs']]]] configuration_properties: The configuration properties for the custom action.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]] configuration_properties: The configuration properties for the custom action.
+        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
+        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
         :param pulumi.Input[str] provider: The provider of the service used in the custom action, such as AWS CodeDeploy.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']] settings: URLs that provide users information about this custom action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the custom action.
+        :param pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']] settings: URLs that provide users information about this custom action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the custom action.
         :param pulumi.Input[str] version: The version identifier of the custom action.
         """
         ...
@@ -199,12 +199,12 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertiesArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

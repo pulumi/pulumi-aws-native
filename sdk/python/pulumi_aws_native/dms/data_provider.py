@@ -145,8 +145,8 @@ class DataProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::DataProvider
@@ -158,8 +158,8 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input[str] description: The optional description of the data provider.
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
         :param pulumi.Input[bool] exact_settings: The property describes the exact settings which can be modified
-        :param pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']] settings: The property identifies the exact type of settings for the data provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']] settings: The property identifies the exact type of settings for the data provider.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -190,8 +190,8 @@ class DataProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

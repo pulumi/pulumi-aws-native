@@ -134,7 +134,7 @@ class Prompt(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PromptVariantArgs']]]]] = None,
+                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
@@ -149,7 +149,7 @@ class Prompt(pulumi.CustomResource):
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
                - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PromptVariantArgs']]]] variants: List of prompt variants
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]] variants: List of prompt variants
         """
         ...
     @overload
@@ -180,7 +180,7 @@ class Prompt(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PromptVariantArgs']]]]] = None,
+                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

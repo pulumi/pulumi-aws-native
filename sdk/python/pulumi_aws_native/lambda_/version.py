@@ -129,8 +129,8 @@ class Version(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']]] = None,
-                 runtime_policy: Optional[pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']]] = None,
+                 provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Version
@@ -143,8 +143,8 @@ class Version(pulumi.CustomResource):
         :param Any policy: The resource policy of your function
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
-        :param pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
-        :param pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
+        :param pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
+        :param pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
         ...
     @overload
@@ -174,8 +174,8 @@ class Version(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']]] = None,
-                 runtime_policy: Optional[pulumi.Input[pulumi.InputType['VersionRuntimePolicyArgs']]] = None,
+                 provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

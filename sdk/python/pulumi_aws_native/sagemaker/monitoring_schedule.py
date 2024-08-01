@@ -142,11 +142,11 @@ class MonitoringSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
-                 last_monitoring_execution_summary: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
+                 last_monitoring_execution_summary: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::MonitoringSchedule
@@ -155,11 +155,11 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint using the monitoring schedule.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param pulumi.Input[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
+        :param pulumi.Input[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job.
         :param pulumi.Input[str] monitoring_schedule_name: The name of the monitoring schedule.
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -187,11 +187,11 @@ class MonitoringSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
-                 last_monitoring_execution_summary: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
+                 last_monitoring_execution_summary: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

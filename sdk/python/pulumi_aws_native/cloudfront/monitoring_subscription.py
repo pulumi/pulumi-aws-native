@@ -58,7 +58,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: Optional[pulumi.Input[str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionArgs']]] = None,
+                 monitoring_subscription: Optional[pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::MonitoringSubscription
@@ -66,7 +66,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionArgs']] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
+        :param pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
         """
         ...
     @overload
@@ -93,7 +93,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: Optional[pulumi.Input[str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionArgs']]] = None,
+                 monitoring_subscription: Optional[pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,24 +124,24 @@ class RecordingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
-                 rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
+                 rendition_configuration: Optional[pulumi.Input[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::RecordingConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']] destination_configuration: A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
+        :param pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']] destination_configuration: A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
         :param pulumi.Input[str] name: Recording Configuration Name.
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
-        :param pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']] rendition_configuration: A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
-        :param pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']] thumbnail_configuration: A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
+        :param pulumi.Input[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']] rendition_configuration: A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']] thumbnail_configuration: A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
         """
         ...
     @overload
@@ -167,12 +167,12 @@ class RecordingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
-                 rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
+                 rendition_configuration: Optional[pulumi.Input[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

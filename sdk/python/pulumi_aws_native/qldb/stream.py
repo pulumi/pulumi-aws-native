@@ -158,11 +158,11 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
                  inclusive_start_time: Optional[pulumi.Input[str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::QLDB::Stream.
@@ -177,17 +177,17 @@ class Stream(pulumi.CustomResource):
         my_qldb_stream = aws_native.qldb.Stream("myQLDBStream",
             exclusive_end_time="2020-05-29T22:59:59Z",
             inclusive_start_time="2020-05-29T00:00:00Z",
-            kinesis_configuration=aws_native.qldb.StreamKinesisConfigurationArgs(
-                aggregation_enabled=True,
-                stream_arn="arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
-            ),
+            kinesis_configuration={
+                "aggregation_enabled": True,
+                "stream_arn": "arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
+            },
             ledger_name="exampleLedger",
             role_arn="arn:aws:iam::123456789012:role/my-kinesis-stream-role",
             stream_name="exampleLedger-stream",
-            tags=[aws_native.TagArgs(
-                key="Domain",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Domain",
+                "value": "Test",
+            }])
 
         ```
         ### Example
@@ -199,17 +199,17 @@ class Stream(pulumi.CustomResource):
         my_qldb_stream = aws_native.qldb.Stream("myQLDBStream",
             exclusive_end_time="2020-05-29T22:59:59Z",
             inclusive_start_time="2020-05-29T00:00:00Z",
-            kinesis_configuration=aws_native.qldb.StreamKinesisConfigurationArgs(
-                aggregation_enabled=True,
-                stream_arn="arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
-            ),
+            kinesis_configuration={
+                "aggregation_enabled": True,
+                "stream_arn": "arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
+            },
             ledger_name="exampleLedger",
             role_arn="arn:aws:iam::123456789012:role/my-kinesis-stream-role",
             stream_name="exampleLedger-stream",
-            tags=[aws_native.TagArgs(
-                key="Domain",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Domain",
+                "value": "Test",
+            }])
 
         ```
 
@@ -223,7 +223,7 @@ class Stream(pulumi.CustomResource):
                The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
                
                If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
+        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
         :param pulumi.Input[str] ledger_name: The name of the ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
                
@@ -231,7 +231,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
                
                Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -252,17 +252,17 @@ class Stream(pulumi.CustomResource):
         my_qldb_stream = aws_native.qldb.Stream("myQLDBStream",
             exclusive_end_time="2020-05-29T22:59:59Z",
             inclusive_start_time="2020-05-29T00:00:00Z",
-            kinesis_configuration=aws_native.qldb.StreamKinesisConfigurationArgs(
-                aggregation_enabled=True,
-                stream_arn="arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
-            ),
+            kinesis_configuration={
+                "aggregation_enabled": True,
+                "stream_arn": "arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
+            },
             ledger_name="exampleLedger",
             role_arn="arn:aws:iam::123456789012:role/my-kinesis-stream-role",
             stream_name="exampleLedger-stream",
-            tags=[aws_native.TagArgs(
-                key="Domain",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Domain",
+                "value": "Test",
+            }])
 
         ```
         ### Example
@@ -274,17 +274,17 @@ class Stream(pulumi.CustomResource):
         my_qldb_stream = aws_native.qldb.Stream("myQLDBStream",
             exclusive_end_time="2020-05-29T22:59:59Z",
             inclusive_start_time="2020-05-29T00:00:00Z",
-            kinesis_configuration=aws_native.qldb.StreamKinesisConfigurationArgs(
-                aggregation_enabled=True,
-                stream_arn="arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
-            ),
+            kinesis_configuration={
+                "aggregation_enabled": True,
+                "stream_arn": "arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb",
+            },
             ledger_name="exampleLedger",
             role_arn="arn:aws:iam::123456789012:role/my-kinesis-stream-role",
             stream_name="exampleLedger-stream",
-            tags=[aws_native.TagArgs(
-                key="Domain",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Domain",
+                "value": "Test",
+            }])
 
         ```
 
@@ -305,11 +305,11 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
                  inclusive_start_time: Optional[pulumi.Input[str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

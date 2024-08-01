@@ -168,7 +168,7 @@ class Rule(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['RuleState']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Rule
@@ -192,9 +192,9 @@ class Rule(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="PutEventsDestinationBus",
-                policy_document={
+            policies=[{
+                "policy_name": "PutEventsDestinationBus",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -202,7 +202,7 @@ class Rule(pulumi.CustomResource):
                         "resource": ["arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus"],
                     }],
                 },
-            )])
+            }])
         event_rule_region1 = aws_native.events.Rule("eventRuleRegion1",
             description="Routes to us-east-1 event bus",
             event_bus_name="MyBusName",
@@ -211,11 +211,11 @@ class Rule(pulumi.CustomResource):
                 "source": ["MyTestApp"],
                 "detail": ["MyTestAppDetail"],
             },
-            targets=[aws_native.events.RuleTargetArgs(
-                arn="arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus",
-                id=" CrossRegionDestinationBus",
-                role_arn=event_bridge_ia_mrole.arn,
-            )])
+            targets=[{
+                "arn": "arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus",
+                "id": " CrossRegionDestinationBus",
+                "role_arn": event_bridge_ia_mrole.arn,
+            }])
 
         ```
 
@@ -230,7 +230,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         :param pulumi.Input['RuleState'] state: The state of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
                Targets are the resources that are invoked when a rule is triggered.
         """
         ...
@@ -261,9 +261,9 @@ class Rule(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="PutEventsDestinationBus",
-                policy_document={
+            policies=[{
+                "policy_name": "PutEventsDestinationBus",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -271,7 +271,7 @@ class Rule(pulumi.CustomResource):
                         "resource": ["arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus"],
                     }],
                 },
-            )])
+            }])
         event_rule_region1 = aws_native.events.Rule("eventRuleRegion1",
             description="Routes to us-east-1 event bus",
             event_bus_name="MyBusName",
@@ -280,11 +280,11 @@ class Rule(pulumi.CustomResource):
                 "source": ["MyTestApp"],
                 "detail": ["MyTestAppDetail"],
             },
-            targets=[aws_native.events.RuleTargetArgs(
-                arn="arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus",
-                id=" CrossRegionDestinationBus",
-                role_arn=event_bridge_ia_mrole.arn,
-            )])
+            targets=[{
+                "arn": "arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus",
+                "id": " CrossRegionDestinationBus",
+                "role_arn": event_bridge_ia_mrole.arn,
+            }])
 
         ```
 
@@ -310,7 +310,7 @@ class Rule(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['RuleState']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

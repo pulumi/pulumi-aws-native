@@ -95,7 +95,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
@@ -108,7 +108,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                 Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
                 Example: ``mysubnetgroup``
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional array of key-value pairs to apply to this DB subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional array of key-value pairs to apply to this DB subnet group.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -138,11 +138,11 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowInputSourceArgs']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowOutputSourceArgs']]]]] = None,
-                 resolution_techniques: Optional[pulumi.Input[pulumi.InputType['MatchingWorkflowResolutionTechniquesArgs']]] = None,
+                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
+                 resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -151,11 +151,11 @@ class MatchingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the MatchingWorkflow
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowInputSourceArgs']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowOutputSourceArgs']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
-        :param pulumi.Input[pulumi.InputType['MatchingWorkflowResolutionTechniquesArgs']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        :param pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[str] workflow_name: The name of the MatchingWorkflow
         """
         ...
@@ -183,11 +183,11 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowInputSourceArgs']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchingWorkflowOutputSourceArgs']]]]] = None,
-                 resolution_techniques: Optional[pulumi.Input[pulumi.InputType['MatchingWorkflowResolutionTechniquesArgs']]] = None,
+                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
+                 resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

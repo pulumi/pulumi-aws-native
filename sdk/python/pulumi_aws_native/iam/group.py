@@ -111,7 +111,7 @@ class Group(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[str]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyArgs', 'GroupPolicyArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a new group.
@@ -129,7 +129,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] path: The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
                 This parameter is optional. If it is not included, it defaults to a slash (/).
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\\u0021``) through the DEL character (``\\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM group. To view AWS::IAM::Group snippets, see [Declaring an Group Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-group).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyArgs', 'GroupPolicyArgsDict']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM group. To view AWS::IAM::Group snippets, see [Declaring an Group Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-group).
                  The name of each inline policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail. 
                  For information about limits on the number of inline policies that you can embed in a group, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
         """
@@ -161,7 +161,7 @@ class Group(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[str]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyArgs', 'GroupPolicyArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

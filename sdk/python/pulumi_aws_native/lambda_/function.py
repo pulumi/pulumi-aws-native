@@ -436,30 +436,30 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['FunctionCodeArgs']]] = None,
+                 code: Optional[pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
-                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
-                 file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]]] = None,
+                 environment: Optional[pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
+                 file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
-                 image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
+                 image_config: Optional[pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
-                 runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
-                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_management_config: Optional[pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
+                 snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
+                 tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
@@ -479,8 +479,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = function(event){
+            code={
+                "zip_file": \"\"\"exports.handler = function(event){
             console.log(JSON.stringify(event, null, 2))
             const response = {
                 statusCode: 200,
@@ -489,11 +489,11 @@ class Function(pulumi.CustomResource):
             return response
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1")
@@ -512,8 +512,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = function(event){
+            code={
+                "zip_file": \"\"\"exports.handler = function(event){
             console.log(JSON.stringify(event, null, 2))
             const response = {
                 statusCode: 200,
@@ -522,11 +522,11 @@ class Function(pulumi.CustomResource):
             return response
         }
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1")
@@ -537,12 +537,12 @@ class Function(pulumi.CustomResource):
             function_name=function.id,
             function_version=new_version.version,
             name="BLUE",
-            routing_config=aws_native.lambda_.AliasRoutingConfigurationArgs(
-                additional_version_weights=[aws_native.lambda_.AliasVersionWeightArgs(
-                    function_version=version.version,
-                    function_weight=0.5,
-                )],
-            ))
+            routing_config={
+                "additional_version_weights": [{
+                    "function_version": version.version,
+                    "function_weight": 0.5,
+                }],
+            })
 
         ```
         ### Example
@@ -554,8 +554,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = async (event) => {
+            code={
+                "zip_file": \"\"\"exports.handler = async (event) => {
             console.log(JSON.stringify(event, null, 2));
             const response = {
                 statusCode: 200,
@@ -564,21 +564,21 @@ class Function(pulumi.CustomResource):
             return response;
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version", function_name=function.id)
         asyncconfig = aws_native.lambda_.EventInvokeConfig("asyncconfig",
-            destination_config=aws_native.lambda_.EventInvokeConfigDestinationConfigArgs(
-                on_failure=aws_native.lambda_.EventInvokeConfigOnFailureArgs(
-                    destination="arn:aws:sqs:us-east-2:123456789012:dlq",
-                ),
-                on_success=aws_native.lambda_.EventInvokeConfigOnSuccessArgs(
-                    destination="arn:aws:sqs:us-east-2:123456789012:dlq",
-                ),
-            ),
+            destination_config={
+                "on_failure": {
+                    "destination": "arn:aws:sqs:us-east-2:123456789012:dlq",
+                },
+                "on_success": {
+                    "destination": "arn:aws:sqs:us-east-2:123456789012:dlq",
+                },
+            },
             function_name=function.id,
             maximum_event_age_in_seconds=300,
             maximum_retry_attempts=1,
@@ -595,8 +595,8 @@ class Function(pulumi.CustomResource):
             runtime="nodejs18.x",
             role="arn:aws:iam::123456789012:role/lambda-role",
             handler="index.handler",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
+            code={
+                "zip_file": \"\"\"const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
         const s3 = new S3Client({ region: "us-east-1" }); // replace "us-east-1" with your AWS region
 
         exports.handler = async function(event) {
@@ -605,11 +605,11 @@ class Function(pulumi.CustomResource):
           return response.Buckets;
         };
         \"\"\",
-            ),
+            },
             description="List Amazon S3 buckets in us-east-1.",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
 
         ```
         ### Example
@@ -621,22 +621,22 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                s3_bucket="my-bucket",
-                s3_key="function.zip",
-            ),
+            code={
+                "s3_bucket": "my-bucket",
+                "s3_key": "function.zip",
+            },
             runtime="nodejs18.x",
             timeout=5,
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ),
-            vpc_config=aws_native.lambda_.FunctionVpcConfigArgs(
-                security_group_ids=["sg-085912345678492fb"],
-                subnet_ids=[
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            },
+            vpc_config={
+                "security_group_ids": ["sg-085912345678492fb"],
+                "subnet_ids": [
                     "subnet-071f712345678e7c8",
                     "subnet-07fd123456788a036",
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -648,8 +648,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = async (event) => {
+            code={
+                "zip_file": \"\"\"exports.handler = async (event) => {
             console.log(JSON.stringify(event, null, 2));
             const response = {
                 statusCode: 200,
@@ -658,38 +658,38 @@ class Function(pulumi.CustomResource):
             return response;
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1",
-            provisioned_concurrency_config=aws_native.lambda_.VersionProvisionedConcurrencyConfigurationArgs(
-                provisioned_concurrent_executions=20,
-            ))
+            provisioned_concurrency_config={
+                "provisioned_concurrent_executions": 20,
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-        :param pulumi.Input[pulumi.InputType['FunctionCodeArgs']] code: The code for the function.
+        :param pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']] code: The code for the function.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-        :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
+        :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[str] description: A description of the function.
-        :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Environment variables that are accessible from function code during execution.
-        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+        :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
                 For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
-        :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+        :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
-        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
+        :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
@@ -697,12 +697,12 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
                 The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
                 For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
-        :param pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
-        :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+        :param pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+        :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
-        :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
-        :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+        :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+        :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         ...
     @overload
@@ -728,8 +728,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = function(event){
+            code={
+                "zip_file": \"\"\"exports.handler = function(event){
             console.log(JSON.stringify(event, null, 2))
             const response = {
                 statusCode: 200,
@@ -738,11 +738,11 @@ class Function(pulumi.CustomResource):
             return response
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1")
@@ -761,8 +761,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = function(event){
+            code={
+                "zip_file": \"\"\"exports.handler = function(event){
             console.log(JSON.stringify(event, null, 2))
             const response = {
                 statusCode: 200,
@@ -771,11 +771,11 @@ class Function(pulumi.CustomResource):
             return response
         }
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1")
@@ -786,12 +786,12 @@ class Function(pulumi.CustomResource):
             function_name=function.id,
             function_version=new_version.version,
             name="BLUE",
-            routing_config=aws_native.lambda_.AliasRoutingConfigurationArgs(
-                additional_version_weights=[aws_native.lambda_.AliasVersionWeightArgs(
-                    function_version=version.version,
-                    function_weight=0.5,
-                )],
-            ))
+            routing_config={
+                "additional_version_weights": [{
+                    "function_version": version.version,
+                    "function_weight": 0.5,
+                }],
+            })
 
         ```
         ### Example
@@ -803,8 +803,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = async (event) => {
+            code={
+                "zip_file": \"\"\"exports.handler = async (event) => {
             console.log(JSON.stringify(event, null, 2));
             const response = {
                 statusCode: 200,
@@ -813,21 +813,21 @@ class Function(pulumi.CustomResource):
             return response;
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version", function_name=function.id)
         asyncconfig = aws_native.lambda_.EventInvokeConfig("asyncconfig",
-            destination_config=aws_native.lambda_.EventInvokeConfigDestinationConfigArgs(
-                on_failure=aws_native.lambda_.EventInvokeConfigOnFailureArgs(
-                    destination="arn:aws:sqs:us-east-2:123456789012:dlq",
-                ),
-                on_success=aws_native.lambda_.EventInvokeConfigOnSuccessArgs(
-                    destination="arn:aws:sqs:us-east-2:123456789012:dlq",
-                ),
-            ),
+            destination_config={
+                "on_failure": {
+                    "destination": "arn:aws:sqs:us-east-2:123456789012:dlq",
+                },
+                "on_success": {
+                    "destination": "arn:aws:sqs:us-east-2:123456789012:dlq",
+                },
+            },
             function_name=function.id,
             maximum_event_age_in_seconds=300,
             maximum_retry_attempts=1,
@@ -844,8 +844,8 @@ class Function(pulumi.CustomResource):
             runtime="nodejs18.x",
             role="arn:aws:iam::123456789012:role/lambda-role",
             handler="index.handler",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
+            code={
+                "zip_file": \"\"\"const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
         const s3 = new S3Client({ region: "us-east-1" }); // replace "us-east-1" with your AWS region
 
         exports.handler = async function(event) {
@@ -854,11 +854,11 @@ class Function(pulumi.CustomResource):
           return response.Buckets;
         };
         \"\"\",
-            ),
+            },
             description="List Amazon S3 buckets in us-east-1.",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
 
         ```
         ### Example
@@ -870,22 +870,22 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                s3_bucket="my-bucket",
-                s3_key="function.zip",
-            ),
+            code={
+                "s3_bucket": "my-bucket",
+                "s3_key": "function.zip",
+            },
             runtime="nodejs18.x",
             timeout=5,
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ),
-            vpc_config=aws_native.lambda_.FunctionVpcConfigArgs(
-                security_group_ids=["sg-085912345678492fb"],
-                subnet_ids=[
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            },
+            vpc_config={
+                "security_group_ids": ["sg-085912345678492fb"],
+                "subnet_ids": [
                     "subnet-071f712345678e7c8",
                     "subnet-07fd123456788a036",
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -897,8 +897,8 @@ class Function(pulumi.CustomResource):
         function = aws_native.lambda_.Function("function",
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
-            code=aws_native.lambda_.FunctionCodeArgs(
-                zip_file=\"\"\"exports.handler = async (event) => {
+            code={
+                "zip_file": \"\"\"exports.handler = async (event) => {
             console.log(JSON.stringify(event, null, 2));
             const response = {
                 statusCode: 200,
@@ -907,17 +907,17 @@ class Function(pulumi.CustomResource):
             return response;
         };
         \"\"\",
-            ),
+            },
             runtime="nodejs18.x",
-            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
-                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
-            ))
+            tracing_config={
+                "mode": aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            })
         version = aws_native.lambda_.Version("version",
             function_name=function.id,
             description="v1",
-            provisioned_concurrency_config=aws_native.lambda_.VersionProvisionedConcurrencyConfigurationArgs(
-                provisioned_concurrent_executions=20,
-            ))
+            provisioned_concurrency_config={
+                "provisioned_concurrent_executions": 20,
+            })
 
         ```
 
@@ -937,30 +937,30 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['FunctionCodeArgs']]] = None,
+                 code: Optional[pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
-                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
-                 file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]]] = None,
+                 environment: Optional[pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
+                 file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
-                 image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
+                 image_config: Optional[pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
-                 runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
-                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_management_config: Optional[pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
+                 snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
+                 tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

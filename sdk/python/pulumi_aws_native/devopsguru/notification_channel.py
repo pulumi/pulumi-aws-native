@@ -42,7 +42,7 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
                  __props__=None):
         """
         This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -54,22 +54,22 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel = aws_native.devopsguru.NotificationChannel("myNotificationChannel", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            filters=aws_native.devopsguru.NotificationChannelNotificationFilterConfigArgs(
-                message_types=[
+        my_notification_channel = aws_native.devopsguru.NotificationChannel("myNotificationChannel", config={
+            "filters": {
+                "message_types": [
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.NEW_INSIGHT,
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.CLOSED_INSIGHT,
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.SEVERITY_UPGRADED,
                 ],
-                severities=[
+                "severities": [
                     aws_native.devopsguru.NotificationChannelInsightSeverity.MEDIUM,
                     aws_native.devopsguru.NotificationChannelInsightSeverity.HIGH,
                 ],
-            ),
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
+            },
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
 
         ```
         ### Example
@@ -78,16 +78,16 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
-        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
-            ),
-        ))
+        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
+        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
+            },
+        })
 
         ```
         ### Example
@@ -96,22 +96,22 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
-        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
-            ),
-        ))
+        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
+        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
+            },
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
+        :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
         """
         ...
     @overload
@@ -129,22 +129,22 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel = aws_native.devopsguru.NotificationChannel("myNotificationChannel", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            filters=aws_native.devopsguru.NotificationChannelNotificationFilterConfigArgs(
-                message_types=[
+        my_notification_channel = aws_native.devopsguru.NotificationChannel("myNotificationChannel", config={
+            "filters": {
+                "message_types": [
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.NEW_INSIGHT,
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.CLOSED_INSIGHT,
                     aws_native.devopsguru.NotificationChannelNotificationMessageType.SEVERITY_UPGRADED,
                 ],
-                severities=[
+                "severities": [
                     aws_native.devopsguru.NotificationChannelInsightSeverity.MEDIUM,
                     aws_native.devopsguru.NotificationChannelInsightSeverity.HIGH,
                 ],
-            ),
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
+            },
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
 
         ```
         ### Example
@@ -153,16 +153,16 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
-        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
-            ),
-        ))
+        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
+        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
+            },
+        })
 
         ```
         ### Example
@@ -171,16 +171,16 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
-            ),
-        ))
-        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config=aws_native.devopsguru.NotificationChannelConfigArgs(
-            sns=aws_native.devopsguru.NotificationChannelSnsChannelConfigArgs(
-                topic_arn="arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
-            ),
-        ))
+        my_notification_channel1 = aws_native.devopsguru.NotificationChannel("myNotificationChannel1", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel",
+            },
+        })
+        my_notification_channel2 = aws_native.devopsguru.NotificationChannel("myNotificationChannel2", config={
+            "sns": {
+                "topic_arn": "arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2",
+            },
+        })
 
         ```
 
@@ -199,7 +199,7 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

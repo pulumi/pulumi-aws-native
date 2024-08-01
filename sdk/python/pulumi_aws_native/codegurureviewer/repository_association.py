@@ -126,7 +126,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RepositoryAssociationType']] = None,
                  __props__=None):
         """
@@ -217,14 +217,14 @@ class RepositoryAssociation(pulumi.CustomResource):
             name="MyRepository",
             type=aws_native.codegurureviewer.RepositoryAssociationType.CODE_COMMIT,
             tags=[
-                aws_native.CreateOnlyTagArgs(
-                    key="tag1-key",
-                    value="tag1-value",
-                ),
-                aws_native.CreateOnlyTagArgs(
-                    key="tag2-key",
-                    value="tag2-value",
-                ),
+                {
+                    "key": "tag1-key",
+                    "value": "tag1-value",
+                },
+                {
+                    "key": "tag2-key",
+                    "value": "tag2-value",
+                },
             ])
 
         ```
@@ -238,14 +238,14 @@ class RepositoryAssociation(pulumi.CustomResource):
             name="MyRepository",
             type=aws_native.codegurureviewer.RepositoryAssociationType.CODE_COMMIT,
             tags=[
-                aws_native.CreateOnlyTagArgs(
-                    key="tag1-key",
-                    value="tag1-value",
-                ),
-                aws_native.CreateOnlyTagArgs(
-                    key="tag2-key",
-                    value="tag2-value",
-                ),
+                {
+                    "key": "tag1-key",
+                    "value": "tag1-value",
+                },
+                {
+                    "key": "tag2-key",
+                    "value": "tag2-value",
+                },
             ])
 
         ```
@@ -256,7 +256,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         :param pulumi.Input[str] name: Name of the repository to be associated.
         :param pulumi.Input[str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags associated with a repository association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags associated with a repository association.
         :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         """
         ...
@@ -353,14 +353,14 @@ class RepositoryAssociation(pulumi.CustomResource):
             name="MyRepository",
             type=aws_native.codegurureviewer.RepositoryAssociationType.CODE_COMMIT,
             tags=[
-                aws_native.CreateOnlyTagArgs(
-                    key="tag1-key",
-                    value="tag1-value",
-                ),
-                aws_native.CreateOnlyTagArgs(
-                    key="tag2-key",
-                    value="tag2-value",
-                ),
+                {
+                    "key": "tag1-key",
+                    "value": "tag1-value",
+                },
+                {
+                    "key": "tag2-key",
+                    "value": "tag2-value",
+                },
             ])
 
         ```
@@ -374,14 +374,14 @@ class RepositoryAssociation(pulumi.CustomResource):
             name="MyRepository",
             type=aws_native.codegurureviewer.RepositoryAssociationType.CODE_COMMIT,
             tags=[
-                aws_native.CreateOnlyTagArgs(
-                    key="tag1-key",
-                    value="tag1-value",
-                ),
-                aws_native.CreateOnlyTagArgs(
-                    key="tag2-key",
-                    value="tag2-value",
-                ),
+                {
+                    "key": "tag1-key",
+                    "value": "tag1-value",
+                },
+                {
+                    "key": "tag2-key",
+                    "value": "tag2-value",
+                },
             ])
 
         ```
@@ -405,7 +405,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RepositoryAssociationType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

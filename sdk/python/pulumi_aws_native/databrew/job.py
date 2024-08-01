@@ -347,26 +347,26 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]]] = None,
-                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
+                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDataCatalogOutputArgs', 'JobDataCatalogOutputArgsDict']]]]] = None,
+                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDatabaseOutputArgs', 'JobDatabaseOutputArgsDict']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobSampleArgs']]] = None,
+                 job_sample: Optional[pulumi.Input[Union['JobSampleArgs', 'JobSampleArgsDict']]] = None,
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['JobOutputLocationArgs']]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
-                 profile_configuration: Optional[pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[Union['JobOutputLocationArgs', 'JobOutputLocationArgsDict']]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobOutputArgs', 'JobOutputArgsDict']]]]] = None,
+                 profile_configuration: Optional[pulumi.Input[Union['JobProfileConfigurationArgs', 'JobProfileConfigurationArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 recipe: Optional[pulumi.Input[pulumi.InputType['JobRecipeArgs']]] = None,
+                 recipe: Optional[pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
-                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
+                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Job.
@@ -383,42 +383,42 @@ class Job(pulumi.CustomResource):
             name="job-test",
             dataset_name="dataset-test",
             role_arn="arn:aws:iam::1234567891011:role/PassRoleAdmin",
-            job_sample=aws_native.databrew.JobSampleArgs(
-                mode=aws_native.databrew.JobSampleMode.FULL_DATASET,
-            ),
-            output_location=aws_native.databrew.JobOutputLocationArgs(
-                bucket="test-output",
-                key="job-output.json",
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            job_sample={
+                "mode": aws_native.databrew.JobSampleMode.FULL_DATASET,
+            },
+            output_location={
+                "bucket": "test-output",
+                "key": "job-output.json",
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]] database_outputs: Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobDataCatalogOutputArgs', 'JobDataCatalogOutputArgsDict']]]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobDatabaseOutputArgs', 'JobDatabaseOutputArgsDict']]]] database_outputs: Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
         :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
-        :param pulumi.Input[pulumi.InputType['JobSampleArgs']] job_sample: Job Sample
+        :param pulumi.Input[Union['JobSampleArgs', 'JobSampleArgsDict']] job_sample: Job Sample
         :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
         :param pulumi.Input[str] name: Job name
-        :param pulumi.Input[pulumi.InputType['JobOutputLocationArgs']] output_location: Output location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]] outputs: One or more artifacts that represent output from running the job.
-        :param pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']] profile_configuration: Profile Job configuration
+        :param pulumi.Input[Union['JobOutputLocationArgs', 'JobOutputLocationArgsDict']] output_location: Output location
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobOutputArgs', 'JobOutputArgsDict']]]] outputs: One or more artifacts that represent output from running the job.
+        :param pulumi.Input[Union['JobProfileConfigurationArgs', 'JobProfileConfigurationArgsDict']] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
-        :param pulumi.Input[pulumi.InputType['JobRecipeArgs']] recipe: A series of data transformation steps that the job runs.
+        :param pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']] recipe: A series of data transformation steps that the job runs.
         :param pulumi.Input[str] role_arn: Role arn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the job.
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input['JobType'] type: Job type
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]] validation_configurations: Data quality rules configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]] validation_configurations: Data quality rules configuration
         """
         ...
     @overload
@@ -441,17 +441,17 @@ class Job(pulumi.CustomResource):
             name="job-test",
             dataset_name="dataset-test",
             role_arn="arn:aws:iam::1234567891011:role/PassRoleAdmin",
-            job_sample=aws_native.databrew.JobSampleArgs(
-                mode=aws_native.databrew.JobSampleMode.FULL_DATASET,
-            ),
-            output_location=aws_native.databrew.JobOutputLocationArgs(
-                bucket="test-output",
-                key="job-output.json",
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            job_sample={
+                "mode": aws_native.databrew.JobSampleMode.FULL_DATASET,
+            },
+            output_location={
+                "bucket": "test-output",
+                "key": "job-output.json",
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -470,26 +470,26 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]]] = None,
-                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
+                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDataCatalogOutputArgs', 'JobDataCatalogOutputArgsDict']]]]] = None,
+                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobDatabaseOutputArgs', 'JobDatabaseOutputArgsDict']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobSampleArgs']]] = None,
+                 job_sample: Optional[pulumi.Input[Union['JobSampleArgs', 'JobSampleArgsDict']]] = None,
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['JobOutputLocationArgs']]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
-                 profile_configuration: Optional[pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[Union['JobOutputLocationArgs', 'JobOutputLocationArgsDict']]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobOutputArgs', 'JobOutputArgsDict']]]]] = None,
+                 profile_configuration: Optional[pulumi.Input[Union['JobProfileConfigurationArgs', 'JobProfileConfigurationArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 recipe: Optional[pulumi.Input[pulumi.InputType['JobRecipeArgs']]] = None,
+                 recipe: Optional[pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
-                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
+                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

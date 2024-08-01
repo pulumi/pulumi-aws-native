@@ -109,9 +109,9 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input['CustomPluginContentType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -120,9 +120,9 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CustomPluginContentType'] content_type: The type of the plugin file.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of the custom plugin.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -150,9 +150,9 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input['CustomPluginContentType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

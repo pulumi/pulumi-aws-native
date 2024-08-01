@@ -102,8 +102,8 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -112,12 +112,12 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
-        :param pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']] authentication_mode: Denotes whether the user requires a password to authenticate.
+        :param pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']] authentication_mode: Denotes whether the user requires a password to authenticate.
                
                *Example:*
                
                `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this user.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_name: The name of the user.
         """
         ...
@@ -145,8 +145,8 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

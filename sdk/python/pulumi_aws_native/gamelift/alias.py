@@ -76,7 +76,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
+                 routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
@@ -91,10 +91,10 @@ class Alias(pulumi.CustomResource):
         alias_resource = aws_native.gamelift.Alias("aliasResource",
             name="MyTerminalAlias",
             description="A terminal alias",
-            routing_strategy=aws_native.gamelift.AliasRoutingStrategyArgs(
-                type=aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
-                message="Terminal routing strategy message",
-            ))
+            routing_strategy={
+                "type": aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
+                "message": "Terminal routing strategy message",
+            })
 
         ```
         ### Example
@@ -106,10 +106,10 @@ class Alias(pulumi.CustomResource):
         alias_resource = aws_native.gamelift.Alias("aliasResource",
             name="MyTerminalAlias",
             description="A terminal alias",
-            routing_strategy=aws_native.gamelift.AliasRoutingStrategyArgs(
-                type=aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
-                message="Terminal routing strategy message",
-            ))
+            routing_strategy={
+                "type": aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
+                "message": "Terminal routing strategy message",
+            })
 
         ```
 
@@ -117,7 +117,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-readable description of the alias.
         :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
-        :param pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class Alias(pulumi.CustomResource):
         alias_resource = aws_native.gamelift.Alias("aliasResource",
             name="MyTerminalAlias",
             description="A terminal alias",
-            routing_strategy=aws_native.gamelift.AliasRoutingStrategyArgs(
-                type=aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
-                message="Terminal routing strategy message",
-            ))
+            routing_strategy={
+                "type": aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
+                "message": "Terminal routing strategy message",
+            })
 
         ```
         ### Example
@@ -153,10 +153,10 @@ class Alias(pulumi.CustomResource):
         alias_resource = aws_native.gamelift.Alias("aliasResource",
             name="MyTerminalAlias",
             description="A terminal alias",
-            routing_strategy=aws_native.gamelift.AliasRoutingStrategyArgs(
-                type=aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
-                message="Terminal routing strategy message",
-            ))
+            routing_strategy={
+                "type": aws_native.gamelift.AliasRoutingStrategyType.TERMINAL,
+                "message": "Terminal routing strategy message",
+            })
 
         ```
 
@@ -177,7 +177,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
+                 routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

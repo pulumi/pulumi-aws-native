@@ -93,7 +93,7 @@ class PlacementGroup(pulumi.CustomResource):
                  partition_count: Optional[pulumi.Input[int]] = None,
                  spread_level: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::PlacementGroup
@@ -103,7 +103,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[str] strategy: The placement strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class PlacementGroup(pulumi.CustomResource):
                  partition_count: Optional[pulumi.Input[int]] = None,
                  spread_level: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

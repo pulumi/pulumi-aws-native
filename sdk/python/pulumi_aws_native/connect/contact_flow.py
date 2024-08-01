@@ -141,7 +141,7 @@ class ContactFlow(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['ContactFlowState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactFlowType']] = None,
                  __props__=None):
         """
@@ -160,10 +160,10 @@ class ContactFlow(pulumi.CustomResource):
             instance_arn="arn:aws:connect:region-name:aws-account-id:instance/instance-arn",
             type=aws_native.connect.ContactFlowType.CONTACT_FLOW,
             content="ExampleFlow content(JSON) using Amazon Connect Flow Language.",
-            tags=[aws_native.TagArgs(
-                key="testkey",
-                value="testValue",
-            )])
+            tags=[{
+                "key": "testkey",
+                "value": "testValue",
+            }])
 
         ```
 
@@ -174,7 +174,7 @@ class ContactFlow(pulumi.CustomResource):
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[str] name: The name of the contact flow.
         :param pulumi.Input['ContactFlowState'] state: The state of the contact flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         :param pulumi.Input['ContactFlowType'] type: The type of the contact flow.
         """
         ...
@@ -199,10 +199,10 @@ class ContactFlow(pulumi.CustomResource):
             instance_arn="arn:aws:connect:region-name:aws-account-id:instance/instance-arn",
             type=aws_native.connect.ContactFlowType.CONTACT_FLOW,
             content="ExampleFlow content(JSON) using Amazon Connect Flow Language.",
-            tags=[aws_native.TagArgs(
-                key="testkey",
-                value="testValue",
-            )])
+            tags=[{
+                "key": "testkey",
+                "value": "testValue",
+            }])
 
         ```
 
@@ -226,7 +226,7 @@ class ContactFlow(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['ContactFlowState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactFlowType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

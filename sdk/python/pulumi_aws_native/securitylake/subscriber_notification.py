@@ -57,7 +57,7 @@ class SubscriberNotification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['SubscriberNotificationNotificationConfigurationArgs']]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
                  subscriber_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -65,7 +65,7 @@ class SubscriberNotification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubscriberNotificationNotificationConfigurationArgs']] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+        :param pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
         :param pulumi.Input[str] subscriber_arn: The ARN for the subscriber
         """
         ...
@@ -92,7 +92,7 @@ class SubscriberNotification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['SubscriberNotificationNotificationConfigurationArgs']]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
                  subscriber_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

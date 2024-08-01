@@ -114,8 +114,8 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
+                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
@@ -125,12 +125,12 @@ class View(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']] filters: An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+        :param pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']] filters: An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
                
                For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
                
                > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]] included_properties: A list of fields that provide additional information about the view.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: A list of fields that provide additional information about the view.
         :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag key and value pairs that are attached to the view.
         :param pulumi.Input[str] view_name: The name of the new view.
@@ -159,8 +159,8 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
+                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,

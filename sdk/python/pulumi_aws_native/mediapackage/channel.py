@@ -125,10 +125,10 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
-                 ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 egress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 hls_ingest: Optional[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
+                 ingress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::Channel
@@ -137,10 +137,10 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_id: The ID of the Channel.
         :param pulumi.Input[str] description: A short text description of the Channel.
-        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
-        :param pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
-        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] ingress_access_logs: The configuration parameters for egress access logging.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
+        :param pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']] ingress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -168,10 +168,10 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
-                 ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 egress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 hls_ingest: Optional[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
+                 ingress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

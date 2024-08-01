@@ -201,10 +201,10 @@ class UserPoolUser(pulumi.CustomResource):
                  desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_alias_creation: Optional[pulumi.Input[bool]] = None,
                  message_action: Optional[pulumi.Input[str]] = None,
-                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]]] = None,
+                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
-                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]]] = None,
+                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUser
@@ -229,14 +229,14 @@ class UserPoolUser(pulumi.CustomResource):
                
                If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
         :param pulumi.Input[str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] user_attributes: An array of name-value pairs that contain user attributes and attribute values.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]] user_attributes: An array of name-value pairs that contain user attributes and attribute values.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
         :param pulumi.Input[str] username: The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
                
                - The username can't be a duplicate of another username in the same user pool.
                - You can't change the value of a username after you create it.
                - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
                
                Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
                
@@ -270,10 +270,10 @@ class UserPoolUser(pulumi.CustomResource):
                  desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_alias_creation: Optional[pulumi.Input[bool]] = None,
                  message_action: Optional[pulumi.Input[str]] = None,
-                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]]] = None,
+                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
-                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]]] = None,
+                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -93,7 +93,7 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_fabric_type: Optional[pulumi.Input['EnvironmentNetworkFabricType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RefactorSpaces::Environment Resource Type
@@ -103,7 +103,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the environment.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_fabric_type: Optional[pulumi.Input['EnvironmentNetworkFabricType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

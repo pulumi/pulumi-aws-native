@@ -74,7 +74,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Describes a local gateway route table virtual interface group association for a local gateway.
@@ -83,7 +83,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] local_gateway_route_table_id: The ID of the local gateway route table.
         :param pulumi.Input[str] local_gateway_virtual_interface_group_id: The ID of the local gateway route table virtual interface group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the local gateway route table virtual interface group association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the local gateway route table virtual interface group association.
         """
         ...
     @overload
@@ -111,7 +111,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

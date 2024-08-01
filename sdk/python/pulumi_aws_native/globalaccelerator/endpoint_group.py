@@ -185,14 +185,14 @@ class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
                  endpoint_group_region: Optional[pulumi.Input[str]] = None,
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  health_check_port: Optional[pulumi.Input[int]] = None,
                  health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
-                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
+                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
                  __props__=None):
@@ -201,14 +201,14 @@ class EndpointGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
         :param pulumi.Input[int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
         :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
@@ -236,14 +236,14 @@ class EndpointGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
                  endpoint_group_region: Optional[pulumi.Input[str]] = None,
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  health_check_port: Optional[pulumi.Input[int]] = None,
                  health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
-                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
+                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
                  __props__=None):

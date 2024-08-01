@@ -223,9 +223,9 @@ class Role(pulumi.CustomResource):
                  max_session_duration: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePolicyArgs', 'RolePolicyArgsDict']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a new role for your AWS-account.
@@ -253,9 +253,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             role_name="ScriptIAMRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="ScriptResourceIAMPolicy",
-                policy_document={
+            policies=[{
+                "policy_name": "ScriptResourceIAMPolicy",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -268,15 +268,15 @@ class Role(pulumi.CustomResource):
                         "resource": ["*"],
                     }],
                 },
-            )])
+            }])
         script_resource = aws_native.gamelift.Script("scriptResource",
             name="MyRealtimeScript",
             version="v1.0",
-            storage_location=aws_native.gamelift.ScriptS3LocationArgs(
-                bucket="MyBucketName",
-                key="MyScriptFiles.zip",
-                role_arn=iam_role.arn,
-            ))
+            storage_location={
+                "bucket": "MyBucketName",
+                "key": "MyScriptFiles.zip",
+                "role_arn": iam_role.arn,
+            })
 
         ```
         ### Example
@@ -300,9 +300,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             role_name="ScriptIAMRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="ScriptResourceIAMPolicy",
-                policy_document={
+            policies=[{
+                "policy_name": "ScriptResourceIAMPolicy",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -315,15 +315,15 @@ class Role(pulumi.CustomResource):
                         "resource": ["*"],
                     }],
                 },
-            )])
+            }])
         script_resource = aws_native.gamelift.Script("scriptResource",
             name="MyRealtimeScript",
             version="v1.0",
-            storage_location=aws_native.gamelift.ScriptS3LocationArgs(
-                bucket="MyBucketName",
-                key="MyScriptFiles.zip",
-                role_arn=iam_role.arn,
-            ))
+            storage_location={
+                "bucket": "MyBucketName",
+                "key": "MyScriptFiles.zip",
+                "role_arn": iam_role.arn,
+            })
 
         ```
         ### Example
@@ -352,25 +352,25 @@ class Role(pulumi.CustomResource):
             permission_type=aws_native.grafana.WorkspacePermissionType.CUSTOMER_MANAGED,
             grafana_version="9.4",
             role_arn=amazon_grafana_workspace_iam_role.arn,
-            saml_configuration=aws_native.grafana.WorkspaceSamlConfigurationArgs(
-                idp_metadata=aws_native.grafana.WorkspaceIdpMetadataArgs(
-                    xml="<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
-                ),
-                assertion_attributes=aws_native.grafana.WorkspaceAssertionAttributesArgs(
-                    name="displayName",
-                    login="login",
-                    email="email",
-                    groups="group",
-                    role="role",
-                    org="org",
-                ),
-                role_values=aws_native.grafana.WorkspaceRoleValuesArgs(
-                    editor=["editor1"],
-                    admin=["admin1"],
-                ),
-                allowed_organizations=["org1"],
-                login_validity_duration=60,
-            ))
+            saml_configuration={
+                "idp_metadata": {
+                    "xml": "<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
+                },
+                "assertion_attributes": {
+                    "name": "displayName",
+                    "login": "login",
+                    "email": "email",
+                    "groups": "group",
+                    "role": "role",
+                    "org": "org",
+                },
+                "role_values": {
+                    "editor": ["editor1"],
+                    "admin": ["admin1"],
+                },
+                "allowed_organizations": ["org1"],
+                "login_validity_duration": 60,
+            })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
         pulumi.export("workspaceId", amazon_grafana_workspace.id)
@@ -403,25 +403,25 @@ class Role(pulumi.CustomResource):
             permission_type=aws_native.grafana.WorkspacePermissionType.CUSTOMER_MANAGED,
             grafana_version="9.4",
             role_arn=amazon_grafana_workspace_iam_role.arn,
-            saml_configuration=aws_native.grafana.WorkspaceSamlConfigurationArgs(
-                idp_metadata=aws_native.grafana.WorkspaceIdpMetadataArgs(
-                    xml="<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
-                ),
-                assertion_attributes=aws_native.grafana.WorkspaceAssertionAttributesArgs(
-                    name="displayName",
-                    login="login",
-                    email="email",
-                    groups="group",
-                    role="role",
-                    org="org",
-                ),
-                role_values=aws_native.grafana.WorkspaceRoleValuesArgs(
-                    editor=["editor1"],
-                    admin=["admin1"],
-                ),
-                allowed_organizations=["org1"],
-                login_validity_duration=60,
-            ))
+            saml_configuration={
+                "idp_metadata": {
+                    "xml": "<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
+                },
+                "assertion_attributes": {
+                    "name": "displayName",
+                    "login": "login",
+                    "email": "email",
+                    "groups": "group",
+                    "role": "role",
+                    "org": "org",
+                },
+                "role_values": {
+                    "editor": ["editor1"],
+                    "admin": ["admin1"],
+                },
+                "allowed_organizations": ["org1"],
+                "login_validity_duration": 60,
+            })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
         pulumi.export("workspaceId", amazon_grafana_workspace.id)
@@ -446,9 +446,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="root",
-                policy_document={
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -456,7 +456,7 @@ class Role(pulumi.CustomResource):
                         "resource": "*",
                     }],
                 },
-            )])
+            }])
         root_instance_profile = aws_native.iam.InstanceProfile("rootInstanceProfile",
             path="/",
             roles=[root_role.id])
@@ -480,9 +480,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="root",
-                policy_document={
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -490,7 +490,7 @@ class Role(pulumi.CustomResource):
                         "resource": "*",
                     }],
                 },
-            )])
+            }])
         root_instance_profile = aws_native.iam.InstanceProfile("rootInstanceProfile",
             path="/",
             roles=[root_role.id])
@@ -520,10 +520,10 @@ class Role(pulumi.CustomResource):
             parameters={
                 "automationAssumeRole": ["AutomationExecutionRole.Arn"],
             },
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="ParameterValues",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "ParameterValues",
+                "values": ["i-1234567890abcdef0"],
+            }],
             automation_target_parameter_name="InstanceId")
 
         ```
@@ -543,7 +543,7 @@ class Role(pulumi.CustomResource):
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\\u0021``) through the DEL character (``\\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy used to set the permissions boundary for the role.
                 For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePolicyArgs', 'RolePolicyArgsDict']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
                
                When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role. You can update a role's trust policy later. For more information about IAM roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) .
                
@@ -561,7 +561,7 @@ class Role(pulumi.CustomResource):
                If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
                
                > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that are attached to the role. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags that are attached to the role. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
         """
         ...
     @overload
@@ -595,9 +595,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             role_name="ScriptIAMRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="ScriptResourceIAMPolicy",
-                policy_document={
+            policies=[{
+                "policy_name": "ScriptResourceIAMPolicy",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -610,15 +610,15 @@ class Role(pulumi.CustomResource):
                         "resource": ["*"],
                     }],
                 },
-            )])
+            }])
         script_resource = aws_native.gamelift.Script("scriptResource",
             name="MyRealtimeScript",
             version="v1.0",
-            storage_location=aws_native.gamelift.ScriptS3LocationArgs(
-                bucket="MyBucketName",
-                key="MyScriptFiles.zip",
-                role_arn=iam_role.arn,
-            ))
+            storage_location={
+                "bucket": "MyBucketName",
+                "key": "MyScriptFiles.zip",
+                "role_arn": iam_role.arn,
+            })
 
         ```
         ### Example
@@ -642,9 +642,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             role_name="ScriptIAMRole",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="ScriptResourceIAMPolicy",
-                policy_document={
+            policies=[{
+                "policy_name": "ScriptResourceIAMPolicy",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -657,15 +657,15 @@ class Role(pulumi.CustomResource):
                         "resource": ["*"],
                     }],
                 },
-            )])
+            }])
         script_resource = aws_native.gamelift.Script("scriptResource",
             name="MyRealtimeScript",
             version="v1.0",
-            storage_location=aws_native.gamelift.ScriptS3LocationArgs(
-                bucket="MyBucketName",
-                key="MyScriptFiles.zip",
-                role_arn=iam_role.arn,
-            ))
+            storage_location={
+                "bucket": "MyBucketName",
+                "key": "MyScriptFiles.zip",
+                "role_arn": iam_role.arn,
+            })
 
         ```
         ### Example
@@ -694,25 +694,25 @@ class Role(pulumi.CustomResource):
             permission_type=aws_native.grafana.WorkspacePermissionType.CUSTOMER_MANAGED,
             grafana_version="9.4",
             role_arn=amazon_grafana_workspace_iam_role.arn,
-            saml_configuration=aws_native.grafana.WorkspaceSamlConfigurationArgs(
-                idp_metadata=aws_native.grafana.WorkspaceIdpMetadataArgs(
-                    xml="<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
-                ),
-                assertion_attributes=aws_native.grafana.WorkspaceAssertionAttributesArgs(
-                    name="displayName",
-                    login="login",
-                    email="email",
-                    groups="group",
-                    role="role",
-                    org="org",
-                ),
-                role_values=aws_native.grafana.WorkspaceRoleValuesArgs(
-                    editor=["editor1"],
-                    admin=["admin1"],
-                ),
-                allowed_organizations=["org1"],
-                login_validity_duration=60,
-            ))
+            saml_configuration={
+                "idp_metadata": {
+                    "xml": "<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
+                },
+                "assertion_attributes": {
+                    "name": "displayName",
+                    "login": "login",
+                    "email": "email",
+                    "groups": "group",
+                    "role": "role",
+                    "org": "org",
+                },
+                "role_values": {
+                    "editor": ["editor1"],
+                    "admin": ["admin1"],
+                },
+                "allowed_organizations": ["org1"],
+                "login_validity_duration": 60,
+            })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
         pulumi.export("workspaceId", amazon_grafana_workspace.id)
@@ -745,25 +745,25 @@ class Role(pulumi.CustomResource):
             permission_type=aws_native.grafana.WorkspacePermissionType.CUSTOMER_MANAGED,
             grafana_version="9.4",
             role_arn=amazon_grafana_workspace_iam_role.arn,
-            saml_configuration=aws_native.grafana.WorkspaceSamlConfigurationArgs(
-                idp_metadata=aws_native.grafana.WorkspaceIdpMetadataArgs(
-                    xml="<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
-                ),
-                assertion_attributes=aws_native.grafana.WorkspaceAssertionAttributesArgs(
-                    name="displayName",
-                    login="login",
-                    email="email",
-                    groups="group",
-                    role="role",
-                    org="org",
-                ),
-                role_values=aws_native.grafana.WorkspaceRoleValuesArgs(
-                    editor=["editor1"],
-                    admin=["admin1"],
-                ),
-                allowed_organizations=["org1"],
-                login_validity_duration=60,
-            ))
+            saml_configuration={
+                "idp_metadata": {
+                    "xml": "<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>",
+                },
+                "assertion_attributes": {
+                    "name": "displayName",
+                    "login": "login",
+                    "email": "email",
+                    "groups": "group",
+                    "role": "role",
+                    "org": "org",
+                },
+                "role_values": {
+                    "editor": ["editor1"],
+                    "admin": ["admin1"],
+                },
+                "allowed_organizations": ["org1"],
+                "login_validity_duration": 60,
+            })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
         pulumi.export("workspaceId", amazon_grafana_workspace.id)
@@ -788,9 +788,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="root",
-                policy_document={
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -798,7 +798,7 @@ class Role(pulumi.CustomResource):
                         "resource": "*",
                     }],
                 },
-            )])
+            }])
         root_instance_profile = aws_native.iam.InstanceProfile("rootInstanceProfile",
             path="/",
             roles=[root_role.id])
@@ -822,9 +822,9 @@ class Role(pulumi.CustomResource):
                 }],
             },
             path="/",
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="root",
-                policy_document={
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -832,7 +832,7 @@ class Role(pulumi.CustomResource):
                         "resource": "*",
                     }],
                 },
-            )])
+            }])
         root_instance_profile = aws_native.iam.InstanceProfile("rootInstanceProfile",
             path="/",
             roles=[root_role.id])
@@ -862,10 +862,10 @@ class Role(pulumi.CustomResource):
             parameters={
                 "automationAssumeRole": ["AutomationExecutionRole.Arn"],
             },
-            targets=[aws_native.ssm.AssociationTargetArgs(
-                key="ParameterValues",
-                values=["i-1234567890abcdef0"],
-            )],
+            targets=[{
+                "key": "ParameterValues",
+                "values": ["i-1234567890abcdef0"],
+            }],
             automation_target_parameter_name="InstanceId")
 
         ```
@@ -891,9 +891,9 @@ class Role(pulumi.CustomResource):
                  max_session_duration: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePolicyArgs', 'RolePolicyArgsDict']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

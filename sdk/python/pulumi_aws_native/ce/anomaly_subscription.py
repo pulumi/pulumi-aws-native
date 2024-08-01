@@ -138,8 +138,8 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionResourceTagArgs']]]]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]]] = None,
+                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  threshold_expression: Optional[pulumi.Input[str]] = None,
@@ -158,10 +158,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"Values\\": [ \\"100\\" ], \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ] } }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -176,10 +176,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -192,10 +192,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"And\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -210,10 +210,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"And\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -226,10 +226,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"Or\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -244,10 +244,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"Or\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
 
@@ -255,8 +255,8 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email. 
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_arn_list: A list of cost anomaly monitors.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionResourceTagArgs']]]] resource_tags: Tags to assign to subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]] subscribers: A list of subscriber
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]] resource_tags: Tags to assign to subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A list of subscriber
         :param pulumi.Input[str] subscription_name: The name of the subscription.
         :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. 
         :param pulumi.Input[str] threshold_expression: An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
@@ -281,10 +281,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"Values\\": [ \\"100\\" ], \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ] } }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -299,10 +299,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -315,10 +315,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"And\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -333,10 +333,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"And\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
         ### Example
@@ -349,10 +349,10 @@ class AnomalySubscription(pulumi.CustomResource):
             subscription_name="SubscriptionName",
             threshold_expression="{ \\"Or\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                address="abc@def.com",
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-            )],
+            subscribers=[{
+                "address": "abc@def.com",
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+            }],
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY)
 
         ```
@@ -367,10 +367,10 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression="{ \\"Or\\": [ { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_PERCENTAGE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"100\\" ] } }, { \\"Dimensions\\": { \\"Key\\": \\"ANOMALY_TOTAL_IMPACT_ABSOLUTE\\", \\"MatchOptions\\": [ \\"GREATER_THAN_OR_EQUAL\\" ], \\"Values\\": [ \\"200\\" ] } } ] }",
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[],
-            subscribers=[aws_native.ce.AnomalySubscriptionSubscriberArgs(
-                type=aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
-                address="abc@def.com",
-            )])
+            subscribers=[{
+                "type": aws_native.ce.AnomalySubscriptionSubscriberType.EMAIL,
+                "address": "abc@def.com",
+            }])
 
         ```
 
@@ -391,8 +391,8 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionResourceTagArgs']]]]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]]] = None,
+                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  threshold_expression: Optional[pulumi.Input[str]] = None,

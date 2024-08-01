@@ -227,7 +227,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  manifest: Optional[pulumi.Input[str]] = None,
                  source_custom_db_engine_version_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  use_aws_provided_latest_image: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -245,7 +245,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
         :param pulumi.Input[str] source_custom_db_engine_version_identifier: The identifier of the source custom engine version.
         :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[bool] use_aws_provided_latest_image: A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
         """
         ...
@@ -282,7 +282,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  manifest: Optional[pulumi.Input[str]] = None,
                  source_custom_db_engine_version_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  use_aws_provided_latest_image: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

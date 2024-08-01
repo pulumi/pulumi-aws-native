@@ -92,7 +92,7 @@ class CertificateProvider(pulumi.CustomResource):
                  account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
                  certificate_provider_name: Optional[pulumi.Input[str]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
@@ -102,7 +102,7 @@ class CertificateProvider(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]] account_default_for_operations: A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
         :param pulumi.Input[str] certificate_provider_name: The name of the certificate provider.
         :param pulumi.Input[str] lambda_function_arn: The ARN of the Lambda function.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class CertificateProvider(pulumi.CustomResource):
                  account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
                  certificate_provider_name: Optional[pulumi.Input[str]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

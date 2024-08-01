@@ -164,7 +164,7 @@ class LaunchProfile(pulumi.CustomResource):
                  ec2_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  launch_profile_protocol_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
+                 stream_configuration: Optional[pulumi.Input[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -180,7 +180,7 @@ class LaunchProfile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid
                            version is "2021-03-31".</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
-        :param pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']] stream_configuration: A configuration for a streaming session.
+        :param pulumi.Input[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']] stream_configuration: A configuration for a streaming session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this
                            launch profile.</p>
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
@@ -216,7 +216,7 @@ class LaunchProfile(pulumi.CustomResource):
                  ec2_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  launch_profile_protocol_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
+                 stream_configuration: Optional[pulumi.Input[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

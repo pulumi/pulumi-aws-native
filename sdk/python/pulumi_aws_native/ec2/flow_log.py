@@ -221,7 +221,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
+                 destination_options: Optional[pulumi.Input[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
                  log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
@@ -229,7 +229,7 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
         """
@@ -239,7 +239,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
-        :param pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']] destination_options: The destination options.
+        :param pulumi.Input[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']] destination_options: The destination options.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
@@ -247,7 +247,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
         :param pulumi.Input[str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply to the flow logs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the flow logs.
         :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
         ...
@@ -276,7 +276,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
+                 destination_options: Optional[pulumi.Input[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
                  log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
@@ -284,7 +284,7 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

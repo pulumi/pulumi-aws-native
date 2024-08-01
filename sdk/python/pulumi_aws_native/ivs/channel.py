@@ -161,7 +161,7 @@ class Channel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         """
@@ -176,17 +176,17 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.ivs.Channel("channel",
             name="MyChannel",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )],
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }],
             insecure_ingest=True)
         stream_key = aws_native.ivs.StreamKey("streamKey",
             channel_arn=channel.id,
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("channelArn", channel.id)
         pulumi.export("channelIngestEndpoint", channel.ingest_endpoint)
         pulumi.export("channelPlaybackUrl", channel.playback_url)
@@ -201,17 +201,17 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.ivs.Channel("channel",
             name="MyChannel",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )],
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }],
             insecure_ingest=True)
         stream_key = aws_native.ivs.StreamKey("streamKey",
             channel_arn=channel.id,
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("channelArn", channel.id)
         pulumi.export("channelIngestEndpoint", channel.ingest_endpoint)
         pulumi.export("channelPlaybackUrl", channel.playback_url)
@@ -227,7 +227,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         ...
@@ -248,17 +248,17 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.ivs.Channel("channel",
             name="MyChannel",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )],
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }],
             insecure_ingest=True)
         stream_key = aws_native.ivs.StreamKey("streamKey",
             channel_arn=channel.id,
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("channelArn", channel.id)
         pulumi.export("channelIngestEndpoint", channel.ingest_endpoint)
         pulumi.export("channelPlaybackUrl", channel.playback_url)
@@ -273,17 +273,17 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.ivs.Channel("channel",
             name="MyChannel",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )],
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }],
             insecure_ingest=True)
         stream_key = aws_native.ivs.StreamKey("streamKey",
             channel_arn=channel.id,
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("channelArn", channel.id)
         pulumi.export("channelIngestEndpoint", channel.ingest_endpoint)
         pulumi.export("channelPlaybackUrl", channel.playback_url)
@@ -312,7 +312,7 @@ class Channel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

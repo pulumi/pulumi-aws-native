@@ -111,8 +111,8 @@ class Workspace(pulumi.CustomResource):
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Workspace
@@ -126,10 +126,10 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
         ### Example
@@ -140,13 +140,13 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            logging_configuration=aws_native.aps.WorkspaceLoggingConfigurationArgs(
-                log_group_arn="arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
-            ),
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            logging_configuration={
+                "log_group_arn": "arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
+            },
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
         ### Example
@@ -157,13 +157,13 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            logging_configuration=aws_native.aps.WorkspaceLoggingConfigurationArgs(
-                log_group_arn="arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
-            ),
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            logging_configuration={
+                "log_group_arn": "arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
+            },
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
 
@@ -172,8 +172,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
-        :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Contains information about the logging configuration for the workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Contains information about the logging configuration for the workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -193,10 +193,10 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
         ### Example
@@ -207,13 +207,13 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            logging_configuration=aws_native.aps.WorkspaceLoggingConfigurationArgs(
-                log_group_arn="arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
-            ),
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            logging_configuration={
+                "log_group_arn": "arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
+            },
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
         ### Example
@@ -224,13 +224,13 @@ class Workspace(pulumi.CustomResource):
 
         aps_workspace = aws_native.aps.Workspace("apsWorkspace",
             alias="TestWorkspace",
-            logging_configuration=aws_native.aps.WorkspaceLoggingConfigurationArgs(
-                log_group_arn="arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
-            ),
-            tags=[aws_native.TagArgs(
-                key="BusinessPurpose",
-                value="LoadTesting",
-            )])
+            logging_configuration={
+                "log_group_arn": "arn:aws:logs:{region}:{account}:log-group:test-log-group:*",
+            },
+            tags=[{
+                "key": "BusinessPurpose",
+                "value": "LoadTesting",
+            }])
 
         ```
 
@@ -252,8 +252,8 @@ class Workspace(pulumi.CustomResource):
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

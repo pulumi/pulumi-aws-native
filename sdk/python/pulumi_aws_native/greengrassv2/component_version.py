@@ -98,7 +98,7 @@ class ComponentVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inline_recipe: Optional[pulumi.Input[str]] = None,
-                 lambda_function: Optional[pulumi.Input[pulumi.InputType['ComponentVersionLambdaFunctionRecipeSourceArgs']]] = None,
+                 lambda_function: Optional[pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -109,7 +109,7 @@ class ComponentVersion(pulumi.CustomResource):
         :param pulumi.Input[str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
-        :param pulumi.Input[pulumi.InputType['ComponentVersionLambdaFunctionRecipeSourceArgs']] lambda_function: The parameters to create a component from a Lambda function.
+        :param pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']] lambda_function: The parameters to create a component from a Lambda function.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
@@ -146,7 +146,7 @@ class ComponentVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inline_recipe: Optional[pulumi.Input[str]] = None,
-                 lambda_function: Optional[pulumi.Input[pulumi.InputType['ComponentVersionLambdaFunctionRecipeSourceArgs']]] = None,
+                 lambda_function: Optional[pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

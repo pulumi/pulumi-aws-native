@@ -253,8 +253,8 @@ class ScalingPolicy(pulumi.CustomResource):
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyStepScalingPolicyConfigurationArgs']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None,
+                 step_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
@@ -315,8 +315,8 @@ class ScalingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] scaling_target_id: The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the ``AWS::ApplicationAutoScaling::ScalableTarget`` resource.
                  You must specify either the ``ScalingTargetId`` property, or the ``ResourceId``, ``ScalableDimension``, and ``ServiceNamespace`` properties, but not both.
         :param pulumi.Input[str] service_namespace: The namespace of the AWS service that provides the resource, or a ``custom-resource``.
-        :param pulumi.Input[pulumi.InputType['ScalingPolicyStepScalingPolicyConfigurationArgs']] step_scaling_policy_configuration: A step scaling policy.
-        :param pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] target_tracking_scaling_policy_configuration: A target tracking scaling policy.
+        :param pulumi.Input[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']] step_scaling_policy_configuration: A step scaling policy.
+        :param pulumi.Input[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']] target_tracking_scaling_policy_configuration: A target tracking scaling policy.
         """
         ...
     @overload
@@ -349,8 +349,8 @@ class ScalingPolicy(pulumi.CustomResource):
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyStepScalingPolicyConfigurationArgs']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None,
+                 step_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -284,10 +284,10 @@ class FlowOutput(pulumi.CustomResource):
                  cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
-                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]]] = None,
+                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
@@ -296,7 +296,7 @@ class FlowOutput(pulumi.CustomResource):
                  remote_id: Optional[pulumi.Input[str]] = None,
                  smoothing_latency: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
-                 vpc_interface_attachment: Optional[pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']]] = None,
+                 vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
@@ -306,10 +306,10 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[str] description: A description of the output.
         :param pulumi.Input[str] destination: The address where you want to send the output.
-        :param pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
         :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
@@ -318,7 +318,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
         :param pulumi.Input[int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-        :param pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
+        :param pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         ...
     @overload
@@ -347,10 +347,10 @@ class FlowOutput(pulumi.CustomResource):
                  cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
-                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowOutputMediaStreamOutputConfigurationArgs']]]]] = None,
+                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
@@ -359,7 +359,7 @@ class FlowOutput(pulumi.CustomResource):
                  remote_id: Optional[pulumi.Input[str]] = None,
                  smoothing_latency: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
-                 vpc_interface_attachment: Optional[pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']]] = None,
+                 vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

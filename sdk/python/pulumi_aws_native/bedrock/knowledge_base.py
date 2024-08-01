@@ -127,10 +127,10 @@ class KnowledgeBase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseConfigurationArgs']]] = None,
+                 knowledge_base_configuration: Optional[pulumi.Input[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -139,10 +139,10 @@ class KnowledgeBase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Resource.
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
+        :param pulumi.Input[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains details about the storage configuration of the knowledge base.
+        :param pulumi.Input[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']] storage_configuration: Contains details about the storage configuration of the knowledge base.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -173,10 +173,10 @@ class KnowledgeBase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseConfigurationArgs']]] = None,
+                 knowledge_base_configuration: Optional[pulumi.Input[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

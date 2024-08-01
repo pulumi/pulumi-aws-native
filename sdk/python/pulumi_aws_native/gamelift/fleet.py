@@ -491,20 +491,20 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anywhere_configuration: Optional[pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']]] = None,
+                 anywhere_configuration: Optional[pulumi.Input[Union['FleetAnywhereConfigurationArgs', 'FleetAnywhereConfigurationArgsDict']]] = None,
                  apply_capacity: Optional[pulumi.Input['FleetApplyCapacity']] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
+                 certificate_configuration: Optional[pulumi.Input[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
-                 container_groups_configuration: Optional[pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']]] = None,
+                 container_groups_configuration: Optional[pulumi.Input[Union['FleetContainerGroupsConfigurationArgs', 'FleetContainerGroupsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetIpPermissionArgs', 'FleetIpPermissionArgsDict']]]]] = None,
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLocationConfigurationArgs', 'FleetLocationConfigurationArgsDict']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -513,9 +513,9 @@ class Fleet(pulumi.CustomResource):
                  new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
-                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]]] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetScalingPolicyArgs', 'FleetScalingPolicyArgsDict']]]]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[str]] = None,
                  server_launch_path: Optional[pulumi.Input[str]] = None,
@@ -525,24 +525,24 @@ class Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']] anywhere_configuration: Configuration for Anywhere fleet.
+        :param pulumi.Input[Union['FleetAnywhereConfigurationArgs', 'FleetAnywhereConfigurationArgsDict']] anywhere_configuration: Configuration for Anywhere fleet.
         :param pulumi.Input['FleetApplyCapacity'] apply_capacity: Determines whether to apply fleet or location capacities on fleet creation.
         :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
-        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
+        :param pulumi.Input[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict']] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-        :param pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']] container_groups_configuration: *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+        :param pulumi.Input[Union['FleetContainerGroupsConfigurationArgs', 'FleetContainerGroupsConfigurationArgsDict']] container_groups_configuration: *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
                
                Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
                
                *Used with:* `CreateFleet`
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetIpPermissionArgs', 'FleetIpPermissionArgsDict']]]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] ec2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLocationConfigurationArgs', 'FleetLocationConfigurationArgsDict']]]] locations: A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -551,11 +551,11 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input['FleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         :param pulumi.Input[str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
-        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
-        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+        :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
                
                This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]] scaling_policies: A list of rules that control how a fleet is scaled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetScalingPolicyArgs', 'FleetScalingPolicyArgsDict']]]] scaling_policies: A list of rules that control how a fleet is scaled.
         :param pulumi.Input[str] script_id: A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
                
                Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -586,20 +586,20 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anywhere_configuration: Optional[pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']]] = None,
+                 anywhere_configuration: Optional[pulumi.Input[Union['FleetAnywhereConfigurationArgs', 'FleetAnywhereConfigurationArgsDict']]] = None,
                  apply_capacity: Optional[pulumi.Input['FleetApplyCapacity']] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
+                 certificate_configuration: Optional[pulumi.Input[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
-                 container_groups_configuration: Optional[pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']]] = None,
+                 container_groups_configuration: Optional[pulumi.Input[Union['FleetContainerGroupsConfigurationArgs', 'FleetContainerGroupsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetIpPermissionArgs', 'FleetIpPermissionArgsDict']]]]] = None,
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLocationConfigurationArgs', 'FleetLocationConfigurationArgsDict']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -608,9 +608,9 @@ class Fleet(pulumi.CustomResource):
                  new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
-                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]]] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetScalingPolicyArgs', 'FleetScalingPolicyArgsDict']]]]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[str]] = None,
                  server_launch_path: Optional[pulumi.Input[str]] = None,

@@ -236,14 +236,14 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['EnvironmentEngineType']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
+                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]]] = None,
+                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -255,14 +255,14 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']] high_availability_config: Defines the details of a high availability configuration.
+        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: Defines the details of a high availability configuration.
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[bool] publicly_accessible: Specifies whether the environment is publicly accessible.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]] storage_configurations: The storage configurations defined for the runtime environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]] storage_configurations: The storage configurations defined for the runtime environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The unique identifiers of the subnets assigned to this runtime environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags associated to this environment.
         """
@@ -293,14 +293,14 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['EnvironmentEngineType']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
+                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]]] = None,
+                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

@@ -124,11 +124,11 @@ class UsagePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
+                 api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
+                 quota: Optional[pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 throttle: Optional[pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,11 +137,11 @@ class UsagePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of a usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]] api_stages: The associated API stages of a usage plan.
         :param pulumi.Input[str] description: The description of a usage plan.
-        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: The target maximum number of permitted requests per a given unit time interval.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
-        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: A map containing method level throttling information for API stage in a usage plan.
+        :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota: The target maximum number of permitted requests per a given unit time interval.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle: A map containing method level throttling information for API stage in a usage plan.
         :param pulumi.Input[str] usage_plan_name: The name of a usage plan.
         """
         ...
@@ -169,11 +169,11 @@ class UsagePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
+                 api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
+                 quota: Optional[pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 throttle: Optional[pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

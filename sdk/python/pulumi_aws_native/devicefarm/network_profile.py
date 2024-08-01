@@ -228,7 +228,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
                  uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
@@ -246,7 +246,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[int] downlink_loss_percent: Proportion of received packets that fail to arrive from 0 to 100 percent.
         :param pulumi.Input[str] name: The name of the network profile.
         :param pulumi.Input[str] project_arn: The Amazon Resource Name (ARN) of the specified project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
@@ -285,7 +285,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
                  uplink_jitter_ms: Optional[pulumi.Input[int]] = None,

@@ -137,26 +137,26 @@ class Transformer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: Optional[pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']]] = None,
+                 edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Transformer Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        :param pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
         :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
         :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
         :param pulumi.Input[str] sample_document: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -182,13 +182,13 @@ class Transformer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: Optional[pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']]] = None,
+                 edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

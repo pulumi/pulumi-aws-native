@@ -356,7 +356,7 @@ class Queue(pulumi.CustomResource):
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -382,18 +382,18 @@ class Queue(pulumi.CustomResource):
         if alarm_email is None:
             alarm_email = "jane.doe@example.com"
         my_queue = aws_native.sqs.Queue("myQueue", queue_name="SampleQueue")
-        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[aws_native.sns.TopicSubscriptionArgs(
-            endpoint=alarm_email,
-            protocol="email",
-        )])
+        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[{
+            "endpoint": alarm_email,
+            "protocol": "email",
+        }])
         queue_depth_alarm = aws_native.cloudwatch.Alarm("queueDepthAlarm",
             alarm_description="Alarm if queue depth increases to more than 10 messages",
             namespace="AWS/SQS",
             metric_name="ApproximateNumberOfMessagesVisible",
-            dimensions=[aws_native.cloudwatch.AlarmDimensionArgs(
-                name="QueueName",
-                value=my_queue.queue_name,
-            )],
+            dimensions=[{
+                "name": "QueueName",
+                "value": my_queue.queue_name,
+            }],
             statistic="Sum",
             period=300,
             evaluation_periods=1,
@@ -417,18 +417,18 @@ class Queue(pulumi.CustomResource):
         if alarm_email is None:
             alarm_email = "jane.doe@example.com"
         my_queue = aws_native.sqs.Queue("myQueue", queue_name="SampleQueue")
-        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[aws_native.sns.TopicSubscriptionArgs(
-            endpoint=alarm_email,
-            protocol="email",
-        )])
+        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[{
+            "endpoint": alarm_email,
+            "protocol": "email",
+        }])
         queue_depth_alarm = aws_native.cloudwatch.Alarm("queueDepthAlarm",
             alarm_description="Alarm if queue depth increases to more than 10 messages",
             namespace="AWS/SQS",
             metric_name="ApproximateNumberOfMessagesVisible",
-            dimensions=[aws_native.cloudwatch.AlarmDimensionArgs(
-                name="QueueName",
-                value=my_queue.queue_name,
-            )],
+            dimensions=[{
+                "name": "QueueName",
+                "value": my_queue.queue_name,
+            }],
             statistic="Sum",
             period=300,
             evaluation_periods=1,
@@ -520,7 +520,7 @@ class Queue(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html) or [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html)). When ``SqsManagedSseEnabled`` is not defined, ``SSE-SQS`` encryption is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that you attach to this queue. For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that you attach to this queue. For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *User Guide*.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue.
                 Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
                 For more information about SQS queue visibility timeouts, see [Visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) in the *Developer Guide*.
@@ -554,18 +554,18 @@ class Queue(pulumi.CustomResource):
         if alarm_email is None:
             alarm_email = "jane.doe@example.com"
         my_queue = aws_native.sqs.Queue("myQueue", queue_name="SampleQueue")
-        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[aws_native.sns.TopicSubscriptionArgs(
-            endpoint=alarm_email,
-            protocol="email",
-        )])
+        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[{
+            "endpoint": alarm_email,
+            "protocol": "email",
+        }])
         queue_depth_alarm = aws_native.cloudwatch.Alarm("queueDepthAlarm",
             alarm_description="Alarm if queue depth increases to more than 10 messages",
             namespace="AWS/SQS",
             metric_name="ApproximateNumberOfMessagesVisible",
-            dimensions=[aws_native.cloudwatch.AlarmDimensionArgs(
-                name="QueueName",
-                value=my_queue.queue_name,
-            )],
+            dimensions=[{
+                "name": "QueueName",
+                "value": my_queue.queue_name,
+            }],
             statistic="Sum",
             period=300,
             evaluation_periods=1,
@@ -589,18 +589,18 @@ class Queue(pulumi.CustomResource):
         if alarm_email is None:
             alarm_email = "jane.doe@example.com"
         my_queue = aws_native.sqs.Queue("myQueue", queue_name="SampleQueue")
-        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[aws_native.sns.TopicSubscriptionArgs(
-            endpoint=alarm_email,
-            protocol="email",
-        )])
+        alarm_topic = aws_native.sns.Topic("alarmTopic", subscription=[{
+            "endpoint": alarm_email,
+            "protocol": "email",
+        }])
         queue_depth_alarm = aws_native.cloudwatch.Alarm("queueDepthAlarm",
             alarm_description="Alarm if queue depth increases to more than 10 messages",
             namespace="AWS/SQS",
             metric_name="ApproximateNumberOfMessagesVisible",
-            dimensions=[aws_native.cloudwatch.AlarmDimensionArgs(
-                name="QueueName",
-                value=my_queue.queue_name,
-            )],
+            dimensions=[{
+                "name": "QueueName",
+                "value": my_queue.queue_name,
+            }],
             statistic="Sum",
             period=300,
             evaluation_periods=1,
@@ -677,7 +677,7 @@ class Queue(pulumi.CustomResource):
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

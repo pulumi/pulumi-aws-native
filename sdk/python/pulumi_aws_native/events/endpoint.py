@@ -126,11 +126,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointEventBusArgs']]]]] = None,
+                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_config: Optional[pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']]] = None,
+                 replication_config: Optional[pulumi.Input[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Endpoint.
@@ -144,27 +144,27 @@ class Endpoint(pulumi.CustomResource):
 
         sample_endpoint = aws_native.events.Endpoint("sampleEndpoint",
             name="CreateExampleEndpoint",
-            routing_config=aws_native.events.EndpointRoutingConfigArgs(
-                failover_config=aws_native.events.EndpointFailoverConfigArgs(
-                    primary=aws_native.events.EndpointPrimaryArgs(
-                        health_check="arn:aws:route53:::healthcheck/0123456789abc",
-                    ),
-                    secondary=aws_native.events.EndpointSecondaryArgs(
-                        route="us-east-1",
-                    ),
-                ),
-            ),
-            replication_config=aws_native.events.EndpointReplicationConfigArgs(
-                state=aws_native.events.EndpointReplicationState.ENABLED,
-            ),
+            routing_config={
+                "failover_config": {
+                    "primary": {
+                        "health_check": "arn:aws:route53:::healthcheck/0123456789abc",
+                    },
+                    "secondary": {
+                        "route": "us-east-1",
+                    },
+                },
+            },
+            replication_config={
+                "state": aws_native.events.EndpointReplicationState.ENABLED,
+            },
             role_arn="arn:aws:iam::123456789012:role/EndpointReplicationRole",
             event_buses=[
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
-                ),
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
-                ),
+                {
+                    "event_bus_arn": "arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
+                },
+                {
+                    "event_bus_arn": "arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
+                },
             ])
         pulumi.export("sampleEndpointName", sample_endpoint.id)
 
@@ -177,26 +177,26 @@ class Endpoint(pulumi.CustomResource):
 
         sample_endpoint = aws_native.events.Endpoint("sampleEndpoint",
             name="CreateExampleEndpoint",
-            routing_config=aws_native.events.EndpointRoutingConfigArgs(
-                failover_config=aws_native.events.EndpointFailoverConfigArgs(
-                    primary=aws_native.events.EndpointPrimaryArgs(
-                        health_check="arn:aws:route53:::healthcheck/0123456789abc",
-                    ),
-                    secondary=aws_native.events.EndpointSecondaryArgs(
-                        route="us-east-1",
-                    ),
-                ),
-            ),
-            replication_config=aws_native.events.EndpointReplicationConfigArgs(
-                state=aws_native.events.EndpointReplicationState.DISABLED,
-            ),
+            routing_config={
+                "failover_config": {
+                    "primary": {
+                        "health_check": "arn:aws:route53:::healthcheck/0123456789abc",
+                    },
+                    "secondary": {
+                        "route": "us-east-1",
+                    },
+                },
+            },
+            replication_config={
+                "state": aws_native.events.EndpointReplicationState.DISABLED,
+            },
             event_buses=[
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
-                ),
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
-                ),
+                {
+                    "event_bus_arn": "arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
+                },
+                {
+                    "event_bus_arn": "arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
+                },
             ])
         pulumi.export("sampleEndpointName", sample_endpoint.id)
 
@@ -205,13 +205,13 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointEventBusArgs']]]] event_buses: The event buses being used by the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]] event_buses: The event buses being used by the endpoint.
                
                *Exactly* : `2`
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        :param pulumi.Input[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         :param pulumi.Input[str] role_arn: The ARN of the role used by event replication for the endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']] routing_config: The routing configuration of the endpoint.
+        :param pulumi.Input[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']] routing_config: The routing configuration of the endpoint.
         """
         ...
     @overload
@@ -231,27 +231,27 @@ class Endpoint(pulumi.CustomResource):
 
         sample_endpoint = aws_native.events.Endpoint("sampleEndpoint",
             name="CreateExampleEndpoint",
-            routing_config=aws_native.events.EndpointRoutingConfigArgs(
-                failover_config=aws_native.events.EndpointFailoverConfigArgs(
-                    primary=aws_native.events.EndpointPrimaryArgs(
-                        health_check="arn:aws:route53:::healthcheck/0123456789abc",
-                    ),
-                    secondary=aws_native.events.EndpointSecondaryArgs(
-                        route="us-east-1",
-                    ),
-                ),
-            ),
-            replication_config=aws_native.events.EndpointReplicationConfigArgs(
-                state=aws_native.events.EndpointReplicationState.ENABLED,
-            ),
+            routing_config={
+                "failover_config": {
+                    "primary": {
+                        "health_check": "arn:aws:route53:::healthcheck/0123456789abc",
+                    },
+                    "secondary": {
+                        "route": "us-east-1",
+                    },
+                },
+            },
+            replication_config={
+                "state": aws_native.events.EndpointReplicationState.ENABLED,
+            },
             role_arn="arn:aws:iam::123456789012:role/EndpointReplicationRole",
             event_buses=[
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
-                ),
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
-                ),
+                {
+                    "event_bus_arn": "arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
+                },
+                {
+                    "event_bus_arn": "arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
+                },
             ])
         pulumi.export("sampleEndpointName", sample_endpoint.id)
 
@@ -264,26 +264,26 @@ class Endpoint(pulumi.CustomResource):
 
         sample_endpoint = aws_native.events.Endpoint("sampleEndpoint",
             name="CreateExampleEndpoint",
-            routing_config=aws_native.events.EndpointRoutingConfigArgs(
-                failover_config=aws_native.events.EndpointFailoverConfigArgs(
-                    primary=aws_native.events.EndpointPrimaryArgs(
-                        health_check="arn:aws:route53:::healthcheck/0123456789abc",
-                    ),
-                    secondary=aws_native.events.EndpointSecondaryArgs(
-                        route="us-east-1",
-                    ),
-                ),
-            ),
-            replication_config=aws_native.events.EndpointReplicationConfigArgs(
-                state=aws_native.events.EndpointReplicationState.DISABLED,
-            ),
+            routing_config={
+                "failover_config": {
+                    "primary": {
+                        "health_check": "arn:aws:route53:::healthcheck/0123456789abc",
+                    },
+                    "secondary": {
+                        "route": "us-east-1",
+                    },
+                },
+            },
+            replication_config={
+                "state": aws_native.events.EndpointReplicationState.DISABLED,
+            },
             event_buses=[
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
-                ),
-                aws_native.events.EndpointEventBusArgs(
-                    event_bus_arn="arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
-                ),
+                {
+                    "event_bus_arn": "arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus",
+                },
+                {
+                    "event_bus_arn": "arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus",
+                },
             ])
         pulumi.export("sampleEndpointName", sample_endpoint.id)
 
@@ -305,11 +305,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointEventBusArgs']]]]] = None,
+                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_config: Optional[pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']]] = None,
+                 replication_config: Optional[pulumi.Input[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

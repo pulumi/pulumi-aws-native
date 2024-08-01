@@ -236,17 +236,17 @@ class StateMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
+                 definition_s3_location: Optional[pulumi.Input[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
                  state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for StateMachine
@@ -286,14 +286,14 @@ class StateMachine(pulumi.CustomResource):
         }\"\"\",
             role_arn="arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -317,14 +317,14 @@ class StateMachine(pulumi.CustomResource):
         }\"\"\",
             role_arn="arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -336,10 +336,10 @@ class StateMachine(pulumi.CustomResource):
 
         my_state_machine = aws_native.stepfunctions.StateMachine("myStateMachine",
             state_machine_name="HelloWorld-StateMachine",
-            definition_s3_location=aws_native.stepfunctions.StateMachineS3LocationArgs(
-                bucket="example_bucket",
-                key="hello_world.json",
-            ),
+            definition_s3_location={
+                "bucket": "example_bucket",
+                "key": "hello_world.json",
+            },
             definition_substitutions={
                 "helloFunction": "arn:aws:lambda:us-east-1:111122223333:function:HelloFunction",
             },
@@ -349,14 +349,14 @@ class StateMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-        :param pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']] definition_s3_location: The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        :param pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        :param pulumi.Input[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']] definition_s3_location: The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         :param pulumi.Input[str] definition_string: The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
                
                Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
-        :param pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']] encryption_configuration: Encryption configuration for the state machine.
-        :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged.
+        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the state machine.
+        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged.
                
                > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -372,10 +372,10 @@ class StateMachine(pulumi.CustomResource):
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['StateMachineType'] state_machine_type: Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags to add to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags to add to a resource.
                
                Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
-        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled.
+        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         ...
     @overload
@@ -421,14 +421,14 @@ class StateMachine(pulumi.CustomResource):
         }\"\"\",
             role_arn="arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -452,14 +452,14 @@ class StateMachine(pulumi.CustomResource):
         }\"\"\",
             role_arn="arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1",
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -471,10 +471,10 @@ class StateMachine(pulumi.CustomResource):
 
         my_state_machine = aws_native.stepfunctions.StateMachine("myStateMachine",
             state_machine_name="HelloWorld-StateMachine",
-            definition_s3_location=aws_native.stepfunctions.StateMachineS3LocationArgs(
-                bucket="example_bucket",
-                key="hello_world.json",
-            ),
+            definition_s3_location={
+                "bucket": "example_bucket",
+                "key": "hello_world.json",
+            },
             definition_substitutions={
                 "helloFunction": "arn:aws:lambda:us-east-1:111122223333:function:HelloFunction",
             },
@@ -497,17 +497,17 @@ class StateMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
+                 definition_s3_location: Optional[pulumi.Input[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
                  definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineEncryptionConfigurationArgs']]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
                  state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

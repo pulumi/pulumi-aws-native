@@ -122,11 +122,11 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_gateway_proxy: Optional[pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']]] = None,
+                 api_gateway_proxy: Optional[pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -134,11 +134,11 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
+        :param pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         ...
@@ -165,11 +165,11 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_gateway_proxy: Optional[pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']]] = None,
+                 api_gateway_proxy: Optional[pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

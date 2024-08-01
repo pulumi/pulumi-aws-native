@@ -170,14 +170,14 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 execution_status: Optional[pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]]] = None,
+                 execution_status: Optional[pulumi.Input[Union['LaunchExecutionStatusObjectArgs', 'LaunchExecutionStatusObjectArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupObjectArgs', 'LaunchGroupObjectArgsDict']]]]] = None,
+                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricDefinitionObjectArgs', 'LaunchMetricDefinitionObjectArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchStepConfigArgs', 'LaunchStepConfigArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Launch.
@@ -185,14 +185,14 @@ class Launch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional description for the launch.
-        :param pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']] execution_status: Start or Stop Launch Launch. Default is not started.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        :param pulumi.Input[Union['LaunchExecutionStatusObjectArgs', 'LaunchExecutionStatusObjectArgsDict']] execution_status: Start or Stop Launch Launch. Default is not started.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupObjectArgs', 'LaunchGroupObjectArgsDict']]]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricDefinitionObjectArgs', 'LaunchMetricDefinitionObjectArgsDict']]]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         :param pulumi.Input[str] name: The name for the launch. It can include up to 127 characters.
         :param pulumi.Input[str] project: The name or ARN of the project that you want to create the launch in.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchStepConfigArgs', 'LaunchStepConfigArgsDict']]]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -219,14 +219,14 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 execution_status: Optional[pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]]] = None,
+                 execution_status: Optional[pulumi.Input[Union['LaunchExecutionStatusObjectArgs', 'LaunchExecutionStatusObjectArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupObjectArgs', 'LaunchGroupObjectArgsDict']]]]] = None,
+                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricDefinitionObjectArgs', 'LaunchMetricDefinitionObjectArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchStepConfigArgs', 'LaunchStepConfigArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -94,8 +94,8 @@ class Ipam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
                  __props__=None):
         """
@@ -104,8 +104,8 @@ class Ipam(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description for the IPAM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
         ...
@@ -133,8 +133,8 @@ class Ipam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

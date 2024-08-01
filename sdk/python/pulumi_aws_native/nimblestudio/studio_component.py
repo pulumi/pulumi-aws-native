@@ -221,13 +221,13 @@ class StudioComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
+                 initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
+                 script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
                  secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
@@ -239,13 +239,13 @@ class StudioComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]] configuration: The configuration of the studio component, based on component type.
+        :param pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]] configuration: The configuration of the studio component, based on component type.
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
         :param pulumi.Input[str] name: <p>The name for the studio component.</p>
         :param pulumi.Input[str] runtime_role_arn: An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
         :param pulumi.Input[str] secure_initialization_role_arn: An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         :param pulumi.Input['StudioComponentSubtype'] subtype: The specific subtype of a studio component.
@@ -278,13 +278,13 @@ class StudioComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
+                 initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
+                 script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
                  secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,

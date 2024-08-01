@@ -195,7 +195,7 @@ class InstanceProfile(pulumi.CustomResource):
                  network_type: Optional[pulumi.Input['InstanceProfileNetworkType']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  subnet_group_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -211,7 +211,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input['InstanceProfileNetworkType'] network_type: The property describes a network type for the instance profile.
         :param pulumi.Input[bool] publicly_accessible: The property describes the publicly accessible of the instance profile
         :param pulumi.Input[str] subnet_group_identifier: The property describes a subnet group identifier for the instance profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: The property describes vps security groups for the instance profile.
         """
         ...
@@ -246,7 +246,7 @@ class InstanceProfile(pulumi.CustomResource):
                  network_type: Optional[pulumi.Input['InstanceProfileNetworkType']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  subnet_group_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

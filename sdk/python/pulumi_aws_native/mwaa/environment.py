@@ -500,13 +500,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
                  max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
                  min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
@@ -545,7 +545,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] environment_class: The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
         :param pulumi.Input[str] kms_key: The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
-        :param pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         :param pulumi.Input[int] max_webservers: The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in `MaxWebserers` . As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
                
                Valid values: Accepts between `2` and `5` . Defaults to `2` .
@@ -555,7 +555,7 @@ class Environment(pulumi.CustomResource):
                Valid values: Accepts between `2` and `5` . Defaults to `2` .
         :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
         :param pulumi.Input[str] name: The name of your Amazon MWAA environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
         :param pulumi.Input[str] plugins_s3_object_version: The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
         :param pulumi.Input[str] plugins_s3_path: The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
         :param pulumi.Input[str] requirements_s3_object_version: The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
@@ -614,13 +614,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
                  max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
                  min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,

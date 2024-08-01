@@ -59,7 +59,7 @@ class Standard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardsControlArgs']]]]] = None,
+                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
                  standards_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -69,7 +69,7 @@ class Standard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardsControlArgs']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
                 *Maximum*: ``100``
         :param pulumi.Input[str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         """
@@ -99,7 +99,7 @@ class Standard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardsControlArgs']]]]] = None,
+                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
                  standards_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

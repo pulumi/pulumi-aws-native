@@ -168,13 +168,13 @@ class CertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 csr_extensions: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']]] = None,
+                 csr_extensions: Optional[pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
-                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+                 revocation_configuration: Optional[pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
-                 subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 subject: Optional[pulumi.Input[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -192,36 +192,36 @@ class CertificateAuthority(pulumi.CustomResource):
             type="ROOT",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                common_name="123",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
-            revocation_configuration=aws_native.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws_native.acmpca.CertificateAuthorityCrlConfigurationArgs(
-                    enabled=False,
-                ),
-            ))
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "common_name": "123",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
+            revocation_configuration={
+                "crl_configuration": {
+                    "enabled": False,
+                },
+            })
         root_ca_certificate = aws_native.acmpca.Certificate("rootCACertificate",
             certificate_authority_arn=root_ca.id,
             certificate_signing_request=root_ca.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/RootCACertificate/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=100,
-            ))
+            validity={
+                "type": "DAYS",
+                "value": 100,
+            })
         root_ca_activation = aws_native.acmpca.CertificateAuthorityActivation("rootCAActivation",
             certificate_authority_arn=root_ca.id,
             certificate=root_ca_certificate.certificate,
@@ -238,33 +238,33 @@ class CertificateAuthority(pulumi.CustomResource):
             type="SUBORDINATE",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                common_name="Sub1",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
-            revocation_configuration=aws_native.acmpca.CertificateAuthorityRevocationConfigurationArgs(),
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "common_name": "Sub1",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
+            revocation_configuration={},
             tags=[])
         subordinate_ca_one_ca_certificate = aws_native.acmpca.Certificate("subordinateCAOneCACertificate",
             certificate_authority_arn=root_ca.id,
             certificate_signing_request=subordinate_ca_one.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=90,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 90,
+            },
             opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
             certificate_authority_arn=subordinate_ca_one.id,
@@ -283,40 +283,40 @@ class CertificateAuthority(pulumi.CustomResource):
             type="SUBORDINATE",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="Key1",
-                    value="Value1",
-                ),
-                aws_native.TagArgs(
-                    key="Key2",
-                    value="Value2",
-                ),
+                {
+                    "key": "Key1",
+                    "value": "Value1",
+                },
+                {
+                    "key": "Key2",
+                    "value": "Value2",
+                },
             ])
         subordinate_ca_two_ca_certificate = aws_native.acmpca.Certificate("subordinateCATwoCACertificate",
             certificate_authority_arn=subordinate_ca_one.id,
             certificate_signing_request=subordinate_ca_two.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=80,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 80,
+            },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
             certificate_authority_arn=subordinate_ca_two.id,
@@ -350,10 +350,10 @@ class CertificateAuthority(pulumi.CustomResource):
         97Ob1alpHPoZ7mWiEuJwjBPii6a9M9G30nUo39lBi1w=
         -----END CERTIFICATE REQUEST-----\"\"\",
             signing_algorithm="SHA256WITHRSA",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=70,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 70,
+            },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
         pulumi.export("certificateArn", end_entity_certificate.arn)
@@ -362,13 +362,13 @@ class CertificateAuthority(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
+        :param pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         :param pulumi.Input[str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
         :param pulumi.Input[str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+        :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         :param pulumi.Input[str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: Structure that contains X.500 distinguished name information for your CA.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        :param pulumi.Input[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']] subject: Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
         :param pulumi.Input[str] type: The type of the certificate authority.
         :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
@@ -392,36 +392,36 @@ class CertificateAuthority(pulumi.CustomResource):
             type="ROOT",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                common_name="123",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
-            revocation_configuration=aws_native.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws_native.acmpca.CertificateAuthorityCrlConfigurationArgs(
-                    enabled=False,
-                ),
-            ))
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "common_name": "123",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
+            revocation_configuration={
+                "crl_configuration": {
+                    "enabled": False,
+                },
+            })
         root_ca_certificate = aws_native.acmpca.Certificate("rootCACertificate",
             certificate_authority_arn=root_ca.id,
             certificate_signing_request=root_ca.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/RootCACertificate/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=100,
-            ))
+            validity={
+                "type": "DAYS",
+                "value": 100,
+            })
         root_ca_activation = aws_native.acmpca.CertificateAuthorityActivation("rootCAActivation",
             certificate_authority_arn=root_ca.id,
             certificate=root_ca_certificate.certificate,
@@ -438,33 +438,33 @@ class CertificateAuthority(pulumi.CustomResource):
             type="SUBORDINATE",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                common_name="Sub1",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
-            revocation_configuration=aws_native.acmpca.CertificateAuthorityRevocationConfigurationArgs(),
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "common_name": "Sub1",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
+            revocation_configuration={},
             tags=[])
         subordinate_ca_one_ca_certificate = aws_native.acmpca.Certificate("subordinateCAOneCACertificate",
             certificate_authority_arn=root_ca.id,
             certificate_signing_request=subordinate_ca_one.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=90,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 90,
+            },
             opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
             certificate_authority_arn=subordinate_ca_one.id,
@@ -483,40 +483,40 @@ class CertificateAuthority(pulumi.CustomResource):
             type="SUBORDINATE",
             key_algorithm="RSA_2048",
             signing_algorithm="SHA256WITHRSA",
-            subject=aws_native.acmpca.CertificateAuthoritySubjectArgs(
-                country="US",
-                organization="string",
-                organizational_unit="string",
-                distinguished_name_qualifier="string",
-                state="string",
-                serial_number="string",
-                locality="string",
-                title="string",
-                surname="string",
-                given_name="string",
-                initials="DG",
-                pseudonym="string",
-                generation_qualifier="DBG",
-            ),
+            subject={
+                "country": "US",
+                "organization": "string",
+                "organizational_unit": "string",
+                "distinguished_name_qualifier": "string",
+                "state": "string",
+                "serial_number": "string",
+                "locality": "string",
+                "title": "string",
+                "surname": "string",
+                "given_name": "string",
+                "initials": "DG",
+                "pseudonym": "string",
+                "generation_qualifier": "DBG",
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="Key1",
-                    value="Value1",
-                ),
-                aws_native.TagArgs(
-                    key="Key2",
-                    value="Value2",
-                ),
+                {
+                    "key": "Key1",
+                    "value": "Value1",
+                },
+                {
+                    "key": "Key2",
+                    "value": "Value2",
+                },
             ])
         subordinate_ca_two_ca_certificate = aws_native.acmpca.Certificate("subordinateCATwoCACertificate",
             certificate_authority_arn=subordinate_ca_one.id,
             certificate_signing_request=subordinate_ca_two.certificate_signing_request,
             signing_algorithm="SHA256WITHRSA",
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=80,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 80,
+            },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
             certificate_authority_arn=subordinate_ca_two.id,
@@ -550,10 +550,10 @@ class CertificateAuthority(pulumi.CustomResource):
         97Ob1alpHPoZ7mWiEuJwjBPii6a9M9G30nUo39lBi1w=
         -----END CERTIFICATE REQUEST-----\"\"\",
             signing_algorithm="SHA256WITHRSA",
-            validity=aws_native.acmpca.CertificateValidityArgs(
-                type="DAYS",
-                value=70,
-            ),
+            validity={
+                "type": "DAYS",
+                "value": 70,
+            },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
         pulumi.export("certificateArn", end_entity_certificate.arn)
@@ -575,13 +575,13 @@ class CertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 csr_extensions: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']]] = None,
+                 csr_extensions: Optional[pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
-                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+                 revocation_configuration: Optional[pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
-                 subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 subject: Optional[pulumi.Input[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -160,11 +160,11 @@ class Environment(pulumi.CustomResource):
                  data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-                 federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
+                 federation_parameters: Optional[pulumi.Input[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 superuser_parameters: Optional[pulumi.Input[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -200,11 +200,11 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
-        :param pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']] federation_parameters: Configuration information when authentication mode is FEDERATED.
+        :param pulumi.Input[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']] federation_parameters: Configuration information when authentication mode is FEDERATED.
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
-        :param pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']] superuser_parameters: Configuration information for the superuser.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']] superuser_parameters: Configuration information for the superuser.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -259,11 +259,11 @@ class Environment(pulumi.CustomResource):
                  data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-                 federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
+                 federation_parameters: Optional[pulumi.Input[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 superuser_parameters: Optional[pulumi.Input[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -91,9 +91,9 @@ class BridgeSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: Optional[pulumi.Input[str]] = None,
-                 flow_source: Optional[pulumi.Input[pulumi.InputType['BridgeSourceBridgeFlowSourceArgs']]] = None,
+                 flow_source: Optional[pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_source: Optional[pulumi.Input[pulumi.InputType['BridgeSourceBridgeNetworkSourceArgs']]] = None,
+                 network_source: Optional[pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::BridgeSource
@@ -101,9 +101,9 @@ class BridgeSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
-        :param pulumi.Input[pulumi.InputType['BridgeSourceBridgeFlowSourceArgs']] flow_source: Add a flow source to an existing bridge.
+        :param pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']] flow_source: Add a flow source to an existing bridge.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input[pulumi.InputType['BridgeSourceBridgeNetworkSourceArgs']] network_source: Add a network source to an existing bridge.
+        :param pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']] network_source: Add a network source to an existing bridge.
         """
         ...
     @overload
@@ -130,9 +130,9 @@ class BridgeSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: Optional[pulumi.Input[str]] = None,
-                 flow_source: Optional[pulumi.Input[pulumi.InputType['BridgeSourceBridgeFlowSourceArgs']]] = None,
+                 flow_source: Optional[pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_source: Optional[pulumi.Input[pulumi.InputType['BridgeSourceBridgeNetworkSourceArgs']]] = None,
+                 network_source: Optional[pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

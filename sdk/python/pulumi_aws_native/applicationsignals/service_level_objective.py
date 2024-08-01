@@ -113,10 +113,10 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 goal: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveGoalArgs']]] = None,
+                 goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sli: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
@@ -124,10 +124,10 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveGoalArgs']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
+        :param pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliArgs']] sli: A structure containing information about the performance metric that this SLO monitors.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']] sli: A structure containing information about the performance metric that this SLO monitors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         """
@@ -156,10 +156,10 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 goal: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveGoalArgs']]] = None,
+                 goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sli: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

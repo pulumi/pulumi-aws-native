@@ -149,10 +149,10 @@ class Filter(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
-                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
+                 finding_criteria: Optional[pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Filter
@@ -162,12 +162,12 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
         :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-        :param pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
+        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
                
                By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -198,10 +198,10 @@ class Filter(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
-                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
+                 finding_criteria: Optional[pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

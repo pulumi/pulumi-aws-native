@@ -141,9 +141,9 @@ class WirelessGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessGatewayLoRaWanGatewayArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['WirelessGatewayLoRaWanGatewayArgs', 'WirelessGatewayLoRaWanGatewayArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,9 +154,9 @@ class WirelessGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of Wireless Gateway.
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
-        :param pulumi.Input[pulumi.InputType['WirelessGatewayLoRaWanGatewayArgs']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
+        :param pulumi.Input[Union['WirelessGatewayLoRaWanGatewayArgs', 'WirelessGatewayLoRaWanGatewayArgsDict']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
         :param pulumi.Input[str] name: Name of Wireless Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the gateway.
         :param pulumi.Input[str] thing_arn: Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
         :param pulumi.Input[str] thing_name: Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
@@ -186,9 +186,9 @@ class WirelessGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessGatewayLoRaWanGatewayArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['WirelessGatewayLoRaWanGatewayArgs', 'WirelessGatewayLoRaWanGatewayArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -145,7 +145,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[pulumi.InputType['ApplicationDefinition0PropertiesArgs'], pulumi.InputType['ApplicationDefinition1PropertiesArgs']]]] = None,
+                 definition: Optional[pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['ApplicationDefinition0PropertiesArgs'], pulumi.InputType['ApplicationDefinition1PropertiesArgs']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        :param pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
                
                For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         :param pulumi.Input[str] description: The description of the application.
@@ -194,7 +194,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[pulumi.InputType['ApplicationDefinition0PropertiesArgs'], pulumi.InputType['ApplicationDefinition1PropertiesArgs']]]] = None,
+                 definition: Optional[pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,

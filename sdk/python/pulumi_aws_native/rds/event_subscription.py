@@ -165,7 +165,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
@@ -189,7 +189,7 @@ class EventSubscription(pulumi.CustomResource):
                 Valid values: ``db-instance`` | ``db-cluster`` | ``db-parameter-group`` | ``db-security-group`` | ``db-snapshot`` | ``db-cluster-snapshot``
         :param pulumi.Input[str] subscription_name: The name of the subscription.
                 Constraints: The name must be less than 255 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional array of key-value pairs to apply to this subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional array of key-value pairs to apply to this subscription.
         """
         ...
     @overload
@@ -221,7 +221,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

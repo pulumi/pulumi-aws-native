@@ -166,11 +166,11 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -180,7 +180,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
-        :param pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']] authentication_mode: Specifies the authentication mode to use. Below is an example of the possible JSON values:
+        :param pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']] authentication_mode: Specifies the authentication mode to use. Below is an example of the possible JSON values:
                
                ```
                { Passwords: ["*****", "******"] // If Type is password.
@@ -189,7 +189,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this user.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
         """
@@ -218,11 +218,11 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

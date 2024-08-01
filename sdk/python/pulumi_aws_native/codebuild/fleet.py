@@ -231,10 +231,10 @@ class Fleet(pulumi.CustomResource):
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
                  fleet_service_role: Optional[pulumi.Input[str]] = None,
-                 fleet_vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
+                 fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
@@ -273,7 +273,7 @@ class Fleet(pulumi.CustomResource):
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
-        :param pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
                
@@ -281,7 +281,7 @@ class Fleet(pulumi.CustomResource):
                - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
                
                > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tag key and value pairs associated with this compute fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
@@ -313,10 +313,10 @@ class Fleet(pulumi.CustomResource):
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
                  fleet_service_role: Optional[pulumi.Input[str]] = None,
-                 fleet_vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
+                 fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

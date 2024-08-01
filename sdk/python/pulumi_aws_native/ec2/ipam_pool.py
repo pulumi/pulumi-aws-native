@@ -287,18 +287,18 @@ class IpamPool(pulumi.CustomResource):
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
-                 allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
+                 allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolTagArgs', 'IpamPoolTagArgsDict']]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input['IpamPoolAwsService']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolProvisionedCidrArgs']]]]] = None,
+                 provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolProvisionedCidrArgs', 'IpamPoolProvisionedCidrArgsDict']]]]] = None,
                  public_ip_source: Optional[pulumi.Input['IpamPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                 source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 source_resource: Optional[pulumi.Input[Union['IpamPoolSourceResourceArgs', 'IpamPoolSourceResourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMPool Type
@@ -309,18 +309,18 @@ class IpamPool(pulumi.CustomResource):
         :param pulumi.Input[int] allocation_default_netmask_length: The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
         :param pulumi.Input[int] allocation_max_netmask_length: The maximum allowed netmask length for allocations made from this pool.
         :param pulumi.Input[int] allocation_min_netmask_length: The minimum allowed netmask length for allocations made from this pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]] allocation_resource_tags: When specified, an allocation will not be allowed unless a resource has a matching set of tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolTagArgs', 'IpamPoolTagArgsDict']]]] allocation_resource_tags: When specified, an allocation will not be allowed unless a resource has a matching set of tags.
         :param pulumi.Input[bool] auto_import: Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
         :param pulumi.Input['IpamPoolAwsService'] aws_service: Limits which service in Amazon Web Services that the pool can be used in.
         :param pulumi.Input[str] description: The description of the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The Id of the scope this pool is a part of.
         :param pulumi.Input[str] locale: The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolProvisionedCidrArgs']]]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolProvisionedCidrArgs', 'IpamPoolProvisionedCidrArgsDict']]]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
         :param pulumi.Input['IpamPoolPublicIpSource'] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         :param pulumi.Input[str] source_ipam_pool_id: The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-        :param pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']] source_resource: The resource used to provision CIDRs to a resource planning pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['IpamPoolSourceResourceArgs', 'IpamPoolSourceResourceArgsDict']] source_resource: The resource used to provision CIDRs to a resource planning pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -350,18 +350,18 @@ class IpamPool(pulumi.CustomResource):
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
-                 allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
+                 allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolTagArgs', 'IpamPoolTagArgsDict']]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input['IpamPoolAwsService']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolProvisionedCidrArgs']]]]] = None,
+                 provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolProvisionedCidrArgs', 'IpamPoolProvisionedCidrArgsDict']]]]] = None,
                  public_ip_source: Optional[pulumi.Input['IpamPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                 source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 source_resource: Optional[pulumi.Input[Union['IpamPoolSourceResourceArgs', 'IpamPoolSourceResourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

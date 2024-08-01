@@ -171,12 +171,12 @@ class MissionProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
+                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
+                 streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
                  streams_kms_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -196,14 +196,14 @@ class MissionProfile(pulumi.CustomResource):
             minimum_viable_contact_duration_seconds=300,
             tracking_config_arn="arn:aws:groundstation:us-east-2:1234567890:config/tracking/00000000-0000-0000-0000-000000000000",
             dataflow_edges=[
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
-                ),
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
-                ),
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
+                },
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
+                },
             ])
 
         ```
@@ -220,14 +220,14 @@ class MissionProfile(pulumi.CustomResource):
             minimum_viable_contact_duration_seconds=300,
             tracking_config_arn="arn:aws:groundstation:us-east-2:1234567890:config/tracking/00000000-0000-0000-0000-000000000000",
             dataflow_edges=[
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
-                ),
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
-                ),
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
+                },
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
+                },
             ])
 
         ```
@@ -236,12 +236,12 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
-        :param pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        :param pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to the mission profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the mission profile.
         :param pulumi.Input[str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         """
         ...
@@ -267,14 +267,14 @@ class MissionProfile(pulumi.CustomResource):
             minimum_viable_contact_duration_seconds=300,
             tracking_config_arn="arn:aws:groundstation:us-east-2:1234567890:config/tracking/00000000-0000-0000-0000-000000000000",
             dataflow_edges=[
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
-                ),
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
-                ),
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
+                },
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
+                },
             ])
 
         ```
@@ -291,14 +291,14 @@ class MissionProfile(pulumi.CustomResource):
             minimum_viable_contact_duration_seconds=300,
             tracking_config_arn="arn:aws:groundstation:us-east-2:1234567890:config/tracking/00000000-0000-0000-0000-000000000000",
             dataflow_edges=[
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
-                ),
-                aws_native.groundstation.MissionProfileDataflowEdgeArgs(
-                    source="arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
-                    destination="arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
-                ),
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-downlink/11111111-1111-1111-1111-111111111111",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/22222222-2222-2222-2222-222222222222",
+                },
+                {
+                    "source": "arn:aws:groundstation:us-east-2:1234567890:config/dataflow-endpoint/33333333-3333-3333-3333-333333333333",
+                    "destination": "arn:aws:groundstation:us-east-2:1234567890:config/antenna-uplink/44444444-4444-4444-4444-444444444444",
+                },
             ])
 
         ```
@@ -320,12 +320,12 @@ class MissionProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
+                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
+                 streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
                  streams_kms_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

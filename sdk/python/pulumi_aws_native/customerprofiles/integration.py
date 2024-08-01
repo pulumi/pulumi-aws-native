@@ -125,10 +125,10 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
+                 flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,10 +137,10 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
+        :param pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         ...
@@ -168,10 +168,10 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
+                 flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

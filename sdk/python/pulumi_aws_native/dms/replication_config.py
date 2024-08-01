@@ -195,7 +195,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[Any] = None,
                  replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
@@ -203,7 +203,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -211,7 +211,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
+        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
                
@@ -225,7 +225,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param Any table_mappings: JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         """
         ...
@@ -252,7 +252,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[Any] = None,
                  replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
@@ -260,7 +260,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

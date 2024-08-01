@@ -174,12 +174,12 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 filter_at_destination: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
-                 filter_at_source: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
+                 filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']]] = None,
+                 filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']]] = None,
                  protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EC2::NetworkInsightsPath
@@ -189,12 +189,12 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[str] destination: The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] destination_ip: The IP address of the destination.
         :param pulumi.Input[int] destination_port: The destination port.
-        :param pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
-        :param pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
+        :param pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
+        :param pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
         :param pulumi.Input['NetworkInsightsPathProtocol'] protocol: The protocol.
         :param pulumi.Input[str] source: The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] source_ip: The IP address of the source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the path.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the path.
         """
         ...
     @overload
@@ -223,12 +223,12 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 filter_at_destination: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
-                 filter_at_source: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
+                 filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']]] = None,
+                 filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathPathFilterArgs', 'NetworkInsightsPathPathFilterArgsDict']]] = None,
                  protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

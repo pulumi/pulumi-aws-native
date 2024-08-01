@@ -122,24 +122,24 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source_config: Optional[pulumi.Input[pulumi.InputType['ApplicationSourceConfigPropertiesArgs']]] = None,
+                 application_source_config: Optional[pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS:AppIntegrations::Application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationSourceConfigPropertiesArgs']] application_source_config: Application source config
+        :param pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']] application_source_config: Application source config
         :param pulumi.Input[str] description: The application description.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] namespace: The namespace of the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The configuration of events or requests that the application has access to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the application.
         """
         ...
     @overload
@@ -165,12 +165,12 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source_config: Optional[pulumi.Input[pulumi.InputType['ApplicationSourceConfigPropertiesArgs']]] = None,
+                 application_source_config: Optional[pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

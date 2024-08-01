@@ -206,7 +206,7 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: Optional[pulumi.Input[int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
+                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class Workgroup(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -223,7 +223,7 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         :param pulumi.Input[int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The namespace the workgroup is associated with.
@@ -231,7 +231,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The map of the key-value pairs used to tag the workgroup.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         ...
@@ -259,7 +259,7 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: Optional[pulumi.Input[int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
+                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -267,7 +267,7 @@ class Workgroup(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

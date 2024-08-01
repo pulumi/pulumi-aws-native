@@ -350,8 +350,8 @@ class Subnet(pulumi.CustomResource):
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
-                 private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 private_dns_name_options_on_launch: Optional[pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -381,12 +381,12 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] map_public_ip_on_launch: Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
                  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] private_dns_name_options_on_launch: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+        :param pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']] private_dns_name_options_on_launch: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
                 Available options:
                  +  EnableResourceNameDnsAAAARecord (true | false)
                  +  EnableResourceNameDnsARecord (true | false)
                  +  HostnameType (ip-name | resource-name)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the subnet.
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet is in.
                 If you update this property, you must also update the ``CidrBlock`` property.
         """
@@ -431,8 +431,8 @@ class Subnet(pulumi.CustomResource):
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
-                 private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 private_dns_name_options_on_launch: Optional[pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

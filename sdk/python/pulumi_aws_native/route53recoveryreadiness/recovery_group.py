@@ -76,7 +76,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  recovery_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
@@ -85,7 +85,7 @@ class RecoveryGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  recovery_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

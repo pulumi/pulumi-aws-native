@@ -188,11 +188,11 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_batching_condition: Optional[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]] = None,
+                 event_batching_condition: Optional[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[Any] = None,
@@ -212,9 +212,9 @@ class Trigger(pulumi.CustomResource):
         on_demand_job_trigger = aws_native.glue.Trigger("onDemandJobTrigger",
             type="ON_DEMAND",
             description="DESCRIPTION_ON_DEMAND",
-            actions=[aws_native.glue.TriggerActionArgs(
-                job_name="prod-job2",
-            )],
+            actions=[{
+                "job_name": "prod-job2",
+            }],
             name="prod-trigger1-ondemand")
 
         ```
@@ -227,9 +227,9 @@ class Trigger(pulumi.CustomResource):
         on_demand_job_trigger = aws_native.glue.Trigger("onDemandJobTrigger",
             type="ON_DEMAND",
             description="DESCRIPTION_ON_DEMAND",
-            actions=[aws_native.glue.TriggerActionArgs(
-                job_name="prod-job2",
-            )],
+            actions=[{
+                "job_name": "prod-job2",
+            }],
             name="prod-trigger1-ondemand")
 
         ```
@@ -244,15 +244,15 @@ class Trigger(pulumi.CustomResource):
             description="DESCRIPTION_SCHEDULED",
             schedule="cron(0 */2 * * ? *)",
             actions=[
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job2",
-                ),
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job3",
-                    arguments={
-                        "--job-bookmark-option": "job-bookmark-enable",
+                {
+                    "job_name": "prod-job2",
+                },
+                {
+                    "job_name": "prod-job3",
+                    "arguments": {
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
-                ),
+                },
             ],
             name="prod-trigger1-scheduled")
 
@@ -268,15 +268,15 @@ class Trigger(pulumi.CustomResource):
             description="DESCRIPTION_SCHEDULED",
             schedule="cron(0 */2 * * ? *)",
             actions=[
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job2",
-                ),
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job3",
-                    arguments={
-                        "--job-bookmark-option": "job-bookmark-enable",
+                {
+                    "job_name": "prod-job2",
+                },
+                {
+                    "job_name": "prod-job3",
+                    "arguments": {
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
-                ),
+                },
             ],
             name="prod-trigger1-scheduled")
 
@@ -284,11 +284,11 @@ class Trigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: The actions initiated by this trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: The actions initiated by this trigger.
         :param pulumi.Input[str] description: A description of this trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+        :param pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: The predicate of this trigger, which defines when it will fire.
+        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: The predicate of this trigger, which defines when it will fire.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule.
         :param pulumi.Input[bool] start_on_creation: Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         :param Any tags: The tags to use with this trigger.
@@ -316,9 +316,9 @@ class Trigger(pulumi.CustomResource):
         on_demand_job_trigger = aws_native.glue.Trigger("onDemandJobTrigger",
             type="ON_DEMAND",
             description="DESCRIPTION_ON_DEMAND",
-            actions=[aws_native.glue.TriggerActionArgs(
-                job_name="prod-job2",
-            )],
+            actions=[{
+                "job_name": "prod-job2",
+            }],
             name="prod-trigger1-ondemand")
 
         ```
@@ -331,9 +331,9 @@ class Trigger(pulumi.CustomResource):
         on_demand_job_trigger = aws_native.glue.Trigger("onDemandJobTrigger",
             type="ON_DEMAND",
             description="DESCRIPTION_ON_DEMAND",
-            actions=[aws_native.glue.TriggerActionArgs(
-                job_name="prod-job2",
-            )],
+            actions=[{
+                "job_name": "prod-job2",
+            }],
             name="prod-trigger1-ondemand")
 
         ```
@@ -348,15 +348,15 @@ class Trigger(pulumi.CustomResource):
             description="DESCRIPTION_SCHEDULED",
             schedule="cron(0 */2 * * ? *)",
             actions=[
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job2",
-                ),
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job3",
-                    arguments={
-                        "--job-bookmark-option": "job-bookmark-enable",
+                {
+                    "job_name": "prod-job2",
+                },
+                {
+                    "job_name": "prod-job3",
+                    "arguments": {
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
-                ),
+                },
             ],
             name="prod-trigger1-scheduled")
 
@@ -372,15 +372,15 @@ class Trigger(pulumi.CustomResource):
             description="DESCRIPTION_SCHEDULED",
             schedule="cron(0 */2 * * ? *)",
             actions=[
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job2",
-                ),
-                aws_native.glue.TriggerActionArgs(
-                    job_name="prod-job3",
-                    arguments={
-                        "--job-bookmark-option": "job-bookmark-enable",
+                {
+                    "job_name": "prod-job2",
+                },
+                {
+                    "job_name": "prod-job3",
+                    "arguments": {
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
-                ),
+                },
             ],
             name="prod-trigger1-scheduled")
 
@@ -401,11 +401,11 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_batching_condition: Optional[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]] = None,
+                 event_batching_condition: Optional[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[Any] = None,

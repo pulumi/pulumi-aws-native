@@ -525,7 +525,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 analytics_configuration: Optional[pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
                  auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
@@ -540,7 +540,7 @@ class UserPoolClient(pulumi.CustomResource):
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 token_validity_units: Optional[pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']]] = None,
+                 token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -570,7 +570,7 @@ class UserPoolClient(pulumi.CustomResource):
                
                To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_o_auth_scopes: The allowed OAuth scopes. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
-        :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
+        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
                
                > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
         :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
@@ -636,7 +636,7 @@ class UserPoolClient(pulumi.CustomResource):
                
                The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
-        :param pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']] token_validity_units: The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
+        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where you want to create a user pool client.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
                
@@ -672,7 +672,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 analytics_configuration: Optional[pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
                  auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
@@ -687,7 +687,7 @@ class UserPoolClient(pulumi.CustomResource):
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 token_validity_units: Optional[pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']]] = None,
+                 token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):

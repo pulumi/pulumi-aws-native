@@ -144,7 +144,7 @@ class Solution(pulumi.CustomResource):
                  perform_auto_ml: Optional[pulumi.Input[bool]] = None,
                  perform_hpo: Optional[pulumi.Input[bool]] = None,
                  recipe_arn: Optional[pulumi.Input[str]] = None,
-                 solution_config: Optional[pulumi.Input[pulumi.InputType['SolutionConfigArgs']]] = None,
+                 solution_config: Optional[pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Solution.
@@ -160,9 +160,9 @@ class Solution(pulumi.CustomResource):
             name="my-solution-name",
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/my-dataset-group-name",
             recipe_arn="arn:aws:personalize:::recipe/aws-user-personalization",
-            solution_config=aws_native.personalize.SolutionConfigArgs(
-                event_value_threshold=".05",
-            ))
+            solution_config={
+                "event_value_threshold": ".05",
+            })
 
         ```
         ### Example
@@ -175,9 +175,9 @@ class Solution(pulumi.CustomResource):
             name="my-solution-name",
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/my-dataset-group-name",
             recipe_arn="arn:aws:personalize:::recipe/aws-user-personalization",
-            solution_config=aws_native.personalize.SolutionConfigArgs(
-                event_value_threshold=".05",
-            ))
+            solution_config={
+                "event_value_threshold": ".05",
+            })
 
         ```
 
@@ -189,7 +189,7 @@ class Solution(pulumi.CustomResource):
         :param pulumi.Input[bool] perform_auto_ml: Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         :param pulumi.Input[bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
-        :param pulumi.Input[pulumi.InputType['SolutionConfigArgs']] solution_config: Describes the configuration properties for the solution.
+        :param pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']] solution_config: Describes the configuration properties for the solution.
         """
         ...
     @overload
@@ -211,9 +211,9 @@ class Solution(pulumi.CustomResource):
             name="my-solution-name",
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/my-dataset-group-name",
             recipe_arn="arn:aws:personalize:::recipe/aws-user-personalization",
-            solution_config=aws_native.personalize.SolutionConfigArgs(
-                event_value_threshold=".05",
-            ))
+            solution_config={
+                "event_value_threshold": ".05",
+            })
 
         ```
         ### Example
@@ -226,9 +226,9 @@ class Solution(pulumi.CustomResource):
             name="my-solution-name",
             dataset_group_arn="arn:aws:personalize:us-west-2:123456789012:dataset-group/my-dataset-group-name",
             recipe_arn="arn:aws:personalize:::recipe/aws-user-personalization",
-            solution_config=aws_native.personalize.SolutionConfigArgs(
-                event_value_threshold=".05",
-            ))
+            solution_config={
+                "event_value_threshold": ".05",
+            })
 
         ```
 
@@ -253,7 +253,7 @@ class Solution(pulumi.CustomResource):
                  perform_auto_ml: Optional[pulumi.Input[bool]] = None,
                  perform_hpo: Optional[pulumi.Input[bool]] = None,
                  recipe_arn: Optional[pulumi.Input[str]] = None,
-                 solution_config: Optional[pulumi.Input[pulumi.InputType['SolutionConfigArgs']]] = None,
+                 solution_config: Optional[pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

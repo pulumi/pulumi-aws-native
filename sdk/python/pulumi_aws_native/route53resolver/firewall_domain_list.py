@@ -94,7 +94,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::FirewallDomainList.
@@ -104,7 +104,7 @@ class FirewallDomainList(pulumi.CustomResource):
         :param pulumi.Input[str] domain_file_url: S3 URL to import domains from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of the domain lists that you have defined.
         :param pulumi.Input[str] name: FirewallDomainListName
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags
         """
         ...
     @overload
@@ -133,7 +133,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

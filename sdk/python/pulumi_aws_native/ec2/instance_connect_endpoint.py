@@ -109,7 +109,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -120,7 +120,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the instance connect endpoint.
         :param pulumi.Input[str] subnet_id: The subnet id of the instance connect endpoint
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of the instance connect endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the instance connect endpoint.
         """
         ...
     @overload
@@ -150,7 +150,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

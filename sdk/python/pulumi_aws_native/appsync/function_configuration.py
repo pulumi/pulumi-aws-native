@@ -260,8 +260,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
-                 runtime: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']]] = None,
-                 sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
+                 runtime: Optional[pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: Optional[pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -306,8 +306,8 @@ class FunctionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] request_mapping_template_s3_location: Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
         :param pulumi.Input[str] response_mapping_template_s3_location: The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-        :param pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        :param pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+        :param pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         """
         ...
     @overload
@@ -371,8 +371,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
-                 runtime: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']]] = None,
-                 sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
+                 runtime: Optional[pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: Optional[pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

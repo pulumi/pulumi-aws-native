@@ -41,14 +41,14 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_headers_policy_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyConfigArgs']]] = None,
+                 response_headers_policy_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyConfigArgs']] response_headers_policy_config: A response headers policy configuration.
+        :param pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']] response_headers_policy_config: A response headers policy configuration.
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_headers_policy_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyConfigArgs']]] = None,
+                 response_headers_policy_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

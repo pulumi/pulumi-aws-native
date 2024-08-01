@@ -192,9 +192,9 @@ class FuotaTask(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  firmware_update_image: Optional[pulumi.Input[str]] = None,
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Create and manage FUOTA tasks.
@@ -208,9 +208,9 @@ class FuotaTask(pulumi.CustomResource):
         :param pulumi.Input[str] disassociate_wireless_device: Wireless device to disassociate. Only for update request.
         :param pulumi.Input[str] firmware_update_image: FUOTA task firmware update image binary S3 link
         :param pulumi.Input[str] firmware_update_role: FUOTA task firmware IAM role for reading S3
-        :param pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']] lo_ra_wan: FUOTA task LoRaWAN
+        :param pulumi.Input[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']] lo_ra_wan: FUOTA task LoRaWAN
         :param pulumi.Input[str] name: Name of FUOTA task
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
         """
         ...
     @overload
@@ -243,9 +243,9 @@ class FuotaTask(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  firmware_update_image: Optional[pulumi.Input[str]] = None,
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
+                 lo_ra_wan: Optional[pulumi.Input[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

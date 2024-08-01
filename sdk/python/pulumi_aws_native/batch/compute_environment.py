@@ -222,15 +222,15 @@ class ComputeEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
-                 compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
-                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
+                 compute_resources: Optional[pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
+                 eks_configuration: Optional[pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
-                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
+                 update_policy: Optional[pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::ComputeEnvironment
@@ -238,8 +238,8 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
+        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
+        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
         :param pulumi.Input[bool] replace_compute_environment: Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
                
                The properties that can't be changed without replacing the compute environment are in the [`ComputeResources`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html) property type: [`AllocationStrategy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-allocationstrategy) , [`BidPercentage`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage) , [`Ec2Configuration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration) , [`Ec2KeyPair`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair) , [`Ec2KeyPair`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair) , [`ImageId`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-imageid) , [`InstanceRole`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole) , [`InstanceTypes`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes) , [`LaunchTemplate`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate) , [`MaxvCpus`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus) , [`MinvCpus`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus) , [`PlacementGroup`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup) , [`SecurityGroupIds`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids) , [`Subnets`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets) , [Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-tags) , [`Type`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-type) , and [`UpdateToLatestImageVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion) .
@@ -264,7 +264,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[int] unmanagedv_cpus: The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
                
                > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']] update_policy: Specifies the infrastructure update policy for the compute environment. For more information about infrastructure updates, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']] update_policy: Specifies the infrastructure update policy for the compute environment. For more information about infrastructure updates, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
         """
         ...
     @overload
@@ -291,15 +291,15 @@ class ComputeEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
-                 compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
-                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
+                 compute_resources: Optional[pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
+                 eks_configuration: Optional[pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
-                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
+                 update_policy: Optional[pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

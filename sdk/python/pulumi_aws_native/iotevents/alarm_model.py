@@ -179,15 +179,15 @@ class AlarmModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_capabilities: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmCapabilitiesArgs']]] = None,
-                 alarm_event_actions: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmEventActionsArgs']]] = None,
+                 alarm_capabilities: Optional[pulumi.Input[Union['AlarmModelAlarmCapabilitiesArgs', 'AlarmModelAlarmCapabilitiesArgsDict']]] = None,
+                 alarm_event_actions: Optional[pulumi.Input[Union['AlarmModelAlarmEventActionsArgs', 'AlarmModelAlarmEventActionsArgsDict']]] = None,
                  alarm_model_description: Optional[pulumi.Input[str]] = None,
                  alarm_model_name: Optional[pulumi.Input[str]] = None,
-                 alarm_rule: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmRuleArgs']]] = None,
+                 alarm_rule: Optional[pulumi.Input[Union['AlarmModelAlarmRuleArgs', 'AlarmModelAlarmRuleArgsDict']]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
@@ -196,17 +196,17 @@ class AlarmModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmCapabilitiesArgs']] alarm_capabilities: Contains the configuration information of alarm state changes.
-        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmEventActionsArgs']] alarm_event_actions: Contains information about one or more alarm actions.
+        :param pulumi.Input[Union['AlarmModelAlarmCapabilitiesArgs', 'AlarmModelAlarmCapabilitiesArgsDict']] alarm_capabilities: Contains the configuration information of alarm state changes.
+        :param pulumi.Input[Union['AlarmModelAlarmEventActionsArgs', 'AlarmModelAlarmEventActionsArgsDict']] alarm_event_actions: Contains information about one or more alarm actions.
         :param pulumi.Input[str] alarm_model_description: A brief description of the alarm model.
         :param pulumi.Input[str] alarm_model_name: The name of the alarm model.
-        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmRuleArgs']] alarm_rule: Defines when your alarm is invoked.
+        :param pulumi.Input[Union['AlarmModelAlarmRuleArgs', 'AlarmModelAlarmRuleArgsDict']] alarm_rule: Defines when your alarm is invoked.
         :param pulumi.Input[str] key: The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
                
                This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
         :param pulumi.Input[int] severity: A non-negative integer that reflects the severity level of the alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
@@ -236,15 +236,15 @@ class AlarmModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_capabilities: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmCapabilitiesArgs']]] = None,
-                 alarm_event_actions: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmEventActionsArgs']]] = None,
+                 alarm_capabilities: Optional[pulumi.Input[Union['AlarmModelAlarmCapabilitiesArgs', 'AlarmModelAlarmCapabilitiesArgsDict']]] = None,
+                 alarm_event_actions: Optional[pulumi.Input[Union['AlarmModelAlarmEventActionsArgs', 'AlarmModelAlarmEventActionsArgsDict']]] = None,
                  alarm_model_description: Optional[pulumi.Input[str]] = None,
                  alarm_model_name: Optional[pulumi.Input[str]] = None,
-                 alarm_rule: Optional[pulumi.Input[pulumi.InputType['AlarmModelAlarmRuleArgs']]] = None,
+                 alarm_rule: Optional[pulumi.Input[Union['AlarmModelAlarmRuleArgs', 'AlarmModelAlarmRuleArgsDict']]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -126,8 +126,8 @@ class VerifiedAccessGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  verified_access_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -138,8 +138,8 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the AWS Verified Access group.
         :param pulumi.Input[str] policy_document: The AWS Verified Access policy document.
         :param pulumi.Input[bool] policy_enabled: The status of the Verified Access policy.
-        :param pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']] sse_specification: The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verified_access_instance_id: The ID of the AWS Verified Access instance.
         """
         ...
@@ -169,8 +169,8 @@ class VerifiedAccessGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessGroupSseSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  verified_access_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
