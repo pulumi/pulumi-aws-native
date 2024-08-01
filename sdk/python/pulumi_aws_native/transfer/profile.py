@@ -92,7 +92,7 @@ class Profile(pulumi.CustomResource):
                  as2_id: Optional[pulumi.Input[str]] = None,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_type: Optional[pulumi.Input['ProfileType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Profile
@@ -102,7 +102,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] as2_id: AS2 identifier agreed with a trading partner.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
         :param pulumi.Input['ProfileType'] profile_type: Enum specifying whether the profile is local or associated with a trading partner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class Profile(pulumi.CustomResource):
                  as2_id: Optional[pulumi.Input[str]] = None,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_type: Optional[pulumi.Input['ProfileType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

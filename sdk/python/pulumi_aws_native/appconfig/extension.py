@@ -123,12 +123,12 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]]] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Extension
@@ -145,34 +145,34 @@ class Extension(pulumi.CustomResource):
             description="My test extension",
             latest_version_number=0,
             actions={
-                "pre_create_hosted_configuration_version": [aws_native.appconfig.ExtensionActionArgs(
-                    name="My Test Action",
-                    uri="DependentLambda.Arn",
-                    role_arn="DependentRole.Arn",
-                    description="My test action point",
-                )],
+                "pre_create_hosted_configuration_version": [{
+                    "name": "My Test Action",
+                    "uri": "DependentLambda.Arn",
+                    "role_arn": "DependentRole.Arn",
+                    "description": "My test action point",
+                }],
             },
             parameters={
-                "myTestParam": aws_native.appconfig.ExtensionParameterArgs(
-                    required=False,
-                    description="My test parameter",
-                ),
+                "myTestParam": {
+                    "required": False,
+                    "description": "My test parameter",
+                },
             },
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="Ext",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Ext",
+                "value": "Test",
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]] actions: The actions defined in the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]] actions: The actions defined in the extension.
         :param pulumi.Input[str] description: Description of the extension.
         :param pulumi.Input[int] latest_version_number: You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
         :param pulumi.Input[str] name: Name of the extension.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value tags to apply to this resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value tags to apply to this resource.
         """
         ...
     @overload
@@ -195,23 +195,23 @@ class Extension(pulumi.CustomResource):
             description="My test extension",
             latest_version_number=0,
             actions={
-                "pre_create_hosted_configuration_version": [aws_native.appconfig.ExtensionActionArgs(
-                    name="My Test Action",
-                    uri="DependentLambda.Arn",
-                    role_arn="DependentRole.Arn",
-                    description="My test action point",
-                )],
+                "pre_create_hosted_configuration_version": [{
+                    "name": "My Test Action",
+                    "uri": "DependentLambda.Arn",
+                    "role_arn": "DependentRole.Arn",
+                    "description": "My test action point",
+                }],
             },
             parameters={
-                "myTestParam": aws_native.appconfig.ExtensionParameterArgs(
-                    required=False,
-                    description="My test parameter",
-                ),
+                "myTestParam": {
+                    "required": False,
+                    "description": "My test parameter",
+                },
             },
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="Ext",
-                value="Test",
-            )])
+            tags=[{
+                "key": "Ext",
+                "value": "Test",
+            }])
 
         ```
 
@@ -230,12 +230,12 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]]] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

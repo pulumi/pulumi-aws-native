@@ -41,14 +41,14 @@ class PublicKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']]] = None,
+                 public_key_config: Optional[pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::PublicKey
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        :param pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class PublicKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']]] = None,
+                 public_key_config: Optional[pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

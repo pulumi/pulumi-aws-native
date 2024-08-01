@@ -73,7 +73,7 @@ class Insight(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightAwsSecurityFindingFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -82,7 +82,7 @@ class Insight(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InsightAwsSecurityFindingFiltersArgs']] filters: One or more attributes used to filter the findings included in the insight
+        :param pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']] filters: One or more attributes used to filter the findings included in the insight
         :param pulumi.Input[str] group_by_attribute: The grouping attribute for the insight's findings
         :param pulumi.Input[str] name: The name of a Security Hub insight
         """
@@ -110,7 +110,7 @@ class Insight(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightAwsSecurityFindingFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

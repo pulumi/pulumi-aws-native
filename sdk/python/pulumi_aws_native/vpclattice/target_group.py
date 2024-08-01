@@ -112,10 +112,10 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetArgs', 'TargetGroupTargetArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['TargetGroupType']] = None,
                  __props__=None):
         """
@@ -123,12 +123,12 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the target group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetArgs']]]] targets: Describes a target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetArgs', 'TargetGroupTargetArgsDict']]]] targets: Describes a target.
         :param pulumi.Input['TargetGroupType'] type: The type of target group.
         """
         ...
@@ -155,10 +155,10 @@ class TargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetArgs', 'TargetGroupTargetArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['TargetGroupType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

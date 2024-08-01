@@ -106,7 +106,7 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_arn: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]]] = None,
+                 definition: Optional[pulumi.Input[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -117,7 +117,7 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
-        :param pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]] definition: Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        :param pulumi.Input[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]] definition: Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
         :param pulumi.Input[str] name: Name of the templates. Template names must be unique.
         :param pulumi.Input[bool] reenroll_all_certificate_holders: This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a template consisting of a key-value pair.
@@ -147,7 +147,7 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_arn: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]]] = None,
+                 definition: Optional[pulumi.Input[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

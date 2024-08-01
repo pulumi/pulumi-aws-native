@@ -405,23 +405,23 @@ class TaskDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]]] = None,
+                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
+                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
                  pid_mode: Optional[pulumi.Input[str]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
-                 proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
+                 proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
         Registers a new task definition from the supplied ``family`` and ``containerDefinitions``. Optionally, you can add data volumes to your containers with the ``volumes`` parameter. For more information about task definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -440,48 +440,48 @@ class TaskDefinition(pulumi.CustomResource):
         taskdefinition = aws_native.ecs.TaskDefinition("taskdefinition",
             requires_compatibilities=["EC2"],
             container_definitions=[
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="my-app",
-                    mount_points=[aws_native.ecs.TaskDefinitionMountPointArgs(
-                        source_volume="my-vol",
-                        container_path="/var/www/my-vol",
-                    )],
-                    image="amazon/amazon-ecs-sample",
-                    cpu=256,
-                    entry_point=[
+                {
+                    "name": "my-app",
+                    "mount_points": [{
+                        "source_volume": "my-vol",
+                        "container_path": "/var/www/my-vol",
+                    }],
+                    "image": "amazon/amazon-ecs-sample",
+                    "cpu": 256,
+                    "entry_point": [
                         "/usr/sbin/apache2",
                         "-D",
                         "FOREGROUND",
                     ],
-                    memory=512,
-                    essential=True,
-                ),
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="busybox",
-                    image="busybox",
-                    cpu=256,
-                    entry_point=[
+                    "memory": 512,
+                    "essential": True,
+                },
+                {
+                    "name": "busybox",
+                    "image": "busybox",
+                    "cpu": 256,
+                    "entry_point": [
                         "sh",
                         "-c",
                     ],
-                    memory=512,
-                    command=["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
-                    essential=False,
-                    depends_on=[aws_native.ecs.TaskDefinitionContainerDependencyArgs(
-                        container_name="my-app",
-                        condition="START",
-                    )],
-                    volumes_from=[aws_native.ecs.TaskDefinitionVolumeFromArgs(
-                        source_container="my-app",
-                    )],
-                ),
+                    "memory": 512,
+                    "command": ["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
+                    "essential": False,
+                    "depends_on": [{
+                        "container_name": "my-app",
+                        "condition": "START",
+                    }],
+                    "volumes_from": [{
+                        "source_container": "my-app",
+                    }],
+                },
             ],
-            volumes=[aws_native.ecs.TaskDefinitionVolumeArgs(
-                host=aws_native.ecs.TaskDefinitionHostVolumePropertiesArgs(
-                    source_path="/var/lib/docker/vfs/dir/",
-                ),
-                name="my-vol",
-            )])
+            volumes=[{
+                "host": {
+                    "source_path": "/var/lib/docker/vfs/dir/",
+                },
+                "name": "my-vol",
+            }])
 
         ```
         ### Example
@@ -493,48 +493,48 @@ class TaskDefinition(pulumi.CustomResource):
         taskdefinition = aws_native.ecs.TaskDefinition("taskdefinition",
             requires_compatibilities=["EC2"],
             container_definitions=[
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="my-app",
-                    mount_points=[aws_native.ecs.TaskDefinitionMountPointArgs(
-                        source_volume="my-vol",
-                        container_path="/var/www/my-vol",
-                    )],
-                    image="amazon/amazon-ecs-sample",
-                    cpu=256,
-                    entry_point=[
+                {
+                    "name": "my-app",
+                    "mount_points": [{
+                        "source_volume": "my-vol",
+                        "container_path": "/var/www/my-vol",
+                    }],
+                    "image": "amazon/amazon-ecs-sample",
+                    "cpu": 256,
+                    "entry_point": [
                         "/usr/sbin/apache2",
                         "-D",
                         "FOREGROUND",
                     ],
-                    memory=512,
-                    essential=True,
-                ),
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="busybox",
-                    image="busybox",
-                    cpu=256,
-                    entry_point=[
+                    "memory": 512,
+                    "essential": True,
+                },
+                {
+                    "name": "busybox",
+                    "image": "busybox",
+                    "cpu": 256,
+                    "entry_point": [
                         "sh",
                         "-c",
                     ],
-                    memory=512,
-                    command=["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
-                    essential=False,
-                    depends_on=[aws_native.ecs.TaskDefinitionContainerDependencyArgs(
-                        container_name="my-app",
-                        condition="START",
-                    )],
-                    volumes_from=[aws_native.ecs.TaskDefinitionVolumeFromArgs(
-                        source_container="my-app",
-                    )],
-                ),
+                    "memory": 512,
+                    "command": ["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
+                    "essential": False,
+                    "depends_on": [{
+                        "container_name": "my-app",
+                        "condition": "START",
+                    }],
+                    "volumes_from": [{
+                        "source_container": "my-app",
+                    }],
+                },
             ],
-            volumes=[aws_native.ecs.TaskDefinitionVolumeArgs(
-                host=aws_native.ecs.TaskDefinitionHostVolumePropertiesArgs(
-                    source_path="/var/lib/docker/vfs/dir/",
-                ),
-                name="my-vol",
-            )])
+            volumes=[{
+                "host": {
+                    "source_path": "/var/lib/docker/vfs/dir/",
+                },
+                "name": "my-vol",
+            }])
 
         ```
         ### Example
@@ -544,26 +544,26 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         ecs_task_definition_resource = aws_native.ecs.TaskDefinition("ecsTaskDefinitionResource",
-            container_definitions=[aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                name="first-run-task",
-                image="httpd:2.4",
-                essential=True,
-                port_mappings=[aws_native.ecs.TaskDefinitionPortMappingArgs(
-                    container_port=80,
-                    protocol="tcp",
-                )],
-                environment=[
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="entryPoint",
-                        value="sh, -c",
-                    ),
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="command",
-                        value="/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
-                    ),
+            container_definitions=[{
+                "name": "first-run-task",
+                "image": "httpd:2.4",
+                "essential": True,
+                "port_mappings": [{
+                    "container_port": 80,
+                    "protocol": "tcp",
+                }],
+                "environment": [
+                    {
+                        "name": "entryPoint",
+                        "value": "sh, -c",
+                    },
+                    {
+                        "name": "command",
+                        "value": "/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
+                    },
                 ],
-                environment_files=[],
-            )],
+                "environment_files": [],
+            }],
             family="first-run-task",
             cpu="1 vCPU",
             memory="3 GB")
@@ -577,26 +577,26 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         ecs_task_definition_resource = aws_native.ecs.TaskDefinition("ecsTaskDefinitionResource",
-            container_definitions=[aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                name="first-run-task",
-                image="httpd:2.4",
-                essential=True,
-                port_mappings=[aws_native.ecs.TaskDefinitionPortMappingArgs(
-                    container_port=80,
-                    protocol="tcp",
-                )],
-                environment=[
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="entryPoint",
-                        value="sh, -c",
-                    ),
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="command",
-                        value="/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
-                    ),
+            container_definitions=[{
+                "name": "first-run-task",
+                "image": "httpd:2.4",
+                "essential": True,
+                "port_mappings": [{
+                    "container_port": 80,
+                    "protocol": "tcp",
+                }],
+                "environment": [
+                    {
+                        "name": "entryPoint",
+                        "value": "sh, -c",
+                    },
+                    {
+                        "name": "command",
+                        "value": "/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
+                    },
                 ],
-                environment_files=[],
-            )],
+                "environment_files": [],
+            }],
             family="first-run-task",
             cpu="1 vCPU",
             memory="3 GB")
@@ -606,7 +606,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]] container_definitions: A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]] container_definitions: A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[str] cpu: The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
                 The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
                  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
@@ -618,12 +618,12 @@ class TaskDefinition(pulumi.CustomResource):
                 This option requires Linux platform ``1.4.0`` or later.
                  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
                 This option requires Linux platform ``1.4.0`` or later.
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The ephemeral storage settings to use for tasks run with the task definition.
+        :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: The ephemeral storage settings to use for tasks run with the task definition.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[str] family: The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
                 A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
                  To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: The Elastic Inference accelerators to use for the containers in the task.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: The Elastic Inference accelerators to use for the containers in the task.
         :param pulumi.Input[str] ipc_mode: The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*.
                 If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/).
                 If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -657,13 +657,13 @@ class TaskDefinition(pulumi.CustomResource):
                 If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/).
                  This parameter is not supported for Windows containers.
                   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]] placement_constraints: An array of placement constraint objects to use for tasks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: An array of placement constraint objects to use for tasks.
                  This parameter isn't supported for tasks run on FARGATElong.
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']] proxy_configuration: The configuration details for the App Mesh proxy.
+        :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
+        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
                  +  For each resource, each tag key must be unique, and each tag key can have only one value.
@@ -673,7 +673,7 @@ class TaskDefinition(pulumi.CustomResource):
                  +  Tag keys and values are case-sensitive.
                  +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         :param pulumi.Input[str] task_role_arn: The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]] volumes: The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
                  The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
         """
         ...
@@ -699,48 +699,48 @@ class TaskDefinition(pulumi.CustomResource):
         taskdefinition = aws_native.ecs.TaskDefinition("taskdefinition",
             requires_compatibilities=["EC2"],
             container_definitions=[
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="my-app",
-                    mount_points=[aws_native.ecs.TaskDefinitionMountPointArgs(
-                        source_volume="my-vol",
-                        container_path="/var/www/my-vol",
-                    )],
-                    image="amazon/amazon-ecs-sample",
-                    cpu=256,
-                    entry_point=[
+                {
+                    "name": "my-app",
+                    "mount_points": [{
+                        "source_volume": "my-vol",
+                        "container_path": "/var/www/my-vol",
+                    }],
+                    "image": "amazon/amazon-ecs-sample",
+                    "cpu": 256,
+                    "entry_point": [
                         "/usr/sbin/apache2",
                         "-D",
                         "FOREGROUND",
                     ],
-                    memory=512,
-                    essential=True,
-                ),
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="busybox",
-                    image="busybox",
-                    cpu=256,
-                    entry_point=[
+                    "memory": 512,
+                    "essential": True,
+                },
+                {
+                    "name": "busybox",
+                    "image": "busybox",
+                    "cpu": 256,
+                    "entry_point": [
                         "sh",
                         "-c",
                     ],
-                    memory=512,
-                    command=["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
-                    essential=False,
-                    depends_on=[aws_native.ecs.TaskDefinitionContainerDependencyArgs(
-                        container_name="my-app",
-                        condition="START",
-                    )],
-                    volumes_from=[aws_native.ecs.TaskDefinitionVolumeFromArgs(
-                        source_container="my-app",
-                    )],
-                ),
+                    "memory": 512,
+                    "command": ["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
+                    "essential": False,
+                    "depends_on": [{
+                        "container_name": "my-app",
+                        "condition": "START",
+                    }],
+                    "volumes_from": [{
+                        "source_container": "my-app",
+                    }],
+                },
             ],
-            volumes=[aws_native.ecs.TaskDefinitionVolumeArgs(
-                host=aws_native.ecs.TaskDefinitionHostVolumePropertiesArgs(
-                    source_path="/var/lib/docker/vfs/dir/",
-                ),
-                name="my-vol",
-            )])
+            volumes=[{
+                "host": {
+                    "source_path": "/var/lib/docker/vfs/dir/",
+                },
+                "name": "my-vol",
+            }])
 
         ```
         ### Example
@@ -752,48 +752,48 @@ class TaskDefinition(pulumi.CustomResource):
         taskdefinition = aws_native.ecs.TaskDefinition("taskdefinition",
             requires_compatibilities=["EC2"],
             container_definitions=[
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="my-app",
-                    mount_points=[aws_native.ecs.TaskDefinitionMountPointArgs(
-                        source_volume="my-vol",
-                        container_path="/var/www/my-vol",
-                    )],
-                    image="amazon/amazon-ecs-sample",
-                    cpu=256,
-                    entry_point=[
+                {
+                    "name": "my-app",
+                    "mount_points": [{
+                        "source_volume": "my-vol",
+                        "container_path": "/var/www/my-vol",
+                    }],
+                    "image": "amazon/amazon-ecs-sample",
+                    "cpu": 256,
+                    "entry_point": [
                         "/usr/sbin/apache2",
                         "-D",
                         "FOREGROUND",
                     ],
-                    memory=512,
-                    essential=True,
-                ),
-                aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                    name="busybox",
-                    image="busybox",
-                    cpu=256,
-                    entry_point=[
+                    "memory": 512,
+                    "essential": True,
+                },
+                {
+                    "name": "busybox",
+                    "image": "busybox",
+                    "cpu": 256,
+                    "entry_point": [
                         "sh",
                         "-c",
                     ],
-                    memory=512,
-                    command=["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
-                    essential=False,
-                    depends_on=[aws_native.ecs.TaskDefinitionContainerDependencyArgs(
-                        container_name="my-app",
-                        condition="START",
-                    )],
-                    volumes_from=[aws_native.ecs.TaskDefinitionVolumeFromArgs(
-                        source_container="my-app",
-                    )],
-                ),
+                    "memory": 512,
+                    "command": ["/bin/sh -c \\"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\\""],
+                    "essential": False,
+                    "depends_on": [{
+                        "container_name": "my-app",
+                        "condition": "START",
+                    }],
+                    "volumes_from": [{
+                        "source_container": "my-app",
+                    }],
+                },
             ],
-            volumes=[aws_native.ecs.TaskDefinitionVolumeArgs(
-                host=aws_native.ecs.TaskDefinitionHostVolumePropertiesArgs(
-                    source_path="/var/lib/docker/vfs/dir/",
-                ),
-                name="my-vol",
-            )])
+            volumes=[{
+                "host": {
+                    "source_path": "/var/lib/docker/vfs/dir/",
+                },
+                "name": "my-vol",
+            }])
 
         ```
         ### Example
@@ -803,26 +803,26 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         ecs_task_definition_resource = aws_native.ecs.TaskDefinition("ecsTaskDefinitionResource",
-            container_definitions=[aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                name="first-run-task",
-                image="httpd:2.4",
-                essential=True,
-                port_mappings=[aws_native.ecs.TaskDefinitionPortMappingArgs(
-                    container_port=80,
-                    protocol="tcp",
-                )],
-                environment=[
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="entryPoint",
-                        value="sh, -c",
-                    ),
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="command",
-                        value="/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
-                    ),
+            container_definitions=[{
+                "name": "first-run-task",
+                "image": "httpd:2.4",
+                "essential": True,
+                "port_mappings": [{
+                    "container_port": 80,
+                    "protocol": "tcp",
+                }],
+                "environment": [
+                    {
+                        "name": "entryPoint",
+                        "value": "sh, -c",
+                    },
+                    {
+                        "name": "command",
+                        "value": "/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
+                    },
                 ],
-                environment_files=[],
-            )],
+                "environment_files": [],
+            }],
             family="first-run-task",
             cpu="1 vCPU",
             memory="3 GB")
@@ -836,26 +836,26 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         ecs_task_definition_resource = aws_native.ecs.TaskDefinition("ecsTaskDefinitionResource",
-            container_definitions=[aws_native.ecs.TaskDefinitionContainerDefinitionArgs(
-                name="first-run-task",
-                image="httpd:2.4",
-                essential=True,
-                port_mappings=[aws_native.ecs.TaskDefinitionPortMappingArgs(
-                    container_port=80,
-                    protocol="tcp",
-                )],
-                environment=[
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="entryPoint",
-                        value="sh, -c",
-                    ),
-                    aws_native.ecs.TaskDefinitionKeyValuePairArgs(
-                        name="command",
-                        value="/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
-                    ),
+            container_definitions=[{
+                "name": "first-run-task",
+                "image": "httpd:2.4",
+                "essential": True,
+                "port_mappings": [{
+                    "container_port": 80,
+                    "protocol": "tcp",
+                }],
+                "environment": [
+                    {
+                        "name": "entryPoint",
+                        "value": "sh, -c",
+                    },
+                    {
+                        "name": "command",
+                        "value": "/bin/sh -c \\\\\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\\\\"",
+                    },
                 ],
-                environment_files=[],
-            )],
+                "environment_files": [],
+            }],
             family="first-run-task",
             cpu="1 vCPU",
             memory="3 GB")
@@ -878,23 +878,23 @@ class TaskDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]]] = None,
+                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
+                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
                  pid_mode: Optional[pulumi.Input[str]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
-                 proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
+                 proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

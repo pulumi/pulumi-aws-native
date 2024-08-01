@@ -123,7 +123,7 @@ class LayerVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: A list of compatible instruction set architectures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
-        :param pulumi.Input[pulumi.InputType['LayerVersionContentArgs']] content: The function layer archive.
+        :param pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']] content: The function layer archive.
         :param pulumi.Input[str] description: The description of the version.
         :param pulumi.Input[str] layer_name: The name or Amazon Resource Name (ARN) of the layer.
         :param pulumi.Input[str] license_info: The layer's software license.
@@ -166,7 +166,7 @@ class LayerVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None,

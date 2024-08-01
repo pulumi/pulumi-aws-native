@@ -272,17 +272,17 @@ class FileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_name: Optional[pulumi.Input[str]] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union['FileSystemBackupPolicyArgs', 'FileSystemBackupPolicyArgsDict']]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
-                 file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
-                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 file_system_protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileSystemLifecyclePolicyArgs', 'FileSystemLifecyclePolicyArgsDict']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['FileSystemReplicationConfigurationArgs', 'FileSystemReplicationConfigurationArgsDict']]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -292,14 +292,14 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone_name: For One Zone file systems, specify the AWS Availability Zone in which to create the file system. Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide*.
                  One Zone file systems are not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
-        :param pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']] backup_policy: Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
+        :param pulumi.Input[Union['FileSystemBackupPolicyArgs', 'FileSystemBackupPolicyArgsDict']] backup_policy: Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: (Optional) A boolean that specifies whether or not to bypass the ``FileSystemPolicy`` lockout safety check. The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future ``PutFileSystemPolicy`` requests on this file system. Set ``BypassPolicyLockoutSafetyCheck`` to ``True`` only when you intend to prevent the IAM principal that is making the request from making subsequent ``PutFileSystemPolicy`` requests on this file system. The default value is ``False``.
         :param pulumi.Input[bool] encrypted: A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a KmsKeyId for an existing kms-key-long. If you don't specify a kms-key, then the default kms-key for EFS, ``/aws/elasticfilesystem``, is used to protect the encrypted file system.
         :param Any file_system_policy: The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
-        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] file_system_protection: Describes the protection on the file system.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] file_system_tags: Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``"Key":"Name","Value":"{value}"`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.
+        :param pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']] file_system_protection: Describes the protection on the file system.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] file_system_tags: Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``"Key":"Name","Value":"{value}"`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.
         :param pulumi.Input[str] kms_key_id: The ID of the kms-key-long to be used to protect the encrypted file system. This parameter is only required if you want to use a nondefault kms-key. If this parameter is not specified, the default kms-key for EFS is used. This ID can be in one of the following formats:
                  +  Key ID - A unique identifier of the key, for example ``1234abcd-12ab-34cd-56ef-1234567890ab``.
                  +  ARN - An Amazon Resource Name (ARN) for the key, for example ``arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``.
@@ -307,7 +307,7 @@ class FileSystem(pulumi.CustomResource):
                  +  Key alias ARN - An ARN for a key alias, for example ``arn:aws:kms:us-west-2:444455556666:alias/projectKey1``.
                  
                 If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileSystemLifecyclePolicyArgs', 'FileSystemLifecyclePolicyArgsDict']]]] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
                  +  When to move files in the file system from primary storage to IA storage.
                  +  When to move files in the file system from primary storage or IA storage to Archive storage.
                  +  When to move files that are in IA or Archive storage to primary storage.
@@ -317,7 +317,7 @@ class FileSystem(pulumi.CustomResource):
                  Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
                  Default is ``generalPurpose``.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
-        :param pulumi.Input[pulumi.InputType['FileSystemReplicationConfigurationArgs']] replication_configuration: Describes the replication configuration for a specific file system.
+        :param pulumi.Input[Union['FileSystemReplicationConfigurationArgs', 'FileSystemReplicationConfigurationArgsDict']] replication_configuration: Describes the replication configuration for a specific file system.
         :param pulumi.Input[str] throughput_mode: Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
                 Default is ``bursting``.
         """
@@ -346,17 +346,17 @@ class FileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_name: Optional[pulumi.Input[str]] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union['FileSystemBackupPolicyArgs', 'FileSystemBackupPolicyArgsDict']]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
-                 file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
-                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 file_system_protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileSystemLifecyclePolicyArgs', 'FileSystemLifecyclePolicyArgsDict']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['FileSystemReplicationConfigurationArgs', 'FileSystemReplicationConfigurationArgsDict']]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

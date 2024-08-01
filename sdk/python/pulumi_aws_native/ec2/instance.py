@@ -672,15 +672,15 @@ class Instance(pulumi.CustomResource):
                  additional_info: Optional[pulumi.Input[str]] = None,
                  affinity: Optional[pulumi.Input['InstanceAffinity']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]]] = None,
-                 cpu_options: Optional[pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']]] = None,
-                 credit_specification: Optional[pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceBlockDeviceMappingArgs', 'InstanceBlockDeviceMappingArgsDict']]]]] = None,
+                 cpu_options: Optional[pulumi.Input[Union['CpuOptionsPropertiesArgs', 'CpuOptionsPropertiesArgsDict']]] = None,
+                 credit_specification: Optional[pulumi.Input[Union['CreditSpecificationPropertiesArgs', 'CreditSpecificationPropertiesArgsDict']]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]]] = None,
-                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]]] = None,
-                 enclave_options: Optional[pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']]] = None,
-                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']]] = None,
+                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticGpuSpecificationArgs', 'InstanceElasticGpuSpecificationArgsDict']]]]] = None,
+                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticInferenceAcceleratorArgs', 'InstanceElasticInferenceAcceleratorArgsDict']]]]] = None,
+                 enclave_options: Optional[pulumi.Input[Union['EnclaveOptionsPropertiesArgs', 'EnclaveOptionsPropertiesArgsDict']]] = None,
+                 hibernation_options: Optional[pulumi.Input[Union['HibernationOptionsPropertiesArgs', 'HibernationOptionsPropertiesArgsDict']]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -688,27 +688,27 @@ class Instance(pulumi.CustomResource):
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceIpv6AddressArgs', 'InstanceIpv6AddressArgsDict']]]]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceLicenseSpecificationArgs']]]]] = None,
+                 launch_template: Optional[pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']]] = None,
+                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[str]] = None,
-                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['InstancePrivateDnsNameOptionsArgs']]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
-                 ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]]] = None,
+                 ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceSsmAssociationArgs', 'InstanceSsmAssociationArgsDict']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceVolumeArgs', 'InstanceVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::Instance
@@ -718,15 +718,15 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] additional_info: This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
         :param pulumi.Input['InstanceAffinity'] affinity: Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
         :param pulumi.Input[str] availability_zone: The Availability Zone of the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]] block_device_mappings: The block device mapping entries that defines the block devices to attach to the instance at launch.
-        :param pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']] cpu_options: The CPU options for the instance.
-        :param pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceBlockDeviceMappingArgs', 'InstanceBlockDeviceMappingArgsDict']]]] block_device_mappings: The block device mapping entries that defines the block devices to attach to the instance at launch.
+        :param pulumi.Input[Union['CpuOptionsPropertiesArgs', 'CpuOptionsPropertiesArgsDict']] cpu_options: The CPU options for the instance.
+        :param pulumi.Input[Union['CreditSpecificationPropertiesArgs', 'CreditSpecificationPropertiesArgsDict']] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
         :param pulumi.Input[bool] disable_api_termination: If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
-        :param pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
-        :param pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']] hibernation_options: Indicates whether an instance is enabled for hibernation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticGpuSpecificationArgs', 'InstanceElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticInferenceAcceleratorArgs', 'InstanceElasticInferenceAcceleratorArgsDict']]]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
+        :param pulumi.Input[Union['EnclaveOptionsPropertiesArgs', 'EnclaveOptionsPropertiesArgsDict']] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        :param pulumi.Input[Union['HibernationOptionsPropertiesArgs', 'HibernationOptionsPropertiesArgsDict']] hibernation_options: Indicates whether an instance is enabled for hibernation.
         :param pulumi.Input[str] host_id: If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
         :param pulumi.Input[str] host_resource_group_arn: The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
         :param pulumi.Input[str] iam_instance_profile: The IAM instance profile.
@@ -734,27 +734,27 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[int] ipv6_address_count: [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]] ipv6_addresses: [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceIpv6AddressArgs', 'InstanceIpv6AddressArgsDict']]]] ipv6_addresses: [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
         :param pulumi.Input[str] kernel_id: The ID of the kernel.
         :param pulumi.Input[str] key_name: The name of the key pair.
-        :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']] launch_template: The launch template to use to launch the instances.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceLicenseSpecificationArgs']]]] license_specifications: The license configurations.
+        :param pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']] launch_template: The launch template to use to launch the instances.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]] license_specifications: The license configurations.
         :param pulumi.Input[bool] monitoring: Specifies whether detailed monitoring is enabled for the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: The network interfaces to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: The network interfaces to associate with the instance.
         :param pulumi.Input[str] placement_group_name: The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
-        :param pulumi.Input[pulumi.InputType['InstancePrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname.
+        :param pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname.
         :param pulumi.Input[str] private_ip_address: [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
         :param pulumi.Input[bool] propagate_tags_to_volume_on_creation: Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
         :param pulumi.Input[str] ramdisk_id: The ID of the RAM disk to select.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
         :param pulumi.Input[bool] source_dest_check: Specifies whether to enable an instance launched in a VPC to perform NAT.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]] ssm_associations: The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceSsmAssociationArgs', 'InstanceSsmAssociationArgsDict']]]] ssm_associations: The SSM document and parameter values in AWS Systems Manager to associate with this instance.
         :param pulumi.Input[str] subnet_id: [EC2-VPC] The ID of the subnet to launch the instance into.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the instance.
         :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
         :param pulumi.Input[str] user_data: The user data to make available to the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]] volumes: The volumes to attach to the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVolumeArgs', 'InstanceVolumeArgsDict']]]] volumes: The volumes to attach to the instance.
         """
         ...
     @overload
@@ -783,15 +783,15 @@ class Instance(pulumi.CustomResource):
                  additional_info: Optional[pulumi.Input[str]] = None,
                  affinity: Optional[pulumi.Input['InstanceAffinity']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]]] = None,
-                 cpu_options: Optional[pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']]] = None,
-                 credit_specification: Optional[pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceBlockDeviceMappingArgs', 'InstanceBlockDeviceMappingArgsDict']]]]] = None,
+                 cpu_options: Optional[pulumi.Input[Union['CpuOptionsPropertiesArgs', 'CpuOptionsPropertiesArgsDict']]] = None,
+                 credit_specification: Optional[pulumi.Input[Union['CreditSpecificationPropertiesArgs', 'CreditSpecificationPropertiesArgsDict']]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]]] = None,
-                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]]] = None,
-                 enclave_options: Optional[pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']]] = None,
-                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']]] = None,
+                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticGpuSpecificationArgs', 'InstanceElasticGpuSpecificationArgsDict']]]]] = None,
+                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticInferenceAcceleratorArgs', 'InstanceElasticInferenceAcceleratorArgsDict']]]]] = None,
+                 enclave_options: Optional[pulumi.Input[Union['EnclaveOptionsPropertiesArgs', 'EnclaveOptionsPropertiesArgsDict']]] = None,
+                 hibernation_options: Optional[pulumi.Input[Union['HibernationOptionsPropertiesArgs', 'HibernationOptionsPropertiesArgsDict']]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -799,27 +799,27 @@ class Instance(pulumi.CustomResource):
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceIpv6AddressArgs', 'InstanceIpv6AddressArgsDict']]]]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceLicenseSpecificationArgs']]]]] = None,
+                 launch_template: Optional[pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']]] = None,
+                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[str]] = None,
-                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['InstancePrivateDnsNameOptionsArgs']]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
-                 ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]]] = None,
+                 ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceSsmAssociationArgs', 'InstanceSsmAssociationArgsDict']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceVolumeArgs', 'InstanceVolumeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

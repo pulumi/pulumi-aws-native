@@ -225,13 +225,13 @@ class TaskSet(pulumi.CustomResource):
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+                 scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -242,13 +242,13 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
-        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the task set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]] load_balancers: A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        :param pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']] network_configuration: The network configuration for the task set.
         :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
-        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+        :param pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
                
                The following basic restrictions apply to tags:
                
@@ -288,13 +288,13 @@ class TaskSet(pulumi.CustomResource):
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+                 scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

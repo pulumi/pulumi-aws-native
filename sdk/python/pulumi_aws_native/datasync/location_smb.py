@@ -157,11 +157,11 @@ class LocationSmb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -171,11 +171,11 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
-        :param pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         ...
@@ -204,11 +204,11 @@ class LocationSmb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

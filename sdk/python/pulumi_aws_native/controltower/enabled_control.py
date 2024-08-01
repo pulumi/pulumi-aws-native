@@ -91,8 +91,8 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -125,8 +125,8 @@ class EnabledControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_identifier: Arn of the control.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]] parameters: Parameters to configure the enabled control behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags to assign to the enabled control.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]] parameters: Parameters to configure the enabled control behavior.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags to assign to the enabled control.
         :param pulumi.Input[str] target_identifier: Arn for Organizational unit to which the control needs to be applied
         """
         ...
@@ -178,8 +178,8 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

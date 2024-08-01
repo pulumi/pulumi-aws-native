@@ -57,7 +57,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 event_destination: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']]] = None,
+                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::ConfigurationSetEventDestination
@@ -65,7 +65,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set that contains the event destination.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']] event_destination: The event destination object.
+        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: The event destination object.
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 event_destination: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']]] = None,
+                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

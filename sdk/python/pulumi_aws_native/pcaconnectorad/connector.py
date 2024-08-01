@@ -90,7 +90,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_information: Optional[pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']]] = None,
+                 vpc_information: Optional[pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::PCAConnectorAD::Connector Resource Type
@@ -100,7 +100,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
         :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
-        :param pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']] vpc_information: Information of the VPC and security group(s) used with the connector.
+        :param pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']] vpc_information: Information of the VPC and security group(s) used with the connector.
         """
         ...
     @overload
@@ -129,7 +129,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_information: Optional[pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']]] = None,
+                 vpc_information: Optional[pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -157,7 +157,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  automatic_model_registration: Optional[pulumi.Input[bool]] = None,
                  mlflow_version: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[str]] = None,
                  tracking_server_size: Optional[pulumi.Input['MlflowTrackingServerTrackingServerSize']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
@@ -171,7 +171,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param pulumi.Input[bool] automatic_model_registration: A flag to enable Automatic SageMaker Model Registration.
         :param pulumi.Input[str] mlflow_version: The MLFlow Version used on the MLFlow Tracking Server.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tracking_server_name: The name of the MLFlow Tracking Server.
         :param pulumi.Input['MlflowTrackingServerTrackingServerSize'] tracking_server_size: The size of the MLFlow Tracking Server.
         :param pulumi.Input[str] weekly_maintenance_window_start: The start of the time window for maintenance of the MLFlow Tracking Server in UTC time.
@@ -204,7 +204,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  automatic_model_registration: Optional[pulumi.Input[bool]] = None,
                  mlflow_version: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[str]] = None,
                  tracking_server_size: Optional[pulumi.Input['MlflowTrackingServerTrackingServerSize']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,

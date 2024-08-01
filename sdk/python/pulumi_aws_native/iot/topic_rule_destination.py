@@ -75,18 +75,18 @@ class TopicRuleDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_url_properties: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]] = None,
+                 http_url_properties: Optional[pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
                  status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-                 vpc_properties: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']]] = None,
+                 vpc_properties: Optional[pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::TopicRuleDestination
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] http_url_properties: HTTP URL destination properties.
+        :param pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']] http_url_properties: HTTP URL destination properties.
         :param pulumi.Input['TopicRuleDestinationStatus'] status: The status of the TopicRuleDestination.
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']] vpc_properties: VPC destination properties.
+        :param pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']] vpc_properties: VPC destination properties.
         """
         ...
     @overload
@@ -112,9 +112,9 @@ class TopicRuleDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_url_properties: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]] = None,
+                 http_url_properties: Optional[pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
                  status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-                 vpc_properties: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']]] = None,
+                 vpc_properties: Optional[pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

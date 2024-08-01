@@ -42,7 +42,7 @@ class ResourceCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']]] = None,
+                 resource_collection_filter: Optional[pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
                  __props__=None):
         """
         This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -54,14 +54,14 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=[
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": [
                     "StackA",
                     "StackB",
                 ],
-            ),
-        ))
+            },
+        })
 
         ```
         ### Example
@@ -70,14 +70,14 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=[
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": [
                     "StackA",
                     "StackB",
                 ],
-            ),
-        ))
+            },
+        })
 
         ```
         ### Example
@@ -86,11 +86,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=["*"],
-            ),
-        ))
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": ["*"],
+            },
+        })
 
         ```
         ### Example
@@ -99,17 +99,17 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=["*"],
-            ),
-        ))
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": ["*"],
+            },
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        :param pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         ...
     @overload
@@ -127,14 +127,14 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=[
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": [
                     "StackA",
                     "StackB",
                 ],
-            ),
-        ))
+            },
+        })
 
         ```
         ### Example
@@ -143,14 +143,14 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=[
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": [
                     "StackA",
                     "StackB",
                 ],
-            ),
-        ))
+            },
+        })
 
         ```
         ### Example
@@ -159,11 +159,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=["*"],
-            ),
-        ))
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": ["*"],
+            },
+        })
 
         ```
         ### Example
@@ -172,11 +172,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter=aws_native.devopsguru.ResourceCollectionFilterArgs(
-            cloud_formation=aws_native.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs(
-                stack_names=["*"],
-            ),
-        ))
+        my_resource_collection = aws_native.devopsguru.ResourceCollection("myResourceCollection", resource_collection_filter={
+            "cloud_formation": {
+                "stack_names": ["*"],
+            },
+        })
 
         ```
 
@@ -195,7 +195,7 @@ class ResourceCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']]] = None,
+                 resource_collection_filter: Optional[pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

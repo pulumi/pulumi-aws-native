@@ -172,12 +172,12 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
                  custom_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
                  lifecycle_policy: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  repository_policy: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
@@ -187,12 +187,12 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
         :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
         :param pulumi.Input[str] description: The description of the template.
-        :param pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']] encryption_configuration: The encryption configuration associated with the repository creation template.
+        :param pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration associated with the repository creation template.
         :param pulumi.Input['RepositoryCreationTemplateImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
         :param pulumi.Input[str] lifecycle_policy: The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
         :param pulumi.Input[str] prefix: The prefix use to match the repository name and apply the template.
         :param pulumi.Input[str] repository_policy: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateTagArgs']]]] resource_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]] resource_tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -221,12 +221,12 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
                  custom_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
                  lifecycle_policy: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  repository_policy: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCreationTemplateTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

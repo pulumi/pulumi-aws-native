@@ -91,20 +91,20 @@ class Framework(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
                  framework_description: Optional[pulumi.Input[str]] = None,
                  framework_name: Optional[pulumi.Input[str]] = None,
-                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]] framework_controls: Contains detailed information about all of the controls of a framework. Each framework must contain at least one control.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] framework_controls: Contains detailed information about all of the controls of a framework. Each framework must contain at least one control.
         :param pulumi.Input[str] framework_description: An optional description of the framework with a maximum 1,024 characters.
         :param pulumi.Input[str] framework_name: The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] framework_tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] framework_tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         ...
     @overload
@@ -130,10 +130,10 @@ class Framework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
                  framework_description: Optional[pulumi.Input[str]] = None,
                  framework_name: Optional[pulumi.Input[str]] = None,
-                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

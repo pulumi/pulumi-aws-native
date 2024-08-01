@@ -150,14 +150,14 @@ class ExperimentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 experiment_options: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']]] = None,
-                 log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
+                 experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
+                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::FIS::ExperimentTemplate
@@ -180,9 +180,9 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "action": "sts:AssumeRole",
                 }],
             },
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="FISRoleEC2Actions",
-                policy_document={
+            policies=[{
+                "policy_name": "FISRoleEC2Actions",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -195,32 +195,32 @@ class ExperimentTemplate(pulumi.CustomResource):
                         "resource": "arn:aws:ec2:*:*:instance/*",
                     }],
                 },
-            )])
+            }])
         experiment_template = aws_native.fis.ExperimentTemplate("experimentTemplate",
             description="stop an instance based on a tag",
             actions={
-                "stopInstances": aws_native.fis.ExperimentTemplateActionArgs(
-                    action_id="aws:ec2:stop-instances",
-                    parameters={
-                        "startInstancesAfterDuration": "PT2M",
+                "stopInstances": {
+                    "action_id": "aws:ec2:stop-instances",
+                    "parameters": {
+                        "start_instances_after_duration": "PT2M",
                     },
-                    targets={
+                    "targets": {
                         "instances": "oneRandomInstance",
                     },
-                ),
+                },
             },
             targets={
-                "oneRandomInstance": aws_native.fis.ExperimentTemplateTargetArgs(
-                    resource_tags={
+                "oneRandomInstance": {
+                    "resource_tags": {
                         "env": "prod",
                     },
-                    resource_type="aws:ec2:instance",
-                    selection_mode="COUNT(1)",
-                ),
+                    "resource_type": "aws:ec2:instance",
+                    "selection_mode": "COUNT(1)",
+                },
             },
-            stop_conditions=[aws_native.fis.ExperimentTemplateStopConditionArgs(
-                source="none",
-            )],
+            stop_conditions=[{
+                "source": "none",
+            }],
             tags={
                 "name": "fisStopInstances",
             },
@@ -230,14 +230,14 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]] actions: The actions for the experiment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: The actions for the experiment.
         :param pulumi.Input[str] description: The description for the experiment template.
-        :param pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']] experiment_options: The experiment options for an experiment template.
-        :param pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']] log_configuration: The configuration for experiment logging.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for an experiment template.
+        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: The stop conditions for the experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: The stop conditions for the experiment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the experiment template.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]] targets: The targets for the experiment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]] targets: The targets for the experiment.
         """
         ...
     @overload
@@ -266,9 +266,9 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "action": "sts:AssumeRole",
                 }],
             },
-            policies=[aws_native.iam.RolePolicyArgs(
-                policy_name="FISRoleEC2Actions",
-                policy_document={
+            policies=[{
+                "policy_name": "FISRoleEC2Actions",
+                "policy_document": {
                     "version": "2012-10-17",
                     "statement": [{
                         "effect": "Allow",
@@ -281,32 +281,32 @@ class ExperimentTemplate(pulumi.CustomResource):
                         "resource": "arn:aws:ec2:*:*:instance/*",
                     }],
                 },
-            )])
+            }])
         experiment_template = aws_native.fis.ExperimentTemplate("experimentTemplate",
             description="stop an instance based on a tag",
             actions={
-                "stopInstances": aws_native.fis.ExperimentTemplateActionArgs(
-                    action_id="aws:ec2:stop-instances",
-                    parameters={
-                        "startInstancesAfterDuration": "PT2M",
+                "stopInstances": {
+                    "action_id": "aws:ec2:stop-instances",
+                    "parameters": {
+                        "start_instances_after_duration": "PT2M",
                     },
-                    targets={
+                    "targets": {
                         "instances": "oneRandomInstance",
                     },
-                ),
+                },
             },
             targets={
-                "oneRandomInstance": aws_native.fis.ExperimentTemplateTargetArgs(
-                    resource_tags={
+                "oneRandomInstance": {
+                    "resource_tags": {
                         "env": "prod",
                     },
-                    resource_type="aws:ec2:instance",
-                    selection_mode="COUNT(1)",
-                ),
+                    "resource_type": "aws:ec2:instance",
+                    "selection_mode": "COUNT(1)",
+                },
             },
-            stop_conditions=[aws_native.fis.ExperimentTemplateStopConditionArgs(
-                source="none",
-            )],
+            stop_conditions=[{
+                "source": "none",
+            }],
             tags={
                 "name": "fisStopInstances",
             },
@@ -329,14 +329,14 @@ class ExperimentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 experiment_options: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']]] = None,
-                 log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
+                 experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
+                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

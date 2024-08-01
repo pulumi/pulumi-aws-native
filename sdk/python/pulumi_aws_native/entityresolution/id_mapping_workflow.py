@@ -139,11 +139,11 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 id_mapping_techniques: Optional[pulumi.Input[pulumi.InputType['IdMappingWorkflowIdMappingTechniquesArgs']]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]]] = None,
+                 id_mapping_techniques: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingTechniquesArgs', 'IdMappingWorkflowIdMappingTechniquesArgsDict']]] = None,
+                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowInputSourceArgs', 'IdMappingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowOutputSourceArgs', 'IdMappingWorkflowOutputSourceArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -152,11 +152,11 @@ class IdMappingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the IdMappingWorkflow
-        :param pulumi.Input[pulumi.InputType['IdMappingWorkflowIdMappingTechniquesArgs']] id_mapping_techniques: An object which defines the ID mapping technique and any additional configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]] output_source_config: A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        :param pulumi.Input[Union['IdMappingWorkflowIdMappingTechniquesArgs', 'IdMappingWorkflowIdMappingTechniquesArgsDict']] id_mapping_techniques: An object which defines the ID mapping technique and any additional configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowInputSourceArgs', 'IdMappingWorkflowInputSourceArgsDict']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowOutputSourceArgs', 'IdMappingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[str] workflow_name: The name of the IdMappingWorkflow
         """
         ...
@@ -184,11 +184,11 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 id_mapping_techniques: Optional[pulumi.Input[pulumi.InputType['IdMappingWorkflowIdMappingTechniquesArgs']]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]]] = None,
+                 id_mapping_techniques: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingTechniquesArgs', 'IdMappingWorkflowIdMappingTechniquesArgsDict']]] = None,
+                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowInputSourceArgs', 'IdMappingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowOutputSourceArgs', 'IdMappingWorkflowOutputSourceArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

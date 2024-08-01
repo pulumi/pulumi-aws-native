@@ -98,16 +98,16 @@ class InstanceProfile(pulumi.CustomResource):
             roles=["MyAdminRole"])
         my_launch_template = aws_native.ec2.LaunchTemplate("myLaunchTemplate",
             launch_template_name="MyLaunchTemplate",
-            launch_template_data=aws_native.ec2.LaunchTemplateDataArgs(
-                iam_instance_profile=aws_native.ec2.LaunchTemplateIamInstanceProfileArgs(
-                    arn=my_iam_instance_profile.arn,
-                ),
-                disable_api_termination=True,
-                image_id="ami-04d5cc9b88example",
-                instance_type="t2.micro",
-                key_name="MyKeyPair",
-                security_group_ids=["sg-083cd3bfb8example"],
-            ))
+            launch_template_data={
+                "iam_instance_profile": {
+                    "arn": my_iam_instance_profile.arn,
+                },
+                "disable_api_termination": True,
+                "image_id": "ami-04d5cc9b88example",
+                "instance_type": "t2.micro",
+                "key_name": "MyKeyPair",
+                "security_group_ids": ["sg-083cd3bfb8example"],
+            })
 
         ```
         ### Example
@@ -122,16 +122,16 @@ class InstanceProfile(pulumi.CustomResource):
             roles=["MyAdminRole"])
         my_launch_template = aws_native.ec2.LaunchTemplate("myLaunchTemplate",
             launch_template_name="MyLaunchTemplate",
-            launch_template_data=aws_native.ec2.LaunchTemplateDataArgs(
-                iam_instance_profile=aws_native.ec2.LaunchTemplateIamInstanceProfileArgs(
-                    arn=my_iam_instance_profile.arn,
-                ),
-                disable_api_termination=True,
-                image_id="ami-04d5cc9b88example",
-                instance_type="t2.micro",
-                key_name="MyKeyPair",
-                security_group_ids=["sg-083cd3bfb8example"],
-            ))
+            launch_template_data={
+                "iam_instance_profile": {
+                    "arn": my_iam_instance_profile.arn,
+                },
+                "disable_api_termination": True,
+                "image_id": "ami-04d5cc9b88example",
+                "instance_type": "t2.micro",
+                "key_name": "MyKeyPair",
+                "security_group_ids": ["sg-083cd3bfb8example"],
+            })
 
         ```
 
@@ -167,16 +167,16 @@ class InstanceProfile(pulumi.CustomResource):
             roles=["MyAdminRole"])
         my_launch_template = aws_native.ec2.LaunchTemplate("myLaunchTemplate",
             launch_template_name="MyLaunchTemplate",
-            launch_template_data=aws_native.ec2.LaunchTemplateDataArgs(
-                iam_instance_profile=aws_native.ec2.LaunchTemplateIamInstanceProfileArgs(
-                    arn=my_iam_instance_profile.arn,
-                ),
-                disable_api_termination=True,
-                image_id="ami-04d5cc9b88example",
-                instance_type="t2.micro",
-                key_name="MyKeyPair",
-                security_group_ids=["sg-083cd3bfb8example"],
-            ))
+            launch_template_data={
+                "iam_instance_profile": {
+                    "arn": my_iam_instance_profile.arn,
+                },
+                "disable_api_termination": True,
+                "image_id": "ami-04d5cc9b88example",
+                "instance_type": "t2.micro",
+                "key_name": "MyKeyPair",
+                "security_group_ids": ["sg-083cd3bfb8example"],
+            })
 
         ```
         ### Example
@@ -191,16 +191,16 @@ class InstanceProfile(pulumi.CustomResource):
             roles=["MyAdminRole"])
         my_launch_template = aws_native.ec2.LaunchTemplate("myLaunchTemplate",
             launch_template_name="MyLaunchTemplate",
-            launch_template_data=aws_native.ec2.LaunchTemplateDataArgs(
-                iam_instance_profile=aws_native.ec2.LaunchTemplateIamInstanceProfileArgs(
-                    arn=my_iam_instance_profile.arn,
-                ),
-                disable_api_termination=True,
-                image_id="ami-04d5cc9b88example",
-                instance_type="t2.micro",
-                key_name="MyKeyPair",
-                security_group_ids=["sg-083cd3bfb8example"],
-            ))
+            launch_template_data={
+                "iam_instance_profile": {
+                    "arn": my_iam_instance_profile.arn,
+                },
+                "disable_api_termination": True,
+                "image_id": "ami-04d5cc9b88example",
+                "instance_type": "t2.micro",
+                "key_name": "MyKeyPair",
+                "security_group_ids": ["sg-083cd3bfb8example"],
+            })
 
         ```
 

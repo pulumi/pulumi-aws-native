@@ -154,28 +154,28 @@ class WorkspacesPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_settings: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolApplicationSettingsArgs']]] = None,
+                 application_settings: Optional[pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
-                 capacity: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolCapacityArgs']]] = None,
+                 capacity: Optional[pulumi.Input[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 timeout_settings: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolTimeoutSettingsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkSpaces::WorkspacesPool
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspacesPoolApplicationSettingsArgs']] application_settings: The persistent application settings for users of the pool.
+        :param pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']] application_settings: The persistent application settings for users of the pool.
         :param pulumi.Input[str] bundle_id: The identifier of the bundle used by the pool.
-        :param pulumi.Input[pulumi.InputType['WorkspacesPoolCapacityArgs']] capacity: Describes the user capacity for the pool.
+        :param pulumi.Input[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']] capacity: Describes the user capacity for the pool.
         :param pulumi.Input[str] description: The description of the pool.
         :param pulumi.Input[str] directory_id: The identifier of the directory used by the pool.
         :param pulumi.Input[str] pool_name: The name of the pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the pool.
-        :param pulumi.Input[pulumi.InputType['WorkspacesPoolTimeoutSettingsArgs']] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the pool.
+        :param pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         ...
     @overload
@@ -201,14 +201,14 @@ class WorkspacesPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_settings: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolApplicationSettingsArgs']]] = None,
+                 application_settings: Optional[pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
-                 capacity: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolCapacityArgs']]] = None,
+                 capacity: Optional[pulumi.Input[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 timeout_settings: Optional[pulumi.Input[pulumi.InputType['WorkspacesPoolTimeoutSettingsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

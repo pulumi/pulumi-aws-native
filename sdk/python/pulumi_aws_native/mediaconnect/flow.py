@@ -139,12 +139,12 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 maintenance: Optional[pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']]] = None,
-                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]]] = None,
+                 maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
+                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['FlowSourceArgs']]] = None,
-                 source_failover_config: Optional[pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']]] = None,
-                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
+                 source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
+                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::Flow
@@ -152,12 +152,12 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
-        :param pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']] maintenance: The maintenance settings you want to use for the flow. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        :param pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']] maintenance: The maintenance settings you want to use for the flow. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         :param pulumi.Input[str] name: The name of the flow.
-        :param pulumi.Input[pulumi.InputType['FlowSourceArgs']] source: The source of the flow.
-        :param pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']] source_failover_config: The source failover config of the flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]] vpc_interfaces: The VPC interfaces that you added to this flow.
+        :param pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']] source: The source of the flow.
+        :param pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']] source_failover_config: The source failover config of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]] vpc_interfaces: The VPC interfaces that you added to this flow.
         """
         ...
     @overload
@@ -184,12 +184,12 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 maintenance: Optional[pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']]] = None,
-                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]]] = None,
+                 maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
+                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['FlowSourceArgs']]] = None,
-                 source_failover_config: Optional[pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']]] = None,
-                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
+                 source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
+                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

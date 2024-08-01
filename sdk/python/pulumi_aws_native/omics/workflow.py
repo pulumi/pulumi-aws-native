@@ -173,7 +173,7 @@ class Workflow(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
                  main: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -187,7 +187,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input['WorkflowEngine'] engine: An engine for the workflow.
         :param pulumi.Input[str] main: The path of the main definition file for the workflow.
         :param pulumi.Input[str] name: The workflow's name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameter_template: The workflow's parameter template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]] parameter_template: The workflow's parameter template.
         :param pulumi.Input[float] storage_capacity: The default storage capacity for the workflow runs, in gibibytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the workflow.
         """
@@ -221,7 +221,7 @@ class Workflow(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
                  main: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

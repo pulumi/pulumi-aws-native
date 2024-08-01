@@ -126,10 +126,10 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
-                 logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]] = None,
+                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
@@ -138,10 +138,10 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
-        :param pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']] logging_configurations: The configuration options for AWS Verified Access instances.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']] logging_configurations: The configuration options for AWS Verified Access instances.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] verified_access_trust_providers: AWS Verified Access trust providers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]] verified_access_trust_providers: AWS Verified Access trust providers.
         """
         ...
     @overload
@@ -169,10 +169,10 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
-                 logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]] = None,
+                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

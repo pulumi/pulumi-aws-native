@@ -118,7 +118,7 @@ class WarmPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
-                 instance_reuse_policy: Optional[pulumi.Input[pulumi.InputType['WarmPoolInstanceReusePolicyArgs']]] = None,
+                 instance_reuse_policy: Optional[pulumi.Input[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
                  max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  pool_state: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class WarmPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[pulumi.InputType['WarmPoolInstanceReusePolicyArgs']] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        :param pulumi.Input[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         :param pulumi.Input[int] max_group_prepared_capacity: Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
                
                > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
@@ -165,7 +165,7 @@ class WarmPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
-                 instance_reuse_policy: Optional[pulumi.Input[pulumi.InputType['WarmPoolInstanceReusePolicyArgs']]] = None,
+                 instance_reuse_policy: Optional[pulumi.Input[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
                  max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  pool_state: Optional[pulumi.Input[str]] = None,

@@ -93,20 +93,20 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDestinationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDestinationArgs']]]] destinations: One or more resources to which events arriving through a channel are logged and stored.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict']]]] destinations: One or more resources to which events arriving through a channel are logged and stored.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] source: The ARN of an on-premises storage solution or application, or a partner event source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -132,10 +132,10 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDestinationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

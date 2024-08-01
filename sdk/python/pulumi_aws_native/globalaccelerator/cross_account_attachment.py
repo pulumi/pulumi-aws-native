@@ -98,8 +98,8 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrossAccountAttachmentResourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
@@ -108,8 +108,8 @@ class CrossAccountAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The Friendly identifier of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: Principals to share the resources with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrossAccountAttachmentResourceArgs']]]] resources: Resources shared using the attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Add tags for a cross-account attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]] resources: Resources shared using the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Add tags for a cross-account attachment.
                
                For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         """
@@ -139,8 +139,8 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrossAccountAttachmentResourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

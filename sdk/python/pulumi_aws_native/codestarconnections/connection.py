@@ -93,7 +93,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  host_arn: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
@@ -108,10 +108,10 @@ class Connection(pulumi.CustomResource):
         sample_connection = aws_native.codestarconnections.Connection("sampleConnection",
             connection_name="MyConnection",
             provider_type="Bitbucket",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -123,10 +123,10 @@ class Connection(pulumi.CustomResource):
         sample_connection = aws_native.codestarconnections.Connection("sampleConnection",
             connection_name="MyConnection",
             provider_type="Bitbucket",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -139,10 +139,10 @@ class Connection(pulumi.CustomResource):
             connection_name="MyConnection",
             provider_type="GitHubEnterpriseServer",
             host_arn="arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -155,10 +155,10 @@ class Connection(pulumi.CustomResource):
             connection_name="MyConnection",
             provider_type="GitHubEnterpriseServer",
             host_arn="arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
 
@@ -167,7 +167,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_name: The name of the connection. Connection names must be unique in an AWS user account.
         :param pulumi.Input[str] host_arn: The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the tags applied to a connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the tags applied to a connection.
         """
         ...
     @overload
@@ -188,10 +188,10 @@ class Connection(pulumi.CustomResource):
         sample_connection = aws_native.codestarconnections.Connection("sampleConnection",
             connection_name="MyConnection",
             provider_type="Bitbucket",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -203,10 +203,10 @@ class Connection(pulumi.CustomResource):
         sample_connection = aws_native.codestarconnections.Connection("sampleConnection",
             connection_name="MyConnection",
             provider_type="Bitbucket",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -219,10 +219,10 @@ class Connection(pulumi.CustomResource):
             connection_name="MyConnection",
             provider_type="GitHubEnterpriseServer",
             host_arn="arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
         ### Example
@@ -235,10 +235,10 @@ class Connection(pulumi.CustomResource):
             connection_name="MyConnection",
             provider_type="GitHubEnterpriseServer",
             host_arn="arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example",
-            tags=[aws_native.TagArgs(
-                key="Project",
-                value="ProjectB",
-            )])
+            tags=[{
+                "key": "Project",
+                "value": "ProjectB",
+            }])
 
         ```
 
@@ -260,7 +260,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  host_arn: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

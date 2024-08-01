@@ -110,9 +110,9 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioned_product_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Project
@@ -127,10 +127,10 @@ class Project(pulumi.CustomResource):
         sample_project = aws_native.sagemaker.Project("sampleProject",
             project_name="project1",
             project_description="Project Description",
-            service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(
-                product_id="prod-53ibyqbj2cgmo",
-                provisioning_artifact_id="pa-sm4pjfuzictpe",
-            ))
+            service_catalog_provisioning_details={
+                "product_id": "prod-53ibyqbj2cgmo",
+                "provisioning_artifact_id": "pa-sm4pjfuzictpe",
+            })
 
         ```
         ### Example
@@ -142,10 +142,10 @@ class Project(pulumi.CustomResource):
         sample_project = aws_native.sagemaker.Project("sampleProject",
             project_name="SampleProject",
             project_description="Project Description",
-            service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(
-                product_id="prod-53ibyqbj2cgmo",
-                provisioning_artifact_id="pa-sm4pjfuzictpe",
-            ))
+            service_catalog_provisioning_details={
+                "product_id": "prod-53ibyqbj2cgmo",
+                "provisioning_artifact_id": "pa-sm4pjfuzictpe",
+            })
 
         ```
 
@@ -153,9 +153,9 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_description: The description of the project.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[pulumi.InputType['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
-        :param pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
+        :param pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -176,10 +176,10 @@ class Project(pulumi.CustomResource):
         sample_project = aws_native.sagemaker.Project("sampleProject",
             project_name="project1",
             project_description="Project Description",
-            service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(
-                product_id="prod-53ibyqbj2cgmo",
-                provisioning_artifact_id="pa-sm4pjfuzictpe",
-            ))
+            service_catalog_provisioning_details={
+                "product_id": "prod-53ibyqbj2cgmo",
+                "provisioning_artifact_id": "pa-sm4pjfuzictpe",
+            })
 
         ```
         ### Example
@@ -191,10 +191,10 @@ class Project(pulumi.CustomResource):
         sample_project = aws_native.sagemaker.Project("sampleProject",
             project_name="SampleProject",
             project_description="Project Description",
-            service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(
-                product_id="prod-53ibyqbj2cgmo",
-                provisioning_artifact_id="pa-sm4pjfuzictpe",
-            ))
+            service_catalog_provisioning_details={
+                "product_id": "prod-53ibyqbj2cgmo",
+                "provisioning_artifact_id": "pa-sm4pjfuzictpe",
+            })
 
         ```
 
@@ -215,9 +215,9 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioned_product_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

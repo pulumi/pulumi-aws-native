@@ -157,7 +157,7 @@ class Agreement(pulumi.CustomResource):
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Agreement
@@ -171,7 +171,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
         :param pulumi.Input[str] server_id: A unique identifier for the server.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         ...
     @overload
@@ -204,7 +204,7 @@ class Agreement(pulumi.CustomResource):
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

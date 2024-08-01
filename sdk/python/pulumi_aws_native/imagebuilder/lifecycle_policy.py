@@ -154,8 +154,8 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailArgs']]]]] = None,
-                 resource_selection: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 resource_selection: Optional[pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input['LifecyclePolicyResourceType']] = None,
                  status: Optional[pulumi.Input['LifecyclePolicyStatus']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -168,8 +168,8 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the lifecycle policy.
         :param pulumi.Input[str] execution_role: The execution role of the lifecycle policy.
         :param pulumi.Input[str] name: The name of the lifecycle policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailArgs']]]] policy_details: The policy details of the lifecycle policy.
-        :param pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']] resource_selection: The resource selection of the lifecycle policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: The policy details of the lifecycle policy.
+        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: The resource selection of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyResourceType'] resource_type: The resource type of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyStatus'] status: The status of the lifecycle policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the lifecycle policy.
@@ -201,8 +201,8 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailArgs']]]]] = None,
-                 resource_selection: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 resource_selection: Optional[pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input['LifecyclePolicyResourceType']] = None,
                  status: Optional[pulumi.Input['LifecyclePolicyStatus']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

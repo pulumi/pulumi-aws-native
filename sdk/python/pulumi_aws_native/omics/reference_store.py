@@ -93,7 +93,7 @@ class ReferenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -103,7 +103,7 @@ class ReferenceStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -132,7 +132,7 @@ class ReferenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

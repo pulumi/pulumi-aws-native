@@ -107,10 +107,10 @@ class Analyzer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analyzer_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']]] = None,
+                 analyzer_configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -126,38 +126,38 @@ class Analyzer(pulumi.CustomResource):
         analyzer = aws_native.accessanalyzer.Analyzer("analyzer",
             analyzer_name="DevAccountAnalyzer",
             archive_rules=[
-                aws_native.accessanalyzer.AnalyzerArchiveRuleArgs(
-                    filter=[aws_native.accessanalyzer.AnalyzerFilterArgs(
-                        eq=["123456789012"],
-                        property="principal.AWS",
-                    )],
-                    rule_name="ArchiveTrustedAccountAccess",
-                ),
-                aws_native.accessanalyzer.AnalyzerArchiveRuleArgs(
-                    filter=[aws_native.accessanalyzer.AnalyzerFilterArgs(
-                        contains=[
+                {
+                    "filter": [{
+                        "eq": ["123456789012"],
+                        "property": "principal.AWS",
+                    }],
+                    "rule_name": "ArchiveTrustedAccountAccess",
+                },
+                {
+                    "filter": [{
+                        "contains": [
                             "arn:aws:s3:::docs-bucket",
                             "arn:aws:s3:::clients-bucket",
                         ],
-                        property="resource",
-                    )],
-                    rule_name="ArchivePublicS3BucketsAccess",
-                ),
+                        "property": "resource",
+                    }],
+                    "rule_name": "ArchivePublicS3BucketsAccess",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Kind",
-                value="Dev",
-            )],
+            tags=[{
+                "key": "Kind",
+                "value": "Dev",
+            }],
             type="ACCOUNT")
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']] analyzer_configuration: The configuration for the analyzer
+        :param pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[str] analyzer_name: Analyzer name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         """
         ...
@@ -179,28 +179,28 @@ class Analyzer(pulumi.CustomResource):
         analyzer = aws_native.accessanalyzer.Analyzer("analyzer",
             analyzer_name="DevAccountAnalyzer",
             archive_rules=[
-                aws_native.accessanalyzer.AnalyzerArchiveRuleArgs(
-                    filter=[aws_native.accessanalyzer.AnalyzerFilterArgs(
-                        eq=["123456789012"],
-                        property="principal.AWS",
-                    )],
-                    rule_name="ArchiveTrustedAccountAccess",
-                ),
-                aws_native.accessanalyzer.AnalyzerArchiveRuleArgs(
-                    filter=[aws_native.accessanalyzer.AnalyzerFilterArgs(
-                        contains=[
+                {
+                    "filter": [{
+                        "eq": ["123456789012"],
+                        "property": "principal.AWS",
+                    }],
+                    "rule_name": "ArchiveTrustedAccountAccess",
+                },
+                {
+                    "filter": [{
+                        "contains": [
                             "arn:aws:s3:::docs-bucket",
                             "arn:aws:s3:::clients-bucket",
                         ],
-                        property="resource",
-                    )],
-                    rule_name="ArchivePublicS3BucketsAccess",
-                ),
+                        "property": "resource",
+                    }],
+                    "rule_name": "ArchivePublicS3BucketsAccess",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Kind",
-                value="Dev",
-            )],
+            tags=[{
+                "key": "Kind",
+                "value": "Dev",
+            }],
             type="ACCOUNT")
 
         ```
@@ -220,10 +220,10 @@ class Analyzer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analyzer_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']]] = None,
+                 analyzer_configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

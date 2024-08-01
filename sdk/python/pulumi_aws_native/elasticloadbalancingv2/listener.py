@@ -161,10 +161,10 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
-                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
+                 mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -175,12 +175,12 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
                 To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
                 To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
         :param pulumi.Input[str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
-        :param pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']] mutual_authentication: The mutual authentication configuration information.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information.
         :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
         :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
@@ -212,10 +212,10 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
-                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
+                 mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,

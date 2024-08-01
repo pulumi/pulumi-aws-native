@@ -144,26 +144,26 @@ class AppMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']]] = None,
-                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
+                 app_monitor_configuration: Optional[pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']]] = None,
+                 custom_events: Optional[pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RUM::AppMonitor
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+        :param pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
                
                If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
-        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
+        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: A name for the app monitor
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
                
@@ -197,12 +197,12 @@ class AppMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']]] = None,
-                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
+                 app_monitor_configuration: Optional[pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']]] = None,
+                 custom_events: Optional[pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

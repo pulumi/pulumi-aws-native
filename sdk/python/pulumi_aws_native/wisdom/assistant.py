@@ -110,8 +110,8 @@ class Assistant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['AssistantServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['AssistantType']] = None,
                  __props__=None):
         """
@@ -121,8 +121,8 @@ class Assistant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the assistant.
         :param pulumi.Input[str] name: The name of the assistant.
-        :param pulumi.Input[pulumi.InputType['AssistantServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input['AssistantType'] type: The type of assistant.
         """
         ...
@@ -151,8 +151,8 @@ class Assistant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['AssistantServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['AssistantType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

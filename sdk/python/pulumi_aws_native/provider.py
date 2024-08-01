@@ -376,11 +376,11 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -403,11 +403,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-        :param pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']] assume_role: Configuration for retrieving temporary credentials from the STS service.
-        :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]] endpoints: Configuration block for customizing service endpoints.
+        :param pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']] assume_role: Configuration for retrieving temporary credentials from the STS service.
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
-        :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
+        :param pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -449,11 +449,11 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,

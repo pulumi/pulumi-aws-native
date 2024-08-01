@@ -241,12 +241,12 @@ class LocationHdfs(pulumi.CustomResource):
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
@@ -260,12 +260,12 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
         :param pulumi.Input[str] kerberos_principal: The unique identity, or principal, to which Kerberos can assign tickets.
         :param pulumi.Input[str] kms_key_provider_uri: The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: An array of Name Node(s) of the HDFS location.
-        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]] name_nodes: An array of Name Node(s) of the HDFS location.
+        :param pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -298,12 +298,12 @@ class LocationHdfs(pulumi.CustomResource):
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

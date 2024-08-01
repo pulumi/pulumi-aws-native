@@ -170,25 +170,25 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]]] = None,
+                 associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
-                 event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
+                 event_type: Optional[pulumi.Input[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']]] = None,
                  rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A resource schema for a Detector in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]] associated_models: The models to associate with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
         :param pulumi.Input[str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
-        :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: The event type to associate this detector with.
+        :param pulumi.Input[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']] event_type: The event type to associate this detector with.
         :param pulumi.Input['DetectorRuleExecutionMode'] rule_execution_mode: The rule execution mode for the rules included in the detector version.
                
                Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
@@ -198,8 +198,8 @@ class Detector(pulumi.CustomResource):
                If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
                
                If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]] rules: The rules to include in the detector version.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]] rules: The rules to include in the detector version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with this detector.
         """
         ...
     @overload
@@ -225,14 +225,14 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]]] = None,
+                 associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
-                 event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
+                 event_type: Optional[pulumi.Input[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']]] = None,
                  rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

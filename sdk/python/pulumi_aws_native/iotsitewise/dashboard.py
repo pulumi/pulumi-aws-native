@@ -108,7 +108,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
@@ -119,7 +119,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_description: A description for the dashboard.
         :param pulumi.Input[str] dashboard_name: A friendly name for the dashboard.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

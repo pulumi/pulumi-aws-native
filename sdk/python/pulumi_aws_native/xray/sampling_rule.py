@@ -97,18 +97,18 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
-                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
-                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sampling_rule: Optional[pulumi.Input[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']]] = None,
+                 sampling_rule_record: Optional[pulumi.Input[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict']]] = None,
+                 sampling_rule_update: Optional[pulumi.Input[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SamplingRuleArgs']] sampling_rule: The sampling rule to be created or updated.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']] sampling_rule: The sampling rule to be created or updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -135,10 +135,10 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
-                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
-                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sampling_rule: Optional[pulumi.Input[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']]] = None,
+                 sampling_rule_record: Optional[pulumi.Input[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict']]] = None,
+                 sampling_rule_update: Optional[pulumi.Input[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -110,8 +110,8 @@ class QuickConnect(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 quick_connect_config: Optional[pulumi.Input[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::QuickConnect
@@ -121,8 +121,8 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the quick connect.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the quick connect.
-        :param pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']] quick_connect_config: Configuration settings for the quick connect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -151,8 +151,8 @@ class QuickConnect(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 quick_connect_config: Optional[pulumi.Input[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

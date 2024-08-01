@@ -125,11 +125,11 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  format: Optional[pulumi.Input['DatasetFormat']] = None,
-                 format_options: Optional[pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
+                 format_options: Optional[pulumi.Input[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']]] = None,
+                 input: Optional[pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 path_options: Optional[pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Dataset.
@@ -143,32 +143,32 @@ class Dataset(pulumi.CustomResource):
 
         test_data_brew_dataset = aws_native.databrew.Dataset("testDataBrewDataset",
             name="cf-test-dataset1",
-            input=aws_native.databrew.DatasetInputArgs(
-                s3_input_definition=aws_native.databrew.DatasetS3LocationArgs(
-                    bucket="test-location",
-                    key="test.xlsx",
-                ),
-            ),
-            format_options=aws_native.databrew.DatasetFormatOptionsArgs(
-                excel=aws_native.databrew.DatasetExcelOptionsArgs(
-                    sheet_names=["test"],
-                ),
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            input={
+                "s3_input_definition": {
+                    "bucket": "test-location",
+                    "key": "test.xlsx",
+                },
+            },
+            format_options={
+                "excel": {
+                    "sheet_names": ["test"],
+                },
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DatasetFormat'] format: Dataset format
-        :param pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']] format_options: Format options for dataset
-        :param pulumi.Input[pulumi.InputType['DatasetInputArgs']] input: Input
+        :param pulumi.Input[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']] format_options: Format options for dataset
+        :param pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']] input: Input
         :param pulumi.Input[str] name: Dataset name
-        :param pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']] path_options: PathOptions
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the dataset.
+        :param pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']] path_options: PathOptions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the dataset.
         """
         ...
     @overload
@@ -188,21 +188,21 @@ class Dataset(pulumi.CustomResource):
 
         test_data_brew_dataset = aws_native.databrew.Dataset("testDataBrewDataset",
             name="cf-test-dataset1",
-            input=aws_native.databrew.DatasetInputArgs(
-                s3_input_definition=aws_native.databrew.DatasetS3LocationArgs(
-                    bucket="test-location",
-                    key="test.xlsx",
-                ),
-            ),
-            format_options=aws_native.databrew.DatasetFormatOptionsArgs(
-                excel=aws_native.databrew.DatasetExcelOptionsArgs(
-                    sheet_names=["test"],
-                ),
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            input={
+                "s3_input_definition": {
+                    "bucket": "test-location",
+                    "key": "test.xlsx",
+                },
+            },
+            format_options={
+                "excel": {
+                    "sheet_names": ["test"],
+                },
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -222,11 +222,11 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  format: Optional[pulumi.Input['DatasetFormat']] = None,
-                 format_options: Optional[pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
+                 format_options: Optional[pulumi.Input[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']]] = None,
+                 input: Optional[pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 path_options: Optional[pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

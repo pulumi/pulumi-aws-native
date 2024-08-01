@@ -201,15 +201,15 @@ class Guardrail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blocked_input_messaging: Optional[pulumi.Input[str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[str]] = None,
-                 content_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']]] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContextualGroundingPolicyConfigArgs']]] = None,
+                 content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
+                 contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailSensitiveInformationPolicyConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topic_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailTopicPolicyConfigArgs']]] = None,
-                 word_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailWordPolicyConfigArgs']]] = None,
+                 sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_policy_config: Optional[pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+                 word_policy_config: Optional[pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Guardrail Resource Type
@@ -218,14 +218,14 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[str] blocked_outputs_messaging: Messaging for when violations are detected in text
-        :param pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']] content_policy_config: The content filter policies to configure for the guardrail.
+        :param pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']] content_policy_config: The content filter policies to configure for the guardrail.
         :param pulumi.Input[str] description: Description of the guardrail or its version
         :param pulumi.Input[str] kms_key_arn: The KMS key with which the guardrail was encrypted at rest
         :param pulumi.Input[str] name: Name of the guardrail
-        :param pulumi.Input[pulumi.InputType['GuardrailSensitiveInformationPolicyConfigArgs']] sensitive_information_policy_config: The sensitive information policy to configure for the guardrail.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: List of Tags
-        :param pulumi.Input[pulumi.InputType['GuardrailTopicPolicyConfigArgs']] topic_policy_config: The topic policies to configure for the guardrail.
-        :param pulumi.Input[pulumi.InputType['GuardrailWordPolicyConfigArgs']] word_policy_config: The word policy you configure for the guardrail.
+        :param pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']] sensitive_information_policy_config: The sensitive information policy to configure for the guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
+        :param pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']] topic_policy_config: The topic policies to configure for the guardrail.
+        :param pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']] word_policy_config: The word policy you configure for the guardrail.
         """
         ...
     @overload
@@ -253,15 +253,15 @@ class Guardrail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blocked_input_messaging: Optional[pulumi.Input[str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[str]] = None,
-                 content_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContentPolicyConfigArgs']]] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailContextualGroundingPolicyConfigArgs']]] = None,
+                 content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
+                 contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailSensitiveInformationPolicyConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topic_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailTopicPolicyConfigArgs']]] = None,
-                 word_policy_config: Optional[pulumi.Input[pulumi.InputType['GuardrailWordPolicyConfigArgs']]] = None,
+                 sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_policy_config: Optional[pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+                 word_policy_config: Optional[pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

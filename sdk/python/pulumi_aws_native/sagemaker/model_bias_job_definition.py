@@ -198,15 +198,15 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
-                 job_resources: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']]] = None,
-                 model_bias_app_specification: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']]] = None,
-                 model_bias_baseline_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]] = None,
-                 model_bias_job_input: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']]] = None,
-                 model_bias_job_output_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']]] = None,
-                 network_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']]] = None,
+                 job_resources: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_bias_app_specification: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
+                 model_bias_baseline_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
+                 model_bias_job_input: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
+                 model_bias_job_output_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 stopping_condition: Optional[pulumi.Input[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
@@ -214,15 +214,15 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_definition_name: The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']] model_bias_app_specification: Configures the model bias job to run a specified Docker container image.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] model_bias_baseline_config: The baseline configuration for a model bias job.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']] model_bias_job_input: Inputs for the model bias job.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']] model_bias_job_output_config: The output configuration for monitoring jobs.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']] network_config: Networking options for a model bias job.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']] model_bias_app_specification: Configures the model bias job to run a specified Docker container image.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']] model_bias_baseline_config: The baseline configuration for a model bias job.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']] model_bias_job_input: Inputs for the model bias job.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']] model_bias_job_output_config: The output configuration for monitoring jobs.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']] network_config: Networking options for a model bias job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -250,15 +250,15 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
-                 job_resources: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']]] = None,
-                 model_bias_app_specification: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']]] = None,
-                 model_bias_baseline_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]] = None,
-                 model_bias_job_input: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']]] = None,
-                 model_bias_job_output_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']]] = None,
-                 network_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']]] = None,
+                 job_resources: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_bias_app_specification: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
+                 model_bias_baseline_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
+                 model_bias_job_input: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
+                 model_bias_job_output_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 stopping_condition: Optional[pulumi.Input[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

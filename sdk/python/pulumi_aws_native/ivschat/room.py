@@ -128,9 +128,9 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_message_length: Optional[pulumi.Input[int]] = None,
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-                 message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
+                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::IVSChat::Room.
@@ -144,10 +144,10 @@ class Room(pulumi.CustomResource):
 
         room = aws_native.ivschat.Room("room",
             name="MyRoom",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("roomArn", room.id)
         pulumi.export("roomId", room.id)
 
@@ -160,10 +160,10 @@ class Room(pulumi.CustomResource):
 
         room = aws_native.ivschat.Room("room",
             name="MyRoom",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("roomArn", room.id)
         pulumi.export("roomId", room.id)
 
@@ -174,9 +174,9 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
-        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: Configuration information for optional review of messages.
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional review of messages.
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -196,10 +196,10 @@ class Room(pulumi.CustomResource):
 
         room = aws_native.ivschat.Room("room",
             name="MyRoom",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("roomArn", room.id)
         pulumi.export("roomId", room.id)
 
@@ -212,10 +212,10 @@ class Room(pulumi.CustomResource):
 
         room = aws_native.ivschat.Room("room",
             name="MyRoom",
-            tags=[aws_native.TagArgs(
-                key="MyKey",
-                value="MyValue",
-            )])
+            tags=[{
+                "key": "MyKey",
+                "value": "MyValue",
+            }])
         pulumi.export("roomArn", room.id)
         pulumi.export("roomId", room.id)
 
@@ -239,9 +239,9 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_message_length: Optional[pulumi.Input[int]] = None,
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-                 message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
+                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -275,7 +275,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  out_post_arn: Optional[pulumi.Input[str]] = None,
                  placement_group_arn: Optional[pulumi.Input[str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -308,7 +308,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] out_post_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
         :param pulumi.Input[str] tenancy: Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
@@ -349,7 +349,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  out_post_arn: Optional[pulumi.Input[str]] = None,
                  placement_group_arn: Optional[pulumi.Input[str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -194,7 +194,7 @@ class Tracker(pulumi.CustomResource):
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -214,7 +214,7 @@ class Tracker(pulumi.CustomResource):
                
                This field is optional. If not specified, the default value is `TimeBased` .
         :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tracker_name: The name for the tracker resource.
                
                Requirements:
@@ -254,7 +254,7 @@ class Tracker(pulumi.CustomResource):
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

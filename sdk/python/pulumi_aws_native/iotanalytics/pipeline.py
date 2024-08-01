@@ -87,9 +87,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]]] = None,
+                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Pipeline
@@ -103,17 +103,17 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="SimplePipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="SimpleChannel",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="SimpleDatastore",
-                ),
-            )])
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "SimpleChannel",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "SimpleDatastore",
+                },
+            }])
 
         ```
         ### Example
@@ -124,17 +124,17 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="SimplePipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="SimpleChannel",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="SimpleDatastore",
-                ),
-            )])
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "SimpleChannel",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "SimpleDatastore",
+                },
+            }])
 
         ```
         ### Example
@@ -145,72 +145,72 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="ComplexPipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="Channel",
-                    next="LambdaActivity",
-                ),
-                lambda_=aws_native.iotanalytics.PipelineLambdaArgs(
-                    name="LambdaActivity",
-                    lambda_name="Lambda",
-                    batch_size=1,
-                    next="AddAttributesActivity",
-                ),
-                add_attributes=aws_native.iotanalytics.PipelineAddAttributesArgs(
-                    name="AddAttributesActivity",
-                    attributes={
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "Channel",
+                    "next": "LambdaActivity",
+                },
+                "lambda_": {
+                    "name": "LambdaActivity",
+                    "lambda_name": "Lambda",
+                    "batch_size": 1,
+                    "next": "AddAttributesActivity",
+                },
+                "add_attributes": {
+                    "name": "AddAttributesActivity",
+                    "attributes": {
                         "key1": "attribute1",
                         "key2": "attribute2",
                     },
-                    next="RemoveAttributesActivity",
-                ),
-                remove_attributes=aws_native.iotanalytics.PipelineRemoveAttributesArgs(
-                    name="RemoveAttributesActivity",
-                    attributes=[
+                    "next": "RemoveAttributesActivity",
+                },
+                "remove_attributes": {
+                    "name": "RemoveAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="SelectAttributesActivity",
-                ),
-                select_attributes=aws_native.iotanalytics.PipelineSelectAttributesArgs(
-                    name="SelectAttributesActivity",
-                    attributes=[
+                    "next": "SelectAttributesActivity",
+                },
+                "select_attributes": {
+                    "name": "SelectAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="FilterActivity",
-                ),
-                filter=aws_native.iotanalytics.PipelineFilterArgs(
-                    name="FilterActivity",
-                    filter="attribute1 > 40 AND attribute2 < 20",
-                    next="MathActivity",
-                ),
-                math=aws_native.iotanalytics.PipelineMathArgs(
-                    name="MathActivity",
-                    attribute="attribute",
-                    math="attribute - 10",
-                    next="DeviceRegistryEnrichActivity",
-                ),
-                device_registry_enrich=aws_native.iotanalytics.PipelineDeviceRegistryEnrichArgs(
-                    name="DeviceRegistryEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DeviceShadowEnrichActivity",
-                ),
-                device_shadow_enrich=aws_native.iotanalytics.PipelineDeviceShadowEnrichArgs(
-                    name="DeviceShadowEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="Datastore",
-                ),
-            )])
+                    "next": "FilterActivity",
+                },
+                "filter": {
+                    "name": "FilterActivity",
+                    "filter": "attribute1 > 40 AND attribute2 < 20",
+                    "next": "MathActivity",
+                },
+                "math": {
+                    "name": "MathActivity",
+                    "attribute": "attribute",
+                    "math": "attribute - 10",
+                    "next": "DeviceRegistryEnrichActivity",
+                },
+                "device_registry_enrich": {
+                    "name": "DeviceRegistryEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DeviceShadowEnrichActivity",
+                },
+                "device_shadow_enrich": {
+                    "name": "DeviceShadowEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "Datastore",
+                },
+            }])
 
         ```
         ### Example
@@ -221,84 +221,84 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="ComplexPipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="Channel",
-                    next="LambdaActivity",
-                ),
-                lambda_=aws_native.iotanalytics.PipelineLambdaArgs(
-                    name="LambdaActivity",
-                    lambda_name="Lambda",
-                    batch_size=1,
-                    next="AddAttributesActivity",
-                ),
-                add_attributes=aws_native.iotanalytics.PipelineAddAttributesArgs(
-                    name="AddAttributesActivity",
-                    attributes={
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "Channel",
+                    "next": "LambdaActivity",
+                },
+                "lambda_": {
+                    "name": "LambdaActivity",
+                    "lambda_name": "Lambda",
+                    "batch_size": 1,
+                    "next": "AddAttributesActivity",
+                },
+                "add_attributes": {
+                    "name": "AddAttributesActivity",
+                    "attributes": {
                         "key1": "attribute1",
                         "key2": "attribute2",
                     },
-                    next="RemoveAttributesActivity",
-                ),
-                remove_attributes=aws_native.iotanalytics.PipelineRemoveAttributesArgs(
-                    name="RemoveAttributesActivity",
-                    attributes=[
+                    "next": "RemoveAttributesActivity",
+                },
+                "remove_attributes": {
+                    "name": "RemoveAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="SelectAttributesActivity",
-                ),
-                select_attributes=aws_native.iotanalytics.PipelineSelectAttributesArgs(
-                    name="SelectAttributesActivity",
-                    attributes=[
+                    "next": "SelectAttributesActivity",
+                },
+                "select_attributes": {
+                    "name": "SelectAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="FilterActivity",
-                ),
-                filter=aws_native.iotanalytics.PipelineFilterArgs(
-                    name="FilterActivity",
-                    filter="attribute1 > 40 AND attribute2 < 20",
-                    next="MathActivity",
-                ),
-                math=aws_native.iotanalytics.PipelineMathArgs(
-                    name="MathActivity",
-                    attribute="attribute",
-                    math="attribute - 10",
-                    next="DeviceRegistryEnrichActivity",
-                ),
-                device_registry_enrich=aws_native.iotanalytics.PipelineDeviceRegistryEnrichArgs(
-                    name="DeviceRegistryEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DeviceShadowEnrichActivity",
-                ),
-                device_shadow_enrich=aws_native.iotanalytics.PipelineDeviceShadowEnrichArgs(
-                    name="DeviceShadowEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="Datastore",
-                ),
-            )])
+                    "next": "FilterActivity",
+                },
+                "filter": {
+                    "name": "FilterActivity",
+                    "filter": "attribute1 > 40 AND attribute2 < 20",
+                    "next": "MathActivity",
+                },
+                "math": {
+                    "name": "MathActivity",
+                    "attribute": "attribute",
+                    "math": "attribute - 10",
+                    "next": "DeviceRegistryEnrichActivity",
+                },
+                "device_registry_enrich": {
+                    "name": "DeviceRegistryEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DeviceShadowEnrichActivity",
+                },
+                "device_shadow_enrich": {
+                    "name": "DeviceShadowEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "Datastore",
+                },
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
                
                The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
                
                `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the pipeline.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -320,17 +320,17 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="SimplePipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="SimpleChannel",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="SimpleDatastore",
-                ),
-            )])
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "SimpleChannel",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "SimpleDatastore",
+                },
+            }])
 
         ```
         ### Example
@@ -341,17 +341,17 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="SimplePipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="SimpleChannel",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="SimpleDatastore",
-                ),
-            )])
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "SimpleChannel",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "SimpleDatastore",
+                },
+            }])
 
         ```
         ### Example
@@ -362,72 +362,72 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="ComplexPipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="Channel",
-                    next="LambdaActivity",
-                ),
-                lambda_=aws_native.iotanalytics.PipelineLambdaArgs(
-                    name="LambdaActivity",
-                    lambda_name="Lambda",
-                    batch_size=1,
-                    next="AddAttributesActivity",
-                ),
-                add_attributes=aws_native.iotanalytics.PipelineAddAttributesArgs(
-                    name="AddAttributesActivity",
-                    attributes={
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "Channel",
+                    "next": "LambdaActivity",
+                },
+                "lambda_": {
+                    "name": "LambdaActivity",
+                    "lambda_name": "Lambda",
+                    "batch_size": 1,
+                    "next": "AddAttributesActivity",
+                },
+                "add_attributes": {
+                    "name": "AddAttributesActivity",
+                    "attributes": {
                         "key1": "attribute1",
                         "key2": "attribute2",
                     },
-                    next="RemoveAttributesActivity",
-                ),
-                remove_attributes=aws_native.iotanalytics.PipelineRemoveAttributesArgs(
-                    name="RemoveAttributesActivity",
-                    attributes=[
+                    "next": "RemoveAttributesActivity",
+                },
+                "remove_attributes": {
+                    "name": "RemoveAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="SelectAttributesActivity",
-                ),
-                select_attributes=aws_native.iotanalytics.PipelineSelectAttributesArgs(
-                    name="SelectAttributesActivity",
-                    attributes=[
+                    "next": "SelectAttributesActivity",
+                },
+                "select_attributes": {
+                    "name": "SelectAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="FilterActivity",
-                ),
-                filter=aws_native.iotanalytics.PipelineFilterArgs(
-                    name="FilterActivity",
-                    filter="attribute1 > 40 AND attribute2 < 20",
-                    next="MathActivity",
-                ),
-                math=aws_native.iotanalytics.PipelineMathArgs(
-                    name="MathActivity",
-                    attribute="attribute",
-                    math="attribute - 10",
-                    next="DeviceRegistryEnrichActivity",
-                ),
-                device_registry_enrich=aws_native.iotanalytics.PipelineDeviceRegistryEnrichArgs(
-                    name="DeviceRegistryEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DeviceShadowEnrichActivity",
-                ),
-                device_shadow_enrich=aws_native.iotanalytics.PipelineDeviceShadowEnrichArgs(
-                    name="DeviceShadowEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="Datastore",
-                ),
-            )])
+                    "next": "FilterActivity",
+                },
+                "filter": {
+                    "name": "FilterActivity",
+                    "filter": "attribute1 > 40 AND attribute2 < 20",
+                    "next": "MathActivity",
+                },
+                "math": {
+                    "name": "MathActivity",
+                    "attribute": "attribute",
+                    "math": "attribute - 10",
+                    "next": "DeviceRegistryEnrichActivity",
+                },
+                "device_registry_enrich": {
+                    "name": "DeviceRegistryEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DeviceShadowEnrichActivity",
+                },
+                "device_shadow_enrich": {
+                    "name": "DeviceShadowEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "Datastore",
+                },
+            }])
 
         ```
         ### Example
@@ -438,72 +438,72 @@ class Pipeline(pulumi.CustomResource):
 
         pipeline = aws_native.iotanalytics.Pipeline("pipeline",
             pipeline_name="ComplexPipeline",
-            pipeline_activities=[aws_native.iotanalytics.PipelineActivityArgs(
-                channel=aws_native.iotanalytics.PipelineChannelArgs(
-                    name="ChannelActivity",
-                    channel_name="Channel",
-                    next="LambdaActivity",
-                ),
-                lambda_=aws_native.iotanalytics.PipelineLambdaArgs(
-                    name="LambdaActivity",
-                    lambda_name="Lambda",
-                    batch_size=1,
-                    next="AddAttributesActivity",
-                ),
-                add_attributes=aws_native.iotanalytics.PipelineAddAttributesArgs(
-                    name="AddAttributesActivity",
-                    attributes={
+            pipeline_activities=[{
+                "channel": {
+                    "name": "ChannelActivity",
+                    "channel_name": "Channel",
+                    "next": "LambdaActivity",
+                },
+                "lambda_": {
+                    "name": "LambdaActivity",
+                    "lambda_name": "Lambda",
+                    "batch_size": 1,
+                    "next": "AddAttributesActivity",
+                },
+                "add_attributes": {
+                    "name": "AddAttributesActivity",
+                    "attributes": {
                         "key1": "attribute1",
                         "key2": "attribute2",
                     },
-                    next="RemoveAttributesActivity",
-                ),
-                remove_attributes=aws_native.iotanalytics.PipelineRemoveAttributesArgs(
-                    name="RemoveAttributesActivity",
-                    attributes=[
+                    "next": "RemoveAttributesActivity",
+                },
+                "remove_attributes": {
+                    "name": "RemoveAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="SelectAttributesActivity",
-                ),
-                select_attributes=aws_native.iotanalytics.PipelineSelectAttributesArgs(
-                    name="SelectAttributesActivity",
-                    attributes=[
+                    "next": "SelectAttributesActivity",
+                },
+                "select_attributes": {
+                    "name": "SelectAttributesActivity",
+                    "attributes": [
                         "attribute1",
                         "attribute2",
                     ],
-                    next="FilterActivity",
-                ),
-                filter=aws_native.iotanalytics.PipelineFilterArgs(
-                    name="FilterActivity",
-                    filter="attribute1 > 40 AND attribute2 < 20",
-                    next="MathActivity",
-                ),
-                math=aws_native.iotanalytics.PipelineMathArgs(
-                    name="MathActivity",
-                    attribute="attribute",
-                    math="attribute - 10",
-                    next="DeviceRegistryEnrichActivity",
-                ),
-                device_registry_enrich=aws_native.iotanalytics.PipelineDeviceRegistryEnrichArgs(
-                    name="DeviceRegistryEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DeviceShadowEnrichActivity",
-                ),
-                device_shadow_enrich=aws_native.iotanalytics.PipelineDeviceShadowEnrichArgs(
-                    name="DeviceShadowEnrichActivity",
-                    attribute="attribute",
-                    thing_name="thingName",
-                    role_arn="arn:aws:iam::<your_Account_Id>:role/Enrich",
-                    next="DatastoreActivity",
-                ),
-                datastore=aws_native.iotanalytics.PipelineDatastoreArgs(
-                    name="DatastoreActivity",
-                    datastore_name="Datastore",
-                ),
-            )])
+                    "next": "FilterActivity",
+                },
+                "filter": {
+                    "name": "FilterActivity",
+                    "filter": "attribute1 > 40 AND attribute2 < 20",
+                    "next": "MathActivity",
+                },
+                "math": {
+                    "name": "MathActivity",
+                    "attribute": "attribute",
+                    "math": "attribute - 10",
+                    "next": "DeviceRegistryEnrichActivity",
+                },
+                "device_registry_enrich": {
+                    "name": "DeviceRegistryEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DeviceShadowEnrichActivity",
+                },
+                "device_shadow_enrich": {
+                    "name": "DeviceShadowEnrichActivity",
+                    "attribute": "attribute",
+                    "thing_name": "thingName",
+                    "role_arn": "arn:aws:iam::<your_Account_Id>:role/Enrich",
+                    "next": "DatastoreActivity",
+                },
+                "datastore": {
+                    "name": "DatastoreActivity",
+                    "datastore_name": "Datastore",
+                },
+            }])
 
         ```
 
@@ -522,9 +522,9 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]]] = None,
+                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

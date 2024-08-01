@@ -187,14 +187,14 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']]] = None,
+                 aws_location: Optional[pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -203,14 +203,14 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']] aws_location: The Amazon Web Services location of the device, if applicable.
+        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[str] description: The description of the device.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[pulumi.InputType['DeviceLocationArgs']] location: The site location.
+        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: The site location.
         :param pulumi.Input[str] model: The device model
         :param pulumi.Input[str] serial_number: The device serial number.
         :param pulumi.Input[str] site_id: The site ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the device.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the device.
         :param pulumi.Input[str] type: The device type.
         :param pulumi.Input[str] vendor: The device vendor.
         """
@@ -238,14 +238,14 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAwsLocationArgs']]] = None,
+                 aws_location: Optional[pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):

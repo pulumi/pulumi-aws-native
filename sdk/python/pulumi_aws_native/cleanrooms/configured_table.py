@@ -140,11 +140,11 @@ class ConfiguredTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analysis_method: Optional[pulumi.Input['ConfiguredTableAnalysisMethod']] = None,
-                 analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableAnalysisRuleArgs']]]]] = None,
+                 analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a table that can be associated with collaborations
@@ -153,11 +153,11 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
         :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableAnalysisRuleArgs']]]] analysis_rules: The analysis rule that was created for the configured table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
-        :param pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']] table_reference: The AWS Glue table that this configured table represents.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: The AWS Glue table that this configured table represents.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
     @overload
@@ -185,11 +185,11 @@ class ConfiguredTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analysis_method: Optional[pulumi.Input['ConfiguredTableAnalysisMethod']] = None,
-                 analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableAnalysisRuleArgs']]]]] = None,
+                 analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -94,8 +94,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Ground Station DataflowEndpointGroup schema for CloudFormation
@@ -107,21 +107,21 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_dataflow_endpoint_group = aws_native.groundstation.DataflowEndpointGroup("myDataflowEndpointGroup", endpoint_details=[aws_native.groundstation.DataflowEndpointGroupEndpointDetailsArgs(
-            security_details=aws_native.groundstation.DataflowEndpointGroupSecurityDetailsArgs(
-                subnet_ids=["subnet-6782e71e"],
-                security_group_ids=["sg-6979fe18"],
-                role_arn="arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI",
-            ),
-            endpoint=aws_native.groundstation.DataflowEndpointGroupDataflowEndpointArgs(
-                name="myEndpoint",
-                address=aws_native.groundstation.DataflowEndpointGroupSocketAddressArgs(
-                    name="172.10.0.2",
-                    port=44720,
-                ),
-                mtu=1500,
-            ),
-        )])
+        my_dataflow_endpoint_group = aws_native.groundstation.DataflowEndpointGroup("myDataflowEndpointGroup", endpoint_details=[{
+            "security_details": {
+                "subnet_ids": ["subnet-6782e71e"],
+                "security_group_ids": ["sg-6979fe18"],
+                "role_arn": "arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI",
+            },
+            "endpoint": {
+                "name": "myEndpoint",
+                "address": {
+                    "name": "172.10.0.2",
+                    "port": 44720,
+                },
+                "mtu": 1500,
+            },
+        }])
 
         ```
 
@@ -129,8 +129,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]] endpoint_details: List of Endpoint Details, containing address and port for each endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]] endpoint_details: List of Endpoint Details, containing address and port for each endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to a resource.
         """
         ...
     @overload
@@ -148,21 +148,21 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_dataflow_endpoint_group = aws_native.groundstation.DataflowEndpointGroup("myDataflowEndpointGroup", endpoint_details=[aws_native.groundstation.DataflowEndpointGroupEndpointDetailsArgs(
-            security_details=aws_native.groundstation.DataflowEndpointGroupSecurityDetailsArgs(
-                subnet_ids=["subnet-6782e71e"],
-                security_group_ids=["sg-6979fe18"],
-                role_arn="arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI",
-            ),
-            endpoint=aws_native.groundstation.DataflowEndpointGroupDataflowEndpointArgs(
-                name="myEndpoint",
-                address=aws_native.groundstation.DataflowEndpointGroupSocketAddressArgs(
-                    name="172.10.0.2",
-                    port=44720,
-                ),
-                mtu=1500,
-            ),
-        )])
+        my_dataflow_endpoint_group = aws_native.groundstation.DataflowEndpointGroup("myDataflowEndpointGroup", endpoint_details=[{
+            "security_details": {
+                "subnet_ids": ["subnet-6782e71e"],
+                "security_group_ids": ["sg-6979fe18"],
+                "role_arn": "arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI",
+            },
+            "endpoint": {
+                "name": "myEndpoint",
+                "address": {
+                    "name": "172.10.0.2",
+                    "port": 44720,
+                },
+                "mtu": 1500,
+            },
+        }])
 
         ```
 
@@ -183,8 +183,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

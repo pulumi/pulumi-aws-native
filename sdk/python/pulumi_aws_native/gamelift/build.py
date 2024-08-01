@@ -110,7 +110,7 @@ class Build(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
                  server_sdk_version: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -121,7 +121,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] name: A descriptive label that is associated with a build. Build names do not need to be unique.
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
         :param pulumi.Input[str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
-        :param pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
         ...
@@ -151,7 +151,7 @@ class Build(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
                  server_sdk_version: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -123,7 +123,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -135,7 +135,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         :param pulumi.Input['DbProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
@@ -166,7 +166,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

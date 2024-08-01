@@ -76,7 +76,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -85,7 +85,7 @@ class ReadinessCheck(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] readiness_check_name: Name of the ReadinessCheck to create.
         :param pulumi.Input[str] resource_set_name: The name of the resource set to check.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

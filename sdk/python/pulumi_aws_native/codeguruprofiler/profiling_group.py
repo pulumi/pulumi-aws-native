@@ -109,22 +109,22 @@ class ProfilingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_permissions: Optional[pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']]] = None,
-                 anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
+                 agent_permissions: Optional[pulumi.Input[Union['AgentPermissionsPropertiesArgs', 'AgentPermissionsPropertiesArgsDict']]] = None,
+                 anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfilingGroupChannelArgs', 'ProfilingGroupChannelArgsDict']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']] agent_permissions: The agent permissions attached to this profiling group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
+        :param pulumi.Input[Union['AgentPermissionsPropertiesArgs', 'AgentPermissionsPropertiesArgsDict']] agent_permissions: The agent permissions attached to this profiling group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfilingGroupChannelArgs', 'ProfilingGroupChannelArgsDict']]]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with a profiling group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with a profiling group.
         """
         ...
     @overload
@@ -150,11 +150,11 @@ class ProfilingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_permissions: Optional[pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']]] = None,
-                 anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
+                 agent_permissions: Optional[pulumi.Input[Union['AgentPermissionsPropertiesArgs', 'AgentPermissionsPropertiesArgsDict']]] = None,
+                 anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfilingGroupChannelArgs', 'ProfilingGroupChannelArgsDict']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

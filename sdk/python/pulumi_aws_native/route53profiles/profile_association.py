@@ -108,7 +108,7 @@ class ProfileAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53Profiles::ProfileAssociation
@@ -119,7 +119,7 @@ class ProfileAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of an association between a  Profile and a VPC.
         :param pulumi.Input[str] profile_id: The ID of the  profile that you associated with the resource that is specified by ResourceId.
         :param pulumi.Input[str] resource_id: The resource that you associated the  profile with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class ProfileAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

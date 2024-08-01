@@ -144,20 +144,20 @@ class EventBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']]] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['DeadLetterConfigPropertiesArgs', 'DeadLetterConfigPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::Events::EventBus
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']] dead_letter_config: Dead Letter Queue for the event bus.
+        :param pulumi.Input[Union['DeadLetterConfigPropertiesArgs', 'DeadLetterConfigPropertiesArgsDict']] dead_letter_config: Dead Letter Queue for the event bus.
         :param pulumi.Input[str] description: The description of the event bus.
         :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         :param pulumi.Input[str] kms_key_identifier: Kms Key Identifier used to encrypt events at rest in the event bus.
@@ -165,7 +165,7 @@ class EventBus(pulumi.CustomResource):
         :param Any policy: A JSON string that describes the permission policy statement for the event bus.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the event bus.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the event bus.
         """
         ...
     @overload
@@ -191,13 +191,13 @@ class EventBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']]] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['DeadLetterConfigPropertiesArgs', 'DeadLetterConfigPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

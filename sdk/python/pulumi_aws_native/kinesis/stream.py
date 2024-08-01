@@ -128,9 +128,9 @@ class Stream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
-                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::Stream
@@ -140,9 +140,9 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
-        :param pulumi.Input[pulumi.InputType['StreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-        :param pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']] stream_mode_details: The mode in which the stream is running.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         ...
     @overload
@@ -171,9 +171,9 @@ class Stream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
-                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

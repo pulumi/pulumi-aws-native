@@ -73,7 +73,7 @@ class BotVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_id: Optional[pulumi.Input[str]] = None,
-                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotVersionLocaleSpecificationArgs']]]]] = None,
+                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -82,7 +82,7 @@ class BotVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_id: The unique identifier of the bot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotVersionLocaleSpecificationArgs']]]] bot_version_locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]] bot_version_locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         :param pulumi.Input[str] description: The description of the version.
         """
         ...
@@ -110,7 +110,7 @@ class BotVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_id: Optional[pulumi.Input[str]] = None,
-                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotVersionLocaleSpecificationArgs']]]]] = None,
+                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

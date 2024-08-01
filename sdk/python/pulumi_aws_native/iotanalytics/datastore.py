@@ -137,11 +137,11 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']]] = None,
-                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreStorageArgs']]] = None,
-                 file_format_configuration: Optional[pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 datastore_partitions: Optional[pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
+                 datastore_storage: Optional[pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
+                 file_format_configuration: Optional[pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Datastore
@@ -173,19 +173,19 @@ class Datastore(pulumi.CustomResource):
 
         datastore = aws_native.iotanalytics.Datastore("datastore",
             datastore_name="ComplexDatastore",
-            retention_period=aws_native.iotanalytics.DatastoreRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -197,19 +197,19 @@ class Datastore(pulumi.CustomResource):
 
         datastore = aws_native.iotanalytics.Datastore("datastore",
             datastore_name="ComplexDatastore",
-            retention_period=aws_native.iotanalytics.DatastoreRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -217,15 +217,15 @@ class Datastore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datastore_name: The name of the data store.
-        :param pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']] datastore_partitions: Information about the partition dimensions in a data store.
-        :param pulumi.Input[pulumi.InputType['DatastoreStorageArgs']] datastore_storage: Where data store data is stored.
-        :param pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        :param pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']] datastore_partitions: Information about the partition dimensions in a data store.
+        :param pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']] datastore_storage: Where data store data is stored.
+        :param pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
                
                The default file format is JSON. You can specify only one format.
                
                You can't change the file format after you create the data store.
-        :param pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the data store.
+        :param pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the data store.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -265,19 +265,19 @@ class Datastore(pulumi.CustomResource):
 
         datastore = aws_native.iotanalytics.Datastore("datastore",
             datastore_name="ComplexDatastore",
-            retention_period=aws_native.iotanalytics.DatastoreRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -289,19 +289,19 @@ class Datastore(pulumi.CustomResource):
 
         datastore = aws_native.iotanalytics.Datastore("datastore",
             datastore_name="ComplexDatastore",
-            retention_period=aws_native.iotanalytics.DatastoreRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -322,11 +322,11 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']]] = None,
-                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreStorageArgs']]] = None,
-                 file_format_configuration: Optional[pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 datastore_partitions: Optional[pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
+                 datastore_storage: Optional[pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
+                 file_format_configuration: Optional[pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

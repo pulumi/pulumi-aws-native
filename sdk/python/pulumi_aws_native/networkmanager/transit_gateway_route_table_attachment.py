@@ -91,8 +91,8 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_id: Optional[pulumi.Input[str]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_route_table_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -101,8 +101,8 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] peering_id: The Id of peering between transit gateway and core network.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The Arn of transit gateway route table.
         """
         ...
@@ -130,8 +130,8 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_id: Optional[pulumi.Input[str]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_route_table_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

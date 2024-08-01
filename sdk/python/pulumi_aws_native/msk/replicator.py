@@ -140,11 +140,11 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoArgs']]]]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Replicator
@@ -153,11 +153,11 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_version: The current version of the MSK replicator.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoArgs']]]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -185,11 +185,11 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoArgs']]]]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -143,7 +143,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  maximum_match_distance: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Macie CustomDataIdentifier resource schema
@@ -156,7 +156,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
         :param pulumi.Input[str] name: Name of custom data identifier.
         :param pulumi.Input[str] regex: Regular expression for custom data identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -188,7 +188,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  maximum_match_distance: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

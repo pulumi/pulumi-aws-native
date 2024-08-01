@@ -176,11 +176,11 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonPodIdentityAssociationArgs']]]]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve_on_delete: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::EKS::Addon
@@ -191,11 +191,11 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: Version of Addon
         :param pulumi.Input[str] cluster_name: Name of Cluster
         :param pulumi.Input[str] configuration_values: The configuration values to use with the add-on
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonPodIdentityAssociationArgs']]]] pod_identity_associations: An array of pod identities to apply to this add-on.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: An array of pod identities to apply to this add-on.
         :param pulumi.Input[bool] preserve_on_delete: PreserveOnDelete parameter value
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -225,11 +225,11 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonPodIdentityAssociationArgs']]]]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve_on_delete: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

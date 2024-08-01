@@ -143,9 +143,9 @@ class PackageGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_owner: Optional[pulumi.Input[str]] = None,
-                 origin_configuration: Optional[pulumi.Input[pulumi.InputType['PackageGroupOriginConfigurationArgs']]] = None,
+                 origin_configuration: Optional[pulumi.Input[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The resource schema to create a CodeArtifact package group.
@@ -156,9 +156,9 @@ class PackageGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The text description of the package group.
         :param pulumi.Input[str] domain_name: The name of the domain that contains the package group.
         :param pulumi.Input[str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
-        :param pulumi.Input[pulumi.InputType['PackageGroupOriginConfigurationArgs']] origin_configuration: The package origin configuration of the package group.
+        :param pulumi.Input[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']] origin_configuration: The package origin configuration of the package group.
         :param pulumi.Input[str] pattern: The package group pattern that is used to gather packages.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to the package group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the package group.
         """
         ...
     @overload
@@ -188,9 +188,9 @@ class PackageGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_owner: Optional[pulumi.Input[str]] = None,
-                 origin_configuration: Optional[pulumi.Input[pulumi.InputType['PackageGroupOriginConfigurationArgs']]] = None,
+                 origin_configuration: Optional[pulumi.Input[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

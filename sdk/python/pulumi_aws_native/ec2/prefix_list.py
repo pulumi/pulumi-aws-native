@@ -109,10 +109,10 @@ class PrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  prefix_list_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema of AWS::EC2::PrefixList Type
@@ -129,19 +129,19 @@ class PrefixList(pulumi.CustomResource):
             address_family=aws_native.ec2.PrefixListAddressFamily.I_PV4,
             max_entries=10,
             entries=[
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.5/32",
-                    description="Server 1",
-                ),
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.10/32",
-                    description="Server 2",
-                ),
+                {
+                    "cidr": "10.0.0.5/32",
+                    "description": "Server 1",
+                },
+                {
+                    "cidr": "10.0.0.10/32",
+                    "description": "Server 2",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="VPC-1-Servers",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "VPC-1-Servers",
+            }])
 
         ```
         ### Example
@@ -155,29 +155,29 @@ class PrefixList(pulumi.CustomResource):
             address_family=aws_native.ec2.PrefixListAddressFamily.I_PV4,
             max_entries=10,
             entries=[
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.5/32",
-                    description="Server 1",
-                ),
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.10/32",
-                    description="Server 2",
-                ),
+                {
+                    "cidr": "10.0.0.5/32",
+                    "description": "Server 1",
+                },
+                {
+                    "cidr": "10.0.0.10/32",
+                    "description": "Server 2",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="VPC-1-Servers",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "VPC-1-Servers",
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]] entries: Entries of Prefix List.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]] entries: Entries of Prefix List.
         :param pulumi.Input[int] max_entries: Max Entries of Prefix List.
         :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for Prefix List
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for Prefix List
         """
         ...
     @overload
@@ -200,19 +200,19 @@ class PrefixList(pulumi.CustomResource):
             address_family=aws_native.ec2.PrefixListAddressFamily.I_PV4,
             max_entries=10,
             entries=[
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.5/32",
-                    description="Server 1",
-                ),
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.10/32",
-                    description="Server 2",
-                ),
+                {
+                    "cidr": "10.0.0.5/32",
+                    "description": "Server 1",
+                },
+                {
+                    "cidr": "10.0.0.10/32",
+                    "description": "Server 2",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="VPC-1-Servers",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "VPC-1-Servers",
+            }])
 
         ```
         ### Example
@@ -226,19 +226,19 @@ class PrefixList(pulumi.CustomResource):
             address_family=aws_native.ec2.PrefixListAddressFamily.I_PV4,
             max_entries=10,
             entries=[
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.5/32",
-                    description="Server 1",
-                ),
-                aws_native.ec2.PrefixListEntryArgs(
-                    cidr="10.0.0.10/32",
-                    description="Server 2",
-                ),
+                {
+                    "cidr": "10.0.0.5/32",
+                    "description": "Server 1",
+                },
+                {
+                    "cidr": "10.0.0.10/32",
+                    "description": "Server 2",
+                },
             ],
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="VPC-1-Servers",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "VPC-1-Servers",
+            }])
 
         ```
 
@@ -258,10 +258,10 @@ class PrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  prefix_list_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

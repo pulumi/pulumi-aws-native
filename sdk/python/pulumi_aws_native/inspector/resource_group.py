@@ -45,14 +45,14 @@ class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]]] = None,
+                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -80,7 +80,7 @@ class ResourceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]]] = None,
+                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

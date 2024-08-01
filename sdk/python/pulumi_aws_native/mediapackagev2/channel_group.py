@@ -76,7 +76,7 @@ class ChannelGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
@@ -85,7 +85,7 @@ class ChannelGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_group_name: The name of the channel group.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with the channel group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the channel group.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class ChannelGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

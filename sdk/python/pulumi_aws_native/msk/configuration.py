@@ -103,7 +103,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 latest_revision: Optional[pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']]] = None,
+                 latest_revision: Optional[pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_properties: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -113,7 +113,7 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the configuration.
-        :param pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']] latest_revision: Latest revision of the configuration.
         :param pulumi.Input[str] name: The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
         :param pulumi.Input[str] server_properties: Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
         """
@@ -143,7 +143,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 latest_revision: Optional[pulumi.Input[pulumi.InputType['ConfigurationLatestRevisionArgs']]] = None,
+                 latest_revision: Optional[pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_properties: Optional[pulumi.Input[str]] = None,
                  __props__=None):

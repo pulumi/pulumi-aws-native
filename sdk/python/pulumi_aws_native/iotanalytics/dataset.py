@@ -160,14 +160,14 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
+                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
-                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']]] = None,
+                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
+                 retention_period: Optional[pulumi.Input[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Dataset
@@ -181,17 +181,17 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="SimpleSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )])
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }])
 
         ```
         ### Example
@@ -202,17 +202,17 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="SimpleSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )])
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }])
 
         ```
         ### Example
@@ -223,36 +223,36 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="ComplexSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                    filters=[aws_native.iotanalytics.DatasetFilterArgs(
-                        delta_time=aws_native.iotanalytics.DatasetDeltaTimeArgs(
-                            offset_seconds=1,
-                            time_expression="timestamp",
-                        ),
-                    )],
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )],
-            retention_period=aws_native.iotanalytics.DatasetRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                    "filters": [{
+                        "delta_time": {
+                            "offset_seconds": 1,
+                            "time_expression": "timestamp",
+                        },
+                    }],
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }],
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -264,52 +264,52 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="ComplexSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                    filters=[aws_native.iotanalytics.DatasetFilterArgs(
-                        delta_time=aws_native.iotanalytics.DatasetDeltaTimeArgs(
-                            offset_seconds=1,
-                            time_expression="timestamp",
-                        ),
-                    )],
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )],
-            retention_period=aws_native.iotanalytics.DatasetRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                    "filters": [{
+                        "delta_time": {
+                            "offset_seconds": 1,
+                            "time_expression": "timestamp",
+                        },
+                    }],
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }],
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]] actions: The `DatasetAction` objects that automatically create the dataset contents.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]] content_delivery_rules: When dataset contents are created they are delivered to destinations specified here.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]] actions: The `DatasetAction` objects that automatically create the dataset contents.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]] content_delivery_rules: When dataset contents are created they are delivered to destinations specified here.
         :param pulumi.Input[str] dataset_name: The name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]] late_data_rules: A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
-        :param pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']] retention_period: Optional. How long, in days, message data is kept for the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the data set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]] late_data_rules: A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
+        :param pulumi.Input[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']] retention_period: Optional. How long, in days, message data is kept for the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the data set.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]] triggers: The `DatasetTrigger` objects that specify when the dataset is automatically updated.
-        :param pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]] triggers: The `DatasetTrigger` objects that specify when the dataset is automatically updated.
+        :param pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
         """
         ...
     @overload
@@ -329,17 +329,17 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="SimpleSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )])
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }])
 
         ```
         ### Example
@@ -350,17 +350,17 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="SimpleSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )])
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }])
 
         ```
         ### Example
@@ -371,36 +371,36 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="ComplexSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                    filters=[aws_native.iotanalytics.DatasetFilterArgs(
-                        delta_time=aws_native.iotanalytics.DatasetDeltaTimeArgs(
-                            offset_seconds=1,
-                            time_expression="timestamp",
-                        ),
-                    )],
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )],
-            retention_period=aws_native.iotanalytics.DatasetRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                    "filters": [{
+                        "delta_time": {
+                            "offset_seconds": 1,
+                            "time_expression": "timestamp",
+                        },
+                    }],
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }],
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -412,36 +412,36 @@ class Dataset(pulumi.CustomResource):
 
         dataset = aws_native.iotanalytics.Dataset("dataset",
             dataset_name="ComplexSQLDataset",
-            actions=[aws_native.iotanalytics.DatasetActionArgs(
-                action_name="SqlAction",
-                query_action=aws_native.iotanalytics.DatasetQueryActionArgs(
-                    sql_query="select * from Datastore",
-                    filters=[aws_native.iotanalytics.DatasetFilterArgs(
-                        delta_time=aws_native.iotanalytics.DatasetDeltaTimeArgs(
-                            offset_seconds=1,
-                            time_expression="timestamp",
-                        ),
-                    )],
-                ),
-            )],
-            triggers=[aws_native.iotanalytics.DatasetTriggerArgs(
-                schedule=aws_native.iotanalytics.DatasetScheduleArgs(
-                    schedule_expression="cron(0 12 * * ? *)",
-                ),
-            )],
-            retention_period=aws_native.iotanalytics.DatasetRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            actions=[{
+                "action_name": "SqlAction",
+                "query_action": {
+                    "sql_query": "select * from Datastore",
+                    "filters": [{
+                        "delta_time": {
+                            "offset_seconds": 1,
+                            "time_expression": "timestamp",
+                        },
+                    }],
+                },
+            }],
+            triggers=[{
+                "schedule": {
+                    "schedule_expression": "cron(0 12 * * ? *)",
+                },
+            }],
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -461,14 +461,14 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
+                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
-                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']]] = None,
+                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
+                 retention_period: Optional[pulumi.Input[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

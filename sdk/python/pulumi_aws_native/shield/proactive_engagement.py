@@ -61,7 +61,7 @@ class ProactiveEngagement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProactiveEngagementEmergencyContactArgs']]]]] = None,
+                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
                  proactive_engagement_status: Optional[pulumi.Input['ProactiveEngagementStatus']] = None,
                  __props__=None):
         """
@@ -69,7 +69,7 @@ class ProactiveEngagement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProactiveEngagementEmergencyContactArgs']]]] emergency_contact_list: A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contact_list: A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
                To enable proactive engagement, the contact list must include at least one phone number.
         :param pulumi.Input['ProactiveEngagementStatus'] proactive_engagement_status: If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
                If `DISABLED`, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support.
@@ -98,7 +98,7 @@ class ProactiveEngagement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProactiveEngagementEmergencyContactArgs']]]]] = None,
+                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
                  proactive_engagement_status: Optional[pulumi.Input['ProactiveEngagementStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

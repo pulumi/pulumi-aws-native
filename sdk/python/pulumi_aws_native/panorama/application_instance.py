@@ -158,11 +158,11 @@ class ApplicationInstance(pulumi.CustomResource):
                  application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
                  default_runtime_context_device: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 manifest_overrides_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']]] = None,
-                 manifest_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']]] = None,
+                 manifest_overrides_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
+                 manifest_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an application instance and deploys it to a device.
@@ -172,11 +172,11 @@ class ApplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
         :param pulumi.Input[str] default_runtime_context_device: The device's ID.
         :param pulumi.Input[str] description: A description for the application instance.
-        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']] manifest_overrides_payload: Setting overrides for the application manifest.
-        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']] manifest_payload: The application's manifest document.
+        :param pulumi.Input[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']] manifest_overrides_payload: Setting overrides for the application manifest.
+        :param pulumi.Input[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']] manifest_payload: The application's manifest document.
         :param pulumi.Input[str] name: A name for the application instance.
         :param pulumi.Input[str] runtime_role_arn: The ARN of a runtime role for the application instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the application instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the application instance.
         """
         ...
     @overload
@@ -205,11 +205,11 @@ class ApplicationInstance(pulumi.CustomResource):
                  application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
                  default_runtime_context_device: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 manifest_overrides_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']]] = None,
-                 manifest_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']]] = None,
+                 manifest_overrides_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
+                 manifest_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

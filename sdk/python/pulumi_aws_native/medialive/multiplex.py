@@ -108,10 +108,10 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]]] = None,
+                 multiplex_settings: Optional[pulumi.Input[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaLive::Multiplex
@@ -119,10 +119,10 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones for the multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]] destinations: A list of the multiplex output destinations.
-        :param pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']] multiplex_settings: Configuration for a multiplex event.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]] destinations: A list of the multiplex output destinations.
+        :param pulumi.Input[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']] multiplex_settings: Configuration for a multiplex event.
         :param pulumi.Input[str] name: Name of multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -149,10 +149,10 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]]] = None,
+                 multiplex_settings: Optional[pulumi.Input[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

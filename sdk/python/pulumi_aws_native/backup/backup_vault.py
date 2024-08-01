@@ -134,8 +134,8 @@ class BackupVault(pulumi.CustomResource):
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
+                 lock_configuration: Optional[pulumi.Input[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupVault
@@ -150,8 +150,8 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
                
                To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
-        :param pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
-        :param pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']] notifications: The SNS event notifications for the specified backup vault.
+        :param pulumi.Input[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        :param pulumi.Input[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']] notifications: The SNS event notifications for the specified backup vault.
         """
         ...
     @overload
@@ -181,8 +181,8 @@ class BackupVault(pulumi.CustomResource):
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
+                 lock_configuration: Optional[pulumi.Input[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

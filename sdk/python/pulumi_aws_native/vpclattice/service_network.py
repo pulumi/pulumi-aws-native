@@ -87,7 +87,7 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -101,7 +101,7 @@ class ServiceNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the service network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the service network.
         """
         ...
     @overload
@@ -129,7 +129,7 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

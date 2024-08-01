@@ -141,12 +141,12 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
                  space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 space_settings: Optional[pulumi.Input[Union['SpaceSettingsArgs', 'SpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSharingSettingsArgs', 'SpaceSharingSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Space
@@ -154,12 +154,12 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']] ownership_settings: The collection of ownership settings for a space.
+        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: The collection of ownership settings for a space.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the Studio UI.
         :param pulumi.Input[str] space_name: A name for the Space.
-        :param pulumi.Input[pulumi.InputType['SpaceSettingsArgs']] space_settings: A collection of settings.
-        :param pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']] space_sharing_settings: A collection of space sharing settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to apply to the space.
+        :param pulumi.Input[Union['SpaceSettingsArgs', 'SpaceSettingsArgsDict']] space_settings: A collection of settings.
+        :param pulumi.Input[Union['SpaceSharingSettingsArgs', 'SpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the space.
         """
         ...
     @overload
@@ -186,12 +186,12 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
                  space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 space_settings: Optional[pulumi.Input[Union['SpaceSettingsArgs', 'SpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSharingSettingsArgs', 'SpaceSharingSettingsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

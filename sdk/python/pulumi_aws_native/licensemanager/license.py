@@ -197,16 +197,16 @@ class License(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  beneficiary: Optional[pulumi.Input[str]] = None,
-                 consumption_configuration: Optional[pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseEntitlementArgs']]]]] = None,
+                 consumption_configuration: Optional[pulumi.Input[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']]] = None,
+                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]]] = None,
                  home_region: Optional[pulumi.Input[str]] = None,
-                 issuer: Optional[pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']]] = None,
-                 license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseMetadataArgs']]]]] = None,
+                 issuer: Optional[pulumi.Input[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']]] = None,
+                 license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]]] = None,
                  license_name: Optional[pulumi.Input[str]] = None,
                  product_name: Optional[pulumi.Input[str]] = None,
                  product_sku: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']]] = None,
+                 validity: Optional[pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LicenseManager::License
@@ -214,16 +214,16 @@ class License(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] beneficiary: Beneficiary of the license.
-        :param pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']] consumption_configuration: Configuration for consumption of the license.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseEntitlementArgs']]]] entitlements: License entitlements.
+        :param pulumi.Input[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']] consumption_configuration: Configuration for consumption of the license.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]] entitlements: License entitlements.
         :param pulumi.Input[str] home_region: Home region for the created license.
-        :param pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']] issuer: License issuer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseMetadataArgs']]]] license_metadata: License metadata.
+        :param pulumi.Input[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']] issuer: License issuer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]] license_metadata: License metadata.
         :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_name: Product name for the created license.
         :param pulumi.Input[str] product_sku: ProductSKU of the license.
         :param pulumi.Input[str] status: License status.
-        :param pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
+        :param pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
         """
         ...
     @overload
@@ -250,16 +250,16 @@ class License(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  beneficiary: Optional[pulumi.Input[str]] = None,
-                 consumption_configuration: Optional[pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseEntitlementArgs']]]]] = None,
+                 consumption_configuration: Optional[pulumi.Input[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']]] = None,
+                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]]] = None,
                  home_region: Optional[pulumi.Input[str]] = None,
-                 issuer: Optional[pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']]] = None,
-                 license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseMetadataArgs']]]]] = None,
+                 issuer: Optional[pulumi.Input[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']]] = None,
+                 license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]]] = None,
                  license_name: Optional[pulumi.Input[str]] = None,
                  product_name: Optional[pulumi.Input[str]] = None,
                  product_sku: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']]] = None,
+                 validity: Optional[pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -109,7 +109,7 @@ class OutpostResolver(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::OutpostResolver.
@@ -120,7 +120,7 @@ class OutpostResolver(pulumi.CustomResource):
         :param pulumi.Input[str] name: The OutpostResolver name.
         :param pulumi.Input[str] outpost_arn: The Outpost ARN.
         :param pulumi.Input[str] preferred_instance_type: The OutpostResolver instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -150,7 +150,7 @@ class OutpostResolver(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

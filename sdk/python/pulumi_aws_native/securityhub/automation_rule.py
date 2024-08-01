@@ -155,8 +155,8 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_terminal: Optional[pulumi.Input[bool]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -180,266 +180,266 @@ class AutomationRule(pulumi.CustomResource):
             description="Example rule description.",
             is_terminal=False,
             rule_status=aws_native.securityhub.AutomationRuleRuleStatus.ENABLED,
-            criteria=aws_native.securityhub.AutomationRulesFindingFiltersArgs(
-                product_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="GuardDuty",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="SecurityHub",
-                    ),
+            criteria={
+                "product_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "GuardDuty",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "SecurityHub",
+                    },
                 ],
-                company_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="AWS",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="Private",
-                    ),
+                "company_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "AWS",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "Private",
+                    },
                 ],
-                product_arn=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/aws",
-                    ),
+                "product_arn": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/aws",
+                    },
                 ],
-                aws_account_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="123456789012",
-                )],
-                id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id",
-                )],
-                generator_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-generator-id",
-                )],
-                type=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-2",
-                    ),
+                "aws_account_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "123456789012",
+                }],
+                "id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id",
+                }],
+                "generator_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-generator-id",
+                }],
+                "type": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-2",
+                    },
                 ],
-                description=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description2",
-                    ),
+                "description": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description2",
+                    },
                 ],
-                source_url=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="https",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="ftp",
-                    ),
+                "source_url": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "https",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "ftp",
+                    },
                 ],
-                title=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="title-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="title-2",
-                    ),
+                "title": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "title-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "title-2",
+                    },
                 ],
-                severity_label=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="LOW",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="HIGH",
-                    ),
+                "severity_label": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "LOW",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "HIGH",
+                    },
                 ],
-                resource_type=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="AwsEc2Instance",
-                )],
-                resource_partition=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="aws",
-                )],
-                resource_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="i-1234567890",
-                )],
-                resource_region=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="us-west",
-                )],
-                compliance_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="FAILED",
-                )],
-                compliance_security_control_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="EC2.3",
-                )],
-                compliance_associated_standards_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                )],
-                verification_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="BENIGN_POSITIVE",
-                )],
-                record_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ACTIVE",
-                )],
-                related_findings_product_arn=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="arn:aws:securityhub:eu-central-1::product/aws/securityhub",
-                )],
-                related_findings_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id-2",
-                )],
-                note_text=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-note-text",
-                )],
-                note_updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                note_updated_by=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="sechub",
-                )],
-                workflow_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="NEW",
-                )],
-                first_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                last_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                created_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    start="2023-04-25T17:05:54.832Z",
-                    end="2023-05-25T17:05:54.832Z",
-                )],
-                resource_tags=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="operations",
-                    ),
+                "resource_type": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "AwsEc2Instance",
+                }],
+                "resource_partition": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "aws",
+                }],
+                "resource_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "i-1234567890",
+                }],
+                "resource_region": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "us-west",
+                }],
+                "compliance_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "FAILED",
+                }],
+                "compliance_security_control_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "EC2.3",
+                }],
+                "compliance_associated_standards_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+                }],
+                "verification_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "BENIGN_POSITIVE",
+                }],
+                "record_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ACTIVE",
+                }],
+                "related_findings_product_arn": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "arn:aws:securityhub:eu-central-1::product/aws/securityhub",
+                }],
+                "related_findings_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id-2",
+                }],
+                "note_text": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-note-text",
+                }],
+                "note_updated_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "note_updated_by": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "sechub",
+                }],
+                "workflow_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "NEW",
+                }],
+                "first_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "last_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "created_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "updated_at": [{
+                    "start": "2023-04-25T17:05:54.832Z",
+                    "end": "2023-05-25T17:05:54.832Z",
+                }],
+                "resource_tags": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "operations",
+                    },
                 ],
-                user_defined_fields=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key1",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key2",
-                        value="operations",
-                    ),
+                "user_defined_fields": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key1",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key2",
+                        "value": "operations",
+                    },
                 ],
-                resource_details_other=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="area",
-                        value="na",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="sales",
-                    ),
+                "resource_details_other": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "area",
+                        "value": "na",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "sales",
+                    },
                 ],
-                confidence=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-                criticality=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-            ),
-            actions=[aws_native.securityhub.AutomationRulesActionArgs(
-                type=aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
-                finding_fields_update=aws_native.securityhub.AutomationRulesFindingFieldsUpdateArgs(
-                    severity=aws_native.securityhub.AutomationRuleSeverityUpdateArgs(
-                        product=50,
-                        label=aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
-                        normalized=60,
-                    ),
-                    types=[
+                "confidence": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+                "criticality": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+            },
+            actions=[{
+                "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
+                "finding_fields_update": {
+                    "severity": {
+                        "product": 50,
+                        "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
+                        "normalized": 60,
+                    },
+                    "types": [
                         "Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices",
                         "Industry Compliance",
                     ],
-                    confidence=98,
-                    criticality=95,
-                    user_defined_fields={
+                    "confidence": 98,
+                    "criticality": 95,
+                    "user_defined_fields": {
                         "key1": "value1",
                         "key2": "value2",
                     },
-                    related_findings=[
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-1",
-                        ),
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-2",
-                        ),
+                    "related_findings": [
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-1",
+                        },
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-2",
+                        },
                     ],
-                    note=aws_native.securityhub.AutomationRuleNoteUpdateArgs(
-                        text="sample-note-text",
-                        updated_by="sechub",
-                    ),
-                    verification_state=aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
-                    workflow=aws_native.securityhub.AutomationRuleWorkflowUpdateArgs(
-                        status=aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
-                    ),
-                ),
-            )],
+                    "note": {
+                        "text": "sample-note-text",
+                        "updated_by": "sechub",
+                    },
+                    "verification_state": aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
+                    "workflow": {
+                        "status": aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
+                    },
+                },
+            }],
             tags={
                 "sampleTag": "sampleValue",
                 "organizationUnit": "pnw",
@@ -458,266 +458,266 @@ class AutomationRule(pulumi.CustomResource):
             description="Example rule description.",
             is_terminal=False,
             rule_status=aws_native.securityhub.AutomationRuleRuleStatus.ENABLED,
-            criteria=aws_native.securityhub.AutomationRulesFindingFiltersArgs(
-                product_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="GuardDuty",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="SecurityHub",
-                    ),
+            criteria={
+                "product_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "GuardDuty",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "SecurityHub",
+                    },
                 ],
-                company_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="AWS",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="Private",
-                    ),
+                "company_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "AWS",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "Private",
+                    },
                 ],
-                product_arn=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/aws",
-                    ),
+                "product_arn": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/aws",
+                    },
                 ],
-                aws_account_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="123456789012",
-                )],
-                id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id",
-                )],
-                generator_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-generator-id",
-                )],
-                type=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-2",
-                    ),
+                "aws_account_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "123456789012",
+                }],
+                "id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id",
+                }],
+                "generator_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-generator-id",
+                }],
+                "type": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-2",
+                    },
                 ],
-                description=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description2",
-                    ),
+                "description": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description2",
+                    },
                 ],
-                source_url=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="https",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="ftp",
-                    ),
+                "source_url": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "https",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "ftp",
+                    },
                 ],
-                title=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="title-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="title-2",
-                    ),
+                "title": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "title-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "title-2",
+                    },
                 ],
-                severity_label=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="LOW",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="HIGH",
-                    ),
+                "severity_label": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "LOW",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "HIGH",
+                    },
                 ],
-                resource_type=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="AwsEc2Instance",
-                )],
-                resource_partition=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="aws",
-                )],
-                resource_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="i-1234567890",
-                )],
-                resource_region=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="us-west",
-                )],
-                compliance_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="FAILED",
-                )],
-                compliance_security_control_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="EC2.3",
-                )],
-                compliance_associated_standards_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                )],
-                verification_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="BENIGN_POSITIVE",
-                )],
-                record_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ACTIVE",
-                )],
-                related_findings_product_arn=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="arn:aws:securityhub:eu-central-1::product/aws/securityhub",
-                )],
-                related_findings_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id-2",
-                )],
-                note_text=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-note-text",
-                )],
-                note_updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                note_updated_by=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="sechub",
-                )],
-                workflow_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="NEW",
-                )],
-                first_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                last_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                created_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    start="2023-04-25T17:05:54.832Z",
-                    end="2023-05-25T17:05:54.832Z",
-                )],
-                resource_tags=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="operations",
-                    ),
+                "resource_type": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "AwsEc2Instance",
+                }],
+                "resource_partition": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "aws",
+                }],
+                "resource_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "i-1234567890",
+                }],
+                "resource_region": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "us-west",
+                }],
+                "compliance_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "FAILED",
+                }],
+                "compliance_security_control_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "EC2.3",
+                }],
+                "compliance_associated_standards_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+                }],
+                "verification_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "BENIGN_POSITIVE",
+                }],
+                "record_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ACTIVE",
+                }],
+                "related_findings_product_arn": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "arn:aws:securityhub:eu-central-1::product/aws/securityhub",
+                }],
+                "related_findings_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id-2",
+                }],
+                "note_text": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-note-text",
+                }],
+                "note_updated_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "note_updated_by": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "sechub",
+                }],
+                "workflow_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "NEW",
+                }],
+                "first_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "last_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "created_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "updated_at": [{
+                    "start": "2023-04-25T17:05:54.832Z",
+                    "end": "2023-05-25T17:05:54.832Z",
+                }],
+                "resource_tags": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "operations",
+                    },
                 ],
-                user_defined_fields=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key1",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key2",
-                        value="operations",
-                    ),
+                "user_defined_fields": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key1",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key2",
+                        "value": "operations",
+                    },
                 ],
-                resource_details_other=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="area",
-                        value="na",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="sales",
-                    ),
+                "resource_details_other": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "area",
+                        "value": "na",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "sales",
+                    },
                 ],
-                confidence=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-                criticality=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-            ),
-            actions=[aws_native.securityhub.AutomationRulesActionArgs(
-                type=aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
-                finding_fields_update=aws_native.securityhub.AutomationRulesFindingFieldsUpdateArgs(
-                    severity=aws_native.securityhub.AutomationRuleSeverityUpdateArgs(
-                        product=50,
-                        label=aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
-                        normalized=60,
-                    ),
-                    types=[
+                "confidence": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+                "criticality": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+            },
+            actions=[{
+                "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
+                "finding_fields_update": {
+                    "severity": {
+                        "product": 50,
+                        "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
+                        "normalized": 60,
+                    },
+                    "types": [
                         "Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices",
                         "Industry Compliance",
                     ],
-                    confidence=98,
-                    criticality=95,
-                    user_defined_fields={
+                    "confidence": 98,
+                    "criticality": 95,
+                    "user_defined_fields": {
                         "key1": "value1",
                         "key2": "value2",
                     },
-                    related_findings=[
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-1",
-                        ),
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-2",
-                        ),
+                    "related_findings": [
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-1",
+                        },
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-2",
+                        },
                     ],
-                    note=aws_native.securityhub.AutomationRuleNoteUpdateArgs(
-                        text="sample-note-text",
-                        updated_by="sechub",
-                    ),
-                    verification_state=aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
-                    workflow=aws_native.securityhub.AutomationRuleWorkflowUpdateArgs(
-                        status=aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
-                    ),
-                ),
-            )],
+                    "note": {
+                        "text": "sample-note-text",
+                        "updated_by": "sechub",
+                    },
+                    "verification_state": aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
+                    "workflow": {
+                        "status": aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
+                    },
+                },
+            }],
             tags={
                 "sampleTag": "sampleValue",
                 "organizationUnit": "pnw",
@@ -727,8 +727,8 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
-        :param pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        :param pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[str] description: A description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         :param pulumi.Input[str] rule_name: The name of the rule.
@@ -758,266 +758,266 @@ class AutomationRule(pulumi.CustomResource):
             description="Example rule description.",
             is_terminal=False,
             rule_status=aws_native.securityhub.AutomationRuleRuleStatus.ENABLED,
-            criteria=aws_native.securityhub.AutomationRulesFindingFiltersArgs(
-                product_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="GuardDuty",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="SecurityHub",
-                    ),
+            criteria={
+                "product_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "GuardDuty",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "SecurityHub",
+                    },
                 ],
-                company_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="AWS",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="Private",
-                    ),
+                "company_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "AWS",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "Private",
+                    },
                 ],
-                product_arn=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/aws",
-                    ),
+                "product_arn": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/aws",
+                    },
                 ],
-                aws_account_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="123456789012",
-                )],
-                id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id",
-                )],
-                generator_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-generator-id",
-                )],
-                type=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-2",
-                    ),
+                "aws_account_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "123456789012",
+                }],
+                "id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id",
+                }],
+                "generator_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-generator-id",
+                }],
+                "type": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-2",
+                    },
                 ],
-                description=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description2",
-                    ),
+                "description": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description2",
+                    },
                 ],
-                source_url=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="https",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="ftp",
-                    ),
+                "source_url": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "https",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "ftp",
+                    },
                 ],
-                title=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="title-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="title-2",
-                    ),
+                "title": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "title-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "title-2",
+                    },
                 ],
-                severity_label=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="LOW",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="HIGH",
-                    ),
+                "severity_label": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "LOW",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "HIGH",
+                    },
                 ],
-                resource_type=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="AwsEc2Instance",
-                )],
-                resource_partition=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="aws",
-                )],
-                resource_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="i-1234567890",
-                )],
-                resource_region=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="us-west",
-                )],
-                compliance_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="FAILED",
-                )],
-                compliance_security_control_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="EC2.3",
-                )],
-                compliance_associated_standards_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                )],
-                verification_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="BENIGN_POSITIVE",
-                )],
-                record_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ACTIVE",
-                )],
-                related_findings_product_arn=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="arn:aws:securityhub:eu-central-1::product/aws/securityhub",
-                )],
-                related_findings_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id-2",
-                )],
-                note_text=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-note-text",
-                )],
-                note_updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                note_updated_by=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="sechub",
-                )],
-                workflow_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="NEW",
-                )],
-                first_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                last_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                created_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    start="2023-04-25T17:05:54.832Z",
-                    end="2023-05-25T17:05:54.832Z",
-                )],
-                resource_tags=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="operations",
-                    ),
+                "resource_type": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "AwsEc2Instance",
+                }],
+                "resource_partition": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "aws",
+                }],
+                "resource_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "i-1234567890",
+                }],
+                "resource_region": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "us-west",
+                }],
+                "compliance_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "FAILED",
+                }],
+                "compliance_security_control_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "EC2.3",
+                }],
+                "compliance_associated_standards_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+                }],
+                "verification_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "BENIGN_POSITIVE",
+                }],
+                "record_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ACTIVE",
+                }],
+                "related_findings_product_arn": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "arn:aws:securityhub:eu-central-1::product/aws/securityhub",
+                }],
+                "related_findings_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id-2",
+                }],
+                "note_text": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-note-text",
+                }],
+                "note_updated_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "note_updated_by": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "sechub",
+                }],
+                "workflow_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "NEW",
+                }],
+                "first_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "last_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "created_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "updated_at": [{
+                    "start": "2023-04-25T17:05:54.832Z",
+                    "end": "2023-05-25T17:05:54.832Z",
+                }],
+                "resource_tags": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "operations",
+                    },
                 ],
-                user_defined_fields=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key1",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key2",
-                        value="operations",
-                    ),
+                "user_defined_fields": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key1",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key2",
+                        "value": "operations",
+                    },
                 ],
-                resource_details_other=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="area",
-                        value="na",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="sales",
-                    ),
+                "resource_details_other": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "area",
+                        "value": "na",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "sales",
+                    },
                 ],
-                confidence=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-                criticality=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-            ),
-            actions=[aws_native.securityhub.AutomationRulesActionArgs(
-                type=aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
-                finding_fields_update=aws_native.securityhub.AutomationRulesFindingFieldsUpdateArgs(
-                    severity=aws_native.securityhub.AutomationRuleSeverityUpdateArgs(
-                        product=50,
-                        label=aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
-                        normalized=60,
-                    ),
-                    types=[
+                "confidence": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+                "criticality": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+            },
+            actions=[{
+                "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
+                "finding_fields_update": {
+                    "severity": {
+                        "product": 50,
+                        "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
+                        "normalized": 60,
+                    },
+                    "types": [
                         "Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices",
                         "Industry Compliance",
                     ],
-                    confidence=98,
-                    criticality=95,
-                    user_defined_fields={
+                    "confidence": 98,
+                    "criticality": 95,
+                    "user_defined_fields": {
                         "key1": "value1",
                         "key2": "value2",
                     },
-                    related_findings=[
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-1",
-                        ),
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-2",
-                        ),
+                    "related_findings": [
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-1",
+                        },
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-2",
+                        },
                     ],
-                    note=aws_native.securityhub.AutomationRuleNoteUpdateArgs(
-                        text="sample-note-text",
-                        updated_by="sechub",
-                    ),
-                    verification_state=aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
-                    workflow=aws_native.securityhub.AutomationRuleWorkflowUpdateArgs(
-                        status=aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
-                    ),
-                ),
-            )],
+                    "note": {
+                        "text": "sample-note-text",
+                        "updated_by": "sechub",
+                    },
+                    "verification_state": aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
+                    "workflow": {
+                        "status": aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
+                    },
+                },
+            }],
             tags={
                 "sampleTag": "sampleValue",
                 "organizationUnit": "pnw",
@@ -1036,266 +1036,266 @@ class AutomationRule(pulumi.CustomResource):
             description="Example rule description.",
             is_terminal=False,
             rule_status=aws_native.securityhub.AutomationRuleRuleStatus.ENABLED,
-            criteria=aws_native.securityhub.AutomationRulesFindingFiltersArgs(
-                product_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="GuardDuty",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="SecurityHub",
-                    ),
+            criteria={
+                "product_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "GuardDuty",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "SecurityHub",
+                    },
                 ],
-                company_name=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="AWS",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="Private",
-                    ),
+                "company_name": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "AWS",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "Private",
+                    },
                 ],
-                product_arn=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="arn:aws:securityhub:us-west-2:123456789012:product/aws",
-                    ),
+                "product_arn": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "arn:aws:securityhub:us-west-2:123456789012:product/aws",
+                    },
                 ],
-                aws_account_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="123456789012",
-                )],
-                id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id",
-                )],
-                generator_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-generator-id",
-                )],
-                type=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="type-2",
-                    ),
+                "aws_account_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "123456789012",
+                }],
+                "id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id",
+                }],
+                "generator_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-generator-id",
+                }],
+                "type": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "type-2",
+                    },
                 ],
-                description=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="description2",
-                    ),
+                "description": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "description2",
+                    },
                 ],
-                source_url=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="https",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="ftp",
-                    ),
+                "source_url": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "https",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "ftp",
+                    },
                 ],
-                title=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="title-1",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                        value="title-2",
-                    ),
+                "title": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "title-1",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                        "value": "title-2",
+                    },
                 ],
-                severity_label=[
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="LOW",
-                    ),
-                    aws_native.securityhub.AutomationRuleStringFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                        value="HIGH",
-                    ),
+                "severity_label": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "LOW",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                        "value": "HIGH",
+                    },
                 ],
-                resource_type=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="AwsEc2Instance",
-                )],
-                resource_partition=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="aws",
-                )],
-                resource_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="i-1234567890",
-                )],
-                resource_region=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="us-west",
-                )],
-                compliance_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="FAILED",
-                )],
-                compliance_security_control_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="EC2.3",
-                )],
-                compliance_associated_standards_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                )],
-                verification_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="BENIGN_POSITIVE",
-                )],
-                record_state=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="ACTIVE",
-                )],
-                related_findings_product_arn=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="arn:aws:securityhub:eu-central-1::product/aws/securityhub",
-                )],
-                related_findings_id=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-finding-id-2",
-                )],
-                note_text=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="example-note-text",
-                )],
-                note_updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                note_updated_by=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
-                    value="sechub",
-                )],
-                workflow_status=[aws_native.securityhub.AutomationRuleStringFilterArgs(
-                    comparison=aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
-                    value="NEW",
-                )],
-                first_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                last_observed_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                created_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    date_range=aws_native.securityhub.AutomationRuleDateRangeArgs(
-                        unit=aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        value=5,
-                    ),
-                )],
-                updated_at=[aws_native.securityhub.AutomationRuleDateFilterArgs(
-                    start="2023-04-25T17:05:54.832Z",
-                    end="2023-05-25T17:05:54.832Z",
-                )],
-                resource_tags=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="operations",
-                    ),
+                "resource_type": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "AwsEc2Instance",
+                }],
+                "resource_partition": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "aws",
+                }],
+                "resource_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "i-1234567890",
+                }],
+                "resource_region": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "us-west",
+                }],
+                "compliance_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "FAILED",
+                }],
+                "compliance_security_control_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "EC2.3",
+                }],
+                "compliance_associated_standards_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+                }],
+                "verification_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "BENIGN_POSITIVE",
+                }],
+                "record_state": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "ACTIVE",
+                }],
+                "related_findings_product_arn": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "arn:aws:securityhub:eu-central-1::product/aws/securityhub",
+                }],
+                "related_findings_id": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-finding-id-2",
+                }],
+                "note_text": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "example-note-text",
+                }],
+                "note_updated_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "note_updated_by": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.PREFIX,
+                    "value": "sechub",
+                }],
+                "workflow_status": [{
+                    "comparison": aws_native.securityhub.AutomationRuleStringFilterComparison.EQUALS,
+                    "value": "NEW",
+                }],
+                "first_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "last_observed_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "created_at": [{
+                    "date_range": {
+                        "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
+                        "value": 5,
+                    },
+                }],
+                "updated_at": [{
+                    "start": "2023-04-25T17:05:54.832Z",
+                    "end": "2023-05-25T17:05:54.832Z",
+                }],
+                "resource_tags": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "operations",
+                    },
                 ],
-                user_defined_fields=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key1",
-                        value="security",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
-                        key="key2",
-                        value="operations",
-                    ),
+                "user_defined_fields": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key1",
+                        "value": "security",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.EQUALS,
+                        "key": "key2",
+                        "value": "operations",
+                    },
                 ],
-                resource_details_other=[
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="area",
-                        value="na",
-                    ),
-                    aws_native.securityhub.AutomationRuleMapFilterArgs(
-                        comparison=aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
-                        key="department",
-                        value="sales",
-                    ),
+                "resource_details_other": [
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "area",
+                        "value": "na",
+                    },
+                    {
+                        "comparison": aws_native.securityhub.AutomationRuleMapFilterComparison.NOT_EQUALS,
+                        "key": "department",
+                        "value": "sales",
+                    },
                 ],
-                confidence=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-                criticality=[aws_native.securityhub.AutomationRuleNumberFilterArgs(
-                    gte=50,
-                    lte=95,
-                )],
-            ),
-            actions=[aws_native.securityhub.AutomationRulesActionArgs(
-                type=aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
-                finding_fields_update=aws_native.securityhub.AutomationRulesFindingFieldsUpdateArgs(
-                    severity=aws_native.securityhub.AutomationRuleSeverityUpdateArgs(
-                        product=50,
-                        label=aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
-                        normalized=60,
-                    ),
-                    types=[
+                "confidence": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+                "criticality": [{
+                    "gte": 50,
+                    "lte": 95,
+                }],
+            },
+            actions=[{
+                "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
+                "finding_fields_update": {
+                    "severity": {
+                        "product": 50,
+                        "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
+                        "normalized": 60,
+                    },
+                    "types": [
                         "Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices",
                         "Industry Compliance",
                     ],
-                    confidence=98,
-                    criticality=95,
-                    user_defined_fields={
+                    "confidence": 98,
+                    "criticality": 95,
+                    "user_defined_fields": {
                         "key1": "value1",
                         "key2": "value2",
                     },
-                    related_findings=[
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-1",
-                        ),
-                        aws_native.securityhub.AutomationRuleRelatedFindingArgs(
-                            product_arn="arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
-                            id="sample-finding-id-2",
-                        ),
+                    "related_findings": [
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-1",
+                        },
+                        {
+                            "product_arn": "arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default",
+                            "id": "sample-finding-id-2",
+                        },
                     ],
-                    note=aws_native.securityhub.AutomationRuleNoteUpdateArgs(
-                        text="sample-note-text",
-                        updated_by="sechub",
-                    ),
-                    verification_state=aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
-                    workflow=aws_native.securityhub.AutomationRuleWorkflowUpdateArgs(
-                        status=aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
-                    ),
-                ),
-            )],
+                    "note": {
+                        "text": "sample-note-text",
+                        "updated_by": "sechub",
+                    },
+                    "verification_state": aws_native.securityhub.AutomationRulesFindingFieldsUpdateVerificationState.TRUE_POSITIVE,
+                    "workflow": {
+                        "status": aws_native.securityhub.AutomationRuleWorkflowUpdateStatus.NOTIFIED,
+                    },
+                },
+            }],
             tags={
                 "sampleTag": "sampleValue",
                 "organizationUnit": "pnw",
@@ -1318,8 +1318,8 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_terminal: Optional[pulumi.Input[bool]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,

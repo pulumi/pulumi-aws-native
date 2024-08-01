@@ -146,11 +146,11 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_description: Optional[pulumi.Input[str]] = None,
                  asset_external_id: Optional[pulumi.Input[str]] = None,
-                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
+                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetHierarchyArgs', 'AssetHierarchyArgsDict']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetPropertyArgs', 'AssetPropertyArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Asset
@@ -159,13 +159,13 @@ class Asset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asset_description: A description for the asset
         :param pulumi.Input[str] asset_external_id: The External ID of the asset
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]] asset_hierarchies: A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetHierarchyArgs', 'AssetHierarchyArgsDict']]]] asset_hierarchies: A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
         :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]] asset_properties: The list of asset properties for the asset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetPropertyArgs', 'AssetPropertyArgsDict']]]] asset_properties: The list of asset properties for the asset.
                
                This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         ...
     @overload
@@ -193,11 +193,11 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_description: Optional[pulumi.Input[str]] = None,
                  asset_external_id: Optional[pulumi.Input[str]] = None,
-                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
+                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetHierarchyArgs', 'AssetHierarchyArgsDict']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetPropertyArgs', 'AssetPropertyArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

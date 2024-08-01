@@ -126,7 +126,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
+                 studio_encryption_configuration: Optional[pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
         :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
-        :param pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
+        :param pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
         :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
@@ -171,7 +171,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
+                 studio_encryption_configuration: Optional[pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,

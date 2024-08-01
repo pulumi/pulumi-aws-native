@@ -146,7 +146,7 @@ class WebExperience(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  welcome_message: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,7 +161,7 @@ class WebExperience(pulumi.CustomResource):
                > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input[str] title: The title for your Amazon Q Business web experience.
         :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
@@ -193,7 +193,7 @@ class WebExperience(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  welcome_message: Optional[pulumi.Input[str]] = None,
                  __props__=None):

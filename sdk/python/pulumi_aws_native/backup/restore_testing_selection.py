@@ -161,7 +161,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protected_resource_conditions: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']]] = None,
+                 protected_resource_conditions: Optional[pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
                  protected_resource_type: Optional[pulumi.Input[str]] = None,
                  restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protected_resource_arns: You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
-        :param pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']] protected_resource_conditions: In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
+        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']] protected_resource_conditions: In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         :param pulumi.Input[str] protected_resource_type: The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
                
@@ -212,7 +212,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protected_resource_conditions: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']]] = None,
+                 protected_resource_conditions: Optional[pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
                  protected_resource_type: Optional[pulumi.Input[str]] = None,
                  restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,

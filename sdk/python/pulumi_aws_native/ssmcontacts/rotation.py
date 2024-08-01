@@ -123,9 +123,9 @@ class Rotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['RotationRecurrenceSettingsArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -135,9 +135,9 @@ class Rotation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_ids: Members of the rotation
         :param pulumi.Input[str] name: Name of the Rotation
-        :param pulumi.Input[pulumi.InputType['RotationRecurrenceSettingsArgs']] recurrence: Information about the rule that specifies when shift team members rotate.
+        :param pulumi.Input[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']] recurrence: Information about the rule that specifies when shift team members rotate.
         :param pulumi.Input[str] start_time: Start time of the first shift of Oncall Schedule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
         :param pulumi.Input[str] time_zone_id: TimeZone Identifier for the Oncall Schedule
         """
         ...
@@ -166,9 +166,9 @@ class Rotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['RotationRecurrenceSettingsArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

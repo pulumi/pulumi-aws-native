@@ -125,8 +125,8 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[str]] = None,
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,8 +137,8 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input['AppType'] app_type: The type of app.
         :param pulumi.Input[str] domain_id: The domain ID.
-        :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A list of tags to apply to the app.
+        :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A list of tags to apply to the app.
         :param pulumi.Input[str] user_profile_name: The user profile name.
         """
         ...
@@ -168,8 +168,8 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[str]] = None,
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

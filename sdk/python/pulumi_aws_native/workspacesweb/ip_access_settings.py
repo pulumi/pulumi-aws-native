@@ -131,8 +131,8 @@ class IpAccessSettings(pulumi.CustomResource):
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAccessSettingsIpRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
@@ -145,8 +145,8 @@ class IpAccessSettings(pulumi.CustomResource):
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
         :param pulumi.Input[str] description: The description of the IP access settings.
         :param pulumi.Input[str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAccessSettingsIpRuleArgs']]]] ip_rules: The IP rules of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the IP access settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]] ip_rules: The IP rules of the IP access settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the IP access settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -176,8 +176,8 @@ class IpAccessSettings(pulumi.CustomResource):
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAccessSettingsIpRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

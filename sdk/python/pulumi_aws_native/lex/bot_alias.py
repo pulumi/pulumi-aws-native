@@ -154,28 +154,28 @@ class BotAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasLocaleSettingsItemArgs']]]]] = None,
+                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
                  bot_alias_name: Optional[pulumi.Input[str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasTagArgs']]]]] = None,
+                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]]] = None,
                  bot_id: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
-                 conversation_log_settings: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']]] = None,
+                 conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 sentiment_analysis_settings: Optional[pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']]] = None,
+                 sentiment_analysis_settings: Optional[pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         A Bot Alias enables you to change the version of a bot without updating applications that use the bot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasLocaleSettingsItemArgs']]]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
         :param pulumi.Input[str] bot_alias_name: The name of the bot alias.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasTagArgs']]]] bot_alias_tags: A list of tags to add to the bot alias.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]] bot_alias_tags: A list of tags to add to the bot alias.
         :param pulumi.Input[str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[str] bot_version: The version of the bot that the bot alias references.
-        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
+        :param pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         :param pulumi.Input[str] description: The description of the bot alias.
-        :param pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        :param pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         ...
     @overload
@@ -201,14 +201,14 @@ class BotAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasLocaleSettingsItemArgs']]]]] = None,
+                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
                  bot_alias_name: Optional[pulumi.Input[str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasTagArgs']]]]] = None,
+                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]]] = None,
                  bot_id: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
-                 conversation_log_settings: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']]] = None,
+                 conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 sentiment_analysis_settings: Optional[pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']]] = None,
+                 sentiment_analysis_settings: Optional[pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

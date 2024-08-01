@@ -95,8 +95,8 @@ class MailManagerArchive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 retention: Optional[pulumi.Input[pulumi.InputType['MailManagerArchiveArchiveRetentionPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 retention: Optional[pulumi.Input[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerArchive Resource Type
@@ -105,8 +105,8 @@ class MailManagerArchive(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] archive_name: A unique name for the new archive.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
-        :param pulumi.Input[pulumi.InputType['MailManagerArchiveArchiveRetentionPropertiesArgs']] retention: The period for retaining emails in the archive before automatic deletion.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']] retention: The period for retaining emails in the archive before automatic deletion.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -134,8 +134,8 @@ class MailManagerArchive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 retention: Optional[pulumi.Input[pulumi.InputType['MailManagerArchiveArchiveRetentionPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 retention: Optional[pulumi.Input[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

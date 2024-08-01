@@ -113,7 +113,7 @@ class FlowAlias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowAliasRoutingConfigurationListItemArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -124,7 +124,7 @@ class FlowAlias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[str] name: Name for a resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowAliasRoutingConfigurationListItemArgs']]]] routing_configuration: Routing configuration for a Flow alias.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]] routing_configuration: Routing configuration for a Flow alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -157,7 +157,7 @@ class FlowAlias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowAliasRoutingConfigurationListItemArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

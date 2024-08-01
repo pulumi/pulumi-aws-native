@@ -104,10 +104,10 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_takeover_risk_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']]] = None,
+                 account_takeover_risk_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
-                 compromised_credentials_risk_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']]] = None,
-                 risk_exception_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']]] = None,
+                 compromised_credentials_risk_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']]] = None,
+                 risk_exception_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -115,10 +115,10 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] risk_exception_configuration: The configuration to override the risk decision.
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']] risk_exception_configuration: The configuration to override the risk decision.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
@@ -145,10 +145,10 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_takeover_risk_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']]] = None,
+                 account_takeover_risk_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
-                 compromised_credentials_risk_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']]] = None,
-                 risk_exception_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']]] = None,
+                 compromised_credentials_risk_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']]] = None,
+                 risk_exception_configuration: Optional[pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

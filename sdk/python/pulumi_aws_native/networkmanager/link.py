@@ -137,12 +137,12 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArgs']]] = None,
+                 bandwidth: Optional[pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -150,12 +150,12 @@ class Link(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The Bandwidth for the link.
+        :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']] bandwidth: The Bandwidth for the link.
         :param pulumi.Input[str] description: The description of the link.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the link.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the link.
         :param pulumi.Input[str] type: The type of the link.
         """
         ...
@@ -182,12 +182,12 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArgs']]] = None,
+                 bandwidth: Optional[pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

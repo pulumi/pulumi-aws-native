@@ -93,8 +93,8 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DomainServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['DomainServerSideEncryptionConfigurationArgs', 'DomainServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
@@ -103,8 +103,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the domain.
         :param pulumi.Input[str] name: The name for the domain.
-        :param pulumi.Input[pulumi.InputType['DomainServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['DomainServerSideEncryptionConfigurationArgs', 'DomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -132,8 +132,8 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DomainServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['DomainServerSideEncryptionConfigurationArgs', 'DomainServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

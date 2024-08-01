@@ -74,7 +74,7 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery in your account.
@@ -87,7 +87,7 @@ class Delivery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that have been assigned to this delivery.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

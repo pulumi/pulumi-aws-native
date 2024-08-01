@@ -138,26 +138,26 @@ class AnalysisTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisParameterArgs']]]]] = None,
+                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceArgs', 'AnalysisTemplateAnalysisSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a stored analysis within a collaboration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisParameterArgs']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
         :param pulumi.Input[str] description: The description of the analysis template.
         :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
         :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
         :param pulumi.Input[str] name: The name of the analysis template.
-        :param pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']] source: The source of the analysis template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
+        :param pulumi.Input[Union['AnalysisTemplateAnalysisSourceArgs', 'AnalysisTemplateAnalysisSourceArgsDict']] source: The source of the analysis template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         ...
     @overload
@@ -183,13 +183,13 @@ class AnalysisTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisParameterArgs']]]]] = None,
+                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceArgs', 'AnalysisTemplateAnalysisSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

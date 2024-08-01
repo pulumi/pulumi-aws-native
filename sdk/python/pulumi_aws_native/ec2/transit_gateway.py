@@ -227,7 +227,7 @@ class TransitGateway(pulumi.CustomResource):
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -245,7 +245,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
@@ -282,7 +282,7 @@ class TransitGateway(pulumi.CustomResource):
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):

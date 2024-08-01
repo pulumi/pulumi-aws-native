@@ -91,7 +91,7 @@ class Dimension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DimensionType']] = None,
                  __props__=None):
         """
@@ -108,10 +108,10 @@ class Dimension(pulumi.CustomResource):
             name="TopicFilterForAuthMessages",
             type=aws_native.iot.DimensionType.TOPIC_FILTER,
             string_values=["device/+/auth"],
-            tags=[aws_native.TagArgs(
-                key="Application",
-                value="SmartHome",
-            )])
+            tags=[{
+                "key": "Application",
+                "value": "SmartHome",
+            }])
 
         ```
 
@@ -119,7 +119,7 @@ class Dimension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A unique identifier for the dimension.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: Specifies the value or list of values for the dimension.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that can be used to manage the dimension.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that can be used to manage the dimension.
         :param pulumi.Input['DimensionType'] type: Specifies the type of the dimension.
         """
         ...
@@ -142,10 +142,10 @@ class Dimension(pulumi.CustomResource):
             name="TopicFilterForAuthMessages",
             type=aws_native.iot.DimensionType.TOPIC_FILTER,
             string_values=["device/+/auth"],
-            tags=[aws_native.TagArgs(
-                key="Application",
-                value="SmartHome",
-            )])
+            tags=[{
+                "key": "Application",
+                "value": "SmartHome",
+            }])
 
         ```
 
@@ -166,7 +166,7 @@ class Dimension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DimensionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

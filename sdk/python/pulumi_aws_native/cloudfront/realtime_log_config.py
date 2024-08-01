@@ -91,7 +91,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_points: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndPointArgs']]]]] = None,
+                 end_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RealtimeLogConfigEndPointArgs', 'RealtimeLogConfigEndPointArgsDict']]]]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[float]] = None,
@@ -101,7 +101,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndPointArgs']]]] end_points: Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RealtimeLogConfigEndPointArgs', 'RealtimeLogConfigEndPointArgsDict']]]] end_points: Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
                
                For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
@@ -132,7 +132,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_points: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndPointArgs']]]]] = None,
+                 end_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RealtimeLogConfigEndPointArgs', 'RealtimeLogConfigEndPointArgsDict']]]]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[float]] = None,

@@ -136,10 +136,10 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 column_wildcard: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterColumnWildcardArgs']]] = None,
+                 column_wildcard: Optional[pulumi.Input[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 row_filter: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterRowFilterArgs']]] = None,
+                 row_filter: Optional[pulumi.Input[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
                  table_catalog_id: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -149,10 +149,10 @@ class DataCellsFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: A list of columns to be included in this Data Cells Filter.
-        :param pulumi.Input[pulumi.InputType['DataCellsFilterColumnWildcardArgs']] column_wildcard: An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required
+        :param pulumi.Input[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']] column_wildcard: An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required
         :param pulumi.Input[str] database_name: The name of the Database that the Table resides in.
         :param pulumi.Input[str] name: The desired name of the Data Cells Filter.
-        :param pulumi.Input[pulumi.InputType['DataCellsFilterRowFilterArgs']] row_filter: An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
+        :param pulumi.Input[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']] row_filter: An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
         :param pulumi.Input[str] table_catalog_id: The Catalog Id of the Table on which to create a Data Cells Filter.
         :param pulumi.Input[str] table_name: The name of the Table to create a Data Cells Filter for.
         """
@@ -181,10 +181,10 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 column_wildcard: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterColumnWildcardArgs']]] = None,
+                 column_wildcard: Optional[pulumi.Input[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 row_filter: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterRowFilterArgs']]] = None,
+                 row_filter: Optional[pulumi.Input[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
                  table_catalog_id: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

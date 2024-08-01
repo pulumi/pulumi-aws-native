@@ -153,28 +153,28 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_details: Optional[pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionAttributeDetailsArgs']]] = None,
+                 attribute_details: Optional[pulumi.Input[Union['CalculatedAttributeDefinitionAttributeDetailsArgs', 'CalculatedAttributeDefinitionAttributeDetailsArgsDict']]] = None,
                  calculated_attribute_name: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['CalculatedAttributeDefinitionConditionsArgs', 'CalculatedAttributeDefinitionConditionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  statistic: Optional[pulumi.Input['CalculatedAttributeDefinitionStatistic']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A calculated attribute definition for Customer Profiles
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionAttributeDetailsArgs']] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
+        :param pulumi.Input[Union['CalculatedAttributeDefinitionAttributeDetailsArgs', 'CalculatedAttributeDefinitionAttributeDetailsArgsDict']] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
         :param pulumi.Input[str] calculated_attribute_name: The name of an attribute defined in a profile object type.
-        :param pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionConditionsArgs']] conditions: The conditions including range, object count, and threshold for the calculated attribute.
+        :param pulumi.Input[Union['CalculatedAttributeDefinitionConditionsArgs', 'CalculatedAttributeDefinitionConditionsArgsDict']] conditions: The conditions including range, object count, and threshold for the calculated attribute.
         :param pulumi.Input[str] description: The description of the calculated attribute.
         :param pulumi.Input[str] display_name: The display name of the calculated attribute.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input['CalculatedAttributeDefinitionStatistic'] statistic: The aggregation operation to perform for the calculated attribute.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -200,14 +200,14 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_details: Optional[pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionAttributeDetailsArgs']]] = None,
+                 attribute_details: Optional[pulumi.Input[Union['CalculatedAttributeDefinitionAttributeDetailsArgs', 'CalculatedAttributeDefinitionAttributeDetailsArgsDict']]] = None,
                  calculated_attribute_name: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['CalculatedAttributeDefinitionConditionsArgs', 'CalculatedAttributeDefinitionConditionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  statistic: Optional[pulumi.Input['CalculatedAttributeDefinitionStatistic']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

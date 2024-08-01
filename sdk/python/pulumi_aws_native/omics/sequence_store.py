@@ -110,7 +110,7 @@ class SequenceStore(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -121,7 +121,7 @@ class SequenceStore(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -151,7 +151,7 @@ class SequenceStore(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

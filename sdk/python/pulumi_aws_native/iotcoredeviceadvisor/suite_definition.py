@@ -111,8 +111,8 @@ class SuiteDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[pulumi.Input[pulumi.InputType['SuiteDefinitionConfigurationPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 suite_definition_configuration: Optional[pulumi.Input[Union['SuiteDefinitionConfigurationPropertiesArgs', 'SuiteDefinitionConfigurationPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -124,13 +124,13 @@ class SuiteDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(
-            suite_definition_name="SuiteDefinitionName",
-            device_permission_role_arn="arn:aws:iam::123456789012:role/RoleName",
-            devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(
-                thing_arn="arn:aws:iot:us-east-1:123456789012:thing/ThingName",
-            )],
-            root_group=\"\"\"{
+        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration={
+            "suite_definition_name": "SuiteDefinitionName",
+            "device_permission_role_arn": "arn:aws:iam::123456789012:role/RoleName",
+            "devices": [{
+                "thing_arn": "arn:aws:iot:us-east-1:123456789012:thing/ThingName",
+            }],
+            "root_group": \"\"\"{
         "configuration": {},
         "tests": [{
         "name": "TestGroup",
@@ -149,8 +149,8 @@ class SuiteDefinition(pulumi.CustomResource):
         }]
         }]
         }\"\"\",
-            intended_for_qualification=False,
-        ))
+            "intended_for_qualification": False,
+        })
 
         ```
         ### Example
@@ -159,21 +159,21 @@ class SuiteDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(
-            suite_definition_name="SuiteDefinitionName",
-            device_permission_role_arn="arn:aws:iam::123456789012:role/RoleName",
-            devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(
-                thing_arn="arn:aws:iot:us-east-1:123456789012:thing/ThingName",
-            )],
-            root_group="{ \\"configuration\\": {}, \\"tests\\": [{ \\"name\\": \\"TestGroup\\", \\"configuration\\": { \\"EXECUTION_TIMEOUT\\": \\"30\\" }, \\"tests\\": [{ \\"name\\": \\"MQTTPublishTest\\", \\"configuration\\": { \\"TOPIC_FOR_PUBLISH_VALIDATION\\": \\"target\\" }, \\"test\\": { \\"id\\": \\"MQTT_Publish\\", \\"version\\": \\"0.0.0\\" } }] }] }",
-            intended_for_qualification=False,
-        ))
+        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration={
+            "suite_definition_name": "SuiteDefinitionName",
+            "device_permission_role_arn": "arn:aws:iam::123456789012:role/RoleName",
+            "devices": [{
+                "thing_arn": "arn:aws:iot:us-east-1:123456789012:thing/ThingName",
+            }],
+            "root_group": "{ \\"configuration\\": {}, \\"tests\\": [{ \\"name\\": \\"TestGroup\\", \\"configuration\\": { \\"EXECUTION_TIMEOUT\\": \\"30\\" }, \\"tests\\": [{ \\"name\\": \\"MQTTPublishTest\\", \\"configuration\\": { \\"TOPIC_FOR_PUBLISH_VALIDATION\\": \\"target\\" }, \\"test\\": { \\"id\\": \\"MQTT_Publish\\", \\"version\\": \\"0.0.0\\" } }] }] }",
+            "intended_for_qualification": False,
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SuiteDefinitionConfigurationPropertiesArgs']] suite_definition_configuration: The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+        :param pulumi.Input[Union['SuiteDefinitionConfigurationPropertiesArgs', 'SuiteDefinitionConfigurationPropertiesArgsDict']] suite_definition_configuration: The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
                
                - ***devicePermissionRoleArn*** - The device permission arn.
                
@@ -200,7 +200,7 @@ class SuiteDefinition(pulumi.CustomResource):
                This is a required element.
                
                *Type:* String
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -218,13 +218,13 @@ class SuiteDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(
-            suite_definition_name="SuiteDefinitionName",
-            device_permission_role_arn="arn:aws:iam::123456789012:role/RoleName",
-            devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(
-                thing_arn="arn:aws:iot:us-east-1:123456789012:thing/ThingName",
-            )],
-            root_group=\"\"\"{
+        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration={
+            "suite_definition_name": "SuiteDefinitionName",
+            "device_permission_role_arn": "arn:aws:iam::123456789012:role/RoleName",
+            "devices": [{
+                "thing_arn": "arn:aws:iot:us-east-1:123456789012:thing/ThingName",
+            }],
+            "root_group": \"\"\"{
         "configuration": {},
         "tests": [{
         "name": "TestGroup",
@@ -243,8 +243,8 @@ class SuiteDefinition(pulumi.CustomResource):
         }]
         }]
         }\"\"\",
-            intended_for_qualification=False,
-        ))
+            "intended_for_qualification": False,
+        })
 
         ```
         ### Example
@@ -253,15 +253,15 @@ class SuiteDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(
-            suite_definition_name="SuiteDefinitionName",
-            device_permission_role_arn="arn:aws:iam::123456789012:role/RoleName",
-            devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(
-                thing_arn="arn:aws:iot:us-east-1:123456789012:thing/ThingName",
-            )],
-            root_group="{ \\"configuration\\": {}, \\"tests\\": [{ \\"name\\": \\"TestGroup\\", \\"configuration\\": { \\"EXECUTION_TIMEOUT\\": \\"30\\" }, \\"tests\\": [{ \\"name\\": \\"MQTTPublishTest\\", \\"configuration\\": { \\"TOPIC_FOR_PUBLISH_VALIDATION\\": \\"target\\" }, \\"test\\": { \\"id\\": \\"MQTT_Publish\\", \\"version\\": \\"0.0.0\\" } }] }] }",
-            intended_for_qualification=False,
-        ))
+        test_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition("testSuiteDefinition", suite_definition_configuration={
+            "suite_definition_name": "SuiteDefinitionName",
+            "device_permission_role_arn": "arn:aws:iam::123456789012:role/RoleName",
+            "devices": [{
+                "thing_arn": "arn:aws:iot:us-east-1:123456789012:thing/ThingName",
+            }],
+            "root_group": "{ \\"configuration\\": {}, \\"tests\\": [{ \\"name\\": \\"TestGroup\\", \\"configuration\\": { \\"EXECUTION_TIMEOUT\\": \\"30\\" }, \\"tests\\": [{ \\"name\\": \\"MQTTPublishTest\\", \\"configuration\\": { \\"TOPIC_FOR_PUBLISH_VALIDATION\\": \\"target\\" }, \\"test\\": { \\"id\\": \\"MQTT_Publish\\", \\"version\\": \\"0.0.0\\" } }] }] }",
+            "intended_for_qualification": False,
+        })
 
         ```
 
@@ -280,8 +280,8 @@ class SuiteDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[pulumi.Input[pulumi.InputType['SuiteDefinitionConfigurationPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 suite_definition_configuration: Optional[pulumi.Input[Union['SuiteDefinitionConfigurationPropertiesArgs', 'SuiteDefinitionConfigurationPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

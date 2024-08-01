@@ -289,18 +289,18 @@ class RestApi(pulumi.CustomResource):
                  api_key_source_type: Optional[pulumi.Input[str]] = None,
                  binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: Optional[pulumi.Input[pulumi.InputType['RestApiS3LocationArgs']]] = None,
+                 body_s3_location: Optional[pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']]] = None,
                  clone_from: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
@@ -321,9 +321,9 @@ class RestApi(pulumi.CustomResource):
         property = config.require("property")
         rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
         documentation_part = aws_native.apigateway.DocumentationPart("documentationPart",
-            location=aws_native.apigateway.DocumentationPartLocationArgs(
-                type=aws_native.apigateway.DocumentationPartLocationType(type),
-            ),
+            location={
+                "type": aws_native.apigateway.DocumentationPartLocationType(type),
+            },
             rest_api_id=rest_api.id,
             properties=property)
         documentation_version = aws_native.apigateway.DocumentationVersion("documentationVersion",
@@ -347,9 +347,9 @@ class RestApi(pulumi.CustomResource):
         property = config.require("property")
         rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
         documentation_part = aws_native.apigateway.DocumentationPart("documentationPart",
-            location=aws_native.apigateway.DocumentationPartLocationArgs(
-                type=aws_native.apigateway.DocumentationPartLocationType(type),
-            ),
+            location={
+                "type": aws_native.apigateway.DocumentationPartLocationType(type),
+            },
             rest_api_id=rest_api.id,
             properties=property)
         documentation_version = aws_native.apigateway.DocumentationVersion("documentationVersion",
@@ -473,14 +473,14 @@ class RestApi(pulumi.CustomResource):
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
             authorization_type="NONE",
-            integration=aws_native.apigateway.MethodIntegrationArgs(
-                type=aws_native.apigateway.MethodIntegrationType.MOCK,
-                content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
-                integration_responses=[aws_native.apigateway.MethodIntegrationResponseArgs(
-                    content_handling=aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
-                    status_code="400",
-                )],
-            ),
+            integration={
+                "type": aws_native.apigateway.MethodIntegrationType.MOCK,
+                "content_handling": aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
+                "integration_responses": [{
+                    "content_handling": aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
+                    "status_code": "400",
+                }],
+            },
             request_validator_id=request_validator.id,
             operation_name=operation_name)
         pulumi.export("rootResourceId", rest_api.root_resource_id)
@@ -520,14 +520,14 @@ class RestApi(pulumi.CustomResource):
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
             authorization_type="NONE",
-            integration=aws_native.apigateway.MethodIntegrationArgs(
-                type=aws_native.apigateway.MethodIntegrationType.MOCK,
-                content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
-                integration_responses=[aws_native.apigateway.MethodIntegrationResponseArgs(
-                    content_handling=aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
-                    status_code="400",
-                )],
-            ),
+            integration={
+                "type": aws_native.apigateway.MethodIntegrationType.MOCK,
+                "content_handling": aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
+                "integration_responses": [{
+                    "content_handling": aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
+                    "status_code": "400",
+                }],
+            },
             request_validator_id=request_validator.id,
             operation_name=operation_name)
         pulumi.export("rootResourceId", rest_api.root_resource_id)
@@ -581,9 +581,9 @@ class RestApi(pulumi.CustomResource):
         api_name = config.require("apiName")
         type = config.require("type")
         my_rest_api = aws_native.apigateway.RestApi("myRestApi",
-            endpoint_configuration=aws_native.apigateway.RestApiEndpointConfigurationArgs(
-                types=[type],
-            ),
+            endpoint_configuration={
+                "types": [type],
+            },
             name=api_name)
 
         ```
@@ -597,9 +597,9 @@ class RestApi(pulumi.CustomResource):
         api_name = config.require("apiName")
         type = config.require("type")
         my_rest_api = aws_native.apigateway.RestApi("myRestApi",
-            endpoint_configuration=aws_native.apigateway.RestApiEndpointConfigurationArgs(
-                types=[type],
-            ),
+            endpoint_configuration={
+                "types": [type],
+            },
             name=api_name)
 
         ```
@@ -709,11 +709,11 @@ class RestApi(pulumi.CustomResource):
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-        :param pulumi.Input[pulumi.InputType['RestApiS3LocationArgs']] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
+        :param pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
         :param pulumi.Input[str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[str] description: The description of the RestApi.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
-        :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+        :param pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']] endpoint_configuration: A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         :param pulumi.Input[bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
         :param pulumi.Input[int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
         :param pulumi.Input[str] mode: This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
@@ -727,7 +727,7 @@ class RestApi(pulumi.CustomResource):
         :param Any policy: A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         """
         ...
     @overload
@@ -754,9 +754,9 @@ class RestApi(pulumi.CustomResource):
         property = config.require("property")
         rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
         documentation_part = aws_native.apigateway.DocumentationPart("documentationPart",
-            location=aws_native.apigateway.DocumentationPartLocationArgs(
-                type=aws_native.apigateway.DocumentationPartLocationType(type),
-            ),
+            location={
+                "type": aws_native.apigateway.DocumentationPartLocationType(type),
+            },
             rest_api_id=rest_api.id,
             properties=property)
         documentation_version = aws_native.apigateway.DocumentationVersion("documentationVersion",
@@ -780,9 +780,9 @@ class RestApi(pulumi.CustomResource):
         property = config.require("property")
         rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
         documentation_part = aws_native.apigateway.DocumentationPart("documentationPart",
-            location=aws_native.apigateway.DocumentationPartLocationArgs(
-                type=aws_native.apigateway.DocumentationPartLocationType(type),
-            ),
+            location={
+                "type": aws_native.apigateway.DocumentationPartLocationType(type),
+            },
             rest_api_id=rest_api.id,
             properties=property)
         documentation_version = aws_native.apigateway.DocumentationVersion("documentationVersion",
@@ -906,14 +906,14 @@ class RestApi(pulumi.CustomResource):
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
             authorization_type="NONE",
-            integration=aws_native.apigateway.MethodIntegrationArgs(
-                type=aws_native.apigateway.MethodIntegrationType.MOCK,
-                content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
-                integration_responses=[aws_native.apigateway.MethodIntegrationResponseArgs(
-                    content_handling=aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
-                    status_code="400",
-                )],
-            ),
+            integration={
+                "type": aws_native.apigateway.MethodIntegrationType.MOCK,
+                "content_handling": aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
+                "integration_responses": [{
+                    "content_handling": aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
+                    "status_code": "400",
+                }],
+            },
             request_validator_id=request_validator.id,
             operation_name=operation_name)
         pulumi.export("rootResourceId", rest_api.root_resource_id)
@@ -953,14 +953,14 @@ class RestApi(pulumi.CustomResource):
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
             authorization_type="NONE",
-            integration=aws_native.apigateway.MethodIntegrationArgs(
-                type=aws_native.apigateway.MethodIntegrationType.MOCK,
-                content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
-                integration_responses=[aws_native.apigateway.MethodIntegrationResponseArgs(
-                    content_handling=aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
-                    status_code="400",
-                )],
-            ),
+            integration={
+                "type": aws_native.apigateway.MethodIntegrationType.MOCK,
+                "content_handling": aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
+                "integration_responses": [{
+                    "content_handling": aws_native.apigateway.MethodIntegrationResponseContentHandling(content_handling),
+                    "status_code": "400",
+                }],
+            },
             request_validator_id=request_validator.id,
             operation_name=operation_name)
         pulumi.export("rootResourceId", rest_api.root_resource_id)
@@ -1014,9 +1014,9 @@ class RestApi(pulumi.CustomResource):
         api_name = config.require("apiName")
         type = config.require("type")
         my_rest_api = aws_native.apigateway.RestApi("myRestApi",
-            endpoint_configuration=aws_native.apigateway.RestApiEndpointConfigurationArgs(
-                types=[type],
-            ),
+            endpoint_configuration={
+                "types": [type],
+            },
             name=api_name)
 
         ```
@@ -1030,9 +1030,9 @@ class RestApi(pulumi.CustomResource):
         api_name = config.require("apiName")
         type = config.require("type")
         my_rest_api = aws_native.apigateway.RestApi("myRestApi",
-            endpoint_configuration=aws_native.apigateway.RestApiEndpointConfigurationArgs(
-                types=[type],
-            ),
+            endpoint_configuration={
+                "types": [type],
+            },
             name=api_name)
 
         ```
@@ -1153,18 +1153,18 @@ class RestApi(pulumi.CustomResource):
                  api_key_source_type: Optional[pulumi.Input[str]] = None,
                  binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: Optional[pulumi.Input[pulumi.InputType['RestApiS3LocationArgs']]] = None,
+                 body_s3_location: Optional[pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']]] = None,
                  clone_from: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

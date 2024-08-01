@@ -56,7 +56,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResourcePolicyPolicyArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -64,7 +64,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourcePolicyPolicyArgs']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        :param pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
         """
         ...
@@ -91,7 +91,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResourcePolicyPolicyArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

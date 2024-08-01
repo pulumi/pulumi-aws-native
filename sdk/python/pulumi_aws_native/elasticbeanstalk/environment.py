@@ -224,12 +224,12 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  operations_role: Optional[pulumi.Input[str]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentOptionSettingArgs']]]]] = None,
+                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
                  platform_arn: Optional[pulumi.Input[str]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[pulumi.InputType['EnvironmentTierArgs']]] = None,
+                 tier: Optional[pulumi.Input[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
                  version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -242,12 +242,12 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] description: Your description for this environment.
         :param pulumi.Input[str] environment_name: A unique name for the environment.
         :param pulumi.Input[str] operations_role: The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentOptionSettingArgs']]]] option_settings: Key-value pairs defining configuration options for this environment, such as the instance type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]] option_settings: Key-value pairs defining configuration options for this environment, such as the instance type.
         :param pulumi.Input[str] platform_arn: The Amazon Resource Name (ARN) of the custom platform to use with the environment.
         :param pulumi.Input[str] solution_stack_name: The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the tags applied to resources in the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the tags applied to resources in the environment.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk configuration template to use with the environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentTierArgs']] tier: Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        :param pulumi.Input[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']] tier: Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
         :param pulumi.Input[str] version_label: The name of the application version to deploy.
         """
         ...
@@ -279,12 +279,12 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  operations_role: Optional[pulumi.Input[str]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentOptionSettingArgs']]]]] = None,
+                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
                  platform_arn: Optional[pulumi.Input[str]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[pulumi.InputType['EnvironmentTierArgs']]] = None,
+                 tier: Optional[pulumi.Input[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
                  version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

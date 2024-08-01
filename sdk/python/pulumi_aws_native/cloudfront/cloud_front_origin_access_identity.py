@@ -41,7 +41,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']]] = None,
+                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -53,9 +53,9 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config=aws_native.cloudfront.CloudFrontOriginAccessIdentityConfigArgs(
-            comment="string-value",
-        ))
+        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config={
+            "comment": "string-value",
+        })
 
         ```
         ### Example
@@ -64,15 +64,15 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config=aws_native.cloudfront.CloudFrontOriginAccessIdentityConfigArgs(
-            comment="string-value",
-        ))
+        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config={
+            "comment": "string-value",
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']] cloud_front_origin_access_identity_config: The current configuration information for the identity.
+        :param pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']] cloud_front_origin_access_identity_config: The current configuration information for the identity.
         """
         ...
     @overload
@@ -90,9 +90,9 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config=aws_native.cloudfront.CloudFrontOriginAccessIdentityConfigArgs(
-            comment="string-value",
-        ))
+        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config={
+            "comment": "string-value",
+        })
 
         ```
         ### Example
@@ -101,9 +101,9 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config=aws_native.cloudfront.CloudFrontOriginAccessIdentityConfigArgs(
-            comment="string-value",
-        ))
+        cloudfrontoriginaccessidentity = aws_native.cloudfront.CloudFrontOriginAccessIdentity("cloudfrontoriginaccessidentity", cloud_front_origin_access_identity_config={
+            "comment": "string-value",
+        })
 
         ```
 
@@ -122,7 +122,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']]] = None,
+                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

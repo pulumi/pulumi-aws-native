@@ -213,7 +213,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -232,7 +232,7 @@ class Authorizer(pulumi.CustomResource):
                 For a ``REQUEST`` authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with ``$``, for example, ``$request.header.Auth``, ``$request.querystring.Name``. These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).
                 For ``JWT``, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example ``$request.header.Authorization``.
         :param pulumi.Input[str] identity_validation_expression: This parameter is not used.
-        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
         :param pulumi.Input[str] name: The name of the authorizer.
         """
         ...
@@ -268,7 +268,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -252,19 +252,19 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
-                 auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
-                 auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
-                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
-                 initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
-                 maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
-                 monitoring_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']]] = None,
+                 auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
+                 auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
+                 initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
+                 maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']]] = None,
+                 monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
-                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EMRServerless::Application Type
@@ -272,19 +272,19 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: Configuration for Auto Start of Application.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: Configuration for Auto Stop of Application.
-        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']] image_configuration: The image configuration applied to all worker types.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] initial_capacity: Initial capacity initialized when an Application is started.
-        :param pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-        :param pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+        :param pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']] auto_start_configuration: Configuration for Auto Start of Application.
+        :param pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']] auto_stop_configuration: Configuration for Auto Stop of Application.
+        :param pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']] image_configuration: The image configuration applied to all worker types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]] initial_capacity: Initial capacity initialized when an Application is started.
+        :param pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
+        :param pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         :param pulumi.Input[str] name: User friendly Application name.
-        :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: Network Configuration for customer VPC connectivity.
+        :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[str] release_label: EMR release label.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tag map with key and value
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tag map with key and value
         :param pulumi.Input[str] type: The type of the application
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
         ...
     @overload
@@ -311,19 +311,19 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
-                 auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
-                 auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
-                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
-                 initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
-                 maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
-                 monitoring_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']]] = None,
+                 auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
+                 auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
+                 initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
+                 maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']]] = None,
+                 monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
-                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

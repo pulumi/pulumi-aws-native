@@ -209,15 +209,15 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
-                 manifest_config: Optional[pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']]] = None,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 manifest_config: Optional[pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
+                 schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskReportConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::Task.
@@ -250,15 +250,15 @@ class Task(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
-        :param pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
-        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
-        :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+        :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[pulumi.InputType['TaskReportConfigArgs']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
                
                When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
         """
@@ -312,15 +312,15 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
-                 manifest_config: Optional[pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']]] = None,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 manifest_config: Optional[pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
+                 schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskReportConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

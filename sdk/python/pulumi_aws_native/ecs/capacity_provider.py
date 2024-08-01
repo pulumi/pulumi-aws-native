@@ -96,9 +96,9 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
+                 auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ECS::CapacityProvider.
@@ -111,20 +111,20 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_capacity_provider = aws_native.ecs.CapacityProvider("myCapacityProvider",
-            auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn="arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
-                managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                    maximum_scaling_step_size=10,
-                    minimum_scaling_step_size=1,
-                    status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-                    target_capacity=100,
-                ),
-                managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
-            ),
-            tags=[aws_native.TagArgs(
-                key="environment",
-                value="production",
-            )])
+            auto_scaling_group_provider={
+                "auto_scaling_group_arn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+                "managed_scaling": {
+                    "maximum_scaling_step_size": 10,
+                    "minimum_scaling_step_size": 1,
+                    "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+                    "target_capacity": 100,
+                },
+                "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
+            },
+            tags=[{
+                "key": "environment",
+                "value": "production",
+            }])
 
         ```
         ### Example
@@ -134,20 +134,20 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_capacity_provider = aws_native.ecs.CapacityProvider("myCapacityProvider",
-            auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn="arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
-                managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                    maximum_scaling_step_size=10,
-                    minimum_scaling_step_size=1,
-                    status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-                    target_capacity=100,
-                ),
-                managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
-            ),
-            tags=[aws_native.TagArgs(
-                key="environment",
-                value="production",
-            )])
+            auto_scaling_group_provider={
+                "auto_scaling_group_arn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+                "managed_scaling": {
+                    "maximum_scaling_step_size": 10,
+                    "minimum_scaling_step_size": 1,
+                    "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+                    "target_capacity": 100,
+                },
+                "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
+            },
+            tags=[{
+                "key": "environment",
+                "value": "production",
+            }])
 
         ```
         ### Example
@@ -159,20 +159,20 @@ class CapacityProvider(pulumi.CustomResource):
         config = pulumi.Config()
         auto_scaling_group_arn1 = config.require("autoScalingGroupArn1")
         auto_scaling_group_arn2 = config.require("autoScalingGroupArn2")
-        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn1,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
-        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn2,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
+        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn1,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
+        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn2,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
         cluster = aws_native.ecs.Cluster("cluster")
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster.id,
@@ -181,16 +181,16 @@ class CapacityProvider(pulumi.CustomResource):
                 capacity_provider2.id,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=6,
-                    capacity_provider=capacity_provider1.id,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=10,
-                    capacity_provider=capacity_provider2.id,
-                ),
+                {
+                    "base": 2,
+                    "weight": 6,
+                    "capacity_provider": capacity_provider1.id,
+                },
+                {
+                    "base": 0,
+                    "weight": 10,
+                    "capacity_provider": capacity_provider2.id,
+                },
             ])
 
         ```
@@ -203,20 +203,20 @@ class CapacityProvider(pulumi.CustomResource):
         config = pulumi.Config()
         auto_scaling_group_arn1 = config.require("autoScalingGroupArn1")
         auto_scaling_group_arn2 = config.require("autoScalingGroupArn2")
-        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn1,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
-        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn2,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
+        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn1,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
+        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn2,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
         cluster = aws_native.ecs.Cluster("cluster")
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster.id,
@@ -225,25 +225,25 @@ class CapacityProvider(pulumi.CustomResource):
                 capacity_provider2.id,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=6,
-                    capacity_provider=capacity_provider1.id,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=10,
-                    capacity_provider=capacity_provider2.id,
-                ),
+                {
+                    "base": 2,
+                    "weight": 6,
+                    "capacity_provider": capacity_provider1.id,
+                },
+                {
+                    "base": 0,
+                    "weight": 10,
+                    "capacity_provider": capacity_provider2.id,
+                },
             ])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
         :param pulumi.Input[str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
                
                The following basic restrictions apply to tags:
                
@@ -272,20 +272,20 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_capacity_provider = aws_native.ecs.CapacityProvider("myCapacityProvider",
-            auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn="arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
-                managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                    maximum_scaling_step_size=10,
-                    minimum_scaling_step_size=1,
-                    status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-                    target_capacity=100,
-                ),
-                managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
-            ),
-            tags=[aws_native.TagArgs(
-                key="environment",
-                value="production",
-            )])
+            auto_scaling_group_provider={
+                "auto_scaling_group_arn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+                "managed_scaling": {
+                    "maximum_scaling_step_size": 10,
+                    "minimum_scaling_step_size": 1,
+                    "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+                    "target_capacity": 100,
+                },
+                "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
+            },
+            tags=[{
+                "key": "environment",
+                "value": "production",
+            }])
 
         ```
         ### Example
@@ -295,20 +295,20 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_capacity_provider = aws_native.ecs.CapacityProvider("myCapacityProvider",
-            auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn="arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
-                managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                    maximum_scaling_step_size=10,
-                    minimum_scaling_step_size=1,
-                    status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-                    target_capacity=100,
-                ),
-                managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
-            ),
-            tags=[aws_native.TagArgs(
-                key="environment",
-                value="production",
-            )])
+            auto_scaling_group_provider={
+                "auto_scaling_group_arn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+                "managed_scaling": {
+                    "maximum_scaling_step_size": 10,
+                    "minimum_scaling_step_size": 1,
+                    "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+                    "target_capacity": 100,
+                },
+                "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.ENABLED,
+            },
+            tags=[{
+                "key": "environment",
+                "value": "production",
+            }])
 
         ```
         ### Example
@@ -320,20 +320,20 @@ class CapacityProvider(pulumi.CustomResource):
         config = pulumi.Config()
         auto_scaling_group_arn1 = config.require("autoScalingGroupArn1")
         auto_scaling_group_arn2 = config.require("autoScalingGroupArn2")
-        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn1,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
-        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn2,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
+        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn1,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
+        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn2,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
         cluster = aws_native.ecs.Cluster("cluster")
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster.id,
@@ -342,16 +342,16 @@ class CapacityProvider(pulumi.CustomResource):
                 capacity_provider2.id,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=6,
-                    capacity_provider=capacity_provider1.id,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=10,
-                    capacity_provider=capacity_provider2.id,
-                ),
+                {
+                    "base": 2,
+                    "weight": 6,
+                    "capacity_provider": capacity_provider1.id,
+                },
+                {
+                    "base": 0,
+                    "weight": 10,
+                    "capacity_provider": capacity_provider2.id,
+                },
             ])
 
         ```
@@ -364,20 +364,20 @@ class CapacityProvider(pulumi.CustomResource):
         config = pulumi.Config()
         auto_scaling_group_arn1 = config.require("autoScalingGroupArn1")
         auto_scaling_group_arn2 = config.require("autoScalingGroupArn2")
-        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn1,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
-        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider=aws_native.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=auto_scaling_group_arn2,
-            managed_scaling=aws_native.ecs.CapacityProviderManagedScalingArgs(
-                status=aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
-            ),
-            managed_termination_protection=aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
-        ))
+        capacity_provider1 = aws_native.ecs.CapacityProvider("capacityProvider1", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn1,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
+        capacity_provider2 = aws_native.ecs.CapacityProvider("capacityProvider2", auto_scaling_group_provider={
+            "auto_scaling_group_arn": auto_scaling_group_arn2,
+            "managed_scaling": {
+                "status": aws_native.ecs.CapacityProviderManagedScalingStatus.ENABLED,
+            },
+            "managed_termination_protection": aws_native.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection.DISABLED,
+        })
         cluster = aws_native.ecs.Cluster("cluster")
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster.id,
@@ -386,16 +386,16 @@ class CapacityProvider(pulumi.CustomResource):
                 capacity_provider2.id,
             ],
             default_capacity_provider_strategy=[
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=2,
-                    weight=6,
-                    capacity_provider=capacity_provider1.id,
-                ),
-                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
-                    base=0,
-                    weight=10,
-                    capacity_provider=capacity_provider2.id,
-                ),
+                {
+                    "base": 2,
+                    "weight": 6,
+                    "capacity_provider": capacity_provider1.id,
+                },
+                {
+                    "base": 0,
+                    "weight": 10,
+                    "capacity_provider": capacity_provider2.id,
+                },
             ])
 
         ```
@@ -415,9 +415,9 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
+                 auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -138,7 +138,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackConformancePackInputParameterArgs']]]]] = None,
+                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackConformancePackInputParameterArgs', 'OrganizationConformancePackConformancePackInputParameterArgsDict']]]]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -177,7 +177,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackConformancePackInputParameterArgs', 'OrganizationConformancePackConformancePackInputParameterArgsDict']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
@@ -235,7 +235,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackConformancePackInputParameterArgs']]]]] = None,
+                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackConformancePackInputParameterArgs', 'OrganizationConformancePackConformancePackInputParameterArgsDict']]]]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

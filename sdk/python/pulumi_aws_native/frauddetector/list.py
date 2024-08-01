@@ -109,7 +109,7 @@ class List(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,7 +120,7 @@ class List(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] elements: The elements in this list.
         :param pulumi.Input[str] name: The name of the list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with this list.
         :param pulumi.Input[str] variable_type: The variable type of the list.
         """
         ...
@@ -150,7 +150,7 @@ class List(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

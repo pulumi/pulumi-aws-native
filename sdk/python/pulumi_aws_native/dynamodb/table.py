@@ -368,25 +368,25 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]]] = None,
+                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
-                 contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
+                 contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
-                 import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
-                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
-                 on_demand_throughput: Optional[pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
-                 provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
-                 stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
+                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
+                 kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
+                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
+                 provisioned_throughput: Optional[pulumi.Input[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
+                 sse_specification: Optional[pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
+                 stream_specification: Optional[pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
@@ -404,108 +404,108 @@ class Table(pulumi.CustomResource):
 
         my_dynamo_db_table = aws_native.dynamodb.Table("myDynamoDBTable",
             attribute_definitions=[
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Album",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Artist",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Sales",
-                    attribute_type="N",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="NumberOfSongs",
-                    attribute_type="N",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Sales",
+                    "attribute_type": "N",
+                },
+                {
+                    "attribute_name": "NumberOfSongs",
+                    "attribute_type": "N",
+                },
             ],
             key_schema=[
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Album",
-                    key_type="HASH",
-                ),
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Artist",
-                    key_type="RANGE",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
+                },
             ],
-            provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                read_capacity_units=5,
-                write_capacity_units=5,
-            ),
+            provisioned_throughput={
+                "read_capacity_units": 5,
+                "write_capacity_units": 5,
+            },
             table_name="myTableName",
             global_secondary_indexes=[
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Artist",
-                            key_type="RANGE",
-                        ),
+                {
+                    "index_name": "myGSI",
+                    "key_schema": [
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Artist",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "NumberOfSongs",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI2",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="NumberOfSongs",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="RANGE",
-                        ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
+                {
+                    "index_name": "myGSI2",
+                    "key_schema": [
+                        {
+                            "attribute_name": "NumberOfSongs",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "Artist",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
             ],
-            local_secondary_indexes=[aws_native.dynamodb.TableLocalSecondaryIndexArgs(
-                index_name="myLSI",
-                key_schema=[
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Album",
-                        key_type="HASH",
-                    ),
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Sales",
-                        key_type="RANGE",
-                    ),
+            local_secondary_indexes=[{
+                "index_name": "myLSI",
+                "key_schema": [
+                    {
+                        "attribute_name": "Album",
+                        "key_type": "HASH",
+                    },
+                    {
+                        "attribute_name": "Sales",
+                        "key_type": "RANGE",
+                    },
                 ],
-                projection=aws_native.dynamodb.TableProjectionArgs(
-                    non_key_attributes=[
+                "projection": {
+                    "non_key_attributes": [
                         "Artist",
                         "NumberOfSongs",
                     ],
-                    projection_type="INCLUDE",
-                ),
-            )])
+                    "projection_type": "INCLUDE",
+                },
+            }])
 
         ```
         ### Example
@@ -516,114 +516,114 @@ class Table(pulumi.CustomResource):
 
         my_dynamo_db_table = aws_native.dynamodb.Table("myDynamoDBTable",
             attribute_definitions=[
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Album",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Artist",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Sales",
-                    attribute_type="N",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="NumberOfSongs",
-                    attribute_type="N",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Sales",
+                    "attribute_type": "N",
+                },
+                {
+                    "attribute_name": "NumberOfSongs",
+                    "attribute_type": "N",
+                },
             ],
             key_schema=[
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Album",
-                    key_type="HASH",
-                ),
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Artist",
-                    key_type="RANGE",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
+                },
             ],
-            provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                read_capacity_units=5,
-                write_capacity_units=5,
-            ),
+            provisioned_throughput={
+                "read_capacity_units": 5,
+                "write_capacity_units": 5,
+            },
             table_name="myTableName",
             global_secondary_indexes=[
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Artist",
-                            key_type="RANGE",
-                        ),
+                {
+                    "index_name": "myGSI",
+                    "key_schema": [
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Artist",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "NumberOfSongs",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI2",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="NumberOfSongs",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="RANGE",
-                        ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
+                {
+                    "index_name": "myGSI2",
+                    "key_schema": [
+                        {
+                            "attribute_name": "NumberOfSongs",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "Artist",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
             ],
-            local_secondary_indexes=[aws_native.dynamodb.TableLocalSecondaryIndexArgs(
-                index_name="myLSI",
-                key_schema=[
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Album",
-                        key_type="HASH",
-                    ),
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Sales",
-                        key_type="RANGE",
-                    ),
+            local_secondary_indexes=[{
+                "index_name": "myLSI",
+                "key_schema": [
+                    {
+                        "attribute_name": "Album",
+                        "key_type": "HASH",
+                    },
+                    {
+                        "attribute_name": "Sales",
+                        "key_type": "RANGE",
+                    },
                 ],
-                projection=aws_native.dynamodb.TableProjectionArgs(
-                    non_key_attributes=[
+                "projection": {
+                    "non_key_attributes": [
                         "Artist",
                         "NumberOfSongs",
                     ],
-                    projection_type="INCLUDE",
-                ),
-            )])
+                    "projection_type": "INCLUDE",
+                },
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
                 This property is required to create a DDB table.
                 Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
         :param pulumi.Input[str] billing_mode: Specify how you are charged for read and write throughput and how you manage capacity.
@@ -632,33 +632,33 @@ class Table(pulumi.CustomResource):
                  +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
                  
                 If not specified, the default is ``PROVISIONED``.
-        :param pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        :param pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
         :param pulumi.Input[bool] deletion_protection_enabled: Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
                  If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
                 If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
                 Updates are not supported. The following are exceptions:
                  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
                  +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-        :param pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
+        :param pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
                  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
-        :param pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
-        :param pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
-        :param pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']] point_in_time_recovery_specification: The settings used to enable point in time recovery.
-        :param pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+        :param pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        :param pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        :param pulumi.Input[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']] point_in_time_recovery_specification: The settings used to enable point in time recovery.
+        :param pulumi.Input[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
                 If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
-        :param pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']] resource_policy: A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        :param pulumi.Input[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']] resource_policy: A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
                 When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
-        :param pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']] sse_specification: Specifies the settings to enable server-side encryption.
-        :param pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
+        :param pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']] sse_specification: Specifies the settings to enable server-side encryption.
+        :param pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
         :param pulumi.Input[str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
         :param pulumi.Input[str] table_name: A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-        :param pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
+        :param pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
                  For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         """
         ...
@@ -683,108 +683,108 @@ class Table(pulumi.CustomResource):
 
         my_dynamo_db_table = aws_native.dynamodb.Table("myDynamoDBTable",
             attribute_definitions=[
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Album",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Artist",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Sales",
-                    attribute_type="N",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="NumberOfSongs",
-                    attribute_type="N",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Sales",
+                    "attribute_type": "N",
+                },
+                {
+                    "attribute_name": "NumberOfSongs",
+                    "attribute_type": "N",
+                },
             ],
             key_schema=[
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Album",
-                    key_type="HASH",
-                ),
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Artist",
-                    key_type="RANGE",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
+                },
             ],
-            provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                read_capacity_units=5,
-                write_capacity_units=5,
-            ),
+            provisioned_throughput={
+                "read_capacity_units": 5,
+                "write_capacity_units": 5,
+            },
             table_name="myTableName",
             global_secondary_indexes=[
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Artist",
-                            key_type="RANGE",
-                        ),
+                {
+                    "index_name": "myGSI",
+                    "key_schema": [
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Artist",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "NumberOfSongs",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI2",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="NumberOfSongs",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="RANGE",
-                        ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
+                {
+                    "index_name": "myGSI2",
+                    "key_schema": [
+                        {
+                            "attribute_name": "NumberOfSongs",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "Artist",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
             ],
-            local_secondary_indexes=[aws_native.dynamodb.TableLocalSecondaryIndexArgs(
-                index_name="myLSI",
-                key_schema=[
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Album",
-                        key_type="HASH",
-                    ),
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Sales",
-                        key_type="RANGE",
-                    ),
+            local_secondary_indexes=[{
+                "index_name": "myLSI",
+                "key_schema": [
+                    {
+                        "attribute_name": "Album",
+                        "key_type": "HASH",
+                    },
+                    {
+                        "attribute_name": "Sales",
+                        "key_type": "RANGE",
+                    },
                 ],
-                projection=aws_native.dynamodb.TableProjectionArgs(
-                    non_key_attributes=[
+                "projection": {
+                    "non_key_attributes": [
                         "Artist",
                         "NumberOfSongs",
                     ],
-                    projection_type="INCLUDE",
-                ),
-            )])
+                    "projection_type": "INCLUDE",
+                },
+            }])
 
         ```
         ### Example
@@ -795,108 +795,108 @@ class Table(pulumi.CustomResource):
 
         my_dynamo_db_table = aws_native.dynamodb.Table("myDynamoDBTable",
             attribute_definitions=[
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Album",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Artist",
-                    attribute_type="S",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="Sales",
-                    attribute_type="N",
-                ),
-                aws_native.dynamodb.TableAttributeDefinitionArgs(
-                    attribute_name="NumberOfSongs",
-                    attribute_type="N",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "attribute_type": "S",
+                },
+                {
+                    "attribute_name": "Sales",
+                    "attribute_type": "N",
+                },
+                {
+                    "attribute_name": "NumberOfSongs",
+                    "attribute_type": "N",
+                },
             ],
             key_schema=[
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Album",
-                    key_type="HASH",
-                ),
-                aws_native.dynamodb.TableKeySchemaArgs(
-                    attribute_name="Artist",
-                    key_type="RANGE",
-                ),
+                {
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
+                },
+                {
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
+                },
             ],
-            provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                read_capacity_units=5,
-                write_capacity_units=5,
-            ),
+            provisioned_throughput={
+                "read_capacity_units": 5,
+                "write_capacity_units": 5,
+            },
             table_name="myTableName",
             global_secondary_indexes=[
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Artist",
-                            key_type="RANGE",
-                        ),
+                {
+                    "index_name": "myGSI",
+                    "key_schema": [
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Artist",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "NumberOfSongs",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
-                aws_native.dynamodb.TableGlobalSecondaryIndexArgs(
-                    index_name="myGSI2",
-                    key_schema=[
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="NumberOfSongs",
-                            key_type="HASH",
-                        ),
-                        aws_native.dynamodb.TableKeySchemaArgs(
-                            attribute_name="Sales",
-                            key_type="RANGE",
-                        ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
+                {
+                    "index_name": "myGSI2",
+                    "key_schema": [
+                        {
+                            "attribute_name": "NumberOfSongs",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "Sales",
+                            "key_type": "RANGE",
+                        },
                     ],
-                    projection=aws_native.dynamodb.TableProjectionArgs(
-                        non_key_attributes=[
+                    "projection": {
+                        "non_key_attributes": [
                             "Album",
                             "Artist",
                         ],
-                        projection_type="INCLUDE",
-                    ),
-                    provisioned_throughput=aws_native.dynamodb.TableProvisionedThroughputArgs(
-                        read_capacity_units=5,
-                        write_capacity_units=5,
-                    ),
-                ),
+                        "projection_type": "INCLUDE",
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 5,
+                        "write_capacity_units": 5,
+                    },
+                },
             ],
-            local_secondary_indexes=[aws_native.dynamodb.TableLocalSecondaryIndexArgs(
-                index_name="myLSI",
-                key_schema=[
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Album",
-                        key_type="HASH",
-                    ),
-                    aws_native.dynamodb.TableKeySchemaArgs(
-                        attribute_name="Sales",
-                        key_type="RANGE",
-                    ),
+            local_secondary_indexes=[{
+                "index_name": "myLSI",
+                "key_schema": [
+                    {
+                        "attribute_name": "Album",
+                        "key_type": "HASH",
+                    },
+                    {
+                        "attribute_name": "Sales",
+                        "key_type": "RANGE",
+                    },
                 ],
-                projection=aws_native.dynamodb.TableProjectionArgs(
-                    non_key_attributes=[
+                "projection": {
+                    "non_key_attributes": [
                         "Artist",
                         "NumberOfSongs",
                     ],
-                    projection_type="INCLUDE",
-                ),
-            )])
+                    "projection_type": "INCLUDE",
+                },
+            }])
 
         ```
 
@@ -915,25 +915,25 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]]] = None,
+                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
-                 contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
+                 contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
-                 import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
-                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
-                 on_demand_throughput: Optional[pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
-                 provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
-                 stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
+                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
+                 kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
+                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
+                 provisioned_throughput: Optional[pulumi.Input[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
+                 sse_specification: Optional[pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
+                 stream_specification: Optional[pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

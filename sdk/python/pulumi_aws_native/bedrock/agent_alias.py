@@ -115,7 +115,7 @@ class AgentAlias(pulumi.CustomResource):
                  agent_alias_name: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAliasRoutingConfigurationListItemArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAliasRoutingConfigurationListItemArgs', 'AgentAliasRoutingConfigurationListItemArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -126,7 +126,7 @@ class AgentAlias(pulumi.CustomResource):
         :param pulumi.Input[str] agent_alias_name: Name for a resource.
         :param pulumi.Input[str] agent_id: Identifier for a resource.
         :param pulumi.Input[str] description: Description of the Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAliasRoutingConfigurationListItemArgs']]]] routing_configuration: Routing configuration for an Agent alias.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAliasRoutingConfigurationListItemArgs', 'AgentAliasRoutingConfigurationListItemArgsDict']]]] routing_configuration: Routing configuration for an Agent alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -159,7 +159,7 @@ class AgentAlias(pulumi.CustomResource):
                  agent_alias_name: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAliasRoutingConfigurationListItemArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAliasRoutingConfigurationListItemArgs', 'AgentAliasRoutingConfigurationListItemArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -91,7 +91,7 @@ class StorageProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  farm_id: Optional[pulumi.Input[str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
                  os_family: Optional[pulumi.Input['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         """
@@ -101,7 +101,7 @@ class StorageProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]] file_system_locations: Operating system specific file system path to the storage location.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]] file_system_locations: Operating system specific file system path to the storage location.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         """
         ...
@@ -130,7 +130,7 @@ class StorageProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  farm_id: Optional[pulumi.Input[str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
                  os_family: Optional[pulumi.Input['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

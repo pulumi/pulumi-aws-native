@@ -279,18 +279,18 @@ class Agent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentActionGroupArgs']]]]] = None,
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_prepare: Optional[pulumi.Input[bool]] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
-                 guardrail_configuration: Optional[pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']]] = None,
+                 guardrail_configuration: Optional[pulumi.Input[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
-                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]]] = None,
-                 prompt_override_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']]] = None,
+                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
+                 prompt_override_configuration: Optional[pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -300,18 +300,18 @@ class Agent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentActionGroupArgs']]]] action_groups: List of ActionGroups
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]] action_groups: List of ActionGroups
         :param pulumi.Input[str] agent_name: Name for a resource.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of a IAM role.
         :param pulumi.Input[bool] auto_prepare: Specifies whether to automatically prepare after creating or updating the agent.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] foundation_model: ARN or name of a Bedrock model.
-        :param pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']] guardrail_configuration: Details about the guardrail associated with the agent.
+        :param pulumi.Input[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']] guardrail_configuration: Details about the guardrail associated with the agent.
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]] knowledge_bases: List of Agent Knowledge Bases
-        :param pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]] knowledge_bases: List of Agent Knowledge Bases
+        :param pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
@@ -346,18 +346,18 @@ class Agent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentActionGroupArgs']]]]] = None,
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_prepare: Optional[pulumi.Input[bool]] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
-                 guardrail_configuration: Optional[pulumi.Input[pulumi.InputType['AgentGuardrailConfigurationArgs']]] = None,
+                 guardrail_configuration: Optional[pulumi.Input[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
-                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]]] = None,
-                 prompt_override_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']]] = None,
+                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
+                 prompt_override_configuration: Optional[pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

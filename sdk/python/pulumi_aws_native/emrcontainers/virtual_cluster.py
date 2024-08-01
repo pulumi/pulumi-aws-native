@@ -75,9 +75,9 @@ class VirtualCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
+                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EMRContainers::VirtualCluster Type
@@ -91,19 +91,19 @@ class VirtualCluster(pulumi.CustomResource):
 
         test_virtual_cluster = aws_native.emrcontainers.VirtualCluster("testVirtualCluster",
             name="VirtualClusterName",
-            container_provider=aws_native.emrcontainers.VirtualClusterContainerProviderArgs(
-                type="EKS",
-                id="EKSClusterName",
-                info=aws_native.emrcontainers.VirtualClusterContainerInfoArgs(
-                    eks_info=aws_native.emrcontainers.VirtualClusterEksInfoArgs(
-                        namespace="EKSNamespace",
-                    ),
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Key1",
-                value="Value1",
-            )])
+            container_provider={
+                "type": "EKS",
+                "id": "EKSClusterName",
+                "info": {
+                    "eks_info": {
+                        "namespace": "EKSNamespace",
+                    },
+                },
+            },
+            tags=[{
+                "key": "Key1",
+                "value": "Value1",
+            }])
         pulumi.export("primaryId", None)
 
         ```
@@ -115,28 +115,28 @@ class VirtualCluster(pulumi.CustomResource):
 
         test_virtual_cluster = aws_native.emrcontainers.VirtualCluster("testVirtualCluster",
             name="VirtualClusterName",
-            container_provider=aws_native.emrcontainers.VirtualClusterContainerProviderArgs(
-                type="EKS",
-                id="EKSClusterName",
-                info=aws_native.emrcontainers.VirtualClusterContainerInfoArgs(
-                    eks_info=aws_native.emrcontainers.VirtualClusterEksInfoArgs(
-                        namespace="EKSNamespace",
-                    ),
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Key1",
-                value="Value1",
-            )])
+            container_provider={
+                "type": "EKS",
+                "id": "EKSClusterName",
+                "info": {
+                    "eks_info": {
+                        "namespace": "EKSNamespace",
+                    },
+                },
+            },
+            tags=[{
+                "key": "Key1",
+                "value": "Value1",
+            }])
         pulumi.export("primaryId", test_virtual_cluster.id)
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Container provider of the virtual cluster.
+        :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this virtual cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         ...
     @overload
@@ -156,19 +156,19 @@ class VirtualCluster(pulumi.CustomResource):
 
         test_virtual_cluster = aws_native.emrcontainers.VirtualCluster("testVirtualCluster",
             name="VirtualClusterName",
-            container_provider=aws_native.emrcontainers.VirtualClusterContainerProviderArgs(
-                type="EKS",
-                id="EKSClusterName",
-                info=aws_native.emrcontainers.VirtualClusterContainerInfoArgs(
-                    eks_info=aws_native.emrcontainers.VirtualClusterEksInfoArgs(
-                        namespace="EKSNamespace",
-                    ),
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Key1",
-                value="Value1",
-            )])
+            container_provider={
+                "type": "EKS",
+                "id": "EKSClusterName",
+                "info": {
+                    "eks_info": {
+                        "namespace": "EKSNamespace",
+                    },
+                },
+            },
+            tags=[{
+                "key": "Key1",
+                "value": "Value1",
+            }])
         pulumi.export("primaryId", None)
 
         ```
@@ -180,19 +180,19 @@ class VirtualCluster(pulumi.CustomResource):
 
         test_virtual_cluster = aws_native.emrcontainers.VirtualCluster("testVirtualCluster",
             name="VirtualClusterName",
-            container_provider=aws_native.emrcontainers.VirtualClusterContainerProviderArgs(
-                type="EKS",
-                id="EKSClusterName",
-                info=aws_native.emrcontainers.VirtualClusterContainerInfoArgs(
-                    eks_info=aws_native.emrcontainers.VirtualClusterEksInfoArgs(
-                        namespace="EKSNamespace",
-                    ),
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Key1",
-                value="Value1",
-            )])
+            container_provider={
+                "type": "EKS",
+                "id": "EKSClusterName",
+                "info": {
+                    "eks_info": {
+                        "namespace": "EKSNamespace",
+                    },
+                },
+            },
+            tags=[{
+                "key": "Key1",
+                "value": "Value1",
+            }])
         pulumi.export("primaryId", test_virtual_cluster.id)
 
         ```
@@ -212,9 +212,9 @@ class VirtualCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
+                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

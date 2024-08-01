@@ -141,7 +141,7 @@ class ExtensionResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_naming: Optional[pulumi.Input[pulumi.InputType['AutoNamingArgs']]] = None,
+                 auto_naming: Optional[pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
                  create_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags_property: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class ExtensionResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AutoNamingArgs']] auto_naming: Optional auto-naming specification for the resource.
+        :param pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']] auto_naming: Optional auto-naming specification for the resource.
                If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] create_only: Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
                In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
@@ -189,7 +189,7 @@ class ExtensionResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_naming: Optional[pulumi.Input[pulumi.InputType['AutoNamingArgs']]] = None,
+                 auto_naming: Optional[pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
                  create_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags_property: Optional[pulumi.Input[str]] = None,

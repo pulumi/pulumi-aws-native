@@ -58,7 +58,7 @@ class CidrCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CidrCollectionLocationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -66,7 +66,7 @@ class CidrCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CidrCollectionLocationArgs']]]] locations: A complex type that contains information about the list of CIDR locations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]] locations: A complex type that contains information about the list of CIDR locations.
         :param pulumi.Input[str] name: A unique name for the CIDR collection.
         """
         ...
@@ -93,7 +93,7 @@ class CidrCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CidrCollectionLocationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

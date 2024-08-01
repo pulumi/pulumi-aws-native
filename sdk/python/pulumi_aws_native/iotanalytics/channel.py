@@ -97,9 +97,9 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelStorageArgs']]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 channel_storage: Optional[pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Channel
@@ -131,19 +131,19 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.iotanalytics.Channel("channel",
             channel_name="ComplexChannel",
-            retention_period=aws_native.iotanalytics.ChannelRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -155,19 +155,19 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.iotanalytics.Channel("channel",
             channel_name="ComplexChannel",
-            retention_period=aws_native.iotanalytics.ChannelRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -175,9 +175,9 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_name: The name of the channel.
-        :param pulumi.Input[pulumi.InputType['ChannelStorageArgs']] channel_storage: Where channel data is stored.
-        :param pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']] retention_period: How long, in days, message data is kept for the channel.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the channel.
+        :param pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']] channel_storage: Where channel data is stored.
+        :param pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']] retention_period: How long, in days, message data is kept for the channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the channel.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -217,19 +217,19 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.iotanalytics.Channel("channel",
             channel_name="ComplexChannel",
-            retention_period=aws_native.iotanalytics.ChannelRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -241,19 +241,19 @@ class Channel(pulumi.CustomResource):
 
         channel = aws_native.iotanalytics.Channel("channel",
             channel_name="ComplexChannel",
-            retention_period=aws_native.iotanalytics.ChannelRetentionPeriodArgs(
-                unlimited=False,
-                number_of_days=10,
-            ),
+            retention_period={
+                "unlimited": False,
+                "number_of_days": 10,
+            },
             tags=[
-                aws_native.TagArgs(
-                    key="keyname1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="keyname2",
-                    value="value2",
-                ),
+                {
+                    "key": "keyname1",
+                    "value": "value1",
+                },
+                {
+                    "key": "keyname2",
+                    "value": "value2",
+                },
             ])
 
         ```
@@ -274,9 +274,9 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelStorageArgs']]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 channel_storage: Optional[pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

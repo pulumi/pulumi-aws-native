@@ -100,10 +100,10 @@ class DeliveryDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]]] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery destination in your account.
@@ -112,14 +112,14 @@ class DeliveryDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery destination.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that have been assigned to this delivery destination.
         """
         ...
     @overload
@@ -147,10 +147,10 @@ class DeliveryDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]]] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

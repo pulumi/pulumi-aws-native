@@ -82,7 +82,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
-                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]]] = None,
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -91,7 +91,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION:GUID` .
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]] role_mappings: How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
                
                If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
                
@@ -123,7 +123,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
-                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]]] = None,
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

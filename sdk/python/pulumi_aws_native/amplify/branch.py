@@ -281,19 +281,19 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 backend: Optional[pulumi.Input[pulumi.InputType['BranchBackendArgs']]] = None,
-                 basic_auth_config: Optional[pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']]] = None,
+                 backend: Optional[pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']]] = None,
+                 basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['BranchStage']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Amplify::Branch resource creates a new branch within an app.
@@ -301,10 +301,10 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[pulumi.InputType['BranchBackendArgs']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+        :param pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
                
                This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
-        :param pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
+        :param pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] branch_name: The name for the branch.
         :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
         :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
@@ -317,7 +317,7 @@ class Branch(pulumi.CustomResource):
                To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]] environment_variables: The environment variables for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[str] framework: The framework for the branch.
         :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
                
@@ -327,7 +327,7 @@ class Branch(pulumi.CustomResource):
                
                For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
         :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tag for the branch.
         """
         ...
     @overload
@@ -354,19 +354,19 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 backend: Optional[pulumi.Input[pulumi.InputType['BranchBackendArgs']]] = None,
-                 basic_auth_config: Optional[pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']]] = None,
+                 backend: Optional[pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']]] = None,
+                 basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['BranchStage']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

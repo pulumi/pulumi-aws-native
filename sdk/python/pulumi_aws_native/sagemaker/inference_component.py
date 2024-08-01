@@ -128,9 +128,9 @@ class InferenceComponent(pulumi.CustomResource):
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
-                 runtime_config: Optional[pulumi.Input[pulumi.InputType['InferenceComponentRuntimeConfigArgs']]] = None,
-                 specification: Optional[pulumi.Input[pulumi.InputType['InferenceComponentSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_config: Optional[pulumi.Input[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
+                 specification: Optional[pulumi.Input[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  variant_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -170,9 +170,9 @@ class InferenceComponent(pulumi.CustomResource):
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
-                 runtime_config: Optional[pulumi.Input[pulumi.InputType['InferenceComponentRuntimeConfigArgs']]] = None,
-                 specification: Optional[pulumi.Input[pulumi.InputType['InferenceComponentSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 runtime_config: Optional[pulumi.Input[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
+                 specification: Optional[pulumi.Input[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  variant_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

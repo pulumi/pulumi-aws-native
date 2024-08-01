@@ -73,8 +73,8 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']]] = None,
+                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
+                 instance_access_control_attribute_configuration: Optional[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -89,12 +89,12 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         abac = aws_native.sso.InstanceAccessControlAttributeConfiguration("abac",
             instance_arn="arn:aws:sso:::instance/ssoins-instanceId",
-            access_control_attributes=[aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs(
-                key="CostCenter",
-                value=aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs(
-                    source=["${path:enterprise.costCenter}"],
-                ),
-            )])
+            access_control_attributes=[{
+                "key": "CostCenter",
+                "value": {
+                    "source": ["${path:enterprise.costCenter}"],
+                },
+            }])
 
         ```
         ### Example
@@ -105,19 +105,19 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         abac = aws_native.sso.InstanceAccessControlAttributeConfiguration("abac",
             instance_arn="arn:aws:sso:::instance/ssoins-instanceId",
-            access_control_attributes=[aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs(
-                key="CostCenter",
-                value=aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs(
-                    source=["${path:enterprise.costCenter}"],
-                ),
-            )])
+            access_control_attributes=[{
+                "key": "CostCenter",
+                "value": {
+                    "source": ["${path:enterprise.costCenter}"],
+                },
+            }])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
-        :param pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        :param pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         """
         ...
@@ -138,12 +138,12 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         abac = aws_native.sso.InstanceAccessControlAttributeConfiguration("abac",
             instance_arn="arn:aws:sso:::instance/ssoins-instanceId",
-            access_control_attributes=[aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs(
-                key="CostCenter",
-                value=aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs(
-                    source=["${path:enterprise.costCenter}"],
-                ),
-            )])
+            access_control_attributes=[{
+                "key": "CostCenter",
+                "value": {
+                    "source": ["${path:enterprise.costCenter}"],
+                },
+            }])
 
         ```
         ### Example
@@ -154,12 +154,12 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         abac = aws_native.sso.InstanceAccessControlAttributeConfiguration("abac",
             instance_arn="arn:aws:sso:::instance/ssoins-instanceId",
-            access_control_attributes=[aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs(
-                key="CostCenter",
-                value=aws_native.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs(
-                    source=["${path:enterprise.costCenter}"],
-                ),
-            )])
+            access_control_attributes=[{
+                "key": "CostCenter",
+                "value": {
+                    "source": ["${path:enterprise.costCenter}"],
+                },
+            }])
 
         ```
 
@@ -178,8 +178,8 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']]] = None,
+                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
+                 instance_access_control_attribute_configuration: Optional[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

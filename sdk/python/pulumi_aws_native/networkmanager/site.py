@@ -93,8 +93,8 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 location: Optional[pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::Site type describes a site.
@@ -103,8 +103,8 @@ class Site(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the site.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The location of the site.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the site.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: The location of the site.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the site.
         """
         ...
     @overload
@@ -132,8 +132,8 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 location: Optional[pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

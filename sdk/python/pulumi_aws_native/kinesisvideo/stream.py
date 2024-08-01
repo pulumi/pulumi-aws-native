@@ -127,7 +127,7 @@ class Stream(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  media_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::KinesisVideo::Stream
@@ -139,7 +139,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
         :param pulumi.Input[str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream.
         :param pulumi.Input[str] name: The name of the Kinesis Video stream.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs associated with the Kinesis Video Stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs associated with the Kinesis Video Stream.
         """
         ...
     @overload
@@ -170,7 +170,7 @@ class Stream(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  media_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

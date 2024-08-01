@@ -299,46 +299,46 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_tracking_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceConnectionTrackingSpecificationArgs']]] = None,
+                 connection_tracking_specification: Optional[pulumi.Input[Union['NetworkInterfaceConnectionTrackingSpecificationArgs', 'NetworkInterfaceConnectionTrackingSpecificationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv4PrefixSpecificationArgs']]]]] = None,
+                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv4PrefixSpecificationArgs', 'NetworkInterfaceIpv4PrefixSpecificationArgsDict']]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceInstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceInstanceIpv6AddressArgs', 'NetworkInterfaceInstanceIpv6AddressArgsDict']]]]] = None,
                  ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv6PrefixSpecificationArgs']]]]] = None,
+                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfacePrivateIpAddressSpecificationArgs']]]]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::EC2::NetworkInterface resource creates network interface
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfaceConnectionTrackingSpecificationArgs']] connection_tracking_specification: A connection tracking specification for the network interface.
+        :param pulumi.Input[Union['NetworkInterfaceConnectionTrackingSpecificationArgs', 'NetworkInterfaceConnectionTrackingSpecificationArgsDict']] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[str] description: A description for the network interface.
         :param pulumi.Input[bool] enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
         :param pulumi.Input[str] interface_type: Indicates the type of network interface.
         :param pulumi.Input[int] ipv4_prefix_count: The number of IPv4 prefixes to assign to a network interface. When you specify a number of IPv4 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /28 prefixes. You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv4PrefixSpecificationArgs']]]] ipv4_prefixes: Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv4PrefixSpecificationArgs', 'NetworkInterfaceIpv4PrefixSpecificationArgsDict']]]] ipv4_prefixes: Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceInstanceIpv6AddressArgs']]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceInstanceIpv6AddressArgs', 'NetworkInterfaceInstanceIpv6AddressArgsDict']]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
         :param pulumi.Input[int] ipv6_prefix_count: The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv6PrefixSpecificationArgs']]]] ipv6_prefixes: Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]] ipv6_prefixes: Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         :param pulumi.Input[str] private_ip_address: Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfacePrivateIpAddressSpecificationArgs']]]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
         :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
         ...
     @overload
@@ -364,23 +364,23 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_tracking_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceConnectionTrackingSpecificationArgs']]] = None,
+                 connection_tracking_specification: Optional[pulumi.Input[Union['NetworkInterfaceConnectionTrackingSpecificationArgs', 'NetworkInterfaceConnectionTrackingSpecificationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv4PrefixSpecificationArgs']]]]] = None,
+                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv4PrefixSpecificationArgs', 'NetworkInterfaceIpv4PrefixSpecificationArgsDict']]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceInstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceInstanceIpv6AddressArgs', 'NetworkInterfaceInstanceIpv6AddressArgsDict']]]]] = None,
                  ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpv6PrefixSpecificationArgs']]]]] = None,
+                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfacePrivateIpAddressSpecificationArgs']]]]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

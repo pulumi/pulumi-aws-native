@@ -77,7 +77,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
@@ -86,7 +86,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
         :param pulumi.Input[str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
-        :param pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']] schedule: The refresh schedule of a dataset.
+        :param pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']] schedule: The refresh schedule of a dataset.
         """
         ...
     @overload
@@ -114,7 +114,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

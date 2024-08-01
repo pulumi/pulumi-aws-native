@@ -92,7 +92,7 @@ class Schedule(pulumi.CustomResource):
                  cron_expression: Optional[pulumi.Input[str]] = None,
                  job_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Schedule.
@@ -108,10 +108,10 @@ class Schedule(pulumi.CustomResource):
             job_names=["job-name"],
             name="schedule-name",
             cron_expression="cron(0 0/1 ? * * *)",
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -120,7 +120,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] cron_expression: Schedule cron
         :param pulumi.Input[Sequence[pulumi.Input[str]]] job_names: A list of jobs to be run, according to the schedule.
         :param pulumi.Input[str] name: Schedule Name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the schedule.
         """
         ...
     @overload
@@ -142,10 +142,10 @@ class Schedule(pulumi.CustomResource):
             job_names=["job-name"],
             name="schedule-name",
             cron_expression="cron(0 0/1 ? * * *)",
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -167,7 +167,7 @@ class Schedule(pulumi.CustomResource):
                  cron_expression: Optional[pulumi.Input[str]] = None,
                  job_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -97,7 +97,7 @@ class BrowserSettings(pulumi.CustomResource):
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  browser_policy: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
@@ -109,7 +109,7 @@ class BrowserSettings(pulumi.CustomResource):
         :param pulumi.Input[str] customer_managed_key: The custom managed key of the browser settings.
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class BrowserSettings(pulumi.CustomResource):
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  browser_policy: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

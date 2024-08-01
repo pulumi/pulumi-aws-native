@@ -100,8 +100,8 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay Group resource parameters.
@@ -116,10 +116,10 @@ class Group(pulumi.CustomResource):
         my_group_resource = aws_native.xray.Group("myGroupResource",
             group_name="MyGroup",
             filter_expression="duration > 10",
-            insights_configuration=aws_native.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=False,
-                notifications_enabled=False,
-            ))
+            insights_configuration={
+                "insights_enabled": False,
+                "notifications_enabled": False,
+            })
 
         ```
         ### Example
@@ -131,10 +131,10 @@ class Group(pulumi.CustomResource):
         my_group_resource = aws_native.xray.Group("myGroupResource",
             group_name="MyGroup",
             filter_expression="duration > 10",
-            insights_configuration=aws_native.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=False,
-                notifications_enabled=False,
-            ))
+            insights_configuration={
+                "insights_enabled": False,
+                "notifications_enabled": False,
+            })
 
         ```
 
@@ -142,11 +142,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
-        :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: The structure containing configurations related to insights.
+        :param pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']] insights_configuration: The structure containing configurations related to insights.
                
                - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
                - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,10 +167,10 @@ class Group(pulumi.CustomResource):
         my_group_resource = aws_native.xray.Group("myGroupResource",
             group_name="MyGroup",
             filter_expression="duration > 10",
-            insights_configuration=aws_native.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=False,
-                notifications_enabled=False,
-            ))
+            insights_configuration={
+                "insights_enabled": False,
+                "notifications_enabled": False,
+            })
 
         ```
         ### Example
@@ -182,10 +182,10 @@ class Group(pulumi.CustomResource):
         my_group_resource = aws_native.xray.Group("myGroupResource",
             group_name="MyGroup",
             filter_expression="duration > 10",
-            insights_configuration=aws_native.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=False,
-                notifications_enabled=False,
-            ))
+            insights_configuration={
+                "insights_enabled": False,
+                "notifications_enabled": False,
+            })
 
         ```
 
@@ -206,8 +206,8 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

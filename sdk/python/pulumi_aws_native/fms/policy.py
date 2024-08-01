@@ -509,19 +509,19 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
-                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
+                 exclude_map: Optional[pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
-                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
+                 include_map: Optional[pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_clean_up: Optional[pulumi.Input[bool]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an AWS Firewall Manager policy.
@@ -542,7 +542,7 @@ class Policy(pulumi.CustomResource):
                - Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
                
                After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
-        :param pulumi.Input[pulumi.InputType['PolicyIeMapArgs']] exclude_map: Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        :param pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']] exclude_map: Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
                
                You can specify inclusions or exclusions, but not both. If you specify an `IncludeMap` , AWS Firewall Manager applies the policy to all accounts specified by the `IncludeMap` , and does not evaluate any `ExcludeMap` specifications. If you do not specify an `IncludeMap` , then Firewall Manager applies the policy to all accounts except for those specified by the `ExcludeMap` .
                
@@ -552,7 +552,7 @@ class Policy(pulumi.CustomResource):
                - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
                - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
         :param pulumi.Input[bool] exclude_resource_tags: Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
-        :param pulumi.Input[pulumi.InputType['PolicyIeMapArgs']] include_map: Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        :param pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']] include_map: Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
                
                You can specify inclusions or exclusions, but not both. If you specify an `IncludeMap` , AWS Firewall Manager applies the policy to all accounts specified by the `IncludeMap` , and does not evaluate any `ExcludeMap` specifications. If you do not specify an `IncludeMap` , then Firewall Manager applies the policy to all accounts except for those specified by the `ExcludeMap` .
                
@@ -565,7 +565,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_name: The name of the AWS Firewall Manager policy.
         :param pulumi.Input[bool] remediation_enabled: Indicates if the policy should be automatically applied to new resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_set_ids: The unique identifiers of the resource sets used by the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]] resource_tags: An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]] resource_tags: An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
         :param pulumi.Input[str] resource_type: The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
                
                The following are valid resource types for each Firewall Manager policy type:
@@ -583,7 +583,7 @@ class Policy(pulumi.CustomResource):
                By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
                
                This option is not available for Shield Advanced or AWS WAF Classic policies.
-        :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: Details about the security service that is being used to protect the resources.
+        :param pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']] security_service_policy_data: Details about the security service that is being used to protect the resources.
                
                This contains the following settings:
                
@@ -670,7 +670,7 @@ class Policy(pulumi.CustomResource):
                - Example: `SECURITY_GROUPS_USAGE_AUDIT`
                
                `"{\\"type\\":\\"SECURITY_GROUPS_USAGE_AUDIT\\",\\"deleteUnusedSecurityGroups\\":true,\\"coalesceRedundantSecurityGroups\\":true}"`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
         """
         ...
     @overload
@@ -697,19 +697,19 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
-                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
+                 exclude_map: Optional[pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
-                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIeMapArgs']]] = None,
+                 include_map: Optional[pulumi.Input[Union['PolicyIeMapArgs', 'PolicyIeMapArgsDict']]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_clean_up: Optional[pulumi.Input[bool]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

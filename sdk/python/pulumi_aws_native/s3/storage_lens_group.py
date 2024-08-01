@@ -75,18 +75,18 @@ class StorageLensGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']] filter: This property contains the criteria for the Storage Lens group data that is displayed
+        :param pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']] filter: This property contains the criteria for the Storage Lens group data that is displayed
         :param pulumi.Input[str] name: This property contains the Storage Lens group name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         ...
     @overload
@@ -112,9 +112,9 @@ class StorageLensGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

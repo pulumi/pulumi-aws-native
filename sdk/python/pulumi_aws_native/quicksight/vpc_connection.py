@@ -179,7 +179,7 @@ class VpcConnection(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -194,7 +194,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The Amazon EC2 security group IDs associated with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs for the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
         :param pulumi.Input[str] vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
         """
         ...
@@ -228,7 +228,7 @@ class VpcConnection(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

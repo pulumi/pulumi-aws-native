@@ -96,8 +96,8 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
@@ -108,8 +108,8 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_set_type: The resource type of the resources in the resource set. Enter one of the following values for resource type: 
                
                AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: A list of resource objects in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A tag to associate with the parameters for a resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]] resources: A list of resource objects in the resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A tag to associate with the parameters for a resource set.
         """
         ...
     @overload
@@ -137,8 +137,8 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

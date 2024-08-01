@@ -235,11 +235,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -254,11 +254,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the infrastructure configuration.
-        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
         :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
-        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: The logging configuration of the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
@@ -292,11 +292,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

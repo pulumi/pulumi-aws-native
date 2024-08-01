@@ -160,30 +160,30 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAttachmentsConfigurationArgs']]] = None,
+                 attachments_configuration: Optional[pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
                  identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
-                 q_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationQAppsConfigurationArgs']]] = None,
+                 q_apps_configuration: Optional[pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::Application Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationAttachmentsConfigurationArgs']] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Configuration information for the file upload during chat feature.
         :param pulumi.Input[str] description: A description for the Amazon Q Business application.
         :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
-        :param pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
                *Required* : `Yes`
-        :param pulumi.Input[pulumi.InputType['ApplicationQAppsConfigurationArgs']] q_apps_configuration: Configuration information about Amazon Q Apps. (preview feature)
+        :param pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']] q_apps_configuration: Configuration information about Amazon Q Apps. (preview feature)
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         ...
     @overload
@@ -209,14 +209,14 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAttachmentsConfigurationArgs']]] = None,
+                 attachments_configuration: Optional[pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
                  identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
-                 q_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationQAppsConfigurationArgs']]] = None,
+                 q_apps_configuration: Optional[pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

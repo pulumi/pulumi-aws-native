@@ -288,7 +288,7 @@ class Volume(pulumi.CustomResource):
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -344,7 +344,7 @@ class Volume(pulumi.CustomResource):
                  +   ``st1`` and ``sc1``: 125 - 16,384 GiB
                  +   ``standard``: 1 - 1024 GiB
         :param pulumi.Input[str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply to the volume during creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
                 Valid Range: Minimum value of 125. Maximum value of 1000.
@@ -408,7 +408,7 @@ class Volume(pulumi.CustomResource):
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):

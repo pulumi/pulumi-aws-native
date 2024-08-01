@@ -61,7 +61,7 @@ class BackupSelection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan_id: Optional[pulumi.Input[str]] = None,
-                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
+                 backup_selection: Optional[pulumi.Input[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupSelection
@@ -69,7 +69,7 @@ class BackupSelection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_plan_id: Uniquely identifies a backup plan.
-        :param pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
+        :param pulumi.Input[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
                
                It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
@@ -98,7 +98,7 @@ class BackupSelection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan_id: Optional[pulumi.Input[str]] = None,
-                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
+                 backup_selection: Optional[pulumi.Input[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

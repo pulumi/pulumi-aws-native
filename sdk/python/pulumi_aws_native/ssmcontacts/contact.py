@@ -90,7 +90,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]]] = None,
+                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactType']] = None,
                  __props__=None):
         """
@@ -100,7 +100,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         """
         ...
@@ -129,7 +129,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]]] = None,
+                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

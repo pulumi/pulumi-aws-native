@@ -176,9 +176,9 @@ class ConfigurationProfile(pulumi.CustomResource):
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorsArgs']]]]] = None,
+                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -191,9 +191,9 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
         :param pulumi.Input[str] name: A name for the configuration profile.
         :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         :param pulumi.Input[str] type: The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorsArgs']]]] validators: A list of methods for validating the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]] validators: A list of methods for validating the configuration.
         """
         ...
     @overload
@@ -225,9 +225,9 @@ class ConfigurationProfile(pulumi.CustomResource):
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorsArgs']]]]] = None,
+                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -166,13 +166,13 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  empty_on_delete: Optional[pulumi.Input[bool]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-                 lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
+                 lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
@@ -189,10 +189,10 @@ class Repository(pulumi.CustomResource):
         repository_name = config.require("repositoryName")
         registry_id = config.require("registryId")
         my_repository = aws_native.ecr.Repository("myRepository",
-            lifecycle_policy=aws_native.ecr.RepositoryLifecyclePolicyArgs(
-                lifecycle_policy_text=lifecycle_policy_text,
-                registry_id=registry_id,
-            ),
+            lifecycle_policy={
+                "lifecycle_policy_text": lifecycle_policy_text,
+                "registry_id": registry_id,
+            },
             repository_name=repository_name)
         pulumi.export("arn", my_repository.arn)
 
@@ -208,10 +208,10 @@ class Repository(pulumi.CustomResource):
         repository_name = config.require("repositoryName")
         registry_id = config.require("registryId")
         my_repository = aws_native.ecr.Repository("myRepository",
-            lifecycle_policy=aws_native.ecr.RepositoryLifecyclePolicyArgs(
-                lifecycle_policy_text=lifecycle_policy_text,
-                registry_id=registry_id,
-            ),
+            lifecycle_policy={
+                "lifecycle_policy_text": lifecycle_policy_text,
+                "registry_id": registry_id,
+            },
             repository_name=repository_name)
         pulumi.export("arn", my_repository.arn)
 
@@ -220,17 +220,17 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
-        :param pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-        :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        :param pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-        :param pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        :param pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                 The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
                  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -253,10 +253,10 @@ class Repository(pulumi.CustomResource):
         repository_name = config.require("repositoryName")
         registry_id = config.require("registryId")
         my_repository = aws_native.ecr.Repository("myRepository",
-            lifecycle_policy=aws_native.ecr.RepositoryLifecyclePolicyArgs(
-                lifecycle_policy_text=lifecycle_policy_text,
-                registry_id=registry_id,
-            ),
+            lifecycle_policy={
+                "lifecycle_policy_text": lifecycle_policy_text,
+                "registry_id": registry_id,
+            },
             repository_name=repository_name)
         pulumi.export("arn", my_repository.arn)
 
@@ -272,10 +272,10 @@ class Repository(pulumi.CustomResource):
         repository_name = config.require("repositoryName")
         registry_id = config.require("registryId")
         my_repository = aws_native.ecr.Repository("myRepository",
-            lifecycle_policy=aws_native.ecr.RepositoryLifecyclePolicyArgs(
-                lifecycle_policy_text=lifecycle_policy_text,
-                registry_id=registry_id,
-            ),
+            lifecycle_policy={
+                "lifecycle_policy_text": lifecycle_policy_text,
+                "registry_id": registry_id,
+            },
             repository_name=repository_name)
         pulumi.export("arn", my_repository.arn)
 
@@ -297,13 +297,13 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  empty_on_delete: Optional[pulumi.Input[bool]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-                 lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
+                 lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

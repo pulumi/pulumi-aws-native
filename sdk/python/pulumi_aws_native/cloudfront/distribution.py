@@ -59,16 +59,16 @@ class Distribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 distribution_config: Optional[pulumi.Input[Union['DistributionConfigArgs', 'DistributionConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DistributionConfigArgs']] distribution_config: The distribution's configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[Union['DistributionConfigArgs', 'DistributionConfigArgsDict']] distribution_config: The distribution's configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -94,8 +94,8 @@ class Distribution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 distribution_config: Optional[pulumi.Input[Union['DistributionConfigArgs', 'DistributionConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

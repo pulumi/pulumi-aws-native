@@ -93,7 +93,7 @@ class GlobalNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
@@ -108,33 +108,33 @@ class GlobalNetwork(pulumi.CustomResource):
         global_network = aws_native.networkmanager.GlobalNetwork("globalNetwork")
         site = aws_native.networkmanager.Site("site",
             global_network_id=global_network.id,
-            location=aws_native.networkmanager.SiteLocationArgs(
-                address="227 W Monroe St, Chicago, IL 60606",
-                latitude="41.8",
-                longitude="-87.6",
-            ))
+            location={
+                "address": "227 W Monroe St, Chicago, IL 60606",
+                "latitude": "41.8",
+                "longitude": "-87.6",
+            })
         link = aws_native.networkmanager.Link("link",
             description="Broadband link",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            bandwidth=aws_native.networkmanager.LinkBandwidthArgs(
-                download_speed=20,
-                upload_speed=20,
-            ),
+            bandwidth={
+                "download_speed": 20,
+                "upload_speed": 20,
+            },
             provider="AnyCompany",
             type="Broadband",
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="broadband-link-1",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "broadband-link-1",
+            }])
         device = aws_native.networkmanager.Device("device",
             description="Chicago office device",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            tags=[aws_native.TagArgs(
-                key="Network",
-                value="north-america",
-            )])
+            tags=[{
+                "key": "Network",
+                "value": "north-america",
+            }])
         link_association = aws_native.networkmanager.LinkAssociation("linkAssociation",
             global_network_id=global_network.id,
             link_id=link.link_id,
@@ -150,33 +150,33 @@ class GlobalNetwork(pulumi.CustomResource):
         global_network = aws_native.networkmanager.GlobalNetwork("globalNetwork")
         site = aws_native.networkmanager.Site("site",
             global_network_id=global_network.id,
-            location=aws_native.networkmanager.SiteLocationArgs(
-                address="227 W Monroe St, Chicago, IL 60606",
-                latitude="41.8",
-                longitude="-87.6",
-            ))
+            location={
+                "address": "227 W Monroe St, Chicago, IL 60606",
+                "latitude": "41.8",
+                "longitude": "-87.6",
+            })
         link = aws_native.networkmanager.Link("link",
             description="Broadband link",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            bandwidth=aws_native.networkmanager.LinkBandwidthArgs(
-                download_speed=20,
-                upload_speed=20,
-            ),
+            bandwidth={
+                "download_speed": 20,
+                "upload_speed": 20,
+            },
             provider="AnyCompany",
             type="Broadband",
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="broadband-link-1",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "broadband-link-1",
+            }])
         device = aws_native.networkmanager.Device("device",
             description="Chicago office device",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            tags=[aws_native.TagArgs(
-                key="Network",
-                value="north-america",
-            )])
+            tags=[{
+                "key": "Network",
+                "value": "north-america",
+            }])
         link_association = aws_native.networkmanager.LinkAssociation("linkAssociation",
             global_network_id=global_network.id,
             link_id=link.link_id,
@@ -189,7 +189,7 @@ class GlobalNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: The date and time that the global network was created.
         :param pulumi.Input[str] description: The description of the global network.
         :param pulumi.Input[str] state: The state of the global network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the global network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the global network.
         """
         ...
     @overload
@@ -210,33 +210,33 @@ class GlobalNetwork(pulumi.CustomResource):
         global_network = aws_native.networkmanager.GlobalNetwork("globalNetwork")
         site = aws_native.networkmanager.Site("site",
             global_network_id=global_network.id,
-            location=aws_native.networkmanager.SiteLocationArgs(
-                address="227 W Monroe St, Chicago, IL 60606",
-                latitude="41.8",
-                longitude="-87.6",
-            ))
+            location={
+                "address": "227 W Monroe St, Chicago, IL 60606",
+                "latitude": "41.8",
+                "longitude": "-87.6",
+            })
         link = aws_native.networkmanager.Link("link",
             description="Broadband link",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            bandwidth=aws_native.networkmanager.LinkBandwidthArgs(
-                download_speed=20,
-                upload_speed=20,
-            ),
+            bandwidth={
+                "download_speed": 20,
+                "upload_speed": 20,
+            },
             provider="AnyCompany",
             type="Broadband",
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="broadband-link-1",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "broadband-link-1",
+            }])
         device = aws_native.networkmanager.Device("device",
             description="Chicago office device",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            tags=[aws_native.TagArgs(
-                key="Network",
-                value="north-america",
-            )])
+            tags=[{
+                "key": "Network",
+                "value": "north-america",
+            }])
         link_association = aws_native.networkmanager.LinkAssociation("linkAssociation",
             global_network_id=global_network.id,
             link_id=link.link_id,
@@ -252,33 +252,33 @@ class GlobalNetwork(pulumi.CustomResource):
         global_network = aws_native.networkmanager.GlobalNetwork("globalNetwork")
         site = aws_native.networkmanager.Site("site",
             global_network_id=global_network.id,
-            location=aws_native.networkmanager.SiteLocationArgs(
-                address="227 W Monroe St, Chicago, IL 60606",
-                latitude="41.8",
-                longitude="-87.6",
-            ))
+            location={
+                "address": "227 W Monroe St, Chicago, IL 60606",
+                "latitude": "41.8",
+                "longitude": "-87.6",
+            })
         link = aws_native.networkmanager.Link("link",
             description="Broadband link",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            bandwidth=aws_native.networkmanager.LinkBandwidthArgs(
-                download_speed=20,
-                upload_speed=20,
-            ),
+            bandwidth={
+                "download_speed": 20,
+                "upload_speed": 20,
+            },
             provider="AnyCompany",
             type="Broadband",
-            tags=[aws_native.TagArgs(
-                key="Name",
-                value="broadband-link-1",
-            )])
+            tags=[{
+                "key": "Name",
+                "value": "broadband-link-1",
+            }])
         device = aws_native.networkmanager.Device("device",
             description="Chicago office device",
             global_network_id=global_network.id,
             site_id=site.site_id,
-            tags=[aws_native.TagArgs(
-                key="Network",
-                value="north-america",
-            )])
+            tags=[{
+                "key": "Network",
+                "value": "north-america",
+            }])
         link_association = aws_native.networkmanager.LinkAssociation("linkAssociation",
             global_network_id=global_network.id,
             link_id=link.link_id,
@@ -304,7 +304,7 @@ class GlobalNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

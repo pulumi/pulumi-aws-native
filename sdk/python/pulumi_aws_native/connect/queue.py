@@ -176,10 +176,10 @@ class Queue(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
+                 outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
                  quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['QueueStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Queue
@@ -191,10 +191,10 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[str] name: The name of the queue.
-        :param pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -225,10 +225,10 @@ class Queue(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
+                 outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
                  quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['QueueStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

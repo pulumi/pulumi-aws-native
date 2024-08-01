@@ -137,12 +137,12 @@ class Asset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: Optional[pulumi.Input[str]] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
+                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::Asset
@@ -150,12 +150,12 @@ class Asset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_id: The unique identifier for the Asset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]] egress_endpoints: The list of egress endpoints available for the Asset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]] egress_endpoints: The list of egress endpoints available for the Asset.
         :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
         :param pulumi.Input[str] source_arn: ARN of the source object in S3.
         :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -182,12 +182,12 @@ class Asset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: Optional[pulumi.Input[str]] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
+                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

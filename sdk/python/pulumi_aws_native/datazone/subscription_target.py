@@ -170,7 +170,7 @@ class SubscriptionTarget(pulumi.CustomResource):
                  manage_access_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionTargetFormArgs']]]]] = None,
+                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -185,7 +185,7 @@ class SubscriptionTarget(pulumi.CustomResource):
         :param pulumi.Input[str] manage_access_role: The manage access role that is used to create the subscription target.
         :param pulumi.Input[str] name: The name of the subscription target.
         :param pulumi.Input[str] provider: The provider of the subscription target.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionTargetFormArgs']]]] subscription_target_config: The configuration of the subscription target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]] subscription_target_config: The configuration of the subscription target.
         :param pulumi.Input[str] type: The type of the subscription target.
         """
         ...
@@ -219,7 +219,7 @@ class SubscriptionTarget(pulumi.CustomResource):
                  manage_access_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionTargetFormArgs']]]]] = None,
+                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

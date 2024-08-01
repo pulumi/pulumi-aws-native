@@ -135,7 +135,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
@@ -149,7 +149,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the instance profile.
         :param pulumi.Input[bool] package_cleanup: When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[bool] reboot_after_use: When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
@@ -182,7 +182,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

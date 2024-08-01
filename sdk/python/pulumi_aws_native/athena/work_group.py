@@ -145,9 +145,9 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 work_group_configuration: Optional[pulumi.Input[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
+                 work_group_configuration_updates: Optional[pulumi.Input[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Athena::WorkGroup
@@ -164,24 +164,24 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup",
             state=aws_native.athena.WorkGroupState.ENABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration=aws_native.athena.WorkGroupConfigurationArgs(
-                bytes_scanned_cutoff_per_query=200000000,
-                enforce_work_group_configuration=False,
-                publish_cloud_watch_metrics_enabled=False,
-                requester_pays_enabled=True,
-                result_configuration=aws_native.athena.WorkGroupResultConfigurationArgs(
-                    output_location="s3://path/to/my/bucket/",
-                ),
-            ))
+            work_group_configuration={
+                "bytes_scanned_cutoff_per_query": 200000000,
+                "enforce_work_group_configuration": False,
+                "publish_cloud_watch_metrics_enabled": False,
+                "requester_pays_enabled": True,
+                "result_configuration": {
+                    "output_location": "s3://path/to/my/bucket/",
+                },
+            })
 
         ```
         ### Example
@@ -195,24 +195,24 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup",
             state=aws_native.athena.WorkGroupState.ENABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration=aws_native.athena.WorkGroupConfigurationArgs(
-                bytes_scanned_cutoff_per_query=200000000,
-                enforce_work_group_configuration=False,
-                publish_cloud_watch_metrics_enabled=False,
-                requester_pays_enabled=True,
-                result_configuration=aws_native.athena.WorkGroupResultConfigurationArgs(
-                    output_location="s3://path/to/my/bucket/",
-                ),
-            ))
+            work_group_configuration={
+                "bytes_scanned_cutoff_per_query": 200000000,
+                "enforce_work_group_configuration": False,
+                "publish_cloud_watch_metrics_enabled": False,
+                "requester_pays_enabled": True,
+                "result_configuration": {
+                    "output_location": "s3://path/to/my/bucket/",
+                },
+            })
 
         ```
         ### Example
@@ -226,27 +226,27 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup Updated",
             state=aws_native.athena.WorkGroupState.DISABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration_updates=aws_native.athena.WorkGroupConfigurationUpdatesArgs(
-                bytes_scanned_cutoff_per_query=10000000,
-                enforce_work_group_configuration=True,
-                publish_cloud_watch_metrics_enabled=True,
-                requester_pays_enabled=False,
-                result_configuration_updates=aws_native.athena.WorkGroupResultConfigurationUpdatesArgs(
-                    encryption_configuration=aws_native.athena.WorkGroupEncryptionConfigurationArgs(
-                        encryption_option=aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
-                    ),
-                    output_location="s3://path/to/my/bucket/updated/",
-                ),
-            ))
+            work_group_configuration_updates={
+                "bytes_scanned_cutoff_per_query": 10000000,
+                "enforce_work_group_configuration": True,
+                "publish_cloud_watch_metrics_enabled": True,
+                "requester_pays_enabled": False,
+                "result_configuration_updates": {
+                    "encryption_configuration": {
+                        "encryption_option": aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
+                    },
+                    "output_location": "s3://path/to/my/bucket/updated/",
+                },
+            })
 
         ```
         ### Example
@@ -260,27 +260,27 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup Updated",
             state=aws_native.athena.WorkGroupState.DISABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration_updates=aws_native.athena.WorkGroupConfigurationUpdatesArgs(
-                bytes_scanned_cutoff_per_query=10000000,
-                enforce_work_group_configuration=True,
-                publish_cloud_watch_metrics_enabled=True,
-                requester_pays_enabled=False,
-                result_configuration_updates=aws_native.athena.WorkGroupResultConfigurationUpdatesArgs(
-                    encryption_configuration=aws_native.athena.WorkGroupEncryptionConfigurationArgs(
-                        encryption_option=aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
-                    ),
-                    output_location="s3://path/to/my/bucket/updated/",
-                ),
-            ))
+            work_group_configuration_updates={
+                "bytes_scanned_cutoff_per_query": 10000000,
+                "enforce_work_group_configuration": True,
+                "publish_cloud_watch_metrics_enabled": True,
+                "requester_pays_enabled": False,
+                "result_configuration_updates": {
+                    "encryption_configuration": {
+                        "encryption_option": aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
+                    },
+                    "output_location": "s3://path/to/my/bucket/updated/",
+                },
+            })
 
         ```
 
@@ -290,9 +290,9 @@ class WorkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The workGroup name.
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
-        :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']] work_group_configuration: The workgroup configuration
-        :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']] work_group_configuration_updates: The workgroup configuration update object
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+        :param pulumi.Input[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']] work_group_configuration: The workgroup configuration
+        :param pulumi.Input[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']] work_group_configuration_updates: The workgroup configuration update object
         """
         ...
     @overload
@@ -315,24 +315,24 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup",
             state=aws_native.athena.WorkGroupState.ENABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration=aws_native.athena.WorkGroupConfigurationArgs(
-                bytes_scanned_cutoff_per_query=200000000,
-                enforce_work_group_configuration=False,
-                publish_cloud_watch_metrics_enabled=False,
-                requester_pays_enabled=True,
-                result_configuration=aws_native.athena.WorkGroupResultConfigurationArgs(
-                    output_location="s3://path/to/my/bucket/",
-                ),
-            ))
+            work_group_configuration={
+                "bytes_scanned_cutoff_per_query": 200000000,
+                "enforce_work_group_configuration": False,
+                "publish_cloud_watch_metrics_enabled": False,
+                "requester_pays_enabled": True,
+                "result_configuration": {
+                    "output_location": "s3://path/to/my/bucket/",
+                },
+            })
 
         ```
         ### Example
@@ -346,24 +346,24 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup",
             state=aws_native.athena.WorkGroupState.ENABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration=aws_native.athena.WorkGroupConfigurationArgs(
-                bytes_scanned_cutoff_per_query=200000000,
-                enforce_work_group_configuration=False,
-                publish_cloud_watch_metrics_enabled=False,
-                requester_pays_enabled=True,
-                result_configuration=aws_native.athena.WorkGroupResultConfigurationArgs(
-                    output_location="s3://path/to/my/bucket/",
-                ),
-            ))
+            work_group_configuration={
+                "bytes_scanned_cutoff_per_query": 200000000,
+                "enforce_work_group_configuration": False,
+                "publish_cloud_watch_metrics_enabled": False,
+                "requester_pays_enabled": True,
+                "result_configuration": {
+                    "output_location": "s3://path/to/my/bucket/",
+                },
+            })
 
         ```
         ### Example
@@ -377,27 +377,27 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup Updated",
             state=aws_native.athena.WorkGroupState.DISABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration_updates=aws_native.athena.WorkGroupConfigurationUpdatesArgs(
-                bytes_scanned_cutoff_per_query=10000000,
-                enforce_work_group_configuration=True,
-                publish_cloud_watch_metrics_enabled=True,
-                requester_pays_enabled=False,
-                result_configuration_updates=aws_native.athena.WorkGroupResultConfigurationUpdatesArgs(
-                    encryption_configuration=aws_native.athena.WorkGroupEncryptionConfigurationArgs(
-                        encryption_option=aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
-                    ),
-                    output_location="s3://path/to/my/bucket/updated/",
-                ),
-            ))
+            work_group_configuration_updates={
+                "bytes_scanned_cutoff_per_query": 10000000,
+                "enforce_work_group_configuration": True,
+                "publish_cloud_watch_metrics_enabled": True,
+                "requester_pays_enabled": False,
+                "result_configuration_updates": {
+                    "encryption_configuration": {
+                        "encryption_option": aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
+                    },
+                    "output_location": "s3://path/to/my/bucket/updated/",
+                },
+            })
 
         ```
         ### Example
@@ -411,27 +411,27 @@ class WorkGroup(pulumi.CustomResource):
             description="My WorkGroup Updated",
             state=aws_native.athena.WorkGroupState.DISABLED,
             tags=[
-                aws_native.TagArgs(
-                    key="key1",
-                    value="value1",
-                ),
-                aws_native.TagArgs(
-                    key="key2",
-                    value="value2",
-                ),
+                {
+                    "key": "key1",
+                    "value": "value1",
+                },
+                {
+                    "key": "key2",
+                    "value": "value2",
+                },
             ],
-            work_group_configuration_updates=aws_native.athena.WorkGroupConfigurationUpdatesArgs(
-                bytes_scanned_cutoff_per_query=10000000,
-                enforce_work_group_configuration=True,
-                publish_cloud_watch_metrics_enabled=True,
-                requester_pays_enabled=False,
-                result_configuration_updates=aws_native.athena.WorkGroupResultConfigurationUpdatesArgs(
-                    encryption_configuration=aws_native.athena.WorkGroupEncryptionConfigurationArgs(
-                        encryption_option=aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
-                    ),
-                    output_location="s3://path/to/my/bucket/updated/",
-                ),
-            ))
+            work_group_configuration_updates={
+                "bytes_scanned_cutoff_per_query": 10000000,
+                "enforce_work_group_configuration": True,
+                "publish_cloud_watch_metrics_enabled": True,
+                "requester_pays_enabled": False,
+                "result_configuration_updates": {
+                    "encryption_configuration": {
+                        "encryption_option": aws_native.athena.WorkGroupEncryptionOption.SSE_S3,
+                    },
+                    "output_location": "s3://path/to/my/bucket/updated/",
+                },
+            })
 
         ```
 
@@ -454,9 +454,9 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 work_group_configuration: Optional[pulumi.Input[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
+                 work_group_configuration_updates: Optional[pulumi.Input[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -115,7 +115,7 @@ class Accelerator(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Accelerator
@@ -126,7 +126,7 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[str] name: Name of accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Create tags for an accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Create tags for an accelerator.
                
                For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         """
@@ -158,7 +158,7 @@ class Accelerator(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

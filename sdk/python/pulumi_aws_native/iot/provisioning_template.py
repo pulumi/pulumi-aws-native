@@ -157,9 +157,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']]] = None,
+                 pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
@@ -171,9 +171,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the fleet provisioning template.
         :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template.
+        :param pulumi.Input[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']] pre_provisioning_hook: Creates a pre-provisioning hook template.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that can be used to manage the fleet provisioning template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that can be used to manage the fleet provisioning template.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template version.
         :param pulumi.Input[str] template_name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplateTemplateType'] template_type: The type of the provisioning template.
@@ -204,9 +204,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']]] = None,
+                 pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,

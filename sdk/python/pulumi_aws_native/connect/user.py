@@ -203,14 +203,14 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_user_id: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
-                 identity_info: Optional[pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']]] = None,
+                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 phone_config: Optional[pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']]] = None,
+                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
                  routing_profile_arn: Optional[pulumi.Input[str]] = None,
                  security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -220,14 +220,14 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management.
         :param pulumi.Input[str] hierarchy_group_arn: The identifier of the hierarchy group for the user.
-        :param pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']] identity_info: The information about the identity of the user.
+        :param pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']] identity_info: The information about the identity of the user.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']] phone_config: The phone settings for the user.
+        :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']] phone_config: The phone settings for the user.
         :param pulumi.Input[str] routing_profile_arn: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_arns: One or more security profile arns for the user
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
         :param pulumi.Input[str] username: The user name for the account.
         """
         ...
@@ -256,14 +256,14 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_user_id: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
-                 identity_info: Optional[pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']]] = None,
+                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 phone_config: Optional[pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']]] = None,
+                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
                  routing_profile_arn: Optional[pulumi.Input[str]] = None,
                  security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

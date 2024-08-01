@@ -306,22 +306,22 @@ class DataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
-                 column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
+                 column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
+                 column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
-                 data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
-                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
-                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
+                 data_set_refresh_properties: Optional[pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
+                 data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
+                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]]] = None,
+                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
-                 ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
+                 ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
+                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
-                 row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
-                 row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]]] = None,
+                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
+                 row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
+                 row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::DataSet Resource Type.
@@ -329,24 +329,24 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
         :param pulumi.Input[str] data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
-        :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] data_set_refresh_properties: The refresh properties of a dataset.
-        :param pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]] field_folders: The folder that contains fields and nested subfolders for your dataset.
+        :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']] data_set_refresh_properties: The refresh properties of a dataset.
+        :param pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]] field_folders: The folder that contains fields and nested subfolders for your dataset.
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
-        :param pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
+        :param pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
-        :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
-        :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]] permissions: <p>A list of resource permissions on the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         ...
     @overload
@@ -373,22 +373,22 @@ class DataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
-                 column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
+                 column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
+                 column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
-                 data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
-                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
-                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
+                 data_set_refresh_properties: Optional[pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
+                 data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
+                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]]] = None,
+                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
-                 ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
+                 ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
+                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
-                 row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
-                 row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]]] = None,
+                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
+                 row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
+                 row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

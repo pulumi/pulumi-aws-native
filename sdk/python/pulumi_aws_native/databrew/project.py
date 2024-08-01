@@ -126,8 +126,8 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recipe_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 sample: Optional[pulumi.Input[pulumi.InputType['ProjectSampleArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 sample: Optional[pulumi.Input[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Project.
@@ -144,10 +144,10 @@ class Project(pulumi.CustomResource):
             recipe_name="recipe-name",
             dataset_name="dataset-name",
             role_arn="arn:aws:iam::12345678910:role/PassRoleAdmin",
-            sample=aws_native.databrew.ProjectSampleArgs(
-                size=500,
-                type=aws_native.databrew.ProjectSampleType.LAST_N,
-            ))
+            sample={
+                "size": 500,
+                "type": aws_native.databrew.ProjectSampleType.LAST_N,
+            })
 
         ```
         ### Example
@@ -161,14 +161,14 @@ class Project(pulumi.CustomResource):
             recipe_name="test-project-recipe",
             dataset_name="test-dataset",
             role_arn="arn:aws:iam::1234567891011:role/PassRoleAdmin",
-            sample=aws_native.databrew.ProjectSampleArgs(
-                size=500,
-                type=aws_native.databrew.ProjectSampleType.LAST_N,
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            sample={
+                "size": 500,
+                "type": aws_native.databrew.ProjectSampleType.LAST_N,
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -178,8 +178,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] name: Project name
         :param pulumi.Input[str] recipe_name: Recipe name
         :param pulumi.Input[str] role_arn: Role arn
-        :param pulumi.Input[pulumi.InputType['ProjectSampleArgs']] sample: Sample
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the project.
+        :param pulumi.Input[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']] sample: Sample
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the project.
         """
         ...
     @overload
@@ -202,10 +202,10 @@ class Project(pulumi.CustomResource):
             recipe_name="recipe-name",
             dataset_name="dataset-name",
             role_arn="arn:aws:iam::12345678910:role/PassRoleAdmin",
-            sample=aws_native.databrew.ProjectSampleArgs(
-                size=500,
-                type=aws_native.databrew.ProjectSampleType.LAST_N,
-            ))
+            sample={
+                "size": 500,
+                "type": aws_native.databrew.ProjectSampleType.LAST_N,
+            })
 
         ```
         ### Example
@@ -219,14 +219,14 @@ class Project(pulumi.CustomResource):
             recipe_name="test-project-recipe",
             dataset_name="test-dataset",
             role_arn="arn:aws:iam::1234567891011:role/PassRoleAdmin",
-            sample=aws_native.databrew.ProjectSampleArgs(
-                size=500,
-                type=aws_native.databrew.ProjectSampleType.LAST_N,
-            ),
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+            sample={
+                "size": 500,
+                "type": aws_native.databrew.ProjectSampleType.LAST_N,
+            },
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -249,8 +249,8 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recipe_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 sample: Optional[pulumi.Input[pulumi.InputType['ProjectSampleArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 sample: Optional[pulumi.Input[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

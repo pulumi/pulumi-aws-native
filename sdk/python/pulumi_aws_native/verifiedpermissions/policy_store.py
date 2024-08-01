@@ -83,8 +83,8 @@ class PolicyStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']]] = None,
-                 validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
@@ -97,20 +97,20 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_policy_store = aws_native.verifiedpermissions.PolicyStore("myPolicyStore",
-            schema=aws_native.verifiedpermissions.PolicyStoreSchemaDefinitionArgs(
-                cedar_json="{\\"PhotoApp\\":{\\"commonTypes\\":{\\"PersonType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"age\\":{\\"type\\":\\"Long\\"},\\"name\\":{\\"type\\":\\"String\\"}}},\\"ContextType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"ip\\":{\\"type\\":\\"Extension\\",\\"name\\":\\"ipaddr\\",\\"required\\":false},\\"authenticated\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}}},\\"entityTypes\\":{\\"User\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"userId\\":{\\"type\\":\\"String\\"},\\"personInformation\\":{\\"type\\":\\"PersonType\\"}}},\\"memberOfTypes\\":[\\"UserGroup\\"]},\\"UserGroup\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Photo\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"account\\":{\\"type\\":\\"Entity\\",\\"name\\":\\"Account\\",\\"required\\":true},\\"private\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}},\\"memberOfTypes\\":[\\"Album\\",\\"Account\\"]},\\"Album\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Account\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}}},\\"actions\\":{\\"viewPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"createPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"listPhotos\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}}}}}",
-            ),
-            validation_settings=aws_native.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-                mode=aws_native.verifiedpermissions.PolicyStoreValidationMode.STRICT,
-            ))
+            schema={
+                "cedar_json": "{\\"PhotoApp\\":{\\"commonTypes\\":{\\"PersonType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"age\\":{\\"type\\":\\"Long\\"},\\"name\\":{\\"type\\":\\"String\\"}}},\\"ContextType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"ip\\":{\\"type\\":\\"Extension\\",\\"name\\":\\"ipaddr\\",\\"required\\":false},\\"authenticated\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}}},\\"entityTypes\\":{\\"User\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"userId\\":{\\"type\\":\\"String\\"},\\"personInformation\\":{\\"type\\":\\"PersonType\\"}}},\\"memberOfTypes\\":[\\"UserGroup\\"]},\\"UserGroup\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Photo\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"account\\":{\\"type\\":\\"Entity\\",\\"name\\":\\"Account\\",\\"required\\":true},\\"private\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}},\\"memberOfTypes\\":[\\"Album\\",\\"Account\\"]},\\"Album\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Account\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}}},\\"actions\\":{\\"viewPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"createPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"listPhotos\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}}}}}",
+            },
+            validation_settings={
+                "mode": aws_native.verifiedpermissions.PolicyStoreValidationMode.STRICT,
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Descriptive text that you can provide to help with identification of the current policy store.
-        :param pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
-        :param pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']] validation_settings: Specifies the validation setting for this policy store.
+        :param pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Specifies the validation setting for this policy store.
                
                Currently, the only valid and required value is `Mode` .
                
@@ -133,12 +133,12 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi_aws_native as aws_native
 
         my_policy_store = aws_native.verifiedpermissions.PolicyStore("myPolicyStore",
-            schema=aws_native.verifiedpermissions.PolicyStoreSchemaDefinitionArgs(
-                cedar_json="{\\"PhotoApp\\":{\\"commonTypes\\":{\\"PersonType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"age\\":{\\"type\\":\\"Long\\"},\\"name\\":{\\"type\\":\\"String\\"}}},\\"ContextType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"ip\\":{\\"type\\":\\"Extension\\",\\"name\\":\\"ipaddr\\",\\"required\\":false},\\"authenticated\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}}},\\"entityTypes\\":{\\"User\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"userId\\":{\\"type\\":\\"String\\"},\\"personInformation\\":{\\"type\\":\\"PersonType\\"}}},\\"memberOfTypes\\":[\\"UserGroup\\"]},\\"UserGroup\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Photo\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"account\\":{\\"type\\":\\"Entity\\",\\"name\\":\\"Account\\",\\"required\\":true},\\"private\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}},\\"memberOfTypes\\":[\\"Album\\",\\"Account\\"]},\\"Album\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Account\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}}},\\"actions\\":{\\"viewPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"createPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"listPhotos\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}}}}}",
-            ),
-            validation_settings=aws_native.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-                mode=aws_native.verifiedpermissions.PolicyStoreValidationMode.STRICT,
-            ))
+            schema={
+                "cedar_json": "{\\"PhotoApp\\":{\\"commonTypes\\":{\\"PersonType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"age\\":{\\"type\\":\\"Long\\"},\\"name\\":{\\"type\\":\\"String\\"}}},\\"ContextType\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"ip\\":{\\"type\\":\\"Extension\\",\\"name\\":\\"ipaddr\\",\\"required\\":false},\\"authenticated\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}}},\\"entityTypes\\":{\\"User\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"userId\\":{\\"type\\":\\"String\\"},\\"personInformation\\":{\\"type\\":\\"PersonType\\"}}},\\"memberOfTypes\\":[\\"UserGroup\\"]},\\"UserGroup\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Photo\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{\\"account\\":{\\"type\\":\\"Entity\\",\\"name\\":\\"Account\\",\\"required\\":true},\\"private\\":{\\"type\\":\\"Boolean\\",\\"required\\":true}}},\\"memberOfTypes\\":[\\"Album\\",\\"Account\\"]},\\"Album\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}},\\"Account\\":{\\"shape\\":{\\"type\\":\\"Record\\",\\"attributes\\":{}}}},\\"actions\\":{\\"viewPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"createPhoto\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}},\\"listPhotos\\":{\\"appliesTo\\":{\\"principalTypes\\":[\\"User\\",\\"UserGroup\\"],\\"resourceTypes\\":[\\"Photo\\"],\\"context\\":{\\"type\\":\\"ContextType\\"}}}}}}",
+            },
+            validation_settings={
+                "mode": aws_native.verifiedpermissions.PolicyStoreValidationMode.STRICT,
+            })
 
         ```
 
@@ -158,8 +158,8 @@ class PolicyStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']]] = None,
-                 validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

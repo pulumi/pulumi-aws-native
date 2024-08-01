@@ -93,9 +93,9 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::S3Outposts::Bucket
@@ -103,9 +103,9 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket_name: A name for the bucket.
-        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
+        :param pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         ...
     @overload
@@ -132,9 +132,9 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

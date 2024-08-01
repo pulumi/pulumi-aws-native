@@ -253,20 +253,20 @@ class PatchBaseline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_rules: Optional[pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']]] = None,
+                 approval_rules: Optional[pulumi.Input[Union['PatchBaselineRuleGroupArgs', 'PatchBaselineRuleGroupArgsDict']]] = None,
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel']] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
                  default_baseline: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 global_filters: Optional[pulumi.Input[pulumi.InputType['PatchBaselinePatchFilterGroupArgs']]] = None,
+                 global_filters: Optional[pulumi.Input[Union['PatchBaselinePatchFilterGroupArgs', 'PatchBaselinePatchFilterGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['PatchBaselineOperatingSystem']] = None,
                  patch_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input['PatchBaselineRejectedPatchesAction']] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselinePatchSourceArgs', 'PatchBaselinePatchSourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSM::PatchBaseline
@@ -283,69 +283,69 @@ class PatchBaseline(pulumi.CustomResource):
             description="Baseline containing all updates approved for Windows instances",
             operating_system=aws_native.ssm.PatchBaselineOperatingSystem.WINDOWS,
             patch_groups=["myPatchGroup"],
-            approval_rules=aws_native.ssm.PatchBaselineRuleGroupArgs(
-                patch_rules=[
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+            approval_rules={
+                "patch_rules": [
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": [
                                         "SecurityUpdates",
                                         "CriticalUpdates",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["WindowsServer2019"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["WindowsServer2019"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["*"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["APPLICATION"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory Rights Management Services Client 2.0"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": ["*"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["APPLICATION"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
+                                },
+                                {
+                                    "values": ["Active Directory Rights Management Services Client 2.0"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
+                                {
+                                    "values": ["Active Directory"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -359,88 +359,88 @@ class PatchBaseline(pulumi.CustomResource):
             description="Baseline containing all updates approved for Windows instances",
             operating_system=aws_native.ssm.PatchBaselineOperatingSystem.WINDOWS,
             patch_groups=["myPatchGroup"],
-            approval_rules=aws_native.ssm.PatchBaselineRuleGroupArgs(
-                patch_rules=[
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+            approval_rules={
+                "patch_rules": [
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": [
                                         "SecurityUpdates",
                                         "CriticalUpdates",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["WindowsServer2019"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["WindowsServer2019"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["*"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["APPLICATION"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory Rights Management Services Client 2.0"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": ["*"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["APPLICATION"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
+                                },
+                                {
+                                    "values": ["Active Directory Rights Management Services Client 2.0"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
+                                {
+                                    "values": ["Active Directory"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
                 ],
-            ))
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']] approval_rules: A set of rules used to include patches in the baseline.
+        :param pulumi.Input[Union['PatchBaselineRuleGroupArgs', 'PatchBaselineRuleGroupArgsDict']] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
         :param pulumi.Input[bool] approved_patches_enable_non_security: Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
         :param pulumi.Input[bool] default_baseline: Set the baseline as default baseline. Only registering to default patch baseline is allowed.
         :param pulumi.Input[str] description: The description of the patch baseline.
-        :param pulumi.Input[pulumi.InputType['PatchBaselinePatchFilterGroupArgs']] global_filters: A set of global filters used to include patches in the baseline.
+        :param pulumi.Input[Union['PatchBaselinePatchFilterGroupArgs', 'PatchBaselinePatchFilterGroupArgsDict']] global_filters: A set of global filters used to include patches in the baseline.
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input['PatchBaselineOperatingSystem'] operating_system: Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patch_groups: PatchGroups is used to associate instances with a specific patch baseline
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of explicitly rejected patches for the baseline.
         :param pulumi.Input['PatchBaselineRejectedPatchesAction'] rejected_patches_action: The action for Patch Manager to take on patches included in the RejectedPackages list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]] sources: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselinePatchSourceArgs', 'PatchBaselinePatchSourceArgsDict']]]] sources: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         """
         ...
     @overload
@@ -463,69 +463,69 @@ class PatchBaseline(pulumi.CustomResource):
             description="Baseline containing all updates approved for Windows instances",
             operating_system=aws_native.ssm.PatchBaselineOperatingSystem.WINDOWS,
             patch_groups=["myPatchGroup"],
-            approval_rules=aws_native.ssm.PatchBaselineRuleGroupArgs(
-                patch_rules=[
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+            approval_rules={
+                "patch_rules": [
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": [
                                         "SecurityUpdates",
                                         "CriticalUpdates",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["WindowsServer2019"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["WindowsServer2019"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["*"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["APPLICATION"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory Rights Management Services Client 2.0"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": ["*"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["APPLICATION"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
+                                },
+                                {
+                                    "values": ["Active Directory Rights Management Services Client 2.0"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
+                                {
+                                    "values": ["Active Directory"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -539,69 +539,69 @@ class PatchBaseline(pulumi.CustomResource):
             description="Baseline containing all updates approved for Windows instances",
             operating_system=aws_native.ssm.PatchBaselineOperatingSystem.WINDOWS,
             patch_groups=["myPatchGroup"],
-            approval_rules=aws_native.ssm.PatchBaselineRuleGroupArgs(
-                patch_rules=[
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+            approval_rules={
+                "patch_rules": [
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": [
                                         "SecurityUpdates",
                                         "CriticalUpdates",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["WindowsServer2019"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["WindowsServer2019"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
-                    aws_native.ssm.PatchBaselineRuleArgs(
-                        patch_filter_group=aws_native.ssm.PatchBaselinePatchFilterGroupArgs(
-                            patch_filters=[
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=[
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
+                    {
+                        "patch_filter_group": {
+                            "patch_filters": [
+                                {
+                                    "values": [
                                         "Critical",
                                         "Important",
                                         "Moderate",
                                     ],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["*"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["APPLICATION"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory Rights Management Services Client 2.0"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
-                                ),
-                                aws_native.ssm.PatchBaselinePatchFilterArgs(
-                                    values=["Active Directory"],
-                                    key=aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
-                                ),
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.MSRC_SEVERITY,
+                                },
+                                {
+                                    "values": ["*"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.CLASSIFICATION,
+                                },
+                                {
+                                    "values": ["APPLICATION"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PATCH_SET,
+                                },
+                                {
+                                    "values": ["Active Directory Rights Management Services Client 2.0"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT,
+                                },
+                                {
+                                    "values": ["Active Directory"],
+                                    "key": aws_native.ssm.PatchBaselinePatchFilterKey.PRODUCT_FAMILY,
+                                },
                             ],
-                        ),
-                        approve_after_days=7,
-                        compliance_level=aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
-                    ),
+                        },
+                        "approve_after_days": 7,
+                        "compliance_level": aws_native.ssm.PatchBaselineRuleComplianceLevel.CRITICAL,
+                    },
                 ],
-            ))
+            })
 
         ```
 
@@ -620,20 +620,20 @@ class PatchBaseline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_rules: Optional[pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']]] = None,
+                 approval_rules: Optional[pulumi.Input[Union['PatchBaselineRuleGroupArgs', 'PatchBaselineRuleGroupArgsDict']]] = None,
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel']] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
                  default_baseline: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 global_filters: Optional[pulumi.Input[pulumi.InputType['PatchBaselinePatchFilterGroupArgs']]] = None,
+                 global_filters: Optional[pulumi.Input[Union['PatchBaselinePatchFilterGroupArgs', 'PatchBaselinePatchFilterGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['PatchBaselineOperatingSystem']] = None,
                  patch_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input['PatchBaselineRejectedPatchesAction']] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselinePatchSourceArgs', 'PatchBaselinePatchSourceArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

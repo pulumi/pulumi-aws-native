@@ -93,8 +93,8 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Recipe.
@@ -109,25 +109,25 @@ class Recipe(pulumi.CustomResource):
         test_data_brew_recipe = aws_native.databrew.Recipe("testDataBrewRecipe",
             name="recipe-name",
             description="This is the recipe description.",
-            steps=[aws_native.databrew.RecipeStepArgs(
-                action=aws_native.databrew.RecipeActionArgs(
-                    operation="EXTRACT_PATTERN",
-                    parameters={
-                        "sourceColumn": "Consulate",
+            steps=[{
+                "action": {
+                    "operation": "EXTRACT_PATTERN",
+                    "parameters": {
+                        "source_column": "Consulate",
                         "pattern": "A",
-                        "targetColumn": "extract_pattern",
+                        "target_column": "extract_pattern",
                     },
-                ),
-                condition_expressions=[aws_native.databrew.RecipeConditionExpressionArgs(
-                    condition="LESS_THAN_EQUAL",
-                    value="5",
-                    target_column="Target",
-                )],
-            )],
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+                },
+                "condition_expressions": [{
+                    "condition": "LESS_THAN_EQUAL",
+                    "value": "5",
+                    "target_column": "Target",
+                }],
+            }],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -135,8 +135,8 @@ class Recipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the recipe
         :param pulumi.Input[str] name: Recipe name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]] steps: A list of steps that are defined by the recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]] steps: A list of steps that are defined by the recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the recipe.
         """
         ...
     @overload
@@ -157,25 +157,25 @@ class Recipe(pulumi.CustomResource):
         test_data_brew_recipe = aws_native.databrew.Recipe("testDataBrewRecipe",
             name="recipe-name",
             description="This is the recipe description.",
-            steps=[aws_native.databrew.RecipeStepArgs(
-                action=aws_native.databrew.RecipeActionArgs(
-                    operation="EXTRACT_PATTERN",
-                    parameters={
-                        "sourceColumn": "Consulate",
+            steps=[{
+                "action": {
+                    "operation": "EXTRACT_PATTERN",
+                    "parameters": {
+                        "source_column": "Consulate",
                         "pattern": "A",
-                        "targetColumn": "extract_pattern",
+                        "target_column": "extract_pattern",
                     },
-                ),
-                condition_expressions=[aws_native.databrew.RecipeConditionExpressionArgs(
-                    condition="LESS_THAN_EQUAL",
-                    value="5",
-                    target_column="Target",
-                )],
-            )],
-            tags=[aws_native.CreateOnlyTagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )])
+                },
+                "condition_expressions": [{
+                    "condition": "LESS_THAN_EQUAL",
+                    "value": "5",
+                    "target_column": "Target",
+                }],
+            }],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }])
 
         ```
 
@@ -196,8 +196,8 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -173,14 +173,14 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
-                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
-                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ServiceEncryptionConfigurationArgs', 'ServiceEncryptionConfigurationArgsDict']]] = None,
+                 health_check_configuration: Optional[pulumi.Input[Union['ServiceHealthCheckConfigurationArgs', 'ServiceHealthCheckConfigurationArgsDict']]] = None,
+                 instance_configuration: Optional[pulumi.Input[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
+                 observability_configuration: Optional[pulumi.Input[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 source_configuration: Optional[pulumi.Input[Union['ServiceSourceConfigurationArgs', 'ServiceSourceConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::AppRunner::Service resource specifies an AppRunner Service.
@@ -188,14 +188,14 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_scaling_configuration_arn: Autoscaling configuration ARN
-        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
-        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
-        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of your service.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
-        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service.
+        :param pulumi.Input[Union['ServiceEncryptionConfigurationArgs', 'ServiceEncryptionConfigurationArgsDict']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
+        :param pulumi.Input[Union['ServiceHealthCheckConfigurationArgs', 'ServiceHealthCheckConfigurationArgsDict']] health_check_configuration: The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+        :param pulumi.Input[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict']] instance_configuration: The runtime configuration of instances (scaling units) of your service.
+        :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict']] observability_configuration: The observability configuration of your service.
         :param pulumi.Input[str] service_name: The AppRunner Service Name.
-        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. It can be a code or an image repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+        :param pulumi.Input[Union['ServiceSourceConfigurationArgs', 'ServiceSourceConfigurationArgsDict']] source_configuration: The source to deploy to the App Runner service. It can be a code or an image repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -222,14 +222,14 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
-                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
-                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ServiceEncryptionConfigurationArgs', 'ServiceEncryptionConfigurationArgsDict']]] = None,
+                 health_check_configuration: Optional[pulumi.Input[Union['ServiceHealthCheckConfigurationArgs', 'ServiceHealthCheckConfigurationArgsDict']]] = None,
+                 instance_configuration: Optional[pulumi.Input[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
+                 observability_configuration: Optional[pulumi.Input[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 source_configuration: Optional[pulumi.Input[Union['ServiceSourceConfigurationArgs', 'ServiceSourceConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

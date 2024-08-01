@@ -187,7 +187,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -203,7 +203,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the configuration
         :param pulumi.Input[str] team_id: The id of the Microsoft Teams team
         :param pulumi.Input[str] teams_channel_id: The id of the Microsoft Teams channel
         :param pulumi.Input[str] teams_tenant_id: The id of the Microsoft Teams tenant
@@ -238,7 +238,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,

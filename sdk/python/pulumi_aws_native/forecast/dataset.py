@@ -146,9 +146,9 @@ class Dataset(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  dataset_type: Optional[pulumi.Input['DatasetType']] = None,
                  domain: Optional[pulumi.Input['DatasetDomain']] = None,
-                 encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::Forecast::Dataset
@@ -159,9 +159,9 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[str] dataset_name: A name for the dataset
         :param pulumi.Input['DatasetType'] dataset_type: The dataset type
         :param pulumi.Input['DatasetDomain'] domain: The domain associated with the dataset
-        :param pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']] encryption_config: A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
-        :param pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']] schema: The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']] encryption_config: A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        :param pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']] schema: The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -193,9 +193,9 @@ class Dataset(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  dataset_type: Optional[pulumi.Input['DatasetType']] = None,
                  domain: Optional[pulumi.Input['DatasetDomain']] = None,
-                 encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

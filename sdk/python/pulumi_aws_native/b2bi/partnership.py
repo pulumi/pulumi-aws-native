@@ -117,7 +117,7 @@ class Partnership(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Partnership Resource Type
@@ -127,7 +127,7 @@ class Partnership(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Returns one or more capabilities associated with this partnership.
         :param pulumi.Input[str] name: Returns the name of the partnership.
         :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class Partnership(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

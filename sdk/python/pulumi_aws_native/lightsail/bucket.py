@@ -139,26 +139,26 @@ class Bucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[pulumi.InputType['BucketAccessRulesArgs']]] = None,
+                 access_rules: Optional[pulumi.Input[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  object_versioning: Optional[pulumi.Input[bool]] = None,
                  read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Bucket
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAccessRulesArgs']] access_rules: An object that describes the access rules for the bucket.
+        :param pulumi.Input[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']] access_rules: An object that describes the access rules for the bucket.
         :param pulumi.Input[str] bucket_name: The name for the bucket.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket.
         :param pulumi.Input[bool] object_versioning: Specifies whether to enable or disable versioning of objects in the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_access_accounts: An array of strings to specify the AWS account IDs that can access the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_receiving_access: The names of the Lightsail resources for which to set bucket access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -184,13 +184,13 @@ class Bucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[pulumi.InputType['BucketAccessRulesArgs']]] = None,
+                 access_rules: Optional[pulumi.Input[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  object_versioning: Optional[pulumi.Input[bool]] = None,
                  read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

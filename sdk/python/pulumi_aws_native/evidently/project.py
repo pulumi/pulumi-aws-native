@@ -120,28 +120,28 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config_resource: Optional[pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']]] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']]] = None,
+                 app_config_resource: Optional[pulumi.Input[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
+                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']] app_config_resource: Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+        :param pulumi.Input[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']] app_config_resource: Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
                
                This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
                
                To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
-        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']] data_delivery: A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+        :param pulumi.Input[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']] data_delivery: A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
                
                You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
         :param pulumi.Input[str] description: An optional description of the project.
         :param pulumi.Input[str] name: The name for the project. It can include up to 127 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,11 +167,11 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config_resource: Optional[pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']]] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']]] = None,
+                 app_config_resource: Optional[pulumi.Input[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
+                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

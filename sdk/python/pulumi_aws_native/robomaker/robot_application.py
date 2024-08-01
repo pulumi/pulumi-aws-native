@@ -125,8 +125,8 @@ class RobotApplication(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
+                 robot_software_suite: Optional[pulumi.Input[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -142,9 +142,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            },
             tags={
                 "name": "BasicRobotApplication",
                 "type": "CFN",
@@ -161,9 +161,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            },
             tags={
                 "name": "BasicRobotApplication",
                 "type": "CFN",
@@ -180,9 +180,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            })
         basic_robot_application_version = aws_native.robomaker.RobotApplicationVersion("basicRobotApplicationVersion",
             application=basic_robot_application.arn,
             current_revision_id=basic_robot_application.current_revision_id)
@@ -198,9 +198,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            })
         basic_robot_application_version = aws_native.robomaker.RobotApplicationVersion("basicRobotApplicationVersion",
             application=basic_robot_application.arn,
             current_revision_id=basic_robot_application.current_revision_id)
@@ -213,8 +213,8 @@ class RobotApplication(pulumi.CustomResource):
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[str] name: The name of the robot application.
-        :param pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite used by the robot application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]] sources: The sources of the robot application.
+        :param pulumi.Input[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']] robot_software_suite: The robot software suite used by the robot application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]] sources: The sources of the robot application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the robot application.
         """
         ...
@@ -236,9 +236,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            },
             tags={
                 "name": "BasicRobotApplication",
                 "type": "CFN",
@@ -255,9 +255,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ),
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            },
             tags={
                 "name": "BasicRobotApplication",
                 "type": "CFN",
@@ -274,9 +274,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            })
         basic_robot_application_version = aws_native.robomaker.RobotApplicationVersion("basicRobotApplicationVersion",
             application=basic_robot_application.arn,
             current_revision_id=basic_robot_application.current_revision_id)
@@ -292,9 +292,9 @@ class RobotApplication(pulumi.CustomResource):
         basic_robot_application = aws_native.robomaker.RobotApplication("basicRobotApplication",
             name="MyRobotApplication",
             environment="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-robot-app:latest",
-            robot_software_suite=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteArgs(
-                name=aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
-            ))
+            robot_software_suite={
+                "name": aws_native.robomaker.RobotApplicationRobotSoftwareSuiteName.GENERAL,
+            })
         basic_robot_application_version = aws_native.robomaker.RobotApplicationVersion("basicRobotApplicationVersion",
             application=basic_robot_application.arn,
             current_revision_id=basic_robot_application.current_revision_id)
@@ -320,8 +320,8 @@ class RobotApplication(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
+                 robot_software_suite: Optional[pulumi.Input[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

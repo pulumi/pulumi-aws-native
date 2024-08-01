@@ -125,9 +125,9 @@ class SecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
-                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,9 +137,9 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_description: A description for the security group.
         :param pulumi.Input[str] group_name: The name of the security group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] security_group_egress: [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] security_group_ingress: The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]] security_group_egress: [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]] security_group_ingress: The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the security group.
         :param pulumi.Input[str] vpc_id: The ID of the VPC for the security group.
         """
         ...
@@ -168,9 +168,9 @@ class SecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
-                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

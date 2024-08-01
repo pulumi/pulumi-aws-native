@@ -263,21 +263,21 @@ class Canary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
+                 artifact_config: Optional[pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
+                 code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+                 run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']]] = None,
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visual_reference: Optional[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Synthetics::Canary
@@ -292,26 +292,26 @@ class Canary(pulumi.CustomResource):
         synthetics_canary = aws_native.synthetics.Canary("syntheticsCanary",
             name="samplecanary",
             execution_role_arn="arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary",
-            code=aws_native.synthetics.CanaryCodeArgs(
-                handler="pageLoadBlueprint.handler",
-                s3_bucket="aws-synthetics-code-myaccount-canary1",
-                s3_key="my-script-location",
-            ),
+            code={
+                "handler": "pageLoadBlueprint.handler",
+                "s3_bucket": "aws-synthetics-code-myaccount-canary1",
+                "s3_key": "my-script-location",
+            },
             artifact_s3_location="s3://my-results-bucket",
             runtime_version="syn-nodejs-puppeteer-3.3",
-            schedule=aws_native.synthetics.CanaryScheduleArgs(
-                expression="rate(1 minute)",
-                duration_in_seconds="3600",
-            ),
-            run_config=aws_native.synthetics.CanaryRunConfigArgs(
-                timeout_in_seconds=60,
-            ),
+            schedule={
+                "expression": "rate(1 minute)",
+                "duration_in_seconds": "3600",
+            },
+            run_config={
+                "timeout_in_seconds": 60,
+            },
             failure_retention_period=30,
             success_retention_period=30,
-            tags=[aws_native.TagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }],
             start_canary_after_creation=True)
 
         ```
@@ -324,9 +324,9 @@ class Canary(pulumi.CustomResource):
         synthetics_canary = aws_native.synthetics.Canary("syntheticsCanary",
             name="samplecanary",
             execution_role_arn="arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary",
-            code=aws_native.synthetics.CanaryCodeArgs(
-                handler="pageLoadBlueprint.handler",
-                script=\"\"\"var synthetics = require('Synthetics');
+            code={
+                "handler": "pageLoadBlueprint.handler",
+                "script": \"\"\"var synthetics = require('Synthetics');
         const log = require('SyntheticsLogger');
         const pageLoadBlueprint = async function () {
         // INSERT URL here
@@ -349,43 +349,43 @@ class Canary(pulumi.CustomResource):
         return await pageLoadBlueprint();
         };
         \"\"\",
-            ),
+            },
             artifact_s3_location="s3://my-results-bucket",
             runtime_version="syn-nodejs-puppeteer-3.3",
-            schedule=aws_native.synthetics.CanaryScheduleArgs(
-                expression="rate(1 minute)",
-                duration_in_seconds="3600",
-            ),
-            run_config=aws_native.synthetics.CanaryRunConfigArgs(
-                timeout_in_seconds=60,
-            ),
+            schedule={
+                "expression": "rate(1 minute)",
+                "duration_in_seconds": "3600",
+            },
+            run_config={
+                "timeout_in_seconds": 60,
+            },
             failure_retention_period=30,
             success_retention_period=30,
-            tags=[aws_native.TagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }],
             start_canary_after_creation=False)
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: Provide artifact configuration
+        :param pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']] artifact_config: Provide artifact configuration
         :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
-        :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: Provide the canary script source
+        :param pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']] code: Provide the canary script source
         :param pulumi.Input[bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
-        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: Provide canary run configuration
+        :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Provide canary run configuration
         :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
-        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Frequency to run your canaries
+        :param pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']] schedule: Frequency to run your canaries
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of key-value pairs that are associated with the canary.
-        :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: Visual reference configuration for visual testing
-        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Provide VPC Configuration if enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of key-value pairs that are associated with the canary.
+        :param pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']] visual_reference: Visual reference configuration for visual testing
+        :param pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']] vpc_config: Provide VPC Configuration if enabled.
         """
         ...
     @overload
@@ -406,26 +406,26 @@ class Canary(pulumi.CustomResource):
         synthetics_canary = aws_native.synthetics.Canary("syntheticsCanary",
             name="samplecanary",
             execution_role_arn="arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary",
-            code=aws_native.synthetics.CanaryCodeArgs(
-                handler="pageLoadBlueprint.handler",
-                s3_bucket="aws-synthetics-code-myaccount-canary1",
-                s3_key="my-script-location",
-            ),
+            code={
+                "handler": "pageLoadBlueprint.handler",
+                "s3_bucket": "aws-synthetics-code-myaccount-canary1",
+                "s3_key": "my-script-location",
+            },
             artifact_s3_location="s3://my-results-bucket",
             runtime_version="syn-nodejs-puppeteer-3.3",
-            schedule=aws_native.synthetics.CanaryScheduleArgs(
-                expression="rate(1 minute)",
-                duration_in_seconds="3600",
-            ),
-            run_config=aws_native.synthetics.CanaryRunConfigArgs(
-                timeout_in_seconds=60,
-            ),
+            schedule={
+                "expression": "rate(1 minute)",
+                "duration_in_seconds": "3600",
+            },
+            run_config={
+                "timeout_in_seconds": 60,
+            },
             failure_retention_period=30,
             success_retention_period=30,
-            tags=[aws_native.TagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }],
             start_canary_after_creation=True)
 
         ```
@@ -438,9 +438,9 @@ class Canary(pulumi.CustomResource):
         synthetics_canary = aws_native.synthetics.Canary("syntheticsCanary",
             name="samplecanary",
             execution_role_arn="arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary",
-            code=aws_native.synthetics.CanaryCodeArgs(
-                handler="pageLoadBlueprint.handler",
-                script=\"\"\"var synthetics = require('Synthetics');
+            code={
+                "handler": "pageLoadBlueprint.handler",
+                "script": \"\"\"var synthetics = require('Synthetics');
         const log = require('SyntheticsLogger');
         const pageLoadBlueprint = async function () {
         // INSERT URL here
@@ -463,22 +463,22 @@ class Canary(pulumi.CustomResource):
         return await pageLoadBlueprint();
         };
         \"\"\",
-            ),
+            },
             artifact_s3_location="s3://my-results-bucket",
             runtime_version="syn-nodejs-puppeteer-3.3",
-            schedule=aws_native.synthetics.CanaryScheduleArgs(
-                expression="rate(1 minute)",
-                duration_in_seconds="3600",
-            ),
-            run_config=aws_native.synthetics.CanaryRunConfigArgs(
-                timeout_in_seconds=60,
-            ),
+            schedule={
+                "expression": "rate(1 minute)",
+                "duration_in_seconds": "3600",
+            },
+            run_config={
+                "timeout_in_seconds": 60,
+            },
             failure_retention_period=30,
             success_retention_period=30,
-            tags=[aws_native.TagArgs(
-                key="key00AtCreate",
-                value="value001AtCreate",
-            )],
+            tags=[{
+                "key": "key00AtCreate",
+                "value": "value001AtCreate",
+            }],
             start_canary_after_creation=False)
 
         ```
@@ -498,21 +498,21 @@ class Canary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
+                 artifact_config: Optional[pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
+                 code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+                 run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']]] = None,
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visual_reference: Optional[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

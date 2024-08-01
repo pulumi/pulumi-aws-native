@@ -189,14 +189,14 @@ class FleetMetric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregation_field: Optional[pulumi.Input[str]] = None,
-                 aggregation_type: Optional[pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']]] = None,
+                 aggregation_type: Optional[pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -205,14 +205,14 @@ class FleetMetric(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
-        :param pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']] aggregation_type: The type of the aggregation query.
+        :param pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']] aggregation_type: The type of the aggregation query.
         :param pulumi.Input[str] description: The description of a fleet metric
         :param pulumi.Input[str] index_name: The index name of a fleet metric
         :param pulumi.Input[str] metric_name: The name of the fleet metric
         :param pulumi.Input[int] period: The period of metric emission in seconds
         :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
         :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
         ...
@@ -240,14 +240,14 @@ class FleetMetric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregation_field: Optional[pulumi.Input[str]] = None,
-                 aggregation_type: Optional[pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']]] = None,
+                 aggregation_type: Optional[pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

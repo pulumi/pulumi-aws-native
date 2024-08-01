@@ -108,9 +108,9 @@ class EventIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
-                 event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
+                 event_filter: Optional[pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppIntegrations::EventIntegration
@@ -119,9 +119,9 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The event integration description.
         :param pulumi.Input[str] event_bridge_bus: The Amazon Eventbridge bus for the event integration.
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: The EventFilter (source) associated with the event integration.
+        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: The EventFilter (source) associated with the event integration.
         :param pulumi.Input[str] name: The name of the event integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the event integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the event integration.
         """
         ...
     @overload
@@ -149,9 +149,9 @@ class EventIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
-                 event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
+                 event_filter: Optional[pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

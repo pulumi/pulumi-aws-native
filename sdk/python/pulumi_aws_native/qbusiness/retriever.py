@@ -122,10 +122,10 @@ class Retriever(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['RetrieverConfiguration0PropertiesArgs'], pulumi.InputType['RetrieverConfiguration1PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RetrieverType']] = None,
                  __props__=None):
         """
@@ -134,10 +134,10 @@ class Retriever(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application using the retriever.
-        :param pulumi.Input[Union[pulumi.InputType['RetrieverConfiguration0PropertiesArgs'], pulumi.InputType['RetrieverConfiguration1PropertiesArgs']]] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
+        :param pulumi.Input[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
         :param pulumi.Input[str] display_name: The name of your retriever.
         :param pulumi.Input[str] role_arn: The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input['RetrieverType'] type: The type of your retriever.
         """
         ...
@@ -165,10 +165,10 @@ class Retriever(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['RetrieverConfiguration0PropertiesArgs'], pulumi.InputType['RetrieverConfiguration1PropertiesArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RetrieverType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

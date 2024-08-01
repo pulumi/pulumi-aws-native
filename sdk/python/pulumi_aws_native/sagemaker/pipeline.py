@@ -138,13 +138,13 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[Union[pulumi.InputType['PipelineDefinition0PropertiesArgs'], pulumi.InputType['PipelineDefinition1PropertiesArgs']]]] = None,
+                 parallelism_configuration: Optional[pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
+                 pipeline_definition: Optional[pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Pipeline
@@ -160,12 +160,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
-                pipeline_definition_s3_location=aws_native.sagemaker.PipelineS3LocationArgs(
-                    bucket="<S3-bucket-location>",
-                    key="<S3-bucket-key>",
-                ),
-            ),
+            pipeline_definition={
+                "pipeline_definition_s3_location": {
+                    "bucket": "<S3-bucket-location>",
+                    "key": "<S3-bucket-key>",
+                },
+            },
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -179,22 +179,22 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
-                pipeline_definition_body="{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
-            ),
+            pipeline_definition={
+                "pipeline_definition_body": "{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
+            },
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']] parallelism_configuration: The parallelism configuration applied to the pipeline.
-        :param pulumi.Input[Union[pulumi.InputType['PipelineDefinition0PropertiesArgs'], pulumi.InputType['PipelineDefinition1PropertiesArgs']]] pipeline_definition: The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        :param pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']] parallelism_configuration: The parallelism configuration applied to the pipeline.
+        :param pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]] pipeline_definition: The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         :param pulumi.Input[str] pipeline_description: The description of the Pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the Pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the Pipeline.
         :param pulumi.Input[str] role_arn: Role Arn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the pipeline.
         """
         ...
     @overload
@@ -216,12 +216,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
-                pipeline_definition_s3_location=aws_native.sagemaker.PipelineS3LocationArgs(
-                    bucket="<S3-bucket-location>",
-                    key="<S3-bucket-key>",
-                ),
-            ),
+            pipeline_definition={
+                "pipeline_definition_s3_location": {
+                    "bucket": "<S3-bucket-location>",
+                    "key": "<S3-bucket-key>",
+                },
+            },
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -235,9 +235,9 @@ class Pipeline(pulumi.CustomResource):
             pipeline_name="<pipeline-name>",
             pipeline_display_name="<pipeline-display-name>",
             pipeline_description="<pipeline-description>",
-            pipeline_definition=aws_native.sagemaker.PipelineDefinition0PropertiesArgs(
-                pipeline_definition_body="{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
-            ),
+            pipeline_definition={
+                "pipeline_definition_body": "{\\"Version\\":\\"2020-12-01\\",\\"Parameters\\":[{\\"Name\\":\\"InputDataSource\\",\\"DefaultValue\\":\\"\\"},{\\"Name\\":\\"InstanceCount\\",\\"Type\\":\\"Integer\\",\\"DefaultValue\\":1}],\\"Steps\\":[{\\"Name\\":\\"Training1\\",\\"Type\\":\\"Training\\",\\"Arguments\\":{\\"InputDataConfig\\":[{\\"DataSource\\":{\\"S3DataSource\\":{\\"S3Uri\\":{\\"Get\\":\\"Parameters.InputDataSource\\"}}}}],\\"OutputDataConfig\\":{\\"S3OutputPath\\":\\"s3://my-s3-bucket/\\"},\\"ResourceConfig\\":{\\"InstanceType\\":\\"ml.m5.large\\",\\"InstanceCount\\":{\\"Get\\":\\"Parameters.InstanceCount\\"},\\"VolumeSizeInGB\\":1024}}}]}",
+            },
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
@@ -257,13 +257,13 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[Union[pulumi.InputType['PipelineDefinition0PropertiesArgs'], pulumi.InputType['PipelineDefinition1PropertiesArgs']]]] = None,
+                 parallelism_configuration: Optional[pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
+                 pipeline_definition: Optional[pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

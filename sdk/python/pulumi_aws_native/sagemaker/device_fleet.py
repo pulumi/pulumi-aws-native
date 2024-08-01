@@ -108,9 +108,9 @@ class DeviceFleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']]] = None,
+                 output_config: Optional[pulumi.Input[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SageMaker::DeviceFleet
@@ -119,9 +119,9 @@ class DeviceFleet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the edge device fleet
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
-        :param pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']] output_config: S3 bucket and an ecryption key id (if available) to store outputs for the fleet
+        :param pulumi.Input[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']] output_config: S3 bucket and an ecryption key id (if available) to store outputs for the fleet
         :param pulumi.Input[str] role_arn: Role associated with the device fleet
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Associate tags with the resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Associate tags with the resource
         """
         ...
     @overload
@@ -149,9 +149,9 @@ class DeviceFleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']]] = None,
+                 output_config: Optional[pulumi.Input[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

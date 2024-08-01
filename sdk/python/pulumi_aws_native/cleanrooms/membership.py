@@ -108,10 +108,10 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
-                 default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
-                 payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
+                 default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents an AWS account that is a part of a collaboration
@@ -119,10 +119,10 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
-        :param pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
-        :param pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']] payment_configuration: The payment responsibilities accepted by the collaboration member.
+        :param pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         ...
     @overload
@@ -149,10 +149,10 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
-                 default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
-                 payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
+                 default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

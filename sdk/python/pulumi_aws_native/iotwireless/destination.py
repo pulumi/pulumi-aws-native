@@ -126,7 +126,7 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Destination's resource schema demonstrating some basic constructs and validation rules.
@@ -138,7 +138,7 @@ class Destination(pulumi.CustomResource):
         :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
         :param pulumi.Input[str] name: Unique name of destination
         :param pulumi.Input[str] role_arn: AWS role ARN that grants access
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         ...
     @overload
@@ -169,7 +169,7 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

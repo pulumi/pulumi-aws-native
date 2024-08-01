@@ -118,9 +118,9 @@ class ThingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_group_name: Optional[pulumi.Input[str]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_group_name: Optional[pulumi.Input[str]] = None,
-                 thing_group_properties: Optional[pulumi.Input[pulumi.InputType['ThingGroupPropertiesPropertiesArgs']]] = None,
+                 thing_group_properties: Optional[pulumi.Input[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::ThingGroup
@@ -133,9 +133,9 @@ class ThingGroup(pulumi.CustomResource):
         :param pulumi.Input[str] query_string: The dynamic thing group search query string.
                
                The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] thing_group_name: The thing group name.
-        :param pulumi.Input[pulumi.InputType['ThingGroupPropertiesPropertiesArgs']] thing_group_properties: Thing group properties.
+        :param pulumi.Input[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']] thing_group_properties: Thing group properties.
         """
         ...
     @overload
@@ -163,9 +163,9 @@ class ThingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_group_name: Optional[pulumi.Input[str]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_group_name: Optional[pulumi.Input[str]] = None,
-                 thing_group_properties: Optional[pulumi.Input[pulumi.InputType['ThingGroupPropertiesPropertiesArgs']]] = None,
+                 thing_group_properties: Optional[pulumi.Input[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

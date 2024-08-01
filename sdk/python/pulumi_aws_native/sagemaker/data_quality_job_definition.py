@@ -196,33 +196,33 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_quality_app_specification: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityAppSpecificationArgs']]] = None,
-                 data_quality_baseline_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']]] = None,
-                 data_quality_job_input: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']]] = None,
-                 data_quality_job_output_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']]] = None,
+                 data_quality_app_specification: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']]] = None,
+                 data_quality_baseline_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityBaselineConfigArgs', 'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict']]] = None,
+                 data_quality_job_input: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityJobInputArgs', 'DataQualityJobDefinitionDataQualityJobInputArgsDict']]] = None,
+                 data_quality_job_output_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionMonitoringOutputConfigArgs', 'DataQualityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
-                 job_resources: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']]] = None,
-                 network_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']]] = None,
+                 job_resources: Optional[pulumi.Input[Union['DataQualityJobDefinitionMonitoringResourcesArgs', 'DataQualityJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 network_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stopping_condition: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 stopping_condition: Optional[pulumi.Input[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityAppSpecificationArgs']] data_quality_app_specification: Specifies the container that runs the monitoring job.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']] data_quality_job_input: A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']] data_quality_job_output_config: The output configuration for monitoring jobs.
+        :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']] data_quality_app_specification: Specifies the container that runs the monitoring job.
+        :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityBaselineConfigArgs', 'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict']] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job.
+        :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityJobInputArgs', 'DataQualityJobDefinitionDataQualityJobInputArgsDict']] data_quality_job_input: A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
+        :param pulumi.Input[Union['DataQualityJobDefinitionMonitoringOutputConfigArgs', 'DataQualityJobDefinitionMonitoringOutputConfigArgsDict']] data_quality_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input[str] job_definition_name: The name for the monitoring job definition.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']] network_config: Specifies networking configuration for the monitoring job.
+        :param pulumi.Input[Union['DataQualityJobDefinitionMonitoringResourcesArgs', 'DataQualityJobDefinitionMonitoringResourcesArgsDict']] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict']] network_config: Specifies networking configuration for the monitoring job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionStoppingConditionArgs']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -248,17 +248,17 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_quality_app_specification: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityAppSpecificationArgs']]] = None,
-                 data_quality_baseline_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']]] = None,
-                 data_quality_job_input: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']]] = None,
-                 data_quality_job_output_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']]] = None,
+                 data_quality_app_specification: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']]] = None,
+                 data_quality_baseline_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityBaselineConfigArgs', 'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict']]] = None,
+                 data_quality_job_input: Optional[pulumi.Input[Union['DataQualityJobDefinitionDataQualityJobInputArgs', 'DataQualityJobDefinitionDataQualityJobInputArgsDict']]] = None,
+                 data_quality_job_output_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionMonitoringOutputConfigArgs', 'DataQualityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
-                 job_resources: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']]] = None,
-                 network_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']]] = None,
+                 job_resources: Optional[pulumi.Input[Union['DataQualityJobDefinitionMonitoringResourcesArgs', 'DataQualityJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 network_config: Optional[pulumi.Input[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stopping_condition: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 stopping_condition: Optional[pulumi.Input[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,24 +124,24 @@ class Disk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]]] = None,
+                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DiskLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Disk
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
-        :param pulumi.Input[pulumi.InputType['DiskLocationArgs']] location: The AWS Region and Availability Zone where the disk is located.
+        :param pulumi.Input[Union['DiskLocationArgs', 'DiskLocationArgsDict']] location: The AWS Region and Availability Zone where the disk is located.
         :param pulumi.Input[int] size_in_gb: Size of the Lightsail disk
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,12 +167,12 @@ class Disk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]]] = None,
+                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DiskLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

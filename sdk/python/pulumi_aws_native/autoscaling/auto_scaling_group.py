@@ -561,22 +561,22 @@ class AutoScalingGroup(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupInstanceMaintenancePolicyArgs']]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupLaunchTemplateSpecificationArgs']]] = None,
-                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupLifecycleHookSpecificationArgs']]]]] = None,
+                 launch_template: Optional[pulumi.Input[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
                  load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[str]] = None,
-                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupMetricsCollectionArgs']]]]] = None,
+                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
                  min_size: Optional[pulumi.Input[str]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupMixedInstancesPolicyArgs']]] = None,
+                 mixed_instances_policy: Optional[pulumi.Input[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
                  new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]] = None,
-                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
+                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupTagPropertyArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -615,27 +615,27 @@ class AutoScalingGroup(pulumi.CustomResource):
                 Only specify ``EC2`` if you must clear a value that was previously set.
         :param pulumi.Input[str] instance_id: The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
-        :param pulumi.Input[pulumi.InputType['AutoScalingGroupInstanceMaintenancePolicyArgs']] instance_maintenance_policy: An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']] instance_maintenance_policy: An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[str] launch_configuration_name: The name of the launch configuration to use to launch instances.
                 Required only if you don't specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``InstanceId``.
-        :param pulumi.Input[pulumi.InputType['AutoScalingGroupLaunchTemplateSpecificationArgs']] launch_template: Information used to specify the launch template and version to use to launch instances. You can alternatively associate a launch template to the Auto Scaling group by specifying a ``MixedInstancesPolicy``. For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']] launch_template: Information used to specify the launch template and version to use to launch instances. You can alternatively associate a launch template to the Auto Scaling group by specifying a ``MixedInstancesPolicy``. For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you omit this property, you must specify ``MixedInstancesPolicy``, ``LaunchConfigurationName``, or ``InstanceId``.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupLifecycleHookSpecificationArgs']]]] lifecycle_hook_specification_list: One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]] lifecycle_hook_specification_list: One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_names: A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the ``TargetGroupARNs`` property instead.
         :param pulumi.Input[int] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replace Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[str] max_size: The maximum size of the group.
                  With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above ``MaxSize`` to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above ``MaxSize`` by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupMetricsCollectionArgs']]]] metrics_collection: Enables the monitoring of group metrics of an Auto Scaling group. By default, these metrics are disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]] metrics_collection: Enables the monitoring of group metrics of an Auto Scaling group. By default, these metrics are disabled.
         :param pulumi.Input[str] min_size: The minimum size of the group.
-        :param pulumi.Input[pulumi.InputType['AutoScalingGroupMixedInstancesPolicyArgs']] mixed_instances_policy: An embedded object that specifies a mixed instances policy.
+        :param pulumi.Input[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']] mixed_instances_policy: An embedded object that specifies a mixed instances policy.
                 The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances (optional), and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types.
                 For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[bool] new_instances_protected_from_scale_in: Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Use instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]]] notification_configurations: Configures an Auto Scaling group to send notifications when specified events take place.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]] notification_configurations: Configures an Auto Scaling group to send notifications when specified events take place.
         :param pulumi.Input[str] placement_group: The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
                  A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
         :param pulumi.Input[str] service_linked_role_arn: The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupTagPropertyArgs']]]] tags: One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]] tags: One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
@@ -682,22 +682,22 @@ class AutoScalingGroup(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupInstanceMaintenancePolicyArgs']]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
                  launch_configuration_name: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupLaunchTemplateSpecificationArgs']]] = None,
-                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupLifecycleHookSpecificationArgs']]]]] = None,
+                 launch_template: Optional[pulumi.Input[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
                  load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[str]] = None,
-                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupMetricsCollectionArgs']]]]] = None,
+                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
                  min_size: Optional[pulumi.Input[str]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupMixedInstancesPolicyArgs']]] = None,
+                 mixed_instances_policy: Optional[pulumi.Input[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
                  new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]] = None,
-                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
+                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupTagPropertyArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -90,8 +90,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -101,8 +101,8 @@ class DomainName(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]] domain_name_configurations: The domain name configurations.
-        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]] domain_name_configurations: The domain name configurations.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags associated with a domain name.
         """
         ...
@@ -131,8 +131,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

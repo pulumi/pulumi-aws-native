@@ -41,14 +41,14 @@ class KeyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']]] = None,
+                 key_group_config: Optional[pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::KeyGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']] key_group_config: The key group configuration.
+        :param pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']] key_group_config: The key group configuration.
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class KeyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']]] = None,
+                 key_group_config: Optional[pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

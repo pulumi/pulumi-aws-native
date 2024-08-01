@@ -143,10 +143,10 @@ class KnowledgeBase(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_type: Optional[pulumi.Input['KnowledgeBaseType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rendering_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 rendering_configuration: Optional[pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
+                 source_configuration: Optional[pulumi.Input[Union['KnowledgeBaseSourceConfigurationArgs', 'KnowledgeBaseSourceConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
@@ -156,10 +156,10 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
         :param pulumi.Input[str] name: The name of the knowledge base.
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']] rendering_configuration: Information about how to render the content.
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']] rendering_configuration: Information about how to render the content.
+        :param pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[Union['KnowledgeBaseSourceConfigurationArgs', 'KnowledgeBaseSourceConfigurationArgsDict']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -188,10 +188,10 @@ class KnowledgeBase(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_type: Optional[pulumi.Input['KnowledgeBaseType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rendering_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 rendering_configuration: Optional[pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
+                 source_configuration: Optional[pulumi.Input[Union['KnowledgeBaseSourceConfigurationArgs', 'KnowledgeBaseSourceConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

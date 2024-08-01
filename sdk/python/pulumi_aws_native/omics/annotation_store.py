@@ -140,10 +140,10 @@ class AnnotationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reference: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
+                 reference: Optional[pulumi.Input[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
+                 store_options: Optional[pulumi.Input[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -153,10 +153,10 @@ class AnnotationStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: The name of the Annotation Store.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']] reference: The genome reference for the store's annotations.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']] sse_config: The store's server-side encryption (SSE) settings.
+        :param pulumi.Input[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']] reference: The genome reference for the store's annotations.
+        :param pulumi.Input[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']] sse_config: The store's server-side encryption (SSE) settings.
         :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']] store_options: File parsing options for the annotation store.
+        :param pulumi.Input[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']] store_options: File parsing options for the annotation store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -185,10 +185,10 @@ class AnnotationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reference: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']]] = None,
-                 sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
+                 reference: Optional[pulumi.Input[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
+                 sse_config: Optional[pulumi.Input[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
+                 store_options: Optional[pulumi.Input[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

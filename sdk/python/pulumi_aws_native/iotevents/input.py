@@ -95,10 +95,10 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputDefinitionArgs']]] = None,
+                 input_definition: Optional[pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
@@ -113,16 +113,16 @@ class Input(pulumi.CustomResource):
         my_input = aws_native.iotevents.Input("myInput",
             input_name="myInput",
             input_description="My Input created by CloudFormation",
-            input_definition=aws_native.iotevents.InputDefinitionArgs(
-                attributes=[
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="foo",
-                    ),
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="bar",
-                    ),
+            input_definition={
+                "attributes": [
+                    {
+                        "json_path": "foo",
+                    },
+                    {
+                        "json_path": "bar",
+                    },
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -134,25 +134,25 @@ class Input(pulumi.CustomResource):
         my_input = aws_native.iotevents.Input("myInput",
             input_name="myInput",
             input_description="My Input created by CloudFormation",
-            input_definition=aws_native.iotevents.InputDefinitionArgs(
-                attributes=[
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="foo",
-                    ),
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="bar",
-                    ),
+            input_definition={
+                "attributes": [
+                    {
+                        "json_path": "foo",
+                    },
+                    {
+                        "json_path": "bar",
+                    },
                 ],
-            ))
+            })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InputDefinitionArgs']] input_definition: The definition of the input.
+        :param pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']] input_definition: The definition of the input.
         :param pulumi.Input[str] input_description: A brief description of the input.
         :param pulumi.Input[str] input_name: The name of the input.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
@@ -175,16 +175,16 @@ class Input(pulumi.CustomResource):
         my_input = aws_native.iotevents.Input("myInput",
             input_name="myInput",
             input_description="My Input created by CloudFormation",
-            input_definition=aws_native.iotevents.InputDefinitionArgs(
-                attributes=[
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="foo",
-                    ),
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="bar",
-                    ),
+            input_definition={
+                "attributes": [
+                    {
+                        "json_path": "foo",
+                    },
+                    {
+                        "json_path": "bar",
+                    },
                 ],
-            ))
+            })
 
         ```
         ### Example
@@ -196,16 +196,16 @@ class Input(pulumi.CustomResource):
         my_input = aws_native.iotevents.Input("myInput",
             input_name="myInput",
             input_description="My Input created by CloudFormation",
-            input_definition=aws_native.iotevents.InputDefinitionArgs(
-                attributes=[
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="foo",
-                    ),
-                    aws_native.iotevents.InputAttributeArgs(
-                        json_path="bar",
-                    ),
+            input_definition={
+                "attributes": [
+                    {
+                        "json_path": "foo",
+                    },
+                    {
+                        "json_path": "bar",
+                    },
                 ],
-            ))
+            })
 
         ```
 
@@ -224,10 +224,10 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputDefinitionArgs']]] = None,
+                 input_definition: Optional[pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

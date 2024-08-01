@@ -127,17 +127,17 @@ class StateMachineAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_preference: Optional[pulumi.Input[pulumi.InputType['StateMachineAliasDeploymentPreferenceArgs']]] = None,
+                 deployment_preference: Optional[pulumi.Input[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineAliasRoutingConfigurationVersionArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for StateMachineAlias
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StateMachineAliasDeploymentPreferenceArgs']] deployment_preference: The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
+        :param pulumi.Input[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']] deployment_preference: The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
                
                CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
                
@@ -154,7 +154,7 @@ class StateMachineAlias(pulumi.CustomResource):
                In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
         :param pulumi.Input[str] description: An optional description of the alias.
         :param pulumi.Input[str] name: The alias name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineAliasRoutingConfigurationVersionArgs']]]] routing_configuration: The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]] routing_configuration: The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
                
                Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
                
@@ -184,10 +184,10 @@ class StateMachineAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_preference: Optional[pulumi.Input[pulumi.InputType['StateMachineAliasDeploymentPreferenceArgs']]] = None,
+                 deployment_preference: Optional[pulumi.Input[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineAliasRoutingConfigurationVersionArgs']]]]] = None,
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

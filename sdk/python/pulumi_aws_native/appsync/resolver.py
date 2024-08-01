@@ -303,7 +303,7 @@ class Resolver(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 caching_config: Optional[pulumi.Input[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
@@ -311,13 +311,13 @@ class Resolver(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
                  metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
-                 pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
+                 pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
-                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverAppSyncRuntimeArgs']]] = None,
-                 sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
+                 runtime: Optional[pulumi.Input[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: Optional[pulumi.Input[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -352,7 +352,7 @@ class Resolver(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The APSYlong GraphQL API to which you want to attach this resolver.
-        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The caching configuration for the resolver.
+        :param pulumi.Input[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']] caching_config: The caching configuration for the resolver.
         :param pulumi.Input[str] code: The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
         :param pulumi.Input[str] code_s3_location: The Amazon S3 endpoint.
         :param pulumi.Input[str] data_source_name: The resolver data source name.
@@ -362,14 +362,14 @@ class Resolver(pulumi.CustomResource):
                  +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         :param pulumi.Input[int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         :param pulumi.Input['ResolverMetricsConfig'] metrics_config: Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
-        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: Functions linked with the pipeline resolver.
+        :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: Functions linked with the pipeline resolver.
         :param pulumi.Input[str] request_mapping_template: The request mapping template.
                 Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
         :param pulumi.Input[str] request_mapping_template_s3_location: The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
         :param pulumi.Input[str] response_mapping_template: The response mapping template.
         :param pulumi.Input[str] response_mapping_template_s3_location: The location of a response mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
-        :param pulumi.Input[pulumi.InputType['ResolverAppSyncRuntimeArgs']] runtime: Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: The ``SyncConfig`` for a resolver attached to a versioned data source.
+        :param pulumi.Input[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']] runtime: Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param pulumi.Input[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']] sync_config: The ``SyncConfig`` for a resolver attached to a versioned data source.
         :param pulumi.Input[str] type_name: The GraphQL type that invokes this resolver.
         """
         ...
@@ -423,7 +423,7 @@ class Resolver(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 caching_config: Optional[pulumi.Input[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
@@ -431,13 +431,13 @@ class Resolver(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
                  metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
-                 pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
+                 pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
-                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverAppSyncRuntimeArgs']]] = None,
-                 sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
+                 runtime: Optional[pulumi.Input[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: Optional[pulumi.Input[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -42,7 +42,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
@@ -54,26 +54,26 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_replication_config = aws_native.ecr.ReplicationConfiguration("myReplicationConfig", replication_configuration=aws_native.ecr.ReplicationConfigurationArgs(
-            rules=[aws_native.ecr.ReplicationConfigurationReplicationRuleArgs(
-                destinations=[
-                    aws_native.ecr.ReplicationConfigurationReplicationDestinationArgs(
-                        region="us-east-2",
-                        registry_id="123456789012",
-                    ),
-                    aws_native.ecr.ReplicationConfigurationReplicationDestinationArgs(
-                        region="us-west-1",
-                        registry_id="123456789012",
-                    ),
+        my_replication_config = aws_native.ecr.ReplicationConfiguration("myReplicationConfig", replication_configuration={
+            "rules": [{
+                "destinations": [
+                    {
+                        "region": "us-east-2",
+                        "registry_id": "123456789012",
+                    },
+                    {
+                        "region": "us-west-1",
+                        "registry_id": "123456789012",
+                    },
                 ],
-            )],
-        ))
+            }],
+        })
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']] replication_configuration: The replication configuration for a registry.
+        :param pulumi.Input[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']] replication_configuration: The replication configuration for a registry.
         """
         ...
     @overload
@@ -91,20 +91,20 @@ class ReplicationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
-        my_replication_config = aws_native.ecr.ReplicationConfiguration("myReplicationConfig", replication_configuration=aws_native.ecr.ReplicationConfigurationArgs(
-            rules=[aws_native.ecr.ReplicationConfigurationReplicationRuleArgs(
-                destinations=[
-                    aws_native.ecr.ReplicationConfigurationReplicationDestinationArgs(
-                        region="us-east-2",
-                        registry_id="123456789012",
-                    ),
-                    aws_native.ecr.ReplicationConfigurationReplicationDestinationArgs(
-                        region="us-west-1",
-                        registry_id="123456789012",
-                    ),
+        my_replication_config = aws_native.ecr.ReplicationConfiguration("myReplicationConfig", replication_configuration={
+            "rules": [{
+                "destinations": [
+                    {
+                        "region": "us-east-2",
+                        "registry_id": "123456789012",
+                    },
+                    {
+                        "region": "us-west-1",
+                        "registry_id": "123456789012",
+                    },
                 ],
-            )],
-        ))
+            }],
+        })
 
         ```
 
@@ -123,7 +123,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

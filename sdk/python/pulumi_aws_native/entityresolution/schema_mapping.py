@@ -92,9 +92,9 @@ class SchemaMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]]] = None,
+                 mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         SchemaMapping defined in AWS Entity Resolution service
@@ -102,9 +102,9 @@ class SchemaMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the SchemaMapping
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]] mapped_input_fields: The SchemaMapping attributes input
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]] mapped_input_fields: The SchemaMapping attributes input
         :param pulumi.Input[str] schema_name: The name of the SchemaMapping
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -131,9 +131,9 @@ class SchemaMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]]] = None,
+                 mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

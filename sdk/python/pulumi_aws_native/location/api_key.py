@@ -183,8 +183,8 @@ class ApiKey(pulumi.CustomResource):
                  force_update: Optional[pulumi.Input[bool]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
-                 restrictions: Optional[pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 restrictions: Optional[pulumi.Input[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::APIKey Resource Type
@@ -208,8 +208,8 @@ class ApiKey(pulumi.CustomResource):
                - Must be a unique API key name.
                - No spaces allowed. For example, `ExampleAPIKey` .
         :param pulumi.Input[bool] no_expiry: Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
-        :param pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']] restrictions: The API key restrictions for the API key resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']] restrictions: The API key restrictions for the API key resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -241,8 +241,8 @@ class ApiKey(pulumi.CustomResource):
                  force_update: Optional[pulumi.Input[bool]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
-                 restrictions: Optional[pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 restrictions: Optional[pulumi.Input[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

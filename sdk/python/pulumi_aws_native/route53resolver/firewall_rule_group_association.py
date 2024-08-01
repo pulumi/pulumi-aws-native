@@ -124,7 +124,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,7 +136,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input['FirewallRuleGroupAssociationMutationProtection'] mutation_protection: MutationProtectionStatus
         :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
         :param pulumi.Input[int] priority: Priority
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags
         :param pulumi.Input[str] vpc_id: VpcId
         """
         ...
@@ -167,7 +167,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

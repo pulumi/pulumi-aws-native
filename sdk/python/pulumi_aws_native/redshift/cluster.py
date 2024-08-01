@@ -909,13 +909,13 @@ class Cluster(pulumi.CustomResource):
                  destination_region: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
+                 logging_properties: Optional[pulumi.Input[Union['ClusterLoggingPropertiesArgs', 'ClusterLoggingPropertiesArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
                  manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -938,7 +938,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
                  snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -971,7 +971,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
-        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: The connection endpoint.
+        :param pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']] endpoint: The connection endpoint.
         :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
                
                If this option is true , enhanced VPC routing is enabled.
@@ -981,7 +981,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] hsm_configuration_identifier: Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']] logging_properties: Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        :param pulumi.Input[Union['ClusterLoggingPropertiesArgs', 'ClusterLoggingPropertiesArgsDict']] logging_properties: Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
         :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
         :param pulumi.Input[bool] manage_master_password: A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
@@ -1012,7 +1012,7 @@ class Cluster(pulumi.CustomResource):
                
                 Constraints: Must be at least 1 and no more than 35.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags for the cluster parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
@@ -1060,13 +1060,13 @@ class Cluster(pulumi.CustomResource):
                  destination_region: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
+                 logging_properties: Optional[pulumi.Input[Union['ClusterLoggingPropertiesArgs', 'ClusterLoggingPropertiesArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
                  manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -1089,7 +1089,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
                  snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

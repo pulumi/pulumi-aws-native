@@ -138,11 +138,11 @@ class MailManagerIngressPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_point_configuration: Optional[pulumi.Input[Union[pulumi.InputType['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs'], pulumi.InputType['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs']]]] = None,
+                 ingress_point_configuration: Optional[pulumi.Input[Union[Union['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict'], Union['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict']]]] = None,
                  ingress_point_name: Optional[pulumi.Input[str]] = None,
                  rule_set_id: Optional[pulumi.Input[str]] = None,
                  status_to_update: Optional[pulumi.Input['MailManagerIngressPointIngressPointStatusToUpdate']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_policy_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['MailManagerIngressPointIngressPointType']] = None,
                  __props__=None):
@@ -151,11 +151,11 @@ class MailManagerIngressPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs'], pulumi.InputType['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs']]] ingress_point_configuration: The configuration of the ingress endpoint resource.
+        :param pulumi.Input[Union[Union['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict'], Union['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict']]] ingress_point_configuration: The configuration of the ingress endpoint resource.
         :param pulumi.Input[str] ingress_point_name: A user friendly name for an ingress endpoint resource.
         :param pulumi.Input[str] rule_set_id: The identifier of an existing rule set that you attach to an ingress endpoint resource.
         :param pulumi.Input['MailManagerIngressPointIngressPointStatusToUpdate'] status_to_update: The update status of an ingress endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         :param pulumi.Input[str] traffic_policy_id: The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
         :param pulumi.Input['MailManagerIngressPointIngressPointType'] type: The type of the ingress endpoint to create.
         """
@@ -183,11 +183,11 @@ class MailManagerIngressPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_point_configuration: Optional[pulumi.Input[Union[pulumi.InputType['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs'], pulumi.InputType['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs']]]] = None,
+                 ingress_point_configuration: Optional[pulumi.Input[Union[Union['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict'], Union['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict']]]] = None,
                  ingress_point_name: Optional[pulumi.Input[str]] = None,
                  rule_set_id: Optional[pulumi.Input[str]] = None,
                  status_to_update: Optional[pulumi.Input['MailManagerIngressPointIngressPointStatusToUpdate']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_policy_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['MailManagerIngressPointIngressPointType']] = None,
                  __props__=None):

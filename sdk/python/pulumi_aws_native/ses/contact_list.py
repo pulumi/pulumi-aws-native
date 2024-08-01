@@ -94,8 +94,8 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ContactList.
@@ -104,8 +104,8 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
         :param pulumi.Input[str] description: The description of the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: The topics associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: The topics associated with the contact list.
         """
         ...
     @overload
@@ -133,8 +133,8 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -137,11 +137,11 @@ class ContainerGroupDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupDefinitionContainerDefinitionArgs']]]]] = None,
+                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionContainerDefinitionArgs', 'ContainerGroupDefinitionContainerDefinitionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  scheduling_strategy: Optional[pulumi.Input['ContainerGroupDefinitionSchedulingStrategy']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  total_cpu_limit: Optional[pulumi.Input[int]] = None,
                  total_memory_limit: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -150,11 +150,11 @@ class ContainerGroupDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupDefinitionContainerDefinitionArgs']]]] container_definitions: A collection of container definitions that define the containers in this group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionContainerDefinitionArgs', 'ContainerGroupDefinitionContainerDefinitionArgsDict']]]] container_definitions: A collection of container definitions that define the containers in this group.
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input['ContainerGroupDefinitionSchedulingStrategy'] scheduling_strategy: Specifies whether the container group includes replica or daemon containers.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] total_cpu_limit: The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
         :param pulumi.Input[int] total_memory_limit: The maximum amount of memory (in MiB) to allocate for this container group.
         """
@@ -182,11 +182,11 @@ class ContainerGroupDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupDefinitionContainerDefinitionArgs']]]]] = None,
+                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionContainerDefinitionArgs', 'ContainerGroupDefinitionContainerDefinitionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  scheduling_strategy: Optional[pulumi.Input['ContainerGroupDefinitionSchedulingStrategy']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  total_cpu_limit: Optional[pulumi.Input[int]] = None,
                  total_memory_limit: Optional[pulumi.Input[int]] = None,
                  __props__=None):

@@ -91,9 +91,9 @@ class AssistantAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: Optional[pulumi.Input[str]] = None,
-                 association: Optional[pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']]] = None,
+                 association: Optional[pulumi.Input[Union['AssistantAssociationAssociationDataArgs', 'AssistantAssociationAssociationDataArgsDict']]] = None,
                  association_type: Optional[pulumi.Input['AssistantAssociationAssociationType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
@@ -101,9 +101,9 @@ class AssistantAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assistant_id: The identifier of the Wisdom assistant.
-        :param pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']] association: The identifier of the associated resource.
+        :param pulumi.Input[Union['AssistantAssociationAssociationDataArgs', 'AssistantAssociationAssociationDataArgsDict']] association: The identifier of the associated resource.
         :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -130,9 +130,9 @@ class AssistantAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: Optional[pulumi.Input[str]] = None,
-                 association: Optional[pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']]] = None,
+                 association: Optional[pulumi.Input[Union['AssistantAssociationAssociationDataArgs', 'AssistantAssociationAssociationDataArgsDict']]] = None,
                  association_type: Optional[pulumi.Input['AssistantAssociationAssociationType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -151,8 +151,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  file_system_path: Optional[pulumi.Input[str]] = None,
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 s3: Optional[pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
@@ -176,26 +176,26 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             data_repository_path="s3://example-bucket",
             batch_import_meta_data_on_create=True,
             imported_file_chunk_size=imported_file_chunk_size,
-            s3=aws_native.fsx.DataRepositoryAssociationS3Args(
-                auto_import_policy=aws_native.fsx.DataRepositoryAssociationAutoImportPolicyArgs(
-                    events=[
+            s3={
+                "auto_import_policy": {
+                    "events": [
                         aws_native.fsx.DataRepositoryAssociationEventType.NEW,
                         aws_native.fsx.DataRepositoryAssociationEventType.CHANGED,
                         aws_native.fsx.DataRepositoryAssociationEventType.DELETED,
                     ],
-                ),
-                auto_export_policy=aws_native.fsx.DataRepositoryAssociationAutoExportPolicyArgs(
-                    events=[
+                },
+                "auto_export_policy": {
+                    "events": [
                         aws_native.fsx.DataRepositoryAssociationEventType.NEW,
                         aws_native.fsx.DataRepositoryAssociationEventType.CHANGED,
                         aws_native.fsx.DataRepositoryAssociationEventType.DELETED,
                     ],
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Location",
-                value="Boston",
-            )])
+                },
+            },
+            tags=[{
+                "key": "Location",
+                "value": "Boston",
+            }])
         pulumi.export("draId", test_dra.id)
 
         ```
@@ -210,8 +210,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify "/" as the file system path for the first data repository associated with a file system.
         :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
                 The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
-        :param pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']] s3: The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']] s3: The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         ...
@@ -242,26 +242,26 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             data_repository_path="s3://example-bucket",
             batch_import_meta_data_on_create=True,
             imported_file_chunk_size=imported_file_chunk_size,
-            s3=aws_native.fsx.DataRepositoryAssociationS3Args(
-                auto_import_policy=aws_native.fsx.DataRepositoryAssociationAutoImportPolicyArgs(
-                    events=[
+            s3={
+                "auto_import_policy": {
+                    "events": [
                         aws_native.fsx.DataRepositoryAssociationEventType.NEW,
                         aws_native.fsx.DataRepositoryAssociationEventType.CHANGED,
                         aws_native.fsx.DataRepositoryAssociationEventType.DELETED,
                     ],
-                ),
-                auto_export_policy=aws_native.fsx.DataRepositoryAssociationAutoExportPolicyArgs(
-                    events=[
+                },
+                "auto_export_policy": {
+                    "events": [
                         aws_native.fsx.DataRepositoryAssociationEventType.NEW,
                         aws_native.fsx.DataRepositoryAssociationEventType.CHANGED,
                         aws_native.fsx.DataRepositoryAssociationEventType.DELETED,
                     ],
-                ),
-            ),
-            tags=[aws_native.TagArgs(
-                key="Location",
-                value="Boston",
-            )])
+                },
+            },
+            tags=[{
+                "key": "Location",
+                "value": "Boston",
+            }])
         pulumi.export("draId", test_dra.id)
 
         ```
@@ -286,8 +286,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  file_system_path: Optional[pulumi.Input[str]] = None,
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 s3: Optional[pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

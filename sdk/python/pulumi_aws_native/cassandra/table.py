@@ -271,19 +271,19 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: Optional[pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']]] = None,
-                 billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
+                 auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
+                 billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
+                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
-                 encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
+                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
-                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaSpecificationArgs']]]]] = None,
+                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Table
@@ -298,10 +298,10 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )])
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }])
 
         ```
         ### Example
@@ -313,10 +313,10 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )])
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }])
 
         ```
         ### Example
@@ -328,66 +328,66 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             client_side_timestamps_enabled=True,
             default_time_to_live=63072000,
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -400,66 +400,66 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             client_side_timestamps_enabled=True,
             default_time_to_live=63072000,
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -472,69 +472,69 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             default_time_to_live=63072000,
-            encryption_specification=aws_native.cassandra.TableEncryptionSpecificationArgs(
-                encryption_type=aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
-                kms_key_identifier="arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
-            ),
+            encryption_specification={
+                "encryption_type": aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
+                "kms_key_identifier": "arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
+            },
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -547,69 +547,69 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             default_time_to_live=63072000,
-            encryption_specification=aws_native.cassandra.TableEncryptionSpecificationArgs(
-                encryption_type=aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
-                kms_key_identifier="arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
-            ),
+            encryption_specification={
+                "encryption_type": aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
+                "kms_key_identifier": "arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
+            },
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -622,19 +622,19 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -647,39 +647,39 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -692,19 +692,19 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -717,56 +717,56 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
-        :param pulumi.Input[pulumi.InputType['TableBillingModeArgs']] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
+        :param pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        :param pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
                
                - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
                - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
                
                If you don't specify a value for this property, then the table will use on-demand mode.
         :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]] clustering_key_columns: Clustering key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
-        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: The encryption at rest options for the table.
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: The encryption at rest options for the table.
                
                - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
                - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
@@ -775,10 +775,10 @@ class Table(pulumi.CustomResource):
                
                For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] partition_key_columns: Partition key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] partition_key_columns: Partition key columns of the table
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] regular_columns: Non-key columns of the table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaSpecificationArgs']]]] replica_specifications: The AWS Region specific settings of a multi-Region table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] regular_columns: Non-key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]] replica_specifications: The AWS Region specific settings of a multi-Region table.
                
                For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
                
@@ -786,7 +786,7 @@ class Table(pulumi.CustomResource):
                - `readCapacityUnits` : The provisioned read capacity units. (Optional)
                - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
         :param pulumi.Input[str] table_name: Name for Cassandra table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -807,10 +807,10 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )])
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }])
 
         ```
         ### Example
@@ -822,10 +822,10 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )])
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }])
 
         ```
         ### Example
@@ -837,66 +837,66 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             client_side_timestamps_enabled=True,
             default_time_to_live=63072000,
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -909,66 +909,66 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             client_side_timestamps_enabled=True,
             default_time_to_live=63072000,
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -981,69 +981,69 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             default_time_to_live=63072000,
-            encryption_specification=aws_native.cassandra.TableEncryptionSpecificationArgs(
-                encryption_type=aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
-                kms_key_identifier="arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
-            ),
+            encryption_specification={
+                "encryption_type": aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
+                "kms_key_identifier": "arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
+            },
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -1056,69 +1056,69 @@ class Table(pulumi.CustomResource):
         my_new_table = aws_native.cassandra.Table("myNewTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="id",
-                column_type="ASCII",
-            )],
-            clustering_key_columns=[aws_native.cassandra.TableClusteringKeyColumnArgs(
-                column=aws_native.cassandra.TableColumnArgs(
-                    column_name="division",
-                    column_type="ASCII",
-                ),
-                order_by=aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
-            )],
+            partition_key_columns=[{
+                "column_name": "id",
+                "column_type": "ASCII",
+            }],
+            clustering_key_columns=[{
+                "column": {
+                    "column_name": "division",
+                    "column_type": "ASCII",
+                },
+                "order_by": aws_native.cassandra.TableClusteringKeyColumnOrderBy.ASC,
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ],
-            billing_mode=aws_native.cassandra.TableBillingModeArgs(
-                mode=aws_native.cassandra.TableMode.PROVISIONED,
-                provisioned_throughput=aws_native.cassandra.TableProvisionedThroughputArgs(
-                    read_capacity_units=5,
-                    write_capacity_units=5,
-                ),
-            ),
+            billing_mode={
+                "mode": aws_native.cassandra.TableMode.PROVISIONED,
+                "provisioned_throughput": {
+                    "read_capacity_units": 5,
+                    "write_capacity_units": 5,
+                },
+            },
             default_time_to_live=63072000,
-            encryption_specification=aws_native.cassandra.TableEncryptionSpecificationArgs(
-                encryption_type=aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
-                kms_key_identifier="arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
-            ),
+            encryption_specification={
+                "encryption_type": aws_native.cassandra.TableEncryptionType.CUSTOMER_MANAGED_KMS_KEY,
+                "kms_key_identifier": "arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111",
+            },
             point_in_time_recovery_enabled=True,
             tags=[
-                aws_native.TagArgs(
-                    key="tag1",
-                    value="val1",
-                ),
-                aws_native.TagArgs(
-                    key="tag2",
-                    value="val2",
-                ),
+                {
+                    "key": "tag1",
+                    "value": "val1",
+                },
+                {
+                    "key": "tag2",
+                    "value": "val2",
+                },
             ])
 
         ```
@@ -1131,19 +1131,19 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -1156,39 +1156,39 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -1201,19 +1201,19 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -1226,39 +1226,39 @@ class Table(pulumi.CustomResource):
         my_table = aws_native.cassandra.Table("myTable",
             keyspace_name="my_keyspace",
             table_name="my_table",
-            partition_key_columns=[aws_native.cassandra.TableColumnArgs(
-                column_name="Message",
-                column_type="ASCII",
-            )],
+            partition_key_columns=[{
+                "column_name": "Message",
+                "column_type": "ASCII",
+            }],
             regular_columns=[
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="name",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="region",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="project",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="role",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="pay_scale",
-                    column_type="TEXT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="vacation_hrs",
-                    column_type="FLOAT",
-                ),
-                aws_native.cassandra.TableColumnArgs(
-                    column_name="manager_id",
-                    column_type="TEXT",
-                ),
+                {
+                    "column_name": "name",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "region",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "project",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "role",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "pay_scale",
+                    "column_type": "TEXT",
+                },
+                {
+                    "column_name": "vacation_hrs",
+                    "column_type": "FLOAT",
+                },
+                {
+                    "column_name": "manager_id",
+                    "column_type": "TEXT",
+                },
             ])
 
         ```
@@ -1278,19 +1278,19 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: Optional[pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']]] = None,
-                 billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
+                 auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
+                 billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
+                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
-                 encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
+                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
-                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaSpecificationArgs']]]]] = None,
+                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

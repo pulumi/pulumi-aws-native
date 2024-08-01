@@ -122,7 +122,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
-                 failed_reason: Optional[pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']]] = None,
+                 failed_reason: Optional[pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
+        :param pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
@@ -165,7 +165,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
-                 failed_reason: Optional[pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']]] = None,
+                 failed_reason: Optional[pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,

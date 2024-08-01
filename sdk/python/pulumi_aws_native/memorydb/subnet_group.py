@@ -92,7 +92,7 @@ class SubnetGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
@@ -102,7 +102,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description of the subnet group.
         :param pulumi.Input[str] subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this subnet group.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class SubnetGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

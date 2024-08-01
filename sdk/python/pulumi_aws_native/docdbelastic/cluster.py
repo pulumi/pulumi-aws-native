@@ -322,7 +322,7 @@ class Cluster(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_instance_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -374,7 +374,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] shard_count: The number of shards assigned to the elastic cluster. Maximum is 32.
         :param pulumi.Input[int] shard_instance_count: The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The Amazon EC2 subnet IDs for the new elastic cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to be assigned to the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be assigned to the new elastic cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with the new elastic cluster.
         """
         ...
@@ -413,7 +413,7 @@ class Cluster(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_instance_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

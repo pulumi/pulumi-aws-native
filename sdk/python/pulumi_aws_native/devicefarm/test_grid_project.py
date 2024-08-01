@@ -98,8 +98,8 @@ class TestGridProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
@@ -108,10 +108,10 @@ class TestGridProject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-readable description for the project.
         :param pulumi.Input[str] name: A human-readable name for the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
-        :param pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']] vpc_config: The VPC security groups and subnets that are attached to a project.
+        :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project.
         """
         ...
     @overload
@@ -139,8 +139,8 @@ class TestGridProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

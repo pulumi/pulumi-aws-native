@@ -137,26 +137,26 @@ class Bridge(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress_gateway_bridge: Optional[pulumi.Input[pulumi.InputType['BridgeEgressGatewayBridgeArgs']]] = None,
-                 ingress_gateway_bridge: Optional[pulumi.Input[pulumi.InputType['BridgeIngressGatewayBridgeArgs']]] = None,
+                 egress_gateway_bridge: Optional[pulumi.Input[Union['BridgeEgressGatewayBridgeArgs', 'BridgeEgressGatewayBridgeArgsDict']]] = None,
+                 ingress_gateway_bridge: Optional[pulumi.Input[Union['BridgeIngressGatewayBridgeArgs', 'BridgeIngressGatewayBridgeArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BridgeOutputArgs', 'BridgeOutputArgsDict']]]]] = None,
                  placement_arn: Optional[pulumi.Input[str]] = None,
-                 source_failover_config: Optional[pulumi.Input[pulumi.InputType['BridgeFailoverConfigArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeSourceArgs']]]]] = None,
+                 source_failover_config: Optional[pulumi.Input[Union['BridgeFailoverConfigArgs', 'BridgeFailoverConfigArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BridgeSourceArgs', 'BridgeSourceArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::Bridge
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BridgeEgressGatewayBridgeArgs']] egress_gateway_bridge: Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
-        :param pulumi.Input[pulumi.InputType['BridgeIngressGatewayBridgeArgs']] ingress_gateway_bridge: Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        :param pulumi.Input[Union['BridgeEgressGatewayBridgeArgs', 'BridgeEgressGatewayBridgeArgsDict']] egress_gateway_bridge: Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        :param pulumi.Input[Union['BridgeIngressGatewayBridgeArgs', 'BridgeIngressGatewayBridgeArgsDict']] ingress_gateway_bridge: Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         :param pulumi.Input[str] name: The name of the bridge.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeOutputArgs']]]] outputs: The outputs on this bridge.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BridgeOutputArgs', 'BridgeOutputArgsDict']]]] outputs: The outputs on this bridge.
         :param pulumi.Input[str] placement_arn: The placement Amazon Resource Number (ARN) of the bridge.
-        :param pulumi.Input[pulumi.InputType['BridgeFailoverConfigArgs']] source_failover_config: The settings for source failover.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeSourceArgs']]]] sources: The sources on this bridge.
+        :param pulumi.Input[Union['BridgeFailoverConfigArgs', 'BridgeFailoverConfigArgsDict']] source_failover_config: The settings for source failover.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BridgeSourceArgs', 'BridgeSourceArgsDict']]]] sources: The sources on this bridge.
         """
         ...
     @overload
@@ -182,13 +182,13 @@ class Bridge(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress_gateway_bridge: Optional[pulumi.Input[pulumi.InputType['BridgeEgressGatewayBridgeArgs']]] = None,
-                 ingress_gateway_bridge: Optional[pulumi.Input[pulumi.InputType['BridgeIngressGatewayBridgeArgs']]] = None,
+                 egress_gateway_bridge: Optional[pulumi.Input[Union['BridgeEgressGatewayBridgeArgs', 'BridgeEgressGatewayBridgeArgsDict']]] = None,
+                 ingress_gateway_bridge: Optional[pulumi.Input[Union['BridgeIngressGatewayBridgeArgs', 'BridgeIngressGatewayBridgeArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BridgeOutputArgs', 'BridgeOutputArgsDict']]]]] = None,
                  placement_arn: Optional[pulumi.Input[str]] = None,
-                 source_failover_config: Optional[pulumi.Input[pulumi.InputType['BridgeFailoverConfigArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeSourceArgs']]]]] = None,
+                 source_failover_config: Optional[pulumi.Input[Union['BridgeFailoverConfigArgs', 'BridgeFailoverConfigArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BridgeSourceArgs', 'BridgeSourceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

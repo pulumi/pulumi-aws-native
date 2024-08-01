@@ -93,7 +93,7 @@ class TrafficDistributionGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::TrafficDistributionGroup
@@ -103,7 +103,7 @@ class TrafficDistributionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the traffic distribution group.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance that has been replicated.
         :param pulumi.Input[str] name: The name for the traffic distribution group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class TrafficDistributionGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

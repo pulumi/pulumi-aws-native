@@ -75,18 +75,18 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
+                 device: Optional[pulumi.Input[Union['DeviceArgs', 'DeviceArgsDict']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SageMaker::Device
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceArgs']] device: The Edge Device you want to register against a device fleet
+        :param pulumi.Input[Union['DeviceArgs', 'DeviceArgsDict']] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Associate tags with the resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Associate tags with the resource
         """
         ...
     @overload
@@ -112,9 +112,9 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
+                 device: Optional[pulumi.Input[Union['DeviceArgs', 'DeviceArgsDict']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

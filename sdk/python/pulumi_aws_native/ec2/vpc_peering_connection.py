@@ -124,7 +124,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_role_arn: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,7 +136,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
@@ -167,7 +167,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_role_arn: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

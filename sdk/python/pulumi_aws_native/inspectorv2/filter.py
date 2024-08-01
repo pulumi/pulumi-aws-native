@@ -91,7 +91,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  filter_action: Optional[pulumi.Input['FilterAction']] = None,
-                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['FilterCriteriaArgs']]] = None,
+                 filter_criteria: Optional[pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -101,7 +101,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Findings filter description.
         :param pulumi.Input['FilterAction'] filter_action: Findings filter action.
-        :param pulumi.Input[pulumi.InputType['FilterCriteriaArgs']] filter_criteria: Findings filter criteria.
+        :param pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']] filter_criteria: Findings filter criteria.
         :param pulumi.Input[str] name: Findings filter name.
         """
         ...
@@ -130,7 +130,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  filter_action: Optional[pulumi.Input['FilterAction']] = None,
-                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['FilterCriteriaArgs']]] = None,
+                 filter_criteria: Optional[pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

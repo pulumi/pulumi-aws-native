@@ -75,7 +75,7 @@ class KeyValueStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 import_source: Optional[pulumi.Input[pulumi.InputType['KeyValueStoreImportSourceArgs']]] = None,
+                 import_source: Optional[pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -84,7 +84,7 @@ class KeyValueStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment for the key value store.
-        :param pulumi.Input[pulumi.InputType['KeyValueStoreImportSourceArgs']] import_source: The import source for the key value store.
+        :param pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']] import_source: The import source for the key value store.
         :param pulumi.Input[str] name: The name of the key value store.
         """
         ...
@@ -112,7 +112,7 @@ class KeyValueStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 import_source: Optional[pulumi.Input[pulumi.InputType['KeyValueStoreImportSourceArgs']]] = None,
+                 import_source: Optional[pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

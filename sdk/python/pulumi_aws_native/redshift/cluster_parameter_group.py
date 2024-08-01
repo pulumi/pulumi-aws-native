@@ -109,8 +109,8 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_group_family: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Redshift::ClusterParameterGroup
@@ -120,8 +120,8 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
         :param pulumi.Input[str] parameter_group_name: The name of the cluster parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -150,8 +150,8 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_group_family: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
