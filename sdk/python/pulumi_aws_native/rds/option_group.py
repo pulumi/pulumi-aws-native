@@ -41,7 +41,7 @@ class OptionGroupArgs:
                  +   ``sqlserver-web``
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] option_group_description: The description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]] option_configurations: A list of options and the settings for each option.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]] option_configurations: A list of all available options
         :param pulumi.Input[str] option_group_name: The name of the option group to be created.
                 Constraints:
                  +  Must be 1 to 255 letters, numbers, or hyphens
@@ -51,7 +51,7 @@ class OptionGroupArgs:
                 Example: ``myoptiongroup`` 
                 If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
                  This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional array of key-value pairs to apply to this option group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the option group.
         """
         pulumi.set(__self__, "engine_name", engine_name)
         pulumi.set(__self__, "major_engine_version", major_engine_version)
@@ -115,7 +115,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]:
         """
-        A list of options and the settings for each option.
+        A list of all available options
         """
         return pulumi.get(self, "option_configurations")
 
@@ -147,7 +147,7 @@ class OptionGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An optional array of key-value pairs to apply to this option group.
+        Tags to assign to the option group.
         """
         return pulumi.get(self, "tags")
 
@@ -187,7 +187,7 @@ class OptionGroup(pulumi.CustomResource):
                  +   ``sqlserver-ex`` 
                  +   ``sqlserver-web``
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of options and the settings for each option.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of all available options
         :param pulumi.Input[str] option_group_description: The description of the option group.
         :param pulumi.Input[str] option_group_name: The name of the option group to be created.
                 Constraints:
@@ -198,7 +198,7 @@ class OptionGroup(pulumi.CustomResource):
                 Example: ``myoptiongroup`` 
                 If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
                  This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional array of key-value pairs to apply to this option group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the option group.
         """
         ...
     @overload
@@ -315,7 +315,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupOptionConfiguration']]]:
         """
-        A list of options and the settings for each option.
+        A list of all available options
         """
         return pulumi.get(self, "option_configurations")
 
@@ -347,7 +347,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An optional array of key-value pairs to apply to this option group.
+        Tags to assign to the option group.
         """
         return pulumi.get(self, "tags")
 

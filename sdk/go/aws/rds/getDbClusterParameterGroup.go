@@ -16,7 +16,7 @@ import (
 //
 //	For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
 //	 If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
-//	If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
+//	If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 func LookupDbClusterParameterGroup(ctx *pulumi.Context, args *LookupDbClusterParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupDbClusterParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDbClusterParameterGroupResult
@@ -32,7 +32,6 @@ type LookupDbClusterParameterGroupArgs struct {
 	//  Constraints:
 	//   +  Must not match the name of an existing DB cluster parameter group.
 	//
-	//  If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
 	//   This value is stored as a lowercase string.
 	DbClusterParameterGroupName string `pulumi:"dbClusterParameterGroupName"`
 }
@@ -42,7 +41,7 @@ type LookupDbClusterParameterGroupResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
-	// An optional array of key-value pairs to apply to this DB cluster parameter group.
+	// Tags to assign to the DB cluster parameter group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -64,7 +63,6 @@ type LookupDbClusterParameterGroupOutputArgs struct {
 	//  Constraints:
 	//   +  Must not match the name of an existing DB cluster parameter group.
 	//
-	//  If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
 	//   This value is stored as a lowercase string.
 	DbClusterParameterGroupName pulumi.StringInput `pulumi:"dbClusterParameterGroupName"`
 }
@@ -94,7 +92,7 @@ func (o LookupDbClusterParameterGroupResultOutput) Parameters() pulumi.AnyOutput
 	return o.ApplyT(func(v LookupDbClusterParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// An optional array of key-value pairs to apply to this DB cluster parameter group.
+// Tags to assign to the DB cluster parameter group.
 func (o LookupDbClusterParameterGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDbClusterParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

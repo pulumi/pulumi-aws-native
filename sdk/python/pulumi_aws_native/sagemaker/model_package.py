@@ -31,6 +31,7 @@ class ModelPackageArgs:
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
+                 model_card: Optional[pulumi.Input['ModelPackageModelCardArgs']] = None,
                  model_metrics: Optional[pulumi.Input['ModelPackageModelMetricsArgs']] = None,
                  model_package_description: Optional[pulumi.Input[str]] = None,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,8 +39,10 @@ class ModelPackageArgs:
                  model_package_status_details: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 security_config: Optional[pulumi.Input['ModelPackageSecurityConfigArgs']] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
@@ -98,6 +101,8 @@ class ModelPackageArgs:
             pulumi.set(__self__, "metadata_properties", metadata_properties)
         if model_approval_status is not None:
             pulumi.set(__self__, "model_approval_status", model_approval_status)
+        if model_card is not None:
+            pulumi.set(__self__, "model_card", model_card)
         if model_metrics is not None:
             pulumi.set(__self__, "model_metrics", model_metrics)
         if model_package_description is not None:
@@ -112,10 +117,14 @@ class ModelPackageArgs:
             pulumi.set(__self__, "model_package_version", model_package_version)
         if sample_payload_url is not None:
             pulumi.set(__self__, "sample_payload_url", sample_payload_url)
+        if security_config is not None:
+            pulumi.set(__self__, "security_config", security_config)
         if skip_model_validation is not None:
             pulumi.set(__self__, "skip_model_validation", skip_model_validation)
         if source_algorithm_specification is not None:
             pulumi.set(__self__, "source_algorithm_specification", source_algorithm_specification)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task is not None:
@@ -272,6 +281,15 @@ class ModelPackageArgs:
         pulumi.set(self, "model_approval_status", value)
 
     @property
+    @pulumi.getter(name="modelCard")
+    def model_card(self) -> Optional[pulumi.Input['ModelPackageModelCardArgs']]:
+        return pulumi.get(self, "model_card")
+
+    @model_card.setter
+    def model_card(self, value: Optional[pulumi.Input['ModelPackageModelCardArgs']]):
+        pulumi.set(self, "model_card", value)
+
+    @property
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> Optional[pulumi.Input['ModelPackageModelMetricsArgs']]:
         """
@@ -356,6 +374,15 @@ class ModelPackageArgs:
         pulumi.set(self, "sample_payload_url", value)
 
     @property
+    @pulumi.getter(name="securityConfig")
+    def security_config(self) -> Optional[pulumi.Input['ModelPackageSecurityConfigArgs']]:
+        return pulumi.get(self, "security_config")
+
+    @security_config.setter
+    def security_config(self, value: Optional[pulumi.Input['ModelPackageSecurityConfigArgs']]):
+        pulumi.set(self, "security_config", value)
+
+    @property
     @pulumi.getter(name="skipModelValidation")
     def skip_model_validation(self) -> Optional[pulumi.Input['ModelPackageSkipModelValidation']]:
         """
@@ -378,6 +405,15 @@ class ModelPackageArgs:
     @source_algorithm_specification.setter
     def source_algorithm_specification(self, value: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']]):
         pulumi.set(self, "source_algorithm_specification", value)
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_uri")
+
+    @source_uri.setter
+    def source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_uri", value)
 
     @property
     @pulumi.getter
@@ -433,6 +469,7 @@ class ModelPackage(pulumi.CustomResource):
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
+                 model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
                  model_metrics: Optional[pulumi.Input[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
                  model_package_description: Optional[pulumi.Input[str]] = None,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
@@ -440,8 +477,10 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_status_details: Optional[pulumi.Input[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 security_config: Optional[pulumi.Input[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
@@ -516,6 +555,7 @@ class ModelPackage(pulumi.CustomResource):
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
+                 model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
                  model_metrics: Optional[pulumi.Input[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
                  model_package_description: Optional[pulumi.Input[str]] = None,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
@@ -523,8 +563,10 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_status_details: Optional[pulumi.Input[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
+                 security_config: Optional[pulumi.Input[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
@@ -549,6 +591,7 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = last_modified_time
             __props__.__dict__["metadata_properties"] = metadata_properties
             __props__.__dict__["model_approval_status"] = model_approval_status
+            __props__.__dict__["model_card"] = model_card
             __props__.__dict__["model_metrics"] = model_metrics
             __props__.__dict__["model_package_description"] = model_package_description
             __props__.__dict__["model_package_group_name"] = model_package_group_name
@@ -556,15 +599,17 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["model_package_status_details"] = model_package_status_details
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
+            __props__.__dict__["security_config"] = security_config
             __props__.__dict__["skip_model_validation"] = skip_model_validation
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
+            __props__.__dict__["source_uri"] = source_uri
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task"] = task
             __props__.__dict__["validation_specification"] = validation_specification
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["model_package_arn"] = None
             __props__.__dict__["model_package_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "sourceAlgorithmSpecification", "task", "validationSpecification"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "securityConfig", "sourceAlgorithmSpecification", "task", "validationSpecification"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelPackage, __self__).__init__(
             'aws-native:sagemaker:ModelPackage',
@@ -601,6 +646,7 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["metadata_properties"] = None
         __props__.__dict__["model_approval_status"] = None
+        __props__.__dict__["model_card"] = None
         __props__.__dict__["model_metrics"] = None
         __props__.__dict__["model_package_arn"] = None
         __props__.__dict__["model_package_description"] = None
@@ -610,8 +656,10 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["model_package_status_details"] = None
         __props__.__dict__["model_package_version"] = None
         __props__.__dict__["sample_payload_url"] = None
+        __props__.__dict__["security_config"] = None
         __props__.__dict__["skip_model_validation"] = None
         __props__.__dict__["source_algorithm_specification"] = None
+        __props__.__dict__["source_uri"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task"] = None
         __props__.__dict__["validation_specification"] = None
@@ -726,6 +774,11 @@ class ModelPackage(pulumi.CustomResource):
         return pulumi.get(self, "model_approval_status")
 
     @property
+    @pulumi.getter(name="modelCard")
+    def model_card(self) -> pulumi.Output[Optional['outputs.ModelPackageModelCard']]:
+        return pulumi.get(self, "model_card")
+
+    @property
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> pulumi.Output[Optional['outputs.ModelPackageModelMetrics']]:
         """
@@ -804,6 +857,11 @@ class ModelPackage(pulumi.CustomResource):
         return pulumi.get(self, "sample_payload_url")
 
     @property
+    @pulumi.getter(name="securityConfig")
+    def security_config(self) -> pulumi.Output[Optional['outputs.ModelPackageSecurityConfig']]:
+        return pulumi.get(self, "security_config")
+
+    @property
     @pulumi.getter(name="skipModelValidation")
     def skip_model_validation(self) -> pulumi.Output[Optional['ModelPackageSkipModelValidation']]:
         """
@@ -818,6 +876,11 @@ class ModelPackage(pulumi.CustomResource):
         A list of algorithms that were used to create a model package.
         """
         return pulumi.get(self, "source_algorithm_specification")
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "source_uri")
 
     @property
     @pulumi.getter

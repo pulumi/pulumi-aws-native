@@ -24,8 +24,12 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The name for the DB subnet group. This value is stored as a lowercase string.
-        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-        ///  Example: ``mysubnetgroup``
+        ///  Constraints:
+        ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+        ///   +  Must not be default.
+        ///   +  First character must be a letter.
+        ///   
+        ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string?> DbSubnetGroupName { get; private set; } = null!;
@@ -37,7 +41,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this DB subnet group.
+        /// Tags to assign to the DB subnet group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -99,8 +103,12 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The name for the DB subnet group. This value is stored as a lowercase string.
-        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-        ///  Example: ``mysubnetgroup``
+        ///  Constraints:
+        ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+        ///   +  Must not be default.
+        ///   +  First character must be a letter.
+        ///   
+        ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -121,7 +129,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this DB subnet group.
+        /// Tags to assign to the DB subnet group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

@@ -129,7 +129,6 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_multicast_domain_id"] = transit_gateway_multicast_domain_id
             __props__.__dict__["group_member"] = None
             __props__.__dict__["group_source"] = None
-            __props__.__dict__["member_type"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["source_type"] = None
@@ -162,7 +161,6 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
         __props__.__dict__["group_ip_address"] = None
         __props__.__dict__["group_member"] = None
         __props__.__dict__["group_source"] = None
-        __props__.__dict__["member_type"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["resource_type"] = None
@@ -195,14 +193,6 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
         Indicates that the resource is a transit gateway multicast group member.
         """
         return pulumi.get(self, "group_source")
-
-    @property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> pulumi.Output[str]:
-        """
-        The member type (for example, static).
-        """
-        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter(name="networkInterfaceId")

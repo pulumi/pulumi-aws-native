@@ -63,10 +63,6 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
-     * The source type.
-     */
-    public /*out*/ readonly sourceType!: pulumi.Output<string>;
-    /**
      * The ID of the subnet.
      */
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
@@ -107,7 +103,6 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
             resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
-            resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
@@ -118,7 +113,6 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
-            resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;

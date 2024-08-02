@@ -36,8 +36,6 @@ type LookupTransitGatewayMulticastGroupSourceResult struct {
 	GroupMember *bool `pulumi:"groupMember"`
 	// Indicates that the resource is a transit gateway multicast group member.
 	GroupSource *bool `pulumi:"groupSource"`
-	// The member type (for example, static).
-	MemberType *string `pulumi:"memberType"`
 	// The ID of the resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// The type of resource, for example a VPC attachment.
@@ -98,11 +96,6 @@ func (o LookupTransitGatewayMulticastGroupSourceResultOutput) GroupMember() pulu
 // Indicates that the resource is a transit gateway multicast group member.
 func (o LookupTransitGatewayMulticastGroupSourceResultOutput) GroupSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayMulticastGroupSourceResult) *bool { return v.GroupSource }).(pulumi.BoolPtrOutput)
-}
-
-// The member type (for example, static).
-func (o LookupTransitGatewayMulticastGroupSourceResultOutput) MemberType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTransitGatewayMulticastGroupSourceResult) *string { return v.MemberType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the resource.

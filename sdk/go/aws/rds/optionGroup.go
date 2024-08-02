@@ -33,7 +33,7 @@ type OptionGroup struct {
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
-	// A list of options and the settings for each option.
+	// A list of all available options
 	OptionConfigurations OptionGroupOptionConfigurationArrayOutput `pulumi:"optionConfigurations"`
 	// The description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
@@ -47,7 +47,7 @@ type OptionGroup struct {
 	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
 	//   This value is stored as a lowercase string.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
-	// An optional array of key-value pairs to apply to this option group.
+	// Tags to assign to the option group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -123,7 +123,7 @@ type optionGroupArgs struct {
 	EngineName string `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	// A list of options and the settings for each option.
+	// A list of all available options
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
 	// The description of the option group.
 	OptionGroupDescription string `pulumi:"optionGroupDescription"`
@@ -137,7 +137,7 @@ type optionGroupArgs struct {
 	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
 	//   This value is stored as a lowercase string.
 	OptionGroupName *string `pulumi:"optionGroupName"`
-	// An optional array of key-value pairs to apply to this option group.
+	// Tags to assign to the option group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -159,7 +159,7 @@ type OptionGroupArgs struct {
 	EngineName pulumi.StringInput
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringInput
-	// A list of options and the settings for each option.
+	// A list of all available options
 	OptionConfigurations OptionGroupOptionConfigurationArrayInput
 	// The description of the option group.
 	OptionGroupDescription pulumi.StringInput
@@ -173,7 +173,7 @@ type OptionGroupArgs struct {
 	//  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
 	//   This value is stored as a lowercase string.
 	OptionGroupName pulumi.StringPtrInput
-	// An optional array of key-value pairs to apply to this option group.
+	// Tags to assign to the option group.
 	Tags aws.TagArrayInput
 }
 
@@ -237,7 +237,7 @@ func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
-// A list of options and the settings for each option.
+// A list of all available options
 func (o OptionGroupOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionConfigurationArrayOutput { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }
@@ -261,7 +261,7 @@ func (o OptionGroupOutput) OptionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringPtrOutput { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
-// An optional array of key-value pairs to apply to this option group.
+// Tags to assign to the option group.
 func (o OptionGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

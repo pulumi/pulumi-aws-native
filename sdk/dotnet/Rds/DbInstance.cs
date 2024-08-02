@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Rds
     ///  For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
     ///  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
     ///   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
-    ///     *Updating DB instances*
+    ///    *Updating DB instances*
     ///  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
     ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
     ///   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
@@ -113,6 +113,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("automaticBackupReplicationKmsKeyId")]
         public Output<string?> AutomaticBackupReplicationKmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region associated with the automated backup.
+        /// </summary>
         [Output("automaticBackupReplicationRegion")]
         public Output<string?> AutomaticBackupReplicationRegion { get; private set; } = null!;
 
@@ -196,7 +199,8 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the DB cluster that the instance will belong to.
+        /// The identifier of the DB cluster that this DB instance will belong to.
+        ///  This setting doesn't apply to RDS Custom DB instances.
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string?> DbClusterIdentifier { get; private set; } = null!;
@@ -347,9 +351,8 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
         ///  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
-        ///  For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
-        ///   *Amazon Aurora* 
-        ///  Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+        ///  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
+        ///  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string?> DbSubnetGroupName { get; private set; } = null!;
@@ -381,9 +384,8 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> DeleteAutomatedBackups { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html). 
-        ///   *Amazon Aurora* 
-        ///  Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+        /// Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+        ///  This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
@@ -638,30 +640,30 @@ namespace Pulumi.AwsNative.Rds
         ///   
         ///   *RDS for MariaDB* 
         ///  Constraints:
-        ///    +  Must be 1 to 16 letters or numbers.
+        ///   +  Must be 1 to 16 letters or numbers.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for Microsoft SQL Server* 
         ///  Constraints:
-        ///    +  Must be 1 to 128 letters or numbers.
+        ///   +  Must be 1 to 128 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for MySQL* 
         ///  Constraints:
-        ///    +  Must be 1 to 16 letters or numbers.
+        ///   +  Must be 1 to 16 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for Oracle* 
         ///  Constraints:
-        ///    +  Must be 1 to 30 letters or numbers.
+        ///   +  Must be 1 to 30 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for PostgreSQL* 
         ///  Constraints:
-        ///    +  Must be 1 to 63 letters or numbers.
+        ///   +  Must be 1 to 63 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         /// </summary>
@@ -679,10 +681,11 @@ namespace Pulumi.AwsNative.Rds
         public Output<int?> MaxAllocatedStorage { get; private set; } = null!;
 
         /// <summary>
-        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
-        ///  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-        ///  This setting doesn't apply to RDS Custom.
-        ///  Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
+        ///  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+        ///  This setting doesn't apply to RDS Custom DB instances.
+        ///  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+        ///  Default: ``0``
         /// </summary>
         [Output("monitoringInterval")]
         public Output<int?> MonitoringInterval { get; private set; } = null!;
@@ -696,10 +699,10 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> MonitoringRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the ``AvailabilityZone`` parameter if the ``MultiAZ`` parameter is set to true. 
-        ///   For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-        ///   *Amazon Aurora* 
-        ///  Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+        /// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
+        ///  This setting doesn't apply to the following DB instances:
+        ///   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+        ///   +  RDS Custom
         /// </summary>
         [Output("multiAz")]
         public Output<bool?> MultiAz { get; private set; } = null!;
@@ -755,10 +758,18 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The port number on which the database accepts connections.
-        ///   *Amazon Aurora* 
-        ///  Not applicable. The port number is managed by the DB cluster.
-        ///   *Db2* 
-        ///  Default value: ``50000``
+        ///  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+        ///  Valid Values: ``1150-65535`` 
+        ///  Default:
+        ///   +  RDS for Db2 - ``50000`` 
+        ///   +  RDS for MariaDB - ``3306`` 
+        ///   +  RDS for Microsoft SQL Server - ``1433`` 
+        ///   +  RDS for MySQL - ``3306`` 
+        ///   +  RDS for Oracle - ``1521`` 
+        ///   +  RDS for PostgreSQL - ``5432`` 
+        ///   
+        ///  Constraints:
+        ///   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
         /// </summary>
         [Output("port")]
         public Output<string?> Port { get; private set; } = null!;
@@ -906,7 +917,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this DB instance.
+        /// Tags to assign to the DB instance.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -1099,6 +1110,9 @@ namespace Pulumi.AwsNative.Rds
         [Input("automaticBackupReplicationKmsKeyId")]
         public Input<string>? AutomaticBackupReplicationKmsKeyId { get; set; }
 
+        /// <summary>
+        /// The AWS Region associated with the automated backup.
+        /// </summary>
         [Input("automaticBackupReplicationRegion")]
         public Input<string>? AutomaticBackupReplicationRegion { get; set; }
 
@@ -1182,7 +1196,8 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? CustomIamInstanceProfile { get; set; }
 
         /// <summary>
-        /// The identifier of the DB cluster that the instance will belong to.
+        /// The identifier of the DB cluster that this DB instance will belong to.
+        ///  This setting doesn't apply to RDS Custom DB instances.
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
@@ -1333,9 +1348,8 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
         ///  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
-        ///  For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
-        ///   *Amazon Aurora* 
-        ///  Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+        ///  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
+        ///  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -1355,9 +1369,8 @@ namespace Pulumi.AwsNative.Rds
         public Input<bool>? DeleteAutomatedBackups { get; set; }
 
         /// <summary>
-        /// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html). 
-        ///   *Amazon Aurora* 
-        ///  Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+        /// Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+        ///  This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -1624,30 +1637,30 @@ namespace Pulumi.AwsNative.Rds
         ///   
         ///   *RDS for MariaDB* 
         ///  Constraints:
-        ///    +  Must be 1 to 16 letters or numbers.
+        ///   +  Must be 1 to 16 letters or numbers.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for Microsoft SQL Server* 
         ///  Constraints:
-        ///    +  Must be 1 to 128 letters or numbers.
+        ///   +  Must be 1 to 128 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for MySQL* 
         ///  Constraints:
-        ///    +  Must be 1 to 16 letters or numbers.
+        ///   +  Must be 1 to 16 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for Oracle* 
         ///  Constraints:
-        ///    +  Must be 1 to 30 letters or numbers.
+        ///   +  Must be 1 to 30 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         ///   
         ///   *RDS for PostgreSQL* 
         ///  Constraints:
-        ///    +  Must be 1 to 63 letters or numbers.
+        ///   +  Must be 1 to 63 letters or numbers.
         ///   +  First character must be a letter.
         ///   +  Can't be a reserved word for the chosen database engine.
         /// </summary>
@@ -1665,10 +1678,11 @@ namespace Pulumi.AwsNative.Rds
         public Input<int>? MaxAllocatedStorage { get; set; }
 
         /// <summary>
-        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
-        ///  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-        ///  This setting doesn't apply to RDS Custom.
-        ///  Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
+        ///  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+        ///  This setting doesn't apply to RDS Custom DB instances.
+        ///  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+        ///  Default: ``0``
         /// </summary>
         [Input("monitoringInterval")]
         public Input<int>? MonitoringInterval { get; set; }
@@ -1682,10 +1696,10 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? MonitoringRoleArn { get; set; }
 
         /// <summary>
-        /// Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the ``AvailabilityZone`` parameter if the ``MultiAZ`` parameter is set to true. 
-        ///   For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-        ///   *Amazon Aurora* 
-        ///  Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+        /// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
+        ///  This setting doesn't apply to the following DB instances:
+        ///   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+        ///   +  RDS Custom
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
@@ -1741,10 +1755,18 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The port number on which the database accepts connections.
-        ///   *Amazon Aurora* 
-        ///  Not applicable. The port number is managed by the DB cluster.
-        ///   *Db2* 
-        ///  Default value: ``50000``
+        ///  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+        ///  Valid Values: ``1150-65535`` 
+        ///  Default:
+        ///   +  RDS for Db2 - ``50000`` 
+        ///   +  RDS for MariaDB - ``3306`` 
+        ///   +  RDS for Microsoft SQL Server - ``1433`` 
+        ///   +  RDS for MySQL - ``3306`` 
+        ///   +  RDS for Oracle - ``1521`` 
+        ///   +  RDS for PostgreSQL - ``5432`` 
+        ///   
+        ///  Constraints:
+        ///   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -1901,7 +1923,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this DB instance.
+        /// Tags to assign to the DB instance.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

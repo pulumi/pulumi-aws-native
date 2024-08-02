@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MediaLive
         /// The MediaLive channel associated with the program.
         /// </summary>
         [Output("channelId")]
-        public Output<string?> ChannelId { get; private set; } = null!;
+        public Output<string> ChannelId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the multiplex that the program belongs to.
@@ -107,12 +107,6 @@ namespace Pulumi.AwsNative.MediaLive
 
     public sealed class MultiplexprogramArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The MediaLive channel associated with the program.
-        /// </summary>
-        [Input("channelId")]
-        public Input<string>? ChannelId { get; set; }
-
         /// <summary>
         /// The ID of the multiplex that the program belongs to.
         /// </summary>

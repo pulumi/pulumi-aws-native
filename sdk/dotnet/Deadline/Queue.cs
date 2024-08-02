@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The farm ID.
         /// </summary>
         [Output("farmId")]
-        public Output<string?> FarmId { get; private set; } = null!;
+        public Output<string> FarmId { get; private set; } = null!;
 
         /// <summary>
         /// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
@@ -169,8 +169,8 @@ namespace Pulumi.AwsNative.Deadline
         /// <summary>
         /// The farm ID.
         /// </summary>
-        [Input("farmId")]
-        public Input<string>? FarmId { get; set; }
+        [Input("farmId", required: true)]
+        public Input<string> FarmId { get; set; } = null!;
 
         /// <summary>
         /// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.

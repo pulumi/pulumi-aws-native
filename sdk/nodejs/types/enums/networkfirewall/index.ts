@@ -37,6 +37,7 @@ export type LoggingConfigurationLogDestinationConfigLogDestinationType = (typeof
 export const LoggingConfigurationLogDestinationConfigLogType = {
     Alert: "ALERT",
     Flow: "FLOW",
+    Tls: "TLS",
 } as const;
 
 /**

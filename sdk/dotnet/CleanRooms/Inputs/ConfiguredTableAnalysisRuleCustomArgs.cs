@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableAnalysisRuleCustomArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalAnalyses")]
+        public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses>? AdditionalAnalyses { get; set; }
+
         [Input("allowedAnalyses", required: true)]
         private InputList<string>? _allowedAnalyses;
         public InputList<string> AllowedAnalyses
@@ -30,6 +33,14 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
         [Input("differentialPrivacy")]
         public Input<Inputs.ConfiguredTableDifferentialPrivacyArgs>? DifferentialPrivacy { get; set; }
+
+        [Input("disallowedOutputColumns")]
+        private InputList<string>? _disallowedOutputColumns;
+        public InputList<string> DisallowedOutputColumns
+        {
+            get => _disallowedOutputColumns ?? (_disallowedOutputColumns = new InputList<string>());
+            set => _disallowedOutputColumns = value;
+        }
 
         public ConfiguredTableAnalysisRuleCustomArgs()
         {

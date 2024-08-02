@@ -21,6 +21,8 @@ type ConfiguredTableAssociation struct {
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+	ConfiguredTableAssociationAnalysisRules ConfiguredTableAssociationAnalysisRuleArrayOutput `pulumi:"configuredTableAssociationAnalysisRules"`
 	// Returns the unique identifier of the specified configured table association.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -94,6 +96,8 @@ func (ConfiguredTableAssociationState) ElementType() reflect.Type {
 }
 
 type configuredTableAssociationArgs struct {
+	// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+	ConfiguredTableAssociationAnalysisRules []ConfiguredTableAssociationAnalysisRule `pulumi:"configuredTableAssociationAnalysisRules"`
 	// A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
 	ConfiguredTableIdentifier string `pulumi:"configuredTableIdentifier"`
 	// A description of the configured table association.
@@ -110,6 +114,8 @@ type configuredTableAssociationArgs struct {
 
 // The set of arguments for constructing a ConfiguredTableAssociation resource.
 type ConfiguredTableAssociationArgs struct {
+	// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+	ConfiguredTableAssociationAnalysisRules ConfiguredTableAssociationAnalysisRuleArrayInput
 	// A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
 	ConfiguredTableIdentifier pulumi.StringInput
 	// A description of the configured table association.
@@ -166,6 +172,13 @@ func (o ConfiguredTableAssociationOutput) ToConfiguredTableAssociationOutputWith
 // Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o ConfiguredTableAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTableAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+func (o ConfiguredTableAssociationOutput) ConfiguredTableAssociationAnalysisRules() ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableAssociation) ConfiguredTableAssociationAnalysisRuleArrayOutput {
+		return v.ConfiguredTableAssociationAnalysisRules
+	}).(ConfiguredTableAssociationAnalysisRuleArrayOutput)
 }
 
 // Returns the unique identifier of the specified configured table association.

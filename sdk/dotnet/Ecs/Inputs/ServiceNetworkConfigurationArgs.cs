@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The ``NetworkConfiguration`` property specifies an object representing the network configuration for a task or service.
+    /// The network configuration for a task or service.
     /// </summary>
     public sealed class ServiceNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {

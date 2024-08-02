@@ -9,10 +9,12 @@ __all__ = [
     'AnalysisTemplateFormat',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
+    'ConfiguredTableAdditionalAnalyses',
     'ConfiguredTableAggregateFunctionName',
     'ConfiguredTableAggregationType',
     'ConfiguredTableAnalysisMethod',
     'ConfiguredTableAnalysisRuleType',
+    'ConfiguredTableAssociationAnalysisRuleType',
     'ConfiguredTableJoinOperator',
     'ConfiguredTableJoinRequiredOption',
     'ConfiguredTableScalarFunctions',
@@ -61,6 +63,12 @@ class CollaborationQueryLogStatus(str, Enum):
     DISABLED = "DISABLED"
 
 
+class ConfiguredTableAdditionalAnalyses(str, Enum):
+    ALLOWED = "ALLOWED"
+    REQUIRED = "REQUIRED"
+    NOT_ALLOWED = "NOT_ALLOWED"
+
+
 class ConfiguredTableAggregateFunctionName(str, Enum):
     SUM = "SUM"
     SUM_DISTINCT = "SUM_DISTINCT"
@@ -78,6 +86,12 @@ class ConfiguredTableAnalysisMethod(str, Enum):
 
 
 class ConfiguredTableAnalysisRuleType(str, Enum):
+    AGGREGATION = "AGGREGATION"
+    LIST = "LIST"
+    CUSTOM = "CUSTOM"
+
+
+class ConfiguredTableAssociationAnalysisRuleType(str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
     CUSTOM = "CUSTOM"

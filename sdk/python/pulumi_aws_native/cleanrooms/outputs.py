@@ -29,6 +29,14 @@ __all__ = [
     'ConfiguredTableAnalysisRulePolicyV10Properties',
     'ConfiguredTableAnalysisRulePolicyV11Properties',
     'ConfiguredTableAnalysisRulePolicyV12Properties',
+    'ConfiguredTableAssociationAnalysisRule',
+    'ConfiguredTableAssociationAnalysisRuleAggregation',
+    'ConfiguredTableAssociationAnalysisRuleCustom',
+    'ConfiguredTableAssociationAnalysisRuleList',
+    'ConfiguredTableAssociationAnalysisRulePolicy',
+    'ConfiguredTableAssociationAnalysisRulePolicyV10Properties',
+    'ConfiguredTableAssociationAnalysisRulePolicyV11Properties',
+    'ConfiguredTableAssociationAnalysisRulePolicyV12Properties',
     'ConfiguredTableDifferentialPrivacy',
     'ConfiguredTableDifferentialPrivacyColumn',
     'ConfiguredTableGlueTableReference',
@@ -510,6 +518,8 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
             suggest = "output_constraints"
         elif key == "scalarFunctions":
             suggest = "scalar_functions"
+        elif key == "additionalAnalyses":
+            suggest = "additional_analyses"
         elif key == "allowedJoinOperators":
             suggest = "allowed_join_operators"
         elif key == "joinRequired":
@@ -532,6 +542,7 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
                  join_columns: Sequence[str],
                  output_constraints: Sequence['outputs.ConfiguredTableAggregationConstraint'],
                  scalar_functions: Sequence['ConfiguredTableScalarFunctions'],
+                 additional_analyses: Optional['ConfiguredTableAdditionalAnalyses'] = None,
                  allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
                  join_required: Optional['ConfiguredTableJoinRequiredOption'] = None):
         pulumi.set(__self__, "aggregate_columns", aggregate_columns)
@@ -539,6 +550,8 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
         pulumi.set(__self__, "join_columns", join_columns)
         pulumi.set(__self__, "output_constraints", output_constraints)
         pulumi.set(__self__, "scalar_functions", scalar_functions)
+        if additional_analyses is not None:
+            pulumi.set(__self__, "additional_analyses", additional_analyses)
         if allowed_join_operators is not None:
             pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
         if join_required is not None:
@@ -570,6 +583,11 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
         return pulumi.get(self, "scalar_functions")
 
     @property
+    @pulumi.getter(name="additionalAnalyses")
+    def additional_analyses(self) -> Optional['ConfiguredTableAdditionalAnalyses']:
+        return pulumi.get(self, "additional_analyses")
+
+    @property
     @pulumi.getter(name="allowedJoinOperators")
     def allowed_join_operators(self) -> Optional[Sequence['ConfiguredTableJoinOperator']]:
         return pulumi.get(self, "allowed_join_operators")
@@ -587,10 +605,14 @@ class ConfiguredTableAnalysisRuleCustom(dict):
         suggest = None
         if key == "allowedAnalyses":
             suggest = "allowed_analyses"
+        elif key == "additionalAnalyses":
+            suggest = "additional_analyses"
         elif key == "allowedAnalysisProviders":
             suggest = "allowed_analysis_providers"
         elif key == "differentialPrivacy":
             suggest = "differential_privacy"
+        elif key == "disallowedOutputColumns":
+            suggest = "disallowed_output_columns"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAnalysisRuleCustom. Access the value via the '{suggest}' property getter instead.")
@@ -605,18 +627,29 @@ class ConfiguredTableAnalysisRuleCustom(dict):
 
     def __init__(__self__, *,
                  allowed_analyses: Sequence[str],
+                 additional_analyses: Optional['ConfiguredTableAdditionalAnalyses'] = None,
                  allowed_analysis_providers: Optional[Sequence[str]] = None,
-                 differential_privacy: Optional['outputs.ConfiguredTableDifferentialPrivacy'] = None):
+                 differential_privacy: Optional['outputs.ConfiguredTableDifferentialPrivacy'] = None,
+                 disallowed_output_columns: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
+        if additional_analyses is not None:
+            pulumi.set(__self__, "additional_analyses", additional_analyses)
         if allowed_analysis_providers is not None:
             pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
         if differential_privacy is not None:
             pulumi.set(__self__, "differential_privacy", differential_privacy)
+        if disallowed_output_columns is not None:
+            pulumi.set(__self__, "disallowed_output_columns", disallowed_output_columns)
 
     @property
     @pulumi.getter(name="allowedAnalyses")
     def allowed_analyses(self) -> Sequence[str]:
         return pulumi.get(self, "allowed_analyses")
+
+    @property
+    @pulumi.getter(name="additionalAnalyses")
+    def additional_analyses(self) -> Optional['ConfiguredTableAdditionalAnalyses']:
+        return pulumi.get(self, "additional_analyses")
 
     @property
     @pulumi.getter(name="allowedAnalysisProviders")
@@ -628,6 +661,11 @@ class ConfiguredTableAnalysisRuleCustom(dict):
     def differential_privacy(self) -> Optional['outputs.ConfiguredTableDifferentialPrivacy']:
         return pulumi.get(self, "differential_privacy")
 
+    @property
+    @pulumi.getter(name="disallowedOutputColumns")
+    def disallowed_output_columns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "disallowed_output_columns")
+
 
 @pulumi.output_type
 class ConfiguredTableAnalysisRuleList(dict):
@@ -638,6 +676,8 @@ class ConfiguredTableAnalysisRuleList(dict):
             suggest = "join_columns"
         elif key == "listColumns":
             suggest = "list_columns"
+        elif key == "additionalAnalyses":
+            suggest = "additional_analyses"
         elif key == "allowedJoinOperators":
             suggest = "allowed_join_operators"
 
@@ -655,9 +695,12 @@ class ConfiguredTableAnalysisRuleList(dict):
     def __init__(__self__, *,
                  join_columns: Sequence[str],
                  list_columns: Sequence[str],
+                 additional_analyses: Optional['ConfiguredTableAdditionalAnalyses'] = None,
                  allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None):
         pulumi.set(__self__, "join_columns", join_columns)
         pulumi.set(__self__, "list_columns", list_columns)
+        if additional_analyses is not None:
+            pulumi.set(__self__, "additional_analyses", additional_analyses)
         if allowed_join_operators is not None:
             pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
 
@@ -670,6 +713,11 @@ class ConfiguredTableAnalysisRuleList(dict):
     @pulumi.getter(name="listColumns")
     def list_columns(self) -> Sequence[str]:
         return pulumi.get(self, "list_columns")
+
+    @property
+    @pulumi.getter(name="additionalAnalyses")
+    def additional_analyses(self) -> Optional['ConfiguredTableAdditionalAnalyses']:
+        return pulumi.get(self, "additional_analyses")
 
     @property
     @pulumi.getter(name="allowedJoinOperators")
@@ -728,6 +776,209 @@ class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
     @property
     @pulumi.getter
     def custom(self) -> 'outputs.ConfiguredTableAnalysisRuleCustom':
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRule(dict):
+    def __init__(__self__, *,
+                 policy: 'outputs.ConfiguredTableAssociationAnalysisRulePolicy',
+                 type: 'ConfiguredTableAssociationAnalysisRuleType'):
+        """
+        :param 'ConfiguredTableAssociationAnalysisRulePolicy' policy: The policy of the configured table association analysis rule.
+        :param 'ConfiguredTableAssociationAnalysisRuleType' type: The type of the configured table association analysis rule.
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> 'outputs.ConfiguredTableAssociationAnalysisRulePolicy':
+        """
+        The policy of the configured table association analysis rule.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ConfiguredTableAssociationAnalysisRuleType':
+        """
+        The type of the configured table association analysis rule.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRuleAggregation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAdditionalAnalyses":
+            suggest = "allowed_additional_analyses"
+        elif key == "allowedResultReceivers":
+            suggest = "allowed_result_receivers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAssociationAnalysisRuleAggregation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAssociationAnalysisRuleAggregation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAssociationAnalysisRuleAggregation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_additional_analyses: Optional[Sequence[str]] = None,
+                 allowed_result_receivers: Optional[Sequence[str]] = None):
+        if allowed_additional_analyses is not None:
+            pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
+        if allowed_result_receivers is not None:
+            pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+
+    @property
+    @pulumi.getter(name="allowedAdditionalAnalyses")
+    def allowed_additional_analyses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_additional_analyses")
+
+    @property
+    @pulumi.getter(name="allowedResultReceivers")
+    def allowed_result_receivers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_result_receivers")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRuleCustom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAdditionalAnalyses":
+            suggest = "allowed_additional_analyses"
+        elif key == "allowedResultReceivers":
+            suggest = "allowed_result_receivers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAssociationAnalysisRuleCustom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAssociationAnalysisRuleCustom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAssociationAnalysisRuleCustom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_additional_analyses: Optional[Sequence[str]] = None,
+                 allowed_result_receivers: Optional[Sequence[str]] = None):
+        if allowed_additional_analyses is not None:
+            pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
+        if allowed_result_receivers is not None:
+            pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+
+    @property
+    @pulumi.getter(name="allowedAdditionalAnalyses")
+    def allowed_additional_analyses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_additional_analyses")
+
+    @property
+    @pulumi.getter(name="allowedResultReceivers")
+    def allowed_result_receivers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_result_receivers")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRuleList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAdditionalAnalyses":
+            suggest = "allowed_additional_analyses"
+        elif key == "allowedResultReceivers":
+            suggest = "allowed_result_receivers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAssociationAnalysisRuleList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAssociationAnalysisRuleList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAssociationAnalysisRuleList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_additional_analyses: Optional[Sequence[str]] = None,
+                 allowed_result_receivers: Optional[Sequence[str]] = None):
+        if allowed_additional_analyses is not None:
+            pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
+        if allowed_result_receivers is not None:
+            pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+
+    @property
+    @pulumi.getter(name="allowedAdditionalAnalyses")
+    def allowed_additional_analyses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_additional_analyses")
+
+    @property
+    @pulumi.getter(name="allowedResultReceivers")
+    def allowed_result_receivers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_result_receivers")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRulePolicy(dict):
+    def __init__(__self__, *,
+                 v1: Any):
+        """
+        :param Union['ConfiguredTableAssociationAnalysisRulePolicyV10Properties', 'ConfiguredTableAssociationAnalysisRulePolicyV11Properties', 'ConfiguredTableAssociationAnalysisRulePolicyV12Properties'] v1: The policy for the configured table association analysis rule.
+        """
+        pulumi.set(__self__, "v1", v1)
+
+    @property
+    @pulumi.getter
+    def v1(self) -> Any:
+        """
+        The policy for the configured table association analysis rule.
+        """
+        return pulumi.get(self, "v1")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRulePolicyV10Properties(dict):
+    def __init__(__self__, *,
+                 list: 'outputs.ConfiguredTableAssociationAnalysisRuleList'):
+        pulumi.set(__self__, "list", list)
+
+    @property
+    @pulumi.getter
+    def list(self) -> 'outputs.ConfiguredTableAssociationAnalysisRuleList':
+        return pulumi.get(self, "list")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRulePolicyV11Properties(dict):
+    def __init__(__self__, *,
+                 aggregation: 'outputs.ConfiguredTableAssociationAnalysisRuleAggregation'):
+        pulumi.set(__self__, "aggregation", aggregation)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> 'outputs.ConfiguredTableAssociationAnalysisRuleAggregation':
+        return pulumi.get(self, "aggregation")
+
+
+@pulumi.output_type
+class ConfiguredTableAssociationAnalysisRulePolicyV12Properties(dict):
+    def __init__(__self__, *,
+                 custom: 'outputs.ConfiguredTableAssociationAnalysisRuleCustom'):
+        pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> 'outputs.ConfiguredTableAssociationAnalysisRuleCustom':
         return pulumi.get(self, "custom")
 
 

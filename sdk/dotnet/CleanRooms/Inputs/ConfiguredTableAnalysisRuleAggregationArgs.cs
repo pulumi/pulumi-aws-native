@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableAnalysisRuleAggregationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalAnalyses")]
+        public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses>? AdditionalAnalyses { get; set; }
+
         [Input("aggregateColumns", required: true)]
         private InputList<Inputs.ConfiguredTableAggregateColumnArgs>? _aggregateColumns;
         public InputList<Inputs.ConfiguredTableAggregateColumnArgs> AggregateColumns

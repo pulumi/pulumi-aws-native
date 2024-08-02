@@ -158,10 +158,15 @@ __all__ = [
     'ModelPackageInferenceSpecificationArgs',
     'ModelPackageMetadataPropertiesArgs',
     'ModelPackageMetricsSourceArgs',
+    'ModelPackageModelAccessConfigArgs',
+    'ModelPackageModelCardArgs',
     'ModelPackageModelDataQualityArgs',
+    'ModelPackageModelDataSourceArgs',
     'ModelPackageModelMetricsArgs',
     'ModelPackageModelQualityArgs',
     'ModelPackageS3DataSourceArgs',
+    'ModelPackageS3ModelDataSourceArgs',
+    'ModelPackageSecurityConfigArgs',
     'ModelPackageSourceAlgorithmSpecificationArgs',
     'ModelPackageSourceAlgorithmArgs',
     'ModelPackageStatusDetailsArgs',
@@ -7504,6 +7509,7 @@ class ModelPackageContainerDefinitionArgs:
                  framework: Optional[pulumi.Input[str]] = None,
                  framework_version: Optional[pulumi.Input[str]] = None,
                  image_digest: Optional[pulumi.Input[str]] = None,
+                 model_data_source: Optional[pulumi.Input['ModelPackageModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_input: Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']] = None,
                  nearest_model_name: Optional[pulumi.Input[str]] = None):
@@ -7528,6 +7534,8 @@ class ModelPackageContainerDefinitionArgs:
             pulumi.set(__self__, "framework_version", framework_version)
         if image_digest is not None:
             pulumi.set(__self__, "image_digest", image_digest)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_input is not None:
@@ -7603,6 +7611,15 @@ class ModelPackageContainerDefinitionArgs:
     @image_digest.setter
     def image_digest(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_digest", value)
+
+    @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional[pulumi.Input['ModelPackageModelDataSourceArgs']]:
+        return pulumi.get(self, "model_data_source")
+
+    @model_data_source.setter
+    def model_data_source(self, value: Optional[pulumi.Input['ModelPackageModelDataSourceArgs']]):
+        pulumi.set(self, "model_data_source", value)
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -8218,6 +8235,67 @@ class ModelPackageMetricsSourceArgs:
 
 
 @pulumi.input_type
+class ModelPackageModelAccessConfigArgs:
+    def __init__(__self__, *,
+                 accept_eula: pulumi.Input[bool]):
+        """
+        Specifies the access configuration file for the ML model.
+        :param pulumi.Input[bool] accept_eula: Specifies agreement to the model end-user license agreement (EULA).
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> pulumi.Input[bool]:
+        """
+        Specifies agreement to the model end-user license agreement (EULA).
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "accept_eula", value)
+
+
+@pulumi.input_type
+class ModelPackageModelCardArgs:
+    def __init__(__self__, *,
+                 model_card_content: pulumi.Input[str],
+                 model_card_status: pulumi.Input['ModelPackageModelCardModelCardStatus']):
+        """
+        The model card associated with the model package.
+        :param pulumi.Input[str] model_card_content: The content of the model card.
+        :param pulumi.Input['ModelPackageModelCardModelCardStatus'] model_card_status: The approval status of the model card within your organization.
+        """
+        pulumi.set(__self__, "model_card_content", model_card_content)
+        pulumi.set(__self__, "model_card_status", model_card_status)
+
+    @property
+    @pulumi.getter(name="modelCardContent")
+    def model_card_content(self) -> pulumi.Input[str]:
+        """
+        The content of the model card.
+        """
+        return pulumi.get(self, "model_card_content")
+
+    @model_card_content.setter
+    def model_card_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_card_content", value)
+
+    @property
+    @pulumi.getter(name="modelCardStatus")
+    def model_card_status(self) -> pulumi.Input['ModelPackageModelCardModelCardStatus']:
+        """
+        The approval status of the model card within your organization.
+        """
+        return pulumi.get(self, "model_card_status")
+
+    @model_card_status.setter
+    def model_card_status(self, value: pulumi.Input['ModelPackageModelCardModelCardStatus']):
+        pulumi.set(self, "model_card_status", value)
+
+
+@pulumi.input_type
 class ModelPackageModelDataQualityArgs:
     def __init__(__self__, *,
                  constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
@@ -8255,6 +8333,26 @@ class ModelPackageModelDataQualityArgs:
     @statistics.setter
     def statistics(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
         pulumi.set(self, "statistics", value)
+
+
+@pulumi.input_type
+class ModelPackageModelDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_source: Optional[pulumi.Input['ModelPackageS3ModelDataSourceArgs']] = None):
+        """
+        Specifies the location of ML model data to deploy during endpoint creation.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional[pulumi.Input['ModelPackageS3ModelDataSourceArgs']]:
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: Optional[pulumi.Input['ModelPackageS3ModelDataSourceArgs']]):
+        pulumi.set(self, "s3_data_source", value)
 
 
 @pulumi.input_type
@@ -8405,6 +8503,94 @@ class ModelPackageS3DataSourceArgs:
     @s3_uri.setter
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
+
+
+@pulumi.input_type
+class ModelPackageS3ModelDataSourceArgs:
+    def __init__(__self__, *,
+                 compression_type: pulumi.Input['ModelPackageS3ModelDataSourceCompressionType'],
+                 s3_data_type: pulumi.Input['ModelPackageS3ModelDataSourceS3DataType'],
+                 s3_uri: pulumi.Input[str],
+                 model_access_config: Optional[pulumi.Input['ModelPackageModelAccessConfigArgs']] = None):
+        """
+        Specifies the S3 location of ML model data to deploy.
+        :param pulumi.Input['ModelPackageS3ModelDataSourceCompressionType'] compression_type: Specifies how the ML model data is prepared.
+        :param pulumi.Input['ModelPackageS3ModelDataSourceS3DataType'] s3_data_type: Specifies the type of ML model data to deploy.
+        :param pulumi.Input[str] s3_uri: Specifies the S3 path of ML model data to deploy.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input['ModelPackageS3ModelDataSourceCompressionType']:
+        """
+        Specifies how the ML model data is prepared.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input['ModelPackageS3ModelDataSourceCompressionType']):
+        pulumi.set(self, "compression_type", value)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input['ModelPackageS3ModelDataSourceS3DataType']:
+        """
+        Specifies the type of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input['ModelPackageS3ModelDataSourceS3DataType']):
+        pulumi.set(self, "s3_data_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        Specifies the S3 path of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional[pulumi.Input['ModelPackageModelAccessConfigArgs']]:
+        return pulumi.get(self, "model_access_config")
+
+    @model_access_config.setter
+    def model_access_config(self, value: Optional[pulumi.Input['ModelPackageModelAccessConfigArgs']]):
+        pulumi.set(self, "model_access_config", value)
+
+
+@pulumi.input_type
+class ModelPackageSecurityConfigArgs:
+    def __init__(__self__, *,
+                 kms_key_id: pulumi.Input[str]):
+        """
+        An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[str]:
+        """
+        The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type

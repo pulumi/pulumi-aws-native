@@ -37,6 +37,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// An MD5 hash of the training algorithm that identifies the Docker image used for training.
         /// </summary>
         public readonly string? ImageDigest;
+        public readonly Outputs.ModelPackageModelDataSource? ModelDataSource;
         /// <summary>
         /// A structure with Model Input details.
         /// </summary>
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? imageDigest,
 
+            Outputs.ModelPackageModelDataSource? modelDataSource,
+
             string? modelDataUrl,
 
             Outputs.ModelPackageContainerDefinitionModelInputProperties? modelInput,
@@ -73,6 +76,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             FrameworkVersion = frameworkVersion;
             Image = image;
             ImageDigest = imageDigest;
+            ModelDataSource = modelDataSource;
             ModelDataUrl = modelDataUrl;
             ModelInput = modelInput;
             NearestModelName = nearestModelName;

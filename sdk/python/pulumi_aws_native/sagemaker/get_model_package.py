@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelPackageResult:
-    def __init__(__self__, additional_inference_specifications=None, approval_description=None, certify_for_marketplace=None, creation_time=None, customer_metadata_properties=None, last_modified_time=None, model_approval_status=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_version=None, skip_model_validation=None, tags=None):
+    def __init__(__self__, additional_inference_specifications=None, approval_description=None, certify_for_marketplace=None, creation_time=None, customer_metadata_properties=None, last_modified_time=None, model_approval_status=None, model_card=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_version=None, skip_model_validation=None, source_uri=None, tags=None):
         if additional_inference_specifications and not isinstance(additional_inference_specifications, list):
             raise TypeError("Expected argument 'additional_inference_specifications' to be a list")
         pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
@@ -43,6 +43,9 @@ class GetModelPackageResult:
         if model_approval_status and not isinstance(model_approval_status, str):
             raise TypeError("Expected argument 'model_approval_status' to be a str")
         pulumi.set(__self__, "model_approval_status", model_approval_status)
+        if model_card and not isinstance(model_card, dict):
+            raise TypeError("Expected argument 'model_card' to be a dict")
+        pulumi.set(__self__, "model_card", model_card)
         if model_package_arn and not isinstance(model_package_arn, str):
             raise TypeError("Expected argument 'model_package_arn' to be a str")
         pulumi.set(__self__, "model_package_arn", model_package_arn)
@@ -61,6 +64,9 @@ class GetModelPackageResult:
         if skip_model_validation and not isinstance(skip_model_validation, str):
             raise TypeError("Expected argument 'skip_model_validation' to be a str")
         pulumi.set(__self__, "skip_model_validation", skip_model_validation)
+        if source_uri and not isinstance(source_uri, str):
+            raise TypeError("Expected argument 'source_uri' to be a str")
+        pulumi.set(__self__, "source_uri", source_uri)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -126,6 +132,11 @@ class GetModelPackageResult:
         return pulumi.get(self, "model_approval_status")
 
     @property
+    @pulumi.getter(name="modelCard")
+    def model_card(self) -> Optional['outputs.ModelPackageModelCard']:
+        return pulumi.get(self, "model_card")
+
+    @property
     @pulumi.getter(name="modelPackageArn")
     def model_package_arn(self) -> Optional[str]:
         """
@@ -180,6 +191,11 @@ class GetModelPackageResult:
         return pulumi.get(self, "skip_model_validation")
 
     @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[str]:
+        return pulumi.get(self, "source_uri")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -201,12 +217,14 @@ class AwaitableGetModelPackageResult(GetModelPackageResult):
             customer_metadata_properties=self.customer_metadata_properties,
             last_modified_time=self.last_modified_time,
             model_approval_status=self.model_approval_status,
+            model_card=self.model_card,
             model_package_arn=self.model_package_arn,
             model_package_name=self.model_package_name,
             model_package_status=self.model_package_status,
             model_package_status_details=self.model_package_status_details,
             model_package_version=self.model_package_version,
             skip_model_validation=self.skip_model_validation,
+            source_uri=self.source_uri,
             tags=self.tags)
 
 
@@ -231,12 +249,14 @@ def get_model_package(model_package_arn: Optional[str] = None,
         customer_metadata_properties=pulumi.get(__ret__, 'customer_metadata_properties'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         model_approval_status=pulumi.get(__ret__, 'model_approval_status'),
+        model_card=pulumi.get(__ret__, 'model_card'),
         model_package_arn=pulumi.get(__ret__, 'model_package_arn'),
         model_package_name=pulumi.get(__ret__, 'model_package_name'),
         model_package_status=pulumi.get(__ret__, 'model_package_status'),
         model_package_status_details=pulumi.get(__ret__, 'model_package_status_details'),
         model_package_version=pulumi.get(__ret__, 'model_package_version'),
         skip_model_validation=pulumi.get(__ret__, 'skip_model_validation'),
+        source_uri=pulumi.get(__ret__, 'source_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

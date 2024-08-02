@@ -704,6 +704,18 @@ export const ModelPackageModelApprovalStatus = {
  */
 export type ModelPackageModelApprovalStatus = (typeof ModelPackageModelApprovalStatus)[keyof typeof ModelPackageModelApprovalStatus];
 
+export const ModelPackageModelCardModelCardStatus = {
+    Draft: "Draft",
+    PendingReview: "PendingReview",
+    Approved: "Approved",
+    Archived: "Archived",
+} as const;
+
+/**
+ * The approval status of the model card within your organization.
+ */
+export type ModelPackageModelCardModelCardStatus = (typeof ModelPackageModelCardModelCardStatus)[keyof typeof ModelPackageModelCardModelCardStatus];
+
 export const ModelPackageS3DataSourceS3DataType = {
     ManifestFile: "ManifestFile",
     S3Prefix: "S3Prefix",
@@ -714,6 +726,26 @@ export const ModelPackageS3DataSourceS3DataType = {
  * The S3 Data Source Type
  */
 export type ModelPackageS3DataSourceS3DataType = (typeof ModelPackageS3DataSourceS3DataType)[keyof typeof ModelPackageS3DataSourceS3DataType];
+
+export const ModelPackageS3ModelDataSourceCompressionType = {
+    None: "None",
+    Gzip: "Gzip",
+} as const;
+
+/**
+ * Specifies how the ML model data is prepared.
+ */
+export type ModelPackageS3ModelDataSourceCompressionType = (typeof ModelPackageS3ModelDataSourceCompressionType)[keyof typeof ModelPackageS3ModelDataSourceCompressionType];
+
+export const ModelPackageS3ModelDataSourceS3DataType = {
+    S3Prefix: "S3Prefix",
+    S3Object: "S3Object",
+} as const;
+
+/**
+ * Specifies the type of ML model data to deploy.
+ */
+export type ModelPackageS3ModelDataSourceS3DataType = (typeof ModelPackageS3ModelDataSourceS3DataType)[keyof typeof ModelPackageS3ModelDataSourceS3DataType];
 
 export const ModelPackageSkipModelValidation = {
     None: "None",

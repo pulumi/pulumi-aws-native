@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus? ModelApprovalStatus;
+        public readonly Outputs.ModelPackageModelCard? ModelCard;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the model package.
         /// </summary>
@@ -119,6 +120,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Indicates if you want to skip model validation.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? SkipModelValidation;
+        public readonly string? SourceUri;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -140,6 +142,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus? modelApprovalStatus,
 
+            Outputs.ModelPackageModelCard? modelCard,
+
             string? modelPackageArn,
 
             string? modelPackageName,
@@ -152,6 +156,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? skipModelValidation,
 
+            string? sourceUri,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdditionalInferenceSpecifications = additionalInferenceSpecifications;
@@ -161,12 +167,14 @@ namespace Pulumi.AwsNative.SageMaker
             CustomerMetadataProperties = customerMetadataProperties;
             LastModifiedTime = lastModifiedTime;
             ModelApprovalStatus = modelApprovalStatus;
+            ModelCard = modelCard;
             ModelPackageArn = modelPackageArn;
             ModelPackageName = modelPackageName;
             ModelPackageStatus = modelPackageStatus;
             ModelPackageStatusDetails = modelPackageStatusDetails;
             ModelPackageVersion = modelPackageVersion;
             SkipModelValidation = skipModelValidation;
+            SourceUri = sourceUri;
             Tags = tags;
         }
     }

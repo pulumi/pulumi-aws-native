@@ -44,8 +44,12 @@ export class DbSubnetGroup extends pulumi.CustomResource {
     public readonly dbSubnetGroupDescription!: pulumi.Output<string>;
     /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
-     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-     *  Example: ``mysubnetgroup``
+     *  Constraints:
+     *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+     *   +  Must not be default.
+     *   +  First character must be a letter.
+     *   
+     *  Example: ``mydbsubnetgroup``
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
@@ -53,7 +57,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * An optional array of key-value pairs to apply to this DB subnet group.
+     * Tags to assign to the DB subnet group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -101,8 +105,12 @@ export interface DbSubnetGroupArgs {
     dbSubnetGroupDescription: pulumi.Input<string>;
     /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
-     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-     *  Example: ``mysubnetgroup``
+     *  Constraints:
+     *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+     *   +  Must not be default.
+     *   +  First character must be a letter.
+     *   
+     *  Example: ``mydbsubnetgroup``
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -110,7 +118,7 @@ export interface DbSubnetGroupArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An optional array of key-value pairs to apply to this DB subnet group.
+     * Tags to assign to the DB subnet group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

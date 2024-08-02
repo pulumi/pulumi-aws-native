@@ -138,6 +138,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         public static LoggingConfigurationLogDestinationConfigLogType Alert { get; } = new LoggingConfigurationLogDestinationConfigLogType("ALERT");
         public static LoggingConfigurationLogDestinationConfigLogType Flow { get; } = new LoggingConfigurationLogDestinationConfigLogType("FLOW");
+        public static LoggingConfigurationLogDestinationConfigLogType Tls { get; } = new LoggingConfigurationLogDestinationConfigLogType("TLS");
 
         public static bool operator ==(LoggingConfigurationLogDestinationConfigLogType left, LoggingConfigurationLogDestinationConfigLogType right) => left.Equals(right);
         public static bool operator !=(LoggingConfigurationLogDestinationConfigLogType left, LoggingConfigurationLogDestinationConfigLogType right) => !left.Equals(right);

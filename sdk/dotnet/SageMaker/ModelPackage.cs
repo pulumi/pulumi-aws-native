@@ -97,6 +97,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("modelApprovalStatus")]
         public Output<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus?> ModelApprovalStatus { get; private set; } = null!;
 
+        [Output("modelCard")]
+        public Output<Outputs.ModelPackageModelCard?> ModelCard { get; private set; } = null!;
+
         /// <summary>
         /// Metrics for the model.
         /// </summary>
@@ -157,6 +160,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("samplePayloadUrl")]
         public Output<string?> SamplePayloadUrl { get; private set; } = null!;
 
+        [Output("securityConfig")]
+        public Output<Outputs.ModelPackageSecurityConfig?> SecurityConfig { get; private set; } = null!;
+
         /// <summary>
         /// Indicates if you want to skip model validation.
         /// </summary>
@@ -168,6 +174,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Output("sourceAlgorithmSpecification")]
         public Output<Outputs.ModelPackageSourceAlgorithmSpecification?> SourceAlgorithmSpecification { get; private set; } = null!;
+
+        [Output("sourceUri")]
+        public Output<string?> SourceUri { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -221,6 +230,7 @@ namespace Pulumi.AwsNative.SageMaker
                     "modelPackageDescription",
                     "modelPackageGroupName",
                     "samplePayloadUrl",
+                    "securityConfig",
                     "sourceAlgorithmSpecification",
                     "task",
                     "validationSpecification",
@@ -335,6 +345,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("modelApprovalStatus")]
         public Input<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus>? ModelApprovalStatus { get; set; }
 
+        [Input("modelCard")]
+        public Input<Inputs.ModelPackageModelCardArgs>? ModelCard { get; set; }
+
         /// <summary>
         /// Metrics for the model.
         /// </summary>
@@ -377,6 +390,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("samplePayloadUrl")]
         public Input<string>? SamplePayloadUrl { get; set; }
 
+        [Input("securityConfig")]
+        public Input<Inputs.ModelPackageSecurityConfigArgs>? SecurityConfig { get; set; }
+
         /// <summary>
         /// Indicates if you want to skip model validation.
         /// </summary>
@@ -388,6 +404,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("sourceAlgorithmSpecification")]
         public Input<Inputs.ModelPackageSourceAlgorithmSpecificationArgs>? SourceAlgorithmSpecification { get; set; }
+
+        [Input("sourceUri")]
+        public Input<string>? SourceUri { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

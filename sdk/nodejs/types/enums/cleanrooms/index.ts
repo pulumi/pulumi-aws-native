@@ -48,6 +48,14 @@ export const CollaborationQueryLogStatus = {
 
 export type CollaborationQueryLogStatus = (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
 
+export const ConfiguredTableAdditionalAnalyses = {
+    Allowed: "ALLOWED",
+    Required: "REQUIRED",
+    NotAllowed: "NOT_ALLOWED",
+} as const;
+
+export type ConfiguredTableAdditionalAnalyses = (typeof ConfiguredTableAdditionalAnalyses)[keyof typeof ConfiguredTableAdditionalAnalyses];
+
 export const ConfiguredTableAggregateFunctionName = {
     Sum: "SUM",
     SumDistinct: "SUM_DISTINCT",
@@ -77,6 +85,14 @@ export const ConfiguredTableAnalysisRuleType = {
 } as const;
 
 export type ConfiguredTableAnalysisRuleType = (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];
+
+export const ConfiguredTableAssociationAnalysisRuleType = {
+    Aggregation: "AGGREGATION",
+    List: "LIST",
+    Custom: "CUSTOM",
+} as const;
+
+export type ConfiguredTableAssociationAnalysisRuleType = (typeof ConfiguredTableAssociationAnalysisRuleType)[keyof typeof ConfiguredTableAssociationAnalysisRuleType];
 
 export const ConfiguredTableJoinOperator = {
     Or: "OR",

@@ -1189,6 +1189,7 @@ func (o ConfiguredTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) Configu
 }
 
 type ConfiguredTableAnalysisRuleAggregation struct {
+	AdditionalAnalyses   *ConfiguredTableAdditionalAnalyses     `pulumi:"additionalAnalyses"`
 	AggregateColumns     []ConfiguredTableAggregateColumn       `pulumi:"aggregateColumns"`
 	AllowedJoinOperators []ConfiguredTableJoinOperator          `pulumi:"allowedJoinOperators"`
 	DimensionColumns     []string                               `pulumi:"dimensionColumns"`
@@ -1210,6 +1211,7 @@ type ConfiguredTableAnalysisRuleAggregationInput interface {
 }
 
 type ConfiguredTableAnalysisRuleAggregationArgs struct {
+	AdditionalAnalyses   ConfiguredTableAdditionalAnalysesPtrInput      `pulumi:"additionalAnalyses"`
 	AggregateColumns     ConfiguredTableAggregateColumnArrayInput       `pulumi:"aggregateColumns"`
 	AllowedJoinOperators ConfiguredTableJoinOperatorArrayInput          `pulumi:"allowedJoinOperators"`
 	DimensionColumns     pulumi.StringArrayInput                        `pulumi:"dimensionColumns"`
@@ -1243,6 +1245,12 @@ func (o ConfiguredTableAnalysisRuleAggregationOutput) ToConfiguredTableAnalysisR
 
 func (o ConfiguredTableAnalysisRuleAggregationOutput) ToConfiguredTableAnalysisRuleAggregationOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleAggregationOutput {
 	return o
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) AdditionalAnalyses() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) *ConfiguredTableAdditionalAnalyses {
+		return v.AdditionalAnalyses
+	}).(ConfiguredTableAdditionalAnalysesPtrOutput)
 }
 
 func (o ConfiguredTableAnalysisRuleAggregationOutput) AggregateColumns() ConfiguredTableAggregateColumnArrayOutput {
@@ -1284,9 +1292,11 @@ func (o ConfiguredTableAnalysisRuleAggregationOutput) ScalarFunctions() Configur
 }
 
 type ConfiguredTableAnalysisRuleCustom struct {
+	AdditionalAnalyses       *ConfiguredTableAdditionalAnalyses  `pulumi:"additionalAnalyses"`
 	AllowedAnalyses          []string                            `pulumi:"allowedAnalyses"`
 	AllowedAnalysisProviders []string                            `pulumi:"allowedAnalysisProviders"`
 	DifferentialPrivacy      *ConfiguredTableDifferentialPrivacy `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  []string                            `pulumi:"disallowedOutputColumns"`
 }
 
 // ConfiguredTableAnalysisRuleCustomInput is an input type that accepts ConfiguredTableAnalysisRuleCustomArgs and ConfiguredTableAnalysisRuleCustomOutput values.
@@ -1301,9 +1311,11 @@ type ConfiguredTableAnalysisRuleCustomInput interface {
 }
 
 type ConfiguredTableAnalysisRuleCustomArgs struct {
+	AdditionalAnalyses       ConfiguredTableAdditionalAnalysesPtrInput  `pulumi:"additionalAnalyses"`
 	AllowedAnalyses          pulumi.StringArrayInput                    `pulumi:"allowedAnalyses"`
 	AllowedAnalysisProviders pulumi.StringArrayInput                    `pulumi:"allowedAnalysisProviders"`
 	DifferentialPrivacy      ConfiguredTableDifferentialPrivacyPtrInput `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  pulumi.StringArrayInput                    `pulumi:"disallowedOutputColumns"`
 }
 
 func (ConfiguredTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
@@ -1332,6 +1344,12 @@ func (o ConfiguredTableAnalysisRuleCustomOutput) ToConfiguredTableAnalysisRuleCu
 	return o
 }
 
+func (o ConfiguredTableAnalysisRuleCustomOutput) AdditionalAnalyses() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) *ConfiguredTableAdditionalAnalyses {
+		return v.AdditionalAnalyses
+	}).(ConfiguredTableAdditionalAnalysesPtrOutput)
+}
+
 func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalyses }).(pulumi.StringArrayOutput)
 }
@@ -1346,10 +1364,15 @@ func (o ConfiguredTableAnalysisRuleCustomOutput) DifferentialPrivacy() Configure
 	}).(ConfiguredTableDifferentialPrivacyPtrOutput)
 }
 
+func (o ConfiguredTableAnalysisRuleCustomOutput) DisallowedOutputColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.DisallowedOutputColumns }).(pulumi.StringArrayOutput)
+}
+
 type ConfiguredTableAnalysisRuleList struct {
-	AllowedJoinOperators []ConfiguredTableJoinOperator `pulumi:"allowedJoinOperators"`
-	JoinColumns          []string                      `pulumi:"joinColumns"`
-	ListColumns          []string                      `pulumi:"listColumns"`
+	AdditionalAnalyses   *ConfiguredTableAdditionalAnalyses `pulumi:"additionalAnalyses"`
+	AllowedJoinOperators []ConfiguredTableJoinOperator      `pulumi:"allowedJoinOperators"`
+	JoinColumns          []string                           `pulumi:"joinColumns"`
+	ListColumns          []string                           `pulumi:"listColumns"`
 }
 
 // ConfiguredTableAnalysisRuleListInput is an input type that accepts ConfiguredTableAnalysisRuleListArgs and ConfiguredTableAnalysisRuleListOutput values.
@@ -1364,9 +1387,10 @@ type ConfiguredTableAnalysisRuleListInput interface {
 }
 
 type ConfiguredTableAnalysisRuleListArgs struct {
-	AllowedJoinOperators ConfiguredTableJoinOperatorArrayInput `pulumi:"allowedJoinOperators"`
-	JoinColumns          pulumi.StringArrayInput               `pulumi:"joinColumns"`
-	ListColumns          pulumi.StringArrayInput               `pulumi:"listColumns"`
+	AdditionalAnalyses   ConfiguredTableAdditionalAnalysesPtrInput `pulumi:"additionalAnalyses"`
+	AllowedJoinOperators ConfiguredTableJoinOperatorArrayInput     `pulumi:"allowedJoinOperators"`
+	JoinColumns          pulumi.StringArrayInput                   `pulumi:"joinColumns"`
+	ListColumns          pulumi.StringArrayInput                   `pulumi:"listColumns"`
 }
 
 func (ConfiguredTableAnalysisRuleListArgs) ElementType() reflect.Type {
@@ -1393,6 +1417,12 @@ func (o ConfiguredTableAnalysisRuleListOutput) ToConfiguredTableAnalysisRuleList
 
 func (o ConfiguredTableAnalysisRuleListOutput) ToConfiguredTableAnalysisRuleListOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleListOutput {
 	return o
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) AdditionalAnalyses() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleList) *ConfiguredTableAdditionalAnalyses {
+		return v.AdditionalAnalyses
+	}).(ConfiguredTableAdditionalAnalysesPtrOutput)
 }
 
 func (o ConfiguredTableAnalysisRuleListOutput) AllowedJoinOperators() ConfiguredTableJoinOperatorArrayOutput {
@@ -1608,6 +1638,486 @@ func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) Custom() Configure
 	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicyV12Properties) ConfiguredTableAnalysisRuleCustom {
 		return v.Custom
 	}).(ConfiguredTableAnalysisRuleCustomOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRule struct {
+	// The policy of the configured table association analysis rule.
+	Policy ConfiguredTableAssociationAnalysisRulePolicy `pulumi:"policy"`
+	// The type of the configured table association analysis rule.
+	Type ConfiguredTableAssociationAnalysisRuleType `pulumi:"type"`
+}
+
+// ConfiguredTableAssociationAnalysisRuleInput is an input type that accepts ConfiguredTableAssociationAnalysisRuleArgs and ConfiguredTableAssociationAnalysisRuleOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRuleInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRuleArgs{...}
+type ConfiguredTableAssociationAnalysisRuleInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleOutput() ConfiguredTableAssociationAnalysisRuleOutput
+	ToConfiguredTableAssociationAnalysisRuleOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleOutput
+}
+
+type ConfiguredTableAssociationAnalysisRuleArgs struct {
+	// The policy of the configured table association analysis rule.
+	Policy ConfiguredTableAssociationAnalysisRulePolicyInput `pulumi:"policy"`
+	// The type of the configured table association analysis rule.
+	Type ConfiguredTableAssociationAnalysisRuleTypeInput `pulumi:"type"`
+}
+
+func (ConfiguredTableAssociationAnalysisRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRule)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleArgs) ToConfiguredTableAssociationAnalysisRuleOutput() ConfiguredTableAssociationAnalysisRuleOutput {
+	return i.ToConfiguredTableAssociationAnalysisRuleOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleArgs) ToConfiguredTableAssociationAnalysisRuleOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRuleOutput)
+}
+
+// ConfiguredTableAssociationAnalysisRuleArrayInput is an input type that accepts ConfiguredTableAssociationAnalysisRuleArray and ConfiguredTableAssociationAnalysisRuleArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRuleArrayInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRuleArray{ ConfiguredTableAssociationAnalysisRuleArgs{...} }
+type ConfiguredTableAssociationAnalysisRuleArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleArrayOutput() ConfiguredTableAssociationAnalysisRuleArrayOutput
+	ToConfiguredTableAssociationAnalysisRuleArrayOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleArrayOutput
+}
+
+type ConfiguredTableAssociationAnalysisRuleArray []ConfiguredTableAssociationAnalysisRuleInput
+
+func (ConfiguredTableAssociationAnalysisRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAssociationAnalysisRule)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleArray) ToConfiguredTableAssociationAnalysisRuleArrayOutput() ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return i.ToConfiguredTableAssociationAnalysisRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleArray) ToConfiguredTableAssociationAnalysisRuleArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRuleArrayOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRule)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleOutput) ToConfiguredTableAssociationAnalysisRuleOutput() ConfiguredTableAssociationAnalysisRuleOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleOutput) ToConfiguredTableAssociationAnalysisRuleOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleOutput {
+	return o
+}
+
+// The policy of the configured table association analysis rule.
+func (o ConfiguredTableAssociationAnalysisRuleOutput) Policy() ConfiguredTableAssociationAnalysisRulePolicyOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRule) ConfiguredTableAssociationAnalysisRulePolicy {
+		return v.Policy
+	}).(ConfiguredTableAssociationAnalysisRulePolicyOutput)
+}
+
+// The type of the configured table association analysis rule.
+func (o ConfiguredTableAssociationAnalysisRuleOutput) Type() ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRule) ConfiguredTableAssociationAnalysisRuleType {
+		return v.Type
+	}).(ConfiguredTableAssociationAnalysisRuleTypeOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAssociationAnalysisRule)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleArrayOutput) ToConfiguredTableAssociationAnalysisRuleArrayOutput() ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleArrayOutput) ToConfiguredTableAssociationAnalysisRuleArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAssociationAnalysisRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAssociationAnalysisRule {
+		return vs[0].([]ConfiguredTableAssociationAnalysisRule)[vs[1].(int)]
+	}).(ConfiguredTableAssociationAnalysisRuleOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleAggregation struct {
+	AllowedAdditionalAnalyses []string `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    []string `pulumi:"allowedResultReceivers"`
+}
+
+// ConfiguredTableAssociationAnalysisRuleAggregationInput is an input type that accepts ConfiguredTableAssociationAnalysisRuleAggregationArgs and ConfiguredTableAssociationAnalysisRuleAggregationOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRuleAggregationInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRuleAggregationArgs{...}
+type ConfiguredTableAssociationAnalysisRuleAggregationInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleAggregationOutput() ConfiguredTableAssociationAnalysisRuleAggregationOutput
+	ToConfiguredTableAssociationAnalysisRuleAggregationOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleAggregationOutput
+}
+
+type ConfiguredTableAssociationAnalysisRuleAggregationArgs struct {
+	AllowedAdditionalAnalyses pulumi.StringArrayInput `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    pulumi.StringArrayInput `pulumi:"allowedResultReceivers"`
+}
+
+func (ConfiguredTableAssociationAnalysisRuleAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleAggregation)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleAggregationArgs) ToConfiguredTableAssociationAnalysisRuleAggregationOutput() ConfiguredTableAssociationAnalysisRuleAggregationOutput {
+	return i.ToConfiguredTableAssociationAnalysisRuleAggregationOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleAggregationArgs) ToConfiguredTableAssociationAnalysisRuleAggregationOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRuleAggregationOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleAggregationOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleAggregation)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleAggregationOutput) ToConfiguredTableAssociationAnalysisRuleAggregationOutput() ConfiguredTableAssociationAnalysisRuleAggregationOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleAggregationOutput) ToConfiguredTableAssociationAnalysisRuleAggregationOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleAggregationOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleAggregationOutput) AllowedAdditionalAnalyses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleAggregation) []string { return v.AllowedAdditionalAnalyses }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleAggregationOutput) AllowedResultReceivers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleAggregation) []string { return v.AllowedResultReceivers }).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleCustom struct {
+	AllowedAdditionalAnalyses []string `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    []string `pulumi:"allowedResultReceivers"`
+}
+
+// ConfiguredTableAssociationAnalysisRuleCustomInput is an input type that accepts ConfiguredTableAssociationAnalysisRuleCustomArgs and ConfiguredTableAssociationAnalysisRuleCustomOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRuleCustomInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRuleCustomArgs{...}
+type ConfiguredTableAssociationAnalysisRuleCustomInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleCustomOutput() ConfiguredTableAssociationAnalysisRuleCustomOutput
+	ToConfiguredTableAssociationAnalysisRuleCustomOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleCustomOutput
+}
+
+type ConfiguredTableAssociationAnalysisRuleCustomArgs struct {
+	AllowedAdditionalAnalyses pulumi.StringArrayInput `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    pulumi.StringArrayInput `pulumi:"allowedResultReceivers"`
+}
+
+func (ConfiguredTableAssociationAnalysisRuleCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleCustomArgs) ToConfiguredTableAssociationAnalysisRuleCustomOutput() ConfiguredTableAssociationAnalysisRuleCustomOutput {
+	return i.ToConfiguredTableAssociationAnalysisRuleCustomOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleCustomArgs) ToConfiguredTableAssociationAnalysisRuleCustomOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRuleCustomOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleCustomOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleCustomOutput) ToConfiguredTableAssociationAnalysisRuleCustomOutput() ConfiguredTableAssociationAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleCustomOutput) ToConfiguredTableAssociationAnalysisRuleCustomOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleCustomOutput) AllowedAdditionalAnalyses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleCustom) []string { return v.AllowedAdditionalAnalyses }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleCustomOutput) AllowedResultReceivers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleCustom) []string { return v.AllowedResultReceivers }).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleList struct {
+	AllowedAdditionalAnalyses []string `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    []string `pulumi:"allowedResultReceivers"`
+}
+
+// ConfiguredTableAssociationAnalysisRuleListInput is an input type that accepts ConfiguredTableAssociationAnalysisRuleListArgs and ConfiguredTableAssociationAnalysisRuleListOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRuleListInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRuleListArgs{...}
+type ConfiguredTableAssociationAnalysisRuleListInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleListOutput() ConfiguredTableAssociationAnalysisRuleListOutput
+	ToConfiguredTableAssociationAnalysisRuleListOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleListOutput
+}
+
+type ConfiguredTableAssociationAnalysisRuleListArgs struct {
+	AllowedAdditionalAnalyses pulumi.StringArrayInput `pulumi:"allowedAdditionalAnalyses"`
+	AllowedResultReceivers    pulumi.StringArrayInput `pulumi:"allowedResultReceivers"`
+}
+
+func (ConfiguredTableAssociationAnalysisRuleListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleList)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleListArgs) ToConfiguredTableAssociationAnalysisRuleListOutput() ConfiguredTableAssociationAnalysisRuleListOutput {
+	return i.ToConfiguredTableAssociationAnalysisRuleListOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRuleListArgs) ToConfiguredTableAssociationAnalysisRuleListOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRuleListOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleListOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleList)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleListOutput) ToConfiguredTableAssociationAnalysisRuleListOutput() ConfiguredTableAssociationAnalysisRuleListOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleListOutput) ToConfiguredTableAssociationAnalysisRuleListOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleListOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleListOutput) AllowedAdditionalAnalyses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleList) []string { return v.AllowedAdditionalAnalyses }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleListOutput) AllowedResultReceivers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRuleList) []string { return v.AllowedResultReceivers }).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicy struct {
+	// The policy for the configured table association analysis rule.
+	V1 interface{} `pulumi:"v1"`
+}
+
+// ConfiguredTableAssociationAnalysisRulePolicyInput is an input type that accepts ConfiguredTableAssociationAnalysisRulePolicyArgs and ConfiguredTableAssociationAnalysisRulePolicyOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRulePolicyInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRulePolicyArgs{...}
+type ConfiguredTableAssociationAnalysisRulePolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRulePolicyOutput() ConfiguredTableAssociationAnalysisRulePolicyOutput
+	ToConfiguredTableAssociationAnalysisRulePolicyOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRulePolicyOutput
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyArgs struct {
+	// The policy for the configured table association analysis rule.
+	V1 pulumi.Input `pulumi:"v1"`
+}
+
+func (ConfiguredTableAssociationAnalysisRulePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicy)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyArgs) ToConfiguredTableAssociationAnalysisRulePolicyOutput() ConfiguredTableAssociationAnalysisRulePolicyOutput {
+	return i.ToConfiguredTableAssociationAnalysisRulePolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyArgs) ToConfiguredTableAssociationAnalysisRulePolicyOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRulePolicyOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRulePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicy)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyOutput) ToConfiguredTableAssociationAnalysisRulePolicyOutput() ConfiguredTableAssociationAnalysisRulePolicyOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyOutput) ToConfiguredTableAssociationAnalysisRulePolicyOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyOutput {
+	return o
+}
+
+// The policy for the configured table association analysis rule.
+func (o ConfiguredTableAssociationAnalysisRulePolicyOutput) V1() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRulePolicy) interface{} { return v.V1 }).(pulumi.AnyOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV10Properties struct {
+	List ConfiguredTableAssociationAnalysisRuleList `pulumi:"list"`
+}
+
+// ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesInput is an input type that accepts ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs and ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs{...}
+type ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput
+	ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs struct {
+	List ConfiguredTableAssociationAnalysisRuleListInput `pulumi:"list"`
+}
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV10Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput {
+	return i.ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV10Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput) List() ConfiguredTableAssociationAnalysisRuleListOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRulePolicyV10Properties) ConfiguredTableAssociationAnalysisRuleList {
+		return v.List
+	}).(ConfiguredTableAssociationAnalysisRuleListOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV11Properties struct {
+	Aggregation ConfiguredTableAssociationAnalysisRuleAggregation `pulumi:"aggregation"`
+}
+
+// ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput is an input type that accepts ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs and ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs{...}
+type ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput
+	ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs struct {
+	Aggregation ConfiguredTableAssociationAnalysisRuleAggregationInput `pulumi:"aggregation"`
+}
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV11Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput {
+	return i.ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV11Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput) Aggregation() ConfiguredTableAssociationAnalysisRuleAggregationOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRulePolicyV11Properties) ConfiguredTableAssociationAnalysisRuleAggregation {
+		return v.Aggregation
+	}).(ConfiguredTableAssociationAnalysisRuleAggregationOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV12Properties struct {
+	Custom ConfiguredTableAssociationAnalysisRuleCustom `pulumi:"custom"`
+}
+
+// ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput is an input type that accepts ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs and ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput` via:
+//
+//	ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs{...}
+type ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput
+	ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs struct {
+	Custom ConfiguredTableAssociationAnalysisRuleCustomInput `pulumi:"custom"`
+}
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV12Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput {
+	return i.ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs) ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV12Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput) ToConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput) Custom() ConfiguredTableAssociationAnalysisRuleCustomOutput {
+	return o.ApplyT(func(v ConfiguredTableAssociationAnalysisRulePolicyV12Properties) ConfiguredTableAssociationAnalysisRuleCustom {
+		return v.Custom
+	}).(ConfiguredTableAssociationAnalysisRuleCustomOutput)
 }
 
 type ConfiguredTableAssociationTag struct {
@@ -2891,6 +3401,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleArrayInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleAggregationInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleAggregationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleCustomInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleListInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyPtrInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArgs{})
@@ -2934,6 +3453,15 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV10PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV12PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleAggregationOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleCustomOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleListOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})

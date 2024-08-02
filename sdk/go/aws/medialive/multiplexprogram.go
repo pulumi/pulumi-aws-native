@@ -16,7 +16,7 @@ type Multiplexprogram struct {
 	pulumi.CustomResourceState
 
 	// The MediaLive channel associated with the program.
-	ChannelId pulumi.StringPtrOutput `pulumi:"channelId"`
+	ChannelId pulumi.StringOutput `pulumi:"channelId"`
 	// The ID of the multiplex that the program belongs to.
 	MultiplexId pulumi.StringPtrOutput `pulumi:"multiplexId"`
 	// The settings for this multiplex program.
@@ -76,8 +76,6 @@ func (MultiplexprogramState) ElementType() reflect.Type {
 }
 
 type multiplexprogramArgs struct {
-	// The MediaLive channel associated with the program.
-	ChannelId *string `pulumi:"channelId"`
 	// The ID of the multiplex that the program belongs to.
 	MultiplexId *string `pulumi:"multiplexId"`
 	// The settings for this multiplex program.
@@ -94,8 +92,6 @@ type multiplexprogramArgs struct {
 
 // The set of arguments for constructing a Multiplexprogram resource.
 type MultiplexprogramArgs struct {
-	// The MediaLive channel associated with the program.
-	ChannelId pulumi.StringPtrInput
 	// The ID of the multiplex that the program belongs to.
 	MultiplexId pulumi.StringPtrInput
 	// The settings for this multiplex program.
@@ -148,8 +144,8 @@ func (o MultiplexprogramOutput) ToMultiplexprogramOutputWithContext(ctx context.
 }
 
 // The MediaLive channel associated with the program.
-func (o MultiplexprogramOutput) ChannelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Multiplexprogram) pulumi.StringPtrOutput { return v.ChannelId }).(pulumi.StringPtrOutput)
+func (o MultiplexprogramOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Multiplexprogram) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
 // The ID of the multiplex that the program belongs to.

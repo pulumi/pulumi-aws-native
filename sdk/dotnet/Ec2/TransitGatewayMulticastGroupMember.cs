@@ -58,12 +58,6 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The source type.
-        /// </summary>
-        [Output("sourceType")]
-        public Output<string> SourceType { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the subnet.
         /// </summary>
         [Output("subnetId")]

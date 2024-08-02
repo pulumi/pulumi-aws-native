@@ -43,6 +43,8 @@ type LookupApplicationResult struct {
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
+	// The interactive configuration object that enables the interactive use cases for an application.
+	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
 	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
@@ -130,6 +132,13 @@ func (o LookupApplicationResultOutput) InitialCapacity() ApplicationInitialCapac
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationInitialCapacityConfigKeyValuePair {
 		return v.InitialCapacity
 	}).(ApplicationInitialCapacityConfigKeyValuePairArrayOutput)
+}
+
+// The interactive configuration object that enables the interactive use cases for an application.
+func (o LookupApplicationResultOutput) InteractiveConfiguration() ApplicationInteractiveConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationInteractiveConfiguration {
+		return v.InteractiveConfiguration
+	}).(ApplicationInteractiveConfigurationPtrOutput)
 }
 
 // Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.

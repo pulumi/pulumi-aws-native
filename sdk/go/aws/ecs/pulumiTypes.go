@@ -2152,7 +2152,7 @@ type ServiceConnectConfiguration struct {
 	//  Understand the following when specifying a log configuration for your containers.
 	//   +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 	//       For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 	//   +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 	//   +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -2187,7 +2187,7 @@ type ServiceConnectConfigurationArgs struct {
 	//  Understand the following when specifying a log configuration for your containers.
 	//   +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 	//       For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 	//   +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 	//   +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -2291,7 +2291,7 @@ func (o ServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 //	Understand the following when specifying a log configuration for your containers.
 //	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 //	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 //	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -2352,7 +2352,7 @@ func (o ServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 //	Understand the following when specifying a log configuration for your containers.
 //	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 //	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 //	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -2554,7 +2554,7 @@ func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnec
 	}).(ServiceConnectServiceOutput)
 }
 
-// An object that represents the AWS Private Certificate Authority certificate.
+// The certificate root authority that secures your service.
 type ServiceConnectTlsCertificateAuthority struct {
 	// The ARN of the AWS Private Certificate Authority certificate.
 	AwsPcaAuthorityArn *string `pulumi:"awsPcaAuthorityArn"`
@@ -2571,7 +2571,7 @@ type ServiceConnectTlsCertificateAuthorityInput interface {
 	ToServiceConnectTlsCertificateAuthorityOutputWithContext(context.Context) ServiceConnectTlsCertificateAuthorityOutput
 }
 
-// An object that represents the AWS Private Certificate Authority certificate.
+// The certificate root authority that secures your service.
 type ServiceConnectTlsCertificateAuthorityArgs struct {
 	// The ARN of the AWS Private Certificate Authority certificate.
 	AwsPcaAuthorityArn pulumi.StringPtrInput `pulumi:"awsPcaAuthorityArn"`
@@ -2630,7 +2630,7 @@ func (i *serviceConnectTlsCertificateAuthorityPtrType) ToServiceConnectTlsCertif
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsCertificateAuthorityPtrOutput)
 }
 
-// An object that represents the AWS Private Certificate Authority certificate.
+// The certificate root authority that secures your service.
 type ServiceConnectTlsCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectTlsCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -2694,7 +2694,7 @@ func (o ServiceConnectTlsCertificateAuthorityPtrOutput) AwsPcaAuthorityArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the configuration for Service Connect TLS.
+// The key that encrypts and decrypts your resources for Service Connect TLS.
 type ServiceConnectTlsConfiguration struct {
 	// The signer certificate authority.
 	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthority `pulumi:"issuerCertificateAuthority"`
@@ -2715,7 +2715,7 @@ type ServiceConnectTlsConfigurationInput interface {
 	ToServiceConnectTlsConfigurationOutputWithContext(context.Context) ServiceConnectTlsConfigurationOutput
 }
 
-// An object that represents the configuration for Service Connect TLS.
+// The key that encrypts and decrypts your resources for Service Connect TLS.
 type ServiceConnectTlsConfigurationArgs struct {
 	// The signer certificate authority.
 	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthorityInput `pulumi:"issuerCertificateAuthority"`
@@ -2778,7 +2778,7 @@ func (i *serviceConnectTlsConfigurationPtrType) ToServiceConnectTlsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsConfigurationPtrOutput)
 }
 
-// An object that represents the configuration for Service Connect TLS.
+// The key that encrypts and decrypts your resources for Service Connect TLS.
 type ServiceConnectTlsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectTlsConfigurationOutput) ElementType() reflect.Type {
@@ -3232,7 +3232,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfiguration struct {
 	// Information about the CloudWatch alarms.
 	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
@@ -3252,6 +3252,8 @@ type ServiceDeploymentConfiguration struct {
 	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 	//   +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 	//
+	//  The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+	//  The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 	MinimumHealthyPercent *int `pulumi:"minimumHealthyPercent"`
 }
@@ -3267,7 +3269,7 @@ type ServiceDeploymentConfigurationInput interface {
 	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
 }
 
-// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationArgs struct {
 	// Information about the CloudWatch alarms.
 	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
@@ -3287,6 +3289,8 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 	//   +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 	//
+	//  The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+	//  The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 	MinimumHealthyPercent pulumi.IntPtrInput `pulumi:"minimumHealthyPercent"`
 }
@@ -3344,7 +3348,7 @@ func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
@@ -3401,6 +3405,8 @@ func (o ServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntPtrOutp
 //	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 //	 +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 //
+//	The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+//	The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
 //	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MinimumHealthyPercent }).(pulumi.IntPtrOutput)
@@ -3475,6 +3481,8 @@ func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrO
 //	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 //	 +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
 //
+//	The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+//	The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
 //	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
@@ -3919,16 +3927,16 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 //	Understand the following when specifying a log configuration for your containers.
 //	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 //	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 //	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 type ServiceLogConfiguration struct {
 	// The log driver to use for the container.
 	//  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+	//  For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
 	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 	LogDriver *string `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
@@ -3954,16 +3962,16 @@ type ServiceLogConfigurationInput interface {
 //	Understand the following when specifying a log configuration for your containers.
 //	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 //	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 //	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 type ServiceLogConfigurationArgs struct {
 	// The log driver to use for the container.
 	//  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+	//  For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
 	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 	LogDriver pulumi.StringPtrInput `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
@@ -4031,7 +4039,7 @@ func (i *serviceLogConfigurationPtrType) ToServiceLogConfigurationPtrOutputWithC
 //	Understand the following when specifying a log configuration for your containers.
 //	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
 //	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
 //	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -4062,9 +4070,9 @@ func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationPtrOutputWithCon
 // The log driver to use for the container.
 //
 //	For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-//	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-//	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+//	For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
 //	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o ServiceLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLogConfiguration) *string { return v.LogDriver }).(pulumi.StringPtrOutput)
@@ -4107,9 +4115,9 @@ func (o ServiceLogConfigurationPtrOutput) Elem() ServiceLogConfigurationOutput {
 // The log driver to use for the container.
 //
 //	For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-//	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-//	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+//	For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
 //	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLogConfiguration) *string {
@@ -4561,7 +4569,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
+// The network configuration for a task or service.
 type ServiceNetworkConfiguration struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//   All specified subnets and security groups must be from the same VPC.
@@ -4579,7 +4587,7 @@ type ServiceNetworkConfigurationInput interface {
 	ToServiceNetworkConfigurationOutputWithContext(context.Context) ServiceNetworkConfigurationOutput
 }
 
-// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
+// The network configuration for a task or service.
 type ServiceNetworkConfigurationArgs struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//   All specified subnets and security groups must be from the same VPC.
@@ -4639,7 +4647,7 @@ func (i *serviceNetworkConfigurationPtrType) ToServiceNetworkConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
+// The network configuration for a task or service.
 type ServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -4707,7 +4715,9 @@ func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVp
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+// An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	If you're using the Fargate launch type, task placement constraints aren't supported.
 type ServicePlacementConstraint struct {
 	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
 	Expression *string `pulumi:"expression"`
@@ -4726,7 +4736,9 @@ type ServicePlacementConstraintInput interface {
 	ToServicePlacementConstraintOutputWithContext(context.Context) ServicePlacementConstraintOutput
 }
 
-// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+// An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	If you're using the Fargate launch type, task placement constraints aren't supported.
 type ServicePlacementConstraintArgs struct {
 	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
@@ -4771,7 +4783,9 @@ func (i ServicePlacementConstraintArray) ToServicePlacementConstraintArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementConstraintArrayOutput)
 }
 
-// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+// An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	If you're using the Fargate launch type, task placement constraints aren't supported.
 type ServicePlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementConstraintOutput) ElementType() reflect.Type {
@@ -4816,9 +4830,9 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 	}).(ServicePlacementConstraintOutput)
 }
 
-// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategy struct {
-	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
 	Field *string `pulumi:"field"`
 	// The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
 	Type ServicePlacementStrategyType `pulumi:"type"`
@@ -4835,9 +4849,9 @@ type ServicePlacementStrategyInput interface {
 	ToServicePlacementStrategyOutputWithContext(context.Context) ServicePlacementStrategyOutput
 }
 
-// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategyArgs struct {
-	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
 	Type ServicePlacementStrategyTypeInput `pulumi:"type"`
@@ -4880,7 +4894,7 @@ func (i ServicePlacementStrategyArray) ToServicePlacementStrategyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementStrategyArrayOutput)
 }
 
-// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategyOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementStrategyOutput) ElementType() reflect.Type {
@@ -4895,7 +4909,7 @@ func (o ServicePlacementStrategyOutput) ToServicePlacementStrategyOutputWithCont
 	return o
 }
 
-// The field to apply the placement strategy against. For the “spread“ placement strategy, valid values are “instanceId“ (or “host“, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as “attribute:ecs.availability-zone“. For the “binpack“ placement strategy, valid values are “CPU“ and “MEMORY“. For the “random“ placement strategy, this field is not used.
+// The field to apply the placement strategy against. For the “spread“ placement strategy, valid values are “instanceId“ (or “host“, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as “attribute:ecs.availability-zone“. For the “binpack“ placement strategy, valid values are “cpu“ and “memory“. For the “random“ placement strategy, this field is not used.
 func (o ServicePlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -4925,7 +4939,10 @@ func (o ServicePlacementStrategyArrayOutput) Index(i pulumi.IntInput) ServicePla
 	}).(ServicePlacementStrategyOutput)
 }
 
-// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The details for the service registry.
+//
+//	Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+//	When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
 type ServiceRegistry struct {
 	// The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
 	ContainerName *string `pulumi:"containerName"`
@@ -4948,7 +4965,10 @@ type ServiceRegistryInput interface {
 	ToServiceRegistryOutputWithContext(context.Context) ServiceRegistryOutput
 }
 
-// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The details for the service registry.
+//
+//	Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+//	When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
 type ServiceRegistryArgs struct {
 	// The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
@@ -4997,7 +5017,10 @@ func (i ServiceRegistryArray) ToServiceRegistryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegistryArrayOutput)
 }
 
-// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The details for the service registry.
+//
+//	Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+//	When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
 type ServiceRegistryOutput struct{ *pulumi.OutputState }
 
 func (ServiceRegistryOutput) ElementType() reflect.Type {

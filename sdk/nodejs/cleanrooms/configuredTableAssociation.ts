@@ -44,6 +44,10 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+     */
+    public readonly configuredTableAssociationAnalysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAssociationAnalysisRule[] | undefined>;
+    /**
      * Returns the unique identifier of the specified configured table association.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -94,6 +98,7 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            resourceInputs["configuredTableAssociationAnalysisRules"] = args ? args.configuredTableAssociationAnalysisRules : undefined;
             resourceInputs["configuredTableIdentifier"] = args ? args.configuredTableIdentifier : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
@@ -104,6 +109,7 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
             resourceInputs["configuredTableAssociationIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configuredTableAssociationAnalysisRules"] = undefined /*out*/;
             resourceInputs["configuredTableAssociationIdentifier"] = undefined /*out*/;
             resourceInputs["configuredTableIdentifier"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -123,6 +129,10 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfiguredTableAssociation resource.
  */
 export interface ConfiguredTableAssociationArgs {
+    /**
+     * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+     */
+    configuredTableAssociationAnalysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAssociationAnalysisRuleArgs>[]>;
     /**
      * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
      */

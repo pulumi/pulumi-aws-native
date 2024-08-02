@@ -90,10 +90,6 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? GroupSource;
         /// <summary>
-        /// The member type (for example, static).
-        /// </summary>
-        public readonly string? MemberType;
-        /// <summary>
         /// The ID of the resource.
         /// </summary>
         public readonly string? ResourceId;
@@ -120,8 +116,6 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? groupSource,
 
-            string? memberType,
-
             string? resourceId,
 
             string? resourceType,
@@ -134,7 +128,6 @@ namespace Pulumi.AwsNative.Ec2
         {
             GroupMember = groupMember;
             GroupSource = groupSource;
-            MemberType = memberType;
             ResourceId = resourceId;
             ResourceType = resourceType;
             SourceType = sourceType;

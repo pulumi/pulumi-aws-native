@@ -21,31 +21,30 @@ class FleetArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']],
                  display_name: pulumi.Input[str],
+                 farm_id: pulumi.Input[str],
                  max_worker_count: pulumi.Input[int],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 farm_id: Optional[pulumi.Input[str]] = None,
                  min_worker_count: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
+        :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
-        :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "farm_id", farm_id)
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if farm_id is not None:
-            pulumi.set(__self__, "farm_id", farm_id)
         if min_worker_count is not None:
             pulumi.set(__self__, "min_worker_count", min_worker_count)
         if tags is not None:
@@ -74,6 +73,18 @@ class FleetArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="farmId")
+    def farm_id(self) -> pulumi.Input[str]:
+        """
+        The farm ID.
+        """
+        return pulumi.get(self, "farm_id")
+
+    @farm_id.setter
+    def farm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "farm_id", value)
 
     @property
     @pulumi.getter(name="maxWorkerCount")
@@ -110,18 +121,6 @@ class FleetArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="farmId")
-    def farm_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The farm ID.
-        """
-        return pulumi.get(self, "farm_id")
-
-    @farm_id.setter
-    def farm_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "farm_id", value)
 
     @property
     @pulumi.getter(name="minWorkerCount")
@@ -224,6 +223,8 @@ class Fleet(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if farm_id is None and not opts.urn:
+                raise TypeError("Missing required property 'farm_id'")
             __props__.__dict__["farm_id"] = farm_id
             if max_worker_count is None and not opts.urn:
                 raise TypeError("Missing required property 'max_worker_count'")
@@ -316,7 +317,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="farmId")
-    def farm_id(self) -> pulumi.Output[Optional[str]]:
+    def farm_id(self) -> pulumi.Output[str]:
         """
         The farm ID.
         """

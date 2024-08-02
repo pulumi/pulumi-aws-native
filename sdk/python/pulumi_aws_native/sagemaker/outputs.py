@@ -160,10 +160,15 @@ __all__ = [
     'ModelPackageInferenceSpecification',
     'ModelPackageMetadataProperties',
     'ModelPackageMetricsSource',
+    'ModelPackageModelAccessConfig',
+    'ModelPackageModelCard',
     'ModelPackageModelDataQuality',
+    'ModelPackageModelDataSource',
     'ModelPackageModelMetrics',
     'ModelPackageModelQuality',
     'ModelPackageS3DataSource',
+    'ModelPackageS3ModelDataSource',
+    'ModelPackageSecurityConfig',
     'ModelPackageSourceAlgorithm',
     'ModelPackageSourceAlgorithmSpecification',
     'ModelPackageStatusDetails',
@@ -8647,6 +8652,8 @@ class ModelPackageContainerDefinition(dict):
             suggest = "framework_version"
         elif key == "imageDigest":
             suggest = "image_digest"
+        elif key == "modelDataSource":
+            suggest = "model_data_source"
         elif key == "modelDataUrl":
             suggest = "model_data_url"
         elif key == "modelInput":
@@ -8672,6 +8679,7 @@ class ModelPackageContainerDefinition(dict):
                  framework: Optional[str] = None,
                  framework_version: Optional[str] = None,
                  image_digest: Optional[str] = None,
+                 model_data_source: Optional['outputs.ModelPackageModelDataSource'] = None,
                  model_data_url: Optional[str] = None,
                  model_input: Optional['outputs.ModelPackageContainerDefinitionModelInputProperties'] = None,
                  nearest_model_name: Optional[str] = None):
@@ -8696,6 +8704,8 @@ class ModelPackageContainerDefinition(dict):
             pulumi.set(__self__, "framework_version", framework_version)
         if image_digest is not None:
             pulumi.set(__self__, "image_digest", image_digest)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_input is not None:
@@ -8747,6 +8757,11 @@ class ModelPackageContainerDefinition(dict):
         An MD5 hash of the training algorithm that identifies the Docker image used for training.
         """
         return pulumi.get(self, "image_digest")
+
+    @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional['outputs.ModelPackageModelDataSource']:
+        return pulumi.get(self, "model_data_source")
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -9464,6 +9479,97 @@ class ModelPackageMetricsSource(dict):
 
 
 @pulumi.output_type
+class ModelPackageModelAccessConfig(dict):
+    """
+    Specifies the access configuration file for the ML model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: bool):
+        """
+        Specifies the access configuration file for the ML model.
+        :param bool accept_eula: Specifies agreement to the model end-user license agreement (EULA).
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> bool:
+        """
+        Specifies agreement to the model end-user license agreement (EULA).
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
+class ModelPackageModelCard(dict):
+    """
+    The model card associated with the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelCardContent":
+            suggest = "model_card_content"
+        elif key == "modelCardStatus":
+            suggest = "model_card_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageModelCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageModelCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageModelCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_card_content: str,
+                 model_card_status: 'ModelPackageModelCardModelCardStatus'):
+        """
+        The model card associated with the model package.
+        :param str model_card_content: The content of the model card.
+        :param 'ModelPackageModelCardModelCardStatus' model_card_status: The approval status of the model card within your organization.
+        """
+        pulumi.set(__self__, "model_card_content", model_card_content)
+        pulumi.set(__self__, "model_card_status", model_card_status)
+
+    @property
+    @pulumi.getter(name="modelCardContent")
+    def model_card_content(self) -> str:
+        """
+        The content of the model card.
+        """
+        return pulumi.get(self, "model_card_content")
+
+    @property
+    @pulumi.getter(name="modelCardStatus")
+    def model_card_status(self) -> 'ModelPackageModelCardModelCardStatus':
+        """
+        The approval status of the model card within your organization.
+        """
+        return pulumi.get(self, "model_card_status")
+
+
+@pulumi.output_type
 class ModelPackageModelDataQuality(dict):
     """
     Metrics that measure the quality of the input data for a model.
@@ -9496,6 +9602,42 @@ class ModelPackageModelDataQuality(dict):
         Data quality statistics for a model.
         """
         return pulumi.get(self, "statistics")
+
+
+@pulumi.output_type
+class ModelPackageModelDataSource(dict):
+    """
+    Specifies the location of ML model data to deploy during endpoint creation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: Optional['outputs.ModelPackageS3ModelDataSource'] = None):
+        """
+        Specifies the location of ML model data to deploy during endpoint creation.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.ModelPackageS3ModelDataSource']:
+        return pulumi.get(self, "s3_data_source")
 
 
 @pulumi.output_type
@@ -9661,6 +9803,120 @@ class ModelPackageS3DataSource(dict):
         Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class ModelPackageS3ModelDataSource(dict):
+    """
+    Specifies the S3 location of ML model data to deploy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageS3ModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageS3ModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageS3ModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: 'ModelPackageS3ModelDataSourceCompressionType',
+                 s3_data_type: 'ModelPackageS3ModelDataSourceS3DataType',
+                 s3_uri: str,
+                 model_access_config: Optional['outputs.ModelPackageModelAccessConfig'] = None):
+        """
+        Specifies the S3 location of ML model data to deploy.
+        :param 'ModelPackageS3ModelDataSourceCompressionType' compression_type: Specifies how the ML model data is prepared.
+        :param 'ModelPackageS3ModelDataSourceS3DataType' s3_data_type: Specifies the type of ML model data to deploy.
+        :param str s3_uri: Specifies the S3 path of ML model data to deploy.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> 'ModelPackageS3ModelDataSourceCompressionType':
+        """
+        Specifies how the ML model data is prepared.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> 'ModelPackageS3ModelDataSourceS3DataType':
+        """
+        Specifies the type of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        Specifies the S3 path of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.ModelPackageModelAccessConfig']:
+        return pulumi.get(self, "model_access_config")
+
+
+@pulumi.output_type
+class ModelPackageSecurityConfig(dict):
+    """
+    An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageSecurityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageSecurityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageSecurityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: str):
+        """
+        An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+        :param str kms_key_id: The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
+        """
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *  For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
  *  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
  *   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
- *     *Updating DB instances*
+ *    *Updating DB instances*
  *  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
  *   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
  *   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
@@ -125,6 +125,9 @@ export class DbInstance extends pulumi.CustomResource {
      * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
      */
     public readonly automaticBackupReplicationKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region associated with the automated backup.
+     */
     public readonly automaticBackupReplicationRegion!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -190,7 +193,8 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the DB cluster that the instance will belong to.
+     * The identifier of the DB cluster that this DB instance will belong to.
+     *  This setting doesn't apply to RDS Custom DB instances.
      */
     public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -323,9 +327,8 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
      *  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
-     *  For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
-     *   *Amazon Aurora* 
-     *  Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+     *  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
+     *  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
@@ -347,9 +350,8 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
     /**
-     * A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html). 
-     *   *Amazon Aurora* 
-     *  Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+     * Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+     *  This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -564,30 +566,30 @@ export class DbInstance extends pulumi.CustomResource {
      *   
      *   *RDS for MariaDB* 
      *  Constraints:
-     *    +  Must be 1 to 16 letters or numbers.
+     *   +  Must be 1 to 16 letters or numbers.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for Microsoft SQL Server* 
      *  Constraints:
-     *    +  Must be 1 to 128 letters or numbers.
+     *   +  Must be 1 to 128 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for MySQL* 
      *  Constraints:
-     *    +  Must be 1 to 16 letters or numbers.
+     *   +  Must be 1 to 16 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for Oracle* 
      *  Constraints:
-     *    +  Must be 1 to 30 letters or numbers.
+     *   +  Must be 1 to 30 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for PostgreSQL* 
      *  Constraints:
-     *    +  Must be 1 to 63 letters or numbers.
+     *   +  Must be 1 to 63 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      */
@@ -601,10 +603,11 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly maxAllocatedStorage!: pulumi.Output<number | undefined>;
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
-     *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-     *  This setting doesn't apply to RDS Custom.
-     *  Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
+     *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+     *  This setting doesn't apply to RDS Custom DB instances.
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Default: ``0``
      */
     public readonly monitoringInterval!: pulumi.Output<number | undefined>;
     /**
@@ -614,10 +617,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly monitoringRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the ``AvailabilityZone`` parameter if the ``MultiAZ`` parameter is set to true. 
-     *   For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-     *   *Amazon Aurora* 
-     *  Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+     * Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
+     *  This setting doesn't apply to the following DB instances:
+     *   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+     *   +  RDS Custom
      */
     public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
@@ -661,10 +664,18 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The port number on which the database accepts connections.
-     *   *Amazon Aurora* 
-     *  Not applicable. The port number is managed by the DB cluster.
-     *   *Db2* 
-     *  Default value: ``50000``
+     *  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+     *  Valid Values: ``1150-65535`` 
+     *  Default:
+     *   +  RDS for Db2 - ``50000`` 
+     *   +  RDS for MariaDB - ``3306`` 
+     *   +  RDS for Microsoft SQL Server - ``1433`` 
+     *   +  RDS for MySQL - ``3306`` 
+     *   +  RDS for Oracle - ``1521`` 
+     *   +  RDS for PostgreSQL - ``5432`` 
+     *   
+     *  Constraints:
+     *   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
      */
     public readonly port!: pulumi.Output<string | undefined>;
     /**
@@ -780,7 +791,7 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
-     * An optional array of key-value pairs to apply to this DB instance.
+     * Tags to assign to the DB instance.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tdeCredentialArn!: pulumi.Output<string | undefined>;
@@ -1069,6 +1080,9 @@ export interface DbInstanceArgs {
      * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
      */
     automaticBackupReplicationKmsKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS Region associated with the automated backup.
+     */
     automaticBackupReplicationRegion?: pulumi.Input<string>;
     /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -1134,7 +1148,8 @@ export interface DbInstanceArgs {
      */
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
-     * The identifier of the DB cluster that the instance will belong to.
+     * The identifier of the DB cluster that this DB instance will belong to.
+     *  This setting doesn't apply to RDS Custom DB instances.
      */
     dbClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -1263,9 +1278,8 @@ export interface DbInstanceArgs {
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
      *  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
-     *  For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
-     *   *Amazon Aurora* 
-     *  Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+     *  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
+     *  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -1279,9 +1293,8 @@ export interface DbInstanceArgs {
      */
     deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
-     * A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html). 
-     *   *Amazon Aurora* 
-     *  Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+     * Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+     *  This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
@@ -1496,30 +1509,30 @@ export interface DbInstanceArgs {
      *   
      *   *RDS for MariaDB* 
      *  Constraints:
-     *    +  Must be 1 to 16 letters or numbers.
+     *   +  Must be 1 to 16 letters or numbers.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for Microsoft SQL Server* 
      *  Constraints:
-     *    +  Must be 1 to 128 letters or numbers.
+     *   +  Must be 1 to 128 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for MySQL* 
      *  Constraints:
-     *    +  Must be 1 to 16 letters or numbers.
+     *   +  Must be 1 to 16 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for Oracle* 
      *  Constraints:
-     *    +  Must be 1 to 30 letters or numbers.
+     *   +  Must be 1 to 30 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      *   
      *   *RDS for PostgreSQL* 
      *  Constraints:
-     *    +  Must be 1 to 63 letters or numbers.
+     *   +  Must be 1 to 63 letters or numbers.
      *   +  First character must be a letter.
      *   +  Can't be a reserved word for the chosen database engine.
      */
@@ -1533,10 +1546,11 @@ export interface DbInstanceArgs {
      */
     maxAllocatedStorage?: pulumi.Input<number>;
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
-     *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-     *  This setting doesn't apply to RDS Custom.
-     *  Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
+     *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+     *  This setting doesn't apply to RDS Custom DB instances.
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Default: ``0``
      */
     monitoringInterval?: pulumi.Input<number>;
     /**
@@ -1546,10 +1560,10 @@ export interface DbInstanceArgs {
      */
     monitoringRoleArn?: pulumi.Input<string>;
     /**
-     * Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the ``AvailabilityZone`` parameter if the ``MultiAZ`` parameter is set to true. 
-     *   For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-     *   *Amazon Aurora* 
-     *  Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+     * Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
+     *  This setting doesn't apply to the following DB instances:
+     *   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+     *   +  RDS Custom
      */
     multiAz?: pulumi.Input<boolean>;
     /**
@@ -1593,10 +1607,18 @@ export interface DbInstanceArgs {
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The port number on which the database accepts connections.
-     *   *Amazon Aurora* 
-     *  Not applicable. The port number is managed by the DB cluster.
-     *   *Db2* 
-     *  Default value: ``50000``
+     *  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+     *  Valid Values: ``1150-65535`` 
+     *  Default:
+     *   +  RDS for Db2 - ``50000`` 
+     *   +  RDS for MariaDB - ``3306`` 
+     *   +  RDS for Microsoft SQL Server - ``1433`` 
+     *   +  RDS for MySQL - ``3306`` 
+     *   +  RDS for Oracle - ``1521`` 
+     *   +  RDS for PostgreSQL - ``5432`` 
+     *   
+     *  Constraints:
+     *   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
      */
     port?: pulumi.Input<string>;
     /**
@@ -1712,7 +1734,7 @@ export interface DbInstanceArgs {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * An optional array of key-value pairs to apply to this DB instance.
+     * Tags to assign to the DB instance.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tdeCredentialArn?: pulumi.Input<string>;

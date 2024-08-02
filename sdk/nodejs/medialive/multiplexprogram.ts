@@ -40,7 +40,7 @@ export class Multiplexprogram extends pulumi.CustomResource {
     /**
      * The MediaLive channel associated with the program.
      */
-    public readonly channelId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly channelId!: pulumi.Output<string>;
     /**
      * The ID of the multiplex that the program belongs to.
      */
@@ -77,13 +77,13 @@ export class Multiplexprogram extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
             resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
             resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
             resourceInputs["packetIdentifiersMap"] = args ? args.packetIdentifiersMap : undefined;
             resourceInputs["pipelineDetails"] = args ? args.pipelineDetails : undefined;
             resourceInputs["preferredChannelPipeline"] = args ? args.preferredChannelPipeline : undefined;
             resourceInputs["programName"] = args ? args.programName : undefined;
+            resourceInputs["channelId"] = undefined /*out*/;
         } else {
             resourceInputs["channelId"] = undefined /*out*/;
             resourceInputs["multiplexId"] = undefined /*out*/;
@@ -104,10 +104,6 @@ export class Multiplexprogram extends pulumi.CustomResource {
  * The set of arguments for constructing a Multiplexprogram resource.
  */
 export interface MultiplexprogramArgs {
-    /**
-     * The MediaLive channel associated with the program.
-     */
-    channelId?: pulumi.Input<string>;
     /**
      * The ID of the multiplex that the program belongs to.
      */

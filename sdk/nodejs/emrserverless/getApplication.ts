@@ -55,6 +55,10 @@ export interface GetApplicationResult {
      */
     readonly initialCapacity?: outputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePair[];
     /**
+     * The interactive configuration object that enables the interactive use cases for an application.
+     */
+    readonly interactiveConfiguration?: outputs.emrserverless.ApplicationInteractiveConfiguration;
+    /**
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     readonly maximumCapacity?: outputs.emrserverless.ApplicationMaximumAllowedResources;

@@ -8,8 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ConfiguredTableAssociationArgs', 'ConfiguredTableAssociation']
 
@@ -19,6 +22,7 @@ class ConfiguredTableAssociationArgs:
                  configured_table_identifier: pulumi.Input[str],
                  membership_identifier: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 configured_table_association_analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationAnalysisRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -27,6 +31,7 @@ class ConfiguredTableAssociationArgs:
         :param pulumi.Input[str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
         :param pulumi.Input[str] membership_identifier: The unique ID for the membership this configured table association belongs to.
         :param pulumi.Input[str] role_arn: The service will assume this role to access catalog metadata and query the table.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationAnalysisRuleArgs']]] configured_table_association_analysis_rules: An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
         :param pulumi.Input[str] description: A description of the configured table association.
         :param pulumi.Input[str] name: The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -34,6 +39,8 @@ class ConfiguredTableAssociationArgs:
         pulumi.set(__self__, "configured_table_identifier", configured_table_identifier)
         pulumi.set(__self__, "membership_identifier", membership_identifier)
         pulumi.set(__self__, "role_arn", role_arn)
+        if configured_table_association_analysis_rules is not None:
+            pulumi.set(__self__, "configured_table_association_analysis_rules", configured_table_association_analysis_rules)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -78,6 +85,18 @@ class ConfiguredTableAssociationArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
+    @pulumi.getter(name="configuredTableAssociationAnalysisRules")
+    def configured_table_association_analysis_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationAnalysisRuleArgs']]]]:
+        """
+        An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        """
+        return pulumi.get(self, "configured_table_association_analysis_rules")
+
+    @configured_table_association_analysis_rules.setter
+    def configured_table_association_analysis_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationAnalysisRuleArgs']]]]):
+        pulumi.set(self, "configured_table_association_analysis_rules", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -119,6 +138,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configured_table_association_analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]]] = None,
                  configured_table_identifier: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  membership_identifier: Optional[pulumi.Input[str]] = None,
@@ -131,6 +151,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]] configured_table_association_analysis_rules: An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
         :param pulumi.Input[str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
         :param pulumi.Input[str] description: A description of the configured table association.
         :param pulumi.Input[str] membership_identifier: The unique ID for the membership this configured table association belongs to.
@@ -162,6 +183,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configured_table_association_analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]]] = None,
                  configured_table_identifier: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  membership_identifier: Optional[pulumi.Input[str]] = None,
@@ -177,6 +199,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfiguredTableAssociationArgs.__new__(ConfiguredTableAssociationArgs)
 
+            __props__.__dict__["configured_table_association_analysis_rules"] = configured_table_association_analysis_rules
             if configured_table_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'configured_table_identifier'")
             __props__.__dict__["configured_table_identifier"] = configured_table_identifier
@@ -216,6 +239,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
         __props__ = ConfiguredTableAssociationArgs.__new__(ConfiguredTableAssociationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["configured_table_association_analysis_rules"] = None
         __props__.__dict__["configured_table_association_identifier"] = None
         __props__.__dict__["configured_table_identifier"] = None
         __props__.__dict__["description"] = None
@@ -234,6 +258,14 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
         Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="configuredTableAssociationAnalysisRules")
+    def configured_table_association_analysis_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ConfiguredTableAssociationAnalysisRule']]]:
+        """
+        An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        """
+        return pulumi.get(self, "configured_table_association_analysis_rules")
 
     @property
     @pulumi.getter(name="configuredTableAssociationIdentifier")

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableAnalysisRuleListArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalAnalyses")]
+        public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses>? AdditionalAnalyses { get; set; }
+
         [Input("allowedJoinOperators")]
         private InputList<Pulumi.AwsNative.CleanRooms.ConfiguredTableJoinOperator>? _allowedJoinOperators;
         public InputList<Pulumi.AwsNative.CleanRooms.ConfiguredTableJoinOperator> AllowedJoinOperators

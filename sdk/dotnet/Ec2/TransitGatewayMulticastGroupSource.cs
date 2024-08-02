@@ -34,12 +34,6 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool> GroupSource { get; private set; } = null!;
 
         /// <summary>
-        /// The member type (for example, static).
-        /// </summary>
-        [Output("memberType")]
-        public Output<string> MemberType { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
         [Output("networkInterfaceId")]

@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        /// </summary>
+        [Output("configuredTableAssociationAnalysisRules")]
+        public Output<ImmutableArray<Outputs.ConfiguredTableAssociationAnalysisRule>> ConfiguredTableAssociationAnalysisRules { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the unique identifier of the specified configured table association.
         /// 
         /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -118,6 +124,18 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class ConfiguredTableAssociationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("configuredTableAssociationAnalysisRules")]
+        private InputList<Inputs.ConfiguredTableAssociationAnalysisRuleArgs>? _configuredTableAssociationAnalysisRules;
+
+        /// <summary>
+        /// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        /// </summary>
+        public InputList<Inputs.ConfiguredTableAssociationAnalysisRuleArgs> ConfiguredTableAssociationAnalysisRules
+        {
+            get => _configuredTableAssociationAnalysisRules ?? (_configuredTableAssociationAnalysisRules = new InputList<Inputs.ConfiguredTableAssociationAnalysisRuleArgs>());
+            set => _configuredTableAssociationAnalysisRules = value;
+        }
+
         /// <summary>
         /// A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
         /// </summary>

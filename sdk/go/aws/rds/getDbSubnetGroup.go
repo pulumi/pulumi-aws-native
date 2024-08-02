@@ -27,15 +27,19 @@ func LookupDbSubnetGroup(ctx *pulumi.Context, args *LookupDbSubnetGroupArgs, opt
 
 type LookupDbSubnetGroupArgs struct {
 	// The name for the DB subnet group. This value is stored as a lowercase string.
-	//  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-	//  Example: ``mysubnetgroup``
+	//  Constraints:
+	//   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+	//   +  Must not be default.
+	//   +  First character must be a letter.
+	//
+	//  Example: ``mydbsubnetgroup``
 	DbSubnetGroupName string `pulumi:"dbSubnetGroupName"`
 }
 
 type LookupDbSubnetGroupResult struct {
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription *string `pulumi:"dbSubnetGroupDescription"`
-	// An optional array of key-value pairs to apply to this DB subnet group.
+	// Tags to assign to the DB subnet group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -54,8 +58,12 @@ func LookupDbSubnetGroupOutput(ctx *pulumi.Context, args LookupDbSubnetGroupOutp
 
 type LookupDbSubnetGroupOutputArgs struct {
 	// The name for the DB subnet group. This value is stored as a lowercase string.
-	//  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-	//  Example: ``mysubnetgroup``
+	//  Constraints:
+	//   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+	//   +  Must not be default.
+	//   +  First character must be a letter.
+	//
+	//  Example: ``mydbsubnetgroup``
 	DbSubnetGroupName pulumi.StringInput `pulumi:"dbSubnetGroupName"`
 }
 
@@ -82,7 +90,7 @@ func (o LookupDbSubnetGroupResultOutput) DbSubnetGroupDescription() pulumi.Strin
 	return o.ApplyT(func(v LookupDbSubnetGroupResult) *string { return v.DbSubnetGroupDescription }).(pulumi.StringPtrOutput)
 }
 
-// An optional array of key-value pairs to apply to this DB subnet group.
+// Tags to assign to the DB subnet group.
 func (o LookupDbSubnetGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDbSubnetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -18,16 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayMulticastGroupSourceResult:
-    def __init__(__self__, group_member=None, group_source=None, member_type=None, resource_id=None, resource_type=None, source_type=None, subnet_id=None, transit_gateway_attachment_id=None):
+    def __init__(__self__, group_member=None, group_source=None, resource_id=None, resource_type=None, source_type=None, subnet_id=None, transit_gateway_attachment_id=None):
         if group_member and not isinstance(group_member, bool):
             raise TypeError("Expected argument 'group_member' to be a bool")
         pulumi.set(__self__, "group_member", group_member)
         if group_source and not isinstance(group_source, bool):
             raise TypeError("Expected argument 'group_source' to be a bool")
         pulumi.set(__self__, "group_source", group_source)
-        if member_type and not isinstance(member_type, str):
-            raise TypeError("Expected argument 'member_type' to be a str")
-        pulumi.set(__self__, "member_type", member_type)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
@@ -59,14 +56,6 @@ class GetTransitGatewayMulticastGroupSourceResult:
         Indicates that the resource is a transit gateway multicast group member.
         """
         return pulumi.get(self, "group_source")
-
-    @property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[str]:
-        """
-        The member type (for example, static).
-        """
-        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -117,7 +106,6 @@ class AwaitableGetTransitGatewayMulticastGroupSourceResult(GetTransitGatewayMult
         return GetTransitGatewayMulticastGroupSourceResult(
             group_member=self.group_member,
             group_source=self.group_source,
-            member_type=self.member_type,
             resource_id=self.resource_id,
             resource_type=self.resource_type,
             source_type=self.source_type,
@@ -147,7 +135,6 @@ def get_transit_gateway_multicast_group_source(group_ip_address: Optional[str] =
     return AwaitableGetTransitGatewayMulticastGroupSourceResult(
         group_member=pulumi.get(__ret__, 'group_member'),
         group_source=pulumi.get(__ret__, 'group_source'),
-        member_type=pulumi.get(__ret__, 'member_type'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         source_type=pulumi.get(__ret__, 'source_type'),

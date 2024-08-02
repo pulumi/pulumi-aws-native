@@ -53,6 +53,7 @@ class LoggingConfigurationLogDestinationConfigLogType(str, Enum):
     """
     ALERT = "ALERT"
     FLOW = "FLOW"
+    TLS = "TLS"
 
 
 class RuleGroupGeneratedRulesType(str, Enum):

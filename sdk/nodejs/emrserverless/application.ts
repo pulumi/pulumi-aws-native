@@ -66,6 +66,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly initialCapacity!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePair[] | undefined>;
     /**
+     * The interactive configuration object that enables the interactive use cases for an application.
+     */
+    public readonly interactiveConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration | undefined>;
+    /**
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
@@ -124,6 +128,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
             resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
+            resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
             resourceInputs["monitoringConfiguration"] = args ? args.monitoringConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -143,6 +148,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["autoStopConfiguration"] = undefined /*out*/;
             resourceInputs["imageConfiguration"] = undefined /*out*/;
             resourceInputs["initialCapacity"] = undefined /*out*/;
+            resourceInputs["interactiveConfiguration"] = undefined /*out*/;
             resourceInputs["maximumCapacity"] = undefined /*out*/;
             resourceInputs["monitoringConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -184,6 +190,10 @@ export interface ApplicationArgs {
      * Initial capacity initialized when an Application is started.
      */
     initialCapacity?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePairArgs>[]>;
+    /**
+     * The interactive configuration object that enables the interactive use cases for an application.
+     */
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfigurationArgs>;
     /**
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */

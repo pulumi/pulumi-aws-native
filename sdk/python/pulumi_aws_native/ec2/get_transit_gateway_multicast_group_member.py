@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayMulticastGroupMemberResult:
-    def __init__(__self__, group_member=None, group_source=None, member_type=None, resource_id=None, resource_type=None, source_type=None, subnet_id=None, transit_gateway_attachment_id=None):
+    def __init__(__self__, group_member=None, group_source=None, member_type=None, resource_id=None, resource_type=None, subnet_id=None, transit_gateway_attachment_id=None):
         if group_member and not isinstance(group_member, bool):
             raise TypeError("Expected argument 'group_member' to be a bool")
         pulumi.set(__self__, "group_member", group_member)
@@ -34,9 +34,6 @@ class GetTransitGatewayMulticastGroupMemberResult:
         if resource_type and not isinstance(resource_type, str):
             raise TypeError("Expected argument 'resource_type' to be a str")
         pulumi.set(__self__, "resource_type", resource_type)
-        if source_type and not isinstance(source_type, str):
-            raise TypeError("Expected argument 'source_type' to be a str")
-        pulumi.set(__self__, "source_type", source_type)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -85,14 +82,6 @@ class GetTransitGatewayMulticastGroupMemberResult:
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
-        """
-        The source type.
-        """
-        return pulumi.get(self, "source_type")
-
-    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         """
@@ -120,7 +109,6 @@ class AwaitableGetTransitGatewayMulticastGroupMemberResult(GetTransitGatewayMult
             member_type=self.member_type,
             resource_id=self.resource_id,
             resource_type=self.resource_type,
-            source_type=self.source_type,
             subnet_id=self.subnet_id,
             transit_gateway_attachment_id=self.transit_gateway_attachment_id)
 
@@ -150,7 +138,6 @@ def get_transit_gateway_multicast_group_member(group_ip_address: Optional[str] =
         member_type=pulumi.get(__ret__, 'member_type'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
-        source_type=pulumi.get(__ret__, 'source_type'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
 

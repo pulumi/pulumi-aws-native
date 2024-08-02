@@ -44,7 +44,7 @@ export class StorageProfile extends pulumi.CustomResource {
     /**
      * The unique identifier of the farm that contains the storage profile.
      */
-    public readonly farmId!: pulumi.Output<string | undefined>;
+    public readonly farmId!: pulumi.Output<string>;
     /**
      * Operating system specific file system path to the storage location.
      */
@@ -71,6 +71,9 @@ export class StorageProfile extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if ((!args || args.farmId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'farmId'");
             }
             if ((!args || args.osFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osFamily'");
@@ -105,7 +108,7 @@ export interface StorageProfileArgs {
     /**
      * The unique identifier of the farm that contains the storage profile.
      */
-    farmId?: pulumi.Input<string>;
+    farmId: pulumi.Input<string>;
     /**
      * Operating system specific file system path to the storage location.
      */

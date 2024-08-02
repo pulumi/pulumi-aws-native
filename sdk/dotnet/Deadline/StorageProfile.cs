@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The unique identifier of the farm that contains the storage profile.
         /// </summary>
         [Output("farmId")]
-        public Output<string?> FarmId { get; private set; } = null!;
+        public Output<string> FarmId { get; private set; } = null!;
 
         /// <summary>
         /// Operating system specific file system path to the storage location.
@@ -103,8 +103,8 @@ namespace Pulumi.AwsNative.Deadline
         /// <summary>
         /// The unique identifier of the farm that contains the storage profile.
         /// </summary>
-        [Input("farmId")]
-        public Input<string>? FarmId { get; set; }
+        [Input("farmId", required: true)]
+        public Input<string> FarmId { get; set; } = null!;
 
         [Input("fileSystemLocations")]
         private InputList<Inputs.StorageProfileFileSystemLocationArgs>? _fileSystemLocations;

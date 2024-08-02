@@ -42,10 +42,6 @@ export interface GetTransitGatewayMulticastGroupSourceResult {
      */
     readonly groupSource?: boolean;
     /**
-     * The member type (for example, static).
-     */
-    readonly memberType?: string;
-    /**
      * The ID of the resource.
      */
     readonly resourceId?: string;

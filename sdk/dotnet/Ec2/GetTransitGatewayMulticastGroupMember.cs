@@ -102,10 +102,6 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// The source type.
-        /// </summary>
-        public readonly string? SourceType;
-        /// <summary>
         /// The ID of the subnet.
         /// </summary>
         public readonly string? SubnetId;
@@ -126,8 +122,6 @@ namespace Pulumi.AwsNative.Ec2
 
             string? resourceType,
 
-            string? sourceType,
-
             string? subnetId,
 
             string? transitGatewayAttachmentId)
@@ -137,7 +131,6 @@ namespace Pulumi.AwsNative.Ec2
             MemberType = memberType;
             ResourceId = resourceId;
             ResourceType = resourceType;
-            SourceType = sourceType;
             SubnetId = subnetId;
             TransitGatewayAttachmentId = transitGatewayAttachmentId;
         }

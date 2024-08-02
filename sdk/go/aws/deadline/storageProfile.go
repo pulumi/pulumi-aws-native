@@ -19,7 +19,7 @@ type StorageProfile struct {
 	// The display name of the storage profile summary to update.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
-	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
 	// Operating system specific file system path to the storage location.
 	FileSystemLocations StorageProfileFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
 	// The operating system (OS) family.
@@ -37,6 +37,9 @@ func NewStorageProfile(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.FarmId == nil {
+		return nil, errors.New("invalid value for required argument 'FarmId'")
 	}
 	if args.OsFamily == nil {
 		return nil, errors.New("invalid value for required argument 'OsFamily'")
@@ -81,7 +84,7 @@ type storageProfileArgs struct {
 	// The display name of the storage profile summary to update.
 	DisplayName string `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
-	FarmId *string `pulumi:"farmId"`
+	FarmId string `pulumi:"farmId"`
 	// Operating system specific file system path to the storage location.
 	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
 	// The operating system (OS) family.
@@ -93,7 +96,7 @@ type StorageProfileArgs struct {
 	// The display name of the storage profile summary to update.
 	DisplayName pulumi.StringInput
 	// The unique identifier of the farm that contains the storage profile.
-	FarmId pulumi.StringPtrInput
+	FarmId pulumi.StringInput
 	// Operating system specific file system path to the storage location.
 	FileSystemLocations StorageProfileFileSystemLocationArrayInput
 	// The operating system (OS) family.
@@ -143,8 +146,8 @@ func (o StorageProfileOutput) DisplayName() pulumi.StringOutput {
 }
 
 // The unique identifier of the farm that contains the storage profile.
-func (o StorageProfileOutput) FarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageProfile) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
+func (o StorageProfileOutput) FarmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageProfile) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
 // Operating system specific file system path to the storage location.

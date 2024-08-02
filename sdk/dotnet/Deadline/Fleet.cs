@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The farm ID.
         /// </summary>
         [Output("farmId")]
-        public Output<string?> FarmId { get; private set; } = null!;
+        public Output<string> FarmId { get; private set; } = null!;
 
         /// <summary>
         /// The fleet ID.
@@ -160,8 +160,8 @@ namespace Pulumi.AwsNative.Deadline
         /// <summary>
         /// The farm ID.
         /// </summary>
-        [Input("farmId")]
-        public Input<string>? FarmId { get; set; }
+        [Input("farmId", required: true)]
+        public Input<string> FarmId { get; set; } = null!;
 
         /// <summary>
         /// The maximum number of workers specified in the fleet.

@@ -58,6 +58,7 @@ export interface GetModelPackageResult {
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
     readonly modelApprovalStatus?: enums.sagemaker.ModelPackageModelApprovalStatus;
+    readonly modelCard?: outputs.sagemaker.ModelPackageModelCard;
     /**
      * The Amazon Resource Name (ARN) of the model package.
      */
@@ -88,6 +89,7 @@ export interface GetModelPackageResult {
      * Indicates if you want to skip model validation.
      */
     readonly skipModelValidation?: enums.sagemaker.ModelPackageSkipModelValidation;
+    readonly sourceUri?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

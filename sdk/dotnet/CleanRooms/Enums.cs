@@ -138,6 +138,35 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct ConfiguredTableAdditionalAnalyses : IEquatable<ConfiguredTableAdditionalAnalyses>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableAdditionalAnalyses(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableAdditionalAnalyses Allowed { get; } = new ConfiguredTableAdditionalAnalyses("ALLOWED");
+        public static ConfiguredTableAdditionalAnalyses Required { get; } = new ConfiguredTableAdditionalAnalyses("REQUIRED");
+        public static ConfiguredTableAdditionalAnalyses NotAllowed { get; } = new ConfiguredTableAdditionalAnalyses("NOT_ALLOWED");
+
+        public static bool operator ==(ConfiguredTableAdditionalAnalyses left, ConfiguredTableAdditionalAnalyses right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableAdditionalAnalyses left, ConfiguredTableAdditionalAnalyses right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableAdditionalAnalyses value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableAdditionalAnalyses other && Equals(other);
+        public bool Equals(ConfiguredTableAdditionalAnalyses other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ConfiguredTableAggregateFunctionName : IEquatable<ConfiguredTableAggregateFunctionName>
     {
         private readonly string _value;
@@ -244,6 +273,35 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConfiguredTableAnalysisRuleType other && Equals(other);
         public bool Equals(ConfiguredTableAnalysisRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConfiguredTableAssociationAnalysisRuleType : IEquatable<ConfiguredTableAssociationAnalysisRuleType>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableAssociationAnalysisRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableAssociationAnalysisRuleType Aggregation { get; } = new ConfiguredTableAssociationAnalysisRuleType("AGGREGATION");
+        public static ConfiguredTableAssociationAnalysisRuleType List { get; } = new ConfiguredTableAssociationAnalysisRuleType("LIST");
+        public static ConfiguredTableAssociationAnalysisRuleType Custom { get; } = new ConfiguredTableAssociationAnalysisRuleType("CUSTOM");
+
+        public static bool operator ==(ConfiguredTableAssociationAnalysisRuleType left, ConfiguredTableAssociationAnalysisRuleType right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableAssociationAnalysisRuleType left, ConfiguredTableAssociationAnalysisRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableAssociationAnalysisRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableAssociationAnalysisRuleType other && Equals(other);
+        public bool Equals(ConfiguredTableAssociationAnalysisRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

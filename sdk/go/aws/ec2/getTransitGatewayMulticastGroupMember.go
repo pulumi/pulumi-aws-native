@@ -42,8 +42,6 @@ type LookupTransitGatewayMulticastGroupMemberResult struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The type of resource, for example a VPC attachment.
 	ResourceType *string `pulumi:"resourceType"`
-	// The source type.
-	SourceType *string `pulumi:"sourceType"`
 	// The ID of the subnet.
 	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
@@ -113,11 +111,6 @@ func (o LookupTransitGatewayMulticastGroupMemberResultOutput) ResourceId() pulum
 // The type of resource, for example a VPC attachment.
 func (o LookupTransitGatewayMulticastGroupMemberResultOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayMulticastGroupMemberResult) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
-}
-
-// The source type.
-func (o LookupTransitGatewayMulticastGroupMemberResultOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTransitGatewayMulticastGroupMemberResult) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the subnet.

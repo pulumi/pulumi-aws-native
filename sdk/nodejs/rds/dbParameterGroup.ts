@@ -57,27 +57,39 @@ export class DbParameterGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
-     *   The DB parameter group family can't be changed when updating a DB parameter group.
-     *   To list all of the available parameter group families, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
-     *  The output contains duplicates.
-     *  For more information, see ``CreateDBParameterGroup``.
+     * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+     *  To list all of the available parameter group families for a DB engine, use the following command:
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+     *   The output contains duplicates.
+     *   The following are the valid DB engine values:
+     *   +   ``aurora-mysql`` 
+     *   +   ``aurora-postgresql`` 
+     *   +   ``db2-ae`` 
+     *   +   ``db2-se`` 
+     *   +   ``mysql`` 
+     *   +   ``oracle-ee`` 
+     *   +   ``oracle-ee-cdb`` 
+     *   +   ``oracle-se2`` 
+     *   +   ``oracle-se2-cdb`` 
+     *   +   ``postgres`` 
+     *   +   ``sqlserver-ee`` 
+     *   +   ``sqlserver-se`` 
+     *   +   ``sqlserver-ex`` 
+     *   +   ``sqlserver-web``
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * An array of parameter names and values for the parameter update. At least one parameter name and value must be supplied. Subsequent arguments are optional.
-     *  RDS for Db2 requires you to bring your own Db2 license. You must enter your IBM customer ID (``rds.ibm_customer_id``) and site number (``rds.ibm_site_id``) before starting a Db2 instance.
-     *  For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
-     *  For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+     * An array of parameter names and values for the parameter update. You must specify at least one parameter name and value.
+     *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
      *    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any | undefined>;
     /**
-     * An optional array of key-value pairs to apply to this DB parameter group.
-     *    Currently, this is the only property that supports drift detection.
+     * Tags to assign to the DB parameter group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -137,27 +149,39 @@ export interface DbParameterGroupArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
-     *   The DB parameter group family can't be changed when updating a DB parameter group.
-     *   To list all of the available parameter group families, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`` 
-     *  The output contains duplicates.
-     *  For more information, see ``CreateDBParameterGroup``.
+     * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+     *  To list all of the available parameter group families for a DB engine, use the following command:
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+     *   The output contains duplicates.
+     *   The following are the valid DB engine values:
+     *   +   ``aurora-mysql`` 
+     *   +   ``aurora-postgresql`` 
+     *   +   ``db2-ae`` 
+     *   +   ``db2-se`` 
+     *   +   ``mysql`` 
+     *   +   ``oracle-ee`` 
+     *   +   ``oracle-ee-cdb`` 
+     *   +   ``oracle-se2`` 
+     *   +   ``oracle-se2-cdb`` 
+     *   +   ``postgres`` 
+     *   +   ``sqlserver-ee`` 
+     *   +   ``sqlserver-se`` 
+     *   +   ``sqlserver-ex`` 
+     *   +   ``sqlserver-web``
      */
     family: pulumi.Input<string>;
     /**
-     * An array of parameter names and values for the parameter update. At least one parameter name and value must be supplied. Subsequent arguments are optional.
-     *  RDS for Db2 requires you to bring your own Db2 license. You must enter your IBM customer ID (``rds.ibm_customer_id``) and site number (``rds.ibm_site_id``) before starting a Db2 instance.
-     *  For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
-     *  For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+     * An array of parameter names and values for the parameter update. You must specify at least one parameter name and value.
+     *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
      *    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
     parameters?: any;
     /**
-     * An optional array of key-value pairs to apply to this DB parameter group.
-     *    Currently, this is the only property that supports drift detection.
+     * Tags to assign to the DB parameter group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

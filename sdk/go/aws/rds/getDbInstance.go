@@ -18,7 +18,7 @@ import (
 //	For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
 //	If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
 //	 If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
-//	   *Updating DB instances*
+//	  *Updating DB instances*
 //	When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
 //	 We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
 //	 1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
@@ -104,7 +104,8 @@ type LookupDbInstanceResult struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade          *bool   `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// The AWS Region associated with the automated backup.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -182,9 +183,8 @@ type LookupDbInstanceResult struct {
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
-	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
-	//   *Amazon Aurora*
-	//  Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+	// Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+	//  This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in. Currently, only Db2, MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	//  For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide*.
@@ -327,19 +327,20 @@ type LookupDbInstanceResult struct {
 	//   +  Amazon Aurora (Storage is managed by the DB cluster.)
 	//   +  RDS Custom
 	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
-	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
-	//  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-	//  This setting doesn't apply to RDS Custom.
-	//  Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
+	//  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+	//  This setting doesn't apply to RDS Custom DB instances.
+	//  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
+	//  Default: ``0``
 	MonitoringInterval *int `pulumi:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting Up and Enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
 	//  If ``MonitoringInterval`` is set to a value other than ``0``, then you must supply a ``MonitoringRoleArn`` value.
 	//  This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
-	// Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the ``AvailabilityZone`` parameter if the ``MultiAZ`` parameter is set to true.
-	//   For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-	//   *Amazon Aurora*
-	//  Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+	// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
+	//  This setting doesn't apply to the following DB instances:
+	//   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+	//   +  RDS Custom
 	MultiAz *bool `pulumi:"multiAz"`
 	// The network type of the DB instance.
 	//  Valid values:
@@ -415,7 +416,7 @@ type LookupDbInstanceResult struct {
 	//  Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
 	//  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
 	StorageType *string `pulumi:"storageType"`
-	// An optional array of key-value pairs to apply to this DB instance.
+	// Tags to assign to the DB instance.
 	Tags             []aws.Tag `pulumi:"tags"`
 	TdeCredentialArn *string   `pulumi:"tdeCredentialArn"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
@@ -534,6 +535,7 @@ func (o LookupDbInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
+// The AWS Region associated with the automated backup.
 func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }
@@ -660,10 +662,9 @@ func (o LookupDbInstanceResultOutput) DedicatedLogVolume() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.DedicatedLogVolume }).(pulumi.BoolPtrOutput)
 }
 
-// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+// Specifies whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
 //
-//	 *Amazon Aurora*
-//	Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+//	This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see ``CreateDBCluster``. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
 func (o LookupDbInstanceResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
@@ -881,11 +882,12 @@ func (o LookupDbInstanceResultOutput) MaxAllocatedStorage() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.MaxAllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
-// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
+// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify “0“.
 //
-//	If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than 0.
-//	This setting doesn't apply to RDS Custom.
-//	Valid Values: ``0, 1, 5, 10, 15, 30, 60``
+//	If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
+//	This setting doesn't apply to RDS Custom DB instances.
+//	Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
+//	Default: ``0``
 func (o LookupDbInstanceResultOutput) MonitoringInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.MonitoringInterval }).(pulumi.IntPtrOutput)
 }
@@ -898,11 +900,11 @@ func (o LookupDbInstanceResultOutput) MonitoringRoleArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.MonitoringRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the database instance is a Multi-AZ DB instance deployment. You can't set the “AvailabilityZone“ parameter if the “MultiAZ“ parameter is set to true.
+// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the “AvailabilityZone“ parameter if the DB instance is a Multi-AZ deployment.
 //
-//	 For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide*.
-//	 *Amazon Aurora*
-//	Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the ``MultiAZ`` option to be set.
+//	This setting doesn't apply to the following DB instances:
+//	 +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+//	 +  RDS Custom
 func (o LookupDbInstanceResultOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
@@ -1033,7 +1035,7 @@ func (o LookupDbInstanceResultOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// An optional array of key-value pairs to apply to this DB instance.
+// Tags to assign to the DB instance.
 func (o LookupDbInstanceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

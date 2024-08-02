@@ -37,6 +37,8 @@ type LookupConfiguredTableAssociationResult struct {
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	Arn *string `pulumi:"arn"`
+	// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+	ConfiguredTableAssociationAnalysisRules []ConfiguredTableAssociationAnalysisRule `pulumi:"configuredTableAssociationAnalysisRules"`
 	// Returns the unique identifier of the specified configured table association.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -94,6 +96,13 @@ func (o LookupConfiguredTableAssociationResultOutput) ToLookupConfiguredTableAss
 // Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o LookupConfiguredTableAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+func (o LookupConfiguredTableAssociationResultOutput) ConfiguredTableAssociationAnalysisRules() ConfiguredTableAssociationAnalysisRuleArrayOutput {
+	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) []ConfiguredTableAssociationAnalysisRule {
+		return v.ConfiguredTableAssociationAnalysisRules
+	}).(ConfiguredTableAssociationAnalysisRuleArrayOutput)
 }
 
 // Returns the unique identifier of the specified configured table association.

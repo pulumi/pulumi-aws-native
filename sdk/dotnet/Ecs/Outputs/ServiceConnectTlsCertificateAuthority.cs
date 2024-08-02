@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// An object that represents the AWS Private Certificate Authority certificate.
+    /// The certificate root authority that secures your service.
     /// </summary>
     [OutputType]
     public sealed class ServiceConnectTlsCertificateAuthority

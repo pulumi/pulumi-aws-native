@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetConfiguredTableAssociationResult',
@@ -19,10 +21,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfiguredTableAssociationResult:
-    def __init__(__self__, arn=None, configured_table_association_identifier=None, description=None, role_arn=None, tags=None):
+    def __init__(__self__, arn=None, configured_table_association_analysis_rules=None, configured_table_association_identifier=None, description=None, role_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if configured_table_association_analysis_rules and not isinstance(configured_table_association_analysis_rules, list):
+            raise TypeError("Expected argument 'configured_table_association_analysis_rules' to be a list")
+        pulumi.set(__self__, "configured_table_association_analysis_rules", configured_table_association_analysis_rules)
         if configured_table_association_identifier and not isinstance(configured_table_association_identifier, str):
             raise TypeError("Expected argument 'configured_table_association_identifier' to be a str")
         pulumi.set(__self__, "configured_table_association_identifier", configured_table_association_identifier)
@@ -45,6 +50,14 @@ class GetConfiguredTableAssociationResult:
         Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="configuredTableAssociationAnalysisRules")
+    def configured_table_association_analysis_rules(self) -> Optional[Sequence['outputs.ConfiguredTableAssociationAnalysisRule']]:
+        """
+        An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        """
+        return pulumi.get(self, "configured_table_association_analysis_rules")
 
     @property
     @pulumi.getter(name="configuredTableAssociationIdentifier")
@@ -88,6 +101,7 @@ class AwaitableGetConfiguredTableAssociationResult(GetConfiguredTableAssociation
             yield self
         return GetConfiguredTableAssociationResult(
             arn=self.arn,
+            configured_table_association_analysis_rules=self.configured_table_association_analysis_rules,
             configured_table_association_identifier=self.configured_table_association_identifier,
             description=self.description,
             role_arn=self.role_arn,
@@ -114,6 +128,7 @@ def get_configured_table_association(configured_table_association_identifier: Op
 
     return AwaitableGetConfiguredTableAssociationResult(
         arn=pulumi.get(__ret__, 'arn'),
+        configured_table_association_analysis_rules=pulumi.get(__ret__, 'configured_table_association_analysis_rules'),
         configured_table_association_identifier=pulumi.get(__ret__, 'configured_table_association_identifier'),
         description=pulumi.get(__ret__, 'description'),
         role_arn=pulumi.get(__ret__, 'role_arn'),

@@ -47,6 +47,7 @@ type LookupModelPackageResult struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
+	ModelCard           *ModelPackageModelCard           `pulumi:"modelCard"`
 	// The Amazon Resource Name (ARN) of the model package.
 	ModelPackageArn *string `pulumi:"modelPackageArn"`
 	// The name of the model.
@@ -65,6 +66,7 @@ type LookupModelPackageResult struct {
 	ModelPackageVersion *int `pulumi:"modelPackageVersion"`
 	// Indicates if you want to skip model validation.
 	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
+	SourceUri           *string                          `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -148,6 +150,10 @@ func (o LookupModelPackageResultOutput) ModelApprovalStatus() ModelPackageModelA
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageModelApprovalStatus { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+func (o LookupModelPackageResultOutput) ModelCard() ModelPackageModelCardPtrOutput {
+	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageModelCard { return v.ModelCard }).(ModelPackageModelCardPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the model package.
 func (o LookupModelPackageResultOutput) ModelPackageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.ModelPackageArn }).(pulumi.StringPtrOutput)
@@ -182,6 +188,10 @@ func (o LookupModelPackageResultOutput) ModelPackageVersion() pulumi.IntPtrOutpu
 // Indicates if you want to skip model validation.
 func (o LookupModelPackageResultOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageSkipModelValidation { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
+}
+
+func (o LookupModelPackageResultOutput) SourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

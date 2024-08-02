@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A list of options and the settings for each option.
+        /// A list of all available options
         /// </summary>
         [Output("optionConfigurations")]
         public Output<ImmutableArray<Outputs.OptionGroupOptionConfiguration>> OptionConfigurations { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> OptionGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this option group.
+        /// Tags to assign to the option group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Inputs.OptionGroupOptionConfigurationArgs>? _optionConfigurations;
 
         /// <summary>
-        /// A list of options and the settings for each option.
+        /// A list of all available options
         /// </summary>
         public InputList<Inputs.OptionGroupOptionConfigurationArgs> OptionConfigurations
         {
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An optional array of key-value pairs to apply to this option group.
+        /// Tags to assign to the option group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

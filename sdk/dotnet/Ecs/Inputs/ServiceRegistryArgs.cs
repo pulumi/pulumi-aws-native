@@ -11,7 +11,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The ``ServiceRegistry`` property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// The details for the service registry.
+    ///  Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+    ///  When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
     /// </summary>
     public sealed class ServiceRegistryArgs : global::Pulumi.ResourceArgs
     {

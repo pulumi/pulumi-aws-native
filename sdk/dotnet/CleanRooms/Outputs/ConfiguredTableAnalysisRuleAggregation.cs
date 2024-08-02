@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableAnalysisRuleAggregation
     {
+        public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses? AdditionalAnalyses;
         public readonly ImmutableArray<Outputs.ConfiguredTableAggregateColumn> AggregateColumns;
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableJoinOperator> AllowedJoinOperators;
         public readonly ImmutableArray<string> DimensionColumns;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
         [OutputConstructor]
         private ConfiguredTableAnalysisRuleAggregation(
+            Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses? additionalAnalyses,
+
             ImmutableArray<Outputs.ConfiguredTableAggregateColumn> aggregateColumns,
 
             ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableJoinOperator> allowedJoinOperators,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableScalarFunctions> scalarFunctions)
         {
+            AdditionalAnalyses = additionalAnalyses;
             AggregateColumns = aggregateColumns;
             AllowedJoinOperators = allowedJoinOperators;
             DimensionColumns = dimensionColumns;

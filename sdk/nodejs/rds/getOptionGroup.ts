@@ -35,11 +35,11 @@ export interface GetOptionGroupArgs {
 
 export interface GetOptionGroupResult {
     /**
-     * A list of options and the settings for each option.
+     * A list of all available options
      */
     readonly optionConfigurations?: outputs.rds.OptionGroupOptionConfiguration[];
     /**
-     * An optional array of key-value pairs to apply to this option group.
+     * Tags to assign to the option group.
      */
     readonly tags?: outputs.Tag[];
 }

@@ -46,6 +46,7 @@ type ModelPackage struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrOutput `pulumi:"modelApprovalStatus"`
+	ModelCard           ModelPackageModelCardPtrOutput           `pulumi:"modelCard"`
 	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrOutput `pulumi:"modelMetrics"`
 	// The Amazon Resource Name (ARN) of the model package.
@@ -69,11 +70,13 @@ type ModelPackage struct {
 	// The version number of a versioned model.
 	ModelPackageVersion pulumi.IntPtrOutput `pulumi:"modelPackageVersion"`
 	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-	SamplePayloadUrl pulumi.StringPtrOutput `pulumi:"samplePayloadUrl"`
+	SamplePayloadUrl pulumi.StringPtrOutput              `pulumi:"samplePayloadUrl"`
+	SecurityConfig   ModelPackageSecurityConfigPtrOutput `pulumi:"securityConfig"`
 	// Indicates if you want to skip model validation.
 	SkipModelValidation ModelPackageSkipModelValidationPtrOutput `pulumi:"skipModelValidation"`
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrOutput `pulumi:"sourceAlgorithmSpecification"`
+	SourceUri                    pulumi.StringPtrOutput                            `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -99,6 +102,7 @@ func NewModelPackage(ctx *pulumi.Context,
 		"modelPackageDescription",
 		"modelPackageGroupName",
 		"samplePayloadUrl",
+		"securityConfig",
 		"sourceAlgorithmSpecification",
 		"task",
 		"validationSpecification",
@@ -165,6 +169,7 @@ type modelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
+	ModelCard           *ModelPackageModelCard           `pulumi:"modelCard"`
 	// Metrics for the model.
 	ModelMetrics *ModelPackageModelMetrics `pulumi:"modelMetrics"`
 	// The description of the model package.
@@ -178,11 +183,13 @@ type modelPackageArgs struct {
 	// The version number of a versioned model.
 	ModelPackageVersion *int `pulumi:"modelPackageVersion"`
 	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-	SamplePayloadUrl *string `pulumi:"samplePayloadUrl"`
+	SamplePayloadUrl *string                     `pulumi:"samplePayloadUrl"`
+	SecurityConfig   *ModelPackageSecurityConfig `pulumi:"securityConfig"`
 	// Indicates if you want to skip model validation.
 	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification *ModelPackageSourceAlgorithmSpecification `pulumi:"sourceAlgorithmSpecification"`
+	SourceUri                    *string                                   `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -221,6 +228,7 @@ type ModelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrInput
+	ModelCard           ModelPackageModelCardPtrInput
 	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrInput
 	// The description of the model package.
@@ -235,10 +243,12 @@ type ModelPackageArgs struct {
 	ModelPackageVersion pulumi.IntPtrInput
 	// The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	SamplePayloadUrl pulumi.StringPtrInput
+	SecurityConfig   ModelPackageSecurityConfigPtrInput
 	// Indicates if you want to skip model validation.
 	SkipModelValidation ModelPackageSkipModelValidationPtrInput
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrInput
+	SourceUri                    pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -359,6 +369,10 @@ func (o ModelPackageOutput) ModelApprovalStatus() ModelPackageModelApprovalStatu
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelApprovalStatusPtrOutput { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+func (o ModelPackageOutput) ModelCard() ModelPackageModelCardPtrOutput {
+	return o.ApplyT(func(v *ModelPackage) ModelPackageModelCardPtrOutput { return v.ModelCard }).(ModelPackageModelCardPtrOutput)
+}
+
 // Metrics for the model.
 func (o ModelPackageOutput) ModelMetrics() ModelPackageModelMetricsPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelMetricsPtrOutput { return v.ModelMetrics }).(ModelPackageModelMetricsPtrOutput)
@@ -410,6 +424,10 @@ func (o ModelPackageOutput) SamplePayloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.SamplePayloadUrl }).(pulumi.StringPtrOutput)
 }
 
+func (o ModelPackageOutput) SecurityConfig() ModelPackageSecurityConfigPtrOutput {
+	return o.ApplyT(func(v *ModelPackage) ModelPackageSecurityConfigPtrOutput { return v.SecurityConfig }).(ModelPackageSecurityConfigPtrOutput)
+}
+
 // Indicates if you want to skip model validation.
 func (o ModelPackageOutput) SkipModelValidation() ModelPackageSkipModelValidationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageSkipModelValidationPtrOutput { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
@@ -420,6 +438,10 @@ func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlg
 	return o.ApplyT(func(v *ModelPackage) ModelPackageSourceAlgorithmSpecificationPtrOutput {
 		return v.SourceAlgorithmSpecification
 	}).(ModelPackageSourceAlgorithmSpecificationPtrOutput)
+}
+
+func (o ModelPackageOutput) SourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

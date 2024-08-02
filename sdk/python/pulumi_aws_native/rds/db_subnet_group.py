@@ -25,9 +25,13 @@ class DbSubnetGroupArgs:
         :param pulumi.Input[str] db_subnet_group_description: The description for the DB subnet group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
         :param pulumi.Input[str] db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
-                Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-                Example: ``mysubnetgroup``
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional array of key-value pairs to apply to this DB subnet group.
+                Constraints:
+                 +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+                 +  Must not be default.
+                 +  First character must be a letter.
+                 
+                Example: ``mydbsubnetgroup``
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the DB subnet group.
         """
         pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -65,8 +69,12 @@ class DbSubnetGroupArgs:
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name for the DB subnet group. This value is stored as a lowercase string.
-         Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-         Example: ``mysubnetgroup``
+         Constraints:
+          +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+          +  Must not be default.
+          +  First character must be a letter.
+          
+         Example: ``mydbsubnetgroup``
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -78,7 +86,7 @@ class DbSubnetGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An optional array of key-value pairs to apply to this DB subnet group.
+        Tags to assign to the DB subnet group.
         """
         return pulumi.get(self, "tags")
 
@@ -105,10 +113,14 @@ class DbSubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_subnet_group_description: The description for the DB subnet group.
         :param pulumi.Input[str] db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
-                Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-                Example: ``mysubnetgroup``
+                Constraints:
+                 +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+                 +  Must not be default.
+                 +  First character must be a letter.
+                 
+                Example: ``mydbsubnetgroup``
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional array of key-value pairs to apply to this DB subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the DB subnet group.
         """
         ...
     @overload
@@ -199,8 +211,12 @@ class DbSubnetGroup(pulumi.CustomResource):
     def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name for the DB subnet group. This value is stored as a lowercase string.
-         Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-         Example: ``mysubnetgroup``
+         Constraints:
+          +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+          +  Must not be default.
+          +  First character must be a letter.
+          
+         Example: ``mydbsubnetgroup``
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -216,7 +232,7 @@ class DbSubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An optional array of key-value pairs to apply to this DB subnet group.
+        Tags to assign to the DB subnet group.
         """
         return pulumi.get(self, "tags")
 

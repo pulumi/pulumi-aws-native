@@ -40,6 +40,10 @@ export interface GetConfiguredTableAssociationResult {
      */
     readonly arn?: string;
     /**
+     * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+     */
+    readonly configuredTableAssociationAnalysisRules?: outputs.cleanrooms.ConfiguredTableAssociationAnalysisRule[];
+    /**
      * Returns the unique identifier of the specified configured table association.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`

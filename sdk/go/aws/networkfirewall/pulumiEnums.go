@@ -679,6 +679,7 @@ type LoggingConfigurationLogDestinationConfigLogType string
 const (
 	LoggingConfigurationLogDestinationConfigLogTypeAlert = LoggingConfigurationLogDestinationConfigLogType("ALERT")
 	LoggingConfigurationLogDestinationConfigLogTypeFlow  = LoggingConfigurationLogDestinationConfigLogType("FLOW")
+	LoggingConfigurationLogDestinationConfigLogTypeTls   = LoggingConfigurationLogDestinationConfigLogType("TLS")
 )
 
 func (LoggingConfigurationLogDestinationConfigLogType) ElementType() reflect.Type {
@@ -805,6 +806,7 @@ func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) ToStringPtrOut
 //
 //	LoggingConfigurationLogDestinationConfigLogTypeAlert
 //	LoggingConfigurationLogDestinationConfigLogTypeFlow
+//	LoggingConfigurationLogDestinationConfigLogTypeTls
 type LoggingConfigurationLogDestinationConfigLogTypeInput interface {
 	pulumi.Input
 

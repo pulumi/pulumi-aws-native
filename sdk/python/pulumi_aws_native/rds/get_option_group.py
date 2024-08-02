@@ -32,7 +32,7 @@ class GetOptionGroupResult:
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> Optional[Sequence['outputs.OptionGroupOptionConfiguration']]:
         """
-        A list of options and the settings for each option.
+        A list of all available options
         """
         return pulumi.get(self, "option_configurations")
 
@@ -40,7 +40,7 @@ class GetOptionGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An optional array of key-value pairs to apply to this option group.
+        Tags to assign to the option group.
         """
         return pulumi.get(self, "tags")
 

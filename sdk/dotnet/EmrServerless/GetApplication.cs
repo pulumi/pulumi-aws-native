@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationInitialCapacityConfigKeyValuePair> InitialCapacity;
         /// <summary>
+        /// The interactive configuration object that enables the interactive use cases for an application.
+        /// </summary>
+        public readonly Outputs.ApplicationInteractiveConfiguration? InteractiveConfiguration;
+        /// <summary>
         /// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         /// </summary>
         public readonly Outputs.ApplicationMaximumAllowedResources? MaximumCapacity;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.EmrServerless
 
             ImmutableArray<Outputs.ApplicationInitialCapacityConfigKeyValuePair> initialCapacity,
 
+            Outputs.ApplicationInteractiveConfiguration? interactiveConfiguration,
+
             Outputs.ApplicationMaximumAllowedResources? maximumCapacity,
 
             Outputs.ApplicationMonitoringConfiguration? monitoringConfiguration,
@@ -151,6 +157,7 @@ namespace Pulumi.AwsNative.EmrServerless
             AutoStopConfiguration = autoStopConfiguration;
             ImageConfiguration = imageConfiguration;
             InitialCapacity = initialCapacity;
+            InteractiveConfiguration = interactiveConfiguration;
             MaximumCapacity = maximumCapacity;
             MonitoringConfiguration = monitoringConfiguration;
             NetworkConfiguration = networkConfiguration;

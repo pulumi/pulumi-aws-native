@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("imageDigest")]
         public Input<string>? ImageDigest { get; set; }
 
+        [Input("modelDataSource")]
+        public Input<Inputs.ModelPackageModelDataSourceArgs>? ModelDataSource { get; set; }
+
         /// <summary>
         /// A structure with Model Input details.
         /// </summary>

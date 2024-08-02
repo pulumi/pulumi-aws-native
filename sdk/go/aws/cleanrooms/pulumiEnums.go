@@ -741,6 +741,173 @@ func (in *collaborationQueryLogStatusPtr) ToCollaborationQueryLogStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationQueryLogStatusPtrOutput)
 }
 
+type ConfiguredTableAdditionalAnalyses string
+
+const (
+	ConfiguredTableAdditionalAnalysesAllowed    = ConfiguredTableAdditionalAnalyses("ALLOWED")
+	ConfiguredTableAdditionalAnalysesRequired   = ConfiguredTableAdditionalAnalyses("REQUIRED")
+	ConfiguredTableAdditionalAnalysesNotAllowed = ConfiguredTableAdditionalAnalyses("NOT_ALLOWED")
+)
+
+func (ConfiguredTableAdditionalAnalyses) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToConfiguredTableAdditionalAnalysesOutput() ConfiguredTableAdditionalAnalysesOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAdditionalAnalysesOutput)
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToConfiguredTableAdditionalAnalysesOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAdditionalAnalysesOutput)
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToConfiguredTableAdditionalAnalysesPtrOutput() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return e.ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesPtrOutput {
+	return ConfiguredTableAdditionalAnalyses(e).ToConfiguredTableAdditionalAnalysesOutputWithContext(ctx).ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAdditionalAnalyses) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAdditionalAnalysesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAdditionalAnalysesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToConfiguredTableAdditionalAnalysesOutput() ConfiguredTableAdditionalAnalysesOutput {
+	return o
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToConfiguredTableAdditionalAnalysesOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesOutput {
+	return o
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToConfiguredTableAdditionalAnalysesPtrOutput() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o.ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAdditionalAnalyses) *ConfiguredTableAdditionalAnalyses {
+		return &v
+	}).(ConfiguredTableAdditionalAnalysesPtrOutput)
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAdditionalAnalyses) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAdditionalAnalysesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAdditionalAnalyses) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAdditionalAnalysesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAdditionalAnalysesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (o ConfiguredTableAdditionalAnalysesPtrOutput) ToConfiguredTableAdditionalAnalysesPtrOutput() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAdditionalAnalysesPtrOutput) ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAdditionalAnalysesPtrOutput) Elem() ConfiguredTableAdditionalAnalysesOutput {
+	return o.ApplyT(func(v *ConfiguredTableAdditionalAnalyses) ConfiguredTableAdditionalAnalyses {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAdditionalAnalyses
+		return ret
+	}).(ConfiguredTableAdditionalAnalysesOutput)
+}
+
+func (o ConfiguredTableAdditionalAnalysesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAdditionalAnalysesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAdditionalAnalyses) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAdditionalAnalysesInput is an input type that accepts values of the ConfiguredTableAdditionalAnalyses enum
+// A concrete instance of `ConfiguredTableAdditionalAnalysesInput` can be one of the following:
+//
+//	ConfiguredTableAdditionalAnalysesAllowed
+//	ConfiguredTableAdditionalAnalysesRequired
+//	ConfiguredTableAdditionalAnalysesNotAllowed
+type ConfiguredTableAdditionalAnalysesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAdditionalAnalysesOutput() ConfiguredTableAdditionalAnalysesOutput
+	ToConfiguredTableAdditionalAnalysesOutputWithContext(context.Context) ConfiguredTableAdditionalAnalysesOutput
+}
+
+var configuredTableAdditionalAnalysesPtrType = reflect.TypeOf((**ConfiguredTableAdditionalAnalyses)(nil)).Elem()
+
+type ConfiguredTableAdditionalAnalysesPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAdditionalAnalysesPtrOutput() ConfiguredTableAdditionalAnalysesPtrOutput
+	ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(context.Context) ConfiguredTableAdditionalAnalysesPtrOutput
+}
+
+type configuredTableAdditionalAnalysesPtr string
+
+func ConfiguredTableAdditionalAnalysesPtr(v string) ConfiguredTableAdditionalAnalysesPtrInput {
+	return (*configuredTableAdditionalAnalysesPtr)(&v)
+}
+
+func (*configuredTableAdditionalAnalysesPtr) ElementType() reflect.Type {
+	return configuredTableAdditionalAnalysesPtrType
+}
+
+func (in *configuredTableAdditionalAnalysesPtr) ToConfiguredTableAdditionalAnalysesPtrOutput() ConfiguredTableAdditionalAnalysesPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAdditionalAnalysesPtrOutput)
+}
+
+func (in *configuredTableAdditionalAnalysesPtr) ToConfiguredTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) ConfiguredTableAdditionalAnalysesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAdditionalAnalysesPtrOutput)
+}
+
 type ConfiguredTableAggregateFunctionName string
 
 const (
@@ -1403,6 +1570,173 @@ func (in *configuredTableAnalysisRuleTypePtr) ToConfiguredTableAnalysisRuleTypeP
 
 func (in *configuredTableAnalysisRuleTypePtr) ToConfiguredTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAnalysisRuleTypePtrOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleType string
+
+const (
+	ConfiguredTableAssociationAnalysisRuleTypeAggregation = ConfiguredTableAssociationAnalysisRuleType("AGGREGATION")
+	ConfiguredTableAssociationAnalysisRuleTypeList        = ConfiguredTableAssociationAnalysisRuleType("LIST")
+	ConfiguredTableAssociationAnalysisRuleTypeCustom      = ConfiguredTableAssociationAnalysisRuleType("CUSTOM")
+)
+
+func (ConfiguredTableAssociationAnalysisRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleType)(nil)).Elem()
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToConfiguredTableAssociationAnalysisRuleTypeOutput() ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAssociationAnalysisRuleTypeOutput)
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToConfiguredTableAssociationAnalysisRuleTypeOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAssociationAnalysisRuleTypeOutput)
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToConfiguredTableAssociationAnalysisRuleTypePtrOutput() ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return e.ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return ConfiguredTableAssociationAnalysisRuleType(e).ToConfiguredTableAssociationAnalysisRuleTypeOutputWithContext(ctx).ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAssociationAnalysisRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAssociationAnalysisRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToConfiguredTableAssociationAnalysisRuleTypeOutput() ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToConfiguredTableAssociationAnalysisRuleTypeOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToConfiguredTableAssociationAnalysisRuleTypePtrOutput() ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return o.ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAssociationAnalysisRuleType) *ConfiguredTableAssociationAnalysisRuleType {
+		return &v
+	}).(ConfiguredTableAssociationAnalysisRuleTypePtrOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAssociationAnalysisRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAssociationAnalysisRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAssociationAnalysisRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAssociationAnalysisRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAssociationAnalysisRuleType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypePtrOutput) ToConfiguredTableAssociationAnalysisRuleTypePtrOutput() ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypePtrOutput) ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypePtrOutput) Elem() ConfiguredTableAssociationAnalysisRuleTypeOutput {
+	return o.ApplyT(func(v *ConfiguredTableAssociationAnalysisRuleType) ConfiguredTableAssociationAnalysisRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAssociationAnalysisRuleType
+		return ret
+	}).(ConfiguredTableAssociationAnalysisRuleTypeOutput)
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAssociationAnalysisRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAssociationAnalysisRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAssociationAnalysisRuleTypeInput is an input type that accepts values of the ConfiguredTableAssociationAnalysisRuleType enum
+// A concrete instance of `ConfiguredTableAssociationAnalysisRuleTypeInput` can be one of the following:
+//
+//	ConfiguredTableAssociationAnalysisRuleTypeAggregation
+//	ConfiguredTableAssociationAnalysisRuleTypeList
+//	ConfiguredTableAssociationAnalysisRuleTypeCustom
+type ConfiguredTableAssociationAnalysisRuleTypeInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleTypeOutput() ConfiguredTableAssociationAnalysisRuleTypeOutput
+	ToConfiguredTableAssociationAnalysisRuleTypeOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleTypeOutput
+}
+
+var configuredTableAssociationAnalysisRuleTypePtrType = reflect.TypeOf((**ConfiguredTableAssociationAnalysisRuleType)(nil)).Elem()
+
+type ConfiguredTableAssociationAnalysisRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAssociationAnalysisRuleTypePtrOutput() ConfiguredTableAssociationAnalysisRuleTypePtrOutput
+	ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput
+}
+
+type configuredTableAssociationAnalysisRuleTypePtr string
+
+func ConfiguredTableAssociationAnalysisRuleTypePtr(v string) ConfiguredTableAssociationAnalysisRuleTypePtrInput {
+	return (*configuredTableAssociationAnalysisRuleTypePtr)(&v)
+}
+
+func (*configuredTableAssociationAnalysisRuleTypePtr) ElementType() reflect.Type {
+	return configuredTableAssociationAnalysisRuleTypePtrType
+}
+
+func (in *configuredTableAssociationAnalysisRuleTypePtr) ToConfiguredTableAssociationAnalysisRuleTypePtrOutput() ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAssociationAnalysisRuleTypePtrOutput)
+}
+
+func (in *configuredTableAssociationAnalysisRuleTypePtr) ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAssociationAnalysisRuleTypePtrOutput)
 }
 
 type ConfiguredTableJoinOperator string
@@ -2704,6 +3038,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusPtrInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAdditionalAnalysesInput)(nil)).Elem(), ConfiguredTableAdditionalAnalyses("ALLOWED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAdditionalAnalysesPtrInput)(nil)).Elem(), ConfiguredTableAdditionalAnalyses("ALLOWED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNameInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNamePtrInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationTypeInput)(nil)).Elem(), ConfiguredTableAggregationType("COUNT_DISTINCT"))
@@ -2712,6 +3048,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisMethodPtrInput)(nil)).Elem(), ConfiguredTableAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypeInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleTypeInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleType("AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorPtrInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorArrayInput)(nil)).Elem(), ConfiguredTableJoinOperatorArray{})
@@ -2737,6 +3075,8 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAdditionalAnalysesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAdditionalAnalysesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNameOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNamePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationTypeOutput{})
@@ -2745,6 +3085,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypeOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleTypeOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorArrayOutput{})

@@ -28,7 +28,7 @@ type Queue struct {
 	// The display name of the queue summary to update.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The farm ID.
-	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
 	// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
 	JobAttachmentSettings QueueJobAttachmentSettingsPtrOutput `pulumi:"jobAttachmentSettings"`
 	// Identifies the user for a job.
@@ -52,6 +52,9 @@ func NewQueue(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.FarmId == nil {
+		return nil, errors.New("invalid value for required argument 'FarmId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"farmId",
@@ -99,7 +102,7 @@ type queueArgs struct {
 	// The display name of the queue summary to update.
 	DisplayName string `pulumi:"displayName"`
 	// The farm ID.
-	FarmId *string `pulumi:"farmId"`
+	FarmId string `pulumi:"farmId"`
 	// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
 	JobAttachmentSettings *QueueJobAttachmentSettings `pulumi:"jobAttachmentSettings"`
 	// Identifies the user for a job.
@@ -123,7 +126,7 @@ type QueueArgs struct {
 	// The display name of the queue summary to update.
 	DisplayName pulumi.StringInput
 	// The farm ID.
-	FarmId pulumi.StringPtrInput
+	FarmId pulumi.StringInput
 	// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
 	JobAttachmentSettings QueueJobAttachmentSettingsPtrInput
 	// Identifies the user for a job.
@@ -199,8 +202,8 @@ func (o QueueOutput) DisplayName() pulumi.StringOutput {
 }
 
 // The farm ID.
-func (o QueueOutput) FarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
+func (o QueueOutput) FarmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
 // The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.

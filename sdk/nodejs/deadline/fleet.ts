@@ -57,7 +57,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The farm ID.
      */
-    public readonly farmId!: pulumi.Output<string | undefined>;
+    public readonly farmId!: pulumi.Output<string>;
     /**
      * The fleet ID.
      */
@@ -103,6 +103,9 @@ export class Fleet extends pulumi.CustomResource {
             }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if ((!args || args.farmId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'farmId'");
             }
             if ((!args || args.maxWorkerCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxWorkerCount'");
@@ -164,7 +167,7 @@ export interface FleetArgs {
     /**
      * The farm ID.
      */
-    farmId?: pulumi.Input<string>;
+    farmId: pulumi.Input<string>;
     /**
      * The maximum number of workers specified in the fleet.
      */

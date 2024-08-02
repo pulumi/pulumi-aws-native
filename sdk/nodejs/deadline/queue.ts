@@ -60,7 +60,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The farm ID.
      */
-    public readonly farmId!: pulumi.Output<string | undefined>;
+    public readonly farmId!: pulumi.Output<string>;
     /**
      * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
      */
@@ -99,6 +99,9 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if ((!args || args.farmId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'farmId'");
             }
             resourceInputs["allowedStorageProfileIds"] = args ? args.allowedStorageProfileIds : undefined;
             resourceInputs["defaultBudgetAction"] = args ? args.defaultBudgetAction : undefined;
@@ -156,7 +159,7 @@ export interface QueueArgs {
     /**
      * The farm ID.
      */
-    farmId?: pulumi.Input<string>;
+    farmId: pulumi.Input<string>;
     /**
      * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
      */

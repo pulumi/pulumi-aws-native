@@ -132,7 +132,6 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
             __props__.__dict__["member_type"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_type"] = None
-            __props__.__dict__["source_type"] = None
             __props__.__dict__["subnet_id"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupIpAddress", "networkInterfaceId", "transitGatewayMulticastDomainId"])
@@ -166,7 +165,6 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["resource_type"] = None
-        __props__.__dict__["source_type"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_multicast_domain_id"] = None
@@ -227,14 +225,6 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
         The type of resource, for example a VPC attachment.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> pulumi.Output[str]:
-        """
-        The source type.
-        """
-        return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="subnetId")

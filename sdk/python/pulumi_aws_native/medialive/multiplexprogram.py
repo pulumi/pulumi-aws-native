@@ -17,7 +17,6 @@ __all__ = ['MultiplexprogramArgs', 'Multiplexprogram']
 @pulumi.input_type
 class MultiplexprogramArgs:
     def __init__(__self__, *,
-                 channel_id: Optional[pulumi.Input[str]] = None,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs']] = None,
                  packet_identifiers_map: Optional[pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']] = None,
@@ -26,7 +25,6 @@ class MultiplexprogramArgs:
                  program_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Multiplexprogram resource.
-        :param pulumi.Input[str] channel_id: The MediaLive channel associated with the program.
         :param pulumi.Input[str] multiplex_id: The ID of the multiplex that the program belongs to.
         :param pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs'] multiplex_program_settings: The settings for this multiplex program.
         :param pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs'] packet_identifiers_map: The packet identifier map for this multiplex program.
@@ -34,8 +32,6 @@ class MultiplexprogramArgs:
         :param pulumi.Input['MultiplexprogramPreferredChannelPipeline'] preferred_channel_pipeline: The settings for this multiplex program.
         :param pulumi.Input[str] program_name: The name of the multiplex program.
         """
-        if channel_id is not None:
-            pulumi.set(__self__, "channel_id", channel_id)
         if multiplex_id is not None:
             pulumi.set(__self__, "multiplex_id", multiplex_id)
         if multiplex_program_settings is not None:
@@ -48,18 +44,6 @@ class MultiplexprogramArgs:
             pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
         if program_name is not None:
             pulumi.set(__self__, "program_name", program_name)
-
-    @property
-    @pulumi.getter(name="channelId")
-    def channel_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MediaLive channel associated with the program.
-        """
-        return pulumi.get(self, "channel_id")
-
-    @channel_id.setter
-    def channel_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "channel_id", value)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -139,7 +123,6 @@ class Multiplexprogram(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_id: Optional[pulumi.Input[str]] = None,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
                  packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
@@ -152,7 +135,6 @@ class Multiplexprogram(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] channel_id: The MediaLive channel associated with the program.
         :param pulumi.Input[str] multiplex_id: The ID of the multiplex that the program belongs to.
         :param pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']] multiplex_program_settings: The settings for this multiplex program.
         :param pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']] packet_identifiers_map: The packet identifier map for this multiplex program.
@@ -184,7 +166,6 @@ class Multiplexprogram(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_id: Optional[pulumi.Input[str]] = None,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
                  packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
@@ -200,13 +181,13 @@ class Multiplexprogram(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MultiplexprogramArgs.__new__(MultiplexprogramArgs)
 
-            __props__.__dict__["channel_id"] = channel_id
             __props__.__dict__["multiplex_id"] = multiplex_id
             __props__.__dict__["multiplex_program_settings"] = multiplex_program_settings
             __props__.__dict__["packet_identifiers_map"] = packet_identifiers_map
             __props__.__dict__["pipeline_details"] = pipeline_details
             __props__.__dict__["preferred_channel_pipeline"] = preferred_channel_pipeline
             __props__.__dict__["program_name"] = program_name
+            __props__.__dict__["channel_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["multiplexId", "programName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Multiplexprogram, __self__).__init__(
@@ -242,7 +223,7 @@ class Multiplexprogram(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelId")
-    def channel_id(self) -> pulumi.Output[Optional[str]]:
+    def channel_id(self) -> pulumi.Output[str]:
         """
         The MediaLive channel associated with the program.
         """

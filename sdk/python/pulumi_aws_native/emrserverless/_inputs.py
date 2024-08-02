@@ -18,6 +18,7 @@ __all__ = [
     'ApplicationImageConfigurationInputArgs',
     'ApplicationInitialCapacityConfigKeyValuePairArgs',
     'ApplicationInitialCapacityConfigArgs',
+    'ApplicationInteractiveConfigurationArgs',
     'ApplicationLogTypeMapKeyValuePairArgs',
     'ApplicationManagedPersistenceMonitoringConfigurationArgs',
     'ApplicationMaximumAllowedResourcesArgs',
@@ -314,6 +315,45 @@ class ApplicationInitialCapacityConfigArgs:
     @worker_count.setter
     def worker_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class ApplicationInteractiveConfigurationArgs:
+    def __init__(__self__, *,
+                 livy_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 studio_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+        :param pulumi.Input[bool] studio_enabled: Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
+        """
+        if livy_endpoint_enabled is not None:
+            pulumi.set(__self__, "livy_endpoint_enabled", livy_endpoint_enabled)
+        if studio_enabled is not None:
+            pulumi.set(__self__, "studio_enabled", studio_enabled)
+
+    @property
+    @pulumi.getter(name="livyEndpointEnabled")
+    def livy_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+        """
+        return pulumi.get(self, "livy_endpoint_enabled")
+
+    @livy_endpoint_enabled.setter
+    def livy_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "livy_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="studioEnabled")
+    def studio_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
+        """
+        return pulumi.get(self, "studio_enabled")
+
+    @studio_enabled.setter
+    def studio_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "studio_enabled", value)
 
 
 @pulumi.input_type

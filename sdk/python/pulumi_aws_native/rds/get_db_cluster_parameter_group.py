@@ -41,7 +41,7 @@ class GetDbClusterParameterGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An optional array of key-value pairs to apply to this DB cluster parameter group.
+        Tags to assign to the DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
@@ -62,14 +62,13 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[str
     The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
      For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
       If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
-     If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
+     If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
 
     :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
             Constraints:
              +  Must not match the name of an existing DB cluster parameter group.
              
-            If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
              This value is stored as a lowercase string.
     """
     __args__ = dict()
@@ -89,14 +88,13 @@ def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optio
     The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
      For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
       If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
-     If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
+     If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
 
     :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
             Constraints:
              +  Must not match the name of an existing DB cluster parameter group.
              
-            If you don't specify a value for ``DBClusterParameterGroupName`` property, a name is automatically created for the DB cluster parameter group.
              This value is stored as a lowercase string.
     """
     ...

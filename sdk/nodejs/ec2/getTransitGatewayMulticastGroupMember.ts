@@ -54,10 +54,6 @@ export interface GetTransitGatewayMulticastGroupMemberResult {
      */
     readonly resourceType?: string;
     /**
-     * The source type.
-     */
-    readonly sourceType?: string;
-    /**
      * The ID of the subnet.
      */
     readonly subnetId?: string;

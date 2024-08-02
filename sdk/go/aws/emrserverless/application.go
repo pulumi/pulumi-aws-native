@@ -31,6 +31,8 @@ type Application struct {
 	ImageConfiguration ApplicationImageConfigurationInputPtrOutput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayOutput `pulumi:"initialCapacity"`
+	// The interactive configuration object that enables the interactive use cases for an application.
+	InteractiveConfiguration ApplicationInteractiveConfigurationPtrOutput `pulumi:"interactiveConfiguration"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity ApplicationMaximumAllowedResourcesPtrOutput `pulumi:"maximumCapacity"`
 	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
@@ -112,6 +114,8 @@ type applicationArgs struct {
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
+	// The interactive configuration object that enables the interactive use cases for an application.
+	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
 	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
@@ -144,6 +148,8 @@ type ApplicationArgs struct {
 	ImageConfiguration ApplicationImageConfigurationInputPtrInput
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayInput
+	// The interactive configuration object that enables the interactive use cases for an application.
+	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity ApplicationMaximumAllowedResourcesPtrInput
 	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
@@ -234,6 +240,11 @@ func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationInp
 // Initial capacity initialized when an Application is started.
 func (o ApplicationOutput) InitialCapacity() ApplicationInitialCapacityConfigKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationInitialCapacityConfigKeyValuePairArrayOutput { return v.InitialCapacity }).(ApplicationInitialCapacityConfigKeyValuePairArrayOutput)
+}
+
+// The interactive configuration object that enables the interactive use cases for an application.
+func (o ApplicationOutput) InteractiveConfiguration() ApplicationInteractiveConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationInteractiveConfigurationPtrOutput { return v.InteractiveConfiguration }).(ApplicationInteractiveConfigurationPtrOutput)
 }
 
 // Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.

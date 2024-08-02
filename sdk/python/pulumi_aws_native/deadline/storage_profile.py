@@ -18,20 +18,19 @@ __all__ = ['StorageProfileArgs', 'StorageProfile']
 class StorageProfileArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
+                 farm_id: pulumi.Input[str],
                  os_family: pulumi.Input['StorageProfileOperatingSystemFamily'],
-                 farm_id: Optional[pulumi.Input[str]] = None,
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]] = None):
         """
         The set of arguments for constructing a StorageProfile resource.
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
-        :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
+        :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         :param pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]] file_system_locations: Operating system specific file system path to the storage location.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "farm_id", farm_id)
         pulumi.set(__self__, "os_family", os_family)
-        if farm_id is not None:
-            pulumi.set(__self__, "farm_id", farm_id)
         if file_system_locations is not None:
             pulumi.set(__self__, "file_system_locations", file_system_locations)
 
@@ -48,6 +47,18 @@ class StorageProfileArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="farmId")
+    def farm_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the farm that contains the storage profile.
+        """
+        return pulumi.get(self, "farm_id")
+
+    @farm_id.setter
+    def farm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "farm_id", value)
+
+    @property
     @pulumi.getter(name="osFamily")
     def os_family(self) -> pulumi.Input['StorageProfileOperatingSystemFamily']:
         """
@@ -58,18 +69,6 @@ class StorageProfileArgs:
     @os_family.setter
     def os_family(self, value: pulumi.Input['StorageProfileOperatingSystemFamily']):
         pulumi.set(self, "os_family", value)
-
-    @property
-    @pulumi.getter(name="farmId")
-    def farm_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique identifier of the farm that contains the storage profile.
-        """
-        return pulumi.get(self, "farm_id")
-
-    @farm_id.setter
-    def farm_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "farm_id", value)
 
     @property
     @pulumi.getter(name="fileSystemLocations")
@@ -144,6 +143,8 @@ class StorageProfile(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if farm_id is None and not opts.urn:
+                raise TypeError("Missing required property 'farm_id'")
             __props__.__dict__["farm_id"] = farm_id
             __props__.__dict__["file_system_locations"] = file_system_locations
             if os_family is None and not opts.urn:
@@ -191,7 +192,7 @@ class StorageProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="farmId")
-    def farm_id(self) -> pulumi.Output[Optional[str]]:
+    def farm_id(self) -> pulumi.Output[str]:
         """
         The unique identifier of the farm that contains the storage profile.
         """

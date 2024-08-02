@@ -1865,6 +1865,39 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The approval status of the model card within your organization.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageModelCardModelCardStatus : IEquatable<ModelPackageModelCardModelCardStatus>
+    {
+        private readonly string _value;
+
+        private ModelPackageModelCardModelCardStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageModelCardModelCardStatus Draft { get; } = new ModelPackageModelCardModelCardStatus("Draft");
+        public static ModelPackageModelCardModelCardStatus PendingReview { get; } = new ModelPackageModelCardModelCardStatus("PendingReview");
+        public static ModelPackageModelCardModelCardStatus Approved { get; } = new ModelPackageModelCardModelCardStatus("Approved");
+        public static ModelPackageModelCardModelCardStatus Archived { get; } = new ModelPackageModelCardModelCardStatus("Archived");
+
+        public static bool operator ==(ModelPackageModelCardModelCardStatus left, ModelPackageModelCardModelCardStatus right) => left.Equals(right);
+        public static bool operator !=(ModelPackageModelCardModelCardStatus left, ModelPackageModelCardModelCardStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageModelCardModelCardStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageModelCardModelCardStatus other && Equals(other);
+        public bool Equals(ModelPackageModelCardModelCardStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The S3 Data Source Type
     /// </summary>
     [EnumType]
@@ -1889,6 +1922,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelPackageS3DataSourceS3DataType other && Equals(other);
         public bool Equals(ModelPackageS3DataSourceS3DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the ML model data is prepared.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageS3ModelDataSourceCompressionType : IEquatable<ModelPackageS3ModelDataSourceCompressionType>
+    {
+        private readonly string _value;
+
+        private ModelPackageS3ModelDataSourceCompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageS3ModelDataSourceCompressionType None { get; } = new ModelPackageS3ModelDataSourceCompressionType("None");
+        public static ModelPackageS3ModelDataSourceCompressionType Gzip { get; } = new ModelPackageS3ModelDataSourceCompressionType("Gzip");
+
+        public static bool operator ==(ModelPackageS3ModelDataSourceCompressionType left, ModelPackageS3ModelDataSourceCompressionType right) => left.Equals(right);
+        public static bool operator !=(ModelPackageS3ModelDataSourceCompressionType left, ModelPackageS3ModelDataSourceCompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageS3ModelDataSourceCompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageS3ModelDataSourceCompressionType other && Equals(other);
+        public bool Equals(ModelPackageS3ModelDataSourceCompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of ML model data to deploy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageS3ModelDataSourceS3DataType : IEquatable<ModelPackageS3ModelDataSourceS3DataType>
+    {
+        private readonly string _value;
+
+        private ModelPackageS3ModelDataSourceS3DataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageS3ModelDataSourceS3DataType S3Prefix { get; } = new ModelPackageS3ModelDataSourceS3DataType("S3Prefix");
+        public static ModelPackageS3ModelDataSourceS3DataType S3Object { get; } = new ModelPackageS3ModelDataSourceS3DataType("S3Object");
+
+        public static bool operator ==(ModelPackageS3ModelDataSourceS3DataType left, ModelPackageS3ModelDataSourceS3DataType right) => left.Equals(right);
+        public static bool operator !=(ModelPackageS3ModelDataSourceS3DataType left, ModelPackageS3ModelDataSourceS3DataType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageS3ModelDataSourceS3DataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageS3ModelDataSourceS3DataType other && Equals(other);
+        public bool Equals(ModelPackageS3ModelDataSourceS3DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

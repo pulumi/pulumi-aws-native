@@ -47,10 +47,6 @@ export class TransitGatewayMulticastGroupSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly groupSource!: pulumi.Output<boolean>;
     /**
-     * The member type (for example, static).
-     */
-    public /*out*/ readonly memberType!: pulumi.Output<string>;
-    /**
      * The ID of the transit gateway attachment.
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
@@ -104,7 +100,6 @@ export class TransitGatewayMulticastGroupSource extends pulumi.CustomResource {
             resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
             resourceInputs["groupMember"] = undefined /*out*/;
             resourceInputs["groupSource"] = undefined /*out*/;
-            resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["sourceType"] = undefined /*out*/;
@@ -114,7 +109,6 @@ export class TransitGatewayMulticastGroupSource extends pulumi.CustomResource {
             resourceInputs["groupIpAddress"] = undefined /*out*/;
             resourceInputs["groupMember"] = undefined /*out*/;
             resourceInputs["groupSource"] = undefined /*out*/;
-            resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;

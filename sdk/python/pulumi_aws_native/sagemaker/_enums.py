@@ -60,7 +60,10 @@ __all__ = [
     'ModelExplainabilityJobDefinitionS3OutputS3UploadMode',
     'ModelPackageGroupStatus',
     'ModelPackageModelApprovalStatus',
+    'ModelPackageModelCardModelCardStatus',
     'ModelPackageS3DataSourceS3DataType',
+    'ModelPackageS3ModelDataSourceCompressionType',
+    'ModelPackageS3ModelDataSourceS3DataType',
     'ModelPackageSkipModelValidation',
     'ModelPackageStatus',
     'ModelPackageStatusItemStatus',
@@ -689,6 +692,16 @@ class ModelPackageModelApprovalStatus(str, Enum):
     PENDING_MANUAL_APPROVAL = "PendingManualApproval"
 
 
+class ModelPackageModelCardModelCardStatus(str, Enum):
+    """
+    The approval status of the model card within your organization.
+    """
+    DRAFT = "Draft"
+    PENDING_REVIEW = "PendingReview"
+    APPROVED = "Approved"
+    ARCHIVED = "Archived"
+
+
 class ModelPackageS3DataSourceS3DataType(str, Enum):
     """
     The S3 Data Source Type
@@ -696,6 +709,22 @@ class ModelPackageS3DataSourceS3DataType(str, Enum):
     MANIFEST_FILE = "ManifestFile"
     S3_PREFIX = "S3Prefix"
     AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile"
+
+
+class ModelPackageS3ModelDataSourceCompressionType(str, Enum):
+    """
+    Specifies how the ML model data is prepared.
+    """
+    NONE = "None"
+    GZIP = "Gzip"
+
+
+class ModelPackageS3ModelDataSourceS3DataType(str, Enum):
+    """
+    Specifies the type of ML model data to deploy.
+    """
+    S3_PREFIX = "S3Prefix"
+    S3_OBJECT = "S3Object"
 
 
 class ModelPackageSkipModelValidation(str, Enum):

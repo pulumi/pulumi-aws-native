@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, tags=None, worker_type_specifications=None):
+    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, interactive_configuration=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, tags=None, worker_type_specifications=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -43,6 +43,9 @@ class GetApplicationResult:
         if initial_capacity and not isinstance(initial_capacity, list):
             raise TypeError("Expected argument 'initial_capacity' to be a list")
         pulumi.set(__self__, "initial_capacity", initial_capacity)
+        if interactive_configuration and not isinstance(interactive_configuration, dict):
+            raise TypeError("Expected argument 'interactive_configuration' to be a dict")
+        pulumi.set(__self__, "interactive_configuration", interactive_configuration)
         if maximum_capacity and not isinstance(maximum_capacity, dict):
             raise TypeError("Expected argument 'maximum_capacity' to be a dict")
         pulumi.set(__self__, "maximum_capacity", maximum_capacity)
@@ -122,6 +125,14 @@ class GetApplicationResult:
         return pulumi.get(self, "initial_capacity")
 
     @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> Optional['outputs.ApplicationInteractiveConfiguration']:
+        """
+        The interactive configuration object that enables the interactive use cases for an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
+
+    @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional['outputs.ApplicationMaximumAllowedResources']:
         """
@@ -191,6 +202,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             auto_stop_configuration=self.auto_stop_configuration,
             image_configuration=self.image_configuration,
             initial_capacity=self.initial_capacity,
+            interactive_configuration=self.interactive_configuration,
             maximum_capacity=self.maximum_capacity,
             monitoring_configuration=self.monitoring_configuration,
             network_configuration=self.network_configuration,
@@ -221,6 +233,7 @@ def get_application(application_id: Optional[str] = None,
         auto_stop_configuration=pulumi.get(__ret__, 'auto_stop_configuration'),
         image_configuration=pulumi.get(__ret__, 'image_configuration'),
         initial_capacity=pulumi.get(__ret__, 'initial_capacity'),
+        interactive_configuration=pulumi.get(__ret__, 'interactive_configuration'),
         maximum_capacity=pulumi.get(__ret__, 'maximum_capacity'),
         monitoring_configuration=pulumi.get(__ret__, 'monitoring_configuration'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),

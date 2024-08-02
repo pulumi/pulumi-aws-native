@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConfiguredTableAssociationAnalysisRule> ConfiguredTableAssociationAnalysisRules;
+        /// <summary>
         /// Returns the unique identifier of the specified configured table association.
         /// 
         /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.CleanRooms
         private GetConfiguredTableAssociationResult(
             string? arn,
 
+            ImmutableArray<Outputs.ConfiguredTableAssociationAnalysisRule> configuredTableAssociationAnalysisRules,
+
             string? configuredTableAssociationIdentifier,
 
             string? description,
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.CleanRooms
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            ConfiguredTableAssociationAnalysisRules = configuredTableAssociationAnalysisRules;
             ConfiguredTableAssociationIdentifier = configuredTableAssociationIdentifier;
             Description = description;
             RoleArn = roleArn;

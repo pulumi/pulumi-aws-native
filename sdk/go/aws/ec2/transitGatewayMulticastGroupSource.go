@@ -22,8 +22,6 @@ type TransitGatewayMulticastGroupSource struct {
 	GroupMember pulumi.BoolOutput `pulumi:"groupMember"`
 	// Indicates that the resource is a transit gateway multicast group member.
 	GroupSource pulumi.BoolOutput `pulumi:"groupSource"`
-	// The member type (for example, static).
-	MemberType pulumi.StringOutput `pulumi:"memberType"`
 	// The ID of the transit gateway attachment.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The ID of the resource.
@@ -163,11 +161,6 @@ func (o TransitGatewayMulticastGroupSourceOutput) GroupMember() pulumi.BoolOutpu
 // Indicates that the resource is a transit gateway multicast group member.
 func (o TransitGatewayMulticastGroupSourceOutput) GroupSource() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.BoolOutput { return v.GroupSource }).(pulumi.BoolOutput)
-}
-
-// The member type (for example, static).
-func (o TransitGatewayMulticastGroupSourceOutput) MemberType() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
 }
 
 // The ID of the transit gateway attachment.

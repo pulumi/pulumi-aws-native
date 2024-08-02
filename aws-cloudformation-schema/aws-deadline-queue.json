@@ -175,7 +175,7 @@
       "uniqueItems" : true
     }
   },
-  "required" : [ "DisplayName" ],
+  "required" : [ "DisplayName", "FarmId" ],
   "readOnlyProperties" : [ "/properties/QueueId", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/FarmId" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

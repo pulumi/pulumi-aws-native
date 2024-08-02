@@ -31,8 +31,12 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// The name for the DB subnet group. This value is stored as a lowercase string.
-        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-        ///  Example: ``mysubnetgroup``
+        ///  Constraints:
+        ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+        ///   +  Must not be default.
+        ///   +  First character must be a letter.
+        ///   
+        ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName", required: true)]
         public string DbSubnetGroupName { get; set; } = null!;
@@ -47,8 +51,12 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// The name for the DB subnet group. This value is stored as a lowercase string.
-        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-        ///  Example: ``mysubnetgroup``
+        ///  Constraints:
+        ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+        ///   +  Must not be default.
+        ///   +  First character must be a letter.
+        ///   
+        ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName", required: true)]
         public Input<string> DbSubnetGroupName { get; set; } = null!;
@@ -68,7 +76,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? DbSubnetGroupDescription;
         /// <summary>
-        /// An optional array of key-value pairs to apply to this DB subnet group.
+        /// Tags to assign to the DB subnet group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

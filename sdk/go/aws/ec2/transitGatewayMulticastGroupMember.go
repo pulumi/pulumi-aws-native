@@ -30,8 +30,6 @@ type TransitGatewayMulticastGroupMember struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The type of resource, for example a VPC attachment.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// The source type.
-	SourceType pulumi.StringOutput `pulumi:"sourceType"`
 	// The ID of the subnet.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
@@ -183,11 +181,6 @@ func (o TransitGatewayMulticastGroupMemberOutput) ResourceId() pulumi.StringOutp
 // The type of resource, for example a VPC attachment.
 func (o TransitGatewayMulticastGroupMemberOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayMulticastGroupMember) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
-}
-
-// The source type.
-func (o TransitGatewayMulticastGroupMemberOutput) SourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayMulticastGroupMember) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
 // The ID of the subnet.

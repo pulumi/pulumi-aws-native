@@ -93,6 +93,7 @@ export class ModelPackage extends pulumi.CustomResource {
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
     public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
+    public readonly modelCard!: pulumi.Output<outputs.sagemaker.ModelPackageModelCard | undefined>;
     /**
      * Metrics for the model.
      */
@@ -135,6 +136,7 @@ export class ModelPackage extends pulumi.CustomResource {
      * The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
      */
     public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
+    public readonly securityConfig!: pulumi.Output<outputs.sagemaker.ModelPackageSecurityConfig | undefined>;
     /**
      * Indicates if you want to skip model validation.
      */
@@ -143,6 +145,7 @@ export class ModelPackage extends pulumi.CustomResource {
      * A list of algorithms that were used to create a model package.
      */
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
+    public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -179,6 +182,7 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
             resourceInputs["metadataProperties"] = args ? args.metadataProperties : undefined;
             resourceInputs["modelApprovalStatus"] = args ? args.modelApprovalStatus : undefined;
+            resourceInputs["modelCard"] = args ? args.modelCard : undefined;
             resourceInputs["modelMetrics"] = args ? args.modelMetrics : undefined;
             resourceInputs["modelPackageDescription"] = args ? args.modelPackageDescription : undefined;
             resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
@@ -186,8 +190,10 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageStatusDetails"] = args ? args.modelPackageStatusDetails : undefined;
             resourceInputs["modelPackageVersion"] = args ? args.modelPackageVersion : undefined;
             resourceInputs["samplePayloadUrl"] = args ? args.samplePayloadUrl : undefined;
+            resourceInputs["securityConfig"] = args ? args.securityConfig : undefined;
             resourceInputs["skipModelValidation"] = args ? args.skipModelValidation : undefined;
             resourceInputs["sourceAlgorithmSpecification"] = args ? args.sourceAlgorithmSpecification : undefined;
+            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["task"] = args ? args.task : undefined;
             resourceInputs["validationSpecification"] = args ? args.validationSpecification : undefined;
@@ -208,6 +214,7 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["metadataProperties"] = undefined /*out*/;
             resourceInputs["modelApprovalStatus"] = undefined /*out*/;
+            resourceInputs["modelCard"] = undefined /*out*/;
             resourceInputs["modelMetrics"] = undefined /*out*/;
             resourceInputs["modelPackageArn"] = undefined /*out*/;
             resourceInputs["modelPackageDescription"] = undefined /*out*/;
@@ -217,14 +224,16 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageStatusDetails"] = undefined /*out*/;
             resourceInputs["modelPackageVersion"] = undefined /*out*/;
             resourceInputs["samplePayloadUrl"] = undefined /*out*/;
+            resourceInputs["securityConfig"] = undefined /*out*/;
             resourceInputs["skipModelValidation"] = undefined /*out*/;
             resourceInputs["sourceAlgorithmSpecification"] = undefined /*out*/;
+            resourceInputs["sourceUri"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["task"] = undefined /*out*/;
             resourceInputs["validationSpecification"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "sourceAlgorithmSpecification", "task", "validationSpecification"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "securityConfig", "sourceAlgorithmSpecification", "task", "validationSpecification"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ModelPackage.__pulumiType, name, resourceInputs, opts);
     }
@@ -286,6 +295,7 @@ export interface ModelPackageArgs {
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
     modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelPackageModelApprovalStatus>;
+    modelCard?: pulumi.Input<inputs.sagemaker.ModelPackageModelCardArgs>;
     /**
      * Metrics for the model.
      */
@@ -314,6 +324,7 @@ export interface ModelPackageArgs {
      * The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
      */
     samplePayloadUrl?: pulumi.Input<string>;
+    securityConfig?: pulumi.Input<inputs.sagemaker.ModelPackageSecurityConfigArgs>;
     /**
      * Indicates if you want to skip model validation.
      */
@@ -322,6 +333,7 @@ export interface ModelPackageArgs {
      * A list of algorithms that were used to create a model package.
      */
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;
+    sourceUri?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

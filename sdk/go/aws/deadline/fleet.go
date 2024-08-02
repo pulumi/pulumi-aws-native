@@ -27,7 +27,7 @@ type Fleet struct {
 	// The display name of the fleet summary to update.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The farm ID.
-	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
 	// The fleet ID.
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
 	// The maximum number of workers specified in the fleet.
@@ -56,6 +56,9 @@ func NewFleet(ctx *pulumi.Context,
 	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.FarmId == nil {
+		return nil, errors.New("invalid value for required argument 'FarmId'")
 	}
 	if args.MaxWorkerCount == nil {
 		return nil, errors.New("invalid value for required argument 'MaxWorkerCount'")
@@ -107,7 +110,7 @@ type fleetArgs struct {
 	// The display name of the fleet summary to update.
 	DisplayName string `pulumi:"displayName"`
 	// The farm ID.
-	FarmId *string `pulumi:"farmId"`
+	FarmId string `pulumi:"farmId"`
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount int `pulumi:"maxWorkerCount"`
 	// The minimum number of workers in the fleet.
@@ -127,7 +130,7 @@ type FleetArgs struct {
 	// The display name of the fleet summary to update.
 	DisplayName pulumi.StringInput
 	// The farm ID.
-	FarmId pulumi.StringPtrInput
+	FarmId pulumi.StringInput
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount pulumi.IntInput
 	// The minimum number of workers in the fleet.
@@ -200,8 +203,8 @@ func (o FleetOutput) DisplayName() pulumi.StringOutput {
 }
 
 // The farm ID.
-func (o FleetOutput) FarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
+func (o FleetOutput) FarmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
 // The fleet ID.

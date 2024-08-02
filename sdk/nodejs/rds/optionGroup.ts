@@ -58,7 +58,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly majorEngineVersion!: pulumi.Output<string>;
     /**
-     * A list of options and the settings for each option.
+     * A list of all available options
      */
     public readonly optionConfigurations!: pulumi.Output<outputs.rds.OptionGroupOptionConfiguration[] | undefined>;
     /**
@@ -78,7 +78,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly optionGroupName!: pulumi.Output<string | undefined>;
     /**
-     * An optional array of key-value pairs to apply to this option group.
+     * Tags to assign to the option group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -148,7 +148,7 @@ export interface OptionGroupArgs {
      */
     majorEngineVersion: pulumi.Input<string>;
     /**
-     * A list of options and the settings for each option.
+     * A list of all available options
      */
     optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[]>;
     /**
@@ -168,7 +168,7 @@ export interface OptionGroupArgs {
      */
     optionGroupName?: pulumi.Input<string>;
     /**
-     * An optional array of key-value pairs to apply to this option group.
+     * Tags to assign to the option group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

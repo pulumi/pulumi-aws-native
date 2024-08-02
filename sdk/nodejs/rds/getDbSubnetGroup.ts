@@ -22,8 +22,12 @@ export function getDbSubnetGroup(args: GetDbSubnetGroupArgs, opts?: pulumi.Invok
 export interface GetDbSubnetGroupArgs {
     /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
-     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-     *  Example: ``mysubnetgroup``
+     *  Constraints:
+     *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+     *   +  Must not be default.
+     *   +  First character must be a letter.
+     *   
+     *  Example: ``mydbsubnetgroup``
      */
     dbSubnetGroupName: string;
 }
@@ -34,7 +38,7 @@ export interface GetDbSubnetGroupResult {
      */
     readonly dbSubnetGroupDescription?: string;
     /**
-     * An optional array of key-value pairs to apply to this DB subnet group.
+     * Tags to assign to the DB subnet group.
      */
     readonly tags?: outputs.Tag[];
 }
@@ -49,8 +53,12 @@ export function getDbSubnetGroupOutput(args: GetDbSubnetGroupOutputArgs, opts?: 
 export interface GetDbSubnetGroupOutputArgs {
     /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
-     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-     *  Example: ``mysubnetgroup``
+     *  Constraints:
+     *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+     *   +  Must not be default.
+     *   +  First character must be a letter.
+     *   
+     *  Example: ``mydbsubnetgroup``
      */
     dbSubnetGroupName: pulumi.Input<string>;
 }

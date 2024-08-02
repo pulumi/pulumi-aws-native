@@ -26,6 +26,7 @@ class ApplicationArgs:
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
+                 interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumAllowedResourcesArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: Configuration for Auto Stop of Application.
         :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]] initial_capacity: Initial capacity initialized when an Application is started.
+        :param pulumi.Input['ApplicationInteractiveConfigurationArgs'] interactive_configuration: The interactive configuration object that enables the interactive use cases for an application.
         :param pulumi.Input['ApplicationMaximumAllowedResourcesArgs'] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         :param pulumi.Input['ApplicationMonitoringConfigurationArgs'] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         :param pulumi.Input[str] name: User friendly Application name.
@@ -62,6 +64,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacity is not None:
             pulumi.set(__self__, "initial_capacity", initial_capacity)
+        if interactive_configuration is not None:
+            pulumi.set(__self__, "interactive_configuration", interactive_configuration)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if monitoring_configuration is not None:
@@ -162,6 +166,18 @@ class ApplicationArgs:
         pulumi.set(self, "initial_capacity", value)
 
     @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]:
+        """
+        The interactive configuration object that enables the interactive use cases for an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
+
+    @interactive_configuration.setter
+    def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
+        pulumi.set(self, "interactive_configuration", value)
+
+    @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumAllowedResourcesArgs']]:
         """
@@ -256,6 +272,7 @@ class Application(pulumi.CustomResource):
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
+                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']]] = None,
                  monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -276,6 +293,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']] auto_stop_configuration: Configuration for Auto Stop of Application.
         :param pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]] initial_capacity: Initial capacity initialized when an Application is started.
+        :param pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']] interactive_configuration: The interactive configuration object that enables the interactive use cases for an application.
         :param pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         :param pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         :param pulumi.Input[str] name: User friendly Application name.
@@ -315,6 +333,7 @@ class Application(pulumi.CustomResource):
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
+                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumAllowedResourcesArgs', 'ApplicationMaximumAllowedResourcesArgsDict']]] = None,
                  monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +357,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
+            __props__.__dict__["interactive_configuration"] = interactive_configuration
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["monitoring_configuration"] = monitoring_configuration
             __props__.__dict__["name"] = name
@@ -384,6 +404,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["auto_stop_configuration"] = None
         __props__.__dict__["image_configuration"] = None
         __props__.__dict__["initial_capacity"] = None
+        __props__.__dict__["interactive_configuration"] = None
         __props__.__dict__["maximum_capacity"] = None
         __props__.__dict__["monitoring_configuration"] = None
         __props__.__dict__["name"] = None
@@ -450,6 +471,14 @@ class Application(pulumi.CustomResource):
         Initial capacity initialized when an Application is started.
         """
         return pulumi.get(self, "initial_capacity")
+
+    @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationInteractiveConfiguration']]:
+        """
+        The interactive configuration object that enables the interactive use cases for an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
 
     @property
     @pulumi.getter(name="maximumCapacity")
