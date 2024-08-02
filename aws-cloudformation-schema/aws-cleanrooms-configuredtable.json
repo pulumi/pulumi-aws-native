@@ -118,6 +118,9 @@
             "$ref" : "#/definitions/AggregationConstraint"
           },
           "minItems" : 1
+        },
+        "AdditionalAnalyses" : {
+          "$ref" : "#/definitions/AdditionalAnalyses"
         }
       },
       "required" : [ "AggregateColumns", "JoinColumns", "DimensionColumns", "ScalarFunctions", "OutputConstraints" ],
@@ -148,6 +151,9 @@
           "items" : {
             "$ref" : "#/definitions/AnalysisRuleColumnName"
           }
+        },
+        "AdditionalAnalyses" : {
+          "$ref" : "#/definitions/AdditionalAnalyses"
         }
       },
       "required" : [ "JoinColumns", "ListColumns" ],
@@ -180,6 +186,18 @@
       "items" : {
         "$ref" : "#/definitions/AllowedAnalysisProvider"
       }
+    },
+    "DisallowedOutputColumns" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "minItems" : 0,
+      "items" : {
+        "$ref" : "#/definitions/AnalysisRuleColumnName"
+      }
+    },
+    "AdditionalAnalyses" : {
+      "type" : "string",
+      "enum" : [ "ALLOWED", "REQUIRED", "NOT_ALLOWED" ]
     },
     "DifferentialPrivacyColumn" : {
       "type" : "object",
@@ -217,6 +235,12 @@
         },
         "DifferentialPrivacy" : {
           "$ref" : "#/definitions/DifferentialPrivacy"
+        },
+        "DisallowedOutputColumns" : {
+          "$ref" : "#/definitions/DisallowedOutputColumns"
+        },
+        "AdditionalAnalyses" : {
+          "$ref" : "#/definitions/AdditionalAnalyses"
         }
       },
       "required" : [ "AllowedAnalyses" ],
@@ -396,7 +420,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "cleanrooms:ListTagsForResource", "cleanrooms:UntagResource", "cleanrooms:TagResource" ]
   },
   "handlers" : {
     "create" : {

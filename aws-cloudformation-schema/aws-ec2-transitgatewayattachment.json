@@ -80,6 +80,10 @@
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
+        "relationshipRef" : {
+          "typeName" : "AWS::EC2::Subnet",
+          "propertyPath" : "/properties/SubnetId"
+        },
         "type" : "string"
       }
     },

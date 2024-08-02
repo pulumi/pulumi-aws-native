@@ -39,18 +39,20 @@
       "description" : "Indicates that the resource is a transit gateway multicast group member.",
       "type" : "boolean"
     },
-    "MemberType" : {
-      "description" : "The member type (for example, static).",
-      "type" : "string"
-    },
     "SourceType" : {
       "description" : "The source type.",
       "type" : "string"
     }
   },
   "required" : [ "TransitGatewayMulticastDomainId", "NetworkInterfaceId", "GroupIpAddress" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/SubnetId", "/properties/ResourceId", "/properties/ResourceType", "/properties/GroupSource", "/properties/GroupMember", "/properties/MemberType", "/properties/SourceType", "/properties/TransitGatewayAttachmentId" ],
+  "readOnlyProperties" : [ "/properties/SubnetId", "/properties/ResourceId", "/properties/ResourceType", "/properties/GroupSource", "/properties/GroupMember", "/properties/SourceType", "/properties/TransitGatewayAttachmentId" ],
   "createOnlyProperties" : [ "/properties/TransitGatewayMulticastDomainId", "/properties/GroupIpAddress", "/properties/NetworkInterfaceId" ],
   "primaryIdentifier" : [ "/properties/TransitGatewayMulticastDomainId", "/properties/GroupIpAddress", "/properties/NetworkInterfaceId" ],
   "handlers" : {
@@ -64,6 +66,14 @@
       "permissions" : [ "ec2:DeregisterTransitGatewayMulticastGroupSources", "ec2:SearchTransitGatewayMulticastGroups" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TransitGatewayMulticastDomainId" : {
+            "$ref" : "resource-schema.json#/properties/TransitGatewayMulticastDomainId"
+          }
+        },
+        "required" : [ "TransitGatewayMulticastDomainId" ]
+      },
       "permissions" : [ "ec2:SearchTransitGatewayMulticastGroups" ]
     }
   }

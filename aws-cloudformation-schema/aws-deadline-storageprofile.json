@@ -59,7 +59,7 @@
       "pattern" : "^sp-[0-9a-f]{32}$"
     }
   },
-  "required" : [ "DisplayName", "OsFamily" ],
+  "required" : [ "DisplayName", "FarmId", "OsFamily" ],
   "readOnlyProperties" : [ "/properties/StorageProfileId" ],
   "createOnlyProperties" : [ "/properties/FarmId" ],
   "primaryIdentifier" : [ "/properties/FarmId", "/properties/StorageProfileId" ],

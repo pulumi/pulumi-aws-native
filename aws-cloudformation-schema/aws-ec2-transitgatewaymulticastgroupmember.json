@@ -42,15 +42,17 @@
     "MemberType" : {
       "description" : "The member type (for example, static).",
       "type" : "string"
-    },
-    "SourceType" : {
-      "description" : "The source type.",
-      "type" : "string"
     }
   },
   "required" : [ "GroupIpAddress", "NetworkInterfaceId", "TransitGatewayMulticastDomainId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/SubnetId", "/properties/ResourceId", "/properties/ResourceType", "/properties/GroupSource", "/properties/GroupMember", "/properties/MemberType", "/properties/SourceType", "/properties/TransitGatewayAttachmentId" ],
+  "readOnlyProperties" : [ "/properties/SubnetId", "/properties/ResourceId", "/properties/ResourceType", "/properties/GroupSource", "/properties/GroupMember", "/properties/MemberType", "/properties/TransitGatewayAttachmentId" ],
   "createOnlyProperties" : [ "/properties/TransitGatewayMulticastDomainId", "/properties/GroupIpAddress", "/properties/NetworkInterfaceId" ],
   "primaryIdentifier" : [ "/properties/TransitGatewayMulticastDomainId", "/properties/GroupIpAddress", "/properties/NetworkInterfaceId" ],
   "handlers" : {
@@ -64,6 +66,14 @@
       "permissions" : [ "ec2:DeregisterTransitGatewayMulticastGroupMembers", "ec2:SearchTransitGatewayMulticastGroups" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TransitGatewayMulticastDomainId" : {
+            "$ref" : "resource-schema.json#/properties/TransitGatewayMulticastDomainId"
+          }
+        },
+        "required" : [ "TransitGatewayMulticastDomainId" ]
+      },
       "permissions" : [ "ec2:SearchTransitGatewayMulticastGroups" ]
     }
   }

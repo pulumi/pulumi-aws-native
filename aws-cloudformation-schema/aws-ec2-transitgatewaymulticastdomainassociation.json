@@ -29,6 +29,12 @@
     }
   },
   "required" : [ "TransitGatewayMulticastDomainId", "TransitGatewayAttachmentId", "SubnetId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/ResourceId", "/properties/ResourceType", "/properties/State" ],
   "createOnlyProperties" : [ "/properties/TransitGatewayMulticastDomainId", "/properties/TransitGatewayAttachmentId", "/properties/SubnetId" ],

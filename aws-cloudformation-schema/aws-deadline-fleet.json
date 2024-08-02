@@ -435,7 +435,7 @@
       "uniqueItems" : true
     }
   },
-  "required" : [ "Configuration", "DisplayName", "MaxWorkerCount", "RoleArn" ],
+  "required" : [ "Configuration", "DisplayName", "FarmId", "MaxWorkerCount", "RoleArn" ],
   "readOnlyProperties" : [ "/properties/Capabilities", "/properties/FleetId", "/properties/Status", "/properties/WorkerCount", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/FarmId" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

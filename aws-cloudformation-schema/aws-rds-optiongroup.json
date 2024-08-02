@@ -103,7 +103,7 @@
       "type" : "string"
     },
     "OptionConfigurations" : {
-      "description" : "A list of options and the settings for each option.",
+      "description" : "A list of all available options",
       "type" : "array",
       "arrayType" : "AttributeList",
       "insertionOrder" : false,
@@ -113,7 +113,7 @@
     },
     "Tags" : {
       "type" : "array",
-      "description" : "An optional array of key-value pairs to apply to this option group.",
+      "description" : "Tags to assign to the option group.",
       "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"

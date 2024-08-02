@@ -31,7 +31,7 @@
       "properties" : {
         "LogType" : {
           "type" : "string",
-          "enum" : [ "ALERT", "FLOW" ]
+          "enum" : [ "ALERT", "FLOW", "TLS" ]
         },
         "LogDestinationType" : {
           "type" : "string",
