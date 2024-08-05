@@ -31,6 +31,8 @@ type LookupStorageProfileArgs struct {
 
 type LookupStorageProfileResult struct {
 	// The display name of the storage profile summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// Operating system specific file system path to the storage location.
 	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
@@ -79,6 +81,8 @@ func (o LookupStorageProfileResultOutput) ToLookupStorageProfileResultOutputWith
 }
 
 // The display name of the storage profile summary to update.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupStorageProfileResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

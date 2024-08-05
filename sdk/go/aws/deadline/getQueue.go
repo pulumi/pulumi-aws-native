@@ -38,6 +38,8 @@ type LookupQueueResult struct {
 	// A description of the queue that helps identify what the queue is used for.
 	Description *string `pulumi:"description"`
 	// The display name of the queue summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
 	JobAttachmentSettings *QueueJobAttachmentSettings `pulumi:"jobAttachmentSettings"`
@@ -110,6 +112,8 @@ func (o LookupQueueResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The display name of the queue summary to update.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupQueueResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

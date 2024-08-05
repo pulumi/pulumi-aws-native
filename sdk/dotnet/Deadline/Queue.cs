@@ -41,6 +41,8 @@ namespace Pulumi.AwsNative.Deadline
 
         /// <summary>
         /// The display name of the queue summary to update.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -162,6 +164,8 @@ namespace Pulumi.AwsNative.Deadline
 
         /// <summary>
         /// The display name of the queue summary to update.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;

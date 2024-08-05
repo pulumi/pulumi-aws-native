@@ -32,6 +32,8 @@ class QueueArgs:
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[str] display_name: The display name of the queue summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
         :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
@@ -66,6 +68,8 @@ class QueueArgs:
     def display_name(self) -> pulumi.Input[str]:
         """
         The display name of the queue summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 
@@ -207,6 +211,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
         :param pulumi.Input[str] description: A description of the queue that helps identify what the queue is used for.
         :param pulumi.Input[str] display_name: The display name of the queue summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
         :param pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']] job_run_as_user: Identifies the user for a job.
@@ -348,6 +354,8 @@ class Queue(pulumi.CustomResource):
     def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the queue summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 

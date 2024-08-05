@@ -34359,7 +34359,9 @@ type SpaceTag struct {
 }
 
 type StudioLifecycleConfigTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

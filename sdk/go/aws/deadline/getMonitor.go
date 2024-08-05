@@ -31,6 +31,8 @@ type LookupMonitorResult struct {
 	// The Amazon Resource Name (ARN) of the monitor.
 	Arn *string `pulumi:"arn"`
 	// The name of the monitor that displays on the Deadline Cloud console.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
@@ -86,6 +88,8 @@ func (o LookupMonitorResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The name of the monitor that displays on the Deadline Cloud console.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupMonitorResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

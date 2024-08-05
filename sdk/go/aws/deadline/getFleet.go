@@ -37,6 +37,8 @@ type LookupFleetResult struct {
 	// A description that helps identify what the fleet is used for.
 	Description *string `pulumi:"description"`
 	// The display name of the fleet summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// The fleet ID.
 	FleetId *string `pulumi:"fleetId"`
@@ -110,6 +112,8 @@ func (o LookupFleetResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The display name of the fleet summary to update.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupFleetResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

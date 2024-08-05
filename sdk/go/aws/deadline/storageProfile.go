@@ -17,6 +17,8 @@ type StorageProfile struct {
 	pulumi.CustomResourceState
 
 	// The display name of the storage profile summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId pulumi.StringOutput `pulumi:"farmId"`
@@ -82,6 +84,8 @@ func (StorageProfileState) ElementType() reflect.Type {
 
 type storageProfileArgs struct {
 	// The display name of the storage profile summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName string `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId string `pulumi:"farmId"`
@@ -94,6 +98,8 @@ type storageProfileArgs struct {
 // The set of arguments for constructing a StorageProfile resource.
 type StorageProfileArgs struct {
 	// The display name of the storage profile summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringInput
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId pulumi.StringInput
@@ -141,6 +147,8 @@ func (o StorageProfileOutput) ToStorageProfileOutputWithContext(ctx context.Cont
 }
 
 // The display name of the storage profile summary to update.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o StorageProfileOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageProfile) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

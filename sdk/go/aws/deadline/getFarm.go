@@ -34,6 +34,8 @@ type LookupFarmResult struct {
 	// A description of the farm that helps identify what the farm is used for.
 	Description *string `pulumi:"description"`
 	// The display name of the farm.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// The farm ID.
 	FarmId *string `pulumi:"farmId"`
@@ -88,6 +90,8 @@ func (o LookupFarmResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The display name of the farm.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupFarmResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

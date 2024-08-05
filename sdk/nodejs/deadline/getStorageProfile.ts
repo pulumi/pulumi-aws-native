@@ -33,6 +33,8 @@ export interface GetStorageProfileArgs {
 export interface GetStorageProfileResult {
     /**
      * The display name of the storage profile summary to update.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     readonly displayName?: string;
     /**

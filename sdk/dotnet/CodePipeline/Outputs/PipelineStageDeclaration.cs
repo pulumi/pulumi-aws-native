@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineActionDeclaration> Actions;
         /// <summary>
+        /// The method to use before stage runs.
+        /// </summary>
+        public readonly Outputs.PipelineBeforeEntryConditions? BeforeEntry;
+        /// <summary>
         /// Reserved for future use.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineBlockerDeclaration> Blockers;
@@ -32,21 +36,31 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// The method to use when a stage has not completed successfully
         /// </summary>
         public readonly Outputs.PipelineFailureConditions? OnFailure;
+        /// <summary>
+        /// The method to use when a stage has completed successfully
+        /// </summary>
+        public readonly Outputs.PipelineSuccessConditions? OnSuccess;
 
         [OutputConstructor]
         private PipelineStageDeclaration(
             ImmutableArray<Outputs.PipelineActionDeclaration> actions,
 
+            Outputs.PipelineBeforeEntryConditions? beforeEntry,
+
             ImmutableArray<Outputs.PipelineBlockerDeclaration> blockers,
 
             string name,
 
-            Outputs.PipelineFailureConditions? onFailure)
+            Outputs.PipelineFailureConditions? onFailure,
+
+            Outputs.PipelineSuccessConditions? onSuccess)
         {
             Actions = actions;
+            BeforeEntry = beforeEntry;
             Blockers = blockers;
             Name = name;
             OnFailure = onFailure;
+            OnSuccess = onSuccess;
         }
     }
 }

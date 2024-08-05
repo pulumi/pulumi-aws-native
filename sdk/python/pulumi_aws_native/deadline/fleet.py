@@ -31,6 +31,8 @@ class FleetArgs:
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
@@ -67,6 +69,8 @@ class FleetArgs:
     def display_name(self) -> pulumi.Input[str]:
         """
         The display name of the fleet summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 
@@ -169,6 +173,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The farm ID.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
@@ -312,6 +318,8 @@ class Fleet(pulumi.CustomResource):
     def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the fleet summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 

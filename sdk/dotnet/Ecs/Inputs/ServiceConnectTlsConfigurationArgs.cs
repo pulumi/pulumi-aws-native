@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The key that encrypts and decrypts your resources for Service Connect TLS.
+    /// An object that represents the configuration for Service Connect TLS.
     /// </summary>
     public sealed class ServiceConnectTlsConfigurationArgs : global::Pulumi.ResourceArgs
     {

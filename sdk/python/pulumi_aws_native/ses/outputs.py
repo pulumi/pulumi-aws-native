@@ -722,16 +722,17 @@ class ConfigurationSetTrackingOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_redirect_domain: str):
+                 custom_redirect_domain: Optional[str] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> str:
+    def custom_redirect_domain(self) -> Optional[str]:
         """
         The domain to use for tracking open and click events.
         """

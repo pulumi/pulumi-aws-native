@@ -19,7 +19,9 @@ __all__ = [
     'PipelineActionTypeId',
     'PipelineArtifactStore',
     'PipelineArtifactStoreMap',
+    'PipelineBeforeEntryConditions',
     'PipelineBlockerDeclaration',
+    'PipelineCondition',
     'PipelineEncryptionKey',
     'PipelineFailureConditions',
     'PipelineGitBranchFilterCriteria',
@@ -30,8 +32,11 @@ __all__ = [
     'PipelineGitTagFilterCriteria',
     'PipelineInputArtifact',
     'PipelineOutputArtifact',
+    'PipelineRuleDeclaration',
+    'PipelineRuleTypeId',
     'PipelineStageDeclaration',
     'PipelineStageTransition',
+    'PipelineSuccessConditions',
     'PipelineTriggerDeclaration',
     'PipelineVariableDeclaration',
 ]
@@ -593,6 +598,25 @@ class PipelineArtifactStoreMap(dict):
 
 
 @pulumi.output_type
+class PipelineBeforeEntryConditions(dict):
+    """
+    The configuration that specifies the rules to run before stage starts.
+    """
+    def __init__(__self__, *,
+                 conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
+        """
+        The configuration that specifies the rules to run before stage starts.
+        """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
 class PipelineBlockerDeclaration(dict):
     """
     Reserved for future use.
@@ -623,6 +647,37 @@ class PipelineBlockerDeclaration(dict):
         Reserved for future use.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PipelineCondition(dict):
+    """
+    Represents information about condition.
+    """
+    def __init__(__self__, *,
+                 result: Optional[str] = None,
+                 rules: Optional[Sequence['outputs.PipelineRuleDeclaration']] = None):
+        """
+        Represents information about condition.
+        :param str result: The specified result for when the failure conditions are met, such as rolling back the stage
+        """
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[str]:
+        """
+        The specified result for when the failure conditions are met, such as rolling back the stage
+        """
+        return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.PipelineRuleDeclaration']]:
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
@@ -664,13 +719,21 @@ class PipelineFailureConditions(dict):
     The configuration that specifies the result, such as rollback, to occur upon stage failure
     """
     def __init__(__self__, *,
+                 conditions: Optional[Sequence['outputs.PipelineCondition']] = None,
                  result: Optional['PipelineFailureConditionsResult'] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
         :param 'PipelineFailureConditionsResult' result: The specified result for when the failure conditions are met, such as rolling back the stage
         """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
         if result is not None:
             pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        return pulumi.get(self, "conditions")
 
     @property
     @pulumi.getter
@@ -1024,6 +1087,161 @@ class PipelineOutputArtifact(dict):
 
 
 @pulumi.output_type
+class PipelineRuleDeclaration(dict):
+    """
+    Represents information about condition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputArtifacts":
+            suggest = "input_artifacts"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "ruleTypeId":
+            suggest = "rule_type_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineRuleDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineRuleDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineRuleDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration: Optional[Any] = None,
+                 input_artifacts: Optional[Sequence['outputs.PipelineInputArtifact']] = None,
+                 name: Optional[str] = None,
+                 region: Optional[str] = None,
+                 role_arn: Optional[str] = None,
+                 rule_type_id: Optional['outputs.PipelineRuleTypeId'] = None):
+        """
+        Represents information about condition.
+        :param Any configuration: The rule's configuration. These are key-value pairs that specify input values for a rule.
+        :param str name: The rule declaration's name.
+        :param str region: The rule declaration's AWS Region, such as us-east-1.
+        :param str role_arn: The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if input_artifacts is not None:
+            pulumi.set(__self__, "input_artifacts", input_artifacts)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if rule_type_id is not None:
+            pulumi.set(__self__, "rule_type_id", rule_type_id)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[Any]:
+        """
+        The rule's configuration. These are key-value pairs that specify input values for a rule.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="inputArtifacts")
+    def input_artifacts(self) -> Optional[Sequence['outputs.PipelineInputArtifact']]:
+        return pulumi.get(self, "input_artifacts")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The rule declaration's name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The rule declaration's AWS Region, such as us-east-1.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="ruleTypeId")
+    def rule_type_id(self) -> Optional['outputs.PipelineRuleTypeId']:
+        return pulumi.get(self, "rule_type_id")
+
+
+@pulumi.output_type
+class PipelineRuleTypeId(dict):
+    """
+    Represents information about a rule type.
+    """
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 provider: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Represents information about a rule type.
+        :param str category: A category for the provider type for the rule.
+        :param str owner: The creator of the rule being called. Only AWS is supported.
+        :param str provider: The provider of the service being called by the rule.
+        :param str version: A string that describes the rule version.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        A category for the provider type for the rule.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        """
+        The creator of the rule being called. Only AWS is supported.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> Optional[str]:
+        """
+        The provider of the service being called by the rule.
+        """
+        return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        A string that describes the rule version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class PipelineStageDeclaration(dict):
     """
     Represents information about a stage and its definition.
@@ -1031,8 +1249,12 @@ class PipelineStageDeclaration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "onFailure":
+        if key == "beforeEntry":
+            suggest = "before_entry"
+        elif key == "onFailure":
             suggest = "on_failure"
+        elif key == "onSuccess":
+            suggest = "on_success"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineStageDeclaration. Access the value via the '{suggest}' property getter instead.")
@@ -1048,21 +1270,29 @@ class PipelineStageDeclaration(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.PipelineActionDeclaration'],
                  name: str,
+                 before_entry: Optional['outputs.PipelineBeforeEntryConditions'] = None,
                  blockers: Optional[Sequence['outputs.PipelineBlockerDeclaration']] = None,
-                 on_failure: Optional['outputs.PipelineFailureConditions'] = None):
+                 on_failure: Optional['outputs.PipelineFailureConditions'] = None,
+                 on_success: Optional['outputs.PipelineSuccessConditions'] = None):
         """
         Represents information about a stage and its definition.
         :param Sequence['PipelineActionDeclaration'] actions: The actions included in a stage.
         :param str name: The name of the stage.
+        :param 'PipelineBeforeEntryConditions' before_entry: The method to use before stage runs.
         :param Sequence['PipelineBlockerDeclaration'] blockers: Reserved for future use.
         :param 'PipelineFailureConditions' on_failure: The method to use when a stage has not completed successfully
+        :param 'PipelineSuccessConditions' on_success: The method to use when a stage has completed successfully
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "name", name)
+        if before_entry is not None:
+            pulumi.set(__self__, "before_entry", before_entry)
         if blockers is not None:
             pulumi.set(__self__, "blockers", blockers)
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter
@@ -1081,6 +1311,14 @@ class PipelineStageDeclaration(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="beforeEntry")
+    def before_entry(self) -> Optional['outputs.PipelineBeforeEntryConditions']:
+        """
+        The method to use before stage runs.
+        """
+        return pulumi.get(self, "before_entry")
+
+    @property
     @pulumi.getter
     def blockers(self) -> Optional[Sequence['outputs.PipelineBlockerDeclaration']]:
         """
@@ -1095,6 +1333,14 @@ class PipelineStageDeclaration(dict):
         The method to use when a stage has not completed successfully
         """
         return pulumi.get(self, "on_failure")
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional['outputs.PipelineSuccessConditions']:
+        """
+        The method to use when a stage has completed successfully
+        """
+        return pulumi.get(self, "on_success")
 
 
 @pulumi.output_type
@@ -1145,6 +1391,25 @@ class PipelineStageTransition(dict):
         The name of the stage where you want to disable the inbound or outbound transition of artifacts.
         """
         return pulumi.get(self, "stage_name")
+
+
+@pulumi.output_type
+class PipelineSuccessConditions(dict):
+    """
+    The configuration that specifies the result, such as rollback, to occur upon stage failure
+    """
+    def __init__(__self__, *,
+                 conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
+        """
+        The configuration that specifies the result, such as rollback, to occur upon stage failure
+        """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        return pulumi.get(self, "conditions")
 
 
 @pulumi.output_type

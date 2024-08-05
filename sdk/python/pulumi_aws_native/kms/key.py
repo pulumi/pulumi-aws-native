@@ -73,29 +73,30 @@ class KeyArgs:
                  +   ``HMAC_384`` 
                  +   ``HMAC_512`` 
                  
-                 +  Asymmetric RSA key pairs
+                 +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
                  +   ``RSA_2048`` 
                  +   ``RSA_3072`` 
                  +   ``RSA_4096`` 
                  
-                 +  Asymmetric NIST-recommended elliptic curve key pairs
+                 +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
                  +   ``ECC_NIST_P256`` (secp256r1)
                  +   ``ECC_NIST_P384`` (secp384r1)
                  +   ``ECC_NIST_P521`` (secp521r1)
                  
-                 +  Other asymmetric elliptic curve key pairs
+                 +  Other asymmetric elliptic curve key pairs (signing and verification)
                  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
                  
-                 +  SM2 key pairs (China Regions only)
-                 +   ``SM2``
+                 +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
+                 +   ``SM2`` (China Regions only)
         :param pulumi.Input['KeyUsage'] key_usage: Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
                  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
                  Select only one valid value.
-                 +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.
-                 +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-                 +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.
-                 +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-                 +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
+                 +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.
+                 +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
+                 +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
+                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         :param pulumi.Input[bool] multi_region: Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
                 For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
                  If you change the value of the ``MultiRegion`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
@@ -246,21 +247,21 @@ class KeyArgs:
           +   ``HMAC_384`` 
           +   ``HMAC_512`` 
           
-          +  Asymmetric RSA key pairs
+          +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
           +   ``RSA_2048`` 
           +   ``RSA_3072`` 
           +   ``RSA_4096`` 
           
-          +  Asymmetric NIST-recommended elliptic curve key pairs
+          +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
           +   ``ECC_NIST_P256`` (secp256r1)
           +   ``ECC_NIST_P384`` (secp384r1)
           +   ``ECC_NIST_P521`` (secp521r1)
           
-          +  Other asymmetric elliptic curve key pairs
+          +  Other asymmetric elliptic curve key pairs (signing and verification)
           +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
           
-          +  SM2 key pairs (China Regions only)
-          +   ``SM2``
+          +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
+          +   ``SM2`` (China Regions only)
         """
         return pulumi.get(self, "key_spec")
 
@@ -275,11 +276,12 @@ class KeyArgs:
         Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
           If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
           Select only one valid value.
-          +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.
-          +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-          +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.
-          +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-          +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
+          +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.
+          +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
+          +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
+          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         """
         return pulumi.get(self, "key_usage")
 
@@ -440,29 +442,30 @@ class Key(pulumi.CustomResource):
                  +   ``HMAC_384`` 
                  +   ``HMAC_512`` 
                  
-                 +  Asymmetric RSA key pairs
+                 +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
                  +   ``RSA_2048`` 
                  +   ``RSA_3072`` 
                  +   ``RSA_4096`` 
                  
-                 +  Asymmetric NIST-recommended elliptic curve key pairs
+                 +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
                  +   ``ECC_NIST_P256`` (secp256r1)
                  +   ``ECC_NIST_P384`` (secp384r1)
                  +   ``ECC_NIST_P521`` (secp521r1)
                  
-                 +  Other asymmetric elliptic curve key pairs
+                 +  Other asymmetric elliptic curve key pairs (signing and verification)
                  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
                  
-                 +  SM2 key pairs (China Regions only)
-                 +   ``SM2``
+                 +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
+                 +   ``SM2`` (China Regions only)
         :param pulumi.Input['KeyUsage'] key_usage: Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
                  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
                  Select only one valid value.
-                 +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.
-                 +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-                 +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.
-                 +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-                 +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
+                 +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.
+                 +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
+                 +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
+                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         :param pulumi.Input[bool] multi_region: Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
                 For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
                  If you change the value of the ``MultiRegion`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
@@ -694,21 +697,21 @@ class Key(pulumi.CustomResource):
           +   ``HMAC_384`` 
           +   ``HMAC_512`` 
           
-          +  Asymmetric RSA key pairs
+          +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
           +   ``RSA_2048`` 
           +   ``RSA_3072`` 
           +   ``RSA_4096`` 
           
-          +  Asymmetric NIST-recommended elliptic curve key pairs
+          +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
           +   ``ECC_NIST_P256`` (secp256r1)
           +   ``ECC_NIST_P384`` (secp384r1)
           +   ``ECC_NIST_P521`` (secp521r1)
           
-          +  Other asymmetric elliptic curve key pairs
+          +  Other asymmetric elliptic curve key pairs (signing and verification)
           +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
           
-          +  SM2 key pairs (China Regions only)
-          +   ``SM2``
+          +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
+          +   ``SM2`` (China Regions only)
         """
         return pulumi.get(self, "key_spec")
 
@@ -719,11 +722,12 @@ class Key(pulumi.CustomResource):
         Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
           If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
           Select only one valid value.
-          +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.
-          +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-          +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.
-          +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
-          +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
+          +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.
+          +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
+          +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
+          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         """
         return pulumi.get(self, "key_usage")
 

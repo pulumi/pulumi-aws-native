@@ -36,6 +36,8 @@ export interface GetFarmResult {
     readonly description?: string;
     /**
      * The display name of the farm.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     readonly displayName?: string;
     /**

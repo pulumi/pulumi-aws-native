@@ -1790,7 +1790,7 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 type ConfigurationSetTrackingOptions struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
 }
 
 // ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
@@ -1807,7 +1807,7 @@ type ConfigurationSetTrackingOptionsInput interface {
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 type ConfigurationSetTrackingOptionsArgs struct {
 	// The domain to use for tracking open and click events.
-	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
+	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
 }
 
 func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
@@ -1889,8 +1889,8 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 }
 
 // The domain to use for tracking open and click events.
-func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSetTrackingOptions) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
+func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1923,7 +1923,7 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.CustomRedirectDomain
+		return v.CustomRedirectDomain
 	}).(pulumi.StringPtrOutput)
 }
 

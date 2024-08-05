@@ -536,23 +536,24 @@ class ConfigurationSetSuppressionOptionsArgs:
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: pulumi.Input[str]):
+                 custom_redirect_domain: Optional[pulumi.Input[str]] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> pulumi.Input[str]:
+    def custom_redirect_domain(self) -> Optional[pulumi.Input[str]]:
         """
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
     @custom_redirect_domain.setter
-    def custom_redirect_domain(self, value: pulumi.Input[str]):
+    def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
 
 

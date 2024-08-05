@@ -24,6 +24,8 @@ class StorageProfileArgs:
         """
         The set of arguments for constructing a StorageProfile resource.
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         :param pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]] file_system_locations: Operating system specific file system path to the storage location.
@@ -39,6 +41,8 @@ class StorageProfileArgs:
     def display_name(self) -> pulumi.Input[str]:
         """
         The display name of the storage profile summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 
@@ -99,6 +103,8 @@ class StorageProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]] file_system_locations: Operating system specific file system path to the storage location.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
@@ -187,6 +193,8 @@ class StorageProfile(pulumi.CustomResource):
     def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the storage profile summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 

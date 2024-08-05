@@ -93,6 +93,8 @@ class GetFleetResult:
     def display_name(self) -> Optional[str]:
         """
         The display name of the fleet summary to update.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 

@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
     /// </summary>
     public sealed class PipelineFailureConditionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("conditions")]
+        private InputList<Inputs.PipelineConditionArgs>? _conditions;
+        public InputList<Inputs.PipelineConditionArgs> Conditions
+        {
+            get => _conditions ?? (_conditions = new InputList<Inputs.PipelineConditionArgs>());
+            set => _conditions = value;
+        }
+
         /// <summary>
         /// The specified result for when the failure conditions are met, such as rolling back the stage
         /// </summary>

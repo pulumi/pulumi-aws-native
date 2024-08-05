@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The network configuration for a task or service.
+    /// The ``NetworkConfiguration`` property specifies an object representing the network configuration for a task or service.
     /// </summary>
     [OutputType]
     public sealed class ServiceNetworkConfiguration

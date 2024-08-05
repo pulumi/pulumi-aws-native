@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The certificate root authority that secures your service.
+    /// An object that represents the AWS Private Certificate Authority certificate.
     /// </summary>
     public sealed class ServiceConnectTlsCertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {

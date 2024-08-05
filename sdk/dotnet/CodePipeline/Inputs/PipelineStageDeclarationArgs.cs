@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The method to use before stage runs.
+        /// </summary>
+        [Input("beforeEntry")]
+        public Input<Inputs.PipelineBeforeEntryConditionsArgs>? BeforeEntry { get; set; }
+
         [Input("blockers")]
         private InputList<Inputs.PipelineBlockerDeclarationArgs>? _blockers;
 
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         /// </summary>
         [Input("onFailure")]
         public Input<Inputs.PipelineFailureConditionsArgs>? OnFailure { get; set; }
+
+        /// <summary>
+        /// The method to use when a stage has completed successfully
+        /// </summary>
+        [Input("onSuccess")]
+        public Input<Inputs.PipelineSuccessConditionsArgs>? OnSuccess { get; set; }
 
         public PipelineStageDeclarationArgs()
         {

@@ -52,6 +52,8 @@ export class Fleet extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of the fleet summary to update.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -162,6 +164,8 @@ export interface FleetArgs {
     description?: pulumi.Input<string>;
     /**
      * The display name of the fleet summary to update.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     displayName: pulumi.Input<string>;
     /**

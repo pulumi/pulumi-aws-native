@@ -40,6 +40,8 @@ export class Monitor extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the monitor that displays on the Deadline Cloud console.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -121,6 +123,8 @@ export class Monitor extends pulumi.CustomResource {
 export interface MonitorArgs {
     /**
      * The name of the monitor that displays on the Deadline Cloud console.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     displayName: pulumi.Input<string>;
     /**

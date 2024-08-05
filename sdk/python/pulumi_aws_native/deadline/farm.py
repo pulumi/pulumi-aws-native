@@ -23,6 +23,8 @@ class FarmArgs:
         """
         The set of arguments for constructing a Farm resource.
         :param pulumi.Input[str] display_name: The display name of the farm.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -40,6 +42,8 @@ class FarmArgs:
     def display_name(self) -> pulumi.Input[str]:
         """
         The display name of the farm.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 
@@ -101,6 +105,8 @@ class Farm(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
         :param pulumi.Input[str] display_name: The display name of the farm.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -202,6 +208,8 @@ class Farm(pulumi.CustomResource):
     def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the farm.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "display_name")
 

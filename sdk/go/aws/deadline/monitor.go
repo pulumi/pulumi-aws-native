@@ -19,6 +19,8 @@ type Monitor struct {
 	// The Amazon Resource Name (ARN) of the monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the monitor that displays on the Deadline Cloud console.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
@@ -91,6 +93,8 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	// The name of the monitor that displays on the Deadline Cloud console.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
@@ -103,6 +107,8 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	// The name of the monitor that displays on the Deadline Cloud console.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn pulumi.StringInput
@@ -155,6 +161,8 @@ func (o MonitorOutput) Arn() pulumi.StringOutput {
 }
 
 // The name of the monitor that displays on the Deadline Cloud console.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o MonitorOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

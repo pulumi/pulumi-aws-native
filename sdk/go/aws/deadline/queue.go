@@ -26,6 +26,8 @@ type Queue struct {
 	// A description of the queue that helps identify what the queue is used for.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the queue summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The farm ID.
 	FarmId pulumi.StringOutput `pulumi:"farmId"`
@@ -100,6 +102,8 @@ type queueArgs struct {
 	// A description of the queue that helps identify what the queue is used for.
 	Description *string `pulumi:"description"`
 	// The display name of the queue summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName string `pulumi:"displayName"`
 	// The farm ID.
 	FarmId string `pulumi:"farmId"`
@@ -124,6 +128,8 @@ type QueueArgs struct {
 	// A description of the queue that helps identify what the queue is used for.
 	Description pulumi.StringPtrInput
 	// The display name of the queue summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringInput
 	// The farm ID.
 	FarmId pulumi.StringInput
@@ -197,6 +203,8 @@ func (o QueueOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The display name of the queue summary to update.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o QueueOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
