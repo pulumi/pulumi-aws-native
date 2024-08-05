@@ -2957,7 +2957,7 @@
       },
       "displayName": {
         "type": "string",
-        "description": "The display name of the farm."
+        "description": "The display name of the farm.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "kmsKeyArn": {
         "type": "string",
@@ -2992,7 +2992,7 @@
       },
       "displayName": {
         "type": "string",
-        "description": "The display name of the fleet summary to update."
+        "description": "The display name of the fleet summary to update.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "farmId": {
         "type": "string",
@@ -3067,7 +3067,7 @@
     "properties": {
       "displayName": {
         "type": "string",
-        "description": "The name of the monitor that displays on the Deadline Cloud console."
+        "description": "The name of the monitor that displays on the Deadline Cloud console.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "identityCenterInstanceArn": {
         "type": "string",
@@ -3103,7 +3103,7 @@
       },
       "displayName": {
         "type": "string",
-        "description": "The display name of the queue summary to update."
+        "description": "The display name of the queue summary to update.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "farmId": {
         "type": "string",
@@ -3184,7 +3184,7 @@
     "properties": {
       "displayName": {
         "type": "string",
-        "description": "The display name of the storage profile summary to update."
+        "description": "The display name of the storage profile summary to update.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "farmId": {
         "type": "string",
@@ -7813,11 +7813,11 @@
       },
       "keySpec": {
         "$ref": "#/types/aws-native:kms:KeySpec",
-        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n    [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n   KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs\n  +   ``ECC_NIST_P256`` (secp256r1)\n  +   ``ECC_NIST_P384`` (secp384r1)\n  +   ``ECC_NIST_P521`` (secp521r1)\n  \n  +  Other asymmetric elliptic curve key pairs\n  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  SM2 key pairs (China Regions only)\n  +   ``SM2``"
+        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n    [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n   KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)\n  +   ``ECC_NIST_P256`` (secp256r1)\n  +   ``ECC_NIST_P384`` (secp384r1)\n  +   ``ECC_NIST_P521`` (secp521r1)\n  \n  +  Other asymmetric elliptic curve key pairs (signing and verification)\n  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)\n  +   ``SM2`` (China Regions only)"
       },
       "keyUsage": {
         "$ref": "#/types/aws-native:kms:KeyUsage",
-        "description": "Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.\n  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n  Select only one valid value.\n  +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.\n  +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``."
+        "description": "Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.\n  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n  Select only one valid value.\n  +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.\n  +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.\n  +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.\n  +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``."
       },
       "multiRegion": {
         "type": "boolean",
