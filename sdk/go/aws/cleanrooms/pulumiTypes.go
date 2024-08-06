@@ -2476,6 +2476,526 @@ type ConfiguredTableTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IdMappingTableInputReferenceConfig struct {
+	// The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+	InputReferenceArn string `pulumi:"inputReferenceArn"`
+	// When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+	//
+	// When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+	ManageResourcePolicies bool `pulumi:"manageResourcePolicies"`
+}
+
+// IdMappingTableInputReferenceConfigInput is an input type that accepts IdMappingTableInputReferenceConfigArgs and IdMappingTableInputReferenceConfigOutput values.
+// You can construct a concrete instance of `IdMappingTableInputReferenceConfigInput` via:
+//
+//	IdMappingTableInputReferenceConfigArgs{...}
+type IdMappingTableInputReferenceConfigInput interface {
+	pulumi.Input
+
+	ToIdMappingTableInputReferenceConfigOutput() IdMappingTableInputReferenceConfigOutput
+	ToIdMappingTableInputReferenceConfigOutputWithContext(context.Context) IdMappingTableInputReferenceConfigOutput
+}
+
+type IdMappingTableInputReferenceConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+	InputReferenceArn pulumi.StringInput `pulumi:"inputReferenceArn"`
+	// When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+	//
+	// When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+	ManageResourcePolicies pulumi.BoolInput `pulumi:"manageResourcePolicies"`
+}
+
+func (IdMappingTableInputReferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingTableInputReferenceConfig)(nil)).Elem()
+}
+
+func (i IdMappingTableInputReferenceConfigArgs) ToIdMappingTableInputReferenceConfigOutput() IdMappingTableInputReferenceConfigOutput {
+	return i.ToIdMappingTableInputReferenceConfigOutputWithContext(context.Background())
+}
+
+func (i IdMappingTableInputReferenceConfigArgs) ToIdMappingTableInputReferenceConfigOutputWithContext(ctx context.Context) IdMappingTableInputReferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingTableInputReferenceConfigOutput)
+}
+
+type IdMappingTableInputReferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputReferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingTableInputReferenceConfig)(nil)).Elem()
+}
+
+func (o IdMappingTableInputReferenceConfigOutput) ToIdMappingTableInputReferenceConfigOutput() IdMappingTableInputReferenceConfigOutput {
+	return o
+}
+
+func (o IdMappingTableInputReferenceConfigOutput) ToIdMappingTableInputReferenceConfigOutputWithContext(ctx context.Context) IdMappingTableInputReferenceConfigOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+func (o IdMappingTableInputReferenceConfigOutput) InputReferenceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdMappingTableInputReferenceConfig) string { return v.InputReferenceArn }).(pulumi.StringOutput)
+}
+
+// When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+//
+// When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+func (o IdMappingTableInputReferenceConfigOutput) ManageResourcePolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v IdMappingTableInputReferenceConfig) bool { return v.ManageResourcePolicies }).(pulumi.BoolOutput)
+}
+
+type IdMappingTableInputReferenceProperties struct {
+	// The input source of the ID mapping table.
+	IdMappingTableInputSource []IdMappingTableInputSource `pulumi:"idMappingTableInputSource"`
+}
+
+type IdMappingTableInputReferencePropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputReferencePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingTableInputReferenceProperties)(nil)).Elem()
+}
+
+func (o IdMappingTableInputReferencePropertiesOutput) ToIdMappingTableInputReferencePropertiesOutput() IdMappingTableInputReferencePropertiesOutput {
+	return o
+}
+
+func (o IdMappingTableInputReferencePropertiesOutput) ToIdMappingTableInputReferencePropertiesOutputWithContext(ctx context.Context) IdMappingTableInputReferencePropertiesOutput {
+	return o
+}
+
+// The input source of the ID mapping table.
+func (o IdMappingTableInputReferencePropertiesOutput) IdMappingTableInputSource() IdMappingTableInputSourceArrayOutput {
+	return o.ApplyT(func(v IdMappingTableInputReferenceProperties) []IdMappingTableInputSource {
+		return v.IdMappingTableInputSource
+	}).(IdMappingTableInputSourceArrayOutput)
+}
+
+type IdMappingTableInputReferencePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputReferencePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingTableInputReferenceProperties)(nil)).Elem()
+}
+
+func (o IdMappingTableInputReferencePropertiesPtrOutput) ToIdMappingTableInputReferencePropertiesPtrOutput() IdMappingTableInputReferencePropertiesPtrOutput {
+	return o
+}
+
+func (o IdMappingTableInputReferencePropertiesPtrOutput) ToIdMappingTableInputReferencePropertiesPtrOutputWithContext(ctx context.Context) IdMappingTableInputReferencePropertiesPtrOutput {
+	return o
+}
+
+func (o IdMappingTableInputReferencePropertiesPtrOutput) Elem() IdMappingTableInputReferencePropertiesOutput {
+	return o.ApplyT(func(v *IdMappingTableInputReferenceProperties) IdMappingTableInputReferenceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingTableInputReferenceProperties
+		return ret
+	}).(IdMappingTableInputReferencePropertiesOutput)
+}
+
+// The input source of the ID mapping table.
+func (o IdMappingTableInputReferencePropertiesPtrOutput) IdMappingTableInputSource() IdMappingTableInputSourceArrayOutput {
+	return o.ApplyT(func(v *IdMappingTableInputReferenceProperties) []IdMappingTableInputSource {
+		if v == nil {
+			return nil
+		}
+		return v.IdMappingTableInputSource
+	}).(IdMappingTableInputSourceArrayOutput)
+}
+
+type IdMappingTableInputSource struct {
+	// The unique identifier of the ID namespace association.
+	IdNamespaceAssociationId string `pulumi:"idNamespaceAssociationId"`
+	// The type of the input source of the ID mapping table.
+	Type IdMappingTableInputSourceType `pulumi:"type"`
+}
+
+type IdMappingTableInputSourceOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingTableInputSource)(nil)).Elem()
+}
+
+func (o IdMappingTableInputSourceOutput) ToIdMappingTableInputSourceOutput() IdMappingTableInputSourceOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceOutput) ToIdMappingTableInputSourceOutputWithContext(ctx context.Context) IdMappingTableInputSourceOutput {
+	return o
+}
+
+// The unique identifier of the ID namespace association.
+func (o IdMappingTableInputSourceOutput) IdNamespaceAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdMappingTableInputSource) string { return v.IdNamespaceAssociationId }).(pulumi.StringOutput)
+}
+
+// The type of the input source of the ID mapping table.
+func (o IdMappingTableInputSourceOutput) Type() IdMappingTableInputSourceTypeOutput {
+	return o.ApplyT(func(v IdMappingTableInputSource) IdMappingTableInputSourceType { return v.Type }).(IdMappingTableInputSourceTypeOutput)
+}
+
+type IdMappingTableInputSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdMappingTableInputSource)(nil)).Elem()
+}
+
+func (o IdMappingTableInputSourceArrayOutput) ToIdMappingTableInputSourceArrayOutput() IdMappingTableInputSourceArrayOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceArrayOutput) ToIdMappingTableInputSourceArrayOutputWithContext(ctx context.Context) IdMappingTableInputSourceArrayOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceArrayOutput) Index(i pulumi.IntInput) IdMappingTableInputSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdMappingTableInputSource {
+		return vs[0].([]IdMappingTableInputSource)[vs[1].(int)]
+	}).(IdMappingTableInputSourceOutput)
+}
+
+type IdMappingTableTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+type IdNamespaceAssociationDocument struct {
+}
+
+type IdNamespaceAssociationDocumentOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationDocument)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationDocumentOutput) ToIdNamespaceAssociationDocumentOutput() IdNamespaceAssociationDocumentOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationDocumentOutput) ToIdNamespaceAssociationDocumentOutputWithContext(ctx context.Context) IdNamespaceAssociationDocumentOutput {
+	return o
+}
+
+type IdNamespaceAssociationDocumentArrayOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationDocumentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceAssociationDocument)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationDocumentArrayOutput) ToIdNamespaceAssociationDocumentArrayOutput() IdNamespaceAssociationDocumentArrayOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationDocumentArrayOutput) ToIdNamespaceAssociationDocumentArrayOutputWithContext(ctx context.Context) IdNamespaceAssociationDocumentArrayOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationDocumentArrayOutput) Index(i pulumi.IntInput) IdNamespaceAssociationDocumentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdNamespaceAssociationDocument {
+		return vs[0].([]IdNamespaceAssociationDocument)[vs[1].(int)]
+	}).(IdNamespaceAssociationDocumentOutput)
+}
+
+type IdNamespaceAssociationIdMappingConfig struct {
+	// An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+	//
+	// Default is `FALSE` .
+	AllowUseAsDimensionColumn bool `pulumi:"allowUseAsDimensionColumn"`
+}
+
+// IdNamespaceAssociationIdMappingConfigInput is an input type that accepts IdNamespaceAssociationIdMappingConfigArgs and IdNamespaceAssociationIdMappingConfigOutput values.
+// You can construct a concrete instance of `IdNamespaceAssociationIdMappingConfigInput` via:
+//
+//	IdNamespaceAssociationIdMappingConfigArgs{...}
+type IdNamespaceAssociationIdMappingConfigInput interface {
+	pulumi.Input
+
+	ToIdNamespaceAssociationIdMappingConfigOutput() IdNamespaceAssociationIdMappingConfigOutput
+	ToIdNamespaceAssociationIdMappingConfigOutputWithContext(context.Context) IdNamespaceAssociationIdMappingConfigOutput
+}
+
+type IdNamespaceAssociationIdMappingConfigArgs struct {
+	// An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+	//
+	// Default is `FALSE` .
+	AllowUseAsDimensionColumn pulumi.BoolInput `pulumi:"allowUseAsDimensionColumn"`
+}
+
+func (IdNamespaceAssociationIdMappingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationIdMappingConfig)(nil)).Elem()
+}
+
+func (i IdNamespaceAssociationIdMappingConfigArgs) ToIdNamespaceAssociationIdMappingConfigOutput() IdNamespaceAssociationIdMappingConfigOutput {
+	return i.ToIdNamespaceAssociationIdMappingConfigOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceAssociationIdMappingConfigArgs) ToIdNamespaceAssociationIdMappingConfigOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceAssociationIdMappingConfigOutput)
+}
+
+func (i IdNamespaceAssociationIdMappingConfigArgs) ToIdNamespaceAssociationIdMappingConfigPtrOutput() IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return i.ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceAssociationIdMappingConfigArgs) ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceAssociationIdMappingConfigOutput).ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(ctx)
+}
+
+// IdNamespaceAssociationIdMappingConfigPtrInput is an input type that accepts IdNamespaceAssociationIdMappingConfigArgs, IdNamespaceAssociationIdMappingConfigPtr and IdNamespaceAssociationIdMappingConfigPtrOutput values.
+// You can construct a concrete instance of `IdNamespaceAssociationIdMappingConfigPtrInput` via:
+//
+//	        IdNamespaceAssociationIdMappingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdNamespaceAssociationIdMappingConfigPtrInput interface {
+	pulumi.Input
+
+	ToIdNamespaceAssociationIdMappingConfigPtrOutput() IdNamespaceAssociationIdMappingConfigPtrOutput
+	ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(context.Context) IdNamespaceAssociationIdMappingConfigPtrOutput
+}
+
+type idNamespaceAssociationIdMappingConfigPtrType IdNamespaceAssociationIdMappingConfigArgs
+
+func IdNamespaceAssociationIdMappingConfigPtr(v *IdNamespaceAssociationIdMappingConfigArgs) IdNamespaceAssociationIdMappingConfigPtrInput {
+	return (*idNamespaceAssociationIdMappingConfigPtrType)(v)
+}
+
+func (*idNamespaceAssociationIdMappingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceAssociationIdMappingConfig)(nil)).Elem()
+}
+
+func (i *idNamespaceAssociationIdMappingConfigPtrType) ToIdNamespaceAssociationIdMappingConfigPtrOutput() IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return i.ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *idNamespaceAssociationIdMappingConfigPtrType) ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceAssociationIdMappingConfigPtrOutput)
+}
+
+type IdNamespaceAssociationIdMappingConfigOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationIdMappingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationIdMappingConfig)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationIdMappingConfigOutput) ToIdNamespaceAssociationIdMappingConfigOutput() IdNamespaceAssociationIdMappingConfigOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationIdMappingConfigOutput) ToIdNamespaceAssociationIdMappingConfigOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationIdMappingConfigOutput) ToIdNamespaceAssociationIdMappingConfigPtrOutput() IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return o.ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceAssociationIdMappingConfigOutput) ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceAssociationIdMappingConfig) *IdNamespaceAssociationIdMappingConfig {
+		return &v
+	}).(IdNamespaceAssociationIdMappingConfigPtrOutput)
+}
+
+// An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+//
+// Default is `FALSE` .
+func (o IdNamespaceAssociationIdMappingConfigOutput) AllowUseAsDimensionColumn() pulumi.BoolOutput {
+	return o.ApplyT(func(v IdNamespaceAssociationIdMappingConfig) bool { return v.AllowUseAsDimensionColumn }).(pulumi.BoolOutput)
+}
+
+type IdNamespaceAssociationIdMappingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationIdMappingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceAssociationIdMappingConfig)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationIdMappingConfigPtrOutput) ToIdNamespaceAssociationIdMappingConfigPtrOutput() IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationIdMappingConfigPtrOutput) ToIdNamespaceAssociationIdMappingConfigPtrOutputWithContext(ctx context.Context) IdNamespaceAssociationIdMappingConfigPtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationIdMappingConfigPtrOutput) Elem() IdNamespaceAssociationIdMappingConfigOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationIdMappingConfig) IdNamespaceAssociationIdMappingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceAssociationIdMappingConfig
+		return ret
+	}).(IdNamespaceAssociationIdMappingConfigOutput)
+}
+
+// An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+//
+// Default is `FALSE` .
+func (o IdNamespaceAssociationIdMappingConfigPtrOutput) AllowUseAsDimensionColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationIdMappingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowUseAsDimensionColumn
+	}).(pulumi.BoolPtrOutput)
+}
+
+type IdNamespaceAssociationInputReferenceConfig struct {
+	// The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+	InputReferenceArn string `pulumi:"inputReferenceArn"`
+	// When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+	//
+	// When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+	ManageResourcePolicies bool `pulumi:"manageResourcePolicies"`
+}
+
+// IdNamespaceAssociationInputReferenceConfigInput is an input type that accepts IdNamespaceAssociationInputReferenceConfigArgs and IdNamespaceAssociationInputReferenceConfigOutput values.
+// You can construct a concrete instance of `IdNamespaceAssociationInputReferenceConfigInput` via:
+//
+//	IdNamespaceAssociationInputReferenceConfigArgs{...}
+type IdNamespaceAssociationInputReferenceConfigInput interface {
+	pulumi.Input
+
+	ToIdNamespaceAssociationInputReferenceConfigOutput() IdNamespaceAssociationInputReferenceConfigOutput
+	ToIdNamespaceAssociationInputReferenceConfigOutputWithContext(context.Context) IdNamespaceAssociationInputReferenceConfigOutput
+}
+
+type IdNamespaceAssociationInputReferenceConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+	InputReferenceArn pulumi.StringInput `pulumi:"inputReferenceArn"`
+	// When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+	//
+	// When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+	ManageResourcePolicies pulumi.BoolInput `pulumi:"manageResourcePolicies"`
+}
+
+func (IdNamespaceAssociationInputReferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfig)(nil)).Elem()
+}
+
+func (i IdNamespaceAssociationInputReferenceConfigArgs) ToIdNamespaceAssociationInputReferenceConfigOutput() IdNamespaceAssociationInputReferenceConfigOutput {
+	return i.ToIdNamespaceAssociationInputReferenceConfigOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceAssociationInputReferenceConfigArgs) ToIdNamespaceAssociationInputReferenceConfigOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceAssociationInputReferenceConfigOutput)
+}
+
+type IdNamespaceAssociationInputReferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationInputReferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfig)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationInputReferenceConfigOutput) ToIdNamespaceAssociationInputReferenceConfigOutput() IdNamespaceAssociationInputReferenceConfigOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferenceConfigOutput) ToIdNamespaceAssociationInputReferenceConfigOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferenceConfigOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+func (o IdNamespaceAssociationInputReferenceConfigOutput) InputReferenceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdNamespaceAssociationInputReferenceConfig) string { return v.InputReferenceArn }).(pulumi.StringOutput)
+}
+
+// When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+//
+// When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+func (o IdNamespaceAssociationInputReferenceConfigOutput) ManageResourcePolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v IdNamespaceAssociationInputReferenceConfig) bool { return v.ManageResourcePolicies }).(pulumi.BoolOutput)
+}
+
+type IdNamespaceAssociationInputReferenceProperties struct {
+	// Defines how ID mapping workflows are supported for this ID namespace association.
+	IdMappingWorkflowsSupported []IdNamespaceAssociationDocument `pulumi:"idMappingWorkflowsSupported"`
+	// The ID namespace type for this ID namespace association.
+	IdNamespaceType *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType `pulumi:"idNamespaceType"`
+}
+
+type IdNamespaceAssociationInputReferencePropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationInputReferencePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationInputReferenceProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesOutput) ToIdNamespaceAssociationInputReferencePropertiesOutput() IdNamespaceAssociationInputReferencePropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesOutput) ToIdNamespaceAssociationInputReferencePropertiesOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferencePropertiesOutput {
+	return o
+}
+
+// Defines how ID mapping workflows are supported for this ID namespace association.
+func (o IdNamespaceAssociationInputReferencePropertiesOutput) IdMappingWorkflowsSupported() IdNamespaceAssociationDocumentArrayOutput {
+	return o.ApplyT(func(v IdNamespaceAssociationInputReferenceProperties) []IdNamespaceAssociationDocument {
+		return v.IdMappingWorkflowsSupported
+	}).(IdNamespaceAssociationDocumentArrayOutput)
+}
+
+// The ID namespace type for this ID namespace association.
+func (o IdNamespaceAssociationInputReferencePropertiesOutput) IdNamespaceType() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o.ApplyT(func(v IdNamespaceAssociationInputReferenceProperties) *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType {
+		return v.IdNamespaceType
+	}).(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput)
+}
+
+type IdNamespaceAssociationInputReferencePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationInputReferencePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceAssociationInputReferenceProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesPtrOutput) ToIdNamespaceAssociationInputReferencePropertiesPtrOutput() IdNamespaceAssociationInputReferencePropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesPtrOutput) ToIdNamespaceAssociationInputReferencePropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferencePropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesPtrOutput) Elem() IdNamespaceAssociationInputReferencePropertiesOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationInputReferenceProperties) IdNamespaceAssociationInputReferenceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceAssociationInputReferenceProperties
+		return ret
+	}).(IdNamespaceAssociationInputReferencePropertiesOutput)
+}
+
+// Defines how ID mapping workflows are supported for this ID namespace association.
+func (o IdNamespaceAssociationInputReferencePropertiesPtrOutput) IdMappingWorkflowsSupported() IdNamespaceAssociationDocumentArrayOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationInputReferenceProperties) []IdNamespaceAssociationDocument {
+		if v == nil {
+			return nil
+		}
+		return v.IdMappingWorkflowsSupported
+	}).(IdNamespaceAssociationDocumentArrayOutput)
+}
+
+// The ID namespace type for this ID namespace association.
+func (o IdNamespaceAssociationInputReferencePropertiesPtrOutput) IdNamespaceType() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationInputReferenceProperties) *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType {
+		if v == nil {
+			return nil
+		}
+		return v.IdNamespaceType
+	}).(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput)
+}
+
+type IdNamespaceAssociationTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type MembershipPaymentConfiguration struct {
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
@@ -3416,6 +3936,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingTableInputReferenceConfigInput)(nil)).Elem(), IdMappingTableInputReferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfigInput)(nil)).Elem(), IdNamespaceAssociationInputReferenceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
@@ -3468,6 +3992,18 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputReferenceConfigOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputSourceOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputSourceArrayOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationDocumentOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationDocumentArrayOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationIdMappingConfigOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationIdMappingConfigPtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferenceConfigOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})

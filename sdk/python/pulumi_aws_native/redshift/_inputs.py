@@ -60,6 +60,8 @@ class ClusterEndpointArgs:
 class ClusterLoggingPropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The name of an existing S3 bucket where the log files are to be stored.
@@ -83,6 +85,10 @@ class ClusterLoggingPropertiesArgs:
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if log_destination_type is not None:
+            pulumi.set(__self__, "log_destination_type", log_destination_type)
+        if log_exports is not None:
+            pulumi.set(__self__, "log_exports", log_exports)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
@@ -102,6 +108,24 @@ class ClusterLoggingPropertiesArgs:
     @bucket_name.setter
     def bucket_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="logDestinationType")
+    def log_destination_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_destination_type")
+
+    @log_destination_type.setter
+    def log_destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_destination_type", value)
+
+    @property
+    @pulumi.getter(name="logExports")
+    def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "log_exports")
+
+    @log_exports.setter
+    def log_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "log_exports", value)
 
     @property
     @pulumi.getter(name="s3KeyPrefix")

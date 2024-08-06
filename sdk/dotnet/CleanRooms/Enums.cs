@@ -414,6 +414,68 @@ namespace Pulumi.AwsNative.CleanRooms
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of the input source of the ID mapping table.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdMappingTableInputSourceType : IEquatable<IdMappingTableInputSourceType>
+    {
+        private readonly string _value;
+
+        private IdMappingTableInputSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingTableInputSourceType Source { get; } = new IdMappingTableInputSourceType("SOURCE");
+        public static IdMappingTableInputSourceType Target { get; } = new IdMappingTableInputSourceType("TARGET");
+
+        public static bool operator ==(IdMappingTableInputSourceType left, IdMappingTableInputSourceType right) => left.Equals(right);
+        public static bool operator !=(IdMappingTableInputSourceType left, IdMappingTableInputSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingTableInputSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingTableInputSourceType other && Equals(other);
+        public bool Equals(IdMappingTableInputSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The ID namespace type for this ID namespace association.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdNamespaceAssociationInputReferencePropertiesIdNamespaceType : IEquatable<IdNamespaceAssociationInputReferencePropertiesIdNamespaceType>
+    {
+        private readonly string _value;
+
+        private IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdNamespaceAssociationInputReferencePropertiesIdNamespaceType Source { get; } = new IdNamespaceAssociationInputReferencePropertiesIdNamespaceType("SOURCE");
+        public static IdNamespaceAssociationInputReferencePropertiesIdNamespaceType Target { get; } = new IdNamespaceAssociationInputReferencePropertiesIdNamespaceType("TARGET");
+
+        public static bool operator ==(IdNamespaceAssociationInputReferencePropertiesIdNamespaceType left, IdNamespaceAssociationInputReferencePropertiesIdNamespaceType right) => left.Equals(right);
+        public static bool operator !=(IdNamespaceAssociationInputReferencePropertiesIdNamespaceType left, IdNamespaceAssociationInputReferencePropertiesIdNamespaceType right) => !left.Equals(right);
+
+        public static explicit operator string(IdNamespaceAssociationInputReferencePropertiesIdNamespaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdNamespaceAssociationInputReferencePropertiesIdNamespaceType other && Equals(other);
+        public bool Equals(IdNamespaceAssociationInputReferencePropertiesIdNamespaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct MembershipQueryLogStatus : IEquatable<MembershipQueryLogStatus>
     {

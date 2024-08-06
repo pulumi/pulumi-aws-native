@@ -196,6 +196,7 @@ class ResolverRuleRuleType(str, Enum):
     FORWARD = "FORWARD"
     SYSTEM = "SYSTEM"
     RECURSIVE = "RECURSIVE"
+    DELEGATE = "DELEGATE"
 
 
 class ResolverRuleTargetAddressProtocol(str, Enum):

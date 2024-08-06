@@ -41,6 +41,13 @@ __all__ = [
     'ConfiguredTableDifferentialPrivacyColumn',
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
+    'IdMappingTableInputReferenceConfig',
+    'IdMappingTableInputReferenceProperties',
+    'IdMappingTableInputSource',
+    'IdNamespaceAssociationDocument',
+    'IdNamespaceAssociationIdMappingConfig',
+    'IdNamespaceAssociationInputReferenceConfig',
+    'IdNamespaceAssociationInputReferenceProperties',
     'MembershipPaymentConfiguration',
     'MembershipProtectedQueryOutputConfiguration',
     'MembershipProtectedQueryResultConfiguration',
@@ -1070,6 +1077,286 @@ class ConfiguredTableTableReference(dict):
         If present, a reference to the AWS Glue table referred to by this table reference.
         """
         return pulumi.get(self, "glue")
+
+
+@pulumi.output_type
+class IdMappingTableInputReferenceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputReferenceArn":
+            suggest = "input_reference_arn"
+        elif key == "manageResourcePolicies":
+            suggest = "manage_resource_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingTableInputReferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingTableInputReferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingTableInputReferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_reference_arn: str,
+                 manage_resource_policies: bool):
+        """
+        :param str input_reference_arn: The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+        :param bool manage_resource_policies: When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+               
+               When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+        """
+        pulumi.set(__self__, "input_reference_arn", input_reference_arn)
+        pulumi.set(__self__, "manage_resource_policies", manage_resource_policies)
+
+    @property
+    @pulumi.getter(name="inputReferenceArn")
+    def input_reference_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+        """
+        return pulumi.get(self, "input_reference_arn")
+
+    @property
+    @pulumi.getter(name="manageResourcePolicies")
+    def manage_resource_policies(self) -> bool:
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+        """
+        return pulumi.get(self, "manage_resource_policies")
+
+
+@pulumi.output_type
+class IdMappingTableInputReferenceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idMappingTableInputSource":
+            suggest = "id_mapping_table_input_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingTableInputReferenceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingTableInputReferenceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingTableInputReferenceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id_mapping_table_input_source: Sequence['outputs.IdMappingTableInputSource']):
+        """
+        :param Sequence['IdMappingTableInputSource'] id_mapping_table_input_source: The input source of the ID mapping table.
+        """
+        pulumi.set(__self__, "id_mapping_table_input_source", id_mapping_table_input_source)
+
+    @property
+    @pulumi.getter(name="idMappingTableInputSource")
+    def id_mapping_table_input_source(self) -> Sequence['outputs.IdMappingTableInputSource']:
+        """
+        The input source of the ID mapping table.
+        """
+        return pulumi.get(self, "id_mapping_table_input_source")
+
+
+@pulumi.output_type
+class IdMappingTableInputSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idNamespaceAssociationId":
+            suggest = "id_namespace_association_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingTableInputSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingTableInputSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingTableInputSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id_namespace_association_id: str,
+                 type: 'IdMappingTableInputSourceType'):
+        """
+        :param str id_namespace_association_id: The unique identifier of the ID namespace association.
+        :param 'IdMappingTableInputSourceType' type: The type of the input source of the ID mapping table.
+        """
+        pulumi.set(__self__, "id_namespace_association_id", id_namespace_association_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="idNamespaceAssociationId")
+    def id_namespace_association_id(self) -> str:
+        """
+        The unique identifier of the ID namespace association.
+        """
+        return pulumi.get(self, "id_namespace_association_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'IdMappingTableInputSourceType':
+        """
+        The type of the input source of the ID mapping table.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IdNamespaceAssociationDocument(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class IdNamespaceAssociationIdMappingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowUseAsDimensionColumn":
+            suggest = "allow_use_as_dimension_column"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceAssociationIdMappingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceAssociationIdMappingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceAssociationIdMappingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_use_as_dimension_column: bool):
+        """
+        :param bool allow_use_as_dimension_column: An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+               
+               Default is `FALSE` .
+        """
+        pulumi.set(__self__, "allow_use_as_dimension_column", allow_use_as_dimension_column)
+
+    @property
+    @pulumi.getter(name="allowUseAsDimensionColumn")
+    def allow_use_as_dimension_column(self) -> bool:
+        """
+        An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+
+        Default is `FALSE` .
+        """
+        return pulumi.get(self, "allow_use_as_dimension_column")
+
+
+@pulumi.output_type
+class IdNamespaceAssociationInputReferenceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputReferenceArn":
+            suggest = "input_reference_arn"
+        elif key == "manageResourcePolicies":
+            suggest = "manage_resource_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceAssociationInputReferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceAssociationInputReferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceAssociationInputReferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_reference_arn: str,
+                 manage_resource_policies: bool):
+        """
+        :param str input_reference_arn: The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+        :param bool manage_resource_policies: When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+               
+               When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+        """
+        pulumi.set(__self__, "input_reference_arn", input_reference_arn)
+        pulumi.set(__self__, "manage_resource_policies", manage_resource_policies)
+
+    @property
+    @pulumi.getter(name="inputReferenceArn")
+    def input_reference_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+        """
+        return pulumi.get(self, "input_reference_arn")
+
+    @property
+    @pulumi.getter(name="manageResourcePolicies")
+    def manage_resource_policies(self) -> bool:
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+        """
+        return pulumi.get(self, "manage_resource_policies")
+
+
+@pulumi.output_type
+class IdNamespaceAssociationInputReferenceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idMappingWorkflowsSupported":
+            suggest = "id_mapping_workflows_supported"
+        elif key == "idNamespaceType":
+            suggest = "id_namespace_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceAssociationInputReferenceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceAssociationInputReferenceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceAssociationInputReferenceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id_mapping_workflows_supported: Optional[Sequence['outputs.IdNamespaceAssociationDocument']] = None,
+                 id_namespace_type: Optional['IdNamespaceAssociationInputReferencePropertiesIdNamespaceType'] = None):
+        """
+        :param Sequence['IdNamespaceAssociationDocument'] id_mapping_workflows_supported: Defines how ID mapping workflows are supported for this ID namespace association.
+        :param 'IdNamespaceAssociationInputReferencePropertiesIdNamespaceType' id_namespace_type: The ID namespace type for this ID namespace association.
+        """
+        if id_mapping_workflows_supported is not None:
+            pulumi.set(__self__, "id_mapping_workflows_supported", id_mapping_workflows_supported)
+        if id_namespace_type is not None:
+            pulumi.set(__self__, "id_namespace_type", id_namespace_type)
+
+    @property
+    @pulumi.getter(name="idMappingWorkflowsSupported")
+    def id_mapping_workflows_supported(self) -> Optional[Sequence['outputs.IdNamespaceAssociationDocument']]:
+        """
+        Defines how ID mapping workflows are supported for this ID namespace association.
+        """
+        return pulumi.get(self, "id_mapping_workflows_supported")
+
+    @property
+    @pulumi.getter(name="idNamespaceType")
+    def id_namespace_type(self) -> Optional['IdNamespaceAssociationInputReferencePropertiesIdNamespaceType']:
+        """
+        The ID namespace type for this ID namespace association.
+        """
+        return pulumi.get(self, "id_namespace_type")
 
 
 @pulumi.output_type

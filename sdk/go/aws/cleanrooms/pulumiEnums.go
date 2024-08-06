@@ -2366,6 +2366,188 @@ func (o ConfiguredTableScalarFunctionsArrayOutput) Index(i pulumi.IntInput) Conf
 	}).(ConfiguredTableScalarFunctionsOutput)
 }
 
+// The type of the input source of the ID mapping table.
+type IdMappingTableInputSourceType string
+
+const (
+	IdMappingTableInputSourceTypeSource = IdMappingTableInputSourceType("SOURCE")
+	IdMappingTableInputSourceTypeTarget = IdMappingTableInputSourceType("TARGET")
+)
+
+type IdMappingTableInputSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingTableInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToIdMappingTableInputSourceTypeOutput() IdMappingTableInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToIdMappingTableInputSourceTypeOutputWithContext(ctx context.Context) IdMappingTableInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToIdMappingTableInputSourceTypePtrOutput() IdMappingTableInputSourceTypePtrOutput {
+	return o.ToIdMappingTableInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToIdMappingTableInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingTableInputSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdMappingTableInputSourceType) *IdMappingTableInputSourceType {
+		return &v
+	}).(IdMappingTableInputSourceTypePtrOutput)
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingTableInputSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingTableInputSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingTableInputSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdMappingTableInputSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingTableInputSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingTableInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingTableInputSourceTypePtrOutput) ToIdMappingTableInputSourceTypePtrOutput() IdMappingTableInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceTypePtrOutput) ToIdMappingTableInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingTableInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingTableInputSourceTypePtrOutput) Elem() IdMappingTableInputSourceTypeOutput {
+	return o.ApplyT(func(v *IdMappingTableInputSourceType) IdMappingTableInputSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingTableInputSourceType
+		return ret
+	}).(IdMappingTableInputSourceTypeOutput)
+}
+
+func (o IdMappingTableInputSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingTableInputSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdMappingTableInputSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID namespace type for this ID namespace association.
+type IdNamespaceAssociationInputReferencePropertiesIdNamespaceType string
+
+const (
+	IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeSource = IdNamespaceAssociationInputReferencePropertiesIdNamespaceType("SOURCE")
+	IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeTarget = IdNamespaceAssociationInputReferencePropertiesIdNamespaceType("TARGET")
+)
+
+type IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceAssociationInputReferencePropertiesIdNamespaceType)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o.ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceAssociationInputReferencePropertiesIdNamespaceType) *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType {
+		return &v
+	}).(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput)
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceAssociationInputReferencePropertiesIdNamespaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceAssociationInputReferencePropertiesIdNamespaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceAssociationInputReferencePropertiesIdNamespaceType)(nil)).Elem()
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) ToIdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) Elem() IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput {
+	return o.ApplyT(func(v *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType) IdNamespaceAssociationInputReferencePropertiesIdNamespaceType {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceAssociationInputReferencePropertiesIdNamespaceType
+		return ret
+	}).(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput)
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdNamespaceAssociationInputReferencePropertiesIdNamespaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type MembershipQueryLogStatus string
 
 const (
@@ -3095,6 +3277,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsArrayOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputSourceTypeOutput{})
+	pulumi.RegisterOutputType(IdMappingTableInputSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput{})
+	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipResultFormatOutput{})

@@ -1016,6 +1016,8 @@ _utilities.register(
    "aws-native:cleanrooms:Collaboration": "Collaboration",
    "aws-native:cleanrooms:ConfiguredTable": "ConfiguredTable",
    "aws-native:cleanrooms:ConfiguredTableAssociation": "ConfiguredTableAssociation",
+   "aws-native:cleanrooms:IdMappingTable": "IdMappingTable",
+   "aws-native:cleanrooms:IdNamespaceAssociation": "IdNamespaceAssociation",
    "aws-native:cleanrooms:Membership": "Membership",
    "aws-native:cleanrooms:PrivacyBudgetTemplate": "PrivacyBudgetTemplate"
   }

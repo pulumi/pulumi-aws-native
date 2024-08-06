@@ -19,23 +19,28 @@ __all__ = ['ResolverRuleArgs', 'ResolverRule']
 @pulumi.input_type
 class ResolverRuleArgs:
     def __init__(__self__, *,
-                 domain_name: pulumi.Input[str],
                  rule_type: pulumi.Input['ResolverRuleRuleType'],
+                 delegation_record: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
-        :param pulumi.Input[str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         :param pulumi.Input['ResolverRuleRuleType'] rule_type: When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+        :param pulumi.Input[str] delegation_record: The name server domain for queries to be delegated to if a query matches the delegation record.
+        :param pulumi.Input[str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         :param pulumi.Input[str] name: The name for the Resolver rule
         :param pulumi.Input[str] resolver_endpoint_id: The ID of the endpoint that the rule is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]] target_ips: An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "rule_type", rule_type)
+        if delegation_record is not None:
+            pulumi.set(__self__, "delegation_record", delegation_record)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resolver_endpoint_id is not None:
@@ -44,18 +49,6 @@ class ResolverRuleArgs:
             pulumi.set(__self__, "tags", tags)
         if target_ips is not None:
             pulumi.set(__self__, "target_ips", target_ips)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[str]:
-        """
-        DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -68,6 +61,30 @@ class ResolverRuleArgs:
     @rule_type.setter
     def rule_type(self, value: pulumi.Input['ResolverRuleRuleType']):
         pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter(name="delegationRecord")
+    def delegation_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name server domain for queries to be delegated to if a query matches the delegation record.
+        """
+        return pulumi.get(self, "delegation_record")
+
+    @delegation_record.setter
+    def delegation_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegation_record", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter
@@ -123,6 +140,7 @@ class ResolverRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delegation_record: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -135,6 +153,7 @@ class ResolverRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] delegation_record: The name server domain for queries to be delegated to if a query matches the delegation record.
         :param pulumi.Input[str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         :param pulumi.Input[str] name: The name for the Resolver rule
         :param pulumi.Input[str] resolver_endpoint_id: The ID of the endpoint that the rule is associated with.
@@ -166,6 +185,7 @@ class ResolverRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delegation_record: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -181,8 +201,7 @@ class ResolverRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResolverRuleArgs.__new__(ResolverRuleArgs)
 
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
+            __props__.__dict__["delegation_record"] = delegation_record
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
             __props__.__dict__["resolver_endpoint_id"] = resolver_endpoint_id
@@ -218,6 +237,7 @@ class ResolverRule(pulumi.CustomResource):
         __props__ = ResolverRuleArgs.__new__(ResolverRuleArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["delegation_record"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resolver_endpoint_id"] = None
@@ -236,8 +256,16 @@ class ResolverRule(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="delegationRecord")
+    def delegation_record(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name server domain for queries to be delegated to if a query matches the delegation record.
+        """
+        return pulumi.get(self, "delegation_record")
+
+    @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         """

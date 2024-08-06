@@ -18,6 +18,8 @@ __all__ = [
     'ConfiguredTableJoinOperator',
     'ConfiguredTableJoinRequiredOption',
     'ConfiguredTableScalarFunctions',
+    'IdMappingTableInputSourceType',
+    'IdNamespaceAssociationInputReferencePropertiesIdNamespaceType',
     'MembershipQueryLogStatus',
     'MembershipResultFormat',
     'PrivacyBudgetTemplateAutoRefresh',
@@ -131,6 +133,22 @@ class ConfiguredTableScalarFunctions(str, Enum):
     TO_NUMBER = "TO_NUMBER"
     TO_TIMESTAMP = "TO_TIMESTAMP"
     TRIM = "TRIM"
+
+
+class IdMappingTableInputSourceType(str, Enum):
+    """
+    The type of the input source of the ID mapping table.
+    """
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
+
+
+class IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(str, Enum):
+    """
+    The ID namespace type for this ID namespace association.
+    """
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
 
 
 class MembershipQueryLogStatus(str, Enum):

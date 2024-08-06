@@ -176,7 +176,9 @@ type ClusterLoggingProperties struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions
-	BucketName *string `pulumi:"bucketName"`
+	BucketName         *string  `pulumi:"bucketName"`
+	LogDestinationType *string  `pulumi:"logDestinationType"`
+	LogExports         []string `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:
@@ -210,7 +212,9 @@ type ClusterLoggingPropertiesArgs struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketName         pulumi.StringPtrInput   `pulumi:"bucketName"`
+	LogDestinationType pulumi.StringPtrInput   `pulumi:"logDestinationType"`
+	LogExports         pulumi.StringArrayInput `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:
@@ -313,6 +317,14 @@ func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+func (o ClusterLoggingPropertiesOutput) LogDestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLoggingPropertiesOutput) LogExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLoggingProperties) []string { return v.LogExports }).(pulumi.StringArrayOutput)
+}
+
 // The prefix applied to the log file names.
 //
 // Constraints:
@@ -366,6 +378,24 @@ func (o ClusterLoggingPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 		}
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLoggingPropertiesPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLoggingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogDestinationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLoggingPropertiesPtrOutput) LogExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterLoggingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogExports
+	}).(pulumi.StringArrayOutput)
 }
 
 // The prefix applied to the log file names.

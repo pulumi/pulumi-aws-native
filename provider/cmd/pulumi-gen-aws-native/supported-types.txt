@@ -130,6 +130,8 @@ AWS::CleanRooms::AnalysisTemplate
 AWS::CleanRooms::Collaboration
 AWS::CleanRooms::ConfiguredTable
 AWS::CleanRooms::ConfiguredTableAssociation
+AWS::CleanRooms::IdMappingTable
+AWS::CleanRooms::IdNamespaceAssociation
 AWS::CleanRooms::Membership
 AWS::CleanRooms::PrivacyBudgetTemplate
 AWS::CleanRoomsML::TrainingDataset

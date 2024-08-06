@@ -202,6 +202,7 @@ export const ResolverRuleRuleType = {
     Forward: "FORWARD",
     System: "SYSTEM",
     Recursive: "RECURSIVE",
+    Delegate: "DELEGATE",
 } as const;
 
 /**

@@ -47,7 +47,8 @@ class SubnetArgs:
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet.
                 If you update this property, we create a new subnet, and then delete the existing one.
-        :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+                 You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
         :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
         :param pulumi.Input[str] ipv4_ipam_pool_id: An IPv4 IPAM pool ID for the subnet.
         :param pulumi.Input[int] ipv4_netmask_length: An IPv4 netmask length for the subnet.
@@ -171,7 +172,8 @@ class SubnetArgs:
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+          You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
         """
         return pulumi.get(self, "enable_dns64")
 
@@ -368,7 +370,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet.
                 If you update this property, we create a new subnet, and then delete the existing one.
-        :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+                 You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
         :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
         :param pulumi.Input[str] ipv4_ipam_pool_id: An IPv4 IPAM pool ID for the subnet.
         :param pulumi.Input[int] ipv4_netmask_length: An IPv4 netmask length for the subnet.
@@ -550,7 +553,8 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+          You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
         """
         return pulumi.get(self, "enable_dns64")
 

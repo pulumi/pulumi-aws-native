@@ -31,7 +31,8 @@ type Subnet struct {
 	// The IPv4 CIDR block assigned to the subnet.
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
-	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+	//   You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
 	EnableDns64 pulumi.BoolPtrOutput `pulumi:"enableDns64"`
 	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
 	EnableLniAtDeviceIndex pulumi.IntPtrOutput `pulumi:"enableLniAtDeviceIndex"`
@@ -139,7 +140,8 @@ type subnetArgs struct {
 	// The IPv4 CIDR block assigned to the subnet.
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock *string `pulumi:"cidrBlock"`
-	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+	//   You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
 	EnableDns64 *bool `pulumi:"enableDns64"`
 	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
 	EnableLniAtDeviceIndex *int `pulumi:"enableLniAtDeviceIndex"`
@@ -189,7 +191,8 @@ type SubnetArgs struct {
 	// The IPv4 CIDR block assigned to the subnet.
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock pulumi.StringPtrInput
-	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+	//   You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
 	EnableDns64 pulumi.BoolPtrInput
 	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
 	EnableLniAtDeviceIndex pulumi.IntPtrInput
@@ -289,7 +292,9 @@ func (o SubnetOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+//
+//	You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
 func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }

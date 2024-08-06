@@ -576,6 +576,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public static ResolverRuleRuleType Forward { get; } = new ResolverRuleRuleType("FORWARD");
         public static ResolverRuleRuleType System { get; } = new ResolverRuleRuleType("SYSTEM");
         public static ResolverRuleRuleType Recursive { get; } = new ResolverRuleRuleType("RECURSIVE");
+        public static ResolverRuleRuleType Delegate { get; } = new ResolverRuleRuleType("DELEGATE");
 
         public static bool operator ==(ResolverRuleRuleType left, ResolverRuleRuleType right) => left.Equals(right);
         public static bool operator !=(ResolverRuleRuleType left, ResolverRuleRuleType right) => !left.Equals(right);

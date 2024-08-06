@@ -25,7 +25,13 @@
     "RuleType" : {
       "type" : "string",
       "description" : "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.",
-      "enum" : [ "FORWARD", "SYSTEM", "RECURSIVE" ]
+      "enum" : [ "FORWARD", "SYSTEM", "RECURSIVE", "DELEGATE" ]
+    },
+    "DelegationRecord" : {
+      "type" : "string",
+      "description" : "The name server domain for queries to be delegated to if a query matches the delegation record.",
+      "minLength" : 1,
+      "maxLength" : 256
     },
     "Tags" : {
       "type" : "array",
@@ -107,7 +113,7 @@
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ "DomainName", "RuleType" ],
+  "required" : [ "RuleType" ],
   "primaryIdentifier" : [ "/properties/ResolverRuleId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/ResolverRuleId" ],
   "createOnlyProperties" : [ "/properties/RuleType" ],

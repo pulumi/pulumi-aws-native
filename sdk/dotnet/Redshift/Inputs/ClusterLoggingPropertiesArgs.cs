@@ -23,6 +23,17 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        [Input("logDestinationType")]
+        public Input<string>? LogDestinationType { get; set; }
+
+        [Input("logExports")]
+        private InputList<string>? _logExports;
+        public InputList<string> LogExports
+        {
+            get => _logExports ?? (_logExports = new InputList<string>());
+            set => _logExports = value;
+        }
+
         /// <summary>
         /// The prefix applied to the log file names.
         /// 

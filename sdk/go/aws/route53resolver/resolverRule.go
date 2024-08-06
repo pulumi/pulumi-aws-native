@@ -19,8 +19,10 @@ type ResolverRule struct {
 
 	// The Amazon Resource Name (ARN) of the resolver rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name server domain for queries to be delegated to if a query matches the delegation record.
+	DelegationRecord pulumi.StringPtrOutput `pulumi:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The name for the Resolver rule
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ID of the endpoint that the rule is associated with.
@@ -42,9 +44,6 @@ func NewResolverRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.RuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RuleType'")
 	}
@@ -85,8 +84,10 @@ func (ResolverRuleState) ElementType() reflect.Type {
 }
 
 type resolverRuleArgs struct {
+	// The name server domain for queries to be delegated to if a query matches the delegation record.
+	DelegationRecord *string `pulumi:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// The name for the Resolver rule
 	Name *string `pulumi:"name"`
 	// The ID of the endpoint that the rule is associated with.
@@ -101,8 +102,10 @@ type resolverRuleArgs struct {
 
 // The set of arguments for constructing a ResolverRule resource.
 type ResolverRuleArgs struct {
+	// The name server domain for queries to be delegated to if a query matches the delegation record.
+	DelegationRecord pulumi.StringPtrInput
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// The name for the Resolver rule
 	Name pulumi.StringPtrInput
 	// The ID of the endpoint that the rule is associated with.
@@ -157,9 +160,14 @@ func (o ResolverRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name server domain for queries to be delegated to if a query matches the delegation record.
+func (o ResolverRuleOutput) DelegationRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.DelegationRecord }).(pulumi.StringPtrOutput)
+}
+
 // DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
-func (o ResolverRuleOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+func (o ResolverRuleOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The name for the Resolver rule

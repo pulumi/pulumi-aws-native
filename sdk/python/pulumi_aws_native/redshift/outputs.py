@@ -59,6 +59,10 @@ class ClusterLoggingProperties(dict):
         suggest = None
         if key == "bucketName":
             suggest = "bucket_name"
+        elif key == "logDestinationType":
+            suggest = "log_destination_type"
+        elif key == "logExports":
+            suggest = "log_exports"
         elif key == "s3KeyPrefix":
             suggest = "s3_key_prefix"
 
@@ -75,6 +79,8 @@ class ClusterLoggingProperties(dict):
 
     def __init__(__self__, *,
                  bucket_name: Optional[str] = None,
+                 log_destination_type: Optional[str] = None,
+                 log_exports: Optional[Sequence[str]] = None,
                  s3_key_prefix: Optional[str] = None):
         """
         :param str bucket_name: The name of an existing S3 bucket where the log files are to be stored.
@@ -98,6 +104,10 @@ class ClusterLoggingProperties(dict):
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if log_destination_type is not None:
+            pulumi.set(__self__, "log_destination_type", log_destination_type)
+        if log_exports is not None:
+            pulumi.set(__self__, "log_exports", log_exports)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
@@ -113,6 +123,16 @@ class ClusterLoggingProperties(dict):
         - The cluster must have read bucket and put object permissions
         """
         return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="logDestinationType")
+    def log_destination_type(self) -> Optional[str]:
+        return pulumi.get(self, "log_destination_type")
+
+    @property
+    @pulumi.getter(name="logExports")
+    def log_exports(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "log_exports")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")

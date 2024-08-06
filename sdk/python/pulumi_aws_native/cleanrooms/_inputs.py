@@ -39,6 +39,9 @@ __all__ = [
     'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableTableReferenceArgs',
+    'IdMappingTableInputReferenceConfigArgs',
+    'IdNamespaceAssociationIdMappingConfigArgs',
+    'IdNamespaceAssociationInputReferenceConfigArgs',
     'MembershipPaymentConfigurationArgs',
     'MembershipProtectedQueryOutputConfigurationArgs',
     'MembershipProtectedQueryResultConfigurationArgs',
@@ -983,6 +986,114 @@ class ConfiguredTableTableReferenceArgs:
     @glue.setter
     def glue(self, value: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
         pulumi.set(self, "glue", value)
+
+
+@pulumi.input_type
+class IdMappingTableInputReferenceConfigArgs:
+    def __init__(__self__, *,
+                 input_reference_arn: pulumi.Input[str],
+                 manage_resource_policies: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] input_reference_arn: The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+        :param pulumi.Input[bool] manage_resource_policies: When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+               
+               When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+        """
+        pulumi.set(__self__, "input_reference_arn", input_reference_arn)
+        pulumi.set(__self__, "manage_resource_policies", manage_resource_policies)
+
+    @property
+    @pulumi.getter(name="inputReferenceArn")
+    def input_reference_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+        """
+        return pulumi.get(self, "input_reference_arn")
+
+    @input_reference_arn.setter
+    def input_reference_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "input_reference_arn", value)
+
+    @property
+    @pulumi.getter(name="manageResourcePolicies")
+    def manage_resource_policies(self) -> pulumi.Input[bool]:
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+        """
+        return pulumi.get(self, "manage_resource_policies")
+
+    @manage_resource_policies.setter
+    def manage_resource_policies(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "manage_resource_policies", value)
+
+
+@pulumi.input_type
+class IdNamespaceAssociationIdMappingConfigArgs:
+    def __init__(__self__, *,
+                 allow_use_as_dimension_column: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] allow_use_as_dimension_column: An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+               
+               Default is `FALSE` .
+        """
+        pulumi.set(__self__, "allow_use_as_dimension_column", allow_use_as_dimension_column)
+
+    @property
+    @pulumi.getter(name="allowUseAsDimensionColumn")
+    def allow_use_as_dimension_column(self) -> pulumi.Input[bool]:
+        """
+        An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+
+        Default is `FALSE` .
+        """
+        return pulumi.get(self, "allow_use_as_dimension_column")
+
+    @allow_use_as_dimension_column.setter
+    def allow_use_as_dimension_column(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_use_as_dimension_column", value)
+
+
+@pulumi.input_type
+class IdNamespaceAssociationInputReferenceConfigArgs:
+    def __init__(__self__, *,
+                 input_reference_arn: pulumi.Input[str],
+                 manage_resource_policies: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] input_reference_arn: The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+        :param pulumi.Input[bool] manage_resource_policies: When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+               
+               When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+        """
+        pulumi.set(__self__, "input_reference_arn", input_reference_arn)
+        pulumi.set(__self__, "manage_resource_policies", manage_resource_policies)
+
+    @property
+    @pulumi.getter(name="inputReferenceArn")
+    def input_reference_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+        """
+        return pulumi.get(self, "input_reference_arn")
+
+    @input_reference_arn.setter
+    def input_reference_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "input_reference_arn", value)
+
+    @property
+    @pulumi.getter(name="manageResourcePolicies")
+    def manage_resource_policies(self) -> pulumi.Input[bool]:
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+        """
+        return pulumi.get(self, "manage_resource_policies")
+
+    @manage_resource_policies.setter
+    def manage_resource_policies(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "manage_resource_policies", value)
 
 
 @pulumi.input_type

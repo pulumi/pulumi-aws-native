@@ -45,6 +45,16 @@ export const getConfiguredTableAssociation: typeof import("./getConfiguredTableA
 export const getConfiguredTableAssociationOutput: typeof import("./getConfiguredTableAssociation").getConfiguredTableAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getConfiguredTableAssociation","getConfiguredTableAssociationOutput"], () => require("./getConfiguredTableAssociation"));
 
+export { GetIdMappingTableArgs, GetIdMappingTableResult, GetIdMappingTableOutputArgs } from "./getIdMappingTable";
+export const getIdMappingTable: typeof import("./getIdMappingTable").getIdMappingTable = null as any;
+export const getIdMappingTableOutput: typeof import("./getIdMappingTable").getIdMappingTableOutput = null as any;
+utilities.lazyLoad(exports, ["getIdMappingTable","getIdMappingTableOutput"], () => require("./getIdMappingTable"));
+
+export { GetIdNamespaceAssociationArgs, GetIdNamespaceAssociationResult, GetIdNamespaceAssociationOutputArgs } from "./getIdNamespaceAssociation";
+export const getIdNamespaceAssociation: typeof import("./getIdNamespaceAssociation").getIdNamespaceAssociation = null as any;
+export const getIdNamespaceAssociationOutput: typeof import("./getIdNamespaceAssociation").getIdNamespaceAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIdNamespaceAssociation","getIdNamespaceAssociationOutput"], () => require("./getIdNamespaceAssociation"));
+
 export { GetMembershipArgs, GetMembershipResult, GetMembershipOutputArgs } from "./getMembership";
 export const getMembership: typeof import("./getMembership").getMembership = null as any;
 export const getMembershipOutput: typeof import("./getMembership").getMembershipOutput = null as any;
@@ -54,6 +64,16 @@ export { GetPrivacyBudgetTemplateArgs, GetPrivacyBudgetTemplateResult, GetPrivac
 export const getPrivacyBudgetTemplate: typeof import("./getPrivacyBudgetTemplate").getPrivacyBudgetTemplate = null as any;
 export const getPrivacyBudgetTemplateOutput: typeof import("./getPrivacyBudgetTemplate").getPrivacyBudgetTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivacyBudgetTemplate","getPrivacyBudgetTemplateOutput"], () => require("./getPrivacyBudgetTemplate"));
+
+export { IdMappingTableArgs } from "./idMappingTable";
+export type IdMappingTable = import("./idMappingTable").IdMappingTable;
+export const IdMappingTable: typeof import("./idMappingTable").IdMappingTable = null as any;
+utilities.lazyLoad(exports, ["IdMappingTable"], () => require("./idMappingTable"));
+
+export { IdNamespaceAssociationArgs } from "./idNamespaceAssociation";
+export type IdNamespaceAssociation = import("./idNamespaceAssociation").IdNamespaceAssociation;
+export const IdNamespaceAssociation: typeof import("./idNamespaceAssociation").IdNamespaceAssociation = null as any;
+utilities.lazyLoad(exports, ["IdNamespaceAssociation"], () => require("./idNamespaceAssociation"));
 
 export { MembershipArgs } from "./membership";
 export type Membership = import("./membership").Membership;
@@ -81,6 +101,10 @@ const _module = {
                 return new ConfiguredTable(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:ConfiguredTableAssociation":
                 return new ConfiguredTableAssociation(name, <any>undefined, { urn })
+            case "aws-native:cleanrooms:IdMappingTable":
+                return new IdMappingTable(name, <any>undefined, { urn })
+            case "aws-native:cleanrooms:IdNamespaceAssociation":
+                return new IdNamespaceAssociation(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:Membership":
                 return new Membership(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:PrivacyBudgetTemplate":

@@ -2040,6 +2040,7 @@ const (
 	ResolverRuleRuleTypeForward   = ResolverRuleRuleType("FORWARD")
 	ResolverRuleRuleTypeSystem    = ResolverRuleRuleType("SYSTEM")
 	ResolverRuleRuleTypeRecursive = ResolverRuleRuleType("RECURSIVE")
+	ResolverRuleRuleTypeDelegate  = ResolverRuleRuleType("DELEGATE")
 )
 
 func (ResolverRuleRuleType) ElementType() reflect.Type {
@@ -2167,6 +2168,7 @@ func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	ResolverRuleRuleTypeForward
 //	ResolverRuleRuleTypeSystem
 //	ResolverRuleRuleTypeRecursive
+//	ResolverRuleRuleTypeDelegate
 type ResolverRuleRuleTypeInput interface {
 	pulumi.Input
 

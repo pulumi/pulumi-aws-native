@@ -14,8 +14,12 @@ from .get_analysis_template import *
 from .get_collaboration import *
 from .get_configured_table import *
 from .get_configured_table_association import *
+from .get_id_mapping_table import *
+from .get_id_namespace_association import *
 from .get_membership import *
 from .get_privacy_budget_template import *
+from .id_mapping_table import *
+from .id_namespace_association import *
 from .membership import *
 from .privacy_budget_template import *
 from ._inputs import *

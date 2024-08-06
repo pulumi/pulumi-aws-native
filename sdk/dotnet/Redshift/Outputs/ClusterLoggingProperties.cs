@@ -22,6 +22,8 @@ namespace Pulumi.AwsNative.Redshift.Outputs
         /// - The cluster must have read bucket and put object permissions
         /// </summary>
         public readonly string? BucketName;
+        public readonly string? LogDestinationType;
+        public readonly ImmutableArray<string> LogExports;
         /// <summary>
         /// The prefix applied to the log file names.
         /// 
@@ -42,9 +44,15 @@ namespace Pulumi.AwsNative.Redshift.Outputs
         private ClusterLoggingProperties(
             string? bucketName,
 
+            string? logDestinationType,
+
+            ImmutableArray<string> logExports,
+
             string? s3KeyPrefix)
         {
             BucketName = bucketName;
+            LogDestinationType = logDestinationType;
+            LogExports = logExports;
             S3KeyPrefix = s3KeyPrefix;
         }
     }

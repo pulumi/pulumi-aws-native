@@ -136,6 +136,26 @@ export const ConfiguredTableScalarFunctions = {
 
 export type ConfiguredTableScalarFunctions = (typeof ConfiguredTableScalarFunctions)[keyof typeof ConfiguredTableScalarFunctions];
 
+export const IdMappingTableInputSourceType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+/**
+ * The type of the input source of the ID mapping table.
+ */
+export type IdMappingTableInputSourceType = (typeof IdMappingTableInputSourceType)[keyof typeof IdMappingTableInputSourceType];
+
+export const IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+/**
+ * The ID namespace type for this ID namespace association.
+ */
+export type IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = (typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType)[keyof typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType];
+
 export const MembershipQueryLogStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
