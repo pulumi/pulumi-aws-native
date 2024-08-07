@@ -128,7 +128,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "datazone:TagResource", "datazone:UntagResource" ]
   },
   "handlers" : {
     "create" : {
@@ -141,7 +142,7 @@
       "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration" ]
     },
     "delete" : {
-      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain" ]
+      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration" ]
     },
     "list" : {
       "permissions" : [ "datazone:ListDomains" ]

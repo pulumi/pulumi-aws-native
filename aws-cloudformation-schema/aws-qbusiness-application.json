@@ -143,13 +143,13 @@
   "primaryIdentifier" : [ "/properties/ApplicationId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "qbusiness:CreateApplication", "qbusiness:GetApplication", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant" ]
+      "permissions" : [ "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "qbusiness:CreateApplication", "qbusiness:GetApplication", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant", "sso:DescribeInstance" ]
     },
     "read" : {
       "permissions" : [ "qbusiness:GetApplication", "qbusiness:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "qbusiness:GetApplication", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UntagResource", "qbusiness:UpdateApplication", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant" ]
+      "permissions" : [ "iam:PassRole", "qbusiness:GetApplication", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UntagResource", "qbusiness:UpdateApplication", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant", "sso:DescribeInstance" ]
     },
     "delete" : {
       "permissions" : [ "kms:RetireGrant", "qbusiness:DeleteApplication", "qbusiness:GetApplication", "sso:DeleteApplication" ]
