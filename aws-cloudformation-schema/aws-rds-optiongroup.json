@@ -8,7 +8,7 @@
       "type" : "object",
       "properties" : {
         "DBSecurityGroupMemberships" : {
-          "description" : "A list of DBSecurityGroupMembership name strings used for this option.",
+          "description" : "A list of DB security groups used for this option.",
           "type" : "array",
           "uniqueItems" : true,
           "insertionOrder" : false,
@@ -37,7 +37,7 @@
           "type" : "integer"
         },
         "VpcSecurityGroupMemberships" : {
-          "description" : "A list of VpcSecurityGroupMembership name strings used for this option.",
+          "description" : "A list of VPC security group names used for this option.",
           "type" : "array",
           "uniqueItems" : true,
           "insertionOrder" : false,
@@ -65,7 +65,7 @@
       "additionalProperties" : false
     },
     "Tag" : {
-      "description" : "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
+      "description" : "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -103,7 +103,7 @@
       "type" : "string"
     },
     "OptionConfigurations" : {
-      "description" : "A list of all available options",
+      "description" : "A list of all available options for an option group.",
       "type" : "array",
       "arrayType" : "AttributeList",
       "insertionOrder" : false,

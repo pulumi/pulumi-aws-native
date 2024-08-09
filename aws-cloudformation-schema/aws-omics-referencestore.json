@@ -89,7 +89,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateReferenceStore", "omics:TagResource" ]
+      "permissions" : [ "omics:CreateReferenceStore", "omics:TagResource", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "omics:GetReferenceStore", "omics:ListTagsForResource" ]

@@ -1972,11 +1972,11 @@
         "items": {
           "$ref": "#/types/aws-native:cognito:LogDeliveryConfigurationLogConfiguration"
         },
-        "description": "The detailed activity logging destination of a user pool."
+        "description": "A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs."
       },
       "userPoolId": {
         "type": "string",
-        "description": "The ID of the user pool where you configured detailed activity logging."
+        "description": "The ID of the user pool where you configured logging."
       }
     }
   },
@@ -10126,7 +10126,7 @@
       },
       "automaticBackupReplicationRegion": {
         "type": "string",
-        "description": "The AWS Region associated with the automated backup."
+        "description": "The AWS-Region associated with the automated backup."
       },
       "availabilityZone": {
         "type": "string",
