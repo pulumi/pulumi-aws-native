@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// For versioned objects, the version of the deployment package object to use.
         /// </summary>
         public readonly string? S3ObjectVersion;
+        public readonly string? SourceKmsKeyArn;
         /// <summary>
         /// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
         ///   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
@@ -50,12 +51,15 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
             string? s3ObjectVersion,
 
+            string? sourceKmsKeyArn,
+
             string? zipFile)
         {
             ImageUri = imageUri;
             S3Bucket = s3Bucket;
             S3Key = s3Key;
             S3ObjectVersion = s3ObjectVersion;
+            SourceKmsKeyArn = sourceKmsKeyArn;
             ZipFile = zipFile;
         }
     }

@@ -18,9 +18,9 @@ type LogDeliveryConfiguration struct {
 
 	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The detailed activity logging destination of a user pool.
+	// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayOutput `pulumi:"logConfigurations"`
-	// The ID of the user pool where you configured detailed activity logging.
+	// The ID of the user pool where you configured logging.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -71,17 +71,17 @@ func (LogDeliveryConfigurationState) ElementType() reflect.Type {
 }
 
 type logDeliveryConfigurationArgs struct {
-	// The detailed activity logging destination of a user pool.
+	// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
-	// The ID of the user pool where you configured detailed activity logging.
+	// The ID of the user pool where you configured logging.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a LogDeliveryConfiguration resource.
 type LogDeliveryConfigurationArgs struct {
-	// The detailed activity logging destination of a user pool.
+	// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayInput
-	// The ID of the user pool where you configured detailed activity logging.
+	// The ID of the user pool where you configured logging.
 	UserPoolId pulumi.StringInput
 }
 
@@ -127,14 +127,14 @@ func (o LogDeliveryConfigurationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The detailed activity logging destination of a user pool.
+// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 func (o LogDeliveryConfigurationOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) LogDeliveryConfigurationLogConfigurationArrayOutput {
 		return v.LogConfigurations
 	}).(LogDeliveryConfigurationLogConfigurationArrayOutput)
 }
 
-// The ID of the user pool where you configured detailed activity logging.
+// The ID of the user pool where you configured logging.
 func (o LogDeliveryConfigurationOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

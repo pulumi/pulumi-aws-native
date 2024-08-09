@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         private InputList<string>? _dbSecurityGroupMemberships;
 
         /// <summary>
-        /// A list of DBSecurityGroupMembership name strings used for this option.
+        /// A list of DB security groups used for this option.
         /// </summary>
         public InputList<string> DbSecurityGroupMemberships
         {
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         private InputList<string>? _vpcSecurityGroupMemberships;
 
         /// <summary>
-        /// A list of VpcSecurityGroupMembership name strings used for this option.
+        /// A list of VPC security group names used for this option.
         /// </summary>
         public InputList<string> VpcSecurityGroupMemberships
         {

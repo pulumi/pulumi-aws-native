@@ -984,7 +984,7 @@ class AutomationRulesFindingFilters(dict):
         :param Sequence['AutomationRuleMapFilter'] resource_details_other: Custom fields and values about the resource that a finding pertains to.
                
                Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+        :param Sequence['AutomationRuleStringFilter'] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
                
                Array Members: Minimum number of 1 item. Maximum number of 100 items.
         :param Sequence['AutomationRuleStringFilter'] resource_partition: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
@@ -1359,7 +1359,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 
         Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
@@ -1695,7 +1695,7 @@ class ConfigurationPolicyPolicy(dict):
                  security_hub: Optional['outputs.ConfigurationPolicySecurityHubPolicy'] = None):
         """
         An object that defines how Security Hub is configured.
-        :param 'ConfigurationPolicySecurityHubPolicy' security_hub: The AWS service that the configuration policy applies to.
+        :param 'ConfigurationPolicySecurityHubPolicy' security_hub: The AWS-service that the configuration policy applies to.
         """
         if security_hub is not None:
             pulumi.set(__self__, "security_hub", security_hub)
@@ -1704,7 +1704,7 @@ class ConfigurationPolicyPolicy(dict):
     @pulumi.getter(name="securityHub")
     def security_hub(self) -> Optional['outputs.ConfigurationPolicySecurityHubPolicy']:
         """
-        The AWS service that the configuration policy applies to.
+        The AWS-service that the configuration policy applies to.
         """
         return pulumi.get(self, "security_hub")
 

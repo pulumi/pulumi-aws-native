@@ -10384,7 +10384,7 @@ type LaunchTemplateData struct {
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
 	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
 	//  Valid formats:
-	//   +   ``ami-17characters00000``
+	//   +   ``ami-0ac394d6a3example``
 	//   +   ``resolve:ssm:parameter-name``
 	//   +   ``resolve:ssm:parameter-name:version-number``
 	//   +   ``resolve:ssm:parameter-name:label``
@@ -10493,7 +10493,7 @@ type LaunchTemplateDataArgs struct {
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput `pulumi:"iamInstanceProfile"`
 	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
 	//  Valid formats:
-	//   +   ``ami-17characters00000``
+	//   +   ``ami-0ac394d6a3example``
 	//   +   ``resolve:ssm:parameter-name``
 	//   +   ``resolve:ssm:parameter-name:version-number``
 	//   +   ``resolve:ssm:parameter-name:label``
@@ -10660,7 +10660,7 @@ func (o LaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstance
 // The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
 //
 //	Valid formats:
-//	 +   ``ami-17characters00000``
+//	 +   ``ami-0ac394d6a3example``
 //	 +   ``resolve:ssm:parameter-name``
 //	 +   ``resolve:ssm:parameter-name:version-number``
 //	 +   ``resolve:ssm:parameter-name:label``
@@ -18175,7 +18175,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourcePortRanges()
 type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
 	// The destination IPv4 address, in CIDR notation.
 	DestinationCidr *string `pulumi:"destinationCidr"`
-	// The prefix of the AWS service .
+	// The prefix of the AWS-service .
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId *string `pulumi:"egressOnlyInternetGatewayId"`
@@ -18223,7 +18223,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationCidr() 
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
 }
 
-// The prefix of the AWS service .
+// The prefix of the AWS-service .
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
@@ -18314,7 +18314,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationCidr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix of the AWS service .
+// The prefix of the AWS-service .
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {

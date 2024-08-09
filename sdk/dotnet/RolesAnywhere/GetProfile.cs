@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.RolesAnywhere
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// Used to determine if a custom role session name will be accepted in a temporary credential request.
+        /// </summary>
+        public readonly bool? AcceptRoleSessionName;
+        /// <summary>
         /// A mapping applied to the authenticating end-entity certificate.
         /// </summary>
         public readonly ImmutableArray<Outputs.ProfileAttributeMapping> AttributeMappings;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
         [OutputConstructor]
         private GetProfileResult(
+            bool? acceptRoleSessionName,
+
             ImmutableArray<Outputs.ProfileAttributeMapping> attributeMappings,
 
             double? durationSeconds,
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AcceptRoleSessionName = acceptRoleSessionName;
             AttributeMappings = attributeMappings;
             DurationSeconds = durationSeconds;
             Enabled = enabled;

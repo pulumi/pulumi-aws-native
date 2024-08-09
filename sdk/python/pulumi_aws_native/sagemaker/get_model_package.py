@@ -134,6 +134,9 @@ class GetModelPackageResult:
     @property
     @pulumi.getter(name="modelCard")
     def model_card(self) -> Optional['outputs.ModelPackageModelCard']:
+        """
+        An Amazon SageMaker Model Card.
+        """
         return pulumi.get(self, "model_card")
 
     @property
@@ -193,6 +196,9 @@ class GetModelPackageResult:
     @property
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[str]:
+        """
+        The URI of the source for the model package.
+        """
         return pulumi.get(self, "source_uri")
 
     @property

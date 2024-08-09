@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Cognito::UserPool
+// Definition of AWS::Cognito::UserPool Resource Type
 func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolResult

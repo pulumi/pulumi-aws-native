@@ -31,7 +31,7 @@ export interface GetLogDeliveryConfigurationResult {
      */
     readonly id?: string;
     /**
-     * The detailed activity logging destination of a user pool.
+     * A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
      */
     readonly logConfigurations?: outputs.cognito.LogDeliveryConfigurationLogConfiguration[];
 }

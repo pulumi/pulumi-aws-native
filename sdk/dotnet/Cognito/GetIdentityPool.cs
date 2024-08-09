@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly string? IdentityPoolName;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> IdentityPoolTags;
+        /// <summary>
         /// The name of the Amazon Cognito identity pool, returned as a string.
         /// </summary>
         public readonly string? Name;
@@ -115,6 +119,8 @@ namespace Pulumi.AwsNative.Cognito
 
             string? identityPoolName,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> identityPoolTags,
+
             string? name,
 
             ImmutableArray<string> openIdConnectProviderArns,
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.Cognito
             DeveloperProviderName = developerProviderName;
             Id = id;
             IdentityPoolName = identityPoolName;
+            IdentityPoolTags = identityPoolTags;
             Name = name;
             OpenIdConnectProviderArns = openIdConnectProviderArns;
             SamlProviderArns = samlProviderArns;

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
     public sealed class OptionGroupOptionConfiguration
     {
         /// <summary>
-        /// A list of DBSecurityGroupMembership name strings used for this option.
+        /// A list of DB security groups used for this option.
         /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroupMemberships;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// A list of VpcSecurityGroupMembership name strings used for this option.
+        /// A list of VPC security group names used for this option.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupMemberships;
 

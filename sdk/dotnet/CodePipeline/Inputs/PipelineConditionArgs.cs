@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
 
         [Input("rules")]
         private InputList<Inputs.PipelineRuleDeclarationArgs>? _rules;
+
+        /// <summary>
+        /// The rules that make up the condition.
+        /// </summary>
         public InputList<Inputs.PipelineRuleDeclarationArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.PipelineRuleDeclarationArgs>());

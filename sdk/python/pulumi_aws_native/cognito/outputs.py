@@ -18,10 +18,13 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRulesConfigurationType',
     'LogDeliveryConfigurationCloudWatchLogsConfiguration',
+    'LogDeliveryConfigurationFirehoseConfiguration',
     'LogDeliveryConfigurationLogConfiguration',
+    'LogDeliveryConfigurationS3Configuration',
     'UserPoolAccountRecoverySetting',
     'UserPoolAddOns',
     'UserPoolAdminCreateUserConfig',
+    'UserPoolAdvancedSecurityAdditionalFlows',
     'UserPoolClientAnalyticsConfiguration',
     'UserPoolClientTokenValidityUnits',
     'UserPoolCustomEmailSender',
@@ -390,6 +393,36 @@ class LogDeliveryConfigurationCloudWatchLogsConfiguration(dict):
 
 
 @pulumi.output_type
+class LogDeliveryConfigurationFirehoseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationFirehoseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationFirehoseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationFirehoseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_arn: Optional[str] = None):
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[str]:
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
 class LogDeliveryConfigurationLogConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -398,8 +431,12 @@ class LogDeliveryConfigurationLogConfiguration(dict):
             suggest = "cloud_watch_logs_configuration"
         elif key == "eventSource":
             suggest = "event_source"
+        elif key == "firehoseConfiguration":
+            suggest = "firehose_configuration"
         elif key == "logLevel":
             suggest = "log_level"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -415,13 +452,19 @@ class LogDeliveryConfigurationLogConfiguration(dict):
     def __init__(__self__, *,
                  cloud_watch_logs_configuration: Optional['outputs.LogDeliveryConfigurationCloudWatchLogsConfiguration'] = None,
                  event_source: Optional[str] = None,
-                 log_level: Optional[str] = None):
+                 firehose_configuration: Optional['outputs.LogDeliveryConfigurationFirehoseConfiguration'] = None,
+                 log_level: Optional[str] = None,
+                 s3_configuration: Optional['outputs.LogDeliveryConfigurationS3Configuration'] = None):
         if cloud_watch_logs_configuration is not None:
             pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
+        if firehose_configuration is not None:
+            pulumi.set(__self__, "firehose_configuration", firehose_configuration)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="cloudWatchLogsConfiguration")
@@ -434,9 +477,49 @@ class LogDeliveryConfigurationLogConfiguration(dict):
         return pulumi.get(self, "event_source")
 
     @property
+    @pulumi.getter(name="firehoseConfiguration")
+    def firehose_configuration(self) -> Optional['outputs.LogDeliveryConfigurationFirehoseConfiguration']:
+        return pulumi.get(self, "firehose_configuration")
+
+    @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
         return pulumi.get(self, "log_level")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.LogDeliveryConfigurationS3Configuration']:
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: Optional[str] = None):
+        if bucket_arn is not None:
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_arn")
 
 
 @pulumi.output_type
@@ -480,7 +563,9 @@ class UserPoolAddOns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "advancedSecurityMode":
+        if key == "advancedSecurityAdditionalFlows":
+            suggest = "advanced_security_additional_flows"
+        elif key == "advancedSecurityMode":
             suggest = "advanced_security_mode"
 
         if suggest:
@@ -495,12 +580,20 @@ class UserPoolAddOns(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 advanced_security_additional_flows: Optional['outputs.UserPoolAdvancedSecurityAdditionalFlows'] = None,
                  advanced_security_mode: Optional[str] = None):
         """
         :param str advanced_security_mode: The operating mode of advanced security features in your user pool.
         """
+        if advanced_security_additional_flows is not None:
+            pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
         if advanced_security_mode is not None:
             pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+
+    @property
+    @pulumi.getter(name="advancedSecurityAdditionalFlows")
+    def advanced_security_additional_flows(self) -> Optional['outputs.UserPoolAdvancedSecurityAdditionalFlows']:
+        return pulumi.get(self, "advanced_security_additional_flows")
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
@@ -581,6 +674,36 @@ class UserPoolAdminCreateUserConfig(dict):
         > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
         """
         return pulumi.get(self, "unused_account_validity_days")
+
+
+@pulumi.output_type
+class UserPoolAdvancedSecurityAdditionalFlows(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customAuthMode":
+            suggest = "custom_auth_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolAdvancedSecurityAdditionalFlows. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolAdvancedSecurityAdditionalFlows.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolAdvancedSecurityAdditionalFlows.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_auth_mode: Optional[str] = None):
+        if custom_auth_mode is not None:
+            pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
+
+    @property
+    @pulumi.getter(name="customAuthMode")
+    def custom_auth_mode(self) -> Optional[str]:
+        return pulumi.get(self, "custom_auth_mode")
 
 
 @pulumi.output_type
@@ -1410,6 +1533,8 @@ class UserPoolPasswordPolicy(dict):
         suggest = None
         if key == "minimumLength":
             suggest = "minimum_length"
+        elif key == "passwordHistorySize":
+            suggest = "password_history_size"
         elif key == "requireLowercase":
             suggest = "require_lowercase"
         elif key == "requireNumbers":
@@ -1434,6 +1559,7 @@ class UserPoolPasswordPolicy(dict):
 
     def __init__(__self__, *,
                  minimum_length: Optional[int] = None,
+                 password_history_size: Optional[int] = None,
                  require_lowercase: Optional[bool] = None,
                  require_numbers: Optional[bool] = None,
                  require_symbols: Optional[bool] = None,
@@ -1451,6 +1577,8 @@ class UserPoolPasswordPolicy(dict):
         """
         if minimum_length is not None:
             pulumi.set(__self__, "minimum_length", minimum_length)
+        if password_history_size is not None:
+            pulumi.set(__self__, "password_history_size", password_history_size)
         if require_lowercase is not None:
             pulumi.set(__self__, "require_lowercase", require_lowercase)
         if require_numbers is not None:
@@ -1469,6 +1597,11 @@ class UserPoolPasswordPolicy(dict):
         The minimum length of the password in the policy that you have set. This value can't be less than 6.
         """
         return pulumi.get(self, "minimum_length")
+
+    @property
+    @pulumi.getter(name="passwordHistorySize")
+    def password_history_size(self) -> Optional[int]:
+        return pulumi.get(self, "password_history_size")
 
     @property
     @pulumi.getter(name="requireLowercase")

@@ -19,15 +19,19 @@ namespace Pulumi.AwsNative.Ssm.Outputs
         /// <summary>
         /// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
         /// 
-        /// You must specify a value for `ApproveAfterDays` .
+        /// &gt; This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` . 
         /// 
-        /// Exception: Not supported on Debian Server or Ubuntu Server.
+        /// Not supported for Debian Server or Ubuntu Server.
         /// </summary>
         public readonly int? ApproveAfterDays;
         /// <summary>
-        /// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+        /// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
         /// 
         /// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+        /// 
+        /// &gt; This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` . 
+        /// 
+        /// Not supported for Debian Server or Ubuntu Server.
         /// </summary>
         public readonly string? ApproveUntilDate;
         /// <summary>

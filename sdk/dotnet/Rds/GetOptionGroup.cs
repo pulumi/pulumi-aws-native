@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetOptionGroupResult
     {
         /// <summary>
-        /// A list of all available options
+        /// A list of all available options for an option group.
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionConfiguration> OptionConfigurations;
         /// <summary>

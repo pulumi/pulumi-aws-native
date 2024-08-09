@@ -17,10 +17,13 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMappingArgs',
     'IdentityPoolRoleAttachmentRulesConfigurationTypeArgs',
     'LogDeliveryConfigurationCloudWatchLogsConfigurationArgs',
+    'LogDeliveryConfigurationFirehoseConfigurationArgs',
     'LogDeliveryConfigurationLogConfigurationArgs',
+    'LogDeliveryConfigurationS3ConfigurationArgs',
     'UserPoolAccountRecoverySettingArgs',
     'UserPoolAddOnsArgs',
     'UserPoolAdminCreateUserConfigArgs',
+    'UserPoolAdvancedSecurityAdditionalFlowsArgs',
     'UserPoolClientAnalyticsConfigurationArgs',
     'UserPoolClientTokenValidityUnitsArgs',
     'UserPoolCustomEmailSenderArgs',
@@ -343,17 +346,40 @@ class LogDeliveryConfigurationCloudWatchLogsConfigurationArgs:
 
 
 @pulumi.input_type
+class LogDeliveryConfigurationFirehoseConfigurationArgs:
+    def __init__(__self__, *,
+                 stream_arn: Optional[pulumi.Input[str]] = None):
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
 class LogDeliveryConfigurationLogConfigurationArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_configuration: Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']] = None,
                  event_source: Optional[pulumi.Input[str]] = None,
-                 log_level: Optional[pulumi.Input[str]] = None):
+                 firehose_configuration: Optional[pulumi.Input['LogDeliveryConfigurationFirehoseConfigurationArgs']] = None,
+                 log_level: Optional[pulumi.Input[str]] = None,
+                 s3_configuration: Optional[pulumi.Input['LogDeliveryConfigurationS3ConfigurationArgs']] = None):
         if cloud_watch_logs_configuration is not None:
             pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
+        if firehose_configuration is not None:
+            pulumi.set(__self__, "firehose_configuration", firehose_configuration)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="cloudWatchLogsConfiguration")
@@ -374,6 +400,15 @@ class LogDeliveryConfigurationLogConfigurationArgs:
         pulumi.set(self, "event_source", value)
 
     @property
+    @pulumi.getter(name="firehoseConfiguration")
+    def firehose_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationFirehoseConfigurationArgs']]:
+        return pulumi.get(self, "firehose_configuration")
+
+    @firehose_configuration.setter
+    def firehose_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationFirehoseConfigurationArgs']]):
+        pulumi.set(self, "firehose_configuration", value)
+
+    @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "log_level")
@@ -381,6 +416,32 @@ class LogDeliveryConfigurationLogConfigurationArgs:
     @log_level.setter
     def log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_level", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+@pulumi.input_type
+class LogDeliveryConfigurationS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_arn: Optional[pulumi.Input[str]] = None):
+        if bucket_arn is not None:
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_arn", value)
 
 
 @pulumi.input_type
@@ -409,12 +470,24 @@ class UserPoolAccountRecoverySettingArgs:
 @pulumi.input_type
 class UserPoolAddOnsArgs:
     def __init__(__self__, *,
+                 advanced_security_additional_flows: Optional[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs']] = None,
                  advanced_security_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] advanced_security_mode: The operating mode of advanced security features in your user pool.
         """
+        if advanced_security_additional_flows is not None:
+            pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
         if advanced_security_mode is not None:
             pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+
+    @property
+    @pulumi.getter(name="advancedSecurityAdditionalFlows")
+    def advanced_security_additional_flows(self) -> Optional[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs']]:
+        return pulumi.get(self, "advanced_security_additional_flows")
+
+    @advanced_security_additional_flows.setter
+    def advanced_security_additional_flows(self, value: Optional[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs']]):
+        pulumi.set(self, "advanced_security_additional_flows", value)
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
@@ -490,6 +563,23 @@ class UserPoolAdminCreateUserConfigArgs:
     @unused_account_validity_days.setter
     def unused_account_validity_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unused_account_validity_days", value)
+
+
+@pulumi.input_type
+class UserPoolAdvancedSecurityAdditionalFlowsArgs:
+    def __init__(__self__, *,
+                 custom_auth_mode: Optional[pulumi.Input[str]] = None):
+        if custom_auth_mode is not None:
+            pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
+
+    @property
+    @pulumi.getter(name="customAuthMode")
+    def custom_auth_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_auth_mode")
+
+    @custom_auth_mode.setter
+    def custom_auth_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_auth_mode", value)
 
 
 @pulumi.input_type
@@ -1244,6 +1334,7 @@ class UserPoolNumberAttributeConstraintsArgs:
 class UserPoolPasswordPolicyArgs:
     def __init__(__self__, *,
                  minimum_length: Optional[pulumi.Input[int]] = None,
+                 password_history_size: Optional[pulumi.Input[int]] = None,
                  require_lowercase: Optional[pulumi.Input[bool]] = None,
                  require_numbers: Optional[pulumi.Input[bool]] = None,
                  require_symbols: Optional[pulumi.Input[bool]] = None,
@@ -1261,6 +1352,8 @@ class UserPoolPasswordPolicyArgs:
         """
         if minimum_length is not None:
             pulumi.set(__self__, "minimum_length", minimum_length)
+        if password_history_size is not None:
+            pulumi.set(__self__, "password_history_size", password_history_size)
         if require_lowercase is not None:
             pulumi.set(__self__, "require_lowercase", require_lowercase)
         if require_numbers is not None:
@@ -1283,6 +1376,15 @@ class UserPoolPasswordPolicyArgs:
     @minimum_length.setter
     def minimum_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minimum_length", value)
+
+    @property
+    @pulumi.getter(name="passwordHistorySize")
+    def password_history_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "password_history_size")
+
+    @password_history_size.setter
+    def password_history_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "password_history_size", value)
 
     @property
     @pulumi.getter(name="requireLowercase")

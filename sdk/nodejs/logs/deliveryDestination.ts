@@ -56,7 +56,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
     /**
-     * The ARN of the AWS resource that will receive the logs.
+     * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */
     public readonly destinationResourceArn!: pulumi.Output<string | undefined>;
     /**
@@ -113,7 +113,7 @@ export interface DeliveryDestinationArgs {
      */
     deliveryDestinationPolicy?: pulumi.Input<pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>[]>;
     /**
-     * The ARN of the AWS resource that will receive the logs.
+     * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */
     destinationResourceArn?: pulumi.Input<string>;
     /**

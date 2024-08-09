@@ -126,7 +126,7 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly automaticBackupReplicationKmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region associated with the automated backup.
+     * The AWS-Region associated with the automated backup.
      */
     public readonly automaticBackupReplicationRegion!: pulumi.Output<string | undefined>;
     /**
@@ -1081,7 +1081,7 @@ export interface DbInstanceArgs {
      */
     automaticBackupReplicationKmsKeyId?: pulumi.Input<string>;
     /**
-     * The AWS Region associated with the automated backup.
+     * The AWS-Region associated with the automated backup.
      */
     automaticBackupReplicationRegion?: pulumi.Input<string>;
     /**

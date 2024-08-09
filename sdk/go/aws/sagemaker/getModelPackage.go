@@ -47,7 +47,8 @@ type LookupModelPackageResult struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
-	ModelCard           *ModelPackageModelCard           `pulumi:"modelCard"`
+	// An Amazon SageMaker Model Card.
+	ModelCard *ModelPackageModelCard `pulumi:"modelCard"`
 	// The Amazon Resource Name (ARN) of the model package.
 	ModelPackageArn *string `pulumi:"modelPackageArn"`
 	// The name of the model.
@@ -66,7 +67,8 @@ type LookupModelPackageResult struct {
 	ModelPackageVersion *int `pulumi:"modelPackageVersion"`
 	// Indicates if you want to skip model validation.
 	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
-	SourceUri           *string                          `pulumi:"sourceUri"`
+	// The URI of the source for the model package.
+	SourceUri *string `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -150,6 +152,7 @@ func (o LookupModelPackageResultOutput) ModelApprovalStatus() ModelPackageModelA
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageModelApprovalStatus { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+// An Amazon SageMaker Model Card.
 func (o LookupModelPackageResultOutput) ModelCard() ModelPackageModelCardPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageModelCard { return v.ModelCard }).(ModelPackageModelCardPtrOutput)
 }
@@ -190,6 +193,7 @@ func (o LookupModelPackageResultOutput) SkipModelValidation() ModelPackageSkipMo
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageSkipModelValidation { return v.SkipModelValidation }).(ModelPackageSkipModelValidationPtrOutput)
 }
 
+// The URI of the source for the model package.
 func (o LookupModelPackageResultOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }

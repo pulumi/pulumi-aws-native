@@ -42,11 +42,11 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The detailed activity logging destination of a user pool.
+     * A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
      */
     public readonly logConfigurations!: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
     /**
-     * The ID of the user pool where you configured detailed activity logging.
+     * The ID of the user pool where you configured logging.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -84,11 +84,11 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
  */
 export interface LogDeliveryConfigurationArgs {
     /**
-     * The detailed activity logging destination of a user pool.
+     * A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
      */
     logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfigurationArgs>[]>;
     /**
-     * The ID of the user pool where you configured detailed activity logging.
+     * The ID of the user pool where you configured logging.
      */
     userPoolId: pulumi.Input<string>;
 }

@@ -58,7 +58,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly majorEngineVersion!: pulumi.Output<string>;
     /**
-     * A list of all available options
+     * A list of all available options for an option group.
      */
     public readonly optionConfigurations!: pulumi.Output<outputs.rds.OptionGroupOptionConfiguration[] | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface OptionGroupArgs {
      */
     majorEngineVersion: pulumi.Input<string>;
     /**
-     * A list of all available options
+     * A list of all available options for an option group.
      */
     optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[]>;
     /**

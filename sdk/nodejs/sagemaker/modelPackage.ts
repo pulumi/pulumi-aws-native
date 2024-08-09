@@ -93,6 +93,9 @@ export class ModelPackage extends pulumi.CustomResource {
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
     public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
+    /**
+     * An Amazon SageMaker Model Card.
+     */
     public readonly modelCard!: pulumi.Output<outputs.sagemaker.ModelPackageModelCard | undefined>;
     /**
      * Metrics for the model.
@@ -145,6 +148,9 @@ export class ModelPackage extends pulumi.CustomResource {
      * A list of algorithms that were used to create a model package.
      */
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
+    /**
+     * The URI of the source for the model package.
+     */
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -295,6 +301,9 @@ export interface ModelPackageArgs {
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
     modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelPackageModelApprovalStatus>;
+    /**
+     * An Amazon SageMaker Model Card.
+     */
     modelCard?: pulumi.Input<inputs.sagemaker.ModelPackageModelCardArgs>;
     /**
      * Metrics for the model.
@@ -333,6 +342,9 @@ export interface ModelPackageArgs {
      * A list of algorithms that were used to create a model package.
      */
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;
+    /**
+     * The URI of the source for the model package.
+     */
     sourceUri?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

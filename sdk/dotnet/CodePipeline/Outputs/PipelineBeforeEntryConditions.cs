@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineBeforeEntryConditions
     {
+        /// <summary>
+        /// The conditions that are configured as entry conditions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineCondition> Conditions;
 
         [OutputConstructor]

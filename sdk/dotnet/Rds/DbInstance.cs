@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> AutomaticBackupReplicationKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region associated with the automated backup.
+        /// The AWS-Region associated with the automated backup.
         /// </summary>
         [Output("automaticBackupReplicationRegion")]
         public Output<string?> AutomaticBackupReplicationRegion { get; private set; } = null!;
@@ -1111,7 +1111,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? AutomaticBackupReplicationKmsKeyId { get; set; }
 
         /// <summary>
-        /// The AWS Region associated with the automated backup.
+        /// The AWS-Region associated with the automated backup.
         /// </summary>
         [Input("automaticBackupReplicationRegion")]
         public Input<string>? AutomaticBackupReplicationRegion { get; set; }

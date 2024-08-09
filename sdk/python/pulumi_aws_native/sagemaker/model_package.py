@@ -64,6 +64,7 @@ class ModelPackageArgs:
                - `APPROVED` - The model is approved
                - `REJECTED` - The model is rejected.
                - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        :param pulumi.Input['ModelPackageModelCardArgs'] model_card: An Amazon SageMaker Model Card.
         :param pulumi.Input['ModelPackageModelMetricsArgs'] model_metrics: Metrics for the model.
         :param pulumi.Input[str] model_package_description: The description of the model package.
         :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
@@ -73,6 +74,7 @@ class ModelPackageArgs:
         :param pulumi.Input[str] sample_payload_url: The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         :param pulumi.Input['ModelPackageSkipModelValidation'] skip_model_validation: Indicates if you want to skip model validation.
         :param pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs'] source_algorithm_specification: A list of algorithms that were used to create a model package.
+        :param pulumi.Input[str] source_uri: The URI of the source for the model package.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] task: The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
         :param pulumi.Input['ModelPackageValidationSpecificationArgs'] validation_specification: Specifies batch transform jobs that SageMaker runs to validate your model package.
@@ -283,6 +285,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelCard")
     def model_card(self) -> Optional[pulumi.Input['ModelPackageModelCardArgs']]:
+        """
+        An Amazon SageMaker Model Card.
+        """
         return pulumi.get(self, "model_card")
 
     @model_card.setter
@@ -409,6 +414,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the source for the model package.
+        """
         return pulumi.get(self, "source_uri")
 
     @source_uri.setter
@@ -506,6 +514,7 @@ class ModelPackage(pulumi.CustomResource):
                - `APPROVED` - The model is approved
                - `REJECTED` - The model is rejected.
                - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        :param pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']] model_card: An Amazon SageMaker Model Card.
         :param pulumi.Input[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']] model_metrics: Metrics for the model.
         :param pulumi.Input[str] model_package_description: The description of the model package.
         :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
@@ -515,6 +524,7 @@ class ModelPackage(pulumi.CustomResource):
         :param pulumi.Input[str] sample_payload_url: The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         :param pulumi.Input['ModelPackageSkipModelValidation'] skip_model_validation: Indicates if you want to skip model validation.
         :param pulumi.Input[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']] source_algorithm_specification: A list of algorithms that were used to create a model package.
+        :param pulumi.Input[str] source_uri: The URI of the source for the model package.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] task: The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
         :param pulumi.Input[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']] validation_specification: Specifies batch transform jobs that SageMaker runs to validate your model package.
@@ -776,6 +786,9 @@ class ModelPackage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modelCard")
     def model_card(self) -> pulumi.Output[Optional['outputs.ModelPackageModelCard']]:
+        """
+        An Amazon SageMaker Model Card.
+        """
         return pulumi.get(self, "model_card")
 
     @property
@@ -880,6 +893,9 @@ class ModelPackage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URI of the source for the model package.
+        """
         return pulumi.get(self, "source_uri")
 
     @property

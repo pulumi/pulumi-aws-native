@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.RolesAnywhere
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Used to determine if a custom role session name will be accepted in a temporary credential request.
+        /// </summary>
+        [Output("acceptRoleSessionName")]
+        public Output<bool?> AcceptRoleSessionName { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping applied to the authenticating end-entity certificate.
         /// </summary>
         [Output("attributeMappings")]
@@ -126,6 +132,12 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Used to determine if a custom role session name will be accepted in a temporary credential request.
+        /// </summary>
+        [Input("acceptRoleSessionName")]
+        public Input<bool>? AcceptRoleSessionName { get; set; }
+
         [Input("attributeMappings")]
         private InputList<Inputs.ProfileAttributeMappingArgs>? _attributeMappings;
 

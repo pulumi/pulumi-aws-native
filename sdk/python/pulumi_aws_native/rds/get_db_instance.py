@@ -263,7 +263,7 @@ class GetDbInstanceResult:
     @pulumi.getter(name="automaticBackupReplicationRegion")
     def automatic_backup_replication_region(self) -> Optional[str]:
         """
-        The AWS Region associated with the automated backup.
+        The AWS-Region associated with the automated backup.
         """
         return pulumi.get(self, "automatic_backup_replication_region")
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineSuccessConditions
     {
+        /// <summary>
+        /// The conditions that are success conditions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineCondition> Conditions;
 
         [OutputConstructor]

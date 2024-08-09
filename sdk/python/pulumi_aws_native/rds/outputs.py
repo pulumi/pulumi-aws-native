@@ -903,11 +903,11 @@ class OptionGroupOptionConfiguration(dict):
         """
         The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
         :param str option_name: The configuration of options to include in a group.
-        :param Sequence[str] db_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
+        :param Sequence[str] db_security_group_memberships: A list of DB security groups used for this option.
         :param Sequence['OptionGroupOptionSetting'] option_settings: The option settings to include in an option group.
         :param str option_version: The version for the option.
         :param int port: The optional port for the option.
-        :param Sequence[str] vpc_security_group_memberships: A list of VpcSecurityGroupMembership name strings used for this option.
+        :param Sequence[str] vpc_security_group_memberships: A list of VPC security group names used for this option.
         """
         pulumi.set(__self__, "option_name", option_name)
         if db_security_group_memberships is not None:
@@ -933,7 +933,7 @@ class OptionGroupOptionConfiguration(dict):
     @pulumi.getter(name="dbSecurityGroupMemberships")
     def db_security_group_memberships(self) -> Optional[Sequence[str]]:
         """
-        A list of DBSecurityGroupMembership name strings used for this option.
+        A list of DB security groups used for this option.
         """
         return pulumi.get(self, "db_security_group_memberships")
 
@@ -965,7 +965,7 @@ class OptionGroupOptionConfiguration(dict):
     @pulumi.getter(name="vpcSecurityGroupMemberships")
     def vpc_security_group_memberships(self) -> Optional[Sequence[str]]:
         """
-        A list of VpcSecurityGroupMembership name strings used for this option.
+        A list of VPC security group names used for this option.
         """
         return pulumi.get(self, "vpc_security_group_memberships")
 

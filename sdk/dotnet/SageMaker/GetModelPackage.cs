@@ -89,6 +89,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus? ModelApprovalStatus;
+        /// <summary>
+        /// An Amazon SageMaker Model Card.
+        /// </summary>
         public readonly Outputs.ModelPackageModelCard? ModelCard;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the model package.
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// Indicates if you want to skip model validation.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? SkipModelValidation;
+        /// <summary>
+        /// The URI of the source for the model package.
+        /// </summary>
         public readonly string? SourceUri;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

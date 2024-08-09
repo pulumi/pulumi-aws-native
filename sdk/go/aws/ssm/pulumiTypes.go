@@ -1078,13 +1078,17 @@ func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBasel
 type PatchBaselineRule struct {
 	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// You must specify a value for `ApproveAfterDays` .
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
-	// Exception: Not supported on Debian Server or Ubuntu Server.
+	// Not supported for Debian Server or Ubuntu Server.
 	ApproveAfterDays *int `pulumi:"approveAfterDays"`
-	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	//
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	//
+	// Not supported for Debian Server or Ubuntu Server.
 	ApproveUntilDate *string `pulumi:"approveUntilDate"`
 	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 	ComplianceLevel *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
@@ -1109,13 +1113,17 @@ type PatchBaselineRuleInput interface {
 type PatchBaselineRuleArgs struct {
 	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// You must specify a value for `ApproveAfterDays` .
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
-	// Exception: Not supported on Debian Server or Ubuntu Server.
+	// Not supported for Debian Server or Ubuntu Server.
 	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
-	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	//
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	//
+	// Not supported for Debian Server or Ubuntu Server.
 	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
 	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 	ComplianceLevel PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
@@ -1179,16 +1187,20 @@ func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutputWithContext(ctx contex
 
 // The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 //
-// You must specify a value for `ApproveAfterDays` .
+// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 //
-// Exception: Not supported on Debian Server or Ubuntu Server.
+// Not supported for Debian Server or Ubuntu Server.
 func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
 
-// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 //
 // Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+//
+// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+//
+// Not supported for Debian Server or Ubuntu Server.
 func (o PatchBaselineRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }

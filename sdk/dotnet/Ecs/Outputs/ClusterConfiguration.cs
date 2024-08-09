@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The execute command configuration for the cluster.
+    /// The execute command and managed storage configuration for the cluster.
     /// </summary>
     [OutputType]
     public sealed class ClusterConfiguration

@@ -607,6 +607,7 @@ class FunctionCodeArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 source_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
@@ -627,6 +628,8 @@ class FunctionCodeArgs:
             pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
+        if source_kms_key_arn is not None:
+            pulumi.set(__self__, "source_kms_key_arn", source_kms_key_arn)
         if zip_file is not None:
             pulumi.set(__self__, "zip_file", zip_file)
 
@@ -677,6 +680,15 @@ class FunctionCodeArgs:
     @s3_object_version.setter
     def s3_object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_version", value)
+
+    @property
+    @pulumi.getter(name="sourceKmsKeyArn")
+    def source_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_kms_key_arn")
+
+    @source_kms_key_arn.setter
+    def source_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_kms_key_arn", value)
 
     @property
     @pulumi.getter(name="zipFile")

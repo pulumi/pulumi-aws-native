@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterSettings> ClusterSettings;
         /// <summary>
-        /// The execute command configuration for the cluster.
+        /// The execute command and managed storage configuration for the cluster.
         /// </summary>
         public readonly Outputs.ClusterConfiguration? Configuration;
         /// <summary>

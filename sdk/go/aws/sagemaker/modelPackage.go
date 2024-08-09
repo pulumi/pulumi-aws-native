@@ -46,7 +46,8 @@ type ModelPackage struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrOutput `pulumi:"modelApprovalStatus"`
-	ModelCard           ModelPackageModelCardPtrOutput           `pulumi:"modelCard"`
+	// An Amazon SageMaker Model Card.
+	ModelCard ModelPackageModelCardPtrOutput `pulumi:"modelCard"`
 	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrOutput `pulumi:"modelMetrics"`
 	// The Amazon Resource Name (ARN) of the model package.
@@ -76,7 +77,8 @@ type ModelPackage struct {
 	SkipModelValidation ModelPackageSkipModelValidationPtrOutput `pulumi:"skipModelValidation"`
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrOutput `pulumi:"sourceAlgorithmSpecification"`
-	SourceUri                    pulumi.StringPtrOutput                            `pulumi:"sourceUri"`
+	// The URI of the source for the model package.
+	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -169,7 +171,8 @@ type modelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
-	ModelCard           *ModelPackageModelCard           `pulumi:"modelCard"`
+	// An Amazon SageMaker Model Card.
+	ModelCard *ModelPackageModelCard `pulumi:"modelCard"`
 	// Metrics for the model.
 	ModelMetrics *ModelPackageModelMetrics `pulumi:"modelMetrics"`
 	// The description of the model package.
@@ -189,7 +192,8 @@ type modelPackageArgs struct {
 	SkipModelValidation *ModelPackageSkipModelValidation `pulumi:"skipModelValidation"`
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification *ModelPackageSourceAlgorithmSpecification `pulumi:"sourceAlgorithmSpecification"`
-	SourceUri                    *string                                   `pulumi:"sourceUri"`
+	// The URI of the source for the model package.
+	SourceUri *string `pulumi:"sourceUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -228,7 +232,8 @@ type ModelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrInput
-	ModelCard           ModelPackageModelCardPtrInput
+	// An Amazon SageMaker Model Card.
+	ModelCard ModelPackageModelCardPtrInput
 	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrInput
 	// The description of the model package.
@@ -248,7 +253,8 @@ type ModelPackageArgs struct {
 	SkipModelValidation ModelPackageSkipModelValidationPtrInput
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification ModelPackageSourceAlgorithmSpecificationPtrInput
-	SourceUri                    pulumi.StringPtrInput
+	// The URI of the source for the model package.
+	SourceUri pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
@@ -369,6 +375,7 @@ func (o ModelPackageOutput) ModelApprovalStatus() ModelPackageModelApprovalStatu
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelApprovalStatusPtrOutput { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
+// An Amazon SageMaker Model Card.
 func (o ModelPackageOutput) ModelCard() ModelPackageModelCardPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelCardPtrOutput { return v.ModelCard }).(ModelPackageModelCardPtrOutput)
 }
@@ -440,6 +447,7 @@ func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlg
 	}).(ModelPackageSourceAlgorithmSpecificationPtrOutput)
 }
 
+// The URI of the source for the model package.
 func (o ModelPackageOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.SourceUri }).(pulumi.StringPtrOutput)
 }

@@ -374,7 +374,7 @@ func (o DbClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbClusterParameterGroupTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -1028,7 +1028,7 @@ func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbClusterTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -1788,7 +1788,7 @@ func (o DbInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DbInstan
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbInstanceTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -1798,7 +1798,7 @@ type DbInstanceTag struct {
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbParameterGroupTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -2172,7 +2172,7 @@ func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type DbSubnetGroupTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -2182,7 +2182,7 @@ type DbSubnetGroupTag struct {
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type EventSubscriptionTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
@@ -2202,7 +2202,7 @@ type IntegrationTag struct {
 
 // The “OptionConfiguration“ property type specifies an individual option, and its settings, within an “AWS::RDS::OptionGroup“ resource.
 type OptionGroupOptionConfiguration struct {
-	// A list of DBSecurityGroupMembership name strings used for this option.
+	// A list of DB security groups used for this option.
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
 	// The configuration of options to include in a group.
 	OptionName string `pulumi:"optionName"`
@@ -2212,7 +2212,7 @@ type OptionGroupOptionConfiguration struct {
 	OptionVersion *string `pulumi:"optionVersion"`
 	// The optional port for the option.
 	Port *int `pulumi:"port"`
-	// A list of VpcSecurityGroupMembership name strings used for this option.
+	// A list of VPC security group names used for this option.
 	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
 }
 
@@ -2229,7 +2229,7 @@ type OptionGroupOptionConfigurationInput interface {
 
 // The “OptionConfiguration“ property type specifies an individual option, and its settings, within an “AWS::RDS::OptionGroup“ resource.
 type OptionGroupOptionConfigurationArgs struct {
-	// A list of DBSecurityGroupMembership name strings used for this option.
+	// A list of DB security groups used for this option.
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
 	// The configuration of options to include in a group.
 	OptionName pulumi.StringInput `pulumi:"optionName"`
@@ -2239,7 +2239,7 @@ type OptionGroupOptionConfigurationArgs struct {
 	OptionVersion pulumi.StringPtrInput `pulumi:"optionVersion"`
 	// The optional port for the option.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// A list of VpcSecurityGroupMembership name strings used for this option.
+	// A list of VPC security group names used for this option.
 	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
 }
 
@@ -2295,7 +2295,7 @@ func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOu
 	return o
 }
 
-// A list of DBSecurityGroupMembership name strings used for this option.
+// A list of DB security groups used for this option.
 func (o OptionGroupOptionConfigurationOutput) DbSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.DbSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
@@ -2320,7 +2320,7 @@ func (o OptionGroupOptionConfigurationOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// A list of VpcSecurityGroupMembership name strings used for this option.
+// A list of VPC security group names used for this option.
 func (o OptionGroupOptionConfigurationOutput) VpcSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.VpcSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
@@ -2456,7 +2456,7 @@ func (o OptionGroupOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGrou
 
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
-//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
 type OptionGroupTag struct {
 	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`

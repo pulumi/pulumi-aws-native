@@ -832,6 +832,14 @@ func (o IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) Rules() Ident
 	}).(IdentityPoolRoleAttachmentMappingRuleArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
+type IdentityPoolTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type LogDeliveryConfigurationCloudWatchLogsConfiguration struct {
 	LogGroupArn *string `pulumi:"logGroupArn"`
 }
@@ -965,10 +973,145 @@ func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) LogGroupAr
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogDeliveryConfigurationFirehoseConfiguration struct {
+	StreamArn *string `pulumi:"streamArn"`
+}
+
+// LogDeliveryConfigurationFirehoseConfigurationInput is an input type that accepts LogDeliveryConfigurationFirehoseConfigurationArgs and LogDeliveryConfigurationFirehoseConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationFirehoseConfigurationInput` via:
+//
+//	LogDeliveryConfigurationFirehoseConfigurationArgs{...}
+type LogDeliveryConfigurationFirehoseConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationFirehoseConfigurationOutput
+	ToLogDeliveryConfigurationFirehoseConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationFirehoseConfigurationOutput
+}
+
+type LogDeliveryConfigurationFirehoseConfigurationArgs struct {
+	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
+}
+
+func (LogDeliveryConfigurationFirehoseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationFirehoseConfigurationOutput {
+	return i.ToLogDeliveryConfigurationFirehoseConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationFirehoseConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationFirehoseConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationFirehoseConfigurationOutput).ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationFirehoseConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationFirehoseConfigurationArgs, LogDeliveryConfigurationFirehoseConfigurationPtr and LogDeliveryConfigurationFirehoseConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationFirehoseConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationFirehoseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationFirehoseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationFirehoseConfigurationPtrOutput
+	ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationFirehoseConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationFirehoseConfigurationPtrType LogDeliveryConfigurationFirehoseConfigurationArgs
+
+func LogDeliveryConfigurationFirehoseConfigurationPtr(v *LogDeliveryConfigurationFirehoseConfigurationArgs) LogDeliveryConfigurationFirehoseConfigurationPtrInput {
+	return (*logDeliveryConfigurationFirehoseConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationFirehoseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationFirehoseConfigurationPtrType) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationFirehoseConfigurationPtrType) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationFirehoseConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationFirehoseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationFirehoseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationFirehoseConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationFirehoseConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationFirehoseConfiguration) *LogDeliveryConfigurationFirehoseConfiguration {
+		return &v
+	}).(LogDeliveryConfigurationFirehoseConfigurationPtrOutput)
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationFirehoseConfiguration) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationFirehoseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationFirehoseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationPtrOutput) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationPtrOutput) ToLogDeliveryConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationPtrOutput) Elem() LogDeliveryConfigurationFirehoseConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationFirehoseConfiguration) LogDeliveryConfigurationFirehoseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationFirehoseConfiguration
+		return ret
+	}).(LogDeliveryConfigurationFirehoseConfigurationOutput)
+}
+
+func (o LogDeliveryConfigurationFirehoseConfigurationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationFirehoseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogDeliveryConfigurationLogConfiguration struct {
 	CloudWatchLogsConfiguration *LogDeliveryConfigurationCloudWatchLogsConfiguration `pulumi:"cloudWatchLogsConfiguration"`
 	EventSource                 *string                                              `pulumi:"eventSource"`
+	FirehoseConfiguration       *LogDeliveryConfigurationFirehoseConfiguration       `pulumi:"firehoseConfiguration"`
 	LogLevel                    *string                                              `pulumi:"logLevel"`
+	S3Configuration             *LogDeliveryConfigurationS3Configuration             `pulumi:"s3Configuration"`
 }
 
 // LogDeliveryConfigurationLogConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArgs and LogDeliveryConfigurationLogConfigurationOutput values.
@@ -985,7 +1128,9 @@ type LogDeliveryConfigurationLogConfigurationInput interface {
 type LogDeliveryConfigurationLogConfigurationArgs struct {
 	CloudWatchLogsConfiguration LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput `pulumi:"cloudWatchLogsConfiguration"`
 	EventSource                 pulumi.StringPtrInput                                       `pulumi:"eventSource"`
+	FirehoseConfiguration       LogDeliveryConfigurationFirehoseConfigurationPtrInput       `pulumi:"firehoseConfiguration"`
 	LogLevel                    pulumi.StringPtrInput                                       `pulumi:"logLevel"`
+	S3Configuration             LogDeliveryConfigurationS3ConfigurationPtrInput             `pulumi:"s3Configuration"`
 }
 
 func (LogDeliveryConfigurationLogConfigurationArgs) ElementType() reflect.Type {
@@ -1049,8 +1194,20 @@ func (o LogDeliveryConfigurationLogConfigurationOutput) EventSource() pulumi.Str
 	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
+func (o LogDeliveryConfigurationLogConfigurationOutput) FirehoseConfiguration() LogDeliveryConfigurationFirehoseConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationFirehoseConfiguration {
+		return v.FirehoseConfiguration
+	}).(LogDeliveryConfigurationFirehoseConfigurationPtrOutput)
+}
+
 func (o LogDeliveryConfigurationLogConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) S3Configuration() LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(LogDeliveryConfigurationS3ConfigurationPtrOutput)
 }
 
 type LogDeliveryConfigurationLogConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1071,6 +1228,139 @@ func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDeliveryConfigurationLogConfiguration {
 		return vs[0].([]LogDeliveryConfigurationLogConfiguration)[vs[1].(int)]
 	}).(LogDeliveryConfigurationLogConfigurationOutput)
+}
+
+type LogDeliveryConfigurationS3Configuration struct {
+	BucketArn *string `pulumi:"bucketArn"`
+}
+
+// LogDeliveryConfigurationS3ConfigurationInput is an input type that accepts LogDeliveryConfigurationS3ConfigurationArgs and LogDeliveryConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationS3ConfigurationInput` via:
+//
+//	LogDeliveryConfigurationS3ConfigurationArgs{...}
+type LogDeliveryConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationS3ConfigurationOutput() LogDeliveryConfigurationS3ConfigurationOutput
+	ToLogDeliveryConfigurationS3ConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationS3ConfigurationOutput
+}
+
+type LogDeliveryConfigurationS3ConfigurationArgs struct {
+	BucketArn pulumi.StringPtrInput `pulumi:"bucketArn"`
+}
+
+func (LogDeliveryConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationS3ConfigurationOutput() LogDeliveryConfigurationS3ConfigurationOutput {
+	return i.ToLogDeliveryConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationS3ConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationS3ConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationS3ConfigurationOutput).ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationS3ConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationS3ConfigurationArgs, LogDeliveryConfigurationS3ConfigurationPtr and LogDeliveryConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationS3ConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationS3ConfigurationPtrOutput
+	ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationS3ConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationS3ConfigurationPtrType LogDeliveryConfigurationS3ConfigurationArgs
+
+func LogDeliveryConfigurationS3ConfigurationPtr(v *LogDeliveryConfigurationS3ConfigurationArgs) LogDeliveryConfigurationS3ConfigurationPtrInput {
+	return (*logDeliveryConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationS3ConfigurationPtrType) ToLogDeliveryConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationS3ConfigurationPtrType) ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationS3ConfigurationOutput() LogDeliveryConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationS3ConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationS3Configuration) *LogDeliveryConfigurationS3Configuration {
+		return &v
+	}).(LogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationS3Configuration) *string { return v.BucketArn }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationPtrOutput) ToLogDeliveryConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationPtrOutput) ToLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationPtrOutput) Elem() LogDeliveryConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationS3Configuration) LogDeliveryConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationS3Configuration
+		return ret
+	}).(LogDeliveryConfigurationS3ConfigurationOutput)
+}
+
+func (o LogDeliveryConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserPoolAccountRecoverySetting struct {
@@ -1211,6 +1501,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 }
 
 type UserPoolAddOns struct {
+	AdvancedSecurityAdditionalFlows *UserPoolAdvancedSecurityAdditionalFlows `pulumi:"advancedSecurityAdditionalFlows"`
 	// The operating mode of advanced security features in your user pool.
 	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
 }
@@ -1227,6 +1518,7 @@ type UserPoolAddOnsInput interface {
 }
 
 type UserPoolAddOnsArgs struct {
+	AdvancedSecurityAdditionalFlows UserPoolAdvancedSecurityAdditionalFlowsPtrInput `pulumi:"advancedSecurityAdditionalFlows"`
 	// The operating mode of advanced security features in your user pool.
 	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
 }
@@ -1308,6 +1600,12 @@ func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.C
 	}).(UserPoolAddOnsPtrOutput)
 }
 
+func (o UserPoolAddOnsOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyT(func(v UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
+		return v.AdvancedSecurityAdditionalFlows
+	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
 // The operating mode of advanced security features in your user pool.
 func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
@@ -1335,6 +1633,15 @@ func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
 		var ret UserPoolAddOns
 		return ret
 	}).(UserPoolAddOnsOutput)
+}
+
+func (o UserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyT(func(v *UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedSecurityAdditionalFlows
+	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
 // The operating mode of advanced security features in your user pool.
@@ -1536,6 +1843,139 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulu
 		}
 		return v.UnusedAccountValidityDays
 	}).(pulumi.IntPtrOutput)
+}
+
+type UserPoolAdvancedSecurityAdditionalFlows struct {
+	CustomAuthMode *string `pulumi:"customAuthMode"`
+}
+
+// UserPoolAdvancedSecurityAdditionalFlowsInput is an input type that accepts UserPoolAdvancedSecurityAdditionalFlowsArgs and UserPoolAdvancedSecurityAdditionalFlowsOutput values.
+// You can construct a concrete instance of `UserPoolAdvancedSecurityAdditionalFlowsInput` via:
+//
+//	UserPoolAdvancedSecurityAdditionalFlowsArgs{...}
+type UserPoolAdvancedSecurityAdditionalFlowsInput interface {
+	pulumi.Input
+
+	ToUserPoolAdvancedSecurityAdditionalFlowsOutput() UserPoolAdvancedSecurityAdditionalFlowsOutput
+	ToUserPoolAdvancedSecurityAdditionalFlowsOutputWithContext(context.Context) UserPoolAdvancedSecurityAdditionalFlowsOutput
+}
+
+type UserPoolAdvancedSecurityAdditionalFlowsArgs struct {
+	CustomAuthMode pulumi.StringPtrInput `pulumi:"customAuthMode"`
+}
+
+func (UserPoolAdvancedSecurityAdditionalFlowsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (i UserPoolAdvancedSecurityAdditionalFlowsArgs) ToUserPoolAdvancedSecurityAdditionalFlowsOutput() UserPoolAdvancedSecurityAdditionalFlowsOutput {
+	return i.ToUserPoolAdvancedSecurityAdditionalFlowsOutputWithContext(context.Background())
+}
+
+func (i UserPoolAdvancedSecurityAdditionalFlowsArgs) ToUserPoolAdvancedSecurityAdditionalFlowsOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAdvancedSecurityAdditionalFlowsOutput)
+}
+
+func (i UserPoolAdvancedSecurityAdditionalFlowsArgs) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return i.ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolAdvancedSecurityAdditionalFlowsArgs) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAdvancedSecurityAdditionalFlowsOutput).ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx)
+}
+
+// UserPoolAdvancedSecurityAdditionalFlowsPtrInput is an input type that accepts UserPoolAdvancedSecurityAdditionalFlowsArgs, UserPoolAdvancedSecurityAdditionalFlowsPtr and UserPoolAdvancedSecurityAdditionalFlowsPtrOutput values.
+// You can construct a concrete instance of `UserPoolAdvancedSecurityAdditionalFlowsPtrInput` via:
+//
+//	        UserPoolAdvancedSecurityAdditionalFlowsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolAdvancedSecurityAdditionalFlowsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput
+	ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Context) UserPoolAdvancedSecurityAdditionalFlowsPtrOutput
+}
+
+type userPoolAdvancedSecurityAdditionalFlowsPtrType UserPoolAdvancedSecurityAdditionalFlowsArgs
+
+func UserPoolAdvancedSecurityAdditionalFlowsPtr(v *UserPoolAdvancedSecurityAdditionalFlowsArgs) UserPoolAdvancedSecurityAdditionalFlowsPtrInput {
+	return (*userPoolAdvancedSecurityAdditionalFlowsPtrType)(v)
+}
+
+func (*userPoolAdvancedSecurityAdditionalFlowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (i *userPoolAdvancedSecurityAdditionalFlowsPtrType) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return i.ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolAdvancedSecurityAdditionalFlowsPtrType) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
+type UserPoolAdvancedSecurityAdditionalFlowsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAdvancedSecurityAdditionalFlowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurityAdditionalFlowsOutput() UserPoolAdvancedSecurityAdditionalFlowsOutput {
+	return o
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurityAdditionalFlowsOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsOutput {
+	return o
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAdvancedSecurityAdditionalFlows) *UserPoolAdvancedSecurityAdditionalFlows {
+		return &v
+	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) CustomAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolAdvancedSecurityAdditionalFlows) *string { return v.CustomAuthMode }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolAdvancedSecurityAdditionalFlowsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) ToUserPoolAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) Elem() UserPoolAdvancedSecurityAdditionalFlowsOutput {
+	return o.ApplyT(func(v *UserPoolAdvancedSecurityAdditionalFlows) UserPoolAdvancedSecurityAdditionalFlows {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolAdvancedSecurityAdditionalFlows
+		return ret
+	}).(UserPoolAdvancedSecurityAdditionalFlowsOutput)
+}
+
+func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) CustomAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolAdvancedSecurityAdditionalFlows) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAuthMode
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserPoolClientAnalyticsConfiguration struct {
@@ -3569,7 +4009,8 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) MinValue() pulumi.StringPtr
 
 type UserPoolPasswordPolicy struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
-	MinimumLength *int `pulumi:"minimumLength"`
+	MinimumLength       *int `pulumi:"minimumLength"`
+	PasswordHistorySize *int `pulumi:"passwordHistorySize"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
@@ -3597,7 +4038,8 @@ type UserPoolPasswordPolicyInput interface {
 
 type UserPoolPasswordPolicyArgs struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
-	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
+	MinimumLength       pulumi.IntPtrInput `pulumi:"minimumLength"`
+	PasswordHistorySize pulumi.IntPtrInput `pulumi:"passwordHistorySize"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
@@ -3694,6 +4136,10 @@ func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.MinimumLength }).(pulumi.IntPtrOutput)
 }
 
+func (o UserPoolPasswordPolicyOutput) PasswordHistorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.PasswordHistorySize }).(pulumi.IntPtrOutput)
+}
+
 // In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 func (o UserPoolPasswordPolicyOutput) RequireLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireLowercase }).(pulumi.BoolPtrOutput)
@@ -3752,6 +4198,15 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.MinimumLength
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o UserPoolPasswordPolicyPtrOutput) PasswordHistorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordHistorySize
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -6880,14 +7335,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput)(nil)).Elem(), IdentityPoolRoleAttachmentRulesConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationFirehoseConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationFirehoseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationFirehoseConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationFirehoseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationArrayInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationS3ConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationS3ConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingPtrInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAddOnsInput)(nil)).Elem(), UserPoolAddOnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAddOnsPtrInput)(nil)).Elem(), UserPoolAddOnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdminCreateUserConfigInput)(nil)).Elem(), UserPoolAdminCreateUserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdminCreateUserConfigPtrInput)(nil)).Elem(), UserPoolAdminCreateUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdvancedSecurityAdditionalFlowsInput)(nil)).Elem(), UserPoolAdvancedSecurityAdditionalFlowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdvancedSecurityAdditionalFlowsPtrInput)(nil)).Elem(), UserPoolAdvancedSecurityAdditionalFlowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
@@ -6962,14 +7423,20 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationFirehoseConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationFirehoseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAddOnsOutput{})
 	pulumi.RegisterOutputType(UserPoolAddOnsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolAdvancedSecurityAdditionalFlowsOutput{})
+	pulumi.RegisterOutputType(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})

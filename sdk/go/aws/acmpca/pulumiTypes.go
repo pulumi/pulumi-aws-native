@@ -347,10 +347,13 @@ type CertificateAuthorityCrlConfiguration struct {
 	//
 	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	CustomCname *string `pulumi:"customCname"`
+	CustomPath  *string `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 	Enabled bool `pulumi:"enabled"`
 	// Validity period of the CRL in days.
-	ExpirationInDays *int `pulumi:"expirationInDays"`
+	ExpirationInDays          *int  `pulumi:"expirationInDays"`
+	PartitioningEnabled       *bool `pulumi:"partitioningEnabled"`
+	RetainExpiredCertificates *bool `pulumi:"retainExpiredCertificates"`
 	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 	//
 	// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
@@ -384,10 +387,13 @@ type CertificateAuthorityCrlConfigurationArgs struct {
 	//
 	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
+	CustomPath  pulumi.StringPtrInput `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Validity period of the CRL in days.
-	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
+	ExpirationInDays          pulumi.IntPtrInput  `pulumi:"expirationInDays"`
+	PartitioningEnabled       pulumi.BoolPtrInput `pulumi:"partitioningEnabled"`
+	RetainExpiredCertificates pulumi.BoolPtrInput `pulumi:"retainExpiredCertificates"`
 	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 	//
 	// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
@@ -494,6 +500,10 @@ func (o CertificateAuthorityCrlConfigurationOutput) CustomCname() pulumi.StringP
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
+func (o CertificateAuthorityCrlConfigurationOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+}
+
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 func (o CertificateAuthorityCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -502,6 +512,14 @@ func (o CertificateAuthorityCrlConfigurationOutput) Enabled() pulumi.BoolOutput 
 // Validity period of the CRL in days.
 func (o CertificateAuthorityCrlConfigurationOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
+}
+
+func (o CertificateAuthorityCrlConfigurationOutput) PartitioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *bool { return v.PartitioningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CertificateAuthorityCrlConfigurationOutput) RetainExpiredCertificates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *bool { return v.RetainExpiredCertificates }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
@@ -568,6 +586,15 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) CustomCname() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o CertificateAuthorityCrlConfigurationPtrOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 func (o CertificateAuthorityCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *bool {
@@ -586,6 +613,24 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) ExpirationInDays() pulumi
 		}
 		return v.ExpirationInDays
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o CertificateAuthorityCrlConfigurationPtrOutput) PartitioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartitioningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CertificateAuthorityCrlConfigurationPtrOutput) RetainExpiredCertificates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RetainExpiredCertificates
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.

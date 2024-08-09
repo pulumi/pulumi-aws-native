@@ -105,7 +105,7 @@ type LookupDbInstanceResult struct {
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// The AWS Region associated with the automated backup.
+	// The AWS-Region associated with the automated backup.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -535,7 +535,7 @@ func (o LookupDbInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region associated with the automated backup.
+// The AWS-Region associated with the automated backup.
 func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }

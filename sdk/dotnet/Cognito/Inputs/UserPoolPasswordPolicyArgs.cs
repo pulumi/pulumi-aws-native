@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("minimumLength")]
         public Input<int>? MinimumLength { get; set; }
 
+        [Input("passwordHistorySize")]
+        public Input<int>? PasswordHistorySize { get; set; }
+
         /// <summary>
         /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
         /// </summary>

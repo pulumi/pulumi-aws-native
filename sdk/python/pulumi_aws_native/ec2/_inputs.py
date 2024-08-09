@@ -4107,7 +4107,7 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The name or Amazon Resource Name (ARN) of an IAM instance profile.
         :param pulumi.Input[str] image_id: The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
                 Valid formats:
-                 +   ``ami-17characters00000`` 
+                 +   ``ami-0ac394d6a3example`` 
                  +   ``resolve:ssm:parameter-name`` 
                  +   ``resolve:ssm:parameter-name:version-number`` 
                  +   ``resolve:ssm:parameter-name:label`` 
@@ -4368,7 +4368,7 @@ class LaunchTemplateDataArgs:
         """
         The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
          Valid formats:
-          +   ``ami-17characters00000`` 
+          +   ``ami-0ac394d6a3example`` 
           +   ``resolve:ssm:parameter-name`` 
           +   ``resolve:ssm:parameter-name:version-number`` 
           +   ``resolve:ssm:parameter-name:label`` 

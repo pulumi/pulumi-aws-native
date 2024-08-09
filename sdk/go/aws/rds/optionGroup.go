@@ -33,7 +33,7 @@ type OptionGroup struct {
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
-	// A list of all available options
+	// A list of all available options for an option group.
 	OptionConfigurations OptionGroupOptionConfigurationArrayOutput `pulumi:"optionConfigurations"`
 	// The description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
@@ -123,7 +123,7 @@ type optionGroupArgs struct {
 	EngineName string `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	// A list of all available options
+	// A list of all available options for an option group.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
 	// The description of the option group.
 	OptionGroupDescription string `pulumi:"optionGroupDescription"`
@@ -159,7 +159,7 @@ type OptionGroupArgs struct {
 	EngineName pulumi.StringInput
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringInput
-	// A list of all available options
+	// A list of all available options for an option group.
 	OptionConfigurations OptionGroupOptionConfigurationArrayInput
 	// The description of the option group.
 	OptionGroupDescription pulumi.StringInput
@@ -237,7 +237,7 @@ func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
-// A list of all available options
+// A list of all available options for an option group.
 func (o OptionGroupOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionConfigurationArrayOutput { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }

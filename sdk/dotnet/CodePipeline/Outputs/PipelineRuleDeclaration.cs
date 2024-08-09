@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// The rule's configuration. These are key-value pairs that specify input values for a rule.
         /// </summary>
         public readonly object? Configuration;
+        /// <summary>
+        /// The input artifacts fields for the rule, such as specifying an input file for the rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineInputArtifact> InputArtifacts;
         /// <summary>
         /// The rule declaration's name.
@@ -33,6 +36,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
+        /// </summary>
         public readonly Outputs.PipelineRuleTypeId? RuleTypeId;
 
         [OutputConstructor]

@@ -356,7 +356,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceId;
 
         /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
         /// 
         /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>

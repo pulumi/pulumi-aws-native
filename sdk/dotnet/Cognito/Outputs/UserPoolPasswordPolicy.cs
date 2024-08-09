@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// The minimum length of the password in the policy that you have set. This value can't be less than 6.
         /// </summary>
         public readonly int? MinimumLength;
+        public readonly int? PasswordHistorySize;
         /// <summary>
         /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
         /// </summary>
@@ -44,6 +45,8 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         private UserPoolPasswordPolicy(
             int? minimumLength,
 
+            int? passwordHistorySize,
+
             bool? requireLowercase,
 
             bool? requireNumbers,
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
             int? temporaryPasswordValidityDays)
         {
             MinimumLength = minimumLength;
+            PasswordHistorySize = passwordHistorySize;
             RequireLowercase = requireLowercase;
             RequireNumbers = requireNumbers;
             RequireSymbols = requireSymbols;

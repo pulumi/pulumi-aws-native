@@ -27,9 +27,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         /// <summary>
         /// The format EventBridge uses for the log records.
         /// 
-        /// - `json` : JSON
-        /// - `plain` : Plain text
-        /// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+        /// EventBridge currently only supports `json` formatting.
         /// </summary>
         [Input("outputFormat")]
         public Input<Pulumi.AwsNative.Pipes.PipeS3OutputFormat>? OutputFormat { get; set; }

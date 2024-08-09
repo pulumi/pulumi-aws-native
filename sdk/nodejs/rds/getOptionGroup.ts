@@ -35,7 +35,7 @@ export interface GetOptionGroupArgs {
 
 export interface GetOptionGroupResult {
     /**
-     * A list of all available options
+     * A list of all available options for an option group.
      */
     readonly optionConfigurations?: outputs.rds.OptionGroupOptionConfiguration[];
     /**

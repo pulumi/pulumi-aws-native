@@ -1583,9 +1583,7 @@ class PipeS3LogDestinationArgs:
         :param pulumi.Input[str] bucket_owner: The AWS account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
         :param pulumi.Input['PipeS3OutputFormat'] output_format: The format EventBridge uses for the log records.
                
-               - `json` : JSON
-               - `plain` : Plain text
-               - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+               EventBridge currently only supports `json` formatting.
         :param pulumi.Input[str] prefix: The prefix text with which to begin Amazon S3 log object names.
                
                For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html) in the *Amazon Simple Storage Service User Guide* .
@@ -1629,9 +1627,7 @@ class PipeS3LogDestinationArgs:
         """
         The format EventBridge uses for the log records.
 
-        - `json` : JSON
-        - `plain` : Plain text
-        - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+        EventBridge currently only supports `json` formatting.
         """
         return pulumi.get(self, "output_format")
 

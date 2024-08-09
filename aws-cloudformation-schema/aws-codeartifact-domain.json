@@ -75,13 +75,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "codeartifact:CreateDomain", "codeartifact:DescribeDomain", "codeartifact:PutDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource" ]
+      "permissions" : [ "codeartifact:CreateDomain", "codeartifact:DescribeDomain", "codeartifact:PutDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource", "codeartifact:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "codeartifact:DescribeDomain", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "codeartifact:PutDomainPermissionsPolicy", "codeartifact:DeleteDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource", "codeartifact:UntagResource" ]
+      "permissions" : [ "codeartifact:DescribeDomain", "codeartifact:PutDomainPermissionsPolicy", "codeartifact:DeleteDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource", "codeartifact:UntagResource", "codeartifact:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "codeartifact:DeleteDomain", "codeartifact:DescribeDomain" ]
@@ -95,6 +95,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "codeartifact:ListTagsForResource", "codeartifact:UntagResource", "codeartifact:TagResource" ]
   }
 }

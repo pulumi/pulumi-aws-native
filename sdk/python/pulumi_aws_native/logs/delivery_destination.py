@@ -29,7 +29,7 @@ class DeliveryDestinationArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-        :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
+        :param pulumi.Input[str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery destination.
         """
@@ -62,7 +62,7 @@ class DeliveryDestinationArgs:
     @pulumi.getter(name="destinationResourceArn")
     def destination_resource_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the AWS resource that will receive the logs.
+        The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         """
         return pulumi.get(self, "destination_resource_arn")
 
@@ -117,7 +117,7 @@ class DeliveryDestination(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-        :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
+        :param pulumi.Input[str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that have been assigned to this delivery destination.
         """
@@ -230,7 +230,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter(name="destinationResourceArn")
     def destination_resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the AWS resource that will receive the logs.
+        The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         """
         return pulumi.get(self, "destination_resource_arn")
 

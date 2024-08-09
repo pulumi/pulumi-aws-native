@@ -97,6 +97,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("modelApprovalStatus")]
         public Output<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus?> ModelApprovalStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon SageMaker Model Card.
+        /// </summary>
         [Output("modelCard")]
         public Output<Outputs.ModelPackageModelCard?> ModelCard { get; private set; } = null!;
 
@@ -175,6 +178,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("sourceAlgorithmSpecification")]
         public Output<Outputs.ModelPackageSourceAlgorithmSpecification?> SourceAlgorithmSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of the source for the model package.
+        /// </summary>
         [Output("sourceUri")]
         public Output<string?> SourceUri { get; private set; } = null!;
 
@@ -345,6 +351,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("modelApprovalStatus")]
         public Input<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus>? ModelApprovalStatus { get; set; }
 
+        /// <summary>
+        /// An Amazon SageMaker Model Card.
+        /// </summary>
         [Input("modelCard")]
         public Input<Inputs.ModelPackageModelCardArgs>? ModelCard { get; set; }
 
@@ -405,6 +414,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("sourceAlgorithmSpecification")]
         public Input<Inputs.ModelPackageSourceAlgorithmSpecificationArgs>? SourceAlgorithmSpecification { get; set; }
 
+        /// <summary>
+        /// The URI of the source for the model package.
+        /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 

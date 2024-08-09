@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
-        /// The AWS Region associated with the automated backup.
+        /// The AWS-Region associated with the automated backup.
         /// </summary>
         public readonly string? AutomaticBackupReplicationRegion;
         /// <summary>

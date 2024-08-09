@@ -15,7 +15,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     {
         public readonly Outputs.LogDeliveryConfigurationCloudWatchLogsConfiguration? CloudWatchLogsConfiguration;
         public readonly string? EventSource;
+        public readonly Outputs.LogDeliveryConfigurationFirehoseConfiguration? FirehoseConfiguration;
         public readonly string? LogLevel;
+        public readonly Outputs.LogDeliveryConfigurationS3Configuration? S3Configuration;
 
         [OutputConstructor]
         private LogDeliveryConfigurationLogConfiguration(
@@ -23,11 +25,17 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? eventSource,
 
-            string? logLevel)
+            Outputs.LogDeliveryConfigurationFirehoseConfiguration? firehoseConfiguration,
+
+            string? logLevel,
+
+            Outputs.LogDeliveryConfigurationS3Configuration? s3Configuration)
         {
             CloudWatchLogsConfiguration = cloudWatchLogsConfiguration;
             EventSource = eventSource;
+            FirehoseConfiguration = firehoseConfiguration;
             LogLevel = logLevel;
+            S3Configuration = s3Configuration;
         }
     }
 }

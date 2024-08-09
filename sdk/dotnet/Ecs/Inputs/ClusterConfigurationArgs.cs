@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The execute command configuration for the cluster.
+    /// The execute command and managed storage configuration for the cluster.
     /// </summary>
     public sealed class ClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {

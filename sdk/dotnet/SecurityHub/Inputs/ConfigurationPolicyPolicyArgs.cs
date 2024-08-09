@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class ConfigurationPolicyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS service that the configuration policy applies to.
+        /// The AWS-service that the configuration policy applies to.
         /// </summary>
         [Input("securityHub")]
         public Input<Inputs.ConfigurationPolicySecurityHubPolicyArgs>? SecurityHub { get; set; }

@@ -32,7 +32,7 @@ class GetOptionGroupResult:
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> Optional[Sequence['outputs.OptionGroupOptionConfiguration']]:
         """
-        A list of all available options
+        A list of all available options for an option group.
         """
         return pulumi.get(self, "option_configurations")
 

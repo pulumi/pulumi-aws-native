@@ -42,7 +42,7 @@ export interface GetClusterResult {
      */
     readonly clusterSettings?: outputs.ecs.ClusterSettings[];
     /**
-     * The execute command configuration for the cluster.
+     * The execute command and managed storage configuration for the cluster.
      */
     readonly configuration?: outputs.ecs.ClusterConfiguration;
     /**

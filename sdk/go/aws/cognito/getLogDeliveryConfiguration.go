@@ -30,7 +30,7 @@ type LookupLogDeliveryConfigurationArgs struct {
 type LookupLogDeliveryConfigurationResult struct {
 	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	Id *string `pulumi:"id"`
-	// The detailed activity logging destination of a user pool.
+	// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
 }
 
@@ -75,7 +75,7 @@ func (o LookupLogDeliveryConfigurationResultOutput) Id() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupLogDeliveryConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The detailed activity logging destination of a user pool.
+// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 func (o LookupLogDeliveryConfigurationResultOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupLogDeliveryConfigurationResult) []LogDeliveryConfigurationLogConfiguration {
 		return v.LogConfigurations

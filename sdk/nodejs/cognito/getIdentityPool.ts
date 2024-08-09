@@ -55,6 +55,10 @@ export interface GetIdentityPoolResult {
      */
     readonly identityPoolName?: string;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly identityPoolTags?: outputs.Tag[];
+    /**
      * The name of the Amazon Cognito identity pool, returned as a string.
      */
     readonly name?: string;

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<ImmutableArray<Outputs.ClusterSettings>> ClusterSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The execute command configuration for the cluster.
+        /// The execute command and managed storage configuration for the cluster.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.Ecs
         }
 
         /// <summary>
-        /// The execute command configuration for the cluster.
+        /// The execute command and managed storage configuration for the cluster.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }

@@ -383,7 +383,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
 def get_user_pool(user_pool_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResult:
     """
-    Resource Type definition for AWS::Cognito::UserPool
+    Definition of AWS::Cognito::UserPool Resource Type
 
 
     :param str user_pool_id: The ID of the user pool.
@@ -427,7 +427,7 @@ def get_user_pool(user_pool_id: Optional[str] = None,
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
-    Resource Type definition for AWS::Cognito::UserPool
+    Definition of AWS::Cognito::UserPool Resource Type
 
 
     :param str user_pool_id: The ID of the user pool.

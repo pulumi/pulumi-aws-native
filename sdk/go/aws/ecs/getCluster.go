@@ -38,7 +38,7 @@ type LookupClusterResult struct {
 	CapacityProviders []string `pulumi:"capacityProviders"`
 	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
 	ClusterSettings []ClusterSettings `pulumi:"clusterSettings"`
-	// The execute command configuration for the cluster.
+	// The execute command and managed storage configuration for the cluster.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
@@ -109,7 +109,7 @@ func (o LookupClusterResultOutput) ClusterSettings() ClusterSettingsArrayOutput 
 	return o.ApplyT(func(v LookupClusterResult) []ClusterSettings { return v.ClusterSettings }).(ClusterSettingsArrayOutput)
 }
 
-// The execute command configuration for the cluster.
+// The execute command and managed storage configuration for the cluster.
 func (o LookupClusterResultOutput) Configuration() ClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterConfiguration { return v.Configuration }).(ClusterConfigurationPtrOutput)
 }

@@ -4362,7 +4362,7 @@ class LaunchTemplateData(dict):
         :param 'LaunchTemplateIamInstanceProfile' iam_instance_profile: The name or Amazon Resource Name (ARN) of an IAM instance profile.
         :param str image_id: The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
                 Valid formats:
-                 +   ``ami-17characters00000`` 
+                 +   ``ami-0ac394d6a3example`` 
                  +   ``resolve:ssm:parameter-name`` 
                  +   ``resolve:ssm:parameter-name:version-number`` 
                  +   ``resolve:ssm:parameter-name:label`` 
@@ -4575,7 +4575,7 @@ class LaunchTemplateData(dict):
         """
         The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
          Valid formats:
-          +   ``ami-17characters00000`` 
+          +   ``ami-0ac394d6a3example`` 
           +   ``resolve:ssm:parameter-name`` 
           +   ``resolve:ssm:parameter-name:version-number`` 
           +   ``resolve:ssm:parameter-name:label`` 
@@ -7965,7 +7965,7 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str destination_cidr: The destination IPv4 address, in CIDR notation.
-        :param str destination_prefix_list_id: The prefix of the AWS service .
+        :param str destination_prefix_list_id: The prefix of the AWS-service .
         :param str egress_only_internet_gateway_id: The ID of an egress-only internet gateway.
         :param str gateway_id: The ID of the gateway, such as an internet gateway or virtual private gateway.
         :param str instance_id: The ID of the instance, such as a NAT instance.
@@ -8018,7 +8018,7 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[str]:
         """
-        The prefix of the AWS service .
+        The prefix of the AWS-service .
         """
         return pulumi.get(self, "destination_prefix_list_id")
 

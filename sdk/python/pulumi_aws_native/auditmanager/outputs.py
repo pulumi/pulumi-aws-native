@@ -110,7 +110,7 @@ class AssessmentAwsService(dict):
                  service_name: Optional[str] = None):
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
-        :param str service_name: The name of the AWS service .
+        :param str service_name: The name of the AWS-service .
         """
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
@@ -119,7 +119,7 @@ class AssessmentAwsService(dict):
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[str]:
         """
-        The name of the AWS service .
+        The name of the AWS-service .
         """
         return pulumi.get(self, "service_name")
 

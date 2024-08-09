@@ -73,6 +73,12 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> IdentityPoolName { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("identityPoolTags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> IdentityPoolTags { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Amazon Cognito identity pool, returned as a string.
         /// </summary>
         [Output("name")]
@@ -208,6 +214,18 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("identityPoolName")]
         public Input<string>? IdentityPoolName { get; set; }
+
+        [Input("identityPoolTags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _identityPoolTags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> IdentityPoolTags
+        {
+            get => _identityPoolTags ?? (_identityPoolTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _identityPoolTags = value;
+        }
 
         [Input("openIdConnectProviderArns")]
         private InputList<string>? _openIdConnectProviderArns;

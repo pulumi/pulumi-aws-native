@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The detailed activity logging destination of a user pool.
+        /// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         /// </summary>
         public readonly ImmutableArray<Outputs.LogDeliveryConfigurationLogConfiguration> LogConfigurations;
 

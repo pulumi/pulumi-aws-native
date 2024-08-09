@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
 
+        [Input("customPath")]
+        public Input<string>? CustomPath { get; set; }
+
         /// <summary>
         /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
         /// </summary>
@@ -40,6 +43,12 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
         /// </summary>
         [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }
+
+        [Input("partitioningEnabled")]
+        public Input<bool>? PartitioningEnabled { get; set; }
+
+        [Input("retainExpiredCertificates")]
+        public Input<bool>? RetainExpiredCertificates { get; set; }
 
         /// <summary>
         /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.

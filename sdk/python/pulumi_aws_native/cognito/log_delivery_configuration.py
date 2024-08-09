@@ -20,8 +20,8 @@ class LogDeliveryConfigurationArgs:
                  log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
-        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you configured detailed activity logging.
-        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: The detailed activity logging destination of a user pool.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you configured logging.
+        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if log_configurations is not None:
@@ -31,7 +31,7 @@ class LogDeliveryConfigurationArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The ID of the user pool where you configured detailed activity logging.
+        The ID of the user pool where you configured logging.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -43,7 +43,7 @@ class LogDeliveryConfigurationArgs:
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
         """
-        The detailed activity logging destination of a user pool.
+        A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
         return pulumi.get(self, "log_configurations")
 
@@ -65,8 +65,8 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: The detailed activity logging destination of a user pool.
-        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you configured detailed activity logging.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you configured logging.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]]:
         """
-        The detailed activity logging destination of a user pool.
+        A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
         return pulumi.get(self, "log_configurations")
 
@@ -157,7 +157,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The ID of the user pool where you configured detailed activity logging.
+        The ID of the user pool where you configured logging.
         """
         return pulumi.get(self, "user_pool_id")
 

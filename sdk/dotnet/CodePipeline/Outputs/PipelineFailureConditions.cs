@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineFailureConditions
     {
+        /// <summary>
+        /// The conditions that are configured as failure conditions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineCondition> Conditions;
         /// <summary>
         /// The specified result for when the failure conditions are met, such as rolling back the stage

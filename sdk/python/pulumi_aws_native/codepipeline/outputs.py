@@ -606,6 +606,7 @@ class PipelineBeforeEntryConditions(dict):
                  conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
         """
         The configuration that specifies the rules to run before stage starts.
+        :param Sequence['PipelineCondition'] conditions: The conditions that are configured as entry conditions.
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -613,6 +614,9 @@ class PipelineBeforeEntryConditions(dict):
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        """
+        The conditions that are configured as entry conditions.
+        """
         return pulumi.get(self, "conditions")
 
 
@@ -660,6 +664,7 @@ class PipelineCondition(dict):
         """
         Represents information about condition.
         :param str result: The specified result for when the failure conditions are met, such as rolling back the stage
+        :param Sequence['PipelineRuleDeclaration'] rules: The rules that make up the condition.
         """
         if result is not None:
             pulumi.set(__self__, "result", result)
@@ -677,6 +682,9 @@ class PipelineCondition(dict):
     @property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.PipelineRuleDeclaration']]:
+        """
+        The rules that make up the condition.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -723,6 +731,7 @@ class PipelineFailureConditions(dict):
                  result: Optional['PipelineFailureConditionsResult'] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
+        :param Sequence['PipelineCondition'] conditions: The conditions that are configured as failure conditions.
         :param 'PipelineFailureConditionsResult' result: The specified result for when the failure conditions are met, such as rolling back the stage
         """
         if conditions is not None:
@@ -733,6 +742,9 @@ class PipelineFailureConditions(dict):
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        """
+        The conditions that are configured as failure conditions.
+        """
         return pulumi.get(self, "conditions")
 
     @property
@@ -1122,9 +1134,11 @@ class PipelineRuleDeclaration(dict):
         """
         Represents information about condition.
         :param Any configuration: The rule's configuration. These are key-value pairs that specify input values for a rule.
+        :param Sequence['PipelineInputArtifact'] input_artifacts: The input artifacts fields for the rule, such as specifying an input file for the rule.
         :param str name: The rule declaration's name.
         :param str region: The rule declaration's AWS Region, such as us-east-1.
         :param str role_arn: The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
+        :param 'PipelineRuleTypeId' rule_type_id: The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -1150,6 +1164,9 @@ class PipelineRuleDeclaration(dict):
     @property
     @pulumi.getter(name="inputArtifacts")
     def input_artifacts(self) -> Optional[Sequence['outputs.PipelineInputArtifact']]:
+        """
+        The input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
         return pulumi.get(self, "input_artifacts")
 
     @property
@@ -1179,6 +1196,9 @@ class PipelineRuleDeclaration(dict):
     @property
     @pulumi.getter(name="ruleTypeId")
     def rule_type_id(self) -> Optional['outputs.PipelineRuleTypeId']:
+        """
+        The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
+        """
         return pulumi.get(self, "rule_type_id")
 
 
@@ -1402,6 +1422,7 @@ class PipelineSuccessConditions(dict):
                  conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
+        :param Sequence['PipelineCondition'] conditions: The conditions that are success conditions.
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -1409,6 +1430,9 @@ class PipelineSuccessConditions(dict):
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.PipelineCondition']]:
+        """
+        The conditions that are success conditions.
+        """
         return pulumi.get(self, "conditions")
 
 

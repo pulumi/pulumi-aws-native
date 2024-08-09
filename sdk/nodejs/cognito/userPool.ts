@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Cognito::UserPool
+ * Definition of AWS::Cognito::UserPool Resource Type
  */
 export class UserPool extends pulumi.CustomResource {
     /**

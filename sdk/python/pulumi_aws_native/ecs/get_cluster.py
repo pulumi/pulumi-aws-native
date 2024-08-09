@@ -71,7 +71,7 @@ class GetClusterResult:
     @pulumi.getter
     def configuration(self) -> Optional['outputs.ClusterConfiguration']:
         """
-        The execute command configuration for the cluster.
+        The execute command and managed storage configuration for the cluster.
         """
         return pulumi.get(self, "configuration")
 

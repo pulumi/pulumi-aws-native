@@ -21,7 +21,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileResult:
-    def __init__(__self__, attribute_mappings=None, duration_seconds=None, enabled=None, managed_policy_arns=None, name=None, profile_arn=None, profile_id=None, require_instance_properties=None, role_arns=None, session_policy=None, tags=None):
+    def __init__(__self__, accept_role_session_name=None, attribute_mappings=None, duration_seconds=None, enabled=None, managed_policy_arns=None, name=None, profile_arn=None, profile_id=None, require_instance_properties=None, role_arns=None, session_policy=None, tags=None):
+        if accept_role_session_name and not isinstance(accept_role_session_name, bool):
+            raise TypeError("Expected argument 'accept_role_session_name' to be a bool")
+        pulumi.set(__self__, "accept_role_session_name", accept_role_session_name)
         if attribute_mappings and not isinstance(attribute_mappings, list):
             raise TypeError("Expected argument 'attribute_mappings' to be a list")
         pulumi.set(__self__, "attribute_mappings", attribute_mappings)
@@ -55,6 +58,14 @@ class GetProfileResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> Optional[bool]:
+        """
+        Used to determine if a custom role session name will be accepted in a temporary credential request.
+        """
+        return pulumi.get(self, "accept_role_session_name")
 
     @property
     @pulumi.getter(name="attributeMappings")
@@ -151,6 +162,7 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            accept_role_session_name=self.accept_role_session_name,
             attribute_mappings=self.attribute_mappings,
             duration_seconds=self.duration_seconds,
             enabled=self.enabled,
@@ -178,6 +190,7 @@ def get_profile(profile_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
+        accept_role_session_name=pulumi.get(__ret__, 'accept_role_session_name'),
         attribute_mappings=pulumi.get(__ret__, 'attribute_mappings'),
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         enabled=pulumi.get(__ret__, 'enabled'),

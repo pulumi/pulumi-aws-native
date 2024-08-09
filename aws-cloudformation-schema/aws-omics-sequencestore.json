@@ -95,7 +95,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateSequenceStore", "omics:TagResource" ]
+      "permissions" : [ "omics:CreateSequenceStore", "omics:TagResource", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "omics:GetSequenceStore", "omics:ListTagsForResource" ]

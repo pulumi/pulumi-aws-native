@@ -999,6 +999,7 @@ func (o PipelineArtifactStoreMapArrayOutput) Index(i pulumi.IntInput) PipelineAr
 
 // The configuration that specifies the rules to run before stage starts.
 type PipelineBeforeEntryConditions struct {
+	// The conditions that are configured as entry conditions.
 	Conditions []PipelineCondition `pulumi:"conditions"`
 }
 
@@ -1015,6 +1016,7 @@ type PipelineBeforeEntryConditionsInput interface {
 
 // The configuration that specifies the rules to run before stage starts.
 type PipelineBeforeEntryConditionsArgs struct {
+	// The conditions that are configured as entry conditions.
 	Conditions PipelineConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -1096,6 +1098,7 @@ func (o PipelineBeforeEntryConditionsOutput) ToPipelineBeforeEntryConditionsPtrO
 	}).(PipelineBeforeEntryConditionsPtrOutput)
 }
 
+// The conditions that are configured as entry conditions.
 func (o PipelineBeforeEntryConditionsOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v PipelineBeforeEntryConditions) []PipelineCondition { return v.Conditions }).(PipelineConditionArrayOutput)
 }
@@ -1124,6 +1127,7 @@ func (o PipelineBeforeEntryConditionsPtrOutput) Elem() PipelineBeforeEntryCondit
 	}).(PipelineBeforeEntryConditionsOutput)
 }
 
+// The conditions that are configured as entry conditions.
 func (o PipelineBeforeEntryConditionsPtrOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v *PipelineBeforeEntryConditions) []PipelineCondition {
 		if v == nil {
@@ -1245,8 +1249,9 @@ func (o PipelineBlockerDeclarationArrayOutput) Index(i pulumi.IntInput) Pipeline
 // Represents information about condition.
 type PipelineCondition struct {
 	// The specified result for when the failure conditions are met, such as rolling back the stage
-	Result *string                   `pulumi:"result"`
-	Rules  []PipelineRuleDeclaration `pulumi:"rules"`
+	Result *string `pulumi:"result"`
+	// The rules that make up the condition.
+	Rules []PipelineRuleDeclaration `pulumi:"rules"`
 }
 
 // PipelineConditionInput is an input type that accepts PipelineConditionArgs and PipelineConditionOutput values.
@@ -1263,8 +1268,9 @@ type PipelineConditionInput interface {
 // Represents information about condition.
 type PipelineConditionArgs struct {
 	// The specified result for when the failure conditions are met, such as rolling back the stage
-	Result pulumi.StringPtrInput             `pulumi:"result"`
-	Rules  PipelineRuleDeclarationArrayInput `pulumi:"rules"`
+	Result pulumi.StringPtrInput `pulumi:"result"`
+	// The rules that make up the condition.
+	Rules PipelineRuleDeclarationArrayInput `pulumi:"rules"`
 }
 
 func (PipelineConditionArgs) ElementType() reflect.Type {
@@ -1324,6 +1330,7 @@ func (o PipelineConditionOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
+// The rules that make up the condition.
 func (o PipelineConditionOutput) Rules() PipelineRuleDeclarationArrayOutput {
 	return o.ApplyT(func(v PipelineCondition) []PipelineRuleDeclaration { return v.Rules }).(PipelineRuleDeclarationArrayOutput)
 }
@@ -1509,6 +1516,7 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineFailureConditions struct {
+	// The conditions that are configured as failure conditions.
 	Conditions []PipelineCondition `pulumi:"conditions"`
 	// The specified result for when the failure conditions are met, such as rolling back the stage
 	Result *PipelineFailureConditionsResult `pulumi:"result"`
@@ -1527,6 +1535,7 @@ type PipelineFailureConditionsInput interface {
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineFailureConditionsArgs struct {
+	// The conditions that are configured as failure conditions.
 	Conditions PipelineConditionArrayInput `pulumi:"conditions"`
 	// The specified result for when the failure conditions are met, such as rolling back the stage
 	Result PipelineFailureConditionsResultPtrInput `pulumi:"result"`
@@ -1610,6 +1619,7 @@ func (o PipelineFailureConditionsOutput) ToPipelineFailureConditionsPtrOutputWit
 	}).(PipelineFailureConditionsPtrOutput)
 }
 
+// The conditions that are configured as failure conditions.
 func (o PipelineFailureConditionsOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v PipelineFailureConditions) []PipelineCondition { return v.Conditions }).(PipelineConditionArrayOutput)
 }
@@ -1643,6 +1653,7 @@ func (o PipelineFailureConditionsPtrOutput) Elem() PipelineFailureConditionsOutp
 	}).(PipelineFailureConditionsOutput)
 }
 
+// The conditions that are configured as failure conditions.
 func (o PipelineFailureConditionsPtrOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v *PipelineFailureConditions) []PipelineCondition {
 		if v == nil {
@@ -2756,14 +2767,16 @@ func (o PipelineOutputArtifactArrayOutput) Index(i pulumi.IntInput) PipelineOutp
 // Represents information about condition.
 type PipelineRuleDeclaration struct {
 	// The rule's configuration. These are key-value pairs that specify input values for a rule.
-	Configuration  interface{}             `pulumi:"configuration"`
+	Configuration interface{} `pulumi:"configuration"`
+	// The input artifacts fields for the rule, such as specifying an input file for the rule.
 	InputArtifacts []PipelineInputArtifact `pulumi:"inputArtifacts"`
 	// The rule declaration's name.
 	Name *string `pulumi:"name"`
 	// The rule declaration's AWS Region, such as us-east-1.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
-	RoleArn    *string             `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
 	RuleTypeId *PipelineRuleTypeId `pulumi:"ruleTypeId"`
 }
 
@@ -2781,14 +2794,16 @@ type PipelineRuleDeclarationInput interface {
 // Represents information about condition.
 type PipelineRuleDeclarationArgs struct {
 	// The rule's configuration. These are key-value pairs that specify input values for a rule.
-	Configuration  pulumi.Input                    `pulumi:"configuration"`
+	Configuration pulumi.Input `pulumi:"configuration"`
+	// The input artifacts fields for the rule, such as specifying an input file for the rule.
 	InputArtifacts PipelineInputArtifactArrayInput `pulumi:"inputArtifacts"`
 	// The rule declaration's name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The rule declaration's AWS Region, such as us-east-1.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
-	RoleArn    pulumi.StringPtrInput      `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
 	RuleTypeId PipelineRuleTypeIdPtrInput `pulumi:"ruleTypeId"`
 }
 
@@ -2849,6 +2864,7 @@ func (o PipelineRuleDeclarationOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v PipelineRuleDeclaration) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The input artifacts fields for the rule, such as specifying an input file for the rule.
 func (o PipelineRuleDeclarationOutput) InputArtifacts() PipelineInputArtifactArrayOutput {
 	return o.ApplyT(func(v PipelineRuleDeclaration) []PipelineInputArtifact { return v.InputArtifacts }).(PipelineInputArtifactArrayOutput)
 }
@@ -2868,6 +2884,7 @@ func (o PipelineRuleDeclarationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineRuleDeclaration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
 func (o PipelineRuleDeclarationOutput) RuleTypeId() PipelineRuleTypeIdPtrOutput {
 	return o.ApplyT(func(v PipelineRuleDeclaration) *PipelineRuleTypeId { return v.RuleTypeId }).(PipelineRuleTypeIdPtrOutput)
 }
@@ -3345,6 +3362,7 @@ func (o PipelineStageTransitionArrayOutput) Index(i pulumi.IntInput) PipelineSta
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineSuccessConditions struct {
+	// The conditions that are success conditions.
 	Conditions []PipelineCondition `pulumi:"conditions"`
 }
 
@@ -3361,6 +3379,7 @@ type PipelineSuccessConditionsInput interface {
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineSuccessConditionsArgs struct {
+	// The conditions that are success conditions.
 	Conditions PipelineConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -3442,6 +3461,7 @@ func (o PipelineSuccessConditionsOutput) ToPipelineSuccessConditionsPtrOutputWit
 	}).(PipelineSuccessConditionsPtrOutput)
 }
 
+// The conditions that are success conditions.
 func (o PipelineSuccessConditionsOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v PipelineSuccessConditions) []PipelineCondition { return v.Conditions }).(PipelineConditionArrayOutput)
 }
@@ -3470,6 +3490,7 @@ func (o PipelineSuccessConditionsPtrOutput) Elem() PipelineSuccessConditionsOutp
 	}).(PipelineSuccessConditionsOutput)
 }
 
+// The conditions that are success conditions.
 func (o PipelineSuccessConditionsPtrOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v *PipelineSuccessConditions) []PipelineCondition {
 		if v == nil {

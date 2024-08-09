@@ -2191,15 +2191,21 @@ class DeliveryStreamMskSourceConfigurationArgs:
     def __init__(__self__, *,
                  authentication_configuration: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'],
                  msk_cluster_arn: pulumi.Input[str],
-                 topic_name: pulumi.Input[str]):
+                 topic_name: pulumi.Input[str],
+                 read_from_timestamp: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'] authentication_configuration: The authentication configuration of the Amazon MSK cluster.
         :param pulumi.Input[str] msk_cluster_arn: The ARN of the Amazon MSK cluster.
         :param pulumi.Input[str] topic_name: The topic name within the Amazon MSK cluster.
+        :param pulumi.Input[str] read_from_timestamp: The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+               
+               If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
         """
         pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
         pulumi.set(__self__, "topic_name", topic_name)
+        if read_from_timestamp is not None:
+            pulumi.set(__self__, "read_from_timestamp", read_from_timestamp)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
@@ -2236,6 +2242,20 @@ class DeliveryStreamMskSourceConfigurationArgs:
     @topic_name.setter
     def topic_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_name", value)
+
+    @property
+    @pulumi.getter(name="readFromTimestamp")
+    def read_from_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+
+        If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+        """
+        return pulumi.get(self, "read_from_timestamp")
+
+    @read_from_timestamp.setter
+    def read_from_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "read_from_timestamp", value)
 
 
 @pulumi.input_type

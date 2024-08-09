@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A list of all available options
+        /// A list of all available options for an option group.
         /// </summary>
         [Output("optionConfigurations")]
         public Output<ImmutableArray<Outputs.OptionGroupOptionConfiguration>> OptionConfigurations { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Inputs.OptionGroupOptionConfigurationArgs>? _optionConfigurations;
 
         /// <summary>
-        /// A list of all available options
+        /// A list of all available options for an option group.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionConfigurationArgs> OptionConfigurations
         {

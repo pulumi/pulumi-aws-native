@@ -18,8 +18,14 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("eventSource")]
         public Input<string>? EventSource { get; set; }
 
+        [Input("firehoseConfiguration")]
+        public Input<Inputs.LogDeliveryConfigurationFirehoseConfigurationArgs>? FirehoseConfiguration { get; set; }
+
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
+
+        [Input("s3Configuration")]
+        public Input<Inputs.LogDeliveryConfigurationS3ConfigurationArgs>? S3Configuration { get; set; }
 
         public LogDeliveryConfigurationLogConfigurationArgs()
         {

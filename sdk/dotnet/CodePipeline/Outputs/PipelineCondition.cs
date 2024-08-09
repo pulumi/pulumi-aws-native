@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// The specified result for when the failure conditions are met, such as rolling back the stage
         /// </summary>
         public readonly string? Result;
+        /// <summary>
+        /// The rules that make up the condition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineRuleDeclaration> Rules;
 
         [OutputConstructor]

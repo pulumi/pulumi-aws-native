@@ -124,7 +124,11 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
     /// <summary>
-    /// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+    /// The type of log to record. You can record the following types of logs from your Network Firewall stateful engine.
+    /// 
+    /// - `ALERT` - Logs for traffic that matches your stateful rules and that have an action that sends an alert. A stateful rule sends alerts for the rule actions DROP, ALERT, and REJECT. For more information, see the `StatefulRule` property.
+    /// - `FLOW` - Standard network traffic flow logs. The stateful rules engine records flow logs for all network traffic that it receives. Each flow log record captures the network flow for a specific standard stateless rule group.
+    /// - `TLS` - Logs for events that are related to TLS inspection. For more information, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-configurations.html) in the *Network Firewall Developer Guide* .
     /// </summary>
     [EnumType]
     public readonly struct LoggingConfigurationLogDestinationConfigLogType : IEquatable<LoggingConfigurationLogDestinationConfigLogType>

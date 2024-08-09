@@ -1858,7 +1858,7 @@ type AutomationRulesFindingFilters struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther []AutomationRuleMapFilter `pulumi:"resourceDetailsOther"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceId []AutomationRuleStringFilter `pulumi:"resourceId"`
@@ -2052,7 +2052,7 @@ type AutomationRulesFindingFiltersArgs struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther AutomationRuleMapFilterArrayInput `pulumi:"resourceDetailsOther"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceId AutomationRuleStringFilterArrayInput `pulumi:"resourceId"`
@@ -2381,7 +2381,7 @@ func (o AutomationRulesFindingFiltersOutput) ResourceDetailsOther() AutomationRu
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleMapFilter { return v.ResourceDetailsOther }).(AutomationRuleMapFilterArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 //
 // Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceId() AutomationRuleStringFilterArrayOutput {
@@ -2800,7 +2800,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceDetailsOther() Automatio
 	}).(AutomationRuleMapFilterArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 //
 // Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceId() AutomationRuleStringFilterArrayOutput {
@@ -3347,7 +3347,7 @@ func (o ConfigurationPolicyParameterValuePtrOutput) StringList() pulumi.StringAr
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicy struct {
-	// The AWS service that the configuration policy applies to.
+	// The AWS-service that the configuration policy applies to.
 	SecurityHub *ConfigurationPolicySecurityHubPolicy `pulumi:"securityHub"`
 }
 
@@ -3364,7 +3364,7 @@ type ConfigurationPolicyPolicyInput interface {
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicyArgs struct {
-	// The AWS service that the configuration policy applies to.
+	// The AWS-service that the configuration policy applies to.
 	SecurityHub ConfigurationPolicySecurityHubPolicyPtrInput `pulumi:"securityHub"`
 }
 
@@ -3395,7 +3395,7 @@ func (o ConfigurationPolicyPolicyOutput) ToConfigurationPolicyPolicyOutputWithCo
 	return o
 }
 
-// The AWS service that the configuration policy applies to.
+// The AWS-service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy { return v.SecurityHub }).(ConfigurationPolicySecurityHubPolicyPtrOutput)
 }
@@ -3424,7 +3424,7 @@ func (o ConfigurationPolicyPolicyPtrOutput) Elem() ConfigurationPolicyPolicyOutp
 	}).(ConfigurationPolicyPolicyOutput)
 }
 
-// The AWS service that the configuration policy applies to.
+// The AWS-service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyPtrOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy {
 		if v == nil {

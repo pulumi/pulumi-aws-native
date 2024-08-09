@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,8 @@ type LookupIdentityPoolResult struct {
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
 	IdentityPoolName *string `pulumi:"identityPoolName"`
+	// An array of key-value pairs to apply to this resource.
+	IdentityPoolTags []aws.Tag `pulumi:"identityPoolTags"`
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
@@ -134,6 +137,11 @@ func (o LookupIdentityPoolResultOutput) Id() pulumi.StringPtrOutput {
 // *Pattern* : `[\w\s+=,.@-]+`
 func (o LookupIdentityPoolResultOutput) IdentityPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupIdentityPoolResultOutput) IdentityPoolTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) []aws.Tag { return v.IdentityPoolTags }).(aws.TagArrayOutput)
 }
 
 // The name of the Amazon Cognito identity pool, returned as a string.

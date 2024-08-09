@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
         /// &gt; The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         /// </summary>
         public readonly string? CustomCname;
+        public readonly string? CustomPath;
         /// <summary>
         /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
         /// </summary>
@@ -34,6 +35,8 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
         /// Validity period of the CRL in days.
         /// </summary>
         public readonly int? ExpirationInDays;
+        public readonly bool? PartitioningEnabled;
+        public readonly bool? RetainExpiredCertificates;
         /// <summary>
         /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
         /// 
@@ -57,9 +60,15 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 
             string? customCname,
 
+            string? customPath,
+
             bool enabled,
 
             int? expirationInDays,
+
+            bool? partitioningEnabled,
+
+            bool? retainExpiredCertificates,
 
             string? s3BucketName,
 
@@ -67,8 +76,11 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
         {
             CrlDistributionPointExtensionConfiguration = crlDistributionPointExtensionConfiguration;
             CustomCname = customCname;
+            CustomPath = customPath;
             Enabled = enabled;
             ExpirationInDays = expirationInDays;
+            PartitioningEnabled = partitioningEnabled;
+            RetainExpiredCertificates = retainExpiredCertificates;
             S3BucketName = s3BucketName;
             S3ObjectAcl = s3ObjectAcl;
         }

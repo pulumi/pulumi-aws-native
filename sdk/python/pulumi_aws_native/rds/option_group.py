@@ -41,7 +41,7 @@ class OptionGroupArgs:
                  +   ``sqlserver-web``
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] option_group_description: The description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]] option_configurations: A list of all available options
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]] option_configurations: A list of all available options for an option group.
         :param pulumi.Input[str] option_group_name: The name of the option group to be created.
                 Constraints:
                  +  Must be 1 to 255 letters, numbers, or hyphens
@@ -115,7 +115,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]:
         """
-        A list of all available options
+        A list of all available options for an option group.
         """
         return pulumi.get(self, "option_configurations")
 
@@ -187,7 +187,7 @@ class OptionGroup(pulumi.CustomResource):
                  +   ``sqlserver-ex`` 
                  +   ``sqlserver-web``
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of all available options
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of all available options for an option group.
         :param pulumi.Input[str] option_group_description: The description of the option group.
         :param pulumi.Input[str] option_group_name: The name of the option group to be created.
                 Constraints:
@@ -315,7 +315,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="optionConfigurations")
     def option_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupOptionConfiguration']]]:
         """
-        A list of all available options
+        A list of all available options for an option group.
         """
         return pulumi.get(self, "option_configurations")
 

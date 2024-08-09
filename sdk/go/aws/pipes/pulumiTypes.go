@@ -4565,9 +4565,7 @@ type PipeS3LogDestination struct {
 	BucketOwner *string `pulumi:"bucketOwner"`
 	// The format EventBridge uses for the log records.
 	//
-	// - `json` : JSON
-	// - `plain` : Plain text
-	// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+	// EventBridge currently only supports `json` formatting.
 	OutputFormat *PipeS3OutputFormat `pulumi:"outputFormat"`
 	// The prefix text with which to begin Amazon S3 log object names.
 	//
@@ -4593,9 +4591,7 @@ type PipeS3LogDestinationArgs struct {
 	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
 	// The format EventBridge uses for the log records.
 	//
-	// - `json` : JSON
-	// - `plain` : Plain text
-	// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+	// EventBridge currently only supports `json` formatting.
 	OutputFormat PipeS3OutputFormatPtrInput `pulumi:"outputFormat"`
 	// The prefix text with which to begin Amazon S3 log object names.
 	//
@@ -4692,9 +4688,7 @@ func (o PipeS3LogDestinationOutput) BucketOwner() pulumi.StringPtrOutput {
 
 // The format EventBridge uses for the log records.
 //
-// - `json` : JSON
-// - `plain` : Plain text
-// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+// EventBridge currently only supports `json` formatting.
 func (o PipeS3LogDestinationOutput) OutputFormat() PipeS3OutputFormatPtrOutput {
 	return o.ApplyT(func(v PipeS3LogDestination) *PipeS3OutputFormat { return v.OutputFormat }).(PipeS3OutputFormatPtrOutput)
 }
@@ -4752,9 +4746,7 @@ func (o PipeS3LogDestinationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
 
 // The format EventBridge uses for the log records.
 //
-// - `json` : JSON
-// - `plain` : Plain text
-// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+// EventBridge currently only supports `json` formatting.
 func (o PipeS3LogDestinationPtrOutput) OutputFormat() PipeS3OutputFormatPtrOutput {
 	return o.ApplyT(func(v *PipeS3LogDestination) *PipeS3OutputFormat {
 		if v == nil {

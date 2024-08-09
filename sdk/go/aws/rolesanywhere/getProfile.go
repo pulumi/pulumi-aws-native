@@ -29,6 +29,8 @@ type LookupProfileArgs struct {
 }
 
 type LookupProfileResult struct {
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	AcceptRoleSessionName *bool `pulumi:"acceptRoleSessionName"`
 	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings []ProfileAttributeMapping `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
@@ -87,6 +89,11 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutput() LookupProfileRe
 
 func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx context.Context) LookupProfileResultOutput {
 	return o
+}
+
+// Used to determine if a custom role session name will be accepted in a temporary credential request.
+func (o LookupProfileResultOutput) AcceptRoleSessionName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupProfileResult) *bool { return v.AcceptRoleSessionName }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping applied to the authenticating end-entity certificate.

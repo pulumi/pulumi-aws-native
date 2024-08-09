@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Cognito::UserPool
+ * Definition of AWS::Cognito::UserPool Resource Type
  */
 export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolResult> {
 
@@ -162,7 +162,7 @@ export interface GetUserPoolResult {
     readonly verificationMessageTemplate?: outputs.cognito.UserPoolVerificationMessageTemplate;
 }
 /**
- * Resource Type definition for AWS::Cognito::UserPool
+ * Definition of AWS::Cognito::UserPool Resource Type
  */
 export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolResult> {
     return pulumi.output(args).apply((a: any) => getUserPool(a, opts))

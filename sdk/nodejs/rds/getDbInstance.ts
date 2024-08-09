@@ -108,7 +108,7 @@ export interface GetDbInstanceResult {
      */
     readonly autoMinorVersionUpgrade?: boolean;
     /**
-     * The AWS Region associated with the automated backup.
+     * The AWS-Region associated with the automated backup.
      */
     readonly automaticBackupReplicationRegion?: string;
     /**

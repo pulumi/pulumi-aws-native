@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> DeliveryDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS resource that will receive the logs.
+        /// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         /// </summary>
         [Output("destinationResourceArn")]
         public Output<string?> DestinationResourceArn { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Logs
         }
 
         /// <summary>
-        /// The ARN of the AWS resource that will receive the logs.
+        /// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         /// </summary>
         [Input("destinationResourceArn")]
         public Input<string>? DestinationResourceArn { get; set; }

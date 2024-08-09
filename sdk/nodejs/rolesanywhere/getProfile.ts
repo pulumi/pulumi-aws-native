@@ -27,6 +27,10 @@ export interface GetProfileArgs {
 
 export interface GetProfileResult {
     /**
+     * Used to determine if a custom role session name will be accepted in a temporary credential request.
+     */
+    readonly acceptRoleSessionName?: boolean;
+    /**
      * A mapping applied to the authenticating end-entity certificate.
      */
     readonly attributeMappings?: outputs.rolesanywhere.ProfileAttributeMapping[];

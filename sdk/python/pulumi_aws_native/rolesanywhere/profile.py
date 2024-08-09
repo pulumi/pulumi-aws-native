@@ -20,6 +20,7 @@ __all__ = ['ProfileArgs', 'Profile']
 class ProfileArgs:
     def __init__(__self__, *,
                  role_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 accept_role_session_name: Optional[pulumi.Input[bool]] = None,
                  attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]] = None,
                  duration_seconds: Optional[pulumi.Input[float]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +32,7 @@ class ProfileArgs:
         """
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        :param pulumi.Input[bool] accept_role_session_name: Used to determine if a custom role session name will be accepted in a temporary credential request.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
         :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
         :param pulumi.Input[bool] enabled: The enabled status of the resource.
@@ -41,6 +43,8 @@ class ProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of Tags.
         """
         pulumi.set(__self__, "role_arns", role_arns)
+        if accept_role_session_name is not None:
+            pulumi.set(__self__, "accept_role_session_name", accept_role_session_name)
         if attribute_mappings is not None:
             pulumi.set(__self__, "attribute_mappings", attribute_mappings)
         if duration_seconds is not None:
@@ -69,6 +73,18 @@ class ProfileArgs:
     @role_arns.setter
     def role_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "role_arns", value)
+
+    @property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to determine if a custom role session name will be accepted in a temporary credential request.
+        """
+        return pulumi.get(self, "accept_role_session_name")
+
+    @accept_role_session_name.setter
+    def accept_role_session_name(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accept_role_session_name", value)
 
     @property
     @pulumi.getter(name="attributeMappings")
@@ -172,6 +188,7 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_role_session_name: Optional[pulumi.Input[bool]] = None,
                  attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
                  duration_seconds: Optional[pulumi.Input[float]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -187,6 +204,7 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] accept_role_session_name: Used to determine if a custom role session name will be accepted in a temporary credential request.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
         :param pulumi.Input[float] duration_seconds: The number of seconds vended session credentials will be valid for
         :param pulumi.Input[bool] enabled: The enabled status of the resource.
@@ -221,6 +239,7 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_role_session_name: Optional[pulumi.Input[bool]] = None,
                  attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
                  duration_seconds: Optional[pulumi.Input[float]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -239,6 +258,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
+            __props__.__dict__["accept_role_session_name"] = accept_role_session_name
             __props__.__dict__["attribute_mappings"] = attribute_mappings
             __props__.__dict__["duration_seconds"] = duration_seconds
             __props__.__dict__["enabled"] = enabled
@@ -274,6 +294,7 @@ class Profile(pulumi.CustomResource):
 
         __props__ = ProfileArgs.__new__(ProfileArgs)
 
+        __props__.__dict__["accept_role_session_name"] = None
         __props__.__dict__["attribute_mappings"] = None
         __props__.__dict__["duration_seconds"] = None
         __props__.__dict__["enabled"] = None
@@ -286,6 +307,14 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["session_policy"] = None
         __props__.__dict__["tags"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="acceptRoleSessionName")
+    def accept_role_session_name(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to determine if a custom role session name will be accepted in a temporary credential request.
+        """
+        return pulumi.get(self, "accept_role_session_name")
 
     @property
     @pulumi.getter(name="attributeMappings")

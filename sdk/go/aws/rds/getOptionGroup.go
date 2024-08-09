@@ -37,7 +37,7 @@ type LookupOptionGroupArgs struct {
 }
 
 type LookupOptionGroupResult struct {
-	// A list of all available options
+	// A list of all available options for an option group.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
 	// Tags to assign to the option group.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -87,7 +87,7 @@ func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutputWithContex
 	return o
 }
 
-// A list of all available options
+// A list of all available options for an option group.
 func (o LookupOptionGroupResultOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupOptionConfiguration { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }

@@ -17,6 +17,8 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	AcceptRoleSessionName pulumi.BoolPtrOutput `pulumi:"acceptRoleSessionName"`
 	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings ProfileAttributeMappingArrayOutput `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
@@ -84,6 +86,8 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	AcceptRoleSessionName *bool `pulumi:"acceptRoleSessionName"`
 	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings []ProfileAttributeMapping `pulumi:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for
@@ -106,6 +110,8 @@ type profileArgs struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	AcceptRoleSessionName pulumi.BoolPtrInput
 	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings ProfileAttributeMappingArrayInput
 	// The number of seconds vended session credentials will be valid for
@@ -161,6 +167,11 @@ func (o ProfileOutput) ToProfileOutput() ProfileOutput {
 
 func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOutput {
 	return o
+}
+
+// Used to determine if a custom role session name will be accepted in a temporary credential request.
+func (o ProfileOutput) AcceptRoleSessionName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.AcceptRoleSessionName }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping applied to the authenticating end-entity certificate.

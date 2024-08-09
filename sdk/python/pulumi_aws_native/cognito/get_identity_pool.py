@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetIdentityPoolResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIdentityPoolResult:
-    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, id=None, identity_pool_name=None, name=None, open_id_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None):
+    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, id=None, identity_pool_name=None, identity_pool_tags=None, name=None, open_id_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None):
         if allow_classic_flow and not isinstance(allow_classic_flow, bool):
             raise TypeError("Expected argument 'allow_classic_flow' to be a bool")
         pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
@@ -38,6 +39,9 @@ class GetIdentityPoolResult:
         if identity_pool_name and not isinstance(identity_pool_name, str):
             raise TypeError("Expected argument 'identity_pool_name' to be a str")
         pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+        if identity_pool_tags and not isinstance(identity_pool_tags, list):
+            raise TypeError("Expected argument 'identity_pool_tags' to be a list")
+        pulumi.set(__self__, "identity_pool_tags", identity_pool_tags)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -107,6 +111,14 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "identity_pool_name")
 
     @property
+    @pulumi.getter(name="identityPoolTags")
+    def identity_pool_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "identity_pool_tags")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -153,6 +165,7 @@ class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
             developer_provider_name=self.developer_provider_name,
             id=self.id,
             identity_pool_name=self.identity_pool_name,
+            identity_pool_tags=self.identity_pool_tags,
             name=self.name,
             open_id_connect_provider_arns=self.open_id_connect_provider_arns,
             saml_provider_arns=self.saml_provider_arns,
@@ -176,6 +189,7 @@ def get_identity_pool(id: Optional[str] = None,
         developer_provider_name=pulumi.get(__ret__, 'developer_provider_name'),
         id=pulumi.get(__ret__, 'id'),
         identity_pool_name=pulumi.get(__ret__, 'identity_pool_name'),
+        identity_pool_tags=pulumi.get(__ret__, 'identity_pool_tags'),
         name=pulumi.get(__ret__, 'name'),
         open_id_connect_provider_arns=pulumi.get(__ret__, 'open_id_connect_provider_arns'),
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),

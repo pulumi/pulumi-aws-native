@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The detailed activity logging destination of a user pool.
+        /// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         /// </summary>
         [Output("logConfigurations")]
         public Output<ImmutableArray<Outputs.LogDeliveryConfigurationLogConfiguration>> LogConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the user pool where you configured detailed activity logging.
+        /// The ID of the user pool where you configured logging.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs>? _logConfigurations;
 
         /// <summary>
-        /// The detailed activity logging destination of a user pool.
+        /// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         /// </summary>
         public InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs> LogConfigurations
         {
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// The ID of the user pool where you configured detailed activity logging.
+        /// The ID of the user pool where you configured logging.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 
+        [Input("sourceKmsKeyArn")]
+        public Input<string>? SourceKmsKeyArn { get; set; }
+
         /// <summary>
         /// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
         ///   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.

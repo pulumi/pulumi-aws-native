@@ -179,8 +179,14 @@ class CertificateAuthorityCrlConfiguration(dict):
             suggest = "crl_distribution_point_extension_configuration"
         elif key == "customCname":
             suggest = "custom_cname"
+        elif key == "customPath":
+            suggest = "custom_path"
         elif key == "expirationInDays":
             suggest = "expiration_in_days"
+        elif key == "partitioningEnabled":
+            suggest = "partitioning_enabled"
+        elif key == "retainExpiredCertificates":
+            suggest = "retain_expired_certificates"
         elif key == "s3BucketName":
             suggest = "s3_bucket_name"
         elif key == "s3ObjectAcl":
@@ -201,7 +207,10 @@ class CertificateAuthorityCrlConfiguration(dict):
                  enabled: bool,
                  crl_distribution_point_extension_configuration: Optional['outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration'] = None,
                  custom_cname: Optional[str] = None,
+                 custom_path: Optional[str] = None,
                  expiration_in_days: Optional[int] = None,
+                 partitioning_enabled: Optional[bool] = None,
+                 retain_expired_certificates: Optional[bool] = None,
                  s3_bucket_name: Optional[str] = None,
                  s3_object_acl: Optional[str] = None):
         """
@@ -228,8 +237,14 @@ class CertificateAuthorityCrlConfiguration(dict):
             pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
         if expiration_in_days is not None:
             pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+        if partitioning_enabled is not None:
+            pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
+        if retain_expired_certificates is not None:
+            pulumi.set(__self__, "retain_expired_certificates", retain_expired_certificates)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
@@ -262,12 +277,27 @@ class CertificateAuthorityCrlConfiguration(dict):
         return pulumi.get(self, "custom_cname")
 
     @property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[str]:
+        return pulumi.get(self, "custom_path")
+
+    @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[int]:
         """
         Validity period of the CRL in days.
         """
         return pulumi.get(self, "expiration_in_days")
+
+    @property
+    @pulumi.getter(name="partitioningEnabled")
+    def partitioning_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "partitioning_enabled")
+
+    @property
+    @pulumi.getter(name="retainExpiredCertificates")
+    def retain_expired_certificates(self) -> Optional[bool]:
+        return pulumi.get(self, "retain_expired_certificates")
 
     @property
     @pulumi.getter(name="s3BucketName")

@@ -57,7 +57,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterSettings!: pulumi.Output<outputs.ecs.ClusterSettings[] | undefined>;
     /**
-     * The execute command configuration for the cluster.
+     * The execute command and managed storage configuration for the cluster.
      */
     public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface ClusterArgs {
      */
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSettingsArgs>[]>;
     /**
-     * The execute command configuration for the cluster.
+     * The execute command and managed storage configuration for the cluster.
      */
     configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs>;
     /**

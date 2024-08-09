@@ -498,7 +498,7 @@ class UserPool(pulumi.CustomResource):
                  verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Cognito::UserPool
+        Definition of AWS::Cognito::UserPool Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -565,7 +565,7 @@ class UserPool(pulumi.CustomResource):
                  args: Optional[UserPoolArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Cognito::UserPool
+        Definition of AWS::Cognito::UserPool Resource Type
 
         :param str resource_name: The name of the resource.
         :param UserPoolArgs args: The arguments to use to populate this resource's properties.

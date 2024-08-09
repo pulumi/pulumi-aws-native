@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAddOns
     {
+        public readonly Outputs.UserPoolAdvancedSecurityAdditionalFlows? AdvancedSecurityAdditionalFlows;
         /// <summary>
         /// The operating mode of advanced security features in your user pool.
         /// </summary>
         public readonly string? AdvancedSecurityMode;
 
         [OutputConstructor]
-        private UserPoolAddOns(string? advancedSecurityMode)
+        private UserPoolAddOns(
+            Outputs.UserPoolAdvancedSecurityAdditionalFlows? advancedSecurityAdditionalFlows,
+
+            string? advancedSecurityMode)
         {
+            AdvancedSecurityAdditionalFlows = advancedSecurityAdditionalFlows;
             AdvancedSecurityMode = advancedSecurityMode;
         }
     }

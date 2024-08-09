@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito
 {
     /// <summary>
-    /// Resource Type definition for AWS::Cognito::UserPool
+    /// Definition of AWS::Cognito::UserPool Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:cognito:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource

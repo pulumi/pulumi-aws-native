@@ -39,7 +39,7 @@ class GetLogDeliveryConfigurationResult:
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]:
         """
-        The detailed activity logging destination of a user pool.
+        A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
         return pulumi.get(self, "log_configurations")
 

@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
 
         [Input("inputArtifacts")]
         private InputList<Inputs.PipelineInputArtifactArgs>? _inputArtifacts;
+
+        /// <summary>
+        /// The input artifacts fields for the rule, such as specifying an input file for the rule.
+        /// </summary>
         public InputList<Inputs.PipelineInputArtifactArgs> InputArtifacts
         {
             get => _inputArtifacts ?? (_inputArtifacts = new InputList<Inputs.PipelineInputArtifactArgs>());
@@ -47,6 +51,9 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
+        /// </summary>
         [Input("ruleTypeId")]
         public Input<Inputs.PipelineRuleTypeIdArgs>? RuleTypeId { get; set; }
 

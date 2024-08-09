@@ -38,6 +38,10 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * Used to determine if a custom role session name will be accepted in a temporary credential request.
+     */
+    public readonly acceptRoleSessionName!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping applied to the authenticating end-entity certificate.
      */
     public readonly attributeMappings!: pulumi.Output<outputs.rolesanywhere.ProfileAttributeMapping[] | undefined>;
@@ -96,6 +100,7 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.roleArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArns'");
             }
+            resourceInputs["acceptRoleSessionName"] = args ? args.acceptRoleSessionName : undefined;
             resourceInputs["attributeMappings"] = args ? args.attributeMappings : undefined;
             resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -108,6 +113,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["profileArn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
         } else {
+            resourceInputs["acceptRoleSessionName"] = undefined /*out*/;
             resourceInputs["attributeMappings"] = undefined /*out*/;
             resourceInputs["durationSeconds"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
@@ -129,6 +135,10 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * Used to determine if a custom role session name will be accepted in a temporary credential request.
+     */
+    acceptRoleSessionName?: pulumi.Input<boolean>;
     /**
      * A mapping applied to the authenticating end-entity certificate.
      */

@@ -79,6 +79,10 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly identityPoolName!: pulumi.Output<string | undefined>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly identityPoolTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The name of the Amazon Cognito identity pool, returned as a string.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
             resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
+            resourceInputs["identityPoolTags"] = args ? args.identityPoolTags : undefined;
             resourceInputs["openIdConnectProviderArns"] = args ? args.openIdConnectProviderArns : undefined;
             resourceInputs["pushSync"] = args ? args.pushSync : undefined;
             resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
@@ -137,6 +142,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["cognitoStreams"] = undefined /*out*/;
             resourceInputs["developerProviderName"] = undefined /*out*/;
             resourceInputs["identityPoolName"] = undefined /*out*/;
+            resourceInputs["identityPoolTags"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIdConnectProviderArns"] = undefined /*out*/;
             resourceInputs["pushSync"] = undefined /*out*/;
@@ -192,6 +198,10 @@ export interface IdentityPoolArgs {
      * *Pattern* : `[\w\s+=,.@-]+`
      */
     identityPoolName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    identityPoolTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The Amazon Resource Names (ARNs) of the OpenID connect providers.
      */

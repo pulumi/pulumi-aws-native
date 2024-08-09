@@ -6029,6 +6029,10 @@ type DeliveryStreamMskSourceConfiguration struct {
 	AuthenticationConfiguration DeliveryStreamAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// The ARN of the Amazon MSK cluster.
 	MskClusterArn string `pulumi:"mskClusterArn"`
+	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+	//
+	// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	ReadFromTimestamp *string `pulumi:"readFromTimestamp"`
 	// The topic name within the Amazon MSK cluster.
 	TopicName string `pulumi:"topicName"`
 }
@@ -6049,6 +6053,10 @@ type DeliveryStreamMskSourceConfigurationArgs struct {
 	AuthenticationConfiguration DeliveryStreamAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
 	// The ARN of the Amazon MSK cluster.
 	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
+	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+	//
+	// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	ReadFromTimestamp pulumi.StringPtrInput `pulumi:"readFromTimestamp"`
 	// The topic name within the Amazon MSK cluster.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
@@ -6142,6 +6150,13 @@ func (o DeliveryStreamMskSourceConfigurationOutput) MskClusterArn() pulumi.Strin
 	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
 
+// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+//
+// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+func (o DeliveryStreamMskSourceConfigurationOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) *string { return v.ReadFromTimestamp }).(pulumi.StringPtrOutput)
+}
+
 // The topic name within the Amazon MSK cluster.
 func (o DeliveryStreamMskSourceConfigurationOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamMskSourceConfiguration) string { return v.TopicName }).(pulumi.StringOutput)
@@ -6188,6 +6203,18 @@ func (o DeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() pulumi.St
 			return nil
 		}
 		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+//
+// If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReadFromTimestamp
 	}).(pulumi.StringPtrOutput)
 }
 

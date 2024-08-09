@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
     {
         [Input("conditions")]
         private InputList<Inputs.PipelineConditionArgs>? _conditions;
+
+        /// <summary>
+        /// The conditions that are success conditions.
+        /// </summary>
         public InputList<Inputs.PipelineConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.PipelineConditionArgs>());

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,6 +44,8 @@ type IdentityPool struct {
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
 	IdentityPoolName pulumi.StringPtrOutput `pulumi:"identityPoolName"`
+	// An array of key-value pairs to apply to this resource.
+	IdentityPoolTags aws.TagArrayOutput `pulumi:"identityPoolTags"`
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
@@ -126,6 +129,8 @@ type identityPoolArgs struct {
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
 	IdentityPoolName *string `pulumi:"identityPoolName"`
+	// An array of key-value pairs to apply to this resource.
+	IdentityPoolTags []aws.Tag `pulumi:"identityPoolTags"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns []string `pulumi:"openIdConnectProviderArns"`
 	// The configuration options to be applied to the identity pool.
@@ -166,6 +171,8 @@ type IdentityPoolArgs struct {
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
 	IdentityPoolName pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	IdentityPoolTags aws.TagArrayInput
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns pulumi.StringArrayInput
 	// The configuration options to be applied to the identity pool.
@@ -266,6 +273,11 @@ func (o IdentityPoolOutput) DeveloperProviderName() pulumi.StringPtrOutput {
 // *Pattern* : `[\w\s+=,.@-]+`
 func (o IdentityPoolOutput) IdentityPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o IdentityPoolOutput) IdentityPoolTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) aws.TagArrayOutput { return v.IdentityPoolTags }).(aws.TagArrayOutput)
 }
 
 // The name of the Amazon Cognito identity pool, returned as a string.
