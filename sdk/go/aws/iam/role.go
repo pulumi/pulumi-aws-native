@@ -247,7 +247,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
-//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
+//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status.ApplyT(func(x *string) grafana.WorkspaceStatus { return grafana.WorkspaceStatus(*x) }).(grafana.WorkspaceStatusOutput))
 //			ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
 //			ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
 //			return nil
@@ -334,7 +334,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
-//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
+//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status.ApplyT(func(x *string) grafana.WorkspaceStatus { return grafana.WorkspaceStatus(*x) }).(grafana.WorkspaceStatusOutput))
 //			ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
 //			ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
 //			return nil
