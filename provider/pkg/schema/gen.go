@@ -915,8 +915,18 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		IrreversibleNames: irreversibleNames,
 		TagsProperty:      naming.ToSdkName(tagsProp),
 		TagsStyle:         tagsStyle,
+		PrimaryIdentifier: ctx.gatherResourcePrimaryIdentifier(),
 	}
 	return nil
+}
+
+func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
+	primaryIdentifier := readPropNames(ctx.resourceSpec, "primaryIdentifier")
+	identifiers := make([]string, len(primaryIdentifier))
+	for i, v := range primaryIdentifier {
+		identifiers[i] = naming.ToSdkName(v)
+	}
+	return identifiers
 }
 
 func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
