@@ -26,6 +26,14 @@ type CloudAPIResource struct {
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 	TagsProperty      string                          `json:"tagsProperty,omitempty"`
 	TagsStyle         default_tags.TagsStyle          `json:"tagsStyle,omitempty"`
+
+	// PrimaryIdentifier is a list of Pulumi property names that together uniquely identify a resource.
+	//
+	// If more than one property is given, the values may be joined with the "|" character to form a specific
+	// resource identifier value suitable for use with the Cloud Control API.
+	//
+	// See also https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html
+	PrimaryIdentifier []string `json:"primaryIdentifier,omitempty"`
 }
 
 type AutoNamingSpec struct {
