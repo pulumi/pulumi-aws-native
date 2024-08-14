@@ -66,6 +66,10 @@ export class ConnectAttachment extends pulumi.CustomResource {
      */
     public readonly edgeLocation!: pulumi.Output<string>;
     /**
+     * The name of the network function group attachment.
+     */
+    public readonly networkFunctionGroupName!: pulumi.Output<string | undefined>;
+    /**
      * Protocol options for connect attachment
      */
     public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
@@ -73,6 +77,10 @@ export class ConnectAttachment extends pulumi.CustomResource {
      * The ID of the attachment account owner.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The attachment to move from one network function group to another.
+     */
+    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
@@ -127,7 +135,9 @@ export class ConnectAttachment extends pulumi.CustomResource {
             }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
+            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
             resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
@@ -149,8 +159,10 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
             resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
@@ -179,9 +191,17 @@ export interface ConnectAttachmentArgs {
      */
     edgeLocation: pulumi.Input<string>;
     /**
+     * The name of the network function group attachment.
+     */
+    networkFunctionGroupName?: pulumi.Input<string>;
+    /**
      * Protocol options for connect attachment
      */
     options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptionsArgs>;
+    /**
+     * The attachment to move from one network function group to another.
+     */
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChangeArgs>;
     /**
      * The attachment to move from one segment to another.
      */

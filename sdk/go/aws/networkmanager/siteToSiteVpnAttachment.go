@@ -31,8 +31,12 @@ type SiteToSiteVpnAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -102,6 +106,10 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 type siteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *SiteToSiteVpnAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
@@ -114,6 +122,10 @@ type siteToSiteVpnAttachmentArgs struct {
 type SiteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId pulumi.StringInput
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrInput
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
@@ -194,9 +206,21 @@ func (o SiteToSiteVpnAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
+// The name of the network function group attachment.
+func (o SiteToSiteVpnAttachmentOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Owner account of the attachment.
 func (o SiteToSiteVpnAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o SiteToSiteVpnAttachmentOutput) ProposedNetworkFunctionGroupChange() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

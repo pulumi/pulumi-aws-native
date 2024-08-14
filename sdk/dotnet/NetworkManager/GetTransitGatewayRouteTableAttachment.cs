@@ -86,9 +86,17 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? EdgeLocation;
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        public readonly string? NetworkFunctionGroupName;
+        /// <summary>
         /// Owner account of the attachment.
         /// </summary>
         public readonly string? OwnerAccountId;
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        public readonly Outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange? ProposedNetworkFunctionGroupChange;
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
@@ -130,7 +138,11 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? edgeLocation,
 
+            string? networkFunctionGroupName,
+
             string? ownerAccountId,
+
+            Outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange? proposedNetworkFunctionGroupChange,
 
             Outputs.TransitGatewayRouteTableAttachmentProposedSegmentChange? proposedSegmentChange,
 
@@ -151,7 +163,9 @@ namespace Pulumi.AwsNative.NetworkManager
             CoreNetworkId = coreNetworkId;
             CreatedAt = createdAt;
             EdgeLocation = edgeLocation;
+            NetworkFunctionGroupName = networkFunctionGroupName;
             OwnerAccountId = ownerAccountId;
+            ProposedNetworkFunctionGroupChange = proposedNetworkFunctionGroupChange;
             ProposedSegmentChange = proposedSegmentChange;
             ResourceArn = resourceArn;
             SegmentName = segmentName;

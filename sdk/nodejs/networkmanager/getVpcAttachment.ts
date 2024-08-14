@@ -51,6 +51,10 @@ export interface GetVpcAttachmentResult {
      */
     readonly edgeLocation?: string;
     /**
+     * The name of the network function group attachment.
+     */
+    readonly networkFunctionGroupName?: string;
+    /**
      * Vpc options of the attachment.
      */
     readonly options?: outputs.networkmanager.VpcAttachmentVpcOptions;
@@ -58,6 +62,10 @@ export interface GetVpcAttachmentResult {
      * Owner account of the attachment.
      */
     readonly ownerAccountId?: string;
+    /**
+     * The attachment to move from one network function group to another.
+     */
+    readonly proposedNetworkFunctionGroupChange?: outputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChange;
     /**
      * The attachment to move from one segment to another.
      */

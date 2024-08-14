@@ -31,10 +31,14 @@ type ConnectAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Edge location of the attachment.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The attachment resource ARN.
@@ -114,8 +118,12 @@ type connectAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Edge location of the attachment.
 	EdgeLocation string `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptions `pulumi:"options"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *ConnectAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
@@ -130,8 +138,12 @@ type ConnectAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Edge location of the attachment.
 	EdgeLocation pulumi.StringInput
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrInput
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptionsInput
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
@@ -212,6 +224,11 @@ func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
+// The name of the network function group attachment.
+func (o ConnectAttachmentOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Protocol options for connect attachment
 func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsOutput { return v.Options }).(ConnectAttachmentOptionsOutput)
@@ -220,6 +237,13 @@ func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 // The ID of the attachment account owner.
 func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o ConnectAttachmentOutput) ProposedNetworkFunctionGroupChange() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

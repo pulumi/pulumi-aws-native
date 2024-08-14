@@ -26,12 +26,42 @@ __all__ = [
     'AgentPromptConfigurationArgs',
     'AgentPromptOverrideConfigurationArgs',
     'AgentS3IdentifierArgs',
+    'DataSourceBedrockFoundationModelConfigurationArgs',
     'DataSourceChunkingConfigurationArgs',
     'DataSourceConfigurationArgs',
+    'DataSourceConfluenceCrawlerConfigurationArgs',
+    'DataSourceConfluenceDataSourceConfigurationArgs',
+    'DataSourceConfluenceSourceConfigurationArgs',
+    'DataSourceCrawlFilterConfigurationArgs',
+    'DataSourceCustomTransformationConfigurationArgs',
     'DataSourceFixedSizeChunkingConfigurationArgs',
+    'DataSourceHierarchicalChunkingConfigurationArgs',
+    'DataSourceHierarchicalChunkingLevelConfigurationArgs',
+    'DataSourceIntermediateStorageArgs',
+    'DataSourceParsingConfigurationArgs',
+    'DataSourceParsingPromptArgs',
+    'DataSourcePatternObjectFilterConfigurationArgs',
+    'DataSourcePatternObjectFilterArgs',
     'DataSourceS3DataSourceConfigurationArgs',
+    'DataSourceS3LocationArgs',
+    'DataSourceSalesforceCrawlerConfigurationArgs',
+    'DataSourceSalesforceDataSourceConfigurationArgs',
+    'DataSourceSalesforceSourceConfigurationArgs',
+    'DataSourceSeedUrlArgs',
+    'DataSourceSemanticChunkingConfigurationArgs',
     'DataSourceServerSideEncryptionConfigurationArgs',
+    'DataSourceSharePointCrawlerConfigurationArgs',
+    'DataSourceSharePointDataSourceConfigurationArgs',
+    'DataSourceSharePointSourceConfigurationArgs',
+    'DataSourceTransformationFunctionArgs',
+    'DataSourceTransformationLambdaConfigurationArgs',
+    'DataSourceTransformationArgs',
+    'DataSourceUrlConfigurationArgs',
     'DataSourceVectorIngestionConfigurationArgs',
+    'DataSourceWebCrawlerConfigurationArgs',
+    'DataSourceWebCrawlerLimitsArgs',
+    'DataSourceWebDataSourceConfigurationArgs',
+    'DataSourceWebSourceConfigurationArgs',
     'FlowAliasRoutingConfigurationListItemArgs',
     'FlowConditionFlowNodeConfigurationArgs',
     'FlowConditionalConnectionConfigurationArgs',
@@ -856,10 +886,47 @@ class AgentS3IdentifierArgs:
 
 
 @pulumi.input_type
+class DataSourceBedrockFoundationModelConfigurationArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[str],
+                 parsing_prompt: Optional[pulumi.Input['DataSourceParsingPromptArgs']] = None):
+        """
+        Settings for a foundation model used to parse documents for a data source.
+        :param pulumi.Input[str] model_arn: The model's ARN.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+        if parsing_prompt is not None:
+            pulumi.set(__self__, "parsing_prompt", parsing_prompt)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[str]:
+        """
+        The model's ARN.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_arn", value)
+
+    @property
+    @pulumi.getter(name="parsingPrompt")
+    def parsing_prompt(self) -> Optional[pulumi.Input['DataSourceParsingPromptArgs']]:
+        return pulumi.get(self, "parsing_prompt")
+
+    @parsing_prompt.setter
+    def parsing_prompt(self, value: Optional[pulumi.Input['DataSourceParsingPromptArgs']]):
+        pulumi.set(self, "parsing_prompt", value)
+
+
+@pulumi.input_type
 class DataSourceChunkingConfigurationArgs:
     def __init__(__self__, *,
                  chunking_strategy: pulumi.Input['DataSourceChunkingStrategy'],
-                 fixed_size_chunking_configuration: Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']] = None):
+                 fixed_size_chunking_configuration: Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']] = None,
+                 hierarchical_chunking_configuration: Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']] = None,
+                 semantic_chunking_configuration: Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceChunkingStrategy'] chunking_strategy: Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
@@ -873,6 +940,10 @@ class DataSourceChunkingConfigurationArgs:
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
             pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
+        if hierarchical_chunking_configuration is not None:
+            pulumi.set(__self__, "hierarchical_chunking_configuration", hierarchical_chunking_configuration)
+        if semantic_chunking_configuration is not None:
+            pulumi.set(__self__, "semantic_chunking_configuration", semantic_chunking_configuration)
 
     @property
     @pulumi.getter(name="chunkingStrategy")
@@ -903,31 +974,50 @@ class DataSourceChunkingConfigurationArgs:
     def fixed_size_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']]):
         pulumi.set(self, "fixed_size_chunking_configuration", value)
 
+    @property
+    @pulumi.getter(name="hierarchicalChunkingConfiguration")
+    def hierarchical_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']]:
+        return pulumi.get(self, "hierarchical_chunking_configuration")
+
+    @hierarchical_chunking_configuration.setter
+    def hierarchical_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']]):
+        pulumi.set(self, "hierarchical_chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="semanticChunkingConfiguration")
+    def semantic_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']]:
+        return pulumi.get(self, "semantic_chunking_configuration")
+
+    @semantic_chunking_configuration.setter
+    def semantic_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']]):
+        pulumi.set(self, "semantic_chunking_configuration", value)
+
 
 @pulumi.input_type
 class DataSourceConfigurationArgs:
     def __init__(__self__, *,
-                 s3_configuration: pulumi.Input['DataSourceS3DataSourceConfigurationArgs'],
-                 type: pulumi.Input['DataSourceType']):
+                 type: pulumi.Input['DataSourceType'],
+                 confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']] = None,
+                 s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
+                 salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']] = None,
+                 share_point_configuration: Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']] = None,
+                 web_configuration: Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']] = None):
         """
         Specifies a raw data source location to ingest.
-        :param pulumi.Input['DataSourceS3DataSourceConfigurationArgs'] s3_configuration: The configuration information to connect to Amazon S3 as your data source.
         :param pulumi.Input['DataSourceType'] type: The type of data source.
+        :param pulumi.Input['DataSourceS3DataSourceConfigurationArgs'] s3_configuration: The configuration information to connect to Amazon S3 as your data source.
         """
-        pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> pulumi.Input['DataSourceS3DataSourceConfigurationArgs']:
-        """
-        The configuration information to connect to Amazon S3 as your data source.
-        """
-        return pulumi.get(self, "s3_configuration")
-
-    @s3_configuration.setter
-    def s3_configuration(self, value: pulumi.Input['DataSourceS3DataSourceConfigurationArgs']):
-        pulumi.set(self, "s3_configuration", value)
+        if confluence_configuration is not None:
+            pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if salesforce_configuration is not None:
+            pulumi.set(__self__, "salesforce_configuration", salesforce_configuration)
+        if share_point_configuration is not None:
+            pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if web_configuration is not None:
+            pulumi.set(__self__, "web_configuration", web_configuration)
 
     @property
     @pulumi.getter
@@ -940,6 +1030,242 @@ class DataSourceConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input['DataSourceType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="confluenceConfiguration")
+    def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]:
+        return pulumi.get(self, "confluence_configuration")
+
+    @confluence_configuration.setter
+    def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]):
+        pulumi.set(self, "confluence_configuration", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
+        """
+        The configuration information to connect to Amazon S3 as your data source.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="salesforceConfiguration")
+    def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']]:
+        return pulumi.get(self, "salesforce_configuration")
+
+    @salesforce_configuration.setter
+    def salesforce_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']]):
+        pulumi.set(self, "salesforce_configuration", value)
+
+    @property
+    @pulumi.getter(name="sharePointConfiguration")
+    def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']]:
+        return pulumi.get(self, "share_point_configuration")
+
+    @share_point_configuration.setter
+    def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']]):
+        pulumi.set(self, "share_point_configuration", value)
+
+    @property
+    @pulumi.getter(name="webConfiguration")
+    def web_configuration(self) -> Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']]:
+        return pulumi.get(self, "web_configuration")
+
+    @web_configuration.setter
+    def web_configuration(self, value: Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']]):
+        pulumi.set(self, "web_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceConfluenceCrawlerConfigurationArgs:
+    def __init__(__self__, *,
+                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+        """
+        The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceConfluenceDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 source_configuration: pulumi.Input['DataSourceConfluenceSourceConfigurationArgs'],
+                 crawler_configuration: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']] = None):
+        """
+        The configuration information to connect to Confluence as your data source.
+        """
+        pulumi.set(__self__, "source_configuration", source_configuration)
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input['DataSourceConfluenceSourceConfigurationArgs']:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input['DataSourceConfluenceSourceConfigurationArgs']):
+        pulumi.set(self, "source_configuration", value)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']]:
+        return pulumi.get(self, "crawler_configuration")
+
+    @crawler_configuration.setter
+    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']]):
+        pulumi.set(self, "crawler_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceConfluenceSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType'],
+                 credentials_secret_arn: pulumi.Input[str],
+                 host_type: pulumi.Input['DataSourceConfluenceSourceConfigurationHostType'],
+                 host_url: pulumi.Input[str]):
+        """
+        The endpoint information to connect to your Confluence data source.
+        :param pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your Confluence instance.
+        :param pulumi.Input[str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+        :param pulumi.Input['DataSourceConfluenceSourceConfigurationHostType'] host_type: The supported host type, whether online/cloud or server/on-premises.
+        :param pulumi.Input[str] host_url: The Confluence host URL or instance URL.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "host_type", host_type)
+        pulumi.set(__self__, "host_url", host_url)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType']:
+        """
+        The supported authentication type to authenticate and connect to your Confluence instance.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType']):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> pulumi.Input['DataSourceConfluenceSourceConfigurationHostType']:
+        """
+        The supported host type, whether online/cloud or server/on-premises.
+        """
+        return pulumi.get(self, "host_type")
+
+    @host_type.setter
+    def host_type(self, value: pulumi.Input['DataSourceConfluenceSourceConfigurationHostType']):
+        pulumi.set(self, "host_type", value)
+
+    @property
+    @pulumi.getter(name="hostUrl")
+    def host_url(self) -> pulumi.Input[str]:
+        """
+        The Confluence host URL or instance URL.
+        """
+        return pulumi.get(self, "host_url")
+
+    @host_url.setter
+    def host_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_url", value)
+
+
+@pulumi.input_type
+class DataSourceCrawlFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['DataSourceCrawlFilterConfigurationType'],
+                 pattern_object_filter: Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']] = None):
+        """
+        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        :param pulumi.Input['DataSourceCrawlFilterConfigurationType'] type: The crawl filter type.
+        """
+        pulumi.set(__self__, "type", type)
+        if pattern_object_filter is not None:
+            pulumi.set(__self__, "pattern_object_filter", pattern_object_filter)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['DataSourceCrawlFilterConfigurationType']:
+        """
+        The crawl filter type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['DataSourceCrawlFilterConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="patternObjectFilter")
+    def pattern_object_filter(self) -> Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']]:
+        return pulumi.get(self, "pattern_object_filter")
+
+    @pattern_object_filter.setter
+    def pattern_object_filter(self, value: Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']]):
+        pulumi.set(self, "pattern_object_filter", value)
+
+
+@pulumi.input_type
+class DataSourceCustomTransformationConfigurationArgs:
+    def __init__(__self__, *,
+                 intermediate_storage: pulumi.Input['DataSourceIntermediateStorageArgs'],
+                 transformations: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]):
+        """
+        Settings for customizing steps in the data source content ingestion pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]] transformations: A list of Lambda functions that process documents.
+        """
+        pulumi.set(__self__, "intermediate_storage", intermediate_storage)
+        pulumi.set(__self__, "transformations", transformations)
+
+    @property
+    @pulumi.getter(name="intermediateStorage")
+    def intermediate_storage(self) -> pulumi.Input['DataSourceIntermediateStorageArgs']:
+        return pulumi.get(self, "intermediate_storage")
+
+    @intermediate_storage.setter
+    def intermediate_storage(self, value: pulumi.Input['DataSourceIntermediateStorageArgs']):
+        pulumi.set(self, "intermediate_storage", value)
+
+    @property
+    @pulumi.getter
+    def transformations(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]:
+        """
+        A list of Lambda functions that process documents.
+        """
+        return pulumi.get(self, "transformations")
+
+    @transformations.setter
+    def transformations(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]):
+        pulumi.set(self, "transformations", value)
 
 
 @pulumi.input_type
@@ -981,13 +1307,213 @@ class DataSourceFixedSizeChunkingConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceHierarchicalChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 level_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgs']]],
+                 overlap_tokens: pulumi.Input[int]):
+        """
+        Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgs']]] level_configurations: Token settings for each layer.
+        :param pulumi.Input[int] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        """
+        pulumi.set(__self__, "level_configurations", level_configurations)
+        pulumi.set(__self__, "overlap_tokens", overlap_tokens)
+
+    @property
+    @pulumi.getter(name="levelConfigurations")
+    def level_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgs']]]:
+        """
+        Token settings for each layer.
+        """
+        return pulumi.get(self, "level_configurations")
+
+    @level_configurations.setter
+    def level_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgs']]]):
+        pulumi.set(self, "level_configurations", value)
+
+    @property
+    @pulumi.getter(name="overlapTokens")
+    def overlap_tokens(self) -> pulumi.Input[int]:
+        """
+        The number of tokens to repeat across chunks in the same layer.
+        """
+        return pulumi.get(self, "overlap_tokens")
+
+    @overlap_tokens.setter
+    def overlap_tokens(self, value: pulumi.Input[int]):
+        pulumi.set(self, "overlap_tokens", value)
+
+
+@pulumi.input_type
+class DataSourceHierarchicalChunkingLevelConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: pulumi.Input[int]):
+        """
+        Token settings for a layer in a hierarchical chunking configuration.
+        :param pulumi.Input[int] max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        """
+        pulumi.set(__self__, "max_tokens", max_tokens)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[int]:
+        """
+        The maximum number of tokens that a chunk can contain in this layer.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_tokens", value)
+
+
+@pulumi.input_type
+class DataSourceIntermediateStorageArgs:
+    def __init__(__self__, *,
+                 s3_location: pulumi.Input['DataSourceS3LocationArgs']):
+        """
+        A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+        """
+        pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> pulumi.Input['DataSourceS3LocationArgs']:
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: pulumi.Input['DataSourceS3LocationArgs']):
+        pulumi.set(self, "s3_location", value)
+
+
+@pulumi.input_type
+class DataSourceParsingConfigurationArgs:
+    def __init__(__self__, *,
+                 parsing_strategy: pulumi.Input['DataSourceParsingStrategy'],
+                 bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']] = None):
+        """
+        Settings for parsing document contents
+        """
+        pulumi.set(__self__, "parsing_strategy", parsing_strategy)
+        if bedrock_foundation_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
+
+    @property
+    @pulumi.getter(name="parsingStrategy")
+    def parsing_strategy(self) -> pulumi.Input['DataSourceParsingStrategy']:
+        return pulumi.get(self, "parsing_strategy")
+
+    @parsing_strategy.setter
+    def parsing_strategy(self, value: pulumi.Input['DataSourceParsingStrategy']):
+        pulumi.set(self, "parsing_strategy", value)
+
+    @property
+    @pulumi.getter(name="bedrockFoundationModelConfiguration")
+    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]:
+        return pulumi.get(self, "bedrock_foundation_model_configuration")
+
+    @bedrock_foundation_model_configuration.setter
+    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]):
+        pulumi.set(self, "bedrock_foundation_model_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceParsingPromptArgs:
+    def __init__(__self__, *,
+                 parsing_prompt_text: pulumi.Input[str]):
+        """
+        Instructions for interpreting the contents of a document.
+        :param pulumi.Input[str] parsing_prompt_text: Instructions for interpreting the contents of a document.
+        """
+        pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
+
+    @property
+    @pulumi.getter(name="parsingPromptText")
+    def parsing_prompt_text(self) -> pulumi.Input[str]:
+        """
+        Instructions for interpreting the contents of a document.
+        """
+        return pulumi.get(self, "parsing_prompt_text")
+
+    @parsing_prompt_text.setter
+    def parsing_prompt_text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parsing_prompt_text", value)
+
+
+@pulumi.input_type
+class DataSourcePatternObjectFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]):
+        """
+        The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+        """
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]):
+        pulumi.set(self, "filters", value)
+
+
+@pulumi.input_type
+class DataSourcePatternObjectFilterArgs:
+    def __init__(__self__, *,
+                 object_type: pulumi.Input[str],
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The specific filters applied to your data source content. You can filter out or include certain content.
+        :param pulumi.Input[str] object_type: The supported object type or content type of the data source.
+        """
+        pulumi.set(__self__, "object_type", object_type)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[str]:
+        """
+        The supported object type or content type of the data source.
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type", value)
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclusion_filters")
+
+    @exclusion_filters.setter
+    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusion_filters", value)
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "inclusion_filters")
+
+    @inclusion_filters.setter
+    def inclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inclusion_filters", value)
+
+
+@pulumi.input_type
 class DataSourceS3DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  bucket_owner_account_id: Optional[pulumi.Input[str]] = None,
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Contains information about the S3 configuration of the data source.
+        The configuration information to connect to Amazon S3 as your data source.
         :param pulumi.Input[str] bucket_arn: The ARN of the bucket that contains the data source.
         :param pulumi.Input[str] bucket_owner_account_id: The account ID for the owner of the S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: A list of S3 prefixes that define the object containing the data sources.
@@ -1036,6 +1562,209 @@ class DataSourceS3DataSourceConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceS3LocationArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str]):
+        """
+        An Amazon S3 location.
+        :param pulumi.Input[str] uri: The location's URI
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The location's URI
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class DataSourceSalesforceCrawlerConfigurationArgs:
+    def __init__(__self__, *,
+                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+        """
+        The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceSalesforceDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 source_configuration: pulumi.Input['DataSourceSalesforceSourceConfigurationArgs'],
+                 crawler_configuration: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']] = None):
+        """
+        The configuration information to connect to Salesforce as your data source.
+        """
+        pulumi.set(__self__, "source_configuration", source_configuration)
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input['DataSourceSalesforceSourceConfigurationArgs']:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input['DataSourceSalesforceSourceConfigurationArgs']):
+        pulumi.set(self, "source_configuration", value)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']]:
+        return pulumi.get(self, "crawler_configuration")
+
+    @crawler_configuration.setter
+    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']]):
+        pulumi.set(self, "crawler_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceSalesforceSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType'],
+                 credentials_secret_arn: pulumi.Input[str],
+                 host_url: pulumi.Input[str]):
+        """
+        The endpoint information to connect to your Salesforce data source.
+        :param pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your Salesforce instance.
+        :param pulumi.Input[str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+        :param pulumi.Input[str] host_url: The Salesforce host URL or instance URL.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "host_url", host_url)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType']:
+        """
+        The supported authentication type to authenticate and connect to your Salesforce instance.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType']):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="hostUrl")
+    def host_url(self) -> pulumi.Input[str]:
+        """
+        The Salesforce host URL or instance URL.
+        """
+        return pulumi.get(self, "host_url")
+
+    @host_url.setter
+    def host_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_url", value)
+
+
+@pulumi.input_type
+class DataSourceSeedUrlArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str]):
+        """
+        A seed url object.
+        :param pulumi.Input[str] url: A web url.
+        """
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        A web url.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class DataSourceSemanticChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 breakpoint_percentile_threshold: pulumi.Input[int],
+                 buffer_size: pulumi.Input[int],
+                 max_tokens: pulumi.Input[int]):
+        """
+        Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+        :param pulumi.Input[int] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
+        :param pulumi.Input[int] buffer_size: The buffer size.
+        :param pulumi.Input[int] max_tokens: The maximum number of tokens that a chunk can contain.
+        """
+        pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
+        pulumi.set(__self__, "buffer_size", buffer_size)
+        pulumi.set(__self__, "max_tokens", max_tokens)
+
+    @property
+    @pulumi.getter(name="breakpointPercentileThreshold")
+    def breakpoint_percentile_threshold(self) -> pulumi.Input[int]:
+        """
+        The dissimilarity threshold for splitting chunks.
+        """
+        return pulumi.get(self, "breakpoint_percentile_threshold")
+
+    @breakpoint_percentile_threshold.setter
+    def breakpoint_percentile_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "breakpoint_percentile_threshold", value)
+
+    @property
+    @pulumi.getter(name="bufferSize")
+    def buffer_size(self) -> pulumi.Input[int]:
+        """
+        The buffer size.
+        """
+        return pulumi.get(self, "buffer_size")
+
+    @buffer_size.setter
+    def buffer_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "buffer_size", value)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[int]:
+        """
+        The maximum number of tokens that a chunk can contain.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_tokens", value)
+
+
+@pulumi.input_type
 class DataSourceServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -1060,15 +1789,266 @@ class DataSourceServerSideEncryptionConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceSharePointCrawlerConfigurationArgs:
+    def __init__(__self__, *,
+                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+        """
+        The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceSharePointDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 source_configuration: pulumi.Input['DataSourceSharePointSourceConfigurationArgs'],
+                 crawler_configuration: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']] = None):
+        """
+        The configuration information to connect to SharePoint as your data source.
+        """
+        pulumi.set(__self__, "source_configuration", source_configuration)
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input['DataSourceSharePointSourceConfigurationArgs']:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input['DataSourceSharePointSourceConfigurationArgs']):
+        pulumi.set(self, "source_configuration", value)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']]:
+        return pulumi.get(self, "crawler_configuration")
+
+    @crawler_configuration.setter
+    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']]):
+        pulumi.set(self, "crawler_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceSharePointSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input['DataSourceSharePointSourceConfigurationAuthType'],
+                 credentials_secret_arn: pulumi.Input[str],
+                 domain: pulumi.Input[str],
+                 host_type: pulumi.Input['DataSourceSharePointSourceConfigurationHostType'],
+                 site_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The endpoint information to connect to your SharePoint data source.
+        :param pulumi.Input['DataSourceSharePointSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your SharePoint site/sites.
+        :param pulumi.Input[str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+        :param pulumi.Input[str] domain: The domain of your SharePoint instance or site URL/URLs.
+        :param pulumi.Input['DataSourceSharePointSourceConfigurationHostType'] host_type: The supported host type, whether online/cloud or server/on-premises.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] site_urls: A list of one or more SharePoint site URLs.
+        :param pulumi.Input[str] tenant_id: The identifier of your Microsoft 365 tenant.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "host_type", host_type)
+        pulumi.set(__self__, "site_urls", site_urls)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['DataSourceSharePointSourceConfigurationAuthType']:
+        """
+        The supported authentication type to authenticate and connect to your SharePoint site/sites.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['DataSourceSharePointSourceConfigurationAuthType']):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @credentials_secret_arn.setter
+    def credentials_secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_secret_arn", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The domain of your SharePoint instance or site URL/URLs.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> pulumi.Input['DataSourceSharePointSourceConfigurationHostType']:
+        """
+        The supported host type, whether online/cloud or server/on-premises.
+        """
+        return pulumi.get(self, "host_type")
+
+    @host_type.setter
+    def host_type(self, value: pulumi.Input['DataSourceSharePointSourceConfigurationHostType']):
+        pulumi.set(self, "host_type", value)
+
+    @property
+    @pulumi.getter(name="siteUrls")
+    def site_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more SharePoint site URLs.
+        """
+        return pulumi.get(self, "site_urls")
+
+    @site_urls.setter
+    def site_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "site_urls", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of your Microsoft 365 tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class DataSourceTransformationFunctionArgs:
+    def __init__(__self__, *,
+                 transformation_lambda_configuration: pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']):
+        """
+        A Lambda function that processes documents.
+        """
+        pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
+
+    @property
+    @pulumi.getter(name="transformationLambdaConfiguration")
+    def transformation_lambda_configuration(self) -> pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']:
+        return pulumi.get(self, "transformation_lambda_configuration")
+
+    @transformation_lambda_configuration.setter
+    def transformation_lambda_configuration(self, value: pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']):
+        pulumi.set(self, "transformation_lambda_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceTransformationLambdaConfigurationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str]):
+        """
+        A Lambda function that processes documents.
+        :param pulumi.Input[str] lambda_arn: The function's ARN identifier.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        The function's ARN identifier.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
+
+@pulumi.input_type
+class DataSourceTransformationArgs:
+    def __init__(__self__, *,
+                 step_to_apply: pulumi.Input['DataSourceTransformationStepToApply'],
+                 transformation_function: pulumi.Input['DataSourceTransformationFunctionArgs']):
+        """
+        A Lambda function that processes documents.
+        :param pulumi.Input['DataSourceTransformationStepToApply'] step_to_apply: When the service applies the transformation.
+        """
+        pulumi.set(__self__, "step_to_apply", step_to_apply)
+        pulumi.set(__self__, "transformation_function", transformation_function)
+
+    @property
+    @pulumi.getter(name="stepToApply")
+    def step_to_apply(self) -> pulumi.Input['DataSourceTransformationStepToApply']:
+        """
+        When the service applies the transformation.
+        """
+        return pulumi.get(self, "step_to_apply")
+
+    @step_to_apply.setter
+    def step_to_apply(self, value: pulumi.Input['DataSourceTransformationStepToApply']):
+        pulumi.set(self, "step_to_apply", value)
+
+    @property
+    @pulumi.getter(name="transformationFunction")
+    def transformation_function(self) -> pulumi.Input['DataSourceTransformationFunctionArgs']:
+        return pulumi.get(self, "transformation_function")
+
+    @transformation_function.setter
+    def transformation_function(self, value: pulumi.Input['DataSourceTransformationFunctionArgs']):
+        pulumi.set(self, "transformation_function", value)
+
+
+@pulumi.input_type
+class DataSourceUrlConfigurationArgs:
+    def __init__(__self__, *,
+                 seed_urls: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]):
+        """
+        A url configuration.
+        """
+        pulumi.set(__self__, "seed_urls", seed_urls)
+
+    @property
+    @pulumi.getter(name="seedUrls")
+    def seed_urls(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]:
+        return pulumi.get(self, "seed_urls")
+
+    @seed_urls.setter
+    def seed_urls(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]):
+        pulumi.set(self, "seed_urls", value)
+
+
+@pulumi.input_type
 class DataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
-                 chunking_configuration: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']] = None):
+                 chunking_configuration: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']] = None,
+                 custom_transformation_configuration: Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']] = None,
+                 parsing_configuration: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if custom_transformation_configuration is not None:
+            pulumi.set(__self__, "custom_transformation_configuration", custom_transformation_configuration)
+        if parsing_configuration is not None:
+            pulumi.set(__self__, "parsing_configuration", parsing_configuration)
 
     @property
     @pulumi.getter(name="chunkingConfiguration")
@@ -1081,6 +2061,154 @@ class DataSourceVectorIngestionConfigurationArgs:
     @chunking_configuration.setter
     def chunking_configuration(self, value: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="customTransformationConfiguration")
+    def custom_transformation_configuration(self) -> Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']]:
+        return pulumi.get(self, "custom_transformation_configuration")
+
+    @custom_transformation_configuration.setter
+    def custom_transformation_configuration(self, value: Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']]):
+        pulumi.set(self, "custom_transformation_configuration", value)
+
+    @property
+    @pulumi.getter(name="parsingConfiguration")
+    def parsing_configuration(self) -> Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]:
+        return pulumi.get(self, "parsing_configuration")
+
+    @parsing_configuration.setter
+    def parsing_configuration(self, value: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]):
+        pulumi.set(self, "parsing_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceWebCrawlerConfigurationArgs:
+    def __init__(__self__, *,
+                 crawler_limits: Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scope: Optional[pulumi.Input['DataSourceWebScopeType']] = None):
+        """
+        Configuration for the web crawler.
+        """
+        if crawler_limits is not None:
+            pulumi.set(__self__, "crawler_limits", crawler_limits)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="crawlerLimits")
+    def crawler_limits(self) -> Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']]:
+        return pulumi.get(self, "crawler_limits")
+
+    @crawler_limits.setter
+    def crawler_limits(self, value: Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']]):
+        pulumi.set(self, "crawler_limits", value)
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclusion_filters")
+
+    @exclusion_filters.setter
+    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusion_filters", value)
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "inclusion_filters")
+
+    @inclusion_filters.setter
+    def inclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inclusion_filters", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['DataSourceWebScopeType']]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['DataSourceWebScopeType']]):
+        pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class DataSourceWebCrawlerLimitsArgs:
+    def __init__(__self__, *,
+                 rate_limit: Optional[pulumi.Input[int]] = None):
+        """
+        Limit settings for the web crawler.
+        :param pulumi.Input[int] rate_limit: Rate of web URLs retrieved per minute.
+        """
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Rate of web URLs retrieved per minute.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit", value)
+
+
+@pulumi.input_type
+class DataSourceWebDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 source_configuration: pulumi.Input['DataSourceWebSourceConfigurationArgs'],
+                 crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None):
+        """
+        Configures a web data source location.
+        """
+        pulumi.set(__self__, "source_configuration", source_configuration)
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input['DataSourceWebSourceConfigurationArgs']:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input['DataSourceWebSourceConfigurationArgs']):
+        pulumi.set(self, "source_configuration", value)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+        return pulumi.get(self, "crawler_configuration")
+
+    @crawler_configuration.setter
+    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]):
+        pulumi.set(self, "crawler_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceWebSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 url_configuration: pulumi.Input['DataSourceUrlConfigurationArgs']):
+        """
+        A web source configuration.
+        """
+        pulumi.set(__self__, "url_configuration", url_configuration)
+
+    @property
+    @pulumi.getter(name="urlConfiguration")
+    def url_configuration(self) -> pulumi.Input['DataSourceUrlConfigurationArgs']:
+        return pulumi.get(self, "url_configuration")
+
+    @url_configuration.setter
+    def url_configuration(self, value: pulumi.Input['DataSourceUrlConfigurationArgs']):
+        pulumi.set(self, "url_configuration", value)
 
 
 @pulumi.input_type

@@ -41,10 +41,14 @@ type LookupVpcAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
 	// Owner account of the attachment.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *VpcAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *VpcAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -127,6 +131,11 @@ func (o LookupVpcAttachmentResultOutput) EdgeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
+// The name of the network function group attachment.
+func (o LookupVpcAttachmentResultOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Vpc options of the attachment.
 func (o LookupVpcAttachmentResultOutput) Options() VpcAttachmentVpcOptionsPtrOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) *VpcAttachmentVpcOptions { return v.Options }).(VpcAttachmentVpcOptionsPtrOutput)
@@ -135,6 +144,13 @@ func (o LookupVpcAttachmentResultOutput) Options() VpcAttachmentVpcOptionsPtrOut
 // Owner account of the attachment.
 func (o LookupVpcAttachmentResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o LookupVpcAttachmentResultOutput) ProposedNetworkFunctionGroupChange() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) *VpcAttachmentProposedNetworkFunctionGroupChange {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

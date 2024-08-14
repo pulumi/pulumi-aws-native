@@ -31,10 +31,14 @@ type TransitGatewayRouteTableAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The Id of peering between transit gateway and core network.
 	PeeringId pulumi.StringOutput `pulumi:"peeringId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -102,8 +106,12 @@ func (TransitGatewayRouteTableAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayRouteTableAttachmentArgs struct {
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// The Id of peering between transit gateway and core network.
 	PeeringId string `pulumi:"peeringId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *TransitGatewayRouteTableAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// An array of key-value pairs to apply to this resource.
@@ -114,8 +122,12 @@ type transitGatewayRouteTableAttachmentArgs struct {
 
 // The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
 type TransitGatewayRouteTableAttachmentArgs struct {
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringPtrInput
 	// The Id of peering between transit gateway and core network.
 	PeeringId pulumi.StringInput
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -196,6 +208,11 @@ func (o TransitGatewayRouteTableAttachmentOutput) EdgeLocation() pulumi.StringOu
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
+// The name of the network function group attachment.
+func (o TransitGatewayRouteTableAttachmentOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringPtrOutput { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Owner account of the attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
@@ -204,6 +221,13 @@ func (o TransitGatewayRouteTableAttachmentOutput) OwnerAccountId() pulumi.String
 // The Id of peering between transit gateway and core network.
 func (o TransitGatewayRouteTableAttachmentOutput) PeeringId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.PeeringId }).(pulumi.StringOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o TransitGatewayRouteTableAttachmentOutput) ProposedNetworkFunctionGroupChange() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

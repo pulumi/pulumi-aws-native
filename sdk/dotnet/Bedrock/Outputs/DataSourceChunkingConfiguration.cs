@@ -29,15 +29,23 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
         /// </summary>
         public readonly Outputs.DataSourceFixedSizeChunkingConfiguration? FixedSizeChunkingConfiguration;
+        public readonly Outputs.DataSourceHierarchicalChunkingConfiguration? HierarchicalChunkingConfiguration;
+        public readonly Outputs.DataSourceSemanticChunkingConfiguration? SemanticChunkingConfiguration;
 
         [OutputConstructor]
         private DataSourceChunkingConfiguration(
             Pulumi.AwsNative.Bedrock.DataSourceChunkingStrategy chunkingStrategy,
 
-            Outputs.DataSourceFixedSizeChunkingConfiguration? fixedSizeChunkingConfiguration)
+            Outputs.DataSourceFixedSizeChunkingConfiguration? fixedSizeChunkingConfiguration,
+
+            Outputs.DataSourceHierarchicalChunkingConfiguration? hierarchicalChunkingConfiguration,
+
+            Outputs.DataSourceSemanticChunkingConfiguration? semanticChunkingConfiguration)
         {
             ChunkingStrategy = chunkingStrategy;
             FixedSizeChunkingConfiguration = fixedSizeChunkingConfiguration;
+            HierarchicalChunkingConfiguration = hierarchicalChunkingConfiguration;
+            SemanticChunkingConfiguration = semanticChunkingConfiguration;
         }
     }
 }

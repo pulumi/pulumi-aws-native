@@ -31,10 +31,14 @@ type VpcAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName pulumi.StringOutput `pulumi:"networkFunctionGroupName"`
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrOutput `pulumi:"options"`
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -111,6 +115,8 @@ type vpcAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *VpcAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *VpcAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Subnet Arn list
@@ -127,6 +133,8 @@ type VpcAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrInput
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrInput
 	// Subnet Arn list
@@ -209,6 +217,11 @@ func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
+// The name of the network function group attachment.
+func (o VpcAttachmentOutput) NetworkFunctionGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.NetworkFunctionGroupName }).(pulumi.StringOutput)
+}
+
 // Vpc options of the attachment.
 func (o VpcAttachmentOutput) Options() VpcAttachmentVpcOptionsPtrOutput {
 	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentVpcOptionsPtrOutput { return v.Options }).(VpcAttachmentVpcOptionsPtrOutput)
@@ -217,6 +230,13 @@ func (o VpcAttachmentOutput) Options() VpcAttachmentVpcOptionsPtrOutput {
 // Owner account of the attachment.
 func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o VpcAttachmentOutput) ProposedNetworkFunctionGroupChange() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

@@ -117,12 +117,42 @@ export type AgentType = (typeof AgentType)[keyof typeof AgentType];
 export const DataSourceChunkingStrategy = {
     FixedSize: "FIXED_SIZE",
     None: "NONE",
+    Hierarchical: "HIERARCHICAL",
+    Semantic: "SEMANTIC",
 } as const;
 
 /**
  * Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
  */
 export type DataSourceChunkingStrategy = (typeof DataSourceChunkingStrategy)[keyof typeof DataSourceChunkingStrategy];
+
+export const DataSourceConfluenceSourceConfigurationAuthType = {
+    Basic: "BASIC",
+    Oauth2ClientCredentials: "OAUTH2_CLIENT_CREDENTIALS",
+} as const;
+
+/**
+ * The supported authentication type to authenticate and connect to your Confluence instance.
+ */
+export type DataSourceConfluenceSourceConfigurationAuthType = (typeof DataSourceConfluenceSourceConfigurationAuthType)[keyof typeof DataSourceConfluenceSourceConfigurationAuthType];
+
+export const DataSourceConfluenceSourceConfigurationHostType = {
+    Saas: "SAAS",
+} as const;
+
+/**
+ * The supported host type, whether online/cloud or server/on-premises.
+ */
+export type DataSourceConfluenceSourceConfigurationHostType = (typeof DataSourceConfluenceSourceConfigurationHostType)[keyof typeof DataSourceConfluenceSourceConfigurationHostType];
+
+export const DataSourceCrawlFilterConfigurationType = {
+    Pattern: "PATTERN",
+} as const;
+
+/**
+ * The crawl filter type.
+ */
+export type DataSourceCrawlFilterConfigurationType = (typeof DataSourceCrawlFilterConfigurationType)[keyof typeof DataSourceCrawlFilterConfigurationType];
 
 export const DataSourceDataDeletionPolicy = {
     Retain: "RETAIN",
@@ -133,6 +163,42 @@ export const DataSourceDataDeletionPolicy = {
  * The deletion policy for the data source.
  */
 export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
+
+export const DataSourceParsingStrategy = {
+    BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+
+/**
+ * The parsing strategy for the data source.
+ */
+export type DataSourceParsingStrategy = (typeof DataSourceParsingStrategy)[keyof typeof DataSourceParsingStrategy];
+
+export const DataSourceSalesforceSourceConfigurationAuthType = {
+    Oauth2ClientCredentials: "OAUTH2_CLIENT_CREDENTIALS",
+} as const;
+
+/**
+ * The supported authentication type to authenticate and connect to your Salesforce instance.
+ */
+export type DataSourceSalesforceSourceConfigurationAuthType = (typeof DataSourceSalesforceSourceConfigurationAuthType)[keyof typeof DataSourceSalesforceSourceConfigurationAuthType];
+
+export const DataSourceSharePointSourceConfigurationAuthType = {
+    Oauth2ClientCredentials: "OAUTH2_CLIENT_CREDENTIALS",
+} as const;
+
+/**
+ * The supported authentication type to authenticate and connect to your SharePoint site/sites.
+ */
+export type DataSourceSharePointSourceConfigurationAuthType = (typeof DataSourceSharePointSourceConfigurationAuthType)[keyof typeof DataSourceSharePointSourceConfigurationAuthType];
+
+export const DataSourceSharePointSourceConfigurationHostType = {
+    Online: "ONLINE",
+} as const;
+
+/**
+ * The supported host type, whether online/cloud or server/on-premises.
+ */
+export type DataSourceSharePointSourceConfigurationHostType = (typeof DataSourceSharePointSourceConfigurationHostType)[keyof typeof DataSourceSharePointSourceConfigurationHostType];
 
 export const DataSourceStatus = {
     Available: "AVAILABLE",
@@ -145,14 +211,37 @@ export const DataSourceStatus = {
  */
 export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
+export const DataSourceTransformationStepToApply = {
+    PostChunking: "POST_CHUNKING",
+} as const;
+
+/**
+ * When the service applies the transformation.
+ */
+export type DataSourceTransformationStepToApply = (typeof DataSourceTransformationStepToApply)[keyof typeof DataSourceTransformationStepToApply];
+
 export const DataSourceType = {
     S3: "S3",
+    Confluence: "CONFLUENCE",
+    Salesforce: "SALESFORCE",
+    Sharepoint: "SHAREPOINT",
+    Web: "WEB",
 } as const;
 
 /**
  * The type of the data source location.
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+export const DataSourceWebScopeType = {
+    HostOnly: "HOST_ONLY",
+    Subdomains: "SUBDOMAINS",
+} as const;
+
+/**
+ * The scope that a web crawl job will be restricted to.
+ */
+export type DataSourceWebScopeType = (typeof DataSourceWebScopeType)[keyof typeof DataSourceWebScopeType];
 
 export const FlowConnectionType = {
     Data: "Data",

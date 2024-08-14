@@ -393,12 +393,8 @@ class CapacityReservationTag(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The key of the tag.
-               
-               Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
-        :param str value: The value of the tag.
-               
-               Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+        :param str key: The tag key.
+        :param str value: The tag value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -407,9 +403,7 @@ class CapacityReservationTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key of the tag.
-
-        Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+        The tag key.
         """
         return pulumi.get(self, "key")
 
@@ -417,9 +411,7 @@ class CapacityReservationTag(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the tag.
-
-        Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+        The tag value.
         """
         return pulumi.get(self, "value")
 

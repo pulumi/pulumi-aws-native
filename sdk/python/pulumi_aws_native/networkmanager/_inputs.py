@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectAttachmentOptionsArgs',
+    'ConnectAttachmentProposedNetworkFunctionGroupChangeArgs',
     'ConnectAttachmentProposedSegmentChangeArgs',
     'ConnectAttachmentTagArgs',
     'ConnectPeerBgpOptionsArgs',
@@ -18,10 +19,13 @@ __all__ = [
     'DeviceLocationArgs',
     'LinkBandwidthArgs',
     'SiteLocationArgs',
+    'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs',
     'SiteToSiteVpnAttachmentProposedSegmentChangeArgs',
     'SiteToSiteVpnAttachmentTagArgs',
+    'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs',
     'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs',
     'TransitGatewayRouteTableAttachmentTagArgs',
+    'VpcAttachmentProposedNetworkFunctionGroupChangeArgs',
     'VpcAttachmentProposedSegmentChangeArgs',
     'VpcAttachmentTagArgs',
     'VpcAttachmentVpcOptionsArgs',
@@ -49,6 +53,62 @@ class ConnectAttachmentOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class ConnectAttachmentProposedNetworkFunctionGroupChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 network_function_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] network_function_group_name: The name of the network function group to change.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @network_function_group_name.setter
+    def network_function_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_function_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -362,6 +422,62 @@ class SiteLocationArgs:
 
 
 @pulumi.input_type
+class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 network_function_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] network_function_group_name: The name of the network function group to change.
+        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @network_function_group_name.setter
+    def network_function_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_function_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
     def __init__(__self__, *,
                  attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
@@ -456,6 +572,62 @@ class SiteToSiteVpnAttachmentTagArgs:
 
 
 @pulumi.input_type
+class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 network_function_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] network_function_group_name: The name of the network function group to change.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @network_function_group_name.setter
+    def network_function_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_function_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
     def __init__(__self__, *,
                  attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
@@ -547,6 +719,62 @@ class TransitGatewayRouteTableAttachmentTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VpcAttachmentProposedNetworkFunctionGroupChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 network_function_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] network_function_group_name: The name of the network function group to change.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @network_function_group_name.setter
+    def network_function_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_function_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

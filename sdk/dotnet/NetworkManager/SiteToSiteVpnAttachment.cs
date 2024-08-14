@@ -58,10 +58,22 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Output("networkFunctionGroupName")]
+        public Output<string?> NetworkFunctionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Owner account of the attachment.
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Output("proposedNetworkFunctionGroupChange")]
+        public Output<Outputs.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
@@ -160,6 +172,18 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Input("networkFunctionGroupName")]
+        public Input<string>? NetworkFunctionGroupName { get; set; }
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Input("proposedNetworkFunctionGroupChange")]
+        public Input<Inputs.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
 
         /// <summary>
         /// The attachment to move from one segment to another.

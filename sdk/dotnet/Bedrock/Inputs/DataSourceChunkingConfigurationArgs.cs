@@ -32,6 +32,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("fixedSizeChunkingConfiguration")]
         public Input<Inputs.DataSourceFixedSizeChunkingConfigurationArgs>? FixedSizeChunkingConfiguration { get; set; }
 
+        [Input("hierarchicalChunkingConfiguration")]
+        public Input<Inputs.DataSourceHierarchicalChunkingConfigurationArgs>? HierarchicalChunkingConfiguration { get; set; }
+
+        [Input("semanticChunkingConfiguration")]
+        public Input<Inputs.DataSourceSemanticChunkingConfigurationArgs>? SemanticChunkingConfiguration { get; set; }
+
         public DataSourceChunkingConfigurationArgs()
         {
         }

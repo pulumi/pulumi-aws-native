@@ -14,15 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class CapacityReservationTag
     {
         /// <summary>
-        /// The key of the tag.
-        /// 
-        /// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+        /// The tag key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value of the tag.
-        /// 
-        /// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+        /// The tag value.
         /// </summary>
         public readonly string Value;
 

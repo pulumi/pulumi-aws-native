@@ -2706,7 +2706,7 @@
       },
       "onPremConfig": {
         "$ref": "#/types/aws-native:datasync:LocationNfsOnPremConfig",
-        "description": "Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.\n\nYou can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) ."
+        "description": "Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.\n\nYou can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) ."
       },
       "serverHostname": {
         "type": "string",
@@ -5827,7 +5827,8 @@
         "description": "The ID of the customer gateway at your end of the VPN connection."
       },
       "enableAcceleration": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Indicate whether to enable acceleration for the VPN connection.\n\nDefault: `false`"
       },
       "staticRoutesOnly": {
         "type": "boolean",
@@ -8928,9 +8929,17 @@
         "type": "string",
         "description": "Edge location of the attachment."
       },
+      "networkFunctionGroupName": {
+        "type": "string",
+        "description": "The name of the network function group attachment."
+      },
       "options": {
         "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentOptions",
         "description": "Protocol options for connect attachment"
+      },
+      "proposedNetworkFunctionGroupChange": {
+        "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedNetworkFunctionGroupChange",
+        "description": "The attachment to move from one network function group to another."
       },
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedSegmentChange",
@@ -9189,6 +9198,14 @@
         "type": "string",
         "description": "The ID of a core network where you're creating a site-to-site VPN attachment."
       },
+      "networkFunctionGroupName": {
+        "type": "string",
+        "description": "The name of the network function group attachment."
+      },
+      "proposedNetworkFunctionGroupChange": {
+        "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange",
+        "description": "The attachment to move from one network function group to another."
+      },
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
@@ -9242,9 +9259,17 @@
   "aws-native:networkmanager:TransitGatewayRouteTableAttachment": {
     "cfTypeName": "AWS::NetworkManager::TransitGatewayRouteTableAttachment",
     "properties": {
+      "networkFunctionGroupName": {
+        "type": "string",
+        "description": "The name of the network function group attachment."
+      },
       "peeringId": {
         "type": "string",
         "description": "The Id of peering between transit gateway and core network."
+      },
+      "proposedNetworkFunctionGroupChange": {
+        "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange",
+        "description": "The attachment to move from one network function group to another."
       },
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedSegmentChange",
@@ -9273,6 +9298,10 @@
       "options": {
         "$ref": "#/types/aws-native:networkmanager:VpcAttachmentVpcOptions",
         "description": "Vpc options of the attachment."
+      },
+      "proposedNetworkFunctionGroupChange": {
+        "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedNetworkFunctionGroupChange",
+        "description": "The attachment to move from one network function group to another."
       },
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedSegmentChange",

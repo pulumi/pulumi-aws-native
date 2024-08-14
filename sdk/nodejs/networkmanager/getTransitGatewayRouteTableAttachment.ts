@@ -55,9 +55,17 @@ export interface GetTransitGatewayRouteTableAttachmentResult {
      */
     readonly edgeLocation?: string;
     /**
+     * The name of the network function group attachment.
+     */
+    readonly networkFunctionGroupName?: string;
+    /**
      * Owner account of the attachment.
      */
     readonly ownerAccountId?: string;
+    /**
+     * The attachment to move from one network function group to another.
+     */
+    readonly proposedNetworkFunctionGroupChange?: outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange;
     /**
      * The attachment to move from one segment to another.
      */

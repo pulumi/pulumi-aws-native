@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['HostedZoneArgs', 'HostedZone']
@@ -17,7 +19,7 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 class HostedZoneArgs:
     def __init__(__self__, *,
                  hosted_zone_config: Optional[pulumi.Input['HostedZoneConfigArgs']] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None):
@@ -25,7 +27,7 @@ class HostedZoneArgs:
         The set of arguments for constructing a HostedZone resource.
         :param pulumi.Input['HostedZoneConfigArgs'] hosted_zone_config: A complex type that contains an optional comment.
                 If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                 For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
                 If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
@@ -66,7 +68,7 @@ class HostedZoneArgs:
 
     @property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]]:
+    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
          For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -74,7 +76,7 @@ class HostedZoneArgs:
         return pulumi.get(self, "hosted_zone_tags")
 
     @hosted_zone_tags.setter
-    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]]):
+    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "hosted_zone_tags", value)
 
     @property
@@ -129,7 +131,7 @@ class HostedZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneTagArgs', 'HostedZoneTagArgsDict']]]]] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
@@ -156,7 +158,7 @@ class HostedZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']] hosted_zone_config: A complex type that contains an optional comment.
                 If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneTagArgs', 'HostedZoneTagArgsDict']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                 For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
                 If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
@@ -211,7 +213,7 @@ class HostedZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneTagArgs', 'HostedZoneTagArgsDict']]]]] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
@@ -283,7 +285,7 @@ class HostedZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneTag']]]:
+    def hosted_zone_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
          For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.

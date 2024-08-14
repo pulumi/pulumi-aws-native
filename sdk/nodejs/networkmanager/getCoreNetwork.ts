@@ -47,6 +47,10 @@ export interface GetCoreNetworkResult {
      */
     readonly edges?: outputs.networkmanager.CoreNetworkEdge[];
     /**
+     * The network function groups within a core network.
+     */
+    readonly networkFunctionGroups?: outputs.networkmanager.CoreNetworkNetworkFunctionGroup[];
+    /**
      * Owner of the core network
      */
     readonly ownerAccount?: string;

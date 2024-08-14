@@ -12,21 +12,27 @@ from . import outputs
 
 __all__ = [
     'ConnectAttachmentOptions',
+    'ConnectAttachmentProposedNetworkFunctionGroupChange',
     'ConnectAttachmentProposedSegmentChange',
     'ConnectAttachmentTag',
     'ConnectPeerBgpConfiguration',
     'ConnectPeerBgpOptions',
     'ConnectPeerConfiguration',
     'CoreNetworkEdge',
+    'CoreNetworkNetworkFunctionGroup',
+    'CoreNetworkNetworkFunctionGroupSegmentsProperties',
     'CoreNetworkSegment',
     'DeviceAwsLocation',
     'DeviceLocation',
     'LinkBandwidth',
     'SiteLocation',
+    'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange',
     'SiteToSiteVpnAttachmentProposedSegmentChange',
     'SiteToSiteVpnAttachmentTag',
+    'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange',
     'TransitGatewayRouteTableAttachmentProposedSegmentChange',
     'TransitGatewayRouteTableAttachmentTag',
+    'VpcAttachmentProposedNetworkFunctionGroupChange',
     'VpcAttachmentProposedSegmentChange',
     'VpcAttachmentTag',
     'VpcAttachmentVpcOptions',
@@ -53,6 +59,72 @@ class ConnectAttachmentOptions(dict):
         Tunnel protocol for connect attachment
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class ConnectAttachmentProposedNetworkFunctionGroupChange(dict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "networkFunctionGroupName":
+            suggest = "network_function_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectAttachmentProposedNetworkFunctionGroupChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 network_function_group_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.ConnectAttachmentTag']] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str network_function_group_name: The name of the network function group to change.
+        :param Sequence['ConnectAttachmentTag'] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ConnectAttachmentTag']]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -429,6 +501,112 @@ class CoreNetworkEdge(dict):
 
 
 @pulumi.output_type
+class CoreNetworkNetworkFunctionGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "edgeLocations":
+            suggest = "edge_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkNetworkFunctionGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkNetworkFunctionGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkNetworkFunctionGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 edge_locations: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 segments: Optional['outputs.CoreNetworkNetworkFunctionGroupSegmentsProperties'] = None):
+        """
+        :param Sequence[str] edge_locations: The core network edge locations.
+        :param str name: Name of network function group
+        :param 'CoreNetworkNetworkFunctionGroupSegmentsProperties' segments: The segments associated with the network function group.
+        """
+        if edge_locations is not None:
+            pulumi.set(__self__, "edge_locations", edge_locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if segments is not None:
+            pulumi.set(__self__, "segments", segments)
+
+    @property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Optional[Sequence[str]]:
+        """
+        The core network edge locations.
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of network function group
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Optional['outputs.CoreNetworkNetworkFunctionGroupSegmentsProperties']:
+        """
+        The segments associated with the network function group.
+        """
+        return pulumi.get(self, "segments")
+
+
+@pulumi.output_type
+class CoreNetworkNetworkFunctionGroupSegmentsProperties(dict):
+    """
+    The segments associated with the network function group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendTo":
+            suggest = "send_to"
+        elif key == "sendVia":
+            suggest = "send_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkNetworkFunctionGroupSegmentsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkNetworkFunctionGroupSegmentsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkNetworkFunctionGroupSegmentsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 send_to: Optional[Sequence[str]] = None,
+                 send_via: Optional[Sequence[str]] = None):
+        """
+        The segments associated with the network function group.
+        """
+        if send_to is not None:
+            pulumi.set(__self__, "send_to", send_to)
+        if send_via is not None:
+            pulumi.set(__self__, "send_via", send_via)
+
+    @property
+    @pulumi.getter(name="sendTo")
+    def send_to(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "send_to")
+
+    @property
+    @pulumi.getter(name="sendVia")
+    def send_via(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "send_via")
+
+
+@pulumi.output_type
 class CoreNetworkSegment(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -691,6 +869,72 @@ class SiteLocation(dict):
 
 
 @pulumi.output_type
+class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange(dict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "networkFunctionGroupName":
+            suggest = "network_function_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 network_function_group_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str network_function_group_name: The name of the network function group to change.
+        :param Sequence['SiteToSiteVpnAttachmentTag'] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class SiteToSiteVpnAttachmentProposedSegmentChange(dict):
     """
     The attachment to move from one segment to another.
@@ -790,6 +1034,72 @@ class SiteToSiteVpnAttachmentTag(dict):
 
 
 @pulumi.output_type
+class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange(dict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "networkFunctionGroupName":
+            suggest = "network_function_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 network_function_group_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.TransitGatewayRouteTableAttachmentTag']] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str network_function_group_name: The name of the network function group to change.
+        :param Sequence['TransitGatewayRouteTableAttachmentTag'] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TransitGatewayRouteTableAttachmentTag']]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class TransitGatewayRouteTableAttachmentProposedSegmentChange(dict):
     """
     The attachment to move from one segment to another.
@@ -886,6 +1196,72 @@ class TransitGatewayRouteTableAttachmentTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcAttachmentProposedNetworkFunctionGroupChange(dict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "networkFunctionGroupName":
+            suggest = "network_function_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcAttachmentProposedNetworkFunctionGroupChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 network_function_group_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.VpcAttachmentTag']] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str network_function_group_name: The name of the network function group to change.
+        :param Sequence['VpcAttachmentTag'] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.VpcAttachmentTag']]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

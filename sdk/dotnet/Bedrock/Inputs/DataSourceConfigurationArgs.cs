@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("confluenceConfiguration")]
+        public Input<Inputs.DataSourceConfluenceDataSourceConfigurationArgs>? ConfluenceConfiguration { get; set; }
+
         /// <summary>
         /// The configuration information to connect to Amazon S3 as your data source.
         /// </summary>
-        [Input("s3Configuration", required: true)]
-        public Input<Inputs.DataSourceS3DataSourceConfigurationArgs> S3Configuration { get; set; } = null!;
+        [Input("s3Configuration")]
+        public Input<Inputs.DataSourceS3DataSourceConfigurationArgs>? S3Configuration { get; set; }
+
+        [Input("salesforceConfiguration")]
+        public Input<Inputs.DataSourceSalesforceDataSourceConfigurationArgs>? SalesforceConfiguration { get; set; }
+
+        [Input("sharePointConfiguration")]
+        public Input<Inputs.DataSourceSharePointDataSourceConfigurationArgs>? SharePointConfiguration { get; set; }
 
         /// <summary>
         /// The type of data source.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceType> Type { get; set; } = null!;
+
+        [Input("webConfiguration")]
+        public Input<Inputs.DataSourceWebDataSourceConfigurationArgs>? WebConfiguration { get; set; }
 
         public DataSourceConfigurationArgs()
         {

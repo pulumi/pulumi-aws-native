@@ -583,7 +583,7 @@ class UserPoolAddOns(dict):
                  advanced_security_additional_flows: Optional['outputs.UserPoolAdvancedSecurityAdditionalFlows'] = None,
                  advanced_security_mode: Optional[str] = None):
         """
-        :param str advanced_security_mode: The operating mode of advanced security features in your user pool.
+        :param str advanced_security_mode: The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
         if advanced_security_additional_flows is not None:
             pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
@@ -599,7 +599,7 @@ class UserPoolAddOns(dict):
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> Optional[str]:
         """
-        The operating mode of advanced security features in your user pool.
+        The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
         return pulumi.get(self, "advanced_security_mode")
 
@@ -1567,6 +1567,9 @@ class UserPoolPasswordPolicy(dict):
                  temporary_password_validity_days: Optional[int] = None):
         """
         :param int minimum_length: The minimum length of the password in the policy that you have set. This value can't be less than 6.
+        :param int password_history_size: The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+               
+               Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
         :param bool require_lowercase: In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
         :param bool require_numbers: In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
         :param bool require_symbols: In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
@@ -1601,6 +1604,11 @@ class UserPoolPasswordPolicy(dict):
     @property
     @pulumi.getter(name="passwordHistorySize")
     def password_history_size(self) -> Optional[int]:
+        """
+        The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+
+        Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
+        """
         return pulumi.get(self, "password_history_size")
 
     @property

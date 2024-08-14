@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Route53
         ///  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         /// </summary>
         [Output("hostedZoneTags")]
-        public Output<ImmutableArray<Outputs.HostedZoneTag>> HostedZoneTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> HostedZoneTags { get; private set; } = null!;
 
         /// <summary>
         /// The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
@@ -142,15 +142,15 @@ namespace Pulumi.AwsNative.Route53
         public Input<Inputs.HostedZoneConfigArgs>? HostedZoneConfig { get; set; }
 
         [Input("hostedZoneTags")]
-        private InputList<Inputs.HostedZoneTagArgs>? _hostedZoneTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _hostedZoneTags;
 
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.
         ///  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         /// </summary>
-        public InputList<Inputs.HostedZoneTagArgs> HostedZoneTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> HostedZoneTags
         {
-            get => _hostedZoneTags ?? (_hostedZoneTags = new InputList<Inputs.HostedZoneTagArgs>());
+            get => _hostedZoneTags ?? (_hostedZoneTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _hostedZoneTags = value;
         }
 

@@ -214,7 +214,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["data_source_status"] = None
             __props__.__dict__["failure_reasons"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["knowledgeBaseId", "vectorIngestionConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataSourceConfiguration.type", "knowledgeBaseId", "vectorIngestionConfiguration.chunkingConfiguration", "vectorIngestionConfiguration.parsingConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
             'aws-native:bedrock:DataSource',

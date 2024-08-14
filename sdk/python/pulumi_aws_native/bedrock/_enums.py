@@ -16,9 +16,18 @@ __all__ = [
     'AgentStatus',
     'AgentType',
     'DataSourceChunkingStrategy',
+    'DataSourceConfluenceSourceConfigurationAuthType',
+    'DataSourceConfluenceSourceConfigurationHostType',
+    'DataSourceCrawlFilterConfigurationType',
     'DataSourceDataDeletionPolicy',
+    'DataSourceParsingStrategy',
+    'DataSourceSalesforceSourceConfigurationAuthType',
+    'DataSourceSharePointSourceConfigurationAuthType',
+    'DataSourceSharePointSourceConfigurationHostType',
     'DataSourceStatus',
+    'DataSourceTransformationStepToApply',
     'DataSourceType',
+    'DataSourceWebScopeType',
     'FlowConnectionType',
     'FlowNodeIoDataType',
     'FlowNodeType',
@@ -143,6 +152,30 @@ class DataSourceChunkingStrategy(str, Enum):
     """
     FIXED_SIZE = "FIXED_SIZE"
     NONE = "NONE"
+    HIERARCHICAL = "HIERARCHICAL"
+    SEMANTIC = "SEMANTIC"
+
+
+class DataSourceConfluenceSourceConfigurationAuthType(str, Enum):
+    """
+    The supported authentication type to authenticate and connect to your Confluence instance.
+    """
+    BASIC = "BASIC"
+    OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
+
+
+class DataSourceConfluenceSourceConfigurationHostType(str, Enum):
+    """
+    The supported host type, whether online/cloud or server/on-premises.
+    """
+    SAAS = "SAAS"
+
+
+class DataSourceCrawlFilterConfigurationType(str, Enum):
+    """
+    The crawl filter type.
+    """
+    PATTERN = "PATTERN"
 
 
 class DataSourceDataDeletionPolicy(str, Enum):
@@ -151,6 +184,34 @@ class DataSourceDataDeletionPolicy(str, Enum):
     """
     RETAIN = "RETAIN"
     DELETE = "DELETE"
+
+
+class DataSourceParsingStrategy(str, Enum):
+    """
+    The parsing strategy for the data source.
+    """
+    BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
+
+
+class DataSourceSalesforceSourceConfigurationAuthType(str, Enum):
+    """
+    The supported authentication type to authenticate and connect to your Salesforce instance.
+    """
+    OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
+
+
+class DataSourceSharePointSourceConfigurationAuthType(str, Enum):
+    """
+    The supported authentication type to authenticate and connect to your SharePoint site/sites.
+    """
+    OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
+
+
+class DataSourceSharePointSourceConfigurationHostType(str, Enum):
+    """
+    The supported host type, whether online/cloud or server/on-premises.
+    """
+    ONLINE = "ONLINE"
 
 
 class DataSourceStatus(str, Enum):
@@ -162,11 +223,30 @@ class DataSourceStatus(str, Enum):
     DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
 
 
+class DataSourceTransformationStepToApply(str, Enum):
+    """
+    When the service applies the transformation.
+    """
+    POST_CHUNKING = "POST_CHUNKING"
+
+
 class DataSourceType(str, Enum):
     """
     The type of the data source location.
     """
     S3 = "S3"
+    CONFLUENCE = "CONFLUENCE"
+    SALESFORCE = "SALESFORCE"
+    SHAREPOINT = "SHAREPOINT"
+    WEB = "WEB"
+
+
+class DataSourceWebScopeType(str, Enum):
+    """
+    The scope that a web crawl job will be restricted to.
+    """
+    HOST_ONLY = "HOST_ONLY"
+    SUBDOMAINS = "SUBDOMAINS"
 
 
 class FlowConnectionType(str, Enum):

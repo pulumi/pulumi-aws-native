@@ -35,9 +35,9 @@ type LookupLocationNfsResult struct {
 	LocationUri *string `pulumi:"locationUri"`
 	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions *LocationNfsMountOptions `pulumi:"mountOptions"`
-	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 	//
-	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+	// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
 	OnPremConfig *LocationNfsOnPremConfig `pulumi:"onPremConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -94,9 +94,9 @@ func (o LookupLocationNfsResultOutput) MountOptions() LocationNfsMountOptionsPtr
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsMountOptions { return v.MountOptions }).(LocationNfsMountOptionsPtrOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 //
-// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
 func (o LookupLocationNfsResultOutput) OnPremConfig() LocationNfsOnPremConfigPtrOutput {
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsOnPremConfig { return v.OnPremConfig }).(LocationNfsOnPremConfigPtrOutput)
 }

@@ -74,6 +74,10 @@ export interface GetDataSourceResult {
      * The time at which the knowledge base was last updated.
      */
     readonly updatedAt?: string;
+    /**
+     * Contains details about how to ingest the documents in the data source.
+     */
+    readonly vectorIngestionConfiguration?: outputs.bedrock.DataSourceVectorIngestionConfiguration;
 }
 /**
  * Definition of AWS::Bedrock::DataSource Resource Type

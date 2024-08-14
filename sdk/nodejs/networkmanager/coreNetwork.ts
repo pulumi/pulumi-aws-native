@@ -62,6 +62,10 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
+     * The network function groups within a core network.
+     */
+    public /*out*/ readonly networkFunctionGroups!: pulumi.Output<outputs.networkmanager.CoreNetworkNetworkFunctionGroup[]>;
+    /**
      * Owner of the core network
      */
     public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edges"] = undefined /*out*/;
+            resourceInputs["networkFunctionGroups"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;
             resourceInputs["segments"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -116,6 +121,7 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["edges"] = undefined /*out*/;
             resourceInputs["globalNetworkId"] = undefined /*out*/;
+            resourceInputs["networkFunctionGroups"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["segments"] = undefined /*out*/;

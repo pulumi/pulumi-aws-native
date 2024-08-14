@@ -47,9 +47,17 @@ export interface GetConnectAttachmentResult {
      */
     readonly createdAt?: string;
     /**
+     * The name of the network function group attachment.
+     */
+    readonly networkFunctionGroupName?: string;
+    /**
      * The ID of the attachment account owner.
      */
     readonly ownerAccountId?: string;
+    /**
+     * The attachment to move from one network function group to another.
+     */
+    readonly proposedNetworkFunctionGroupChange?: outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange;
     /**
      * The attachment to move from one segment to another.
      */

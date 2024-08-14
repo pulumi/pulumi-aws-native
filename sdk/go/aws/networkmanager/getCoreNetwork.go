@@ -39,6 +39,8 @@ type LookupCoreNetworkResult struct {
 	Description *string `pulumi:"description"`
 	// The edges within a core network.
 	Edges []CoreNetworkEdge `pulumi:"edges"`
+	// The network function groups within a core network.
+	NetworkFunctionGroups []CoreNetworkNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
 	// Owner of the core network
 	OwnerAccount *string `pulumi:"ownerAccount"`
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
@@ -112,6 +114,11 @@ func (o LookupCoreNetworkResultOutput) Description() pulumi.StringPtrOutput {
 // The edges within a core network.
 func (o LookupCoreNetworkResultOutput) Edges() CoreNetworkEdgeArrayOutput {
 	return o.ApplyT(func(v LookupCoreNetworkResult) []CoreNetworkEdge { return v.Edges }).(CoreNetworkEdgeArrayOutput)
+}
+
+// The network function groups within a core network.
+func (o LookupCoreNetworkResultOutput) NetworkFunctionGroups() CoreNetworkNetworkFunctionGroupArrayOutput {
+	return o.ApplyT(func(v LookupCoreNetworkResult) []CoreNetworkNetworkFunctionGroup { return v.NetworkFunctionGroups }).(CoreNetworkNetworkFunctionGroupArrayOutput)
 }
 
 // Owner of the core network

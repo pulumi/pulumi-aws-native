@@ -44,6 +44,11 @@ export class VpnConnection extends pulumi.CustomResource {
      * The ID of the customer gateway at your end of the VPN connection.
      */
     public readonly customerGatewayId!: pulumi.Output<string>;
+    /**
+     * Indicate whether to enable acceleration for the VPN connection.
+     *
+     * Default: `false`
+     */
     public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
@@ -129,6 +134,11 @@ export interface VpnConnectionArgs {
      * The ID of the customer gateway at your end of the VPN connection.
      */
     customerGatewayId: pulumi.Input<string>;
+    /**
+     * Indicate whether to enable acceleration for the VPN connection.
+     *
+     * Default: `false`
+     */
     enableAcceleration?: pulumi.Input<boolean>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.

@@ -13,17 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class CapacityReservationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key of the tag.
-        /// 
-        /// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+        /// The tag key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value of the tag.
-        /// 
-        /// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+        /// The tag value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Output("networkFunctionGroupName")]
+        public Output<string?> NetworkFunctionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Owner account of the attachment.
         /// </summary>
         [Output("ownerAccountId")]
@@ -68,6 +74,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Output("peeringId")]
         public Output<string> PeeringId { get; private set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Output("proposedNetworkFunctionGroupChange")]
+        public Output<Outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
@@ -162,10 +174,22 @@ namespace Pulumi.AwsNative.NetworkManager
     public sealed class TransitGatewayRouteTableAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Input("networkFunctionGroupName")]
+        public Input<string>? NetworkFunctionGroupName { get; set; }
+
+        /// <summary>
         /// The Id of peering between transit gateway and core network.
         /// </summary>
         [Input("peeringId", required: true)]
         public Input<string> PeeringId { get; set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Input("proposedNetworkFunctionGroupChange")]
+        public Input<Inputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
 
         /// <summary>
         /// The attachment to move from one segment to another.

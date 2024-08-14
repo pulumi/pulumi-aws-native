@@ -115,8 +115,10 @@ namespace Pulumi.AwsNative.Bedrock
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "dataSourceConfiguration.type",
                     "knowledgeBaseId",
-                    "vectorIngestionConfiguration",
+                    "vectorIngestionConfiguration.chunkingConfiguration",
+                    "vectorIngestionConfiguration.parsingConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

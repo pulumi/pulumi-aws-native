@@ -22,7 +22,10 @@ type VpnConnection struct {
 	pulumi.CustomResourceState
 
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId  pulumi.StringOutput  `pulumi:"customerGatewayId"`
+	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
+	// Indicate whether to enable acceleration for the VPN connection.
+	//
+	// Default: `false`
 	EnableAcceleration pulumi.BoolPtrOutput `pulumi:"enableAcceleration"`
 	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
 	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -100,8 +103,11 @@ func (VpnConnectionState) ElementType() reflect.Type {
 
 type vpnConnectionArgs struct {
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId  string `pulumi:"customerGatewayId"`
-	EnableAcceleration *bool  `pulumi:"enableAcceleration"`
+	CustomerGatewayId string `pulumi:"customerGatewayId"`
+	// Indicate whether to enable acceleration for the VPN connection.
+	//
+	// Default: `false`
+	EnableAcceleration *bool `pulumi:"enableAcceleration"`
 	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
 	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
@@ -122,7 +128,10 @@ type vpnConnectionArgs struct {
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId  pulumi.StringInput
+	CustomerGatewayId pulumi.StringInput
+	// Indicate whether to enable acceleration for the VPN connection.
+	//
+	// Default: `false`
 	EnableAcceleration pulumi.BoolPtrInput
 	// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
 	//  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -183,6 +192,9 @@ func (o VpnConnectionOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }
 
+// Indicate whether to enable acceleration for the VPN connection.
+//
+// Default: `false`
 func (o VpnConnectionOutput) EnableAcceleration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.EnableAcceleration }).(pulumi.BoolPtrOutput)
 }

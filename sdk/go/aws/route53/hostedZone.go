@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type HostedZone struct {
 	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-	HostedZoneTags HostedZoneTagArrayOutput `pulumi:"hostedZoneTags"`
+	HostedZoneTags aws.TagArrayOutput `pulumi:"hostedZoneTags"`
 	// The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 	//  If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -109,7 +110,7 @@ type hostedZoneArgs struct {
 	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-	HostedZoneTags []HostedZoneTag `pulumi:"hostedZoneTags"`
+	HostedZoneTags []aws.Tag `pulumi:"hostedZoneTags"`
 	// The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 	//  If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
 	Name *string `pulumi:"name"`
@@ -134,7 +135,7 @@ type HostedZoneArgs struct {
 	HostedZoneConfig HostedZoneConfigPtrInput
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-	HostedZoneTags HostedZoneTagArrayInput
+	HostedZoneTags aws.TagArrayInput
 	// The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 	//  If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
 	Name pulumi.StringPtrInput
@@ -204,8 +205,8 @@ func (o HostedZoneOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {
 // Adds, edits, or deletes tags for a health check or a hosted zone.
 //
 //	For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-func (o HostedZoneOutput) HostedZoneTags() HostedZoneTagArrayOutput {
-	return o.ApplyT(func(v *HostedZone) HostedZoneTagArrayOutput { return v.HostedZoneTags }).(HostedZoneTagArrayOutput)
+func (o HostedZoneOutput) HostedZoneTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *HostedZone) aws.TagArrayOutput { return v.HostedZoneTags }).(aws.TagArrayOutput)
 }
 
 // The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.

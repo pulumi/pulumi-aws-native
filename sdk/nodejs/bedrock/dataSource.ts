@@ -133,7 +133,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["vectorIngestionConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["knowledgeBaseId", "vectorIngestionConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["dataSourceConfiguration.type", "knowledgeBaseId", "vectorIngestionConfiguration.chunkingConfiguration", "vectorIngestionConfiguration.parsingConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }

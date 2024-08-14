@@ -22,6 +22,8 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         public readonly ImmutableArray<string> EnabledStandardIdentifiers;
         /// <summary>
         /// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+        /// 
+        /// This property is required only if `ServiceEnabled` is set to true in your configuration policy.
         /// </summary>
         public readonly Outputs.ConfigurationPolicySecurityControlsConfiguration? SecurityControlsConfiguration;
         /// <summary>

@@ -158,6 +158,7 @@ class CoreNetwork(pulumi.CustomResource):
             __props__.__dict__["core_network_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edges"] = None
+            __props__.__dict__["network_function_groups"] = None
             __props__.__dict__["owner_account"] = None
             __props__.__dict__["segments"] = None
             __props__.__dict__["state"] = None
@@ -191,6 +192,7 @@ class CoreNetwork(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["edges"] = None
         __props__.__dict__["global_network_id"] = None
+        __props__.__dict__["network_function_groups"] = None
         __props__.__dict__["owner_account"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["segments"] = None
@@ -245,6 +247,14 @@ class CoreNetwork(pulumi.CustomResource):
         The ID of the global network that your core network is a part of.
         """
         return pulumi.get(self, "global_network_id")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroups")
+    def network_function_groups(self) -> pulumi.Output[Sequence['outputs.CoreNetworkNetworkFunctionGroup']]:
+        """
+        The network function groups within a core network.
+        """
+        return pulumi.get(self, "network_function_groups")
 
     @property
     @pulumi.getter(name="ownerAccount")

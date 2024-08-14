@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.Ec2
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection.
+        /// 
+        /// Default: `false`
+        /// </summary>
         [Output("enableAcceleration")]
         public Output<bool?> EnableAcceleration { get; private set; } = null!;
 
@@ -133,6 +138,11 @@ namespace Pulumi.AwsNative.Ec2
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection.
+        /// 
+        /// Default: `false`
+        /// </summary>
         [Input("enableAcceleration")]
         public Input<bool>? EnableAcceleration { get; set; }
 

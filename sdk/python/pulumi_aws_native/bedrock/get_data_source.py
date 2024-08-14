@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, created_at=None, data_deletion_policy=None, data_source_configuration=None, data_source_id=None, data_source_status=None, description=None, failure_reasons=None, name=None, server_side_encryption_configuration=None, updated_at=None):
+    def __init__(__self__, created_at=None, data_deletion_policy=None, data_source_configuration=None, data_source_id=None, data_source_status=None, description=None, failure_reasons=None, name=None, server_side_encryption_configuration=None, updated_at=None, vector_ingestion_configuration=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -51,6 +51,9 @@ class GetDataSourceResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if vector_ingestion_configuration and not isinstance(vector_ingestion_configuration, dict):
+            raise TypeError("Expected argument 'vector_ingestion_configuration' to be a dict")
+        pulumi.set(__self__, "vector_ingestion_configuration", vector_ingestion_configuration)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -135,6 +138,14 @@ class GetDataSourceResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="vectorIngestionConfiguration")
+    def vector_ingestion_configuration(self) -> Optional['outputs.DataSourceVectorIngestionConfiguration']:
+        """
+        Contains details about how to ingest the documents in the data source.
+        """
+        return pulumi.get(self, "vector_ingestion_configuration")
+
 
 class AwaitableGetDataSourceResult(GetDataSourceResult):
     # pylint: disable=using-constant-test
@@ -151,7 +162,8 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             failure_reasons=self.failure_reasons,
             name=self.name,
             server_side_encryption_configuration=self.server_side_encryption_configuration,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            vector_ingestion_configuration=self.vector_ingestion_configuration)
 
 
 def get_data_source(data_source_id: Optional[str] = None,
@@ -180,7 +192,8 @@ def get_data_source(data_source_id: Optional[str] = None,
         failure_reasons=pulumi.get(__ret__, 'failure_reasons'),
         name=pulumi.get(__ret__, 'name'),
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
-        updated_at=pulumi.get(__ret__, 'updated_at'))
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
 
 
 @_utilities.lift_output_func(get_data_source)

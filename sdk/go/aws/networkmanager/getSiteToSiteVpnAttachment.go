@@ -41,8 +41,12 @@ type LookupSiteToSiteVpnAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *SiteToSiteVpnAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -123,9 +127,21 @@ func (o LookupSiteToSiteVpnAttachmentResultOutput) EdgeLocation() pulumi.StringP
 	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
+// The name of the network function group attachment.
+func (o LookupSiteToSiteVpnAttachmentResultOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *string { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Owner account of the attachment.
 func (o LookupSiteToSiteVpnAttachmentResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o LookupSiteToSiteVpnAttachmentResultOutput) ProposedNetworkFunctionGroupChange() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

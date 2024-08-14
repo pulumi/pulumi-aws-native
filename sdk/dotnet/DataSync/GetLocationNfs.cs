@@ -70,9 +70,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly Outputs.LocationNfsMountOptions? MountOptions;
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
         /// 
-        /// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+        /// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         /// </summary>
         public readonly Outputs.LocationNfsOnPremConfig? OnPremConfig;
         /// <summary>

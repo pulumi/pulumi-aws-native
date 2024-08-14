@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
+        /// The network function groups within a core network.
+        /// </summary>
+        [Output("networkFunctionGroups")]
+        public Output<ImmutableArray<Outputs.CoreNetworkNetworkFunctionGroup>> NetworkFunctionGroups { get; private set; } = null!;
+
+        /// <summary>
         /// Owner of the core network
         /// </summary>
         [Output("ownerAccount")]

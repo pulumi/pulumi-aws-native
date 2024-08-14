@@ -389,13 +389,9 @@ func (o CapacityReservationFleetTagSpecificationArrayOutput) Index(i pulumi.IntI
 }
 
 type CapacityReservationTag struct {
-	// The key of the tag.
-	//
-	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	// The tag key.
 	Key string `pulumi:"key"`
-	// The value of the tag.
-	//
-	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -411,13 +407,9 @@ type CapacityReservationTagInput interface {
 }
 
 type CapacityReservationTagArgs struct {
-	// The key of the tag.
-	//
-	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	// The tag key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the tag.
-	//
-	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -472,16 +464,12 @@ func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(
 	return o
 }
 
-// The key of the tag.
-//
-// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+// The tag key.
 func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the tag.
-//
-// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+// The tag value.
 func (o CapacityReservationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationTag) string { return v.Value }).(pulumi.StringOutput)
 }

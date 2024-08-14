@@ -50,7 +50,7 @@ export interface GetHostedZoneResult {
      * Adds, edits, or deletes tags for a health check or a hosted zone.
      *  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
      */
-    readonly hostedZoneTags?: outputs.route53.HostedZoneTag[];
+    readonly hostedZoneTags?: outputs.Tag[];
     /**
      * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
      */

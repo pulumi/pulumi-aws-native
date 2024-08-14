@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Output("networkFunctionGroupName")]
+        public Output<string?> NetworkFunctionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Protocol options for connect attachment
         /// </summary>
         [Output("options")]
@@ -68,6 +74,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Output("proposedNetworkFunctionGroupChange")]
+        public Output<Outputs.ConnectAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
@@ -176,10 +188,22 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<string> EdgeLocation { get; set; } = null!;
 
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Input("networkFunctionGroupName")]
+        public Input<string>? NetworkFunctionGroupName { get; set; }
+
+        /// <summary>
         /// Protocol options for connect attachment
         /// </summary>
         [Input("options", required: true)]
         public Input<Inputs.ConnectAttachmentOptionsArgs> Options { get; set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Input("proposedNetworkFunctionGroupChange")]
+        public Input<Inputs.ConnectAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
 
         /// <summary>
         /// The attachment to move from one segment to another.

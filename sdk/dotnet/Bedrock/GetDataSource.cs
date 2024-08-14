@@ -112,6 +112,10 @@ namespace Pulumi.AwsNative.Bedrock
         /// The time at which the knowledge base was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
+        /// <summary>
+        /// Contains details about how to ingest the documents in the data source.
+        /// </summary>
+        public readonly Outputs.DataSourceVectorIngestionConfiguration? VectorIngestionConfiguration;
 
         [OutputConstructor]
         private GetDataSourceResult(
@@ -133,7 +137,9 @@ namespace Pulumi.AwsNative.Bedrock
 
             Outputs.DataSourceServerSideEncryptionConfiguration? serverSideEncryptionConfiguration,
 
-            string? updatedAt)
+            string? updatedAt,
+
+            Outputs.DataSourceVectorIngestionConfiguration? vectorIngestionConfiguration)
         {
             CreatedAt = createdAt;
             DataDeletionPolicy = dataDeletionPolicy;
@@ -145,6 +151,7 @@ namespace Pulumi.AwsNative.Bedrock
             Name = name;
             ServerSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             UpdatedAt = updatedAt;
+            VectorIngestionConfiguration = vectorIngestionConfiguration;
         }
     }
 }

@@ -43,8 +43,12 @@ type LookupTransitGatewayRouteTableAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *TransitGatewayRouteTableAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
@@ -130,9 +134,21 @@ func (o LookupTransitGatewayRouteTableAttachmentResultOutput) EdgeLocation() pul
 	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
+// The name of the network function group attachment.
+func (o LookupTransitGatewayRouteTableAttachmentResultOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) *string { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Owner account of the attachment.
 func (o LookupTransitGatewayRouteTableAttachmentResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o LookupTransitGatewayRouteTableAttachmentResultOutput) ProposedNetworkFunctionGroupChange() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

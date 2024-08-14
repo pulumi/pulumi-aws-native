@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayRouteTableAttachmentResult:
-    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, core_network_id=None, created_at=None, edge_location=None, owner_account_id=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
+    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, core_network_id=None, created_at=None, edge_location=None, network_function_group_name=None, owner_account_id=None, proposed_network_function_group_change=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
         if attachment_id and not isinstance(attachment_id, str):
             raise TypeError("Expected argument 'attachment_id' to be a str")
         pulumi.set(__self__, "attachment_id", attachment_id)
@@ -42,9 +42,15 @@ class GetTransitGatewayRouteTableAttachmentResult:
         if edge_location and not isinstance(edge_location, str):
             raise TypeError("Expected argument 'edge_location' to be a str")
         pulumi.set(__self__, "edge_location", edge_location)
+        if network_function_group_name and not isinstance(network_function_group_name, str):
+            raise TypeError("Expected argument 'network_function_group_name' to be a str")
+        pulumi.set(__self__, "network_function_group_name", network_function_group_name)
         if owner_account_id and not isinstance(owner_account_id, str):
             raise TypeError("Expected argument 'owner_account_id' to be a str")
         pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if proposed_network_function_group_change and not isinstance(proposed_network_function_group_change, dict):
+            raise TypeError("Expected argument 'proposed_network_function_group_change' to be a dict")
+        pulumi.set(__self__, "proposed_network_function_group_change", proposed_network_function_group_change)
         if proposed_segment_change and not isinstance(proposed_segment_change, dict):
             raise TypeError("Expected argument 'proposed_segment_change' to be a dict")
         pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
@@ -121,12 +127,28 @@ class GetTransitGatewayRouteTableAttachmentResult:
         return pulumi.get(self, "edge_location")
 
     @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group attachment.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[str]:
         """
         Owner account of the attachment.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter(name="proposedNetworkFunctionGroupChange")
+    def proposed_network_function_group_change(self) -> Optional['outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange']:
+        """
+        The attachment to move from one network function group to another.
+        """
+        return pulumi.get(self, "proposed_network_function_group_change")
 
     @property
     @pulumi.getter(name="proposedSegmentChange")
@@ -190,7 +212,9 @@ class AwaitableGetTransitGatewayRouteTableAttachmentResult(GetTransitGatewayRout
             core_network_id=self.core_network_id,
             created_at=self.created_at,
             edge_location=self.edge_location,
+            network_function_group_name=self.network_function_group_name,
             owner_account_id=self.owner_account_id,
+            proposed_network_function_group_change=self.proposed_network_function_group_change,
             proposed_segment_change=self.proposed_segment_change,
             resource_arn=self.resource_arn,
             segment_name=self.segment_name,
@@ -220,7 +244,9 @@ def get_transit_gateway_route_table_attachment(attachment_id: Optional[str] = No
         core_network_id=pulumi.get(__ret__, 'core_network_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
         edge_location=pulumi.get(__ret__, 'edge_location'),
+        network_function_group_name=pulumi.get(__ret__, 'network_function_group_name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        proposed_network_function_group_change=pulumi.get(__ret__, 'proposed_network_function_group_change'),
         proposed_segment_change=pulumi.get(__ret__, 'proposed_segment_change'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         segment_name=pulumi.get(__ret__, 'segment_name'),

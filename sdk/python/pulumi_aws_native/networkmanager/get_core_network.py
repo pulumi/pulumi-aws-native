@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCoreNetworkResult:
-    def __init__(__self__, core_network_arn=None, core_network_id=None, created_at=None, description=None, edges=None, owner_account=None, policy_document=None, segments=None, state=None, tags=None):
+    def __init__(__self__, core_network_arn=None, core_network_id=None, created_at=None, description=None, edges=None, network_function_groups=None, owner_account=None, policy_document=None, segments=None, state=None, tags=None):
         if core_network_arn and not isinstance(core_network_arn, str):
             raise TypeError("Expected argument 'core_network_arn' to be a str")
         pulumi.set(__self__, "core_network_arn", core_network_arn)
@@ -36,6 +36,9 @@ class GetCoreNetworkResult:
         if edges and not isinstance(edges, list):
             raise TypeError("Expected argument 'edges' to be a list")
         pulumi.set(__self__, "edges", edges)
+        if network_function_groups and not isinstance(network_function_groups, list):
+            raise TypeError("Expected argument 'network_function_groups' to be a list")
+        pulumi.set(__self__, "network_function_groups", network_function_groups)
         if owner_account and not isinstance(owner_account, str):
             raise TypeError("Expected argument 'owner_account' to be a str")
         pulumi.set(__self__, "owner_account", owner_account)
@@ -93,6 +96,14 @@ class GetCoreNetworkResult:
         return pulumi.get(self, "edges")
 
     @property
+    @pulumi.getter(name="networkFunctionGroups")
+    def network_function_groups(self) -> Optional[Sequence['outputs.CoreNetworkNetworkFunctionGroup']]:
+        """
+        The network function groups within a core network.
+        """
+        return pulumi.get(self, "network_function_groups")
+
+    @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[str]:
         """
@@ -146,6 +157,7 @@ class AwaitableGetCoreNetworkResult(GetCoreNetworkResult):
             created_at=self.created_at,
             description=self.description,
             edges=self.edges,
+            network_function_groups=self.network_function_groups,
             owner_account=self.owner_account,
             policy_document=self.policy_document,
             segments=self.segments,
@@ -172,6 +184,7 @@ def get_core_network(core_network_id: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         edges=pulumi.get(__ret__, 'edges'),
+        network_function_groups=pulumi.get(__ret__, 'network_function_groups'),
         owner_account=pulumi.get(__ret__, 'owner_account'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         segments=pulumi.get(__ret__, 'segments'),

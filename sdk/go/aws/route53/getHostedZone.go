@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupHostedZoneResult struct {
 	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-	HostedZoneTags []HostedZoneTag `pulumi:"hostedZoneTags"`
+	HostedZoneTags []aws.Tag `pulumi:"hostedZoneTags"`
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 	Id *string `pulumi:"id"`
 	// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
@@ -116,8 +117,8 @@ func (o LookupHostedZoneResultOutput) HostedZoneConfig() HostedZoneConfigPtrOutp
 // Adds, edits, or deletes tags for a health check or a hosted zone.
 //
 //	For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
-func (o LookupHostedZoneResultOutput) HostedZoneTags() HostedZoneTagArrayOutput {
-	return o.ApplyT(func(v LookupHostedZoneResult) []HostedZoneTag { return v.HostedZoneTags }).(HostedZoneTagArrayOutput)
+func (o LookupHostedZoneResultOutput) HostedZoneTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupHostedZoneResult) []aws.Tag { return v.HostedZoneTags }).(aws.TagArrayOutput)
 }
 
 // The ID that Amazon Route 53 assigned to the hosted zone when you created it.

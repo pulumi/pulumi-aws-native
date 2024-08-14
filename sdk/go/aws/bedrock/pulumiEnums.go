@@ -1539,8 +1539,10 @@ func (in *agentTypePtr) ToAgentTypePtrOutputWithContext(ctx context.Context) Age
 type DataSourceChunkingStrategy string
 
 const (
-	DataSourceChunkingStrategyFixedSize = DataSourceChunkingStrategy("FIXED_SIZE")
-	DataSourceChunkingStrategyNone      = DataSourceChunkingStrategy("NONE")
+	DataSourceChunkingStrategyFixedSize    = DataSourceChunkingStrategy("FIXED_SIZE")
+	DataSourceChunkingStrategyNone         = DataSourceChunkingStrategy("NONE")
+	DataSourceChunkingStrategyHierarchical = DataSourceChunkingStrategy("HIERARCHICAL")
+	DataSourceChunkingStrategySemantic     = DataSourceChunkingStrategy("SEMANTIC")
 )
 
 func (DataSourceChunkingStrategy) ElementType() reflect.Type {
@@ -1667,6 +1669,8 @@ func (o DataSourceChunkingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx co
 //
 //	DataSourceChunkingStrategyFixedSize
 //	DataSourceChunkingStrategyNone
+//	DataSourceChunkingStrategyHierarchical
+//	DataSourceChunkingStrategySemantic
 type DataSourceChunkingStrategyInput interface {
 	pulumi.Input
 
@@ -1699,6 +1703,500 @@ func (in *dataSourceChunkingStrategyPtr) ToDataSourceChunkingStrategyPtrOutput()
 
 func (in *dataSourceChunkingStrategyPtr) ToDataSourceChunkingStrategyPtrOutputWithContext(ctx context.Context) DataSourceChunkingStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceChunkingStrategyPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Confluence instance.
+type DataSourceConfluenceSourceConfigurationAuthType string
+
+const (
+	DataSourceConfluenceSourceConfigurationAuthTypeBasic                   = DataSourceConfluenceSourceConfigurationAuthType("BASIC")
+	DataSourceConfluenceSourceConfigurationAuthTypeOauth2ClientCredentials = DataSourceConfluenceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS")
+)
+
+func (DataSourceConfluenceSourceConfigurationAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToDataSourceConfluenceSourceConfigurationAuthTypeOutput() DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceConfluenceSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToDataSourceConfluenceSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceConfluenceSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutput() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return e.ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return DataSourceConfluenceSourceConfigurationAuthType(e).ToDataSourceConfluenceSourceConfigurationAuthTypeOutputWithContext(ctx).ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConfluenceSourceConfigurationAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceConfluenceSourceConfigurationAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToDataSourceConfluenceSourceConfigurationAuthTypeOutput() DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToDataSourceConfluenceSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutput() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return o.ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceSourceConfigurationAuthType) *DataSourceConfluenceSourceConfigurationAuthType {
+		return &v
+	}).(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConfluenceSourceConfigurationAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConfluenceSourceConfigurationAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfluenceSourceConfigurationAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutput() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) Elem() DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfigurationAuthType) DataSourceConfluenceSourceConfigurationAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfluenceSourceConfigurationAuthType
+		return ret
+	}).(DataSourceConfluenceSourceConfigurationAuthTypeOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceConfluenceSourceConfigurationAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceConfluenceSourceConfigurationAuthTypeInput is an input type that accepts values of the DataSourceConfluenceSourceConfigurationAuthType enum
+// A concrete instance of `DataSourceConfluenceSourceConfigurationAuthTypeInput` can be one of the following:
+//
+//	DataSourceConfluenceSourceConfigurationAuthTypeBasic
+//	DataSourceConfluenceSourceConfigurationAuthTypeOauth2ClientCredentials
+type DataSourceConfluenceSourceConfigurationAuthTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationAuthTypeOutput() DataSourceConfluenceSourceConfigurationAuthTypeOutput
+	ToDataSourceConfluenceSourceConfigurationAuthTypeOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationAuthTypeOutput
+}
+
+var dataSourceConfluenceSourceConfigurationAuthTypePtrType = reflect.TypeOf((**DataSourceConfluenceSourceConfigurationAuthType)(nil)).Elem()
+
+type DataSourceConfluenceSourceConfigurationAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutput() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput
+	ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationAuthTypePtrOutput
+}
+
+type dataSourceConfluenceSourceConfigurationAuthTypePtr string
+
+func DataSourceConfluenceSourceConfigurationAuthTypePtr(v string) DataSourceConfluenceSourceConfigurationAuthTypePtrInput {
+	return (*dataSourceConfluenceSourceConfigurationAuthTypePtr)(&v)
+}
+
+func (*dataSourceConfluenceSourceConfigurationAuthTypePtr) ElementType() reflect.Type {
+	return dataSourceConfluenceSourceConfigurationAuthTypePtrType
+}
+
+func (in *dataSourceConfluenceSourceConfigurationAuthTypePtr) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutput() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput)
+}
+
+func (in *dataSourceConfluenceSourceConfigurationAuthTypePtr) ToDataSourceConfluenceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+type DataSourceConfluenceSourceConfigurationHostType string
+
+const (
+	DataSourceConfluenceSourceConfigurationHostTypeSaas = DataSourceConfluenceSourceConfigurationHostType("SAAS")
+)
+
+func (DataSourceConfluenceSourceConfigurationHostType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToDataSourceConfluenceSourceConfigurationHostTypeOutput() DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceConfluenceSourceConfigurationHostTypeOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToDataSourceConfluenceSourceConfigurationHostTypeOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceConfluenceSourceConfigurationHostTypeOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutput() DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return e.ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return DataSourceConfluenceSourceConfigurationHostType(e).ToDataSourceConfluenceSourceConfigurationHostTypeOutputWithContext(ctx).ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConfluenceSourceConfigurationHostType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceConfluenceSourceConfigurationHostTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationHostTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToDataSourceConfluenceSourceConfigurationHostTypeOutput() DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToDataSourceConfluenceSourceConfigurationHostTypeOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutput() DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return o.ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceSourceConfigurationHostType) *DataSourceConfluenceSourceConfigurationHostType {
+		return &v
+	}).(DataSourceConfluenceSourceConfigurationHostTypePtrOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConfluenceSourceConfigurationHostType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConfluenceSourceConfigurationHostType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfluenceSourceConfigurationHostTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationHostTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypePtrOutput) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutput() DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypePtrOutput) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypePtrOutput) Elem() DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfigurationHostType) DataSourceConfluenceSourceConfigurationHostType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfluenceSourceConfigurationHostType
+		return ret
+	}).(DataSourceConfluenceSourceConfigurationHostTypeOutput)
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationHostTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceConfluenceSourceConfigurationHostType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceConfluenceSourceConfigurationHostTypeInput is an input type that accepts values of the DataSourceConfluenceSourceConfigurationHostType enum
+// A concrete instance of `DataSourceConfluenceSourceConfigurationHostTypeInput` can be one of the following:
+//
+//	DataSourceConfluenceSourceConfigurationHostTypeSaas
+type DataSourceConfluenceSourceConfigurationHostTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationHostTypeOutput() DataSourceConfluenceSourceConfigurationHostTypeOutput
+	ToDataSourceConfluenceSourceConfigurationHostTypeOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationHostTypeOutput
+}
+
+var dataSourceConfluenceSourceConfigurationHostTypePtrType = reflect.TypeOf((**DataSourceConfluenceSourceConfigurationHostType)(nil)).Elem()
+
+type DataSourceConfluenceSourceConfigurationHostTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationHostTypePtrOutput() DataSourceConfluenceSourceConfigurationHostTypePtrOutput
+	ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationHostTypePtrOutput
+}
+
+type dataSourceConfluenceSourceConfigurationHostTypePtr string
+
+func DataSourceConfluenceSourceConfigurationHostTypePtr(v string) DataSourceConfluenceSourceConfigurationHostTypePtrInput {
+	return (*dataSourceConfluenceSourceConfigurationHostTypePtr)(&v)
+}
+
+func (*dataSourceConfluenceSourceConfigurationHostTypePtr) ElementType() reflect.Type {
+	return dataSourceConfluenceSourceConfigurationHostTypePtrType
+}
+
+func (in *dataSourceConfluenceSourceConfigurationHostTypePtr) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutput() DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceConfluenceSourceConfigurationHostTypePtrOutput)
+}
+
+func (in *dataSourceConfluenceSourceConfigurationHostTypePtr) ToDataSourceConfluenceSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceSourceConfigurationHostTypePtrOutput)
+}
+
+// The crawl filter type.
+type DataSourceCrawlFilterConfigurationType string
+
+const (
+	DataSourceCrawlFilterConfigurationTypePattern = DataSourceCrawlFilterConfigurationType("PATTERN")
+)
+
+func (DataSourceCrawlFilterConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCrawlFilterConfigurationType)(nil)).Elem()
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToDataSourceCrawlFilterConfigurationTypeOutput() DataSourceCrawlFilterConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceCrawlFilterConfigurationTypeOutput)
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToDataSourceCrawlFilterConfigurationTypeOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceCrawlFilterConfigurationTypeOutput)
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToDataSourceCrawlFilterConfigurationTypePtrOutput() DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return e.ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return DataSourceCrawlFilterConfigurationType(e).ToDataSourceCrawlFilterConfigurationTypeOutputWithContext(ctx).ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceCrawlFilterConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceCrawlFilterConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCrawlFilterConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCrawlFilterConfigurationType)(nil)).Elem()
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToDataSourceCrawlFilterConfigurationTypeOutput() DataSourceCrawlFilterConfigurationTypeOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToDataSourceCrawlFilterConfigurationTypeOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypeOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToDataSourceCrawlFilterConfigurationTypePtrOutput() DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return o.ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCrawlFilterConfigurationType) *DataSourceCrawlFilterConfigurationType {
+		return &v
+	}).(DataSourceCrawlFilterConfigurationTypePtrOutput)
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceCrawlFilterConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCrawlFilterConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceCrawlFilterConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCrawlFilterConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCrawlFilterConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCrawlFilterConfigurationType)(nil)).Elem()
+}
+
+func (o DataSourceCrawlFilterConfigurationTypePtrOutput) ToDataSourceCrawlFilterConfigurationTypePtrOutput() DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationTypePtrOutput) ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationTypePtrOutput) Elem() DataSourceCrawlFilterConfigurationTypeOutput {
+	return o.ApplyT(func(v *DataSourceCrawlFilterConfigurationType) DataSourceCrawlFilterConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCrawlFilterConfigurationType
+		return ret
+	}).(DataSourceCrawlFilterConfigurationTypeOutput)
+}
+
+func (o DataSourceCrawlFilterConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCrawlFilterConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceCrawlFilterConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceCrawlFilterConfigurationTypeInput is an input type that accepts values of the DataSourceCrawlFilterConfigurationType enum
+// A concrete instance of `DataSourceCrawlFilterConfigurationTypeInput` can be one of the following:
+//
+//	DataSourceCrawlFilterConfigurationTypePattern
+type DataSourceCrawlFilterConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceCrawlFilterConfigurationTypeOutput() DataSourceCrawlFilterConfigurationTypeOutput
+	ToDataSourceCrawlFilterConfigurationTypeOutputWithContext(context.Context) DataSourceCrawlFilterConfigurationTypeOutput
+}
+
+var dataSourceCrawlFilterConfigurationTypePtrType = reflect.TypeOf((**DataSourceCrawlFilterConfigurationType)(nil)).Elem()
+
+type DataSourceCrawlFilterConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCrawlFilterConfigurationTypePtrOutput() DataSourceCrawlFilterConfigurationTypePtrOutput
+	ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(context.Context) DataSourceCrawlFilterConfigurationTypePtrOutput
+}
+
+type dataSourceCrawlFilterConfigurationTypePtr string
+
+func DataSourceCrawlFilterConfigurationTypePtr(v string) DataSourceCrawlFilterConfigurationTypePtrInput {
+	return (*dataSourceCrawlFilterConfigurationTypePtr)(&v)
+}
+
+func (*dataSourceCrawlFilterConfigurationTypePtr) ElementType() reflect.Type {
+	return dataSourceCrawlFilterConfigurationTypePtrType
+}
+
+func (in *dataSourceCrawlFilterConfigurationTypePtr) ToDataSourceCrawlFilterConfigurationTypePtrOutput() DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceCrawlFilterConfigurationTypePtrOutput)
+}
+
+func (in *dataSourceCrawlFilterConfigurationTypePtr) ToDataSourceCrawlFilterConfigurationTypePtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceCrawlFilterConfigurationTypePtrOutput)
 }
 
 // The deletion policy for the data source.
@@ -1867,6 +2365,662 @@ func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// The parsing strategy for the data source.
+type DataSourceParsingStrategy string
+
+const (
+	DataSourceParsingStrategyBedrockFoundationModel = DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL")
+)
+
+func (DataSourceParsingStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingStrategy)(nil)).Elem()
+}
+
+func (e DataSourceParsingStrategy) ToDataSourceParsingStrategyOutput() DataSourceParsingStrategyOutput {
+	return pulumi.ToOutput(e).(DataSourceParsingStrategyOutput)
+}
+
+func (e DataSourceParsingStrategy) ToDataSourceParsingStrategyOutputWithContext(ctx context.Context) DataSourceParsingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceParsingStrategyOutput)
+}
+
+func (e DataSourceParsingStrategy) ToDataSourceParsingStrategyPtrOutput() DataSourceParsingStrategyPtrOutput {
+	return e.ToDataSourceParsingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceParsingStrategy) ToDataSourceParsingStrategyPtrOutputWithContext(ctx context.Context) DataSourceParsingStrategyPtrOutput {
+	return DataSourceParsingStrategy(e).ToDataSourceParsingStrategyOutputWithContext(ctx).ToDataSourceParsingStrategyPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceParsingStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceParsingStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceParsingStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceParsingStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceParsingStrategyOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingStrategy)(nil)).Elem()
+}
+
+func (o DataSourceParsingStrategyOutput) ToDataSourceParsingStrategyOutput() DataSourceParsingStrategyOutput {
+	return o
+}
+
+func (o DataSourceParsingStrategyOutput) ToDataSourceParsingStrategyOutputWithContext(ctx context.Context) DataSourceParsingStrategyOutput {
+	return o
+}
+
+func (o DataSourceParsingStrategyOutput) ToDataSourceParsingStrategyPtrOutput() DataSourceParsingStrategyPtrOutput {
+	return o.ToDataSourceParsingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingStrategyOutput) ToDataSourceParsingStrategyPtrOutputWithContext(ctx context.Context) DataSourceParsingStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParsingStrategy) *DataSourceParsingStrategy {
+		return &v
+	}).(DataSourceParsingStrategyPtrOutput)
+}
+
+func (o DataSourceParsingStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceParsingStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceParsingStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceParsingStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceParsingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingStrategy)(nil)).Elem()
+}
+
+func (o DataSourceParsingStrategyPtrOutput) ToDataSourceParsingStrategyPtrOutput() DataSourceParsingStrategyPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingStrategyPtrOutput) ToDataSourceParsingStrategyPtrOutputWithContext(ctx context.Context) DataSourceParsingStrategyPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingStrategyPtrOutput) Elem() DataSourceParsingStrategyOutput {
+	return o.ApplyT(func(v *DataSourceParsingStrategy) DataSourceParsingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParsingStrategy
+		return ret
+	}).(DataSourceParsingStrategyOutput)
+}
+
+func (o DataSourceParsingStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceParsingStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceParsingStrategyInput is an input type that accepts values of the DataSourceParsingStrategy enum
+// A concrete instance of `DataSourceParsingStrategyInput` can be one of the following:
+//
+//	DataSourceParsingStrategyBedrockFoundationModel
+type DataSourceParsingStrategyInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingStrategyOutput() DataSourceParsingStrategyOutput
+	ToDataSourceParsingStrategyOutputWithContext(context.Context) DataSourceParsingStrategyOutput
+}
+
+var dataSourceParsingStrategyPtrType = reflect.TypeOf((**DataSourceParsingStrategy)(nil)).Elem()
+
+type DataSourceParsingStrategyPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingStrategyPtrOutput() DataSourceParsingStrategyPtrOutput
+	ToDataSourceParsingStrategyPtrOutputWithContext(context.Context) DataSourceParsingStrategyPtrOutput
+}
+
+type dataSourceParsingStrategyPtr string
+
+func DataSourceParsingStrategyPtr(v string) DataSourceParsingStrategyPtrInput {
+	return (*dataSourceParsingStrategyPtr)(&v)
+}
+
+func (*dataSourceParsingStrategyPtr) ElementType() reflect.Type {
+	return dataSourceParsingStrategyPtrType
+}
+
+func (in *dataSourceParsingStrategyPtr) ToDataSourceParsingStrategyPtrOutput() DataSourceParsingStrategyPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceParsingStrategyPtrOutput)
+}
+
+func (in *dataSourceParsingStrategyPtr) ToDataSourceParsingStrategyPtrOutputWithContext(ctx context.Context) DataSourceParsingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceParsingStrategyPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Salesforce instance.
+type DataSourceSalesforceSourceConfigurationAuthType string
+
+const (
+	DataSourceSalesforceSourceConfigurationAuthTypeOauth2ClientCredentials = DataSourceSalesforceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS")
+)
+
+func (DataSourceSalesforceSourceConfigurationAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToDataSourceSalesforceSourceConfigurationAuthTypeOutput() DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceSalesforceSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToDataSourceSalesforceSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceSalesforceSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutput() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return e.ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return DataSourceSalesforceSourceConfigurationAuthType(e).ToDataSourceSalesforceSourceConfigurationAuthTypeOutputWithContext(ctx).ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSalesforceSourceConfigurationAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceSalesforceSourceConfigurationAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceSourceConfigurationAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToDataSourceSalesforceSourceConfigurationAuthTypeOutput() DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToDataSourceSalesforceSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutput() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return o.ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceSourceConfigurationAuthType) *DataSourceSalesforceSourceConfigurationAuthType {
+		return &v
+	}).(DataSourceSalesforceSourceConfigurationAuthTypePtrOutput)
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSalesforceSourceConfigurationAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSalesforceSourceConfigurationAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceSalesforceSourceConfigurationAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutput() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) Elem() DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceSourceConfigurationAuthType) DataSourceSalesforceSourceConfigurationAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSalesforceSourceConfigurationAuthType
+		return ret
+	}).(DataSourceSalesforceSourceConfigurationAuthTypeOutput)
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceSourceConfigurationAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceSalesforceSourceConfigurationAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceSalesforceSourceConfigurationAuthTypeInput is an input type that accepts values of the DataSourceSalesforceSourceConfigurationAuthType enum
+// A concrete instance of `DataSourceSalesforceSourceConfigurationAuthTypeInput` can be one of the following:
+//
+//	DataSourceSalesforceSourceConfigurationAuthTypeOauth2ClientCredentials
+type DataSourceSalesforceSourceConfigurationAuthTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceSourceConfigurationAuthTypeOutput() DataSourceSalesforceSourceConfigurationAuthTypeOutput
+	ToDataSourceSalesforceSourceConfigurationAuthTypeOutputWithContext(context.Context) DataSourceSalesforceSourceConfigurationAuthTypeOutput
+}
+
+var dataSourceSalesforceSourceConfigurationAuthTypePtrType = reflect.TypeOf((**DataSourceSalesforceSourceConfigurationAuthType)(nil)).Elem()
+
+type DataSourceSalesforceSourceConfigurationAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutput() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput
+	ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(context.Context) DataSourceSalesforceSourceConfigurationAuthTypePtrOutput
+}
+
+type dataSourceSalesforceSourceConfigurationAuthTypePtr string
+
+func DataSourceSalesforceSourceConfigurationAuthTypePtr(v string) DataSourceSalesforceSourceConfigurationAuthTypePtrInput {
+	return (*dataSourceSalesforceSourceConfigurationAuthTypePtr)(&v)
+}
+
+func (*dataSourceSalesforceSourceConfigurationAuthTypePtr) ElementType() reflect.Type {
+	return dataSourceSalesforceSourceConfigurationAuthTypePtrType
+}
+
+func (in *dataSourceSalesforceSourceConfigurationAuthTypePtr) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutput() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceSalesforceSourceConfigurationAuthTypePtrOutput)
+}
+
+func (in *dataSourceSalesforceSourceConfigurationAuthTypePtr) ToDataSourceSalesforceSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSalesforceSourceConfigurationAuthTypePtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+type DataSourceSharePointSourceConfigurationAuthType string
+
+const (
+	DataSourceSharePointSourceConfigurationAuthTypeOauth2ClientCredentials = DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS")
+)
+
+func (DataSourceSharePointSourceConfigurationAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToDataSourceSharePointSourceConfigurationAuthTypeOutput() DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceSharePointSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToDataSourceSharePointSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceSharePointSourceConfigurationAuthTypeOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutput() DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return e.ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return DataSourceSharePointSourceConfigurationAuthType(e).ToDataSourceSharePointSourceConfigurationAuthTypeOutputWithContext(ctx).ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSharePointSourceConfigurationAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceSharePointSourceConfigurationAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToDataSourceSharePointSourceConfigurationAuthTypeOutput() DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToDataSourceSharePointSourceConfigurationAuthTypeOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutput() DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return o.ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSharePointSourceConfigurationAuthType) *DataSourceSharePointSourceConfigurationAuthType {
+		return &v
+	}).(DataSourceSharePointSourceConfigurationAuthTypePtrOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSharePointSourceConfigurationAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSharePointSourceConfigurationAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceSharePointSourceConfigurationAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointSourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutput() DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) Elem() DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfigurationAuthType) DataSourceSharePointSourceConfigurationAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSharePointSourceConfigurationAuthType
+		return ret
+	}).(DataSourceSharePointSourceConfigurationAuthTypeOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceSharePointSourceConfigurationAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceSharePointSourceConfigurationAuthTypeInput is an input type that accepts values of the DataSourceSharePointSourceConfigurationAuthType enum
+// A concrete instance of `DataSourceSharePointSourceConfigurationAuthTypeInput` can be one of the following:
+//
+//	DataSourceSharePointSourceConfigurationAuthTypeOauth2ClientCredentials
+type DataSourceSharePointSourceConfigurationAuthTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationAuthTypeOutput() DataSourceSharePointSourceConfigurationAuthTypeOutput
+	ToDataSourceSharePointSourceConfigurationAuthTypeOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationAuthTypeOutput
+}
+
+var dataSourceSharePointSourceConfigurationAuthTypePtrType = reflect.TypeOf((**DataSourceSharePointSourceConfigurationAuthType)(nil)).Elem()
+
+type DataSourceSharePointSourceConfigurationAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationAuthTypePtrOutput() DataSourceSharePointSourceConfigurationAuthTypePtrOutput
+	ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationAuthTypePtrOutput
+}
+
+type dataSourceSharePointSourceConfigurationAuthTypePtr string
+
+func DataSourceSharePointSourceConfigurationAuthTypePtr(v string) DataSourceSharePointSourceConfigurationAuthTypePtrInput {
+	return (*dataSourceSharePointSourceConfigurationAuthTypePtr)(&v)
+}
+
+func (*dataSourceSharePointSourceConfigurationAuthTypePtr) ElementType() reflect.Type {
+	return dataSourceSharePointSourceConfigurationAuthTypePtrType
+}
+
+func (in *dataSourceSharePointSourceConfigurationAuthTypePtr) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutput() DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceSharePointSourceConfigurationAuthTypePtrOutput)
+}
+
+func (in *dataSourceSharePointSourceConfigurationAuthTypePtr) ToDataSourceSharePointSourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSharePointSourceConfigurationAuthTypePtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+type DataSourceSharePointSourceConfigurationHostType string
+
+const (
+	DataSourceSharePointSourceConfigurationHostTypeOnline = DataSourceSharePointSourceConfigurationHostType("ONLINE")
+)
+
+func (DataSourceSharePointSourceConfigurationHostType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToDataSourceSharePointSourceConfigurationHostTypeOutput() DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceSharePointSourceConfigurationHostTypeOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToDataSourceSharePointSourceConfigurationHostTypeOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceSharePointSourceConfigurationHostTypeOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToDataSourceSharePointSourceConfigurationHostTypePtrOutput() DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return e.ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return DataSourceSharePointSourceConfigurationHostType(e).ToDataSourceSharePointSourceConfigurationHostTypeOutputWithContext(ctx).ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceSharePointSourceConfigurationHostType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceSharePointSourceConfigurationHostTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationHostTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToDataSourceSharePointSourceConfigurationHostTypeOutput() DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToDataSourceSharePointSourceConfigurationHostTypeOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToDataSourceSharePointSourceConfigurationHostTypePtrOutput() DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return o.ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSharePointSourceConfigurationHostType) *DataSourceSharePointSourceConfigurationHostType {
+		return &v
+	}).(DataSourceSharePointSourceConfigurationHostTypePtrOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSharePointSourceConfigurationHostType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceSharePointSourceConfigurationHostType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceSharePointSourceConfigurationHostTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationHostTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointSourceConfigurationHostType)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypePtrOutput) ToDataSourceSharePointSourceConfigurationHostTypePtrOutput() DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypePtrOutput) ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypePtrOutput) Elem() DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfigurationHostType) DataSourceSharePointSourceConfigurationHostType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSharePointSourceConfigurationHostType
+		return ret
+	}).(DataSourceSharePointSourceConfigurationHostTypeOutput)
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationHostTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceSharePointSourceConfigurationHostType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceSharePointSourceConfigurationHostTypeInput is an input type that accepts values of the DataSourceSharePointSourceConfigurationHostType enum
+// A concrete instance of `DataSourceSharePointSourceConfigurationHostTypeInput` can be one of the following:
+//
+//	DataSourceSharePointSourceConfigurationHostTypeOnline
+type DataSourceSharePointSourceConfigurationHostTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationHostTypeOutput() DataSourceSharePointSourceConfigurationHostTypeOutput
+	ToDataSourceSharePointSourceConfigurationHostTypeOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationHostTypeOutput
+}
+
+var dataSourceSharePointSourceConfigurationHostTypePtrType = reflect.TypeOf((**DataSourceSharePointSourceConfigurationHostType)(nil)).Elem()
+
+type DataSourceSharePointSourceConfigurationHostTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationHostTypePtrOutput() DataSourceSharePointSourceConfigurationHostTypePtrOutput
+	ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationHostTypePtrOutput
+}
+
+type dataSourceSharePointSourceConfigurationHostTypePtr string
+
+func DataSourceSharePointSourceConfigurationHostTypePtr(v string) DataSourceSharePointSourceConfigurationHostTypePtrInput {
+	return (*dataSourceSharePointSourceConfigurationHostTypePtr)(&v)
+}
+
+func (*dataSourceSharePointSourceConfigurationHostTypePtr) ElementType() reflect.Type {
+	return dataSourceSharePointSourceConfigurationHostTypePtrType
+}
+
+func (in *dataSourceSharePointSourceConfigurationHostTypePtr) ToDataSourceSharePointSourceConfigurationHostTypePtrOutput() DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceSharePointSourceConfigurationHostTypePtrOutput)
+}
+
+func (in *dataSourceSharePointSourceConfigurationHostTypePtr) ToDataSourceSharePointSourceConfigurationHostTypePtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSharePointSourceConfigurationHostTypePtrOutput)
+}
+
 // The status of a data source.
 type DataSourceStatus string
 
@@ -1959,11 +3113,179 @@ func (o DataSourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// When the service applies the transformation.
+type DataSourceTransformationStepToApply string
+
+const (
+	DataSourceTransformationStepToApplyPostChunking = DataSourceTransformationStepToApply("POST_CHUNKING")
+)
+
+func (DataSourceTransformationStepToApply) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationStepToApply)(nil)).Elem()
+}
+
+func (e DataSourceTransformationStepToApply) ToDataSourceTransformationStepToApplyOutput() DataSourceTransformationStepToApplyOutput {
+	return pulumi.ToOutput(e).(DataSourceTransformationStepToApplyOutput)
+}
+
+func (e DataSourceTransformationStepToApply) ToDataSourceTransformationStepToApplyOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceTransformationStepToApplyOutput)
+}
+
+func (e DataSourceTransformationStepToApply) ToDataSourceTransformationStepToApplyPtrOutput() DataSourceTransformationStepToApplyPtrOutput {
+	return e.ToDataSourceTransformationStepToApplyPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceTransformationStepToApply) ToDataSourceTransformationStepToApplyPtrOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyPtrOutput {
+	return DataSourceTransformationStepToApply(e).ToDataSourceTransformationStepToApplyOutputWithContext(ctx).ToDataSourceTransformationStepToApplyPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceTransformationStepToApply) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceTransformationStepToApply) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceTransformationStepToApply) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceTransformationStepToApply) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceTransformationStepToApplyOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationStepToApplyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationStepToApply)(nil)).Elem()
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToDataSourceTransformationStepToApplyOutput() DataSourceTransformationStepToApplyOutput {
+	return o
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToDataSourceTransformationStepToApplyOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyOutput {
+	return o
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToDataSourceTransformationStepToApplyPtrOutput() DataSourceTransformationStepToApplyPtrOutput {
+	return o.ToDataSourceTransformationStepToApplyPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToDataSourceTransformationStepToApplyPtrOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceTransformationStepToApply) *DataSourceTransformationStepToApply {
+		return &v
+	}).(DataSourceTransformationStepToApplyPtrOutput)
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceTransformationStepToApply) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceTransformationStepToApplyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceTransformationStepToApply) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceTransformationStepToApplyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationStepToApplyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceTransformationStepToApply)(nil)).Elem()
+}
+
+func (o DataSourceTransformationStepToApplyPtrOutput) ToDataSourceTransformationStepToApplyPtrOutput() DataSourceTransformationStepToApplyPtrOutput {
+	return o
+}
+
+func (o DataSourceTransformationStepToApplyPtrOutput) ToDataSourceTransformationStepToApplyPtrOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyPtrOutput {
+	return o
+}
+
+func (o DataSourceTransformationStepToApplyPtrOutput) Elem() DataSourceTransformationStepToApplyOutput {
+	return o.ApplyT(func(v *DataSourceTransformationStepToApply) DataSourceTransformationStepToApply {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceTransformationStepToApply
+		return ret
+	}).(DataSourceTransformationStepToApplyOutput)
+}
+
+func (o DataSourceTransformationStepToApplyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceTransformationStepToApplyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceTransformationStepToApply) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceTransformationStepToApplyInput is an input type that accepts values of the DataSourceTransformationStepToApply enum
+// A concrete instance of `DataSourceTransformationStepToApplyInput` can be one of the following:
+//
+//	DataSourceTransformationStepToApplyPostChunking
+type DataSourceTransformationStepToApplyInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationStepToApplyOutput() DataSourceTransformationStepToApplyOutput
+	ToDataSourceTransformationStepToApplyOutputWithContext(context.Context) DataSourceTransformationStepToApplyOutput
+}
+
+var dataSourceTransformationStepToApplyPtrType = reflect.TypeOf((**DataSourceTransformationStepToApply)(nil)).Elem()
+
+type DataSourceTransformationStepToApplyPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationStepToApplyPtrOutput() DataSourceTransformationStepToApplyPtrOutput
+	ToDataSourceTransformationStepToApplyPtrOutputWithContext(context.Context) DataSourceTransformationStepToApplyPtrOutput
+}
+
+type dataSourceTransformationStepToApplyPtr string
+
+func DataSourceTransformationStepToApplyPtr(v string) DataSourceTransformationStepToApplyPtrInput {
+	return (*dataSourceTransformationStepToApplyPtr)(&v)
+}
+
+func (*dataSourceTransformationStepToApplyPtr) ElementType() reflect.Type {
+	return dataSourceTransformationStepToApplyPtrType
+}
+
+func (in *dataSourceTransformationStepToApplyPtr) ToDataSourceTransformationStepToApplyPtrOutput() DataSourceTransformationStepToApplyPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceTransformationStepToApplyPtrOutput)
+}
+
+func (in *dataSourceTransformationStepToApplyPtr) ToDataSourceTransformationStepToApplyPtrOutputWithContext(ctx context.Context) DataSourceTransformationStepToApplyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTransformationStepToApplyPtrOutput)
+}
+
 // The type of the data source location.
 type DataSourceType string
 
 const (
-	DataSourceTypeS3 = DataSourceType("S3")
+	DataSourceTypeS3         = DataSourceType("S3")
+	DataSourceTypeConfluence = DataSourceType("CONFLUENCE")
+	DataSourceTypeSalesforce = DataSourceType("SALESFORCE")
+	DataSourceTypeSharepoint = DataSourceType("SHAREPOINT")
+	DataSourceTypeWeb        = DataSourceType("WEB")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -2089,6 +3411,10 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // A concrete instance of `DataSourceTypeInput` can be one of the following:
 //
 //	DataSourceTypeS3
+//	DataSourceTypeConfluence
+//	DataSourceTypeSalesforce
+//	DataSourceTypeSharepoint
+//	DataSourceTypeWeb
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -2121,6 +3447,172 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
 
 func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
+}
+
+// The scope that a web crawl job will be restricted to.
+type DataSourceWebScopeType string
+
+const (
+	DataSourceWebScopeTypeHostOnly   = DataSourceWebScopeType("HOST_ONLY")
+	DataSourceWebScopeTypeSubdomains = DataSourceWebScopeType("SUBDOMAINS")
+)
+
+func (DataSourceWebScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebScopeType)(nil)).Elem()
+}
+
+func (e DataSourceWebScopeType) ToDataSourceWebScopeTypeOutput() DataSourceWebScopeTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceWebScopeTypeOutput)
+}
+
+func (e DataSourceWebScopeType) ToDataSourceWebScopeTypeOutputWithContext(ctx context.Context) DataSourceWebScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceWebScopeTypeOutput)
+}
+
+func (e DataSourceWebScopeType) ToDataSourceWebScopeTypePtrOutput() DataSourceWebScopeTypePtrOutput {
+	return e.ToDataSourceWebScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceWebScopeType) ToDataSourceWebScopeTypePtrOutputWithContext(ctx context.Context) DataSourceWebScopeTypePtrOutput {
+	return DataSourceWebScopeType(e).ToDataSourceWebScopeTypeOutputWithContext(ctx).ToDataSourceWebScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceWebScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceWebScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceWebScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceWebScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceWebScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebScopeType)(nil)).Elem()
+}
+
+func (o DataSourceWebScopeTypeOutput) ToDataSourceWebScopeTypeOutput() DataSourceWebScopeTypeOutput {
+	return o
+}
+
+func (o DataSourceWebScopeTypeOutput) ToDataSourceWebScopeTypeOutputWithContext(ctx context.Context) DataSourceWebScopeTypeOutput {
+	return o
+}
+
+func (o DataSourceWebScopeTypeOutput) ToDataSourceWebScopeTypePtrOutput() DataSourceWebScopeTypePtrOutput {
+	return o.ToDataSourceWebScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebScopeTypeOutput) ToDataSourceWebScopeTypePtrOutputWithContext(ctx context.Context) DataSourceWebScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebScopeType) *DataSourceWebScopeType {
+		return &v
+	}).(DataSourceWebScopeTypePtrOutput)
+}
+
+func (o DataSourceWebScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceWebScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceWebScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceWebScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceWebScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebScopeType)(nil)).Elem()
+}
+
+func (o DataSourceWebScopeTypePtrOutput) ToDataSourceWebScopeTypePtrOutput() DataSourceWebScopeTypePtrOutput {
+	return o
+}
+
+func (o DataSourceWebScopeTypePtrOutput) ToDataSourceWebScopeTypePtrOutputWithContext(ctx context.Context) DataSourceWebScopeTypePtrOutput {
+	return o
+}
+
+func (o DataSourceWebScopeTypePtrOutput) Elem() DataSourceWebScopeTypeOutput {
+	return o.ApplyT(func(v *DataSourceWebScopeType) DataSourceWebScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebScopeType
+		return ret
+	}).(DataSourceWebScopeTypeOutput)
+}
+
+func (o DataSourceWebScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceWebScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceWebScopeTypeInput is an input type that accepts values of the DataSourceWebScopeType enum
+// A concrete instance of `DataSourceWebScopeTypeInput` can be one of the following:
+//
+//	DataSourceWebScopeTypeHostOnly
+//	DataSourceWebScopeTypeSubdomains
+type DataSourceWebScopeTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceWebScopeTypeOutput() DataSourceWebScopeTypeOutput
+	ToDataSourceWebScopeTypeOutputWithContext(context.Context) DataSourceWebScopeTypeOutput
+}
+
+var dataSourceWebScopeTypePtrType = reflect.TypeOf((**DataSourceWebScopeType)(nil)).Elem()
+
+type DataSourceWebScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebScopeTypePtrOutput() DataSourceWebScopeTypePtrOutput
+	ToDataSourceWebScopeTypePtrOutputWithContext(context.Context) DataSourceWebScopeTypePtrOutput
+}
+
+type dataSourceWebScopeTypePtr string
+
+func DataSourceWebScopeTypePtr(v string) DataSourceWebScopeTypePtrInput {
+	return (*dataSourceWebScopeTypePtr)(&v)
+}
+
+func (*dataSourceWebScopeTypePtr) ElementType() reflect.Type {
+	return dataSourceWebScopeTypePtrType
+}
+
+func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutput() DataSourceWebScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceWebScopeTypePtrOutput)
+}
+
+func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutputWithContext(ctx context.Context) DataSourceWebScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceWebScopeTypePtrOutput)
 }
 
 // Connection type
@@ -5383,10 +6875,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypePtrInput)(nil)).Elem(), AgentType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyPtrInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthTypeInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationAuthType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthTypePtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationAuthType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostTypeInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationHostType("SAAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostTypePtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationHostType("SAAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypeInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypePtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingStrategyInput)(nil)).Elem(), DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingStrategyPtrInput)(nil)).Elem(), DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceSourceConfigurationAuthTypeInput)(nil)).Elem(), DataSourceSalesforceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceSourceConfigurationAuthTypePtrInput)(nil)).Elem(), DataSourceSalesforceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationAuthTypeInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationAuthTypePtrInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationHostTypeInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationHostType("ONLINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationHostTypePtrInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationHostType("ONLINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationStepToApplyInput)(nil)).Elem(), DataSourceTransformationStepToApply("POST_CHUNKING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationStepToApplyPtrInput)(nil)).Elem(), DataSourceTransformationStepToApply("POST_CHUNKING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypeInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypePtrInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypeInput)(nil)).Elem(), FlowConnectionType("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypePtrInput)(nil)).Elem(), FlowConnectionType("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypeInput)(nil)).Elem(), FlowNodeIoDataType("String"))
@@ -5437,12 +6947,30 @@ func init() {
 	pulumi.RegisterOutputType(AgentTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationAuthTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationHostTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationHostTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingStrategyOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceSourceConfigurationAuthTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceSourceConfigurationAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationAuthTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationHostTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationHostTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationStepToApplyOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationStepToApplyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebScopeTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceWebScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypeOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeIoDataTypeOutput{})

@@ -39,8 +39,12 @@ type LookupConnectAttachmentResult struct {
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// Creation time of the attachment.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The name of the network function group attachment.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// The ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The attachment to move from one network function group to another.
+	ProposedNetworkFunctionGroupChange *ConnectAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// The attachment resource ARN.
@@ -116,9 +120,21 @@ func (o LookupConnectAttachmentResultOutput) CreatedAt() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The name of the network function group attachment.
+func (o LookupConnectAttachmentResultOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.NetworkFunctionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the attachment account owner.
 func (o LookupConnectAttachmentResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The attachment to move from one network function group to another.
+func (o LookupConnectAttachmentResultOutput) ProposedNetworkFunctionGroupChange() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) *ConnectAttachmentProposedNetworkFunctionGroupChange {
+		return v.ProposedNetworkFunctionGroupChange
+	}).(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The attachment to move from one segment to another.

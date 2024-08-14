@@ -1502,7 +1502,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 
 type UserPoolAddOns struct {
 	AdvancedSecurityAdditionalFlows *UserPoolAdvancedSecurityAdditionalFlows `pulumi:"advancedSecurityAdditionalFlows"`
-	// The operating mode of advanced security features in your user pool.
+	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
 }
 
@@ -1519,7 +1519,7 @@ type UserPoolAddOnsInput interface {
 
 type UserPoolAddOnsArgs struct {
 	AdvancedSecurityAdditionalFlows UserPoolAdvancedSecurityAdditionalFlowsPtrInput `pulumi:"advancedSecurityAdditionalFlows"`
-	// The operating mode of advanced security features in your user pool.
+	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
 }
 
@@ -1606,7 +1606,7 @@ func (o UserPoolAddOnsOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvanced
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
-// The operating mode of advanced security features in your user pool.
+// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
 }
@@ -1644,7 +1644,7 @@ func (o UserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvan
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
-// The operating mode of advanced security features in your user pool.
+// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAddOns) *string {
 		if v == nil {
@@ -4009,7 +4009,10 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) MinValue() pulumi.StringPtr
 
 type UserPoolPasswordPolicy struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
-	MinimumLength       *int `pulumi:"minimumLength"`
+	MinimumLength *int `pulumi:"minimumLength"`
+	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+	//
+	// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
 	PasswordHistorySize *int `pulumi:"passwordHistorySize"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
@@ -4038,7 +4041,10 @@ type UserPoolPasswordPolicyInput interface {
 
 type UserPoolPasswordPolicyArgs struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
-	MinimumLength       pulumi.IntPtrInput `pulumi:"minimumLength"`
+	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
+	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+	//
+	// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
 	PasswordHistorySize pulumi.IntPtrInput `pulumi:"passwordHistorySize"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
@@ -4136,6 +4142,9 @@ func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.MinimumLength }).(pulumi.IntPtrOutput)
 }
 
+// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+//
+// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
 func (o UserPoolPasswordPolicyOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.PasswordHistorySize }).(pulumi.IntPtrOutput)
 }
@@ -4201,6 +4210,9 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+//
+// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
 func (o UserPoolPasswordPolicyPtrOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {

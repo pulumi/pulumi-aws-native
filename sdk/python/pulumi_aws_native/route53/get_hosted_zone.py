@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetHostedZoneResult',
@@ -50,7 +51,7 @@ class GetHostedZoneResult:
 
     @property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[Sequence['outputs.HostedZoneTag']]:
+    def hosted_zone_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
          For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.

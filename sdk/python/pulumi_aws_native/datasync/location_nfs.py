@@ -26,9 +26,9 @@ class LocationNfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNfs resource.
-        :param pulumi.Input['LocationNfsOnPremConfigArgs'] on_prem_config: Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        :param pulumi.Input['LocationNfsOnPremConfigArgs'] on_prem_config: Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
                
-               You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+               You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         :param pulumi.Input['LocationNfsMountOptionsArgs'] mount_options: Specifies the options that DataSync can use to mount your NFS file server.
         :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
@@ -48,9 +48,9 @@ class LocationNfsArgs:
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Input['LocationNfsOnPremConfigArgs']:
         """
-        Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 
-        You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+        You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         """
         return pulumi.get(self, "on_prem_config")
 
@@ -124,9 +124,9 @@ class LocationNfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']] mount_options: Specifies the options that DataSync can use to mount your NFS file server.
-        :param pulumi.Input[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']] on_prem_config: Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        :param pulumi.Input[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']] on_prem_config: Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
                
-               You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+               You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -239,9 +239,9 @@ class LocationNfs(pulumi.CustomResource):
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Output['outputs.LocationNfsOnPremConfig']:
         """
-        Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 
-        You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+        You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         """
         return pulumi.get(self, "on_prem_config")
 

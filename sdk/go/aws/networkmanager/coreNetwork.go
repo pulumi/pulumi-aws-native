@@ -29,6 +29,8 @@ type CoreNetwork struct {
 	Edges CoreNetworkEdgeArrayOutput `pulumi:"edges"`
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
+	// The network function groups within a core network.
+	NetworkFunctionGroups CoreNetworkNetworkFunctionGroupArrayOutput `pulumi:"networkFunctionGroups"`
 	// Owner of the core network
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
@@ -181,6 +183,11 @@ func (o CoreNetworkOutput) Edges() CoreNetworkEdgeArrayOutput {
 // The ID of the global network that your core network is a part of.
 func (o CoreNetworkOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The network function groups within a core network.
+func (o CoreNetworkOutput) NetworkFunctionGroups() CoreNetworkNetworkFunctionGroupArrayOutput {
+	return o.ApplyT(func(v *CoreNetwork) CoreNetworkNetworkFunctionGroupArrayOutput { return v.NetworkFunctionGroups }).(CoreNetworkNetworkFunctionGroupArrayOutput)
 }
 
 // Owner of the core network

@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        [Output("networkFunctionGroupName")]
+        public Output<string> NetworkFunctionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Vpc options of the attachment.
         /// </summary>
         [Output("options")]
@@ -68,6 +74,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Output("proposedNetworkFunctionGroupChange")]
+        public Output<Outputs.VpcAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
@@ -178,6 +190,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("options")]
         public Input<Inputs.VpcAttachmentVpcOptionsArgs>? Options { get; set; }
+
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        [Input("proposedNetworkFunctionGroupChange")]
+        public Input<Inputs.VpcAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
 
         /// <summary>
         /// The attachment to move from one segment to another.

@@ -16,23 +16,39 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceConfiguration
     {
+        public readonly Outputs.DataSourceConfluenceDataSourceConfiguration? ConfluenceConfiguration;
         /// <summary>
         /// The configuration information to connect to Amazon S3 as your data source.
         /// </summary>
-        public readonly Outputs.DataSourceS3DataSourceConfiguration S3Configuration;
+        public readonly Outputs.DataSourceS3DataSourceConfiguration? S3Configuration;
+        public readonly Outputs.DataSourceSalesforceDataSourceConfiguration? SalesforceConfiguration;
+        public readonly Outputs.DataSourceSharePointDataSourceConfiguration? SharePointConfiguration;
         /// <summary>
         /// The type of data source.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceType Type;
+        public readonly Outputs.DataSourceWebDataSourceConfiguration? WebConfiguration;
 
         [OutputConstructor]
         private DataSourceConfiguration(
-            Outputs.DataSourceS3DataSourceConfiguration s3Configuration,
+            Outputs.DataSourceConfluenceDataSourceConfiguration? confluenceConfiguration,
 
-            Pulumi.AwsNative.Bedrock.DataSourceType type)
+            Outputs.DataSourceS3DataSourceConfiguration? s3Configuration,
+
+            Outputs.DataSourceSalesforceDataSourceConfiguration? salesforceConfiguration,
+
+            Outputs.DataSourceSharePointDataSourceConfiguration? sharePointConfiguration,
+
+            Pulumi.AwsNative.Bedrock.DataSourceType type,
+
+            Outputs.DataSourceWebDataSourceConfiguration? webConfiguration)
         {
+            ConfluenceConfiguration = confluenceConfiguration;
             S3Configuration = s3Configuration;
+            SalesforceConfiguration = salesforceConfiguration;
+            SharePointConfiguration = sharePointConfiguration;
             Type = type;
+            WebConfiguration = webConfiguration;
         }
     }
 }

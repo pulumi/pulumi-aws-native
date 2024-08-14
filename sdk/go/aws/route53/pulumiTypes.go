@@ -1448,119 +1448,6 @@ type HostedZoneTag struct {
 	Value string `pulumi:"value"`
 }
 
-// HostedZoneTagInput is an input type that accepts HostedZoneTagArgs and HostedZoneTagOutput values.
-// You can construct a concrete instance of `HostedZoneTagInput` via:
-//
-//	HostedZoneTagArgs{...}
-type HostedZoneTagInput interface {
-	pulumi.Input
-
-	ToHostedZoneTagOutput() HostedZoneTagOutput
-	ToHostedZoneTagOutputWithContext(context.Context) HostedZoneTagOutput
-}
-
-// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-type HostedZoneTagArgs struct {
-	// The value of ``Key`` depends on the operation that you want to perform:
-	//   +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
-	//   +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
-	//   +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
-	//   +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of ``Value`` depends on the operation that you want to perform:
-	//   +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
-	//   +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (HostedZoneTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneTag)(nil)).Elem()
-}
-
-func (i HostedZoneTagArgs) ToHostedZoneTagOutput() HostedZoneTagOutput {
-	return i.ToHostedZoneTagOutputWithContext(context.Background())
-}
-
-func (i HostedZoneTagArgs) ToHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagOutput)
-}
-
-// HostedZoneTagArrayInput is an input type that accepts HostedZoneTagArray and HostedZoneTagArrayOutput values.
-// You can construct a concrete instance of `HostedZoneTagArrayInput` via:
-//
-//	HostedZoneTagArray{ HostedZoneTagArgs{...} }
-type HostedZoneTagArrayInput interface {
-	pulumi.Input
-
-	ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput
-	ToHostedZoneTagArrayOutputWithContext(context.Context) HostedZoneTagArrayOutput
-}
-
-type HostedZoneTagArray []HostedZoneTagInput
-
-func (HostedZoneTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneTag)(nil)).Elem()
-}
-
-func (i HostedZoneTagArray) ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput {
-	return i.ToHostedZoneTagArrayOutputWithContext(context.Background())
-}
-
-func (i HostedZoneTagArray) ToHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagArrayOutput)
-}
-
-// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-type HostedZoneTagOutput struct{ *pulumi.OutputState }
-
-func (HostedZoneTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneTag)(nil)).Elem()
-}
-
-func (o HostedZoneTagOutput) ToHostedZoneTagOutput() HostedZoneTagOutput {
-	return o
-}
-
-func (o HostedZoneTagOutput) ToHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneTagOutput {
-	return o
-}
-
-// The value of “Key“ depends on the operation that you want to perform:
-//   - *Add a tag to a health check or hosted zone*: “Key“ is the name that you want to give the new tag.
-//   - *Edit a tag*: “Key“ is the name of the tag that you want to change the “Value“ for.
-//   - *Delete a key*: “Key“ is the name of the tag you want to remove.
-//   - *Give a name to a health check*: Edit the default “Name“ tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
-func (o HostedZoneTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value of “Value“ depends on the operation that you want to perform:
-//   - *Add a tag to a health check or hosted zone*: “Value“ is the value that you want to give the new tag.
-//   - *Edit a tag*: “Value“ is the new value that you want to assign the tag.
-func (o HostedZoneTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type HostedZoneTagArrayOutput struct{ *pulumi.OutputState }
-
-func (HostedZoneTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneTag)(nil)).Elem()
-}
-
-func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput {
-	return o
-}
-
-func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneTagArrayOutput {
-	return o
-}
-
-func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneTag {
-		return vs[0].([]HostedZoneTag)[vs[1].(int)]
-	}).(HostedZoneTagOutput)
-}
-
 // *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 //
 //	For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
@@ -1696,8 +1583,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigPtrInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigPtrInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneTagInput)(nil)).Elem(), HostedZoneTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneTagArrayInput)(nil)).Elem(), HostedZoneTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcInput)(nil)).Elem(), HostedZoneVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcArrayInput)(nil)).Elem(), HostedZoneVpcArray{})
 	pulumi.RegisterOutputType(CidrCollectionLocationOutput{})
@@ -1712,8 +1597,6 @@ func init() {
 	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigPtrOutput{})
-	pulumi.RegisterOutputType(HostedZoneTagOutput{})
-	pulumi.RegisterOutputType(HostedZoneTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneVpcOutput{})
 	pulumi.RegisterOutputType(HostedZoneVpcArrayOutput{})
 }

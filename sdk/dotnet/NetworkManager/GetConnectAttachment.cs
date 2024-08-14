@@ -78,9 +78,17 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The name of the network function group attachment.
+        /// </summary>
+        public readonly string? NetworkFunctionGroupName;
+        /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
         public readonly string? OwnerAccountId;
+        /// <summary>
+        /// The attachment to move from one network function group to another.
+        /// </summary>
+        public readonly Outputs.ConnectAttachmentProposedNetworkFunctionGroupChange? ProposedNetworkFunctionGroupChange;
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
@@ -118,7 +126,11 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? createdAt,
 
+            string? networkFunctionGroupName,
+
             string? ownerAccountId,
+
+            Outputs.ConnectAttachmentProposedNetworkFunctionGroupChange? proposedNetworkFunctionGroupChange,
 
             Outputs.ConnectAttachmentProposedSegmentChange? proposedSegmentChange,
 
@@ -137,7 +149,9 @@ namespace Pulumi.AwsNative.NetworkManager
             AttachmentType = attachmentType;
             CoreNetworkArn = coreNetworkArn;
             CreatedAt = createdAt;
+            NetworkFunctionGroupName = networkFunctionGroupName;
             OwnerAccountId = ownerAccountId;
+            ProposedNetworkFunctionGroupChange = proposedNetworkFunctionGroupChange;
             ProposedSegmentChange = proposedSegmentChange;
             ResourceArn = resourceArn;
             SegmentName = segmentName;

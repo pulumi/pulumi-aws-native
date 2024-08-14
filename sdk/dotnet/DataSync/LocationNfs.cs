@@ -34,9 +34,9 @@ namespace Pulumi.AwsNative.DataSync
         public Output<Outputs.LocationNfsMountOptions?> MountOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
         /// 
-        /// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+        /// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         /// </summary>
         [Output("onPremConfig")]
         public Output<Outputs.LocationNfsOnPremConfig> OnPremConfig { get; private set; } = null!;
@@ -115,9 +115,9 @@ namespace Pulumi.AwsNative.DataSync
         public Input<Inputs.LocationNfsMountOptionsArgs>? MountOptions { get; set; }
 
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
         /// 
-        /// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+        /// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
         /// </summary>
         [Input("onPremConfig", required: true)]
         public Input<Inputs.LocationNfsOnPremConfigArgs> OnPremConfig { get; set; } = null!;

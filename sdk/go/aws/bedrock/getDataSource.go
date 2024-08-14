@@ -53,6 +53,8 @@ type LookupDataSourceResult struct {
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Contains details about how to ingest the documents in the data source.
+	VectorIngestionConfiguration *DataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
 func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs, opts ...pulumi.InvokeOption) LookupDataSourceResultOutput {
@@ -146,6 +148,13 @@ func (o LookupDataSourceResultOutput) ServerSideEncryptionConfiguration() DataSo
 // The time at which the knowledge base was last updated.
 func (o LookupDataSourceResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+// Contains details about how to ingest the documents in the data source.
+func (o LookupDataSourceResultOutput) VectorIngestionConfiguration() DataSourceVectorIngestionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceVectorIngestionConfiguration {
+		return v.VectorIngestionConfiguration
+	}).(DataSourceVectorIngestionConfigurationPtrOutput)
 }
 
 func init() {

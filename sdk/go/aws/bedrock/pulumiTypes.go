@@ -2241,6 +2241,161 @@ func (o AgentS3IdentifierPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Settings for a foundation model used to parse documents for a data source.
+type DataSourceBedrockFoundationModelConfiguration struct {
+	// The model's ARN.
+	ModelArn      string                   `pulumi:"modelArn"`
+	ParsingPrompt *DataSourceParsingPrompt `pulumi:"parsingPrompt"`
+}
+
+// DataSourceBedrockFoundationModelConfigurationInput is an input type that accepts DataSourceBedrockFoundationModelConfigurationArgs and DataSourceBedrockFoundationModelConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceBedrockFoundationModelConfigurationInput` via:
+//
+//	DataSourceBedrockFoundationModelConfigurationArgs{...}
+type DataSourceBedrockFoundationModelConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockFoundationModelConfigurationOutput() DataSourceBedrockFoundationModelConfigurationOutput
+	ToDataSourceBedrockFoundationModelConfigurationOutputWithContext(context.Context) DataSourceBedrockFoundationModelConfigurationOutput
+}
+
+// Settings for a foundation model used to parse documents for a data source.
+type DataSourceBedrockFoundationModelConfigurationArgs struct {
+	// The model's ARN.
+	ModelArn      pulumi.StringInput              `pulumi:"modelArn"`
+	ParsingPrompt DataSourceParsingPromptPtrInput `pulumi:"parsingPrompt"`
+}
+
+func (DataSourceBedrockFoundationModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceBedrockFoundationModelConfigurationArgs) ToDataSourceBedrockFoundationModelConfigurationOutput() DataSourceBedrockFoundationModelConfigurationOutput {
+	return i.ToDataSourceBedrockFoundationModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockFoundationModelConfigurationArgs) ToDataSourceBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelConfigurationOutput)
+}
+
+func (i DataSourceBedrockFoundationModelConfigurationArgs) ToDataSourceBedrockFoundationModelConfigurationPtrOutput() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockFoundationModelConfigurationArgs) ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelConfigurationOutput).ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceBedrockFoundationModelConfigurationPtrInput is an input type that accepts DataSourceBedrockFoundationModelConfigurationArgs, DataSourceBedrockFoundationModelConfigurationPtr and DataSourceBedrockFoundationModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceBedrockFoundationModelConfigurationPtrInput` via:
+//
+//	        DataSourceBedrockFoundationModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceBedrockFoundationModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockFoundationModelConfigurationPtrOutput() DataSourceBedrockFoundationModelConfigurationPtrOutput
+	ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(context.Context) DataSourceBedrockFoundationModelConfigurationPtrOutput
+}
+
+type dataSourceBedrockFoundationModelConfigurationPtrType DataSourceBedrockFoundationModelConfigurationArgs
+
+func DataSourceBedrockFoundationModelConfigurationPtr(v *DataSourceBedrockFoundationModelConfigurationArgs) DataSourceBedrockFoundationModelConfigurationPtrInput {
+	return (*dataSourceBedrockFoundationModelConfigurationPtrType)(v)
+}
+
+func (*dataSourceBedrockFoundationModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceBedrockFoundationModelConfigurationPtrType) ToDataSourceBedrockFoundationModelConfigurationPtrOutput() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceBedrockFoundationModelConfigurationPtrType) ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Settings for a foundation model used to parse documents for a data source.
+type DataSourceBedrockFoundationModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockFoundationModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ToDataSourceBedrockFoundationModelConfigurationOutput() DataSourceBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ToDataSourceBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ToDataSourceBedrockFoundationModelConfigurationPtrOutput() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o.ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceBedrockFoundationModelConfiguration) *DataSourceBedrockFoundationModelConfiguration {
+		return &v
+	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// The model's ARN.
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ParsingPrompt() DataSourceParsingPromptPtrOutput {
+	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingPrompt { return v.ParsingPrompt }).(DataSourceParsingPromptPtrOutput)
+}
+
+type DataSourceBedrockFoundationModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockFoundationModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ToDataSourceBedrockFoundationModelConfigurationPtrOutput() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ToDataSourceBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) Elem() DataSourceBedrockFoundationModelConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) DataSourceBedrockFoundationModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceBedrockFoundationModelConfiguration
+		return ret
+	}).(DataSourceBedrockFoundationModelConfigurationOutput)
+}
+
+// The model's ARN.
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() DataSourceParsingPromptPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingPrompt {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingPrompt
+	}).(DataSourceParsingPromptPtrOutput)
+}
+
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceChunkingConfiguration struct {
 	// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
@@ -2251,7 +2406,9 @@ type DataSourceChunkingConfiguration struct {
 	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 	ChunkingStrategy DataSourceChunkingStrategy `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
-	FixedSizeChunkingConfiguration *DataSourceFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
+	FixedSizeChunkingConfiguration    *DataSourceFixedSizeChunkingConfiguration    `pulumi:"fixedSizeChunkingConfiguration"`
+	HierarchicalChunkingConfiguration *DataSourceHierarchicalChunkingConfiguration `pulumi:"hierarchicalChunkingConfiguration"`
+	SemanticChunkingConfiguration     *DataSourceSemanticChunkingConfiguration     `pulumi:"semanticChunkingConfiguration"`
 }
 
 // DataSourceChunkingConfigurationInput is an input type that accepts DataSourceChunkingConfigurationArgs and DataSourceChunkingConfigurationOutput values.
@@ -2275,7 +2432,9 @@ type DataSourceChunkingConfigurationArgs struct {
 	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 	ChunkingStrategy DataSourceChunkingStrategyInput `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
-	FixedSizeChunkingConfiguration DataSourceFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
+	FixedSizeChunkingConfiguration    DataSourceFixedSizeChunkingConfigurationPtrInput    `pulumi:"fixedSizeChunkingConfiguration"`
+	HierarchicalChunkingConfiguration DataSourceHierarchicalChunkingConfigurationPtrInput `pulumi:"hierarchicalChunkingConfiguration"`
+	SemanticChunkingConfiguration     DataSourceSemanticChunkingConfigurationPtrInput     `pulumi:"semanticChunkingConfiguration"`
 }
 
 func (DataSourceChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -2373,6 +2532,18 @@ func (o DataSourceChunkingConfigurationOutput) FixedSizeChunkingConfiguration() 
 	}).(DataSourceFixedSizeChunkingConfigurationPtrOutput)
 }
 
+func (o DataSourceChunkingConfigurationOutput) HierarchicalChunkingConfiguration() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceChunkingConfiguration) *DataSourceHierarchicalChunkingConfiguration {
+		return v.HierarchicalChunkingConfiguration
+	}).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
+}
+
+func (o DataSourceChunkingConfigurationOutput) SemanticChunkingConfiguration() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceChunkingConfiguration) *DataSourceSemanticChunkingConfiguration {
+		return v.SemanticChunkingConfiguration
+	}).(DataSourceSemanticChunkingConfigurationPtrOutput)
+}
+
 type DataSourceChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceChunkingConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2422,12 +2593,34 @@ func (o DataSourceChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration
 	}).(DataSourceFixedSizeChunkingConfigurationPtrOutput)
 }
 
+func (o DataSourceChunkingConfigurationPtrOutput) HierarchicalChunkingConfiguration() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceHierarchicalChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchicalChunkingConfiguration
+	}).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
+}
+
+func (o DataSourceChunkingConfigurationPtrOutput) SemanticChunkingConfiguration() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceSemanticChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SemanticChunkingConfiguration
+	}).(DataSourceSemanticChunkingConfigurationPtrOutput)
+}
+
 // Specifies a raw data source location to ingest.
 type DataSourceConfiguration struct {
+	ConfluenceConfiguration *DataSourceConfluenceDataSourceConfiguration `pulumi:"confluenceConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
-	S3Configuration DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
+	S3Configuration         *DataSourceS3DataSourceConfiguration         `pulumi:"s3Configuration"`
+	SalesforceConfiguration *DataSourceSalesforceDataSourceConfiguration `pulumi:"salesforceConfiguration"`
+	SharePointConfiguration *DataSourceSharePointDataSourceConfiguration `pulumi:"sharePointConfiguration"`
 	// The type of data source.
-	Type DataSourceType `pulumi:"type"`
+	Type             DataSourceType                        `pulumi:"type"`
+	WebConfiguration *DataSourceWebDataSourceConfiguration `pulumi:"webConfiguration"`
 }
 
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
@@ -2443,10 +2636,14 @@ type DataSourceConfigurationInput interface {
 
 // Specifies a raw data source location to ingest.
 type DataSourceConfigurationArgs struct {
+	ConfluenceConfiguration DataSourceConfluenceDataSourceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
-	S3Configuration DataSourceS3DataSourceConfigurationInput `pulumi:"s3Configuration"`
+	S3Configuration         DataSourceS3DataSourceConfigurationPtrInput         `pulumi:"s3Configuration"`
+	SalesforceConfiguration DataSourceSalesforceDataSourceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
+	SharePointConfiguration DataSourceSharePointDataSourceConfigurationPtrInput `pulumi:"sharePointConfiguration"`
 	// The type of data source.
-	Type DataSourceTypeInput `pulumi:"type"`
+	Type             DataSourceTypeInput                          `pulumi:"type"`
+	WebConfiguration DataSourceWebDataSourceConfigurationPtrInput `pulumi:"webConfiguration"`
 }
 
 func (DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -2476,14 +2673,36 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContex
 	return o
 }
 
+func (o DataSourceConfigurationOutput) ConfluenceConfiguration() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
+		return v.ConfluenceConfiguration
+	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
 // The configuration information to connect to Amazon S3 as your data source.
-func (o DataSourceConfigurationOutput) S3Configuration() DataSourceS3DataSourceConfigurationOutput {
-	return o.ApplyT(func(v DataSourceConfiguration) DataSourceS3DataSourceConfiguration { return v.S3Configuration }).(DataSourceS3DataSourceConfigurationOutput)
+func (o DataSourceConfigurationOutput) S3Configuration() DataSourceS3DataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceS3DataSourceConfiguration { return v.S3Configuration }).(DataSourceS3DataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationOutput) SalesforceConfiguration() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSalesforceDataSourceConfiguration {
+		return v.SalesforceConfiguration
+	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationOutput) SharePointConfiguration() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSharePointDataSourceConfiguration {
+		return v.SharePointConfiguration
+	}).(DataSourceSharePointDataSourceConfigurationPtrOutput)
 }
 
 // The type of data source.
 func (o DataSourceConfigurationOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) DataSourceType { return v.Type }).(DataSourceTypeOutput)
+}
+
+func (o DataSourceConfigurationOutput) WebConfiguration() DataSourceWebDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebDataSourceConfiguration { return v.WebConfiguration }).(DataSourceWebDataSourceConfigurationPtrOutput)
 }
 
 type DataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2510,14 +2729,41 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 	}).(DataSourceConfigurationOutput)
 }
 
+func (o DataSourceConfigurationPtrOutput) ConfluenceConfiguration() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ConfluenceConfiguration
+	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
 // The configuration information to connect to Amazon S3 as your data source.
 func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceS3DataSourceConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.S3Configuration
+		return v.S3Configuration
 	}).(DataSourceS3DataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationPtrOutput) SalesforceConfiguration() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSalesforceDataSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SalesforceConfiguration
+	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSharePointDataSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SharePointConfiguration
+	}).(DataSourceSharePointDataSourceConfigurationPtrOutput)
 }
 
 // The type of data source.
@@ -2528,6 +2774,825 @@ func (o DataSourceConfigurationPtrOutput) Type() DataSourceTypePtrOutput {
 		}
 		return &v.Type
 	}).(DataSourceTypePtrOutput)
+}
+
+func (o DataSourceConfigurationPtrOutput) WebConfiguration() DataSourceWebDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceWebDataSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WebConfiguration
+	}).(DataSourceWebDataSourceConfigurationPtrOutput)
+}
+
+// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+type DataSourceConfluenceCrawlerConfiguration struct {
+	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// DataSourceConfluenceCrawlerConfigurationInput is an input type that accepts DataSourceConfluenceCrawlerConfigurationArgs and DataSourceConfluenceCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceCrawlerConfigurationInput` via:
+//
+//	DataSourceConfluenceCrawlerConfigurationArgs{...}
+type DataSourceConfluenceCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceCrawlerConfigurationOutput() DataSourceConfluenceCrawlerConfigurationOutput
+	ToDataSourceConfluenceCrawlerConfigurationOutputWithContext(context.Context) DataSourceConfluenceCrawlerConfigurationOutput
+}
+
+// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+type DataSourceConfluenceCrawlerConfigurationArgs struct {
+	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (DataSourceConfluenceCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfluenceCrawlerConfigurationArgs) ToDataSourceConfluenceCrawlerConfigurationOutput() DataSourceConfluenceCrawlerConfigurationOutput {
+	return i.ToDataSourceConfluenceCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceCrawlerConfigurationArgs) ToDataSourceConfluenceCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceCrawlerConfigurationOutput)
+}
+
+func (i DataSourceConfluenceCrawlerConfigurationArgs) ToDataSourceConfluenceCrawlerConfigurationPtrOutput() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceCrawlerConfigurationArgs) ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceCrawlerConfigurationOutput).ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfluenceCrawlerConfigurationPtrInput is an input type that accepts DataSourceConfluenceCrawlerConfigurationArgs, DataSourceConfluenceCrawlerConfigurationPtr and DataSourceConfluenceCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceCrawlerConfigurationPtrInput` via:
+//
+//	        DataSourceConfluenceCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfluenceCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceCrawlerConfigurationPtrOutput() DataSourceConfluenceCrawlerConfigurationPtrOutput
+	ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(context.Context) DataSourceConfluenceCrawlerConfigurationPtrOutput
+}
+
+type dataSourceConfluenceCrawlerConfigurationPtrType DataSourceConfluenceCrawlerConfigurationArgs
+
+func DataSourceConfluenceCrawlerConfigurationPtr(v *DataSourceConfluenceCrawlerConfigurationArgs) DataSourceConfluenceCrawlerConfigurationPtrInput {
+	return (*dataSourceConfluenceCrawlerConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfluenceCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfluenceCrawlerConfigurationPtrType) ToDataSourceConfluenceCrawlerConfigurationPtrOutput() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfluenceCrawlerConfigurationPtrType) ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
+}
+
+// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+type DataSourceConfluenceCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationOutput) ToDataSourceConfluenceCrawlerConfigurationOutput() DataSourceConfluenceCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationOutput) ToDataSourceConfluenceCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationOutput) ToDataSourceConfluenceCrawlerConfigurationPtrOutput() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o.ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationOutput) ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceCrawlerConfiguration) *DataSourceConfluenceCrawlerConfiguration {
+		return &v
+	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfluenceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+type DataSourceConfluenceCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) ToDataSourceConfluenceCrawlerConfigurationPtrOutput() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) ToDataSourceConfluenceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) Elem() DataSourceConfluenceCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceCrawlerConfiguration) DataSourceConfluenceCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfluenceCrawlerConfiguration
+		return ret
+	}).(DataSourceConfluenceCrawlerConfigurationOutput)
+}
+
+func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+// The configuration information to connect to Confluence as your data source.
+type DataSourceConfluenceDataSourceConfiguration struct {
+	CrawlerConfiguration *DataSourceConfluenceCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceConfluenceSourceConfiguration   `pulumi:"sourceConfiguration"`
+}
+
+// DataSourceConfluenceDataSourceConfigurationInput is an input type that accepts DataSourceConfluenceDataSourceConfigurationArgs and DataSourceConfluenceDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceDataSourceConfigurationInput` via:
+//
+//	DataSourceConfluenceDataSourceConfigurationArgs{...}
+type DataSourceConfluenceDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceDataSourceConfigurationOutput() DataSourceConfluenceDataSourceConfigurationOutput
+	ToDataSourceConfluenceDataSourceConfigurationOutputWithContext(context.Context) DataSourceConfluenceDataSourceConfigurationOutput
+}
+
+// The configuration information to connect to Confluence as your data source.
+type DataSourceConfluenceDataSourceConfigurationArgs struct {
+	CrawlerConfiguration DataSourceConfluenceCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceConfluenceSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+}
+
+func (DataSourceConfluenceDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfluenceDataSourceConfigurationArgs) ToDataSourceConfluenceDataSourceConfigurationOutput() DataSourceConfluenceDataSourceConfigurationOutput {
+	return i.ToDataSourceConfluenceDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceDataSourceConfigurationArgs) ToDataSourceConfluenceDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceDataSourceConfigurationOutput)
+}
+
+func (i DataSourceConfluenceDataSourceConfigurationArgs) ToDataSourceConfluenceDataSourceConfigurationPtrOutput() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceDataSourceConfigurationArgs) ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceDataSourceConfigurationOutput).ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfluenceDataSourceConfigurationPtrInput is an input type that accepts DataSourceConfluenceDataSourceConfigurationArgs, DataSourceConfluenceDataSourceConfigurationPtr and DataSourceConfluenceDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceDataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceConfluenceDataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfluenceDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceDataSourceConfigurationPtrOutput() DataSourceConfluenceDataSourceConfigurationPtrOutput
+	ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceConfluenceDataSourceConfigurationPtrOutput
+}
+
+type dataSourceConfluenceDataSourceConfigurationPtrType DataSourceConfluenceDataSourceConfigurationArgs
+
+func DataSourceConfluenceDataSourceConfigurationPtr(v *DataSourceConfluenceDataSourceConfigurationArgs) DataSourceConfluenceDataSourceConfigurationPtrInput {
+	return (*dataSourceConfluenceDataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfluenceDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfluenceDataSourceConfigurationPtrType) ToDataSourceConfluenceDataSourceConfigurationPtrOutput() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfluenceDataSourceConfigurationPtrType) ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
+// The configuration information to connect to Confluence as your data source.
+type DataSourceConfluenceDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) ToDataSourceConfluenceDataSourceConfigurationOutput() DataSourceConfluenceDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) ToDataSourceConfluenceDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) ToDataSourceConfluenceDataSourceConfigurationPtrOutput() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o.ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
+		return &v
+	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationOutput) SourceConfiguration() DataSourceConfluenceSourceConfigurationOutput {
+	return o.ApplyT(func(v DataSourceConfluenceDataSourceConfiguration) DataSourceConfluenceSourceConfiguration {
+		return v.SourceConfiguration
+	}).(DataSourceConfluenceSourceConfigurationOutput)
+}
+
+type DataSourceConfluenceDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) ToDataSourceConfluenceDataSourceConfigurationPtrOutput() DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) ToDataSourceConfluenceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) Elem() DataSourceConfluenceDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceDataSourceConfiguration) DataSourceConfluenceDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfluenceDataSourceConfiguration
+		return ret
+	}).(DataSourceConfluenceDataSourceConfigurationOutput)
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceConfluenceCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceConfluenceSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceConfiguration
+	}).(DataSourceConfluenceSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your Confluence data source.
+type DataSourceConfluenceSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your Confluence instance.
+	AuthType DataSourceConfluenceSourceConfigurationAuthType `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The supported host type, whether online/cloud or server/on-premises.
+	HostType DataSourceConfluenceSourceConfigurationHostType `pulumi:"hostType"`
+	// The Confluence host URL or instance URL.
+	HostUrl string `pulumi:"hostUrl"`
+}
+
+// DataSourceConfluenceSourceConfigurationInput is an input type that accepts DataSourceConfluenceSourceConfigurationArgs and DataSourceConfluenceSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceSourceConfigurationInput` via:
+//
+//	DataSourceConfluenceSourceConfigurationArgs{...}
+type DataSourceConfluenceSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationOutput() DataSourceConfluenceSourceConfigurationOutput
+	ToDataSourceConfluenceSourceConfigurationOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationOutput
+}
+
+// The endpoint information to connect to your Confluence data source.
+type DataSourceConfluenceSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your Confluence instance.
+	AuthType DataSourceConfluenceSourceConfigurationAuthTypeInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The supported host type, whether online/cloud or server/on-premises.
+	HostType DataSourceConfluenceSourceConfigurationHostTypeInput `pulumi:"hostType"`
+	// The Confluence host URL or instance URL.
+	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
+}
+
+func (DataSourceConfluenceSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfluenceSourceConfigurationArgs) ToDataSourceConfluenceSourceConfigurationOutput() DataSourceConfluenceSourceConfigurationOutput {
+	return i.ToDataSourceConfluenceSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceSourceConfigurationArgs) ToDataSourceConfluenceSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSourceConfigurationOutput)
+}
+
+func (i DataSourceConfluenceSourceConfigurationArgs) ToDataSourceConfluenceSourceConfigurationPtrOutput() DataSourceConfluenceSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfluenceSourceConfigurationArgs) ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSourceConfigurationOutput).ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfluenceSourceConfigurationPtrInput is an input type that accepts DataSourceConfluenceSourceConfigurationArgs, DataSourceConfluenceSourceConfigurationPtr and DataSourceConfluenceSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceSourceConfigurationPtrInput` via:
+//
+//	        DataSourceConfluenceSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfluenceSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfluenceSourceConfigurationPtrOutput() DataSourceConfluenceSourceConfigurationPtrOutput
+	ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(context.Context) DataSourceConfluenceSourceConfigurationPtrOutput
+}
+
+type dataSourceConfluenceSourceConfigurationPtrType DataSourceConfluenceSourceConfigurationArgs
+
+func DataSourceConfluenceSourceConfigurationPtr(v *DataSourceConfluenceSourceConfigurationArgs) DataSourceConfluenceSourceConfigurationPtrInput {
+	return (*dataSourceConfluenceSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfluenceSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfluenceSourceConfigurationPtrType) ToDataSourceConfluenceSourceConfigurationPtrOutput() DataSourceConfluenceSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfluenceSourceConfigurationPtrType) ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your Confluence data source.
+type DataSourceConfluenceSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfluenceSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationOutput) ToDataSourceConfluenceSourceConfigurationOutput() DataSourceConfluenceSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationOutput) ToDataSourceConfluenceSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationOutput) ToDataSourceConfluenceSourceConfigurationPtrOutput() DataSourceConfluenceSourceConfigurationPtrOutput {
+	return o.ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfluenceSourceConfigurationOutput) ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceSourceConfiguration) *DataSourceConfluenceSourceConfiguration {
+		return &v
+	}).(DataSourceConfluenceSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Confluence instance.
+func (o DataSourceConfluenceSourceConfigurationOutput) AuthType() DataSourceConfluenceSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSourceConfiguration) DataSourceConfluenceSourceConfigurationAuthType {
+		return v.AuthType
+	}).(DataSourceConfluenceSourceConfigurationAuthTypeOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+func (o DataSourceConfluenceSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSourceConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+func (o DataSourceConfluenceSourceConfigurationOutput) HostType() DataSourceConfluenceSourceConfigurationHostTypeOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSourceConfiguration) DataSourceConfluenceSourceConfigurationHostType {
+		return v.HostType
+	}).(DataSourceConfluenceSourceConfigurationHostTypeOutput)
+}
+
+// The Confluence host URL or instance URL.
+func (o DataSourceConfluenceSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSourceConfiguration) string { return v.HostUrl }).(pulumi.StringOutput)
+}
+
+type DataSourceConfluenceSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfluenceSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfluenceSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) ToDataSourceConfluenceSourceConfigurationPtrOutput() DataSourceConfluenceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) ToDataSourceConfluenceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) Elem() DataSourceConfluenceSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfiguration) DataSourceConfluenceSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfluenceSourceConfiguration
+		return ret
+	}).(DataSourceConfluenceSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Confluence instance.
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) AuthType() DataSourceConfluenceSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfiguration) *DataSourceConfluenceSourceConfigurationAuthType {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) HostType() DataSourceConfluenceSourceConfigurationHostTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfiguration) *DataSourceConfluenceSourceConfigurationHostType {
+		if v == nil {
+			return nil
+		}
+		return &v.HostType
+	}).(DataSourceConfluenceSourceConfigurationHostTypePtrOutput)
+}
+
+// The Confluence host URL or instance URL.
+func (o DataSourceConfluenceSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+type DataSourceCrawlFilterConfiguration struct {
+	PatternObjectFilter *DataSourcePatternObjectFilterConfiguration `pulumi:"patternObjectFilter"`
+	// The crawl filter type.
+	Type DataSourceCrawlFilterConfigurationType `pulumi:"type"`
+}
+
+// DataSourceCrawlFilterConfigurationInput is an input type that accepts DataSourceCrawlFilterConfigurationArgs and DataSourceCrawlFilterConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCrawlFilterConfigurationInput` via:
+//
+//	DataSourceCrawlFilterConfigurationArgs{...}
+type DataSourceCrawlFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCrawlFilterConfigurationOutput() DataSourceCrawlFilterConfigurationOutput
+	ToDataSourceCrawlFilterConfigurationOutputWithContext(context.Context) DataSourceCrawlFilterConfigurationOutput
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+type DataSourceCrawlFilterConfigurationArgs struct {
+	PatternObjectFilter DataSourcePatternObjectFilterConfigurationPtrInput `pulumi:"patternObjectFilter"`
+	// The crawl filter type.
+	Type DataSourceCrawlFilterConfigurationTypeInput `pulumi:"type"`
+}
+
+func (DataSourceCrawlFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCrawlFilterConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCrawlFilterConfigurationArgs) ToDataSourceCrawlFilterConfigurationOutput() DataSourceCrawlFilterConfigurationOutput {
+	return i.ToDataSourceCrawlFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCrawlFilterConfigurationArgs) ToDataSourceCrawlFilterConfigurationOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCrawlFilterConfigurationOutput)
+}
+
+func (i DataSourceCrawlFilterConfigurationArgs) ToDataSourceCrawlFilterConfigurationPtrOutput() DataSourceCrawlFilterConfigurationPtrOutput {
+	return i.ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCrawlFilterConfigurationArgs) ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCrawlFilterConfigurationOutput).ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCrawlFilterConfigurationPtrInput is an input type that accepts DataSourceCrawlFilterConfigurationArgs, DataSourceCrawlFilterConfigurationPtr and DataSourceCrawlFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCrawlFilterConfigurationPtrInput` via:
+//
+//	        DataSourceCrawlFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCrawlFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCrawlFilterConfigurationPtrOutput() DataSourceCrawlFilterConfigurationPtrOutput
+	ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(context.Context) DataSourceCrawlFilterConfigurationPtrOutput
+}
+
+type dataSourceCrawlFilterConfigurationPtrType DataSourceCrawlFilterConfigurationArgs
+
+func DataSourceCrawlFilterConfigurationPtr(v *DataSourceCrawlFilterConfigurationArgs) DataSourceCrawlFilterConfigurationPtrInput {
+	return (*dataSourceCrawlFilterConfigurationPtrType)(v)
+}
+
+func (*dataSourceCrawlFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCrawlFilterConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCrawlFilterConfigurationPtrType) ToDataSourceCrawlFilterConfigurationPtrOutput() DataSourceCrawlFilterConfigurationPtrOutput {
+	return i.ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCrawlFilterConfigurationPtrType) ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+type DataSourceCrawlFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCrawlFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCrawlFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCrawlFilterConfigurationOutput) ToDataSourceCrawlFilterConfigurationOutput() DataSourceCrawlFilterConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationOutput) ToDataSourceCrawlFilterConfigurationOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationOutput) ToDataSourceCrawlFilterConfigurationPtrOutput() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCrawlFilterConfigurationOutput) ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCrawlFilterConfiguration) *DataSourceCrawlFilterConfiguration {
+		return &v
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+func (o DataSourceCrawlFilterConfigurationOutput) PatternObjectFilter() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceCrawlFilterConfiguration) *DataSourcePatternObjectFilterConfiguration {
+		return v.PatternObjectFilter
+	}).(DataSourcePatternObjectFilterConfigurationPtrOutput)
+}
+
+// The crawl filter type.
+func (o DataSourceCrawlFilterConfigurationOutput) Type() DataSourceCrawlFilterConfigurationTypeOutput {
+	return o.ApplyT(func(v DataSourceCrawlFilterConfiguration) DataSourceCrawlFilterConfigurationType { return v.Type }).(DataSourceCrawlFilterConfigurationTypeOutput)
+}
+
+type DataSourceCrawlFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCrawlFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCrawlFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCrawlFilterConfigurationPtrOutput) ToDataSourceCrawlFilterConfigurationPtrOutput() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationPtrOutput) ToDataSourceCrawlFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCrawlFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCrawlFilterConfigurationPtrOutput) Elem() DataSourceCrawlFilterConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCrawlFilterConfiguration) DataSourceCrawlFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCrawlFilterConfiguration
+		return ret
+	}).(DataSourceCrawlFilterConfigurationOutput)
+}
+
+func (o DataSourceCrawlFilterConfigurationPtrOutput) PatternObjectFilter() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceCrawlFilterConfiguration) *DataSourcePatternObjectFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PatternObjectFilter
+	}).(DataSourcePatternObjectFilterConfigurationPtrOutput)
+}
+
+// The crawl filter type.
+func (o DataSourceCrawlFilterConfigurationPtrOutput) Type() DataSourceCrawlFilterConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceCrawlFilterConfiguration) *DataSourceCrawlFilterConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(DataSourceCrawlFilterConfigurationTypePtrOutput)
+}
+
+// Settings for customizing steps in the data source content ingestion pipeline.
+type DataSourceCustomTransformationConfiguration struct {
+	IntermediateStorage DataSourceIntermediateStorage `pulumi:"intermediateStorage"`
+	// A list of Lambda functions that process documents.
+	Transformations []DataSourceTransformation `pulumi:"transformations"`
+}
+
+// DataSourceCustomTransformationConfigurationInput is an input type that accepts DataSourceCustomTransformationConfigurationArgs and DataSourceCustomTransformationConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomTransformationConfigurationInput` via:
+//
+//	DataSourceCustomTransformationConfigurationArgs{...}
+type DataSourceCustomTransformationConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomTransformationConfigurationOutput() DataSourceCustomTransformationConfigurationOutput
+	ToDataSourceCustomTransformationConfigurationOutputWithContext(context.Context) DataSourceCustomTransformationConfigurationOutput
+}
+
+// Settings for customizing steps in the data source content ingestion pipeline.
+type DataSourceCustomTransformationConfigurationArgs struct {
+	IntermediateStorage DataSourceIntermediateStorageInput `pulumi:"intermediateStorage"`
+	// A list of Lambda functions that process documents.
+	Transformations DataSourceTransformationArrayInput `pulumi:"transformations"`
+}
+
+func (DataSourceCustomTransformationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomTransformationConfigurationArgs) ToDataSourceCustomTransformationConfigurationOutput() DataSourceCustomTransformationConfigurationOutput {
+	return i.ToDataSourceCustomTransformationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomTransformationConfigurationArgs) ToDataSourceCustomTransformationConfigurationOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomTransformationConfigurationOutput)
+}
+
+func (i DataSourceCustomTransformationConfigurationArgs) ToDataSourceCustomTransformationConfigurationPtrOutput() DataSourceCustomTransformationConfigurationPtrOutput {
+	return i.ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomTransformationConfigurationArgs) ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomTransformationConfigurationOutput).ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomTransformationConfigurationPtrInput is an input type that accepts DataSourceCustomTransformationConfigurationArgs, DataSourceCustomTransformationConfigurationPtr and DataSourceCustomTransformationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomTransformationConfigurationPtrInput` via:
+//
+//	        DataSourceCustomTransformationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomTransformationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomTransformationConfigurationPtrOutput() DataSourceCustomTransformationConfigurationPtrOutput
+	ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(context.Context) DataSourceCustomTransformationConfigurationPtrOutput
+}
+
+type dataSourceCustomTransformationConfigurationPtrType DataSourceCustomTransformationConfigurationArgs
+
+func DataSourceCustomTransformationConfigurationPtr(v *DataSourceCustomTransformationConfigurationArgs) DataSourceCustomTransformationConfigurationPtrInput {
+	return (*dataSourceCustomTransformationConfigurationPtrType)(v)
+}
+
+func (*dataSourceCustomTransformationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCustomTransformationConfigurationPtrType) ToDataSourceCustomTransformationConfigurationPtrOutput() DataSourceCustomTransformationConfigurationPtrOutput {
+	return i.ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomTransformationConfigurationPtrType) ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomTransformationConfigurationPtrOutput)
+}
+
+// Settings for customizing steps in the data source content ingestion pipeline.
+type DataSourceCustomTransformationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomTransformationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomTransformationConfigurationOutput) ToDataSourceCustomTransformationConfigurationOutput() DataSourceCustomTransformationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomTransformationConfigurationOutput) ToDataSourceCustomTransformationConfigurationOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomTransformationConfigurationOutput) ToDataSourceCustomTransformationConfigurationPtrOutput() DataSourceCustomTransformationConfigurationPtrOutput {
+	return o.ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomTransformationConfigurationOutput) ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomTransformationConfiguration) *DataSourceCustomTransformationConfiguration {
+		return &v
+	}).(DataSourceCustomTransformationConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomTransformationConfigurationOutput) IntermediateStorage() DataSourceIntermediateStorageOutput {
+	return o.ApplyT(func(v DataSourceCustomTransformationConfiguration) DataSourceIntermediateStorage {
+		return v.IntermediateStorage
+	}).(DataSourceIntermediateStorageOutput)
+}
+
+// A list of Lambda functions that process documents.
+func (o DataSourceCustomTransformationConfigurationOutput) Transformations() DataSourceTransformationArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomTransformationConfiguration) []DataSourceTransformation {
+		return v.Transformations
+	}).(DataSourceTransformationArrayOutput)
+}
+
+type DataSourceCustomTransformationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomTransformationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomTransformationConfigurationPtrOutput) ToDataSourceCustomTransformationConfigurationPtrOutput() DataSourceCustomTransformationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomTransformationConfigurationPtrOutput) ToDataSourceCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomTransformationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomTransformationConfigurationPtrOutput) Elem() DataSourceCustomTransformationConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCustomTransformationConfiguration) DataSourceCustomTransformationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomTransformationConfiguration
+		return ret
+	}).(DataSourceCustomTransformationConfigurationOutput)
+}
+
+func (o DataSourceCustomTransformationConfigurationPtrOutput) IntermediateStorage() DataSourceIntermediateStoragePtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomTransformationConfiguration) *DataSourceIntermediateStorage {
+		if v == nil {
+			return nil
+		}
+		return &v.IntermediateStorage
+	}).(DataSourceIntermediateStoragePtrOutput)
+}
+
+// A list of Lambda functions that process documents.
+func (o DataSourceCustomTransformationConfigurationPtrOutput) Transformations() DataSourceTransformationArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomTransformationConfiguration) []DataSourceTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.Transformations
+	}).(DataSourceTransformationArrayOutput)
 }
 
 // Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
@@ -2689,7 +3754,945 @@ func (o DataSourceFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Contains information about the S3 configuration of the data source.
+// Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceHierarchicalChunkingConfiguration struct {
+	// Token settings for each layer.
+	LevelConfigurations []DataSourceHierarchicalChunkingLevelConfiguration `pulumi:"levelConfigurations"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens int `pulumi:"overlapTokens"`
+}
+
+// DataSourceHierarchicalChunkingConfigurationInput is an input type that accepts DataSourceHierarchicalChunkingConfigurationArgs and DataSourceHierarchicalChunkingConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceHierarchicalChunkingConfigurationInput` via:
+//
+//	DataSourceHierarchicalChunkingConfigurationArgs{...}
+type DataSourceHierarchicalChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceHierarchicalChunkingConfigurationOutput() DataSourceHierarchicalChunkingConfigurationOutput
+	ToDataSourceHierarchicalChunkingConfigurationOutputWithContext(context.Context) DataSourceHierarchicalChunkingConfigurationOutput
+}
+
+// Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceHierarchicalChunkingConfigurationArgs struct {
+	// Token settings for each layer.
+	LevelConfigurations DataSourceHierarchicalChunkingLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens pulumi.IntInput `pulumi:"overlapTokens"`
+}
+
+func (DataSourceHierarchicalChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceHierarchicalChunkingConfigurationArgs) ToDataSourceHierarchicalChunkingConfigurationOutput() DataSourceHierarchicalChunkingConfigurationOutput {
+	return i.ToDataSourceHierarchicalChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceHierarchicalChunkingConfigurationArgs) ToDataSourceHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHierarchicalChunkingConfigurationOutput)
+}
+
+func (i DataSourceHierarchicalChunkingConfigurationArgs) ToDataSourceHierarchicalChunkingConfigurationPtrOutput() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceHierarchicalChunkingConfigurationArgs) ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHierarchicalChunkingConfigurationOutput).ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceHierarchicalChunkingConfigurationPtrInput is an input type that accepts DataSourceHierarchicalChunkingConfigurationArgs, DataSourceHierarchicalChunkingConfigurationPtr and DataSourceHierarchicalChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceHierarchicalChunkingConfigurationPtrInput` via:
+//
+//	        DataSourceHierarchicalChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceHierarchicalChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceHierarchicalChunkingConfigurationPtrOutput() DataSourceHierarchicalChunkingConfigurationPtrOutput
+	ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(context.Context) DataSourceHierarchicalChunkingConfigurationPtrOutput
+}
+
+type dataSourceHierarchicalChunkingConfigurationPtrType DataSourceHierarchicalChunkingConfigurationArgs
+
+func DataSourceHierarchicalChunkingConfigurationPtr(v *DataSourceHierarchicalChunkingConfigurationArgs) DataSourceHierarchicalChunkingConfigurationPtrInput {
+	return (*dataSourceHierarchicalChunkingConfigurationPtrType)(v)
+}
+
+func (*dataSourceHierarchicalChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceHierarchicalChunkingConfigurationPtrType) ToDataSourceHierarchicalChunkingConfigurationPtrOutput() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceHierarchicalChunkingConfigurationPtrType) ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceHierarchicalChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHierarchicalChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationOutput) ToDataSourceHierarchicalChunkingConfigurationOutput() DataSourceHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationOutput) ToDataSourceHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationOutput) ToDataSourceHierarchicalChunkingConfigurationPtrOutput() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o.ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationOutput) ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceHierarchicalChunkingConfiguration) *DataSourceHierarchicalChunkingConfiguration {
+		return &v
+	}).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
+}
+
+// Token settings for each layer.
+func (o DataSourceHierarchicalChunkingConfigurationOutput) LevelConfigurations() DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceHierarchicalChunkingConfiguration) []DataSourceHierarchicalChunkingLevelConfiguration {
+		return v.LevelConfigurations
+	}).(DataSourceHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+// The number of tokens to repeat across chunks in the same layer.
+func (o DataSourceHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceHierarchicalChunkingConfiguration) int { return v.OverlapTokens }).(pulumi.IntOutput)
+}
+
+type DataSourceHierarchicalChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHierarchicalChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationPtrOutput) ToDataSourceHierarchicalChunkingConfigurationPtrOutput() DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationPtrOutput) ToDataSourceHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingConfigurationPtrOutput) Elem() DataSourceHierarchicalChunkingConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceHierarchicalChunkingConfiguration) DataSourceHierarchicalChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceHierarchicalChunkingConfiguration
+		return ret
+	}).(DataSourceHierarchicalChunkingConfigurationOutput)
+}
+
+// Token settings for each layer.
+func (o DataSourceHierarchicalChunkingConfigurationPtrOutput) LevelConfigurations() DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceHierarchicalChunkingConfiguration) []DataSourceHierarchicalChunkingLevelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LevelConfigurations
+	}).(DataSourceHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+// The number of tokens to repeat across chunks in the same layer.
+func (o DataSourceHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceHierarchicalChunkingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OverlapTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// Token settings for a layer in a hierarchical chunking configuration.
+type DataSourceHierarchicalChunkingLevelConfiguration struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
+	MaxTokens int `pulumi:"maxTokens"`
+}
+
+// DataSourceHierarchicalChunkingLevelConfigurationInput is an input type that accepts DataSourceHierarchicalChunkingLevelConfigurationArgs and DataSourceHierarchicalChunkingLevelConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceHierarchicalChunkingLevelConfigurationInput` via:
+//
+//	DataSourceHierarchicalChunkingLevelConfigurationArgs{...}
+type DataSourceHierarchicalChunkingLevelConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceHierarchicalChunkingLevelConfigurationOutput() DataSourceHierarchicalChunkingLevelConfigurationOutput
+	ToDataSourceHierarchicalChunkingLevelConfigurationOutputWithContext(context.Context) DataSourceHierarchicalChunkingLevelConfigurationOutput
+}
+
+// Token settings for a layer in a hierarchical chunking configuration.
+type DataSourceHierarchicalChunkingLevelConfigurationArgs struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
+	MaxTokens pulumi.IntInput `pulumi:"maxTokens"`
+}
+
+func (DataSourceHierarchicalChunkingLevelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceHierarchicalChunkingLevelConfigurationArgs) ToDataSourceHierarchicalChunkingLevelConfigurationOutput() DataSourceHierarchicalChunkingLevelConfigurationOutput {
+	return i.ToDataSourceHierarchicalChunkingLevelConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceHierarchicalChunkingLevelConfigurationArgs) ToDataSourceHierarchicalChunkingLevelConfigurationOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingLevelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHierarchicalChunkingLevelConfigurationOutput)
+}
+
+// DataSourceHierarchicalChunkingLevelConfigurationArrayInput is an input type that accepts DataSourceHierarchicalChunkingLevelConfigurationArray and DataSourceHierarchicalChunkingLevelConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataSourceHierarchicalChunkingLevelConfigurationArrayInput` via:
+//
+//	DataSourceHierarchicalChunkingLevelConfigurationArray{ DataSourceHierarchicalChunkingLevelConfigurationArgs{...} }
+type DataSourceHierarchicalChunkingLevelConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutput() DataSourceHierarchicalChunkingLevelConfigurationArrayOutput
+	ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutputWithContext(context.Context) DataSourceHierarchicalChunkingLevelConfigurationArrayOutput
+}
+
+type DataSourceHierarchicalChunkingLevelConfigurationArray []DataSourceHierarchicalChunkingLevelConfigurationInput
+
+func (DataSourceHierarchicalChunkingLevelConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceHierarchicalChunkingLevelConfigurationArray) ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutput() DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return i.ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceHierarchicalChunkingLevelConfigurationArray) ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+// Token settings for a layer in a hierarchical chunking configuration.
+type DataSourceHierarchicalChunkingLevelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHierarchicalChunkingLevelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHierarchicalChunkingLevelConfigurationOutput) ToDataSourceHierarchicalChunkingLevelConfigurationOutput() DataSourceHierarchicalChunkingLevelConfigurationOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingLevelConfigurationOutput) ToDataSourceHierarchicalChunkingLevelConfigurationOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingLevelConfigurationOutput {
+	return o
+}
+
+// The maximum number of tokens that a chunk can contain in this layer.
+func (o DataSourceHierarchicalChunkingLevelConfigurationOutput) MaxTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceHierarchicalChunkingLevelConfiguration) int { return v.MaxTokens }).(pulumi.IntOutput)
+}
+
+type DataSourceHierarchicalChunkingLevelConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutput() DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) ToDataSourceHierarchicalChunkingLevelConfigurationArrayOutputWithContext(ctx context.Context) DataSourceHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) Index(i pulumi.IntInput) DataSourceHierarchicalChunkingLevelConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceHierarchicalChunkingLevelConfiguration {
+		return vs[0].([]DataSourceHierarchicalChunkingLevelConfiguration)[vs[1].(int)]
+	}).(DataSourceHierarchicalChunkingLevelConfigurationOutput)
+}
+
+// A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+type DataSourceIntermediateStorage struct {
+	S3Location DataSourceS3Location `pulumi:"s3Location"`
+}
+
+// DataSourceIntermediateStorageInput is an input type that accepts DataSourceIntermediateStorageArgs and DataSourceIntermediateStorageOutput values.
+// You can construct a concrete instance of `DataSourceIntermediateStorageInput` via:
+//
+//	DataSourceIntermediateStorageArgs{...}
+type DataSourceIntermediateStorageInput interface {
+	pulumi.Input
+
+	ToDataSourceIntermediateStorageOutput() DataSourceIntermediateStorageOutput
+	ToDataSourceIntermediateStorageOutputWithContext(context.Context) DataSourceIntermediateStorageOutput
+}
+
+// A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+type DataSourceIntermediateStorageArgs struct {
+	S3Location DataSourceS3LocationInput `pulumi:"s3Location"`
+}
+
+func (DataSourceIntermediateStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceIntermediateStorage)(nil)).Elem()
+}
+
+func (i DataSourceIntermediateStorageArgs) ToDataSourceIntermediateStorageOutput() DataSourceIntermediateStorageOutput {
+	return i.ToDataSourceIntermediateStorageOutputWithContext(context.Background())
+}
+
+func (i DataSourceIntermediateStorageArgs) ToDataSourceIntermediateStorageOutputWithContext(ctx context.Context) DataSourceIntermediateStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIntermediateStorageOutput)
+}
+
+func (i DataSourceIntermediateStorageArgs) ToDataSourceIntermediateStoragePtrOutput() DataSourceIntermediateStoragePtrOutput {
+	return i.ToDataSourceIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceIntermediateStorageArgs) ToDataSourceIntermediateStoragePtrOutputWithContext(ctx context.Context) DataSourceIntermediateStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIntermediateStorageOutput).ToDataSourceIntermediateStoragePtrOutputWithContext(ctx)
+}
+
+// DataSourceIntermediateStoragePtrInput is an input type that accepts DataSourceIntermediateStorageArgs, DataSourceIntermediateStoragePtr and DataSourceIntermediateStoragePtrOutput values.
+// You can construct a concrete instance of `DataSourceIntermediateStoragePtrInput` via:
+//
+//	        DataSourceIntermediateStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceIntermediateStoragePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceIntermediateStoragePtrOutput() DataSourceIntermediateStoragePtrOutput
+	ToDataSourceIntermediateStoragePtrOutputWithContext(context.Context) DataSourceIntermediateStoragePtrOutput
+}
+
+type dataSourceIntermediateStoragePtrType DataSourceIntermediateStorageArgs
+
+func DataSourceIntermediateStoragePtr(v *DataSourceIntermediateStorageArgs) DataSourceIntermediateStoragePtrInput {
+	return (*dataSourceIntermediateStoragePtrType)(v)
+}
+
+func (*dataSourceIntermediateStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceIntermediateStorage)(nil)).Elem()
+}
+
+func (i *dataSourceIntermediateStoragePtrType) ToDataSourceIntermediateStoragePtrOutput() DataSourceIntermediateStoragePtrOutput {
+	return i.ToDataSourceIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceIntermediateStoragePtrType) ToDataSourceIntermediateStoragePtrOutputWithContext(ctx context.Context) DataSourceIntermediateStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIntermediateStoragePtrOutput)
+}
+
+// A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+type DataSourceIntermediateStorageOutput struct{ *pulumi.OutputState }
+
+func (DataSourceIntermediateStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceIntermediateStorage)(nil)).Elem()
+}
+
+func (o DataSourceIntermediateStorageOutput) ToDataSourceIntermediateStorageOutput() DataSourceIntermediateStorageOutput {
+	return o
+}
+
+func (o DataSourceIntermediateStorageOutput) ToDataSourceIntermediateStorageOutputWithContext(ctx context.Context) DataSourceIntermediateStorageOutput {
+	return o
+}
+
+func (o DataSourceIntermediateStorageOutput) ToDataSourceIntermediateStoragePtrOutput() DataSourceIntermediateStoragePtrOutput {
+	return o.ToDataSourceIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceIntermediateStorageOutput) ToDataSourceIntermediateStoragePtrOutputWithContext(ctx context.Context) DataSourceIntermediateStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceIntermediateStorage) *DataSourceIntermediateStorage {
+		return &v
+	}).(DataSourceIntermediateStoragePtrOutput)
+}
+
+func (o DataSourceIntermediateStorageOutput) S3Location() DataSourceS3LocationOutput {
+	return o.ApplyT(func(v DataSourceIntermediateStorage) DataSourceS3Location { return v.S3Location }).(DataSourceS3LocationOutput)
+}
+
+type DataSourceIntermediateStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceIntermediateStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceIntermediateStorage)(nil)).Elem()
+}
+
+func (o DataSourceIntermediateStoragePtrOutput) ToDataSourceIntermediateStoragePtrOutput() DataSourceIntermediateStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceIntermediateStoragePtrOutput) ToDataSourceIntermediateStoragePtrOutputWithContext(ctx context.Context) DataSourceIntermediateStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceIntermediateStoragePtrOutput) Elem() DataSourceIntermediateStorageOutput {
+	return o.ApplyT(func(v *DataSourceIntermediateStorage) DataSourceIntermediateStorage {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceIntermediateStorage
+		return ret
+	}).(DataSourceIntermediateStorageOutput)
+}
+
+func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3LocationPtrOutput {
+	return o.ApplyT(func(v *DataSourceIntermediateStorage) *DataSourceS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Location
+	}).(DataSourceS3LocationPtrOutput)
+}
+
+// Settings for parsing document contents
+type DataSourceParsingConfiguration struct {
+	BedrockFoundationModelConfiguration *DataSourceBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
+	ParsingStrategy                     DataSourceParsingStrategy                      `pulumi:"parsingStrategy"`
+}
+
+// DataSourceParsingConfigurationInput is an input type that accepts DataSourceParsingConfigurationArgs and DataSourceParsingConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceParsingConfigurationInput` via:
+//
+//	DataSourceParsingConfigurationArgs{...}
+type DataSourceParsingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingConfigurationOutput() DataSourceParsingConfigurationOutput
+	ToDataSourceParsingConfigurationOutputWithContext(context.Context) DataSourceParsingConfigurationOutput
+}
+
+// Settings for parsing document contents
+type DataSourceParsingConfigurationArgs struct {
+	BedrockFoundationModelConfiguration DataSourceBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
+	ParsingStrategy                     DataSourceParsingStrategyInput                        `pulumi:"parsingStrategy"`
+}
+
+func (DataSourceParsingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceParsingConfigurationArgs) ToDataSourceParsingConfigurationOutput() DataSourceParsingConfigurationOutput {
+	return i.ToDataSourceParsingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceParsingConfigurationArgs) ToDataSourceParsingConfigurationOutputWithContext(ctx context.Context) DataSourceParsingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingConfigurationOutput)
+}
+
+func (i DataSourceParsingConfigurationArgs) ToDataSourceParsingConfigurationPtrOutput() DataSourceParsingConfigurationPtrOutput {
+	return i.ToDataSourceParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceParsingConfigurationArgs) ToDataSourceParsingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceParsingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingConfigurationOutput).ToDataSourceParsingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceParsingConfigurationPtrInput is an input type that accepts DataSourceParsingConfigurationArgs, DataSourceParsingConfigurationPtr and DataSourceParsingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceParsingConfigurationPtrInput` via:
+//
+//	        DataSourceParsingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceParsingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingConfigurationPtrOutput() DataSourceParsingConfigurationPtrOutput
+	ToDataSourceParsingConfigurationPtrOutputWithContext(context.Context) DataSourceParsingConfigurationPtrOutput
+}
+
+type dataSourceParsingConfigurationPtrType DataSourceParsingConfigurationArgs
+
+func DataSourceParsingConfigurationPtr(v *DataSourceParsingConfigurationArgs) DataSourceParsingConfigurationPtrInput {
+	return (*dataSourceParsingConfigurationPtrType)(v)
+}
+
+func (*dataSourceParsingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceParsingConfigurationPtrType) ToDataSourceParsingConfigurationPtrOutput() DataSourceParsingConfigurationPtrOutput {
+	return i.ToDataSourceParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceParsingConfigurationPtrType) ToDataSourceParsingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceParsingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingConfigurationPtrOutput)
+}
+
+// Settings for parsing document contents
+type DataSourceParsingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationOutput() DataSourceParsingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationOutputWithContext(ctx context.Context) DataSourceParsingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationPtrOutput() DataSourceParsingConfigurationPtrOutput {
+	return o.ToDataSourceParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceParsingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParsingConfiguration) *DataSourceParsingConfiguration {
+		return &v
+	}).(DataSourceParsingConfigurationPtrOutput)
+}
+
+func (o DataSourceParsingConfigurationOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
+		return v.BedrockFoundationModelConfiguration
+	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
+}
+
+func (o DataSourceParsingConfigurationOutput) ParsingStrategy() DataSourceParsingStrategyOutput {
+	return o.ApplyT(func(v DataSourceParsingConfiguration) DataSourceParsingStrategy { return v.ParsingStrategy }).(DataSourceParsingStrategyOutput)
+}
+
+type DataSourceParsingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceParsingConfigurationPtrOutput) ToDataSourceParsingConfigurationPtrOutput() DataSourceParsingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingConfigurationPtrOutput) ToDataSourceParsingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceParsingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingConfigurationPtrOutput) Elem() DataSourceParsingConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceParsingConfiguration) DataSourceParsingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParsingConfiguration
+		return ret
+	}).(DataSourceParsingConfigurationOutput)
+}
+
+func (o DataSourceParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockFoundationModelConfiguration
+	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
+}
+
+func (o DataSourceParsingConfigurationPtrOutput) ParsingStrategy() DataSourceParsingStrategyPtrOutput {
+	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceParsingStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingStrategy
+	}).(DataSourceParsingStrategyPtrOutput)
+}
+
+// Instructions for interpreting the contents of a document.
+type DataSourceParsingPrompt struct {
+	// Instructions for interpreting the contents of a document.
+	ParsingPromptText string `pulumi:"parsingPromptText"`
+}
+
+// DataSourceParsingPromptInput is an input type that accepts DataSourceParsingPromptArgs and DataSourceParsingPromptOutput values.
+// You can construct a concrete instance of `DataSourceParsingPromptInput` via:
+//
+//	DataSourceParsingPromptArgs{...}
+type DataSourceParsingPromptInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingPromptOutput() DataSourceParsingPromptOutput
+	ToDataSourceParsingPromptOutputWithContext(context.Context) DataSourceParsingPromptOutput
+}
+
+// Instructions for interpreting the contents of a document.
+type DataSourceParsingPromptArgs struct {
+	// Instructions for interpreting the contents of a document.
+	ParsingPromptText pulumi.StringInput `pulumi:"parsingPromptText"`
+}
+
+func (DataSourceParsingPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingPrompt)(nil)).Elem()
+}
+
+func (i DataSourceParsingPromptArgs) ToDataSourceParsingPromptOutput() DataSourceParsingPromptOutput {
+	return i.ToDataSourceParsingPromptOutputWithContext(context.Background())
+}
+
+func (i DataSourceParsingPromptArgs) ToDataSourceParsingPromptOutputWithContext(ctx context.Context) DataSourceParsingPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingPromptOutput)
+}
+
+func (i DataSourceParsingPromptArgs) ToDataSourceParsingPromptPtrOutput() DataSourceParsingPromptPtrOutput {
+	return i.ToDataSourceParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceParsingPromptArgs) ToDataSourceParsingPromptPtrOutputWithContext(ctx context.Context) DataSourceParsingPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingPromptOutput).ToDataSourceParsingPromptPtrOutputWithContext(ctx)
+}
+
+// DataSourceParsingPromptPtrInput is an input type that accepts DataSourceParsingPromptArgs, DataSourceParsingPromptPtr and DataSourceParsingPromptPtrOutput values.
+// You can construct a concrete instance of `DataSourceParsingPromptPtrInput` via:
+//
+//	        DataSourceParsingPromptArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceParsingPromptPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingPromptPtrOutput() DataSourceParsingPromptPtrOutput
+	ToDataSourceParsingPromptPtrOutputWithContext(context.Context) DataSourceParsingPromptPtrOutput
+}
+
+type dataSourceParsingPromptPtrType DataSourceParsingPromptArgs
+
+func DataSourceParsingPromptPtr(v *DataSourceParsingPromptArgs) DataSourceParsingPromptPtrInput {
+	return (*dataSourceParsingPromptPtrType)(v)
+}
+
+func (*dataSourceParsingPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingPrompt)(nil)).Elem()
+}
+
+func (i *dataSourceParsingPromptPtrType) ToDataSourceParsingPromptPtrOutput() DataSourceParsingPromptPtrOutput {
+	return i.ToDataSourceParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceParsingPromptPtrType) ToDataSourceParsingPromptPtrOutputWithContext(ctx context.Context) DataSourceParsingPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParsingPromptPtrOutput)
+}
+
+// Instructions for interpreting the contents of a document.
+type DataSourceParsingPromptOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingPrompt)(nil)).Elem()
+}
+
+func (o DataSourceParsingPromptOutput) ToDataSourceParsingPromptOutput() DataSourceParsingPromptOutput {
+	return o
+}
+
+func (o DataSourceParsingPromptOutput) ToDataSourceParsingPromptOutputWithContext(ctx context.Context) DataSourceParsingPromptOutput {
+	return o
+}
+
+func (o DataSourceParsingPromptOutput) ToDataSourceParsingPromptPtrOutput() DataSourceParsingPromptPtrOutput {
+	return o.ToDataSourceParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingPromptOutput) ToDataSourceParsingPromptPtrOutputWithContext(ctx context.Context) DataSourceParsingPromptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParsingPrompt) *DataSourceParsingPrompt {
+		return &v
+	}).(DataSourceParsingPromptPtrOutput)
+}
+
+// Instructions for interpreting the contents of a document.
+func (o DataSourceParsingPromptOutput) ParsingPromptText() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceParsingPrompt) string { return v.ParsingPromptText }).(pulumi.StringOutput)
+}
+
+type DataSourceParsingPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingPrompt)(nil)).Elem()
+}
+
+func (o DataSourceParsingPromptPtrOutput) ToDataSourceParsingPromptPtrOutput() DataSourceParsingPromptPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingPromptPtrOutput) ToDataSourceParsingPromptPtrOutputWithContext(ctx context.Context) DataSourceParsingPromptPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingPromptPtrOutput) Elem() DataSourceParsingPromptOutput {
+	return o.ApplyT(func(v *DataSourceParsingPrompt) DataSourceParsingPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParsingPrompt
+		return ret
+	}).(DataSourceParsingPromptOutput)
+}
+
+// Instructions for interpreting the contents of a document.
+func (o DataSourceParsingPromptPtrOutput) ParsingPromptText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceParsingPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingPromptText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilter struct {
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType string `pulumi:"objectType"`
+}
+
+// DataSourcePatternObjectFilterInput is an input type that accepts DataSourcePatternObjectFilterArgs and DataSourcePatternObjectFilterOutput values.
+// You can construct a concrete instance of `DataSourcePatternObjectFilterInput` via:
+//
+//	DataSourcePatternObjectFilterArgs{...}
+type DataSourcePatternObjectFilterInput interface {
+	pulumi.Input
+
+	ToDataSourcePatternObjectFilterOutput() DataSourcePatternObjectFilterOutput
+	ToDataSourcePatternObjectFilterOutputWithContext(context.Context) DataSourcePatternObjectFilterOutput
+}
+
+// The specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilterArgs struct {
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (DataSourcePatternObjectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePatternObjectFilter)(nil)).Elem()
+}
+
+func (i DataSourcePatternObjectFilterArgs) ToDataSourcePatternObjectFilterOutput() DataSourcePatternObjectFilterOutput {
+	return i.ToDataSourcePatternObjectFilterOutputWithContext(context.Background())
+}
+
+func (i DataSourcePatternObjectFilterArgs) ToDataSourcePatternObjectFilterOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePatternObjectFilterOutput)
+}
+
+// DataSourcePatternObjectFilterArrayInput is an input type that accepts DataSourcePatternObjectFilterArray and DataSourcePatternObjectFilterArrayOutput values.
+// You can construct a concrete instance of `DataSourcePatternObjectFilterArrayInput` via:
+//
+//	DataSourcePatternObjectFilterArray{ DataSourcePatternObjectFilterArgs{...} }
+type DataSourcePatternObjectFilterArrayInput interface {
+	pulumi.Input
+
+	ToDataSourcePatternObjectFilterArrayOutput() DataSourcePatternObjectFilterArrayOutput
+	ToDataSourcePatternObjectFilterArrayOutputWithContext(context.Context) DataSourcePatternObjectFilterArrayOutput
+}
+
+type DataSourcePatternObjectFilterArray []DataSourcePatternObjectFilterInput
+
+func (DataSourcePatternObjectFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourcePatternObjectFilter)(nil)).Elem()
+}
+
+func (i DataSourcePatternObjectFilterArray) ToDataSourcePatternObjectFilterArrayOutput() DataSourcePatternObjectFilterArrayOutput {
+	return i.ToDataSourcePatternObjectFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourcePatternObjectFilterArray) ToDataSourcePatternObjectFilterArrayOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePatternObjectFilterArrayOutput)
+}
+
+// The specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilterOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePatternObjectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePatternObjectFilter)(nil)).Elem()
+}
+
+func (o DataSourcePatternObjectFilterOutput) ToDataSourcePatternObjectFilterOutput() DataSourcePatternObjectFilterOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterOutput) ToDataSourcePatternObjectFilterOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourcePatternObjectFilter) []string { return v.ExclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourcePatternObjectFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourcePatternObjectFilter) []string { return v.InclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+// The supported object type or content type of the data source.
+func (o DataSourcePatternObjectFilterOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourcePatternObjectFilter) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type DataSourcePatternObjectFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePatternObjectFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourcePatternObjectFilter)(nil)).Elem()
+}
+
+func (o DataSourcePatternObjectFilterArrayOutput) ToDataSourcePatternObjectFilterArrayOutput() DataSourcePatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterArrayOutput) ToDataSourcePatternObjectFilterArrayOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterArrayOutput) Index(i pulumi.IntInput) DataSourcePatternObjectFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourcePatternObjectFilter {
+		return vs[0].([]DataSourcePatternObjectFilter)[vs[1].(int)]
+	}).(DataSourcePatternObjectFilterOutput)
+}
+
+// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilterConfiguration struct {
+	Filters []DataSourcePatternObjectFilter `pulumi:"filters"`
+}
+
+// DataSourcePatternObjectFilterConfigurationInput is an input type that accepts DataSourcePatternObjectFilterConfigurationArgs and DataSourcePatternObjectFilterConfigurationOutput values.
+// You can construct a concrete instance of `DataSourcePatternObjectFilterConfigurationInput` via:
+//
+//	DataSourcePatternObjectFilterConfigurationArgs{...}
+type DataSourcePatternObjectFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourcePatternObjectFilterConfigurationOutput() DataSourcePatternObjectFilterConfigurationOutput
+	ToDataSourcePatternObjectFilterConfigurationOutputWithContext(context.Context) DataSourcePatternObjectFilterConfigurationOutput
+}
+
+// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilterConfigurationArgs struct {
+	Filters DataSourcePatternObjectFilterArrayInput `pulumi:"filters"`
+}
+
+func (DataSourcePatternObjectFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePatternObjectFilterConfiguration)(nil)).Elem()
+}
+
+func (i DataSourcePatternObjectFilterConfigurationArgs) ToDataSourcePatternObjectFilterConfigurationOutput() DataSourcePatternObjectFilterConfigurationOutput {
+	return i.ToDataSourcePatternObjectFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourcePatternObjectFilterConfigurationArgs) ToDataSourcePatternObjectFilterConfigurationOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePatternObjectFilterConfigurationOutput)
+}
+
+func (i DataSourcePatternObjectFilterConfigurationArgs) ToDataSourcePatternObjectFilterConfigurationPtrOutput() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return i.ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourcePatternObjectFilterConfigurationArgs) ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePatternObjectFilterConfigurationOutput).ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourcePatternObjectFilterConfigurationPtrInput is an input type that accepts DataSourcePatternObjectFilterConfigurationArgs, DataSourcePatternObjectFilterConfigurationPtr and DataSourcePatternObjectFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourcePatternObjectFilterConfigurationPtrInput` via:
+//
+//	        DataSourcePatternObjectFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourcePatternObjectFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourcePatternObjectFilterConfigurationPtrOutput() DataSourcePatternObjectFilterConfigurationPtrOutput
+	ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(context.Context) DataSourcePatternObjectFilterConfigurationPtrOutput
+}
+
+type dataSourcePatternObjectFilterConfigurationPtrType DataSourcePatternObjectFilterConfigurationArgs
+
+func DataSourcePatternObjectFilterConfigurationPtr(v *DataSourcePatternObjectFilterConfigurationArgs) DataSourcePatternObjectFilterConfigurationPtrInput {
+	return (*dataSourcePatternObjectFilterConfigurationPtrType)(v)
+}
+
+func (*dataSourcePatternObjectFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourcePatternObjectFilterConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourcePatternObjectFilterConfigurationPtrType) ToDataSourcePatternObjectFilterConfigurationPtrOutput() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return i.ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourcePatternObjectFilterConfigurationPtrType) ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePatternObjectFilterConfigurationPtrOutput)
+}
+
+// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+type DataSourcePatternObjectFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePatternObjectFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePatternObjectFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourcePatternObjectFilterConfigurationOutput) ToDataSourcePatternObjectFilterConfigurationOutput() DataSourcePatternObjectFilterConfigurationOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterConfigurationOutput) ToDataSourcePatternObjectFilterConfigurationOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterConfigurationOutput) ToDataSourcePatternObjectFilterConfigurationPtrOutput() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o.ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourcePatternObjectFilterConfigurationOutput) ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourcePatternObjectFilterConfiguration) *DataSourcePatternObjectFilterConfiguration {
+		return &v
+	}).(DataSourcePatternObjectFilterConfigurationPtrOutput)
+}
+
+func (o DataSourcePatternObjectFilterConfigurationOutput) Filters() DataSourcePatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v DataSourcePatternObjectFilterConfiguration) []DataSourcePatternObjectFilter { return v.Filters }).(DataSourcePatternObjectFilterArrayOutput)
+}
+
+type DataSourcePatternObjectFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePatternObjectFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourcePatternObjectFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourcePatternObjectFilterConfigurationPtrOutput) ToDataSourcePatternObjectFilterConfigurationPtrOutput() DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterConfigurationPtrOutput) ToDataSourcePatternObjectFilterConfigurationPtrOutputWithContext(ctx context.Context) DataSourcePatternObjectFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourcePatternObjectFilterConfigurationPtrOutput) Elem() DataSourcePatternObjectFilterConfigurationOutput {
+	return o.ApplyT(func(v *DataSourcePatternObjectFilterConfiguration) DataSourcePatternObjectFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourcePatternObjectFilterConfiguration
+		return ret
+	}).(DataSourcePatternObjectFilterConfigurationOutput)
+}
+
+func (o DataSourcePatternObjectFilterConfigurationPtrOutput) Filters() DataSourcePatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v *DataSourcePatternObjectFilterConfiguration) []DataSourcePatternObjectFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(DataSourcePatternObjectFilterArrayOutput)
+}
+
+// The configuration information to connect to Amazon S3 as your data source.
 type DataSourceS3DataSourceConfiguration struct {
 	// The ARN of the bucket that contains the data source.
 	BucketArn string `pulumi:"bucketArn"`
@@ -2710,7 +4713,7 @@ type DataSourceS3DataSourceConfigurationInput interface {
 	ToDataSourceS3DataSourceConfigurationOutputWithContext(context.Context) DataSourceS3DataSourceConfigurationOutput
 }
 
-// Contains information about the S3 configuration of the data source.
+// The configuration information to connect to Amazon S3 as your data source.
 type DataSourceS3DataSourceConfigurationArgs struct {
 	// The ARN of the bucket that contains the data source.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
@@ -2732,7 +4735,48 @@ func (i DataSourceS3DataSourceConfigurationArgs) ToDataSourceS3DataSourceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3DataSourceConfigurationOutput)
 }
 
-// Contains information about the S3 configuration of the data source.
+func (i DataSourceS3DataSourceConfigurationArgs) ToDataSourceS3DataSourceConfigurationPtrOutput() DataSourceS3DataSourceConfigurationPtrOutput {
+	return i.ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceS3DataSourceConfigurationArgs) ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceS3DataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3DataSourceConfigurationOutput).ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceS3DataSourceConfigurationPtrInput is an input type that accepts DataSourceS3DataSourceConfigurationArgs, DataSourceS3DataSourceConfigurationPtr and DataSourceS3DataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceS3DataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceS3DataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceS3DataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceS3DataSourceConfigurationPtrOutput() DataSourceS3DataSourceConfigurationPtrOutput
+	ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceS3DataSourceConfigurationPtrOutput
+}
+
+type dataSourceS3DataSourceConfigurationPtrType DataSourceS3DataSourceConfigurationArgs
+
+func DataSourceS3DataSourceConfigurationPtr(v *DataSourceS3DataSourceConfigurationArgs) DataSourceS3DataSourceConfigurationPtrInput {
+	return (*dataSourceS3DataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceS3DataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceS3DataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceS3DataSourceConfigurationPtrType) ToDataSourceS3DataSourceConfigurationPtrOutput() DataSourceS3DataSourceConfigurationPtrOutput {
+	return i.ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceS3DataSourceConfigurationPtrType) ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceS3DataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3DataSourceConfigurationPtrOutput)
+}
+
+// The configuration information to connect to Amazon S3 as your data source.
 type DataSourceS3DataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceS3DataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -2745,6 +4789,16 @@ func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfi
 
 func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceS3DataSourceConfigurationOutput {
 	return o
+}
+
+func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfigurationPtrOutput() DataSourceS3DataSourceConfigurationPtrOutput {
+	return o.ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceS3DataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceS3DataSourceConfiguration) *DataSourceS3DataSourceConfiguration {
+		return &v
+	}).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
 // The ARN of the bucket that contains the data source.
@@ -2814,6 +4868,897 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPrefixes() pulumi
 		}
 		return v.InclusionPrefixes
 	}).(pulumi.StringArrayOutput)
+}
+
+// An Amazon S3 location.
+type DataSourceS3Location struct {
+	// The location's URI
+	Uri string `pulumi:"uri"`
+}
+
+// DataSourceS3LocationInput is an input type that accepts DataSourceS3LocationArgs and DataSourceS3LocationOutput values.
+// You can construct a concrete instance of `DataSourceS3LocationInput` via:
+//
+//	DataSourceS3LocationArgs{...}
+type DataSourceS3LocationInput interface {
+	pulumi.Input
+
+	ToDataSourceS3LocationOutput() DataSourceS3LocationOutput
+	ToDataSourceS3LocationOutputWithContext(context.Context) DataSourceS3LocationOutput
+}
+
+// An Amazon S3 location.
+type DataSourceS3LocationArgs struct {
+	// The location's URI
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (DataSourceS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceS3Location)(nil)).Elem()
+}
+
+func (i DataSourceS3LocationArgs) ToDataSourceS3LocationOutput() DataSourceS3LocationOutput {
+	return i.ToDataSourceS3LocationOutputWithContext(context.Background())
+}
+
+func (i DataSourceS3LocationArgs) ToDataSourceS3LocationOutputWithContext(ctx context.Context) DataSourceS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3LocationOutput)
+}
+
+func (i DataSourceS3LocationArgs) ToDataSourceS3LocationPtrOutput() DataSourceS3LocationPtrOutput {
+	return i.ToDataSourceS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceS3LocationArgs) ToDataSourceS3LocationPtrOutputWithContext(ctx context.Context) DataSourceS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3LocationOutput).ToDataSourceS3LocationPtrOutputWithContext(ctx)
+}
+
+// DataSourceS3LocationPtrInput is an input type that accepts DataSourceS3LocationArgs, DataSourceS3LocationPtr and DataSourceS3LocationPtrOutput values.
+// You can construct a concrete instance of `DataSourceS3LocationPtrInput` via:
+//
+//	        DataSourceS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceS3LocationPtrOutput() DataSourceS3LocationPtrOutput
+	ToDataSourceS3LocationPtrOutputWithContext(context.Context) DataSourceS3LocationPtrOutput
+}
+
+type dataSourceS3LocationPtrType DataSourceS3LocationArgs
+
+func DataSourceS3LocationPtr(v *DataSourceS3LocationArgs) DataSourceS3LocationPtrInput {
+	return (*dataSourceS3LocationPtrType)(v)
+}
+
+func (*dataSourceS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceS3Location)(nil)).Elem()
+}
+
+func (i *dataSourceS3LocationPtrType) ToDataSourceS3LocationPtrOutput() DataSourceS3LocationPtrOutput {
+	return i.ToDataSourceS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceS3LocationPtrType) ToDataSourceS3LocationPtrOutputWithContext(ctx context.Context) DataSourceS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3LocationPtrOutput)
+}
+
+// An Amazon S3 location.
+type DataSourceS3LocationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceS3Location)(nil)).Elem()
+}
+
+func (o DataSourceS3LocationOutput) ToDataSourceS3LocationOutput() DataSourceS3LocationOutput {
+	return o
+}
+
+func (o DataSourceS3LocationOutput) ToDataSourceS3LocationOutputWithContext(ctx context.Context) DataSourceS3LocationOutput {
+	return o
+}
+
+func (o DataSourceS3LocationOutput) ToDataSourceS3LocationPtrOutput() DataSourceS3LocationPtrOutput {
+	return o.ToDataSourceS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceS3LocationOutput) ToDataSourceS3LocationPtrOutputWithContext(ctx context.Context) DataSourceS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceS3Location) *DataSourceS3Location {
+		return &v
+	}).(DataSourceS3LocationPtrOutput)
+}
+
+// The location's URI
+func (o DataSourceS3LocationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceS3Location) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type DataSourceS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceS3Location)(nil)).Elem()
+}
+
+func (o DataSourceS3LocationPtrOutput) ToDataSourceS3LocationPtrOutput() DataSourceS3LocationPtrOutput {
+	return o
+}
+
+func (o DataSourceS3LocationPtrOutput) ToDataSourceS3LocationPtrOutputWithContext(ctx context.Context) DataSourceS3LocationPtrOutput {
+	return o
+}
+
+func (o DataSourceS3LocationPtrOutput) Elem() DataSourceS3LocationOutput {
+	return o.ApplyT(func(v *DataSourceS3Location) DataSourceS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceS3Location
+		return ret
+	}).(DataSourceS3LocationOutput)
+}
+
+// The location's URI
+func (o DataSourceS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+type DataSourceSalesforceCrawlerConfiguration struct {
+	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// DataSourceSalesforceCrawlerConfigurationInput is an input type that accepts DataSourceSalesforceCrawlerConfigurationArgs and DataSourceSalesforceCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceCrawlerConfigurationInput` via:
+//
+//	DataSourceSalesforceCrawlerConfigurationArgs{...}
+type DataSourceSalesforceCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceCrawlerConfigurationOutput() DataSourceSalesforceCrawlerConfigurationOutput
+	ToDataSourceSalesforceCrawlerConfigurationOutputWithContext(context.Context) DataSourceSalesforceCrawlerConfigurationOutput
+}
+
+// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+type DataSourceSalesforceCrawlerConfigurationArgs struct {
+	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (DataSourceSalesforceCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSalesforceCrawlerConfigurationArgs) ToDataSourceSalesforceCrawlerConfigurationOutput() DataSourceSalesforceCrawlerConfigurationOutput {
+	return i.ToDataSourceSalesforceCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceCrawlerConfigurationArgs) ToDataSourceSalesforceCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCrawlerConfigurationOutput)
+}
+
+func (i DataSourceSalesforceCrawlerConfigurationArgs) ToDataSourceSalesforceCrawlerConfigurationPtrOutput() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceCrawlerConfigurationArgs) ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCrawlerConfigurationOutput).ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSalesforceCrawlerConfigurationPtrInput is an input type that accepts DataSourceSalesforceCrawlerConfigurationArgs, DataSourceSalesforceCrawlerConfigurationPtr and DataSourceSalesforceCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceCrawlerConfigurationPtrInput` via:
+//
+//	        DataSourceSalesforceCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSalesforceCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceCrawlerConfigurationPtrOutput() DataSourceSalesforceCrawlerConfigurationPtrOutput
+	ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(context.Context) DataSourceSalesforceCrawlerConfigurationPtrOutput
+}
+
+type dataSourceSalesforceCrawlerConfigurationPtrType DataSourceSalesforceCrawlerConfigurationArgs
+
+func DataSourceSalesforceCrawlerConfigurationPtr(v *DataSourceSalesforceCrawlerConfigurationArgs) DataSourceSalesforceCrawlerConfigurationPtrInput {
+	return (*dataSourceSalesforceCrawlerConfigurationPtrType)(v)
+}
+
+func (*dataSourceSalesforceCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSalesforceCrawlerConfigurationPtrType) ToDataSourceSalesforceCrawlerConfigurationPtrOutput() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSalesforceCrawlerConfigurationPtrType) ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
+}
+
+// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+type DataSourceSalesforceCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationOutput) ToDataSourceSalesforceCrawlerConfigurationOutput() DataSourceSalesforceCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationOutput) ToDataSourceSalesforceCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationOutput) ToDataSourceSalesforceCrawlerConfigurationPtrOutput() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o.ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationOutput) ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceCrawlerConfiguration) *DataSourceSalesforceCrawlerConfiguration {
+		return &v
+	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceSalesforceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+type DataSourceSalesforceCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) ToDataSourceSalesforceCrawlerConfigurationPtrOutput() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) ToDataSourceSalesforceCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) Elem() DataSourceSalesforceCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceCrawlerConfiguration) DataSourceSalesforceCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSalesforceCrawlerConfiguration
+		return ret
+	}).(DataSourceSalesforceCrawlerConfigurationOutput)
+}
+
+func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+// The configuration information to connect to Salesforce as your data source.
+type DataSourceSalesforceDataSourceConfiguration struct {
+	CrawlerConfiguration *DataSourceSalesforceCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceSalesforceSourceConfiguration   `pulumi:"sourceConfiguration"`
+}
+
+// DataSourceSalesforceDataSourceConfigurationInput is an input type that accepts DataSourceSalesforceDataSourceConfigurationArgs and DataSourceSalesforceDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceDataSourceConfigurationInput` via:
+//
+//	DataSourceSalesforceDataSourceConfigurationArgs{...}
+type DataSourceSalesforceDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceDataSourceConfigurationOutput() DataSourceSalesforceDataSourceConfigurationOutput
+	ToDataSourceSalesforceDataSourceConfigurationOutputWithContext(context.Context) DataSourceSalesforceDataSourceConfigurationOutput
+}
+
+// The configuration information to connect to Salesforce as your data source.
+type DataSourceSalesforceDataSourceConfigurationArgs struct {
+	CrawlerConfiguration DataSourceSalesforceCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceSalesforceSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+}
+
+func (DataSourceSalesforceDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSalesforceDataSourceConfigurationArgs) ToDataSourceSalesforceDataSourceConfigurationOutput() DataSourceSalesforceDataSourceConfigurationOutput {
+	return i.ToDataSourceSalesforceDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceDataSourceConfigurationArgs) ToDataSourceSalesforceDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceDataSourceConfigurationOutput)
+}
+
+func (i DataSourceSalesforceDataSourceConfigurationArgs) ToDataSourceSalesforceDataSourceConfigurationPtrOutput() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceDataSourceConfigurationArgs) ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceDataSourceConfigurationOutput).ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSalesforceDataSourceConfigurationPtrInput is an input type that accepts DataSourceSalesforceDataSourceConfigurationArgs, DataSourceSalesforceDataSourceConfigurationPtr and DataSourceSalesforceDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceDataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceSalesforceDataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSalesforceDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceDataSourceConfigurationPtrOutput() DataSourceSalesforceDataSourceConfigurationPtrOutput
+	ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceSalesforceDataSourceConfigurationPtrOutput
+}
+
+type dataSourceSalesforceDataSourceConfigurationPtrType DataSourceSalesforceDataSourceConfigurationArgs
+
+func DataSourceSalesforceDataSourceConfigurationPtr(v *DataSourceSalesforceDataSourceConfigurationArgs) DataSourceSalesforceDataSourceConfigurationPtrInput {
+	return (*dataSourceSalesforceDataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceSalesforceDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSalesforceDataSourceConfigurationPtrType) ToDataSourceSalesforceDataSourceConfigurationPtrOutput() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSalesforceDataSourceConfigurationPtrType) ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
+}
+
+// The configuration information to connect to Salesforce as your data source.
+type DataSourceSalesforceDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) ToDataSourceSalesforceDataSourceConfigurationOutput() DataSourceSalesforceDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) ToDataSourceSalesforceDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) ToDataSourceSalesforceDataSourceConfigurationPtrOutput() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o.ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceDataSourceConfiguration {
+		return &v
+	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationOutput) SourceConfiguration() DataSourceSalesforceSourceConfigurationOutput {
+	return o.ApplyT(func(v DataSourceSalesforceDataSourceConfiguration) DataSourceSalesforceSourceConfiguration {
+		return v.SourceConfiguration
+	}).(DataSourceSalesforceSourceConfigurationOutput)
+}
+
+type DataSourceSalesforceDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) ToDataSourceSalesforceDataSourceConfigurationPtrOutput() DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) ToDataSourceSalesforceDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) Elem() DataSourceSalesforceDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceDataSourceConfiguration) DataSourceSalesforceDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSalesforceDataSourceConfiguration
+		return ret
+	}).(DataSourceSalesforceDataSourceConfigurationOutput)
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceSalesforceCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceSalesforceSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceConfiguration
+	}).(DataSourceSalesforceSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your Salesforce data source.
+type DataSourceSalesforceSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your Salesforce instance.
+	AuthType DataSourceSalesforceSourceConfigurationAuthType `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The Salesforce host URL or instance URL.
+	HostUrl string `pulumi:"hostUrl"`
+}
+
+// DataSourceSalesforceSourceConfigurationInput is an input type that accepts DataSourceSalesforceSourceConfigurationArgs and DataSourceSalesforceSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceSourceConfigurationInput` via:
+//
+//	DataSourceSalesforceSourceConfigurationArgs{...}
+type DataSourceSalesforceSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceSourceConfigurationOutput() DataSourceSalesforceSourceConfigurationOutput
+	ToDataSourceSalesforceSourceConfigurationOutputWithContext(context.Context) DataSourceSalesforceSourceConfigurationOutput
+}
+
+// The endpoint information to connect to your Salesforce data source.
+type DataSourceSalesforceSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your Salesforce instance.
+	AuthType DataSourceSalesforceSourceConfigurationAuthTypeInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The Salesforce host URL or instance URL.
+	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
+}
+
+func (DataSourceSalesforceSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSalesforceSourceConfigurationArgs) ToDataSourceSalesforceSourceConfigurationOutput() DataSourceSalesforceSourceConfigurationOutput {
+	return i.ToDataSourceSalesforceSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceSourceConfigurationArgs) ToDataSourceSalesforceSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceSourceConfigurationOutput)
+}
+
+func (i DataSourceSalesforceSourceConfigurationArgs) ToDataSourceSalesforceSourceConfigurationPtrOutput() DataSourceSalesforceSourceConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSalesforceSourceConfigurationArgs) ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceSourceConfigurationOutput).ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSalesforceSourceConfigurationPtrInput is an input type that accepts DataSourceSalesforceSourceConfigurationArgs, DataSourceSalesforceSourceConfigurationPtr and DataSourceSalesforceSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceSourceConfigurationPtrInput` via:
+//
+//	        DataSourceSalesforceSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSalesforceSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSalesforceSourceConfigurationPtrOutput() DataSourceSalesforceSourceConfigurationPtrOutput
+	ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(context.Context) DataSourceSalesforceSourceConfigurationPtrOutput
+}
+
+type dataSourceSalesforceSourceConfigurationPtrType DataSourceSalesforceSourceConfigurationArgs
+
+func DataSourceSalesforceSourceConfigurationPtr(v *DataSourceSalesforceSourceConfigurationArgs) DataSourceSalesforceSourceConfigurationPtrInput {
+	return (*dataSourceSalesforceSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceSalesforceSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSalesforceSourceConfigurationPtrType) ToDataSourceSalesforceSourceConfigurationPtrOutput() DataSourceSalesforceSourceConfigurationPtrOutput {
+	return i.ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSalesforceSourceConfigurationPtrType) ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your Salesforce data source.
+type DataSourceSalesforceSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSalesforceSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceSourceConfigurationOutput) ToDataSourceSalesforceSourceConfigurationOutput() DataSourceSalesforceSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationOutput) ToDataSourceSalesforceSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationOutput) ToDataSourceSalesforceSourceConfigurationPtrOutput() DataSourceSalesforceSourceConfigurationPtrOutput {
+	return o.ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSalesforceSourceConfigurationOutput) ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceSourceConfiguration) *DataSourceSalesforceSourceConfiguration {
+		return &v
+	}).(DataSourceSalesforceSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Salesforce instance.
+func (o DataSourceSalesforceSourceConfigurationOutput) AuthType() DataSourceSalesforceSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v DataSourceSalesforceSourceConfiguration) DataSourceSalesforceSourceConfigurationAuthType {
+		return v.AuthType
+	}).(DataSourceSalesforceSourceConfigurationAuthTypeOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+func (o DataSourceSalesforceSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceSalesforceSourceConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
+}
+
+// The Salesforce host URL or instance URL.
+func (o DataSourceSalesforceSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceSalesforceSourceConfiguration) string { return v.HostUrl }).(pulumi.StringOutput)
+}
+
+type DataSourceSalesforceSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSalesforceSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSalesforceSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) ToDataSourceSalesforceSourceConfigurationPtrOutput() DataSourceSalesforceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) ToDataSourceSalesforceSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSalesforceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) Elem() DataSourceSalesforceSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceSourceConfiguration) DataSourceSalesforceSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSalesforceSourceConfiguration
+		return ret
+	}).(DataSourceSalesforceSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your Salesforce instance.
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) AuthType() DataSourceSalesforceSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceSourceConfiguration) *DataSourceSalesforceSourceConfigurationAuthType {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(DataSourceSalesforceSourceConfigurationAuthTypePtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Salesforce host URL or instance URL.
+func (o DataSourceSalesforceSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A seed url object.
+type DataSourceSeedUrl struct {
+	// A web url.
+	Url string `pulumi:"url"`
+}
+
+// DataSourceSeedUrlInput is an input type that accepts DataSourceSeedUrlArgs and DataSourceSeedUrlOutput values.
+// You can construct a concrete instance of `DataSourceSeedUrlInput` via:
+//
+//	DataSourceSeedUrlArgs{...}
+type DataSourceSeedUrlInput interface {
+	pulumi.Input
+
+	ToDataSourceSeedUrlOutput() DataSourceSeedUrlOutput
+	ToDataSourceSeedUrlOutputWithContext(context.Context) DataSourceSeedUrlOutput
+}
+
+// A seed url object.
+type DataSourceSeedUrlArgs struct {
+	// A web url.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (DataSourceSeedUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSeedUrl)(nil)).Elem()
+}
+
+func (i DataSourceSeedUrlArgs) ToDataSourceSeedUrlOutput() DataSourceSeedUrlOutput {
+	return i.ToDataSourceSeedUrlOutputWithContext(context.Background())
+}
+
+func (i DataSourceSeedUrlArgs) ToDataSourceSeedUrlOutputWithContext(ctx context.Context) DataSourceSeedUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSeedUrlOutput)
+}
+
+// DataSourceSeedUrlArrayInput is an input type that accepts DataSourceSeedUrlArray and DataSourceSeedUrlArrayOutput values.
+// You can construct a concrete instance of `DataSourceSeedUrlArrayInput` via:
+//
+//	DataSourceSeedUrlArray{ DataSourceSeedUrlArgs{...} }
+type DataSourceSeedUrlArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceSeedUrlArrayOutput() DataSourceSeedUrlArrayOutput
+	ToDataSourceSeedUrlArrayOutputWithContext(context.Context) DataSourceSeedUrlArrayOutput
+}
+
+type DataSourceSeedUrlArray []DataSourceSeedUrlInput
+
+func (DataSourceSeedUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceSeedUrl)(nil)).Elem()
+}
+
+func (i DataSourceSeedUrlArray) ToDataSourceSeedUrlArrayOutput() DataSourceSeedUrlArrayOutput {
+	return i.ToDataSourceSeedUrlArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceSeedUrlArray) ToDataSourceSeedUrlArrayOutputWithContext(ctx context.Context) DataSourceSeedUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSeedUrlArrayOutput)
+}
+
+// A seed url object.
+type DataSourceSeedUrlOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSeedUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSeedUrl)(nil)).Elem()
+}
+
+func (o DataSourceSeedUrlOutput) ToDataSourceSeedUrlOutput() DataSourceSeedUrlOutput {
+	return o
+}
+
+func (o DataSourceSeedUrlOutput) ToDataSourceSeedUrlOutputWithContext(ctx context.Context) DataSourceSeedUrlOutput {
+	return o
+}
+
+// A web url.
+func (o DataSourceSeedUrlOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceSeedUrl) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type DataSourceSeedUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSeedUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceSeedUrl)(nil)).Elem()
+}
+
+func (o DataSourceSeedUrlArrayOutput) ToDataSourceSeedUrlArrayOutput() DataSourceSeedUrlArrayOutput {
+	return o
+}
+
+func (o DataSourceSeedUrlArrayOutput) ToDataSourceSeedUrlArrayOutputWithContext(ctx context.Context) DataSourceSeedUrlArrayOutput {
+	return o
+}
+
+func (o DataSourceSeedUrlArrayOutput) Index(i pulumi.IntInput) DataSourceSeedUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceSeedUrl {
+		return vs[0].([]DataSourceSeedUrl)[vs[1].(int)]
+	}).(DataSourceSeedUrlOutput)
+}
+
+// Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceSemanticChunkingConfiguration struct {
+	// The dissimilarity threshold for splitting chunks.
+	BreakpointPercentileThreshold int `pulumi:"breakpointPercentileThreshold"`
+	// The buffer size.
+	BufferSize int `pulumi:"bufferSize"`
+	// The maximum number of tokens that a chunk can contain.
+	MaxTokens int `pulumi:"maxTokens"`
+}
+
+// DataSourceSemanticChunkingConfigurationInput is an input type that accepts DataSourceSemanticChunkingConfigurationArgs and DataSourceSemanticChunkingConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSemanticChunkingConfigurationInput` via:
+//
+//	DataSourceSemanticChunkingConfigurationArgs{...}
+type DataSourceSemanticChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSemanticChunkingConfigurationOutput() DataSourceSemanticChunkingConfigurationOutput
+	ToDataSourceSemanticChunkingConfigurationOutputWithContext(context.Context) DataSourceSemanticChunkingConfigurationOutput
+}
+
+// Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceSemanticChunkingConfigurationArgs struct {
+	// The dissimilarity threshold for splitting chunks.
+	BreakpointPercentileThreshold pulumi.IntInput `pulumi:"breakpointPercentileThreshold"`
+	// The buffer size.
+	BufferSize pulumi.IntInput `pulumi:"bufferSize"`
+	// The maximum number of tokens that a chunk can contain.
+	MaxTokens pulumi.IntInput `pulumi:"maxTokens"`
+}
+
+func (DataSourceSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSemanticChunkingConfigurationArgs) ToDataSourceSemanticChunkingConfigurationOutput() DataSourceSemanticChunkingConfigurationOutput {
+	return i.ToDataSourceSemanticChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSemanticChunkingConfigurationArgs) ToDataSourceSemanticChunkingConfigurationOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSemanticChunkingConfigurationOutput)
+}
+
+func (i DataSourceSemanticChunkingConfigurationArgs) ToDataSourceSemanticChunkingConfigurationPtrOutput() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return i.ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSemanticChunkingConfigurationArgs) ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSemanticChunkingConfigurationOutput).ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSemanticChunkingConfigurationPtrInput is an input type that accepts DataSourceSemanticChunkingConfigurationArgs, DataSourceSemanticChunkingConfigurationPtr and DataSourceSemanticChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSemanticChunkingConfigurationPtrInput` via:
+//
+//	        DataSourceSemanticChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSemanticChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSemanticChunkingConfigurationPtrOutput() DataSourceSemanticChunkingConfigurationPtrOutput
+	ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(context.Context) DataSourceSemanticChunkingConfigurationPtrOutput
+}
+
+type dataSourceSemanticChunkingConfigurationPtrType DataSourceSemanticChunkingConfigurationArgs
+
+func DataSourceSemanticChunkingConfigurationPtr(v *DataSourceSemanticChunkingConfigurationArgs) DataSourceSemanticChunkingConfigurationPtrInput {
+	return (*dataSourceSemanticChunkingConfigurationPtrType)(v)
+}
+
+func (*dataSourceSemanticChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSemanticChunkingConfigurationPtrType) ToDataSourceSemanticChunkingConfigurationPtrOutput() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return i.ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSemanticChunkingConfigurationPtrType) ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSemanticChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+type DataSourceSemanticChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSemanticChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSemanticChunkingConfigurationOutput) ToDataSourceSemanticChunkingConfigurationOutput() DataSourceSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSemanticChunkingConfigurationOutput) ToDataSourceSemanticChunkingConfigurationOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSemanticChunkingConfigurationOutput) ToDataSourceSemanticChunkingConfigurationPtrOutput() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o.ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSemanticChunkingConfigurationOutput) ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSemanticChunkingConfiguration) *DataSourceSemanticChunkingConfiguration {
+		return &v
+	}).(DataSourceSemanticChunkingConfigurationPtrOutput)
+}
+
+// The dissimilarity threshold for splitting chunks.
+func (o DataSourceSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceSemanticChunkingConfiguration) int { return v.BreakpointPercentileThreshold }).(pulumi.IntOutput)
+}
+
+// The buffer size.
+func (o DataSourceSemanticChunkingConfigurationOutput) BufferSize() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceSemanticChunkingConfiguration) int { return v.BufferSize }).(pulumi.IntOutput)
+}
+
+// The maximum number of tokens that a chunk can contain.
+func (o DataSourceSemanticChunkingConfigurationOutput) MaxTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceSemanticChunkingConfiguration) int { return v.MaxTokens }).(pulumi.IntOutput)
+}
+
+type DataSourceSemanticChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSemanticChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) ToDataSourceSemanticChunkingConfigurationPtrOutput() DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) ToDataSourceSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) Elem() DataSourceSemanticChunkingConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSemanticChunkingConfiguration) DataSourceSemanticChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSemanticChunkingConfiguration
+		return ret
+	}).(DataSourceSemanticChunkingConfigurationOutput)
+}
+
+// The dissimilarity threshold for splitting chunks.
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceSemanticChunkingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BreakpointPercentileThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The buffer size.
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceSemanticChunkingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BufferSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of tokens that a chunk can contain.
+func (o DataSourceSemanticChunkingConfigurationPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceSemanticChunkingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTokens
+	}).(pulumi.IntPtrOutput)
 }
 
 // Contains details about the server-side encryption for the data source.
@@ -2956,10 +5901,895 @@ func (o DataSourceServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+type DataSourceSharePointCrawlerConfiguration struct {
+	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// DataSourceSharePointCrawlerConfigurationInput is an input type that accepts DataSourceSharePointCrawlerConfigurationArgs and DataSourceSharePointCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSharePointCrawlerConfigurationInput` via:
+//
+//	DataSourceSharePointCrawlerConfigurationArgs{...}
+type DataSourceSharePointCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointCrawlerConfigurationOutput() DataSourceSharePointCrawlerConfigurationOutput
+	ToDataSourceSharePointCrawlerConfigurationOutputWithContext(context.Context) DataSourceSharePointCrawlerConfigurationOutput
+}
+
+// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+type DataSourceSharePointCrawlerConfigurationArgs struct {
+	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (DataSourceSharePointCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSharePointCrawlerConfigurationArgs) ToDataSourceSharePointCrawlerConfigurationOutput() DataSourceSharePointCrawlerConfigurationOutput {
+	return i.ToDataSourceSharePointCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointCrawlerConfigurationArgs) ToDataSourceSharePointCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointCrawlerConfigurationOutput)
+}
+
+func (i DataSourceSharePointCrawlerConfigurationArgs) ToDataSourceSharePointCrawlerConfigurationPtrOutput() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointCrawlerConfigurationArgs) ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointCrawlerConfigurationOutput).ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSharePointCrawlerConfigurationPtrInput is an input type that accepts DataSourceSharePointCrawlerConfigurationArgs, DataSourceSharePointCrawlerConfigurationPtr and DataSourceSharePointCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSharePointCrawlerConfigurationPtrInput` via:
+//
+//	        DataSourceSharePointCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSharePointCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointCrawlerConfigurationPtrOutput() DataSourceSharePointCrawlerConfigurationPtrOutput
+	ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(context.Context) DataSourceSharePointCrawlerConfigurationPtrOutput
+}
+
+type dataSourceSharePointCrawlerConfigurationPtrType DataSourceSharePointCrawlerConfigurationArgs
+
+func DataSourceSharePointCrawlerConfigurationPtr(v *DataSourceSharePointCrawlerConfigurationArgs) DataSourceSharePointCrawlerConfigurationPtrInput {
+	return (*dataSourceSharePointCrawlerConfigurationPtrType)(v)
+}
+
+func (*dataSourceSharePointCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSharePointCrawlerConfigurationPtrType) ToDataSourceSharePointCrawlerConfigurationPtrOutput() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSharePointCrawlerConfigurationPtrType) ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointCrawlerConfigurationPtrOutput)
+}
+
+// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+type DataSourceSharePointCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointCrawlerConfigurationOutput) ToDataSourceSharePointCrawlerConfigurationOutput() DataSourceSharePointCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointCrawlerConfigurationOutput) ToDataSourceSharePointCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointCrawlerConfigurationOutput) ToDataSourceSharePointCrawlerConfigurationPtrOutput() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o.ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointCrawlerConfigurationOutput) ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSharePointCrawlerConfiguration) *DataSourceSharePointCrawlerConfiguration {
+		return &v
+	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSharePointCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceSharePointCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+type DataSourceSharePointCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointCrawlerConfigurationPtrOutput) ToDataSourceSharePointCrawlerConfigurationPtrOutput() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointCrawlerConfigurationPtrOutput) ToDataSourceSharePointCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointCrawlerConfigurationPtrOutput) Elem() DataSourceSharePointCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSharePointCrawlerConfiguration) DataSourceSharePointCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSharePointCrawlerConfiguration
+		return ret
+	}).(DataSourceSharePointCrawlerConfigurationOutput)
+}
+
+func (o DataSourceSharePointCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(DataSourceCrawlFilterConfigurationPtrOutput)
+}
+
+// The configuration information to connect to SharePoint as your data source.
+type DataSourceSharePointDataSourceConfiguration struct {
+	CrawlerConfiguration *DataSourceSharePointCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceSharePointSourceConfiguration   `pulumi:"sourceConfiguration"`
+}
+
+// DataSourceSharePointDataSourceConfigurationInput is an input type that accepts DataSourceSharePointDataSourceConfigurationArgs and DataSourceSharePointDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSharePointDataSourceConfigurationInput` via:
+//
+//	DataSourceSharePointDataSourceConfigurationArgs{...}
+type DataSourceSharePointDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointDataSourceConfigurationOutput() DataSourceSharePointDataSourceConfigurationOutput
+	ToDataSourceSharePointDataSourceConfigurationOutputWithContext(context.Context) DataSourceSharePointDataSourceConfigurationOutput
+}
+
+// The configuration information to connect to SharePoint as your data source.
+type DataSourceSharePointDataSourceConfigurationArgs struct {
+	CrawlerConfiguration DataSourceSharePointCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceSharePointSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+}
+
+func (DataSourceSharePointDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSharePointDataSourceConfigurationArgs) ToDataSourceSharePointDataSourceConfigurationOutput() DataSourceSharePointDataSourceConfigurationOutput {
+	return i.ToDataSourceSharePointDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointDataSourceConfigurationArgs) ToDataSourceSharePointDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointDataSourceConfigurationOutput)
+}
+
+func (i DataSourceSharePointDataSourceConfigurationArgs) ToDataSourceSharePointDataSourceConfigurationPtrOutput() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointDataSourceConfigurationArgs) ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointDataSourceConfigurationOutput).ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSharePointDataSourceConfigurationPtrInput is an input type that accepts DataSourceSharePointDataSourceConfigurationArgs, DataSourceSharePointDataSourceConfigurationPtr and DataSourceSharePointDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSharePointDataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceSharePointDataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSharePointDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointDataSourceConfigurationPtrOutput() DataSourceSharePointDataSourceConfigurationPtrOutput
+	ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceSharePointDataSourceConfigurationPtrOutput
+}
+
+type dataSourceSharePointDataSourceConfigurationPtrType DataSourceSharePointDataSourceConfigurationArgs
+
+func DataSourceSharePointDataSourceConfigurationPtr(v *DataSourceSharePointDataSourceConfigurationArgs) DataSourceSharePointDataSourceConfigurationPtrInput {
+	return (*dataSourceSharePointDataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceSharePointDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSharePointDataSourceConfigurationPtrType) ToDataSourceSharePointDataSourceConfigurationPtrOutput() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSharePointDataSourceConfigurationPtrType) ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointDataSourceConfigurationPtrOutput)
+}
+
+// The configuration information to connect to SharePoint as your data source.
+type DataSourceSharePointDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) ToDataSourceSharePointDataSourceConfigurationOutput() DataSourceSharePointDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) ToDataSourceSharePointDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) ToDataSourceSharePointDataSourceConfigurationPtrOutput() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o.ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointDataSourceConfiguration {
+		return &v
+	}).(DataSourceSharePointDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSharePointDataSourceConfigurationOutput) SourceConfiguration() DataSourceSharePointSourceConfigurationOutput {
+	return o.ApplyT(func(v DataSourceSharePointDataSourceConfiguration) DataSourceSharePointSourceConfiguration {
+		return v.SourceConfiguration
+	}).(DataSourceSharePointSourceConfigurationOutput)
+}
+
+type DataSourceSharePointDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointDataSourceConfigurationPtrOutput) ToDataSourceSharePointDataSourceConfigurationPtrOutput() DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointDataSourceConfigurationPtrOutput) ToDataSourceSharePointDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointDataSourceConfigurationPtrOutput) Elem() DataSourceSharePointDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSharePointDataSourceConfiguration) DataSourceSharePointDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSharePointDataSourceConfiguration
+		return ret
+	}).(DataSourceSharePointDataSourceConfigurationOutput)
+}
+
+func (o DataSourceSharePointDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceSharePointCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceSharePointDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceSharePointSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceConfiguration
+	}).(DataSourceSharePointSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your SharePoint data source.
+type DataSourceSharePointSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+	AuthType DataSourceSharePointSourceConfigurationAuthType `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The domain of your SharePoint instance or site URL/URLs.
+	Domain string `pulumi:"domain"`
+	// The supported host type, whether online/cloud or server/on-premises.
+	HostType DataSourceSharePointSourceConfigurationHostType `pulumi:"hostType"`
+	// A list of one or more SharePoint site URLs.
+	SiteUrls []string `pulumi:"siteUrls"`
+	// The identifier of your Microsoft 365 tenant.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// DataSourceSharePointSourceConfigurationInput is an input type that accepts DataSourceSharePointSourceConfigurationArgs and DataSourceSharePointSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceSharePointSourceConfigurationInput` via:
+//
+//	DataSourceSharePointSourceConfigurationArgs{...}
+type DataSourceSharePointSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationOutput() DataSourceSharePointSourceConfigurationOutput
+	ToDataSourceSharePointSourceConfigurationOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationOutput
+}
+
+// The endpoint information to connect to your SharePoint data source.
+type DataSourceSharePointSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+	AuthType DataSourceSharePointSourceConfigurationAuthTypeInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The domain of your SharePoint instance or site URL/URLs.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The supported host type, whether online/cloud or server/on-premises.
+	HostType DataSourceSharePointSourceConfigurationHostTypeInput `pulumi:"hostType"`
+	// A list of one or more SharePoint site URLs.
+	SiteUrls pulumi.StringArrayInput `pulumi:"siteUrls"`
+	// The identifier of your Microsoft 365 tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (DataSourceSharePointSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceSharePointSourceConfigurationArgs) ToDataSourceSharePointSourceConfigurationOutput() DataSourceSharePointSourceConfigurationOutput {
+	return i.ToDataSourceSharePointSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointSourceConfigurationArgs) ToDataSourceSharePointSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointSourceConfigurationOutput)
+}
+
+func (i DataSourceSharePointSourceConfigurationArgs) ToDataSourceSharePointSourceConfigurationPtrOutput() DataSourceSharePointSourceConfigurationPtrOutput {
+	return i.ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSharePointSourceConfigurationArgs) ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointSourceConfigurationOutput).ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceSharePointSourceConfigurationPtrInput is an input type that accepts DataSourceSharePointSourceConfigurationArgs, DataSourceSharePointSourceConfigurationPtr and DataSourceSharePointSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceSharePointSourceConfigurationPtrInput` via:
+//
+//	        DataSourceSharePointSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSharePointSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSharePointSourceConfigurationPtrOutput() DataSourceSharePointSourceConfigurationPtrOutput
+	ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(context.Context) DataSourceSharePointSourceConfigurationPtrOutput
+}
+
+type dataSourceSharePointSourceConfigurationPtrType DataSourceSharePointSourceConfigurationArgs
+
+func DataSourceSharePointSourceConfigurationPtr(v *DataSourceSharePointSourceConfigurationArgs) DataSourceSharePointSourceConfigurationPtrInput {
+	return (*dataSourceSharePointSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceSharePointSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceSharePointSourceConfigurationPtrType) ToDataSourceSharePointSourceConfigurationPtrOutput() DataSourceSharePointSourceConfigurationPtrOutput {
+	return i.ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSharePointSourceConfigurationPtrType) ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSharePointSourceConfigurationPtrOutput)
+}
+
+// The endpoint information to connect to your SharePoint data source.
+type DataSourceSharePointSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSharePointSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationOutput) ToDataSourceSharePointSourceConfigurationOutput() DataSourceSharePointSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationOutput) ToDataSourceSharePointSourceConfigurationOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationOutput) ToDataSourceSharePointSourceConfigurationPtrOutput() DataSourceSharePointSourceConfigurationPtrOutput {
+	return o.ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSharePointSourceConfigurationOutput) ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSharePointSourceConfiguration) *DataSourceSharePointSourceConfiguration {
+		return &v
+	}).(DataSourceSharePointSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+func (o DataSourceSharePointSourceConfigurationOutput) AuthType() DataSourceSharePointSourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) DataSourceSharePointSourceConfigurationAuthType {
+		return v.AuthType
+	}).(DataSourceSharePointSourceConfigurationAuthTypeOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+func (o DataSourceSharePointSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
+}
+
+// The domain of your SharePoint instance or site URL/URLs.
+func (o DataSourceSharePointSourceConfigurationOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+func (o DataSourceSharePointSourceConfigurationOutput) HostType() DataSourceSharePointSourceConfigurationHostTypeOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) DataSourceSharePointSourceConfigurationHostType {
+		return v.HostType
+	}).(DataSourceSharePointSourceConfigurationHostTypeOutput)
+}
+
+// A list of one or more SharePoint site URLs.
+func (o DataSourceSharePointSourceConfigurationOutput) SiteUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) []string { return v.SiteUrls }).(pulumi.StringArrayOutput)
+}
+
+// The identifier of your Microsoft 365 tenant.
+func (o DataSourceSharePointSourceConfigurationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceSharePointSourceConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceSharePointSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSharePointSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSharePointSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceSharePointSourceConfigurationPtrOutput) ToDataSourceSharePointSourceConfigurationPtrOutput() DataSourceSharePointSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationPtrOutput) ToDataSourceSharePointSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceSharePointSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceSharePointSourceConfigurationPtrOutput) Elem() DataSourceSharePointSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) DataSourceSharePointSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSharePointSourceConfiguration
+		return ret
+	}).(DataSourceSharePointSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) AuthType() DataSourceSharePointSourceConfigurationAuthTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) *DataSourceSharePointSourceConfigurationAuthType {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(DataSourceSharePointSourceConfigurationAuthTypePtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain of your SharePoint instance or site URL/URLs.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) HostType() DataSourceSharePointSourceConfigurationHostTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) *DataSourceSharePointSourceConfigurationHostType {
+		if v == nil {
+			return nil
+		}
+		return &v.HostType
+	}).(DataSourceSharePointSourceConfigurationHostTypePtrOutput)
+}
+
+// A list of one or more SharePoint site URLs.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) SiteUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SiteUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of your Microsoft 365 tenant.
+func (o DataSourceSharePointSourceConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformation struct {
+	// When the service applies the transformation.
+	StepToApply            DataSourceTransformationStepToApply `pulumi:"stepToApply"`
+	TransformationFunction DataSourceTransformationFunction    `pulumi:"transformationFunction"`
+}
+
+// DataSourceTransformationInput is an input type that accepts DataSourceTransformationArgs and DataSourceTransformationOutput values.
+// You can construct a concrete instance of `DataSourceTransformationInput` via:
+//
+//	DataSourceTransformationArgs{...}
+type DataSourceTransformationInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationOutput() DataSourceTransformationOutput
+	ToDataSourceTransformationOutputWithContext(context.Context) DataSourceTransformationOutput
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationArgs struct {
+	// When the service applies the transformation.
+	StepToApply            DataSourceTransformationStepToApplyInput `pulumi:"stepToApply"`
+	TransformationFunction DataSourceTransformationFunctionInput    `pulumi:"transformationFunction"`
+}
+
+func (DataSourceTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformation)(nil)).Elem()
+}
+
+func (i DataSourceTransformationArgs) ToDataSourceTransformationOutput() DataSourceTransformationOutput {
+	return i.ToDataSourceTransformationOutputWithContext(context.Background())
+}
+
+func (i DataSourceTransformationArgs) ToDataSourceTransformationOutputWithContext(ctx context.Context) DataSourceTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTransformationOutput)
+}
+
+// DataSourceTransformationArrayInput is an input type that accepts DataSourceTransformationArray and DataSourceTransformationArrayOutput values.
+// You can construct a concrete instance of `DataSourceTransformationArrayInput` via:
+//
+//	DataSourceTransformationArray{ DataSourceTransformationArgs{...} }
+type DataSourceTransformationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationArrayOutput() DataSourceTransformationArrayOutput
+	ToDataSourceTransformationArrayOutputWithContext(context.Context) DataSourceTransformationArrayOutput
+}
+
+type DataSourceTransformationArray []DataSourceTransformationInput
+
+func (DataSourceTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceTransformation)(nil)).Elem()
+}
+
+func (i DataSourceTransformationArray) ToDataSourceTransformationArrayOutput() DataSourceTransformationArrayOutput {
+	return i.ToDataSourceTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceTransformationArray) ToDataSourceTransformationArrayOutputWithContext(ctx context.Context) DataSourceTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTransformationArrayOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformation)(nil)).Elem()
+}
+
+func (o DataSourceTransformationOutput) ToDataSourceTransformationOutput() DataSourceTransformationOutput {
+	return o
+}
+
+func (o DataSourceTransformationOutput) ToDataSourceTransformationOutputWithContext(ctx context.Context) DataSourceTransformationOutput {
+	return o
+}
+
+// When the service applies the transformation.
+func (o DataSourceTransformationOutput) StepToApply() DataSourceTransformationStepToApplyOutput {
+	return o.ApplyT(func(v DataSourceTransformation) DataSourceTransformationStepToApply { return v.StepToApply }).(DataSourceTransformationStepToApplyOutput)
+}
+
+func (o DataSourceTransformationOutput) TransformationFunction() DataSourceTransformationFunctionOutput {
+	return o.ApplyT(func(v DataSourceTransformation) DataSourceTransformationFunction { return v.TransformationFunction }).(DataSourceTransformationFunctionOutput)
+}
+
+type DataSourceTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceTransformation)(nil)).Elem()
+}
+
+func (o DataSourceTransformationArrayOutput) ToDataSourceTransformationArrayOutput() DataSourceTransformationArrayOutput {
+	return o
+}
+
+func (o DataSourceTransformationArrayOutput) ToDataSourceTransformationArrayOutputWithContext(ctx context.Context) DataSourceTransformationArrayOutput {
+	return o
+}
+
+func (o DataSourceTransformationArrayOutput) Index(i pulumi.IntInput) DataSourceTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceTransformation {
+		return vs[0].([]DataSourceTransformation)[vs[1].(int)]
+	}).(DataSourceTransformationOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationFunction struct {
+	TransformationLambdaConfiguration DataSourceTransformationLambdaConfiguration `pulumi:"transformationLambdaConfiguration"`
+}
+
+// DataSourceTransformationFunctionInput is an input type that accepts DataSourceTransformationFunctionArgs and DataSourceTransformationFunctionOutput values.
+// You can construct a concrete instance of `DataSourceTransformationFunctionInput` via:
+//
+//	DataSourceTransformationFunctionArgs{...}
+type DataSourceTransformationFunctionInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationFunctionOutput() DataSourceTransformationFunctionOutput
+	ToDataSourceTransformationFunctionOutputWithContext(context.Context) DataSourceTransformationFunctionOutput
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationFunctionArgs struct {
+	TransformationLambdaConfiguration DataSourceTransformationLambdaConfigurationInput `pulumi:"transformationLambdaConfiguration"`
+}
+
+func (DataSourceTransformationFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationFunction)(nil)).Elem()
+}
+
+func (i DataSourceTransformationFunctionArgs) ToDataSourceTransformationFunctionOutput() DataSourceTransformationFunctionOutput {
+	return i.ToDataSourceTransformationFunctionOutputWithContext(context.Background())
+}
+
+func (i DataSourceTransformationFunctionArgs) ToDataSourceTransformationFunctionOutputWithContext(ctx context.Context) DataSourceTransformationFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTransformationFunctionOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationFunctionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationFunction)(nil)).Elem()
+}
+
+func (o DataSourceTransformationFunctionOutput) ToDataSourceTransformationFunctionOutput() DataSourceTransformationFunctionOutput {
+	return o
+}
+
+func (o DataSourceTransformationFunctionOutput) ToDataSourceTransformationFunctionOutputWithContext(ctx context.Context) DataSourceTransformationFunctionOutput {
+	return o
+}
+
+func (o DataSourceTransformationFunctionOutput) TransformationLambdaConfiguration() DataSourceTransformationLambdaConfigurationOutput {
+	return o.ApplyT(func(v DataSourceTransformationFunction) DataSourceTransformationLambdaConfiguration {
+		return v.TransformationLambdaConfiguration
+	}).(DataSourceTransformationLambdaConfigurationOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationLambdaConfiguration struct {
+	// The function's ARN identifier.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// DataSourceTransformationLambdaConfigurationInput is an input type that accepts DataSourceTransformationLambdaConfigurationArgs and DataSourceTransformationLambdaConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceTransformationLambdaConfigurationInput` via:
+//
+//	DataSourceTransformationLambdaConfigurationArgs{...}
+type DataSourceTransformationLambdaConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceTransformationLambdaConfigurationOutput() DataSourceTransformationLambdaConfigurationOutput
+	ToDataSourceTransformationLambdaConfigurationOutputWithContext(context.Context) DataSourceTransformationLambdaConfigurationOutput
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationLambdaConfigurationArgs struct {
+	// The function's ARN identifier.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (DataSourceTransformationLambdaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceTransformationLambdaConfigurationArgs) ToDataSourceTransformationLambdaConfigurationOutput() DataSourceTransformationLambdaConfigurationOutput {
+	return i.ToDataSourceTransformationLambdaConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceTransformationLambdaConfigurationArgs) ToDataSourceTransformationLambdaConfigurationOutputWithContext(ctx context.Context) DataSourceTransformationLambdaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTransformationLambdaConfigurationOutput)
+}
+
+// A Lambda function that processes documents.
+type DataSourceTransformationLambdaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTransformationLambdaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceTransformationLambdaConfigurationOutput) ToDataSourceTransformationLambdaConfigurationOutput() DataSourceTransformationLambdaConfigurationOutput {
+	return o
+}
+
+func (o DataSourceTransformationLambdaConfigurationOutput) ToDataSourceTransformationLambdaConfigurationOutputWithContext(ctx context.Context) DataSourceTransformationLambdaConfigurationOutput {
+	return o
+}
+
+// The function's ARN identifier.
+func (o DataSourceTransformationLambdaConfigurationOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceTransformationLambdaConfiguration) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// A url configuration.
+type DataSourceUrlConfiguration struct {
+	SeedUrls []DataSourceSeedUrl `pulumi:"seedUrls"`
+}
+
+// DataSourceUrlConfigurationInput is an input type that accepts DataSourceUrlConfigurationArgs and DataSourceUrlConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceUrlConfigurationInput` via:
+//
+//	DataSourceUrlConfigurationArgs{...}
+type DataSourceUrlConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceUrlConfigurationOutput() DataSourceUrlConfigurationOutput
+	ToDataSourceUrlConfigurationOutputWithContext(context.Context) DataSourceUrlConfigurationOutput
+}
+
+// A url configuration.
+type DataSourceUrlConfigurationArgs struct {
+	SeedUrls DataSourceSeedUrlArrayInput `pulumi:"seedUrls"`
+}
+
+func (DataSourceUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceUrlConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceUrlConfigurationArgs) ToDataSourceUrlConfigurationOutput() DataSourceUrlConfigurationOutput {
+	return i.ToDataSourceUrlConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceUrlConfigurationArgs) ToDataSourceUrlConfigurationOutputWithContext(ctx context.Context) DataSourceUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceUrlConfigurationOutput)
+}
+
+func (i DataSourceUrlConfigurationArgs) ToDataSourceUrlConfigurationPtrOutput() DataSourceUrlConfigurationPtrOutput {
+	return i.ToDataSourceUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceUrlConfigurationArgs) ToDataSourceUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceUrlConfigurationOutput).ToDataSourceUrlConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceUrlConfigurationPtrInput is an input type that accepts DataSourceUrlConfigurationArgs, DataSourceUrlConfigurationPtr and DataSourceUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceUrlConfigurationPtrInput` via:
+//
+//	        DataSourceUrlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceUrlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceUrlConfigurationPtrOutput() DataSourceUrlConfigurationPtrOutput
+	ToDataSourceUrlConfigurationPtrOutputWithContext(context.Context) DataSourceUrlConfigurationPtrOutput
+}
+
+type dataSourceUrlConfigurationPtrType DataSourceUrlConfigurationArgs
+
+func DataSourceUrlConfigurationPtr(v *DataSourceUrlConfigurationArgs) DataSourceUrlConfigurationPtrInput {
+	return (*dataSourceUrlConfigurationPtrType)(v)
+}
+
+func (*dataSourceUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceUrlConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceUrlConfigurationPtrType) ToDataSourceUrlConfigurationPtrOutput() DataSourceUrlConfigurationPtrOutput {
+	return i.ToDataSourceUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceUrlConfigurationPtrType) ToDataSourceUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceUrlConfigurationPtrOutput)
+}
+
+// A url configuration.
+type DataSourceUrlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceUrlConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceUrlConfigurationOutput) ToDataSourceUrlConfigurationOutput() DataSourceUrlConfigurationOutput {
+	return o
+}
+
+func (o DataSourceUrlConfigurationOutput) ToDataSourceUrlConfigurationOutputWithContext(ctx context.Context) DataSourceUrlConfigurationOutput {
+	return o
+}
+
+func (o DataSourceUrlConfigurationOutput) ToDataSourceUrlConfigurationPtrOutput() DataSourceUrlConfigurationPtrOutput {
+	return o.ToDataSourceUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceUrlConfigurationOutput) ToDataSourceUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceUrlConfiguration) *DataSourceUrlConfiguration {
+		return &v
+	}).(DataSourceUrlConfigurationPtrOutput)
+}
+
+func (o DataSourceUrlConfigurationOutput) SeedUrls() DataSourceSeedUrlArrayOutput {
+	return o.ApplyT(func(v DataSourceUrlConfiguration) []DataSourceSeedUrl { return v.SeedUrls }).(DataSourceSeedUrlArrayOutput)
+}
+
+type DataSourceUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceUrlConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceUrlConfigurationPtrOutput) ToDataSourceUrlConfigurationPtrOutput() DataSourceUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceUrlConfigurationPtrOutput) ToDataSourceUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceUrlConfigurationPtrOutput) Elem() DataSourceUrlConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceUrlConfiguration) DataSourceUrlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceUrlConfiguration
+		return ret
+	}).(DataSourceUrlConfigurationOutput)
+}
+
+func (o DataSourceUrlConfigurationPtrOutput) SeedUrls() DataSourceSeedUrlArrayOutput {
+	return o.ApplyT(func(v *DataSourceUrlConfiguration) []DataSourceSeedUrl {
+		if v == nil {
+			return nil
+		}
+		return v.SeedUrls
+	}).(DataSourceSeedUrlArrayOutput)
+}
+
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-	ChunkingConfiguration *DataSourceChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	ChunkingConfiguration             *DataSourceChunkingConfiguration             `pulumi:"chunkingConfiguration"`
+	CustomTransformationConfiguration *DataSourceCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
+	ParsingConfiguration              *DataSourceParsingConfiguration              `pulumi:"parsingConfiguration"`
 }
 
 // DataSourceVectorIngestionConfigurationInput is an input type that accepts DataSourceVectorIngestionConfigurationArgs and DataSourceVectorIngestionConfigurationOutput values.
@@ -2976,7 +6806,9 @@ type DataSourceVectorIngestionConfigurationInput interface {
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-	ChunkingConfiguration DataSourceChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	ChunkingConfiguration             DataSourceChunkingConfigurationPtrInput             `pulumi:"chunkingConfiguration"`
+	CustomTransformationConfiguration DataSourceCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
+	ParsingConfiguration              DataSourceParsingConfigurationPtrInput              `pulumi:"parsingConfiguration"`
 }
 
 func (DataSourceVectorIngestionConfigurationArgs) ElementType() reflect.Type {
@@ -3064,6 +6896,18 @@ func (o DataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() Da
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+func (o DataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
+		return v.CustomTransformationConfiguration
+	}).(DataSourceCustomTransformationConfigurationPtrOutput)
+}
+
+func (o DataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
+		return v.ParsingConfiguration
+	}).(DataSourceParsingConfigurationPtrOutput)
+}
+
 type DataSourceVectorIngestionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceVectorIngestionConfigurationPtrOutput) ElementType() reflect.Type {
@@ -3096,6 +6940,636 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration()
 		}
 		return v.ChunkingConfiguration
 	}).(DataSourceChunkingConfigurationPtrOutput)
+}
+
+func (o DataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTransformationConfiguration
+	}).(DataSourceCustomTransformationConfigurationPtrOutput)
+}
+
+func (o DataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingConfiguration
+	}).(DataSourceParsingConfigurationPtrOutput)
+}
+
+// Configuration for the web crawler.
+type DataSourceWebCrawlerConfiguration struct {
+	CrawlerLimits    *DataSourceWebCrawlerLimits `pulumi:"crawlerLimits"`
+	ExclusionFilters []string                    `pulumi:"exclusionFilters"`
+	InclusionFilters []string                    `pulumi:"inclusionFilters"`
+	Scope            *DataSourceWebScopeType     `pulumi:"scope"`
+}
+
+// DataSourceWebCrawlerConfigurationInput is an input type that accepts DataSourceWebCrawlerConfigurationArgs and DataSourceWebCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerConfigurationInput` via:
+//
+//	DataSourceWebCrawlerConfigurationArgs{...}
+type DataSourceWebCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerConfigurationOutput() DataSourceWebCrawlerConfigurationOutput
+	ToDataSourceWebCrawlerConfigurationOutputWithContext(context.Context) DataSourceWebCrawlerConfigurationOutput
+}
+
+// Configuration for the web crawler.
+type DataSourceWebCrawlerConfigurationArgs struct {
+	CrawlerLimits    DataSourceWebCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
+	ExclusionFilters pulumi.StringArrayInput            `pulumi:"exclusionFilters"`
+	InclusionFilters pulumi.StringArrayInput            `pulumi:"inclusionFilters"`
+	Scope            DataSourceWebScopeTypePtrInput     `pulumi:"scope"`
+}
+
+func (DataSourceWebCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceWebCrawlerConfigurationArgs) ToDataSourceWebCrawlerConfigurationOutput() DataSourceWebCrawlerConfigurationOutput {
+	return i.ToDataSourceWebCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebCrawlerConfigurationArgs) ToDataSourceWebCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerConfigurationOutput)
+}
+
+func (i DataSourceWebCrawlerConfigurationArgs) ToDataSourceWebCrawlerConfigurationPtrOutput() DataSourceWebCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebCrawlerConfigurationArgs) ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerConfigurationOutput).ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceWebCrawlerConfigurationPtrInput is an input type that accepts DataSourceWebCrawlerConfigurationArgs, DataSourceWebCrawlerConfigurationPtr and DataSourceWebCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerConfigurationPtrInput` via:
+//
+//	        DataSourceWebCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceWebCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerConfigurationPtrOutput() DataSourceWebCrawlerConfigurationPtrOutput
+	ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(context.Context) DataSourceWebCrawlerConfigurationPtrOutput
+}
+
+type dataSourceWebCrawlerConfigurationPtrType DataSourceWebCrawlerConfigurationArgs
+
+func DataSourceWebCrawlerConfigurationPtr(v *DataSourceWebCrawlerConfigurationArgs) DataSourceWebCrawlerConfigurationPtrInput {
+	return (*dataSourceWebCrawlerConfigurationPtrType)(v)
+}
+
+func (*dataSourceWebCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceWebCrawlerConfigurationPtrType) ToDataSourceWebCrawlerConfigurationPtrOutput() DataSourceWebCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceWebCrawlerConfigurationPtrType) ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerConfigurationPtrOutput)
+}
+
+// Configuration for the web crawler.
+type DataSourceWebCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigurationOutput() DataSourceWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigurationPtrOutput() DataSourceWebCrawlerConfigurationPtrOutput {
+	return o.ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerConfiguration {
+		return &v
+	}).(DataSourceWebCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) CrawlerLimits() DataSourceWebCrawlerLimitsPtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerLimits { return v.CrawlerLimits }).(DataSourceWebCrawlerLimitsPtrOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.ExclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.InclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationOutput) Scope() DataSourceWebScopeTypePtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebScopeType { return v.Scope }).(DataSourceWebScopeTypePtrOutput)
+}
+
+type DataSourceWebCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) ToDataSourceWebCrawlerConfigurationPtrOutput() DataSourceWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) ToDataSourceWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) Elem() DataSourceWebCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) DataSourceWebCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebCrawlerConfiguration
+		return ret
+	}).(DataSourceWebCrawlerConfigurationOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) CrawlerLimits() DataSourceWebCrawlerLimitsPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerLimits {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerLimits
+	}).(DataSourceWebCrawlerLimitsPtrOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceWebCrawlerConfigurationPtrOutput) Scope() DataSourceWebScopeTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebScopeType {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(DataSourceWebScopeTypePtrOutput)
+}
+
+// Limit settings for the web crawler.
+type DataSourceWebCrawlerLimits struct {
+	// Rate of web URLs retrieved per minute.
+	RateLimit *int `pulumi:"rateLimit"`
+}
+
+// DataSourceWebCrawlerLimitsInput is an input type that accepts DataSourceWebCrawlerLimitsArgs and DataSourceWebCrawlerLimitsOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerLimitsInput` via:
+//
+//	DataSourceWebCrawlerLimitsArgs{...}
+type DataSourceWebCrawlerLimitsInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerLimitsOutput() DataSourceWebCrawlerLimitsOutput
+	ToDataSourceWebCrawlerLimitsOutputWithContext(context.Context) DataSourceWebCrawlerLimitsOutput
+}
+
+// Limit settings for the web crawler.
+type DataSourceWebCrawlerLimitsArgs struct {
+	// Rate of web URLs retrieved per minute.
+	RateLimit pulumi.IntPtrInput `pulumi:"rateLimit"`
+}
+
+func (DataSourceWebCrawlerLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerLimits)(nil)).Elem()
+}
+
+func (i DataSourceWebCrawlerLimitsArgs) ToDataSourceWebCrawlerLimitsOutput() DataSourceWebCrawlerLimitsOutput {
+	return i.ToDataSourceWebCrawlerLimitsOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebCrawlerLimitsArgs) ToDataSourceWebCrawlerLimitsOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerLimitsOutput)
+}
+
+func (i DataSourceWebCrawlerLimitsArgs) ToDataSourceWebCrawlerLimitsPtrOutput() DataSourceWebCrawlerLimitsPtrOutput {
+	return i.ToDataSourceWebCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebCrawlerLimitsArgs) ToDataSourceWebCrawlerLimitsPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerLimitsOutput).ToDataSourceWebCrawlerLimitsPtrOutputWithContext(ctx)
+}
+
+// DataSourceWebCrawlerLimitsPtrInput is an input type that accepts DataSourceWebCrawlerLimitsArgs, DataSourceWebCrawlerLimitsPtr and DataSourceWebCrawlerLimitsPtrOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerLimitsPtrInput` via:
+//
+//	        DataSourceWebCrawlerLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceWebCrawlerLimitsPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerLimitsPtrOutput() DataSourceWebCrawlerLimitsPtrOutput
+	ToDataSourceWebCrawlerLimitsPtrOutputWithContext(context.Context) DataSourceWebCrawlerLimitsPtrOutput
+}
+
+type dataSourceWebCrawlerLimitsPtrType DataSourceWebCrawlerLimitsArgs
+
+func DataSourceWebCrawlerLimitsPtr(v *DataSourceWebCrawlerLimitsArgs) DataSourceWebCrawlerLimitsPtrInput {
+	return (*dataSourceWebCrawlerLimitsPtrType)(v)
+}
+
+func (*dataSourceWebCrawlerLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebCrawlerLimits)(nil)).Elem()
+}
+
+func (i *dataSourceWebCrawlerLimitsPtrType) ToDataSourceWebCrawlerLimitsPtrOutput() DataSourceWebCrawlerLimitsPtrOutput {
+	return i.ToDataSourceWebCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceWebCrawlerLimitsPtrType) ToDataSourceWebCrawlerLimitsPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebCrawlerLimitsPtrOutput)
+}
+
+// Limit settings for the web crawler.
+type DataSourceWebCrawlerLimitsOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerLimits)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerLimitsOutput) ToDataSourceWebCrawlerLimitsOutput() DataSourceWebCrawlerLimitsOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerLimitsOutput) ToDataSourceWebCrawlerLimitsOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerLimitsOutput) ToDataSourceWebCrawlerLimitsPtrOutput() DataSourceWebCrawlerLimitsPtrOutput {
+	return o.ToDataSourceWebCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerLimitsOutput) ToDataSourceWebCrawlerLimitsPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebCrawlerLimits) *DataSourceWebCrawlerLimits {
+		return &v
+	}).(DataSourceWebCrawlerLimitsPtrOutput)
+}
+
+// Rate of web URLs retrieved per minute.
+func (o DataSourceWebCrawlerLimitsOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerLimits) *int { return v.RateLimit }).(pulumi.IntPtrOutput)
+}
+
+type DataSourceWebCrawlerLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebCrawlerLimits)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerLimitsPtrOutput) ToDataSourceWebCrawlerLimitsPtrOutput() DataSourceWebCrawlerLimitsPtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerLimitsPtrOutput) ToDataSourceWebCrawlerLimitsPtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerLimitsPtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerLimitsPtrOutput) Elem() DataSourceWebCrawlerLimitsOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerLimits) DataSourceWebCrawlerLimits {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebCrawlerLimits
+		return ret
+	}).(DataSourceWebCrawlerLimitsOutput)
+}
+
+// Rate of web URLs retrieved per minute.
+func (o DataSourceWebCrawlerLimitsPtrOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures a web data source location.
+type DataSourceWebDataSourceConfiguration struct {
+	CrawlerConfiguration *DataSourceWebCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceWebSourceConfiguration   `pulumi:"sourceConfiguration"`
+}
+
+// DataSourceWebDataSourceConfigurationInput is an input type that accepts DataSourceWebDataSourceConfigurationArgs and DataSourceWebDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceWebDataSourceConfigurationInput` via:
+//
+//	DataSourceWebDataSourceConfigurationArgs{...}
+type DataSourceWebDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceWebDataSourceConfigurationOutput() DataSourceWebDataSourceConfigurationOutput
+	ToDataSourceWebDataSourceConfigurationOutputWithContext(context.Context) DataSourceWebDataSourceConfigurationOutput
+}
+
+// Configures a web data source location.
+type DataSourceWebDataSourceConfigurationArgs struct {
+	CrawlerConfiguration DataSourceWebCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  DataSourceWebSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+}
+
+func (DataSourceWebDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceWebDataSourceConfigurationArgs) ToDataSourceWebDataSourceConfigurationOutput() DataSourceWebDataSourceConfigurationOutput {
+	return i.ToDataSourceWebDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebDataSourceConfigurationArgs) ToDataSourceWebDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebDataSourceConfigurationOutput)
+}
+
+func (i DataSourceWebDataSourceConfigurationArgs) ToDataSourceWebDataSourceConfigurationPtrOutput() DataSourceWebDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebDataSourceConfigurationArgs) ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebDataSourceConfigurationOutput).ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceWebDataSourceConfigurationPtrInput is an input type that accepts DataSourceWebDataSourceConfigurationArgs, DataSourceWebDataSourceConfigurationPtr and DataSourceWebDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceWebDataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceWebDataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceWebDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebDataSourceConfigurationPtrOutput() DataSourceWebDataSourceConfigurationPtrOutput
+	ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceWebDataSourceConfigurationPtrOutput
+}
+
+type dataSourceWebDataSourceConfigurationPtrType DataSourceWebDataSourceConfigurationArgs
+
+func DataSourceWebDataSourceConfigurationPtr(v *DataSourceWebDataSourceConfigurationArgs) DataSourceWebDataSourceConfigurationPtrInput {
+	return (*dataSourceWebDataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceWebDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceWebDataSourceConfigurationPtrType) ToDataSourceWebDataSourceConfigurationPtrOutput() DataSourceWebDataSourceConfigurationPtrOutput {
+	return i.ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceWebDataSourceConfigurationPtrType) ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebDataSourceConfigurationPtrOutput)
+}
+
+// Configures a web data source location.
+type DataSourceWebDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) ToDataSourceWebDataSourceConfigurationOutput() DataSourceWebDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) ToDataSourceWebDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) ToDataSourceWebDataSourceConfigurationPtrOutput() DataSourceWebDataSourceConfigurationPtrOutput {
+	return o.ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebDataSourceConfiguration) *DataSourceWebDataSourceConfiguration {
+		return &v
+	}).(DataSourceWebDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceWebDataSourceConfiguration) *DataSourceWebCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(DataSourceWebCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceWebDataSourceConfigurationOutput) SourceConfiguration() DataSourceWebSourceConfigurationOutput {
+	return o.ApplyT(func(v DataSourceWebDataSourceConfiguration) DataSourceWebSourceConfiguration {
+		return v.SourceConfiguration
+	}).(DataSourceWebSourceConfigurationOutput)
+}
+
+type DataSourceWebDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebDataSourceConfigurationPtrOutput) ToDataSourceWebDataSourceConfigurationPtrOutput() DataSourceWebDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebDataSourceConfigurationPtrOutput) ToDataSourceWebDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebDataSourceConfigurationPtrOutput) Elem() DataSourceWebDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceWebDataSourceConfiguration) DataSourceWebDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebDataSourceConfiguration
+		return ret
+	}).(DataSourceWebDataSourceConfigurationOutput)
+}
+
+func (o DataSourceWebDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebDataSourceConfiguration) *DataSourceWebCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(DataSourceWebCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceWebDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceWebSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebDataSourceConfiguration) *DataSourceWebSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceConfiguration
+	}).(DataSourceWebSourceConfigurationPtrOutput)
+}
+
+// A web source configuration.
+type DataSourceWebSourceConfiguration struct {
+	UrlConfiguration DataSourceUrlConfiguration `pulumi:"urlConfiguration"`
+}
+
+// DataSourceWebSourceConfigurationInput is an input type that accepts DataSourceWebSourceConfigurationArgs and DataSourceWebSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceWebSourceConfigurationInput` via:
+//
+//	DataSourceWebSourceConfigurationArgs{...}
+type DataSourceWebSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceWebSourceConfigurationOutput() DataSourceWebSourceConfigurationOutput
+	ToDataSourceWebSourceConfigurationOutputWithContext(context.Context) DataSourceWebSourceConfigurationOutput
+}
+
+// A web source configuration.
+type DataSourceWebSourceConfigurationArgs struct {
+	UrlConfiguration DataSourceUrlConfigurationInput `pulumi:"urlConfiguration"`
+}
+
+func (DataSourceWebSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceWebSourceConfigurationArgs) ToDataSourceWebSourceConfigurationOutput() DataSourceWebSourceConfigurationOutput {
+	return i.ToDataSourceWebSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebSourceConfigurationArgs) ToDataSourceWebSourceConfigurationOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebSourceConfigurationOutput)
+}
+
+func (i DataSourceWebSourceConfigurationArgs) ToDataSourceWebSourceConfigurationPtrOutput() DataSourceWebSourceConfigurationPtrOutput {
+	return i.ToDataSourceWebSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceWebSourceConfigurationArgs) ToDataSourceWebSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebSourceConfigurationOutput).ToDataSourceWebSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceWebSourceConfigurationPtrInput is an input type that accepts DataSourceWebSourceConfigurationArgs, DataSourceWebSourceConfigurationPtr and DataSourceWebSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceWebSourceConfigurationPtrInput` via:
+//
+//	        DataSourceWebSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceWebSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebSourceConfigurationPtrOutput() DataSourceWebSourceConfigurationPtrOutput
+	ToDataSourceWebSourceConfigurationPtrOutputWithContext(context.Context) DataSourceWebSourceConfigurationPtrOutput
+}
+
+type dataSourceWebSourceConfigurationPtrType DataSourceWebSourceConfigurationArgs
+
+func DataSourceWebSourceConfigurationPtr(v *DataSourceWebSourceConfigurationArgs) DataSourceWebSourceConfigurationPtrInput {
+	return (*dataSourceWebSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceWebSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceWebSourceConfigurationPtrType) ToDataSourceWebSourceConfigurationPtrOutput() DataSourceWebSourceConfigurationPtrOutput {
+	return i.ToDataSourceWebSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceWebSourceConfigurationPtrType) ToDataSourceWebSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWebSourceConfigurationPtrOutput)
+}
+
+// A web source configuration.
+type DataSourceWebSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebSourceConfigurationOutput) ToDataSourceWebSourceConfigurationOutput() DataSourceWebSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebSourceConfigurationOutput) ToDataSourceWebSourceConfigurationOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceWebSourceConfigurationOutput) ToDataSourceWebSourceConfigurationPtrOutput() DataSourceWebSourceConfigurationPtrOutput {
+	return o.ToDataSourceWebSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebSourceConfigurationOutput) ToDataSourceWebSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebSourceConfiguration) *DataSourceWebSourceConfiguration {
+		return &v
+	}).(DataSourceWebSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceWebSourceConfigurationOutput) UrlConfiguration() DataSourceUrlConfigurationOutput {
+	return o.ApplyT(func(v DataSourceWebSourceConfiguration) DataSourceUrlConfiguration { return v.UrlConfiguration }).(DataSourceUrlConfigurationOutput)
+}
+
+type DataSourceWebSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceWebSourceConfigurationPtrOutput) ToDataSourceWebSourceConfigurationPtrOutput() DataSourceWebSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebSourceConfigurationPtrOutput) ToDataSourceWebSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceWebSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceWebSourceConfigurationPtrOutput) Elem() DataSourceWebSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceWebSourceConfiguration) DataSourceWebSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebSourceConfiguration
+		return ret
+	}).(DataSourceWebSourceConfigurationOutput)
+}
+
+func (o DataSourceWebSourceConfigurationPtrOutput) UrlConfiguration() DataSourceUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebSourceConfiguration) *DataSourceUrlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.UrlConfiguration
+	}).(DataSourceUrlConfigurationPtrOutput)
 }
 
 // Details about the routing configuration for a Flow alias.
@@ -15689,16 +20163,75 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptOverrideConfigurationPtrInput)(nil)).Elem(), AgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierInput)(nil)).Elem(), AgentS3IdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierPtrInput)(nil)).Elem(), AgentS3IdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput)(nil)).Elem(), DataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceCrawlerConfigurationInput)(nil)).Elem(), DataSourceConfluenceCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceConfluenceCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceDataSourceConfigurationInput)(nil)).Elem(), DataSourceConfluenceDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceConfluenceDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationPtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationPtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationPtrInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFixedSizeChunkingConfigurationInput)(nil)).Elem(), DataSourceFixedSizeChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFixedSizeChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceFixedSizeChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingConfigurationInput)(nil)).Elem(), DataSourceHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfigurationInput)(nil)).Elem(), DataSourceHierarchicalChunkingLevelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfigurationArrayInput)(nil)).Elem(), DataSourceHierarchicalChunkingLevelConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIntermediateStorageInput)(nil)).Elem(), DataSourceIntermediateStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIntermediateStoragePtrInput)(nil)).Elem(), DataSourceIntermediateStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationPtrInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingPromptInput)(nil)).Elem(), DataSourceParsingPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingPromptPtrInput)(nil)).Elem(), DataSourceParsingPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePatternObjectFilterInput)(nil)).Elem(), DataSourcePatternObjectFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePatternObjectFilterArrayInput)(nil)).Elem(), DataSourcePatternObjectFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePatternObjectFilterConfigurationInput)(nil)).Elem(), DataSourcePatternObjectFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePatternObjectFilterConfigurationPtrInput)(nil)).Elem(), DataSourcePatternObjectFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3DataSourceConfigurationInput)(nil)).Elem(), DataSourceS3DataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3DataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceS3DataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3LocationInput)(nil)).Elem(), DataSourceS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3LocationPtrInput)(nil)).Elem(), DataSourceS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceCrawlerConfigurationInput)(nil)).Elem(), DataSourceSalesforceCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceSalesforceCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceDataSourceConfigurationInput)(nil)).Elem(), DataSourceSalesforceDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSalesforceDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceSourceConfigurationInput)(nil)).Elem(), DataSourceSalesforceSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSalesforceSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSeedUrlInput)(nil)).Elem(), DataSourceSeedUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSeedUrlArrayInput)(nil)).Elem(), DataSourceSeedUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSemanticChunkingConfigurationInput)(nil)).Elem(), DataSourceSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSemanticChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceSemanticChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceServerSideEncryptionConfigurationInput)(nil)).Elem(), DataSourceServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), DataSourceServerSideEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointCrawlerConfigurationInput)(nil)).Elem(), DataSourceSharePointCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointDataSourceConfigurationInput)(nil)).Elem(), DataSourceSharePointDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationInput)(nil)).Elem(), DataSourceTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationArrayInput)(nil)).Elem(), DataSourceTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationFunctionInput)(nil)).Elem(), DataSourceTransformationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationLambdaConfigurationInput)(nil)).Elem(), DataSourceTransformationLambdaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceUrlConfigurationInput)(nil)).Elem(), DataSourceUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceUrlConfigurationPtrInput)(nil)).Elem(), DataSourceUrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationPtrInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerConfigurationInput)(nil)).Elem(), DataSourceWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerLimitsInput)(nil)).Elem(), DataSourceWebCrawlerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerLimitsPtrInput)(nil)).Elem(), DataSourceWebCrawlerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebDataSourceConfigurationInput)(nil)).Elem(), DataSourceWebDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemArrayInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionInput)(nil)).Elem(), FlowConditionArgs{})
@@ -15862,18 +20395,76 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceDataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFixedSizeChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceFixedSizeChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingLevelConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingLevelConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceIntermediateStorageOutput{})
+	pulumi.RegisterOutputType(DataSourceIntermediateStoragePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingPromptOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingPromptPtrOutput{})
+	pulumi.RegisterOutputType(DataSourcePatternObjectFilterOutput{})
+	pulumi.RegisterOutputType(DataSourcePatternObjectFilterArrayOutput{})
+	pulumi.RegisterOutputType(DataSourcePatternObjectFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourcePatternObjectFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceS3DataSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceS3DataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceS3LocationOutput{})
+	pulumi.RegisterOutputType(DataSourceS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceDataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSalesforceSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSeedUrlOutput{})
+	pulumi.RegisterOutputType(DataSourceSeedUrlArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceSemanticChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSemanticChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceServerSideEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointDataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationFunctionOutput{})
+	pulumi.RegisterOutputType(DataSourceTransformationLambdaConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceUrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerLimitsOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerLimitsPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceWebDataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemArrayOutput{})
 	pulumi.RegisterOutputType(FlowConditionOutput{})

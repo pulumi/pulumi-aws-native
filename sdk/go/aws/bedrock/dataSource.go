@@ -59,8 +59,10 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'KnowledgeBaseId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dataSourceConfiguration.type",
 		"knowledgeBaseId",
-		"vectorIngestionConfiguration",
+		"vectorIngestionConfiguration.chunkingConfiguration",
+		"vectorIngestionConfiguration.parsingConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

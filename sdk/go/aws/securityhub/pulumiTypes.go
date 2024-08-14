@@ -3734,6 +3734,8 @@ type ConfigurationPolicySecurityHubPolicy struct {
 	// A list that defines which security standards are enabled in the configuration policy.
 	EnabledStandardIdentifiers []string `pulumi:"enabledStandardIdentifiers"`
 	// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+	//
+	// This property is required only if `ServiceEnabled` is set to true in your configuration policy.
 	SecurityControlsConfiguration *ConfigurationPolicySecurityControlsConfiguration `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled *bool `pulumi:"serviceEnabled"`
@@ -3755,6 +3757,8 @@ type ConfigurationPolicySecurityHubPolicyArgs struct {
 	// A list that defines which security standards are enabled in the configuration policy.
 	EnabledStandardIdentifiers pulumi.StringArrayInput `pulumi:"enabledStandardIdentifiers"`
 	// An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+	//
+	// This property is required only if `ServiceEnabled` is set to true in your configuration policy.
 	SecurityControlsConfiguration ConfigurationPolicySecurityControlsConfigurationPtrInput `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled pulumi.BoolPtrInput `pulumi:"serviceEnabled"`
@@ -3844,6 +3848,8 @@ func (o ConfigurationPolicySecurityHubPolicyOutput) EnabledStandardIdentifiers()
 }
 
 // An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+//
+// This property is required only if `ServiceEnabled` is set to true in your configuration policy.
 func (o ConfigurationPolicySecurityHubPolicyOutput) SecurityControlsConfiguration() ConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicySecurityHubPolicy) *ConfigurationPolicySecurityControlsConfiguration {
 		return v.SecurityControlsConfiguration
@@ -3890,6 +3896,8 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) EnabledStandardIdentifier
 }
 
 // An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+//
+// This property is required only if `ServiceEnabled` is set to true in your configuration policy.
 func (o ConfigurationPolicySecurityHubPolicyPtrOutput) SecurityControlsConfiguration() ConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicySecurityHubPolicy) *ConfigurationPolicySecurityControlsConfiguration {
 		if v == nil {

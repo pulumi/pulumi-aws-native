@@ -1894,6 +1894,8 @@ class ConfigurationPolicySecurityHubPolicyArgs:
         An object that defines how AWS Security Hub is configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_standard_identifiers: A list that defines which security standards are enabled in the configuration policy.
         :param pulumi.Input['ConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+               
+               This property is required only if `ServiceEnabled` is set to true in your configuration policy.
         :param pulumi.Input[bool] service_enabled: Indicates whether Security Hub is enabled in the policy.
         """
         if enabled_standard_identifiers is not None:
@@ -1920,6 +1922,8 @@ class ConfigurationPolicySecurityHubPolicyArgs:
     def security_controls_configuration(self) -> Optional[pulumi.Input['ConfigurationPolicySecurityControlsConfigurationArgs']]:
         """
         An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+
+        This property is required only if `ServiceEnabled` is set to true in your configuration policy.
         """
         return pulumi.get(self, "security_controls_configuration")
 

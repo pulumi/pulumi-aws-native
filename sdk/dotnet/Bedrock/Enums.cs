@@ -344,6 +344,8 @@ namespace Pulumi.AwsNative.Bedrock
 
         public static DataSourceChunkingStrategy FixedSize { get; } = new DataSourceChunkingStrategy("FIXED_SIZE");
         public static DataSourceChunkingStrategy None { get; } = new DataSourceChunkingStrategy("NONE");
+        public static DataSourceChunkingStrategy Hierarchical { get; } = new DataSourceChunkingStrategy("HIERARCHICAL");
+        public static DataSourceChunkingStrategy Semantic { get; } = new DataSourceChunkingStrategy("SEMANTIC");
 
         public static bool operator ==(DataSourceChunkingStrategy left, DataSourceChunkingStrategy right) => left.Equals(right);
         public static bool operator !=(DataSourceChunkingStrategy left, DataSourceChunkingStrategy right) => !left.Equals(right);
@@ -353,6 +355,97 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceChunkingStrategy other && Equals(other);
         public bool Equals(DataSourceChunkingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The supported authentication type to authenticate and connect to your Confluence instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceConfluenceSourceConfigurationAuthType : IEquatable<DataSourceConfluenceSourceConfigurationAuthType>
+    {
+        private readonly string _value;
+
+        private DataSourceConfluenceSourceConfigurationAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceConfluenceSourceConfigurationAuthType Basic { get; } = new DataSourceConfluenceSourceConfigurationAuthType("BASIC");
+        public static DataSourceConfluenceSourceConfigurationAuthType Oauth2ClientCredentials { get; } = new DataSourceConfluenceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS");
+
+        public static bool operator ==(DataSourceConfluenceSourceConfigurationAuthType left, DataSourceConfluenceSourceConfigurationAuthType right) => left.Equals(right);
+        public static bool operator !=(DataSourceConfluenceSourceConfigurationAuthType left, DataSourceConfluenceSourceConfigurationAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceConfluenceSourceConfigurationAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceConfluenceSourceConfigurationAuthType other && Equals(other);
+        public bool Equals(DataSourceConfluenceSourceConfigurationAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The supported host type, whether online/cloud or server/on-premises.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceConfluenceSourceConfigurationHostType : IEquatable<DataSourceConfluenceSourceConfigurationHostType>
+    {
+        private readonly string _value;
+
+        private DataSourceConfluenceSourceConfigurationHostType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceConfluenceSourceConfigurationHostType Saas { get; } = new DataSourceConfluenceSourceConfigurationHostType("SAAS");
+
+        public static bool operator ==(DataSourceConfluenceSourceConfigurationHostType left, DataSourceConfluenceSourceConfigurationHostType right) => left.Equals(right);
+        public static bool operator !=(DataSourceConfluenceSourceConfigurationHostType left, DataSourceConfluenceSourceConfigurationHostType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceConfluenceSourceConfigurationHostType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceConfluenceSourceConfigurationHostType other && Equals(other);
+        public bool Equals(DataSourceConfluenceSourceConfigurationHostType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The crawl filter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceCrawlFilterConfigurationType : IEquatable<DataSourceCrawlFilterConfigurationType>
+    {
+        private readonly string _value;
+
+        private DataSourceCrawlFilterConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceCrawlFilterConfigurationType Pattern { get; } = new DataSourceCrawlFilterConfigurationType("PATTERN");
+
+        public static bool operator ==(DataSourceCrawlFilterConfigurationType left, DataSourceCrawlFilterConfigurationType right) => left.Equals(right);
+        public static bool operator !=(DataSourceCrawlFilterConfigurationType left, DataSourceCrawlFilterConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceCrawlFilterConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceCrawlFilterConfigurationType other && Equals(other);
+        public bool Equals(DataSourceCrawlFilterConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -384,6 +477,126 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceDataDeletionPolicy other && Equals(other);
         public bool Equals(DataSourceDataDeletionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The parsing strategy for the data source.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceParsingStrategy : IEquatable<DataSourceParsingStrategy>
+    {
+        private readonly string _value;
+
+        private DataSourceParsingStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceParsingStrategy BedrockFoundationModel { get; } = new DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL");
+
+        public static bool operator ==(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => left.Equals(right);
+        public static bool operator !=(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceParsingStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceParsingStrategy other && Equals(other);
+        public bool Equals(DataSourceParsingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The supported authentication type to authenticate and connect to your Salesforce instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceSalesforceSourceConfigurationAuthType : IEquatable<DataSourceSalesforceSourceConfigurationAuthType>
+    {
+        private readonly string _value;
+
+        private DataSourceSalesforceSourceConfigurationAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceSalesforceSourceConfigurationAuthType Oauth2ClientCredentials { get; } = new DataSourceSalesforceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS");
+
+        public static bool operator ==(DataSourceSalesforceSourceConfigurationAuthType left, DataSourceSalesforceSourceConfigurationAuthType right) => left.Equals(right);
+        public static bool operator !=(DataSourceSalesforceSourceConfigurationAuthType left, DataSourceSalesforceSourceConfigurationAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceSalesforceSourceConfigurationAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceSalesforceSourceConfigurationAuthType other && Equals(other);
+        public bool Equals(DataSourceSalesforceSourceConfigurationAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The supported authentication type to authenticate and connect to your SharePoint site/sites.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceSharePointSourceConfigurationAuthType : IEquatable<DataSourceSharePointSourceConfigurationAuthType>
+    {
+        private readonly string _value;
+
+        private DataSourceSharePointSourceConfigurationAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceSharePointSourceConfigurationAuthType Oauth2ClientCredentials { get; } = new DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS");
+
+        public static bool operator ==(DataSourceSharePointSourceConfigurationAuthType left, DataSourceSharePointSourceConfigurationAuthType right) => left.Equals(right);
+        public static bool operator !=(DataSourceSharePointSourceConfigurationAuthType left, DataSourceSharePointSourceConfigurationAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceSharePointSourceConfigurationAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceSharePointSourceConfigurationAuthType other && Equals(other);
+        public bool Equals(DataSourceSharePointSourceConfigurationAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The supported host type, whether online/cloud or server/on-premises.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceSharePointSourceConfigurationHostType : IEquatable<DataSourceSharePointSourceConfigurationHostType>
+    {
+        private readonly string _value;
+
+        private DataSourceSharePointSourceConfigurationHostType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceSharePointSourceConfigurationHostType Online { get; } = new DataSourceSharePointSourceConfigurationHostType("ONLINE");
+
+        public static bool operator ==(DataSourceSharePointSourceConfigurationHostType left, DataSourceSharePointSourceConfigurationHostType right) => left.Equals(right);
+        public static bool operator !=(DataSourceSharePointSourceConfigurationHostType left, DataSourceSharePointSourceConfigurationHostType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceSharePointSourceConfigurationHostType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceSharePointSourceConfigurationHostType other && Equals(other);
+        public bool Equals(DataSourceSharePointSourceConfigurationHostType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -424,6 +637,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// When the service applies the transformation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceTransformationStepToApply : IEquatable<DataSourceTransformationStepToApply>
+    {
+        private readonly string _value;
+
+        private DataSourceTransformationStepToApply(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceTransformationStepToApply PostChunking { get; } = new DataSourceTransformationStepToApply("POST_CHUNKING");
+
+        public static bool operator ==(DataSourceTransformationStepToApply left, DataSourceTransformationStepToApply right) => left.Equals(right);
+        public static bool operator !=(DataSourceTransformationStepToApply left, DataSourceTransformationStepToApply right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceTransformationStepToApply value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceTransformationStepToApply other && Equals(other);
+        public bool Equals(DataSourceTransformationStepToApply other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the data source location.
     /// </summary>
     [EnumType]
@@ -437,6 +680,10 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static DataSourceType S3 { get; } = new DataSourceType("S3");
+        public static DataSourceType Confluence { get; } = new DataSourceType("CONFLUENCE");
+        public static DataSourceType Salesforce { get; } = new DataSourceType("SALESFORCE");
+        public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
+        public static DataSourceType Web { get; } = new DataSourceType("WEB");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -446,6 +693,37 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceType other && Equals(other);
         public bool Equals(DataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope that a web crawl job will be restricted to.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceWebScopeType : IEquatable<DataSourceWebScopeType>
+    {
+        private readonly string _value;
+
+        private DataSourceWebScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceWebScopeType HostOnly { get; } = new DataSourceWebScopeType("HOST_ONLY");
+        public static DataSourceWebScopeType Subdomains { get; } = new DataSourceWebScopeType("SUBDOMAINS");
+
+        public static bool operator ==(DataSourceWebScopeType left, DataSourceWebScopeType right) => left.Equals(right);
+        public static bool operator !=(DataSourceWebScopeType left, DataSourceWebScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceWebScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceWebScopeType other && Equals(other);
+        public bool Equals(DataSourceWebScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

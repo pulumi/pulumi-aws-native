@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly ImmutableArray<Outputs.CoreNetworkEdge> Edges;
         /// <summary>
+        /// The network function groups within a core network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CoreNetworkNetworkFunctionGroup> NetworkFunctionGroups;
+        /// <summary>
         /// Owner of the core network
         /// </summary>
         public readonly string? OwnerAccount;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             ImmutableArray<Outputs.CoreNetworkEdge> edges,
 
+            ImmutableArray<Outputs.CoreNetworkNetworkFunctionGroup> networkFunctionGroups,
+
             string? ownerAccount,
 
             object? policyDocument,
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.NetworkManager
             CreatedAt = createdAt;
             Description = description;
             Edges = edges;
+            NetworkFunctionGroups = networkFunctionGroups;
             OwnerAccount = ownerAccount;
             PolicyDocument = policyDocument;
             Segments = segments;
