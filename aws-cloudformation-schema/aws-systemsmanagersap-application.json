@@ -4,14 +4,14 @@
   "properties" : {
     "ApplicationId" : {
       "type" : "string",
-      "pattern" : "[\\w\\d]{1,50}"
+      "pattern" : "[\\w\\d\\.-]{1,60}"
     },
     "ApplicationType" : {
       "type" : "string",
-      "enum" : [ "HANA" ]
+      "enum" : [ "HANA", "SAP_ABAP" ]
     },
     "Arn" : {
-      "description" : "The ARN of the Helix application",
+      "description" : "The ARN of the SSM-SAP application",
       "type" : "string",
       "pattern" : "^arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\\/.+$"
     },
@@ -46,13 +46,18 @@
         "$ref" : "#/definitions/Tag"
       },
       "insertionOrder" : true
+    },
+    "DatabaseArn" : {
+      "description" : "The ARN of the SAP HANA database",
+      "type" : "string",
+      "pattern" : "^arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\\/.+$"
     }
   },
   "required" : [ "ApplicationId", "ApplicationType" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Credentials", "/properties/Instances", "/properties/SapInstanceNumber", "/properties/Sid" ],
-  "writeOnlyProperties" : [ "/properties/Credentials", "/properties/Instances", "/properties/SapInstanceNumber", "/properties/Sid" ],
+  "createOnlyProperties" : [ "/properties/Credentials", "/properties/Instances", "/properties/SapInstanceNumber", "/properties/Sid", "/properties/DatabaseArn" ],
+  "writeOnlyProperties" : [ "/properties/Credentials", "/properties/Instances", "/properties/SapInstanceNumber", "/properties/Sid", "/properties/DatabaseArn" ],
   "additionalProperties" : false,
   "definitions" : {
     "Tag" : {
@@ -100,7 +105,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-sap:RegisterApplication", "ssm-sap:GetApplication", "ssm-sap:TagResource", "ssm-sap:ListTagsForResource" ]
+      "permissions" : [ "ssm-sap:RegisterApplication", "ssm-sap:GetApplication", "ssm-sap:TagResource", "ssm-sap:ListTagsForResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "ssm-sap:GetApplication", "ssm-sap:ListTagsForResource" ]
@@ -120,6 +125,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ssm-sap:UntagResource", "ssm-sap:TagResource", "ssm-sap:ListTagsForResource" ]
   }
 }

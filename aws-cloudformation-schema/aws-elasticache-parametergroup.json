@@ -63,7 +63,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ElastiCache:CreateCacheParameterGroup", "ElastiCache:DescribeCacheParameterGroups", "ElastiCache:AddTagsToResource", "ElastiCache:ModifyCacheParameterGroup" ]
+      "permissions" : [ "ElastiCache:CreateCacheParameterGroup", "ElastiCache:DescribeCacheParameterGroups", "ElastiCache:AddTagsToResource", "ElastiCache:ModifyCacheParameterGroup", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy" ]
     },
     "read" : {
       "permissions" : [ "ElastiCache:DescribeCacheParameterGroups", "ElastiCache:DescribeCacheParameters", "ElastiCache:ListTagsForResource" ]
