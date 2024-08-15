@@ -37,6 +37,8 @@ type LookupIpamResult struct {
 	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
 	// The description for the IPAM.
 	Description *string `pulumi:"description"`
+	// Enable provisioning of GUA space in private pools.
+	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// Id of the IPAM.
 	IpamId *string `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -109,6 +111,11 @@ func (o LookupIpamResultOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOut
 // The description for the IPAM.
 func (o LookupIpamResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable provisioning of GUA space in private pools.
+func (o LookupIpamResultOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupIpamResult) *bool { return v.EnablePrivateGua }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the IPAM.

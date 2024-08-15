@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceTransformationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Lambda function.
+        /// </summary>
         [Input("transformationLambdaConfiguration", required: true)]
         public Input<Inputs.DataSourceTransformationLambdaConfigurationArgs> TransformationLambdaConfiguration { get; set; } = null!;
 

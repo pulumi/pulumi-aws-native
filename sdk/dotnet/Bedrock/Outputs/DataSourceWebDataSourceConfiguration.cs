@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceWebDataSourceConfiguration
     {
+        /// <summary>
+        /// The Web Crawler configuration details for the web data source.
+        /// </summary>
         public readonly Outputs.DataSourceWebCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// The source configuration details for the web data source.
+        /// </summary>
         public readonly Outputs.DataSourceWebSourceConfiguration SourceConfiguration;
 
         [OutputConstructor]

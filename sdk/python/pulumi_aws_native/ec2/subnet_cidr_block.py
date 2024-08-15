@@ -146,6 +146,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["ip_source"] = None
+            __props__.__dict__["ipv6_address_attribute"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetCidrBlock, __self__).__init__(
@@ -171,6 +173,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
         __props__ = SubnetCidrBlockArgs.__new__(SubnetCidrBlockArgs)
 
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["ip_source"] = None
+        __props__.__dict__["ipv6_address_attribute"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
         __props__.__dict__["ipv6_ipam_pool_id"] = None
         __props__.__dict__["ipv6_netmask_length"] = None
@@ -184,6 +188,22 @@ class SubnetCidrBlock(pulumi.CustomResource):
         Information about the IPv6 association.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="ipSource")
+    def ip_source(self) -> pulumi.Output[str]:
+        """
+        The IP Source of an IPv6 Subnet CIDR Block.
+        """
+        return pulumi.get(self, "ip_source")
+
+    @property
+    @pulumi.getter(name="ipv6AddressAttribute")
+    def ipv6_address_attribute(self) -> pulumi.Output[str]:
+        """
+        The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+        """
+        return pulumi.get(self, "ipv6_address_attribute")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceCrawlerConfiguration
     {
+        /// <summary>
+        /// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+        /// </summary>
         public readonly Outputs.DataSourceCrawlFilterConfiguration? FilterConfiguration;
 
         [OutputConstructor]

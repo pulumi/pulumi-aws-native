@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceTransformationFunction
     {
+        /// <summary>
+        /// The Lambda function.
+        /// </summary>
         public readonly Outputs.DataSourceTransformationLambdaConfiguration TransformationLambdaConfiguration;
 
         [OutputConstructor]

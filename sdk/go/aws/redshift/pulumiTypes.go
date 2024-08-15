@@ -176,9 +176,11 @@ type ClusterLoggingProperties struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions
-	BucketName         *string  `pulumi:"bucketName"`
-	LogDestinationType *string  `pulumi:"logDestinationType"`
-	LogExports         []string `pulumi:"logExports"`
+	BucketName *string `pulumi:"bucketName"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+	LogDestinationType *string `pulumi:"logDestinationType"`
+	// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+	LogExports []string `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:
@@ -212,9 +214,11 @@ type ClusterLoggingPropertiesArgs struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions
-	BucketName         pulumi.StringPtrInput   `pulumi:"bucketName"`
-	LogDestinationType pulumi.StringPtrInput   `pulumi:"logDestinationType"`
-	LogExports         pulumi.StringArrayInput `pulumi:"logExports"`
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+	LogDestinationType pulumi.StringPtrInput `pulumi:"logDestinationType"`
+	// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+	LogExports pulumi.StringArrayInput `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:
@@ -317,10 +321,12 @@ func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
 func (o ClusterLoggingPropertiesOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
 
+// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
 func (o ClusterLoggingPropertiesOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterLoggingProperties) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
@@ -380,6 +386,7 @@ func (o ClusterLoggingPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
 func (o ClusterLoggingPropertiesPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingProperties) *string {
 		if v == nil {
@@ -389,6 +396,7 @@ func (o ClusterLoggingPropertiesPtrOutput) LogDestinationType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
 func (o ClusterLoggingPropertiesPtrOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterLoggingProperties) []string {
 		if v == nil {

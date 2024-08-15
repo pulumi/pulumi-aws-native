@@ -20,18 +20,22 @@ __all__ = ['IpamArgs', 'Ipam']
 class IpamArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None):
         """
         The set of arguments for constructing a Ipam resource.
         :param pulumi.Input[str] description: The description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable provisioning of GUA space in private pools.
         :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_private_gua is not None:
+            pulumi.set(__self__, "enable_private_gua", enable_private_gua)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
         if tags is not None:
@@ -50,6 +54,18 @@ class IpamArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable provisioning of GUA space in private pools.
+        """
+        return pulumi.get(self, "enable_private_gua")
+
+    @enable_private_gua.setter
+    def enable_private_gua(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_gua", value)
 
     @property
     @pulumi.getter(name="operatingRegions")
@@ -94,6 +110,7 @@ class Ipam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
@@ -104,6 +121,7 @@ class Ipam(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable provisioning of GUA space in private pools.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
@@ -133,6 +151,7 @@ class Ipam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
@@ -146,6 +165,7 @@ class Ipam(pulumi.CustomResource):
             __props__ = IpamArgs.__new__(IpamArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["enable_private_gua"] = enable_private_gua
             __props__.__dict__["operating_regions"] = operating_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
@@ -183,6 +203,7 @@ class Ipam(pulumi.CustomResource):
         __props__.__dict__["default_resource_discovery_association_id"] = None
         __props__.__dict__["default_resource_discovery_id"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enable_private_gua"] = None
         __props__.__dict__["ipam_id"] = None
         __props__.__dict__["operating_regions"] = None
         __props__.__dict__["private_default_scope_id"] = None
@@ -224,6 +245,14 @@ class Ipam(pulumi.CustomResource):
         The description for the IPAM.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable provisioning of GUA space in private pools.
+        """
+        return pulumi.get(self, "enable_private_gua")
 
     @property
     @pulumi.getter(name="ipamId")

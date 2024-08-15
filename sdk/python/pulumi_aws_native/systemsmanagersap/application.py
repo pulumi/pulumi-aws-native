@@ -22,6 +22,7 @@ class ApplicationArgs:
                  application_id: pulumi.Input[str],
                  application_type: pulumi.Input['ApplicationType'],
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]] = None,
+                 database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sap_instance_number: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[str] database_arn: The ARN of the SAP HANA database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[str] sid: The System ID of the application.
@@ -40,6 +42,8 @@ class ApplicationArgs:
         pulumi.set(__self__, "application_type", application_type)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if database_arn is not None:
+            pulumi.set(__self__, "database_arn", database_arn)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if sap_instance_number is not None:
@@ -84,6 +88,18 @@ class ApplicationArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="databaseArn")
+    def database_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SAP HANA database
+        """
+        return pulumi.get(self, "database_arn")
+
+    @database_arn.setter
+    def database_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_arn", value)
 
     @property
     @pulumi.getter
@@ -142,6 +158,7 @@ class Application(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
+                 database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sap_instance_number: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
@@ -155,6 +172,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[str] database_arn: The ARN of the SAP HANA database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[str] sid: The System ID of the application.
@@ -187,6 +205,7 @@ class Application(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
+                 database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sap_instance_number: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
@@ -207,12 +226,13 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_type'")
             __props__.__dict__["application_type"] = application_type
             __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["database_arn"] = database_arn
             __props__.__dict__["instances"] = instances
             __props__.__dict__["sap_instance_number"] = sap_instance_number
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentials[*]", "instances[*]", "sapInstanceNumber", "sid"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:systemsmanagersap:Application',
@@ -240,6 +260,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_type"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["credentials"] = None
+        __props__.__dict__["database_arn"] = None
         __props__.__dict__["instances"] = None
         __props__.__dict__["sap_instance_number"] = None
         __props__.__dict__["sid"] = None
@@ -266,7 +287,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Helix application
+        The ARN of the SSM-SAP application
         """
         return pulumi.get(self, "arn")
 
@@ -277,6 +298,14 @@ class Application(pulumi.CustomResource):
         The credentials of the SAP application.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="databaseArn")
+    def database_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the SAP HANA database
+        """
+        return pulumi.get(self, "database_arn")
 
     @property
     @pulumi.getter

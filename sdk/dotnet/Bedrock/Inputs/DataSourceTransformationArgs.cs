@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("stepToApply", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceTransformationStepToApply> StepToApply { get; set; } = null!;
 
+        /// <summary>
+        /// A Lambda function that processes documents.
+        /// </summary>
         [Input("transformationFunction", required: true)]
         public Input<Inputs.DataSourceTransformationFunctionArgs> TransformationFunction { get; set; } = null!;
 

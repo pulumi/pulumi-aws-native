@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     {
         [Input("seedUrls", required: true)]
         private InputList<Inputs.DataSourceSeedUrlArgs>? _seedUrls;
+
+        /// <summary>
+        /// One or more seed or starting point URLs.
+        /// </summary>
         public InputList<Inputs.DataSourceSeedUrlArgs> SeedUrls
         {
             get => _seedUrls ?? (_seedUrls = new InputList<Inputs.DataSourceSeedUrlArgs>());

@@ -54,6 +54,10 @@ export class Ipam extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Enable provisioning of GUA space in private pools.
+     */
+    public readonly enablePrivateGua!: pulumi.Output<boolean | undefined>;
+    /**
      * Id of the IPAM.
      */
     public /*out*/ readonly ipamId!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class Ipam extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
@@ -114,6 +119,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enablePrivateGua"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
             resourceInputs["operatingRegions"] = undefined /*out*/;
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export interface IpamArgs {
      * The description for the IPAM.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Enable provisioning of GUA space in private pools.
+     */
+    enablePrivateGua?: pulumi.Input<boolean>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */

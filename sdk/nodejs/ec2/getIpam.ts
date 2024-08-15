@@ -43,6 +43,10 @@ export interface GetIpamResult {
      */
     readonly description?: string;
     /**
+     * Enable provisioning of GUA space in private pools.
+     */
+    readonly enablePrivateGua?: boolean;
+    /**
      * Id of the IPAM.
      */
     readonly ipamId?: string;

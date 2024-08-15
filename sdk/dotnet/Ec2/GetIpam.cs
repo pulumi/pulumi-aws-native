@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Enable provisioning of GUA space in private pools.
+        /// </summary>
+        public readonly bool? EnablePrivateGua;
+        /// <summary>
         /// Id of the IPAM.
         /// </summary>
         public readonly string? IpamId;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? description,
 
+            bool? enablePrivateGua,
+
             string? ipamId,
 
             ImmutableArray<Outputs.IpamOperatingRegion> operatingRegions,
@@ -136,6 +142,7 @@ namespace Pulumi.AwsNative.Ec2
             DefaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
             DefaultResourceDiscoveryId = defaultResourceDiscoveryId;
             Description = description;
+            EnablePrivateGua = enablePrivateGua;
             IpamId = ipamId;
             OperatingRegions = operatingRegions;
             PrivateDefaultScopeId = privateDefaultScopeId;

@@ -847,6 +847,7 @@ type Bucket struct {
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+	//   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
 	VersioningConfiguration BucketVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration BucketWebsiteConfigurationPtrOutput `pulumi:"websiteConfiguration"`
@@ -948,6 +949,7 @@ type bucketArgs struct {
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+	//   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration *BucketWebsiteConfiguration `pulumi:"websiteConfiguration"`
@@ -1001,6 +1003,7 @@ type BucketArgs struct {
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
 	Tags aws.TagArrayInput
 	// Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+	//   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
 	VersioningConfiguration BucketVersioningConfigurationPtrInput
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration BucketWebsiteConfigurationPtrInput
@@ -1179,6 +1182,8 @@ func (o BucketOutput) Tags() aws.TagArrayOutput {
 }
 
 // Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+//
+//	When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
 func (o BucketOutput) VersioningConfiguration() BucketVersioningConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketVersioningConfigurationPtrOutput { return v.VersioningConfiguration }).(BucketVersioningConfigurationPtrOutput)
 }

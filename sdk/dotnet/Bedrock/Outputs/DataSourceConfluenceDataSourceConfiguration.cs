@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceConfluenceDataSourceConfiguration
     {
+        /// <summary>
+        /// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// The endpoint information to connect to your Confluence data source.
+        /// </summary>
         public readonly Outputs.DataSourceConfluenceSourceConfiguration SourceConfiguration;
 
         [OutputConstructor]

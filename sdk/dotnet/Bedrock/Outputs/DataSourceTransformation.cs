@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// When the service applies the transformation.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceTransformationStepToApply StepToApply;
+        /// <summary>
+        /// A Lambda function that processes documents.
+        /// </summary>
         public readonly Outputs.DataSourceTransformationFunction TransformationFunction;
 
         [OutputConstructor]

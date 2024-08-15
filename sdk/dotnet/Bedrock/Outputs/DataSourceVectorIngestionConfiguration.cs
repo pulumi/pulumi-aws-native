@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         /// </summary>
         public readonly Outputs.DataSourceChunkingConfiguration? ChunkingConfiguration;
+        /// <summary>
+        /// A custom document transformer for parsed data source documents.
+        /// </summary>
         public readonly Outputs.DataSourceCustomTransformationConfiguration? CustomTransformationConfiguration;
+        /// <summary>
+        /// A custom parser for data source documents.
+        /// </summary>
         public readonly Outputs.DataSourceParsingConfiguration? ParsingConfiguration;
 
         [OutputConstructor]

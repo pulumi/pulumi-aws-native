@@ -69,6 +69,7 @@ class BucketArgs:
                 Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         :param pulumi.Input['BucketVersioningConfigurationArgs'] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+                 When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationArgs'] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
         if accelerate_configuration is not None:
@@ -342,6 +343,7 @@ class BucketArgs:
     def versioning_configuration(self) -> Optional[pulumi.Input['BucketVersioningConfigurationArgs']]:
         """
         Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+          When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         """
         return pulumi.get(self, "versioning_configuration")
 
@@ -908,6 +910,7 @@ class Bucket(pulumi.CustomResource):
                 Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         :param pulumi.Input[Union['BucketVersioningConfigurationArgs', 'BucketVersioningConfigurationArgsDict']] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+                 When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         :param pulumi.Input[Union['BucketWebsiteConfigurationArgs', 'BucketWebsiteConfigurationArgsDict']] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
         ...
@@ -1726,6 +1729,7 @@ class Bucket(pulumi.CustomResource):
     def versioning_configuration(self) -> pulumi.Output[Optional['outputs.BucketVersioningConfiguration']]:
         """
         Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+          When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         """
         return pulumi.get(self, "versioning_configuration")
 

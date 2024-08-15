@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceCustomTransformationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An S3 bucket path for input and output objects.
+        /// </summary>
         [Input("intermediateStorage", required: true)]
         public Input<Inputs.DataSourceIntermediateStorageArgs> IntermediateStorage { get; set; } = null!;
 

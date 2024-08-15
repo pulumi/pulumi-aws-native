@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceCrawlFilterConfiguration
     {
+        /// <summary>
+        /// The configuration of filtering certain objects or content types of the data source.
+        /// </summary>
         public readonly Outputs.DataSourcePatternObjectFilterConfiguration? PatternObjectFilter;
         /// <summary>
         /// The crawl filter type.

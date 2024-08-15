@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceIntermediateStorage
     {
+        /// <summary>
+        /// An S3 bucket path.
+        /// </summary>
         public readonly Outputs.DataSourceS3Location S3Location;
 
         [OutputConstructor]

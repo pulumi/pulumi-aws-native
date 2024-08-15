@@ -4018,6 +4018,10 @@
         "type": "string",
         "description": "The description for the IPAM."
       },
+      "enablePrivateGua": {
+        "type": "boolean",
+        "description": "Enable provisioning of GUA space in private pools."
+      },
       "operatingRegions": {
         "type": "array",
         "items": {
@@ -5580,7 +5584,7 @@
       },
       "instanceTenancy": {
         "type": "string",
-        "description": "The allowed tenancy of instances launched into the VPC.\n  +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement."
+        "description": "The allowed tenancy of instances launched into the VPC.\n  +   ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +   ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement."
       },
       "ipv4IpamPoolId": {
         "type": "string",
@@ -12036,6 +12040,10 @@
           "$ref": "#/types/aws-native:systemsmanagersap:ApplicationCredential"
         },
         "description": "The credentials of the SAP application."
+      },
+      "databaseArn": {
+        "type": "string",
+        "description": "The ARN of the SAP HANA database"
       },
       "instances": {
         "type": "array",

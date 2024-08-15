@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceWebDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Web Crawler configuration details for the web data source.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.DataSourceWebCrawlerConfigurationArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// The source configuration details for the web data source.
+        /// </summary>
         [Input("sourceConfiguration", required: true)]
         public Input<Inputs.DataSourceWebSourceConfigurationArgs> SourceConfiguration { get; set; } = null!;
 

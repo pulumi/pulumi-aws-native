@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The IP Source of an IPv6 VPC CIDR Block.
+        /// </summary>
+        [Output("ipSource")]
+        public Output<string> IpSource { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
         /// </summary>
         [Output("ipv4IpamPoolId")]
@@ -44,6 +50,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
+        /// <summary>
+        /// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+        /// </summary>
+        [Output("ipv6AddressAttribute")]
+        public Output<string> Ipv6AddressAttribute { get; private set; } = null!;
 
         /// <summary>
         /// An IPv6 CIDR block from the IPv6 address pool.

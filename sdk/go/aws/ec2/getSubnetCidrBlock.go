@@ -30,6 +30,10 @@ type LookupSubnetCidrBlockArgs struct {
 type LookupSubnetCidrBlockResult struct {
 	// Information about the IPv6 association.
 	Id *string `pulumi:"id"`
+	// The IP Source of an IPv6 Subnet CIDR Block.
+	IpSource *string `pulumi:"ipSource"`
+	// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+	Ipv6AddressAttribute *string `pulumi:"ipv6AddressAttribute"`
 }
 
 func LookupSubnetCidrBlockOutput(ctx *pulumi.Context, args LookupSubnetCidrBlockOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetCidrBlockResultOutput {
@@ -71,6 +75,16 @@ func (o LookupSubnetCidrBlockResultOutput) ToLookupSubnetCidrBlockResultOutputWi
 // Information about the IPv6 association.
 func (o LookupSubnetCidrBlockResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetCidrBlockResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The IP Source of an IPv6 Subnet CIDR Block.
+func (o LookupSubnetCidrBlockResultOutput) IpSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetCidrBlockResult) *string { return v.IpSource }).(pulumi.StringPtrOutput)
+}
+
+// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+func (o LookupSubnetCidrBlockResultOutput) Ipv6AddressAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetCidrBlockResult) *string { return v.Ipv6AddressAttribute }).(pulumi.StringPtrOutput)
 }
 
 func init() {

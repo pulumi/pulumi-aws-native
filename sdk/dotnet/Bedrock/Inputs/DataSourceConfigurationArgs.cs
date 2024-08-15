@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration information to connect to Confluence as your data source.
+        /// 
+        /// &gt; Confluence data source connector is in preview release and is subject to change.
+        /// </summary>
         [Input("confluenceConfiguration")]
         public Input<Inputs.DataSourceConfluenceDataSourceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
@@ -24,9 +29,19 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("s3Configuration")]
         public Input<Inputs.DataSourceS3DataSourceConfigurationArgs>? S3Configuration { get; set; }
 
+        /// <summary>
+        /// The configuration information to connect to Salesforce as your data source.
+        /// 
+        /// &gt; Salesforce data source connector is in preview release and is subject to change.
+        /// </summary>
         [Input("salesforceConfiguration")]
         public Input<Inputs.DataSourceSalesforceDataSourceConfigurationArgs>? SalesforceConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration information to connect to SharePoint as your data source.
+        /// 
+        /// &gt; SharePoint data source connector is in preview release and is subject to change.
+        /// </summary>
         [Input("sharePointConfiguration")]
         public Input<Inputs.DataSourceSharePointDataSourceConfigurationArgs>? SharePointConfiguration { get; set; }
 
@@ -36,6 +51,11 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+        /// 
+        /// &gt; Crawling web URLs as your data source is in preview release and is subject to change.
+        /// </summary>
         [Input("webConfiguration")]
         public Input<Inputs.DataSourceWebDataSourceConfigurationArgs>? WebConfiguration { get; set; }
 

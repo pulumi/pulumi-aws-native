@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         }
 
         public static ApplicationType Hana { get; } = new ApplicationType("HANA");
+        public static ApplicationType SapAbap { get; } = new ApplicationType("SAP_ABAP");
 
         public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
         public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);

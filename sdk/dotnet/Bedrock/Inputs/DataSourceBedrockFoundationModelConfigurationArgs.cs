@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("modelArn", required: true)]
         public Input<string> ModelArn { get; set; } = null!;
 
+        /// <summary>
+        /// Instructions for interpreting the contents of a document.
+        /// </summary>
         [Input("parsingPrompt")]
         public Input<Inputs.DataSourceParsingPromptArgs>? ParsingPrompt { get; set; }
 

@@ -2244,7 +2244,8 @@ func (o AgentS3IdentifierPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfiguration struct {
 	// The model's ARN.
-	ModelArn      string                   `pulumi:"modelArn"`
+	ModelArn string `pulumi:"modelArn"`
+	// Instructions for interpreting the contents of a document.
 	ParsingPrompt *DataSourceParsingPrompt `pulumi:"parsingPrompt"`
 }
 
@@ -2262,7 +2263,8 @@ type DataSourceBedrockFoundationModelConfigurationInput interface {
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfigurationArgs struct {
 	// The model's ARN.
-	ModelArn      pulumi.StringInput              `pulumi:"modelArn"`
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// Instructions for interpreting the contents of a document.
 	ParsingPrompt DataSourceParsingPromptPtrInput `pulumi:"parsingPrompt"`
 }
 
@@ -2349,6 +2351,7 @@ func (o DataSourceBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.S
 	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
 }
 
+// Instructions for interpreting the contents of a document.
 func (o DataSourceBedrockFoundationModelConfigurationOutput) ParsingPrompt() DataSourceParsingPromptPtrOutput {
 	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingPrompt { return v.ParsingPrompt }).(DataSourceParsingPromptPtrOutput)
 }
@@ -2387,6 +2390,7 @@ func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Instructions for interpreting the contents of a document.
 func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() DataSourceParsingPromptPtrOutput {
 	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingPrompt {
 		if v == nil {
@@ -2406,9 +2410,11 @@ type DataSourceChunkingConfiguration struct {
 	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 	ChunkingStrategy DataSourceChunkingStrategy `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
-	FixedSizeChunkingConfiguration    *DataSourceFixedSizeChunkingConfiguration    `pulumi:"fixedSizeChunkingConfiguration"`
+	FixedSizeChunkingConfiguration *DataSourceFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
+	// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
 	HierarchicalChunkingConfiguration *DataSourceHierarchicalChunkingConfiguration `pulumi:"hierarchicalChunkingConfiguration"`
-	SemanticChunkingConfiguration     *DataSourceSemanticChunkingConfiguration     `pulumi:"semanticChunkingConfiguration"`
+	// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+	SemanticChunkingConfiguration *DataSourceSemanticChunkingConfiguration `pulumi:"semanticChunkingConfiguration"`
 }
 
 // DataSourceChunkingConfigurationInput is an input type that accepts DataSourceChunkingConfigurationArgs and DataSourceChunkingConfigurationOutput values.
@@ -2432,9 +2438,11 @@ type DataSourceChunkingConfigurationArgs struct {
 	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 	ChunkingStrategy DataSourceChunkingStrategyInput `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
-	FixedSizeChunkingConfiguration    DataSourceFixedSizeChunkingConfigurationPtrInput    `pulumi:"fixedSizeChunkingConfiguration"`
+	FixedSizeChunkingConfiguration DataSourceFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
+	// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
 	HierarchicalChunkingConfiguration DataSourceHierarchicalChunkingConfigurationPtrInput `pulumi:"hierarchicalChunkingConfiguration"`
-	SemanticChunkingConfiguration     DataSourceSemanticChunkingConfigurationPtrInput     `pulumi:"semanticChunkingConfiguration"`
+	// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+	SemanticChunkingConfiguration DataSourceSemanticChunkingConfigurationPtrInput `pulumi:"semanticChunkingConfiguration"`
 }
 
 func (DataSourceChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -2532,12 +2540,14 @@ func (o DataSourceChunkingConfigurationOutput) FixedSizeChunkingConfiguration() 
 	}).(DataSourceFixedSizeChunkingConfigurationPtrOutput)
 }
 
+// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
 func (o DataSourceChunkingConfigurationOutput) HierarchicalChunkingConfiguration() DataSourceHierarchicalChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceChunkingConfiguration) *DataSourceHierarchicalChunkingConfiguration {
 		return v.HierarchicalChunkingConfiguration
 	}).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
 }
 
+// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
 func (o DataSourceChunkingConfigurationOutput) SemanticChunkingConfiguration() DataSourceSemanticChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceChunkingConfiguration) *DataSourceSemanticChunkingConfiguration {
 		return v.SemanticChunkingConfiguration
@@ -2593,6 +2603,7 @@ func (o DataSourceChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration
 	}).(DataSourceFixedSizeChunkingConfigurationPtrOutput)
 }
 
+// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
 func (o DataSourceChunkingConfigurationPtrOutput) HierarchicalChunkingConfiguration() DataSourceHierarchicalChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceHierarchicalChunkingConfiguration {
 		if v == nil {
@@ -2602,6 +2613,7 @@ func (o DataSourceChunkingConfigurationPtrOutput) HierarchicalChunkingConfigurat
 	}).(DataSourceHierarchicalChunkingConfigurationPtrOutput)
 }
 
+// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
 func (o DataSourceChunkingConfigurationPtrOutput) SemanticChunkingConfiguration() DataSourceSemanticChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceSemanticChunkingConfiguration {
 		if v == nil {
@@ -2613,13 +2625,25 @@ func (o DataSourceChunkingConfigurationPtrOutput) SemanticChunkingConfiguration(
 
 // Specifies a raw data source location to ingest.
 type DataSourceConfiguration struct {
+	// The configuration information to connect to Confluence as your data source.
+	//
+	// > Confluence data source connector is in preview release and is subject to change.
 	ConfluenceConfiguration *DataSourceConfluenceDataSourceConfiguration `pulumi:"confluenceConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
-	S3Configuration         *DataSourceS3DataSourceConfiguration         `pulumi:"s3Configuration"`
+	S3Configuration *DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
+	// The configuration information to connect to Salesforce as your data source.
+	//
+	// > Salesforce data source connector is in preview release and is subject to change.
 	SalesforceConfiguration *DataSourceSalesforceDataSourceConfiguration `pulumi:"salesforceConfiguration"`
+	// The configuration information to connect to SharePoint as your data source.
+	//
+	// > SharePoint data source connector is in preview release and is subject to change.
 	SharePointConfiguration *DataSourceSharePointDataSourceConfiguration `pulumi:"sharePointConfiguration"`
 	// The type of data source.
-	Type             DataSourceType                        `pulumi:"type"`
+	Type DataSourceType `pulumi:"type"`
+	// The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+	//
+	// > Crawling web URLs as your data source is in preview release and is subject to change.
 	WebConfiguration *DataSourceWebDataSourceConfiguration `pulumi:"webConfiguration"`
 }
 
@@ -2636,13 +2660,25 @@ type DataSourceConfigurationInput interface {
 
 // Specifies a raw data source location to ingest.
 type DataSourceConfigurationArgs struct {
+	// The configuration information to connect to Confluence as your data source.
+	//
+	// > Confluence data source connector is in preview release and is subject to change.
 	ConfluenceConfiguration DataSourceConfluenceDataSourceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
-	S3Configuration         DataSourceS3DataSourceConfigurationPtrInput         `pulumi:"s3Configuration"`
+	S3Configuration DataSourceS3DataSourceConfigurationPtrInput `pulumi:"s3Configuration"`
+	// The configuration information to connect to Salesforce as your data source.
+	//
+	// > Salesforce data source connector is in preview release and is subject to change.
 	SalesforceConfiguration DataSourceSalesforceDataSourceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
+	// The configuration information to connect to SharePoint as your data source.
+	//
+	// > SharePoint data source connector is in preview release and is subject to change.
 	SharePointConfiguration DataSourceSharePointDataSourceConfigurationPtrInput `pulumi:"sharePointConfiguration"`
 	// The type of data source.
-	Type             DataSourceTypeInput                          `pulumi:"type"`
+	Type DataSourceTypeInput `pulumi:"type"`
+	// The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+	//
+	// > Crawling web URLs as your data source is in preview release and is subject to change.
 	WebConfiguration DataSourceWebDataSourceConfigurationPtrInput `pulumi:"webConfiguration"`
 }
 
@@ -2673,6 +2709,9 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContex
 	return o
 }
 
+// The configuration information to connect to Confluence as your data source.
+//
+// > Confluence data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationOutput) ConfluenceConfiguration() DataSourceConfluenceDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
 		return v.ConfluenceConfiguration
@@ -2684,12 +2723,18 @@ func (o DataSourceConfigurationOutput) S3Configuration() DataSourceS3DataSourceC
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceS3DataSourceConfiguration { return v.S3Configuration }).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// The configuration information to connect to Salesforce as your data source.
+//
+// > Salesforce data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationOutput) SalesforceConfiguration() DataSourceSalesforceDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSalesforceDataSourceConfiguration {
 		return v.SalesforceConfiguration
 	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
 }
 
+// The configuration information to connect to SharePoint as your data source.
+//
+// > SharePoint data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationOutput) SharePointConfiguration() DataSourceSharePointDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSharePointDataSourceConfiguration {
 		return v.SharePointConfiguration
@@ -2701,6 +2746,9 @@ func (o DataSourceConfigurationOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) DataSourceType { return v.Type }).(DataSourceTypeOutput)
 }
 
+// The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+//
+// > Crawling web URLs as your data source is in preview release and is subject to change.
 func (o DataSourceConfigurationOutput) WebConfiguration() DataSourceWebDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebDataSourceConfiguration { return v.WebConfiguration }).(DataSourceWebDataSourceConfigurationPtrOutput)
 }
@@ -2729,6 +2777,9 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 	}).(DataSourceConfigurationOutput)
 }
 
+// The configuration information to connect to Confluence as your data source.
+//
+// > Confluence data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationPtrOutput) ConfluenceConfiguration() DataSourceConfluenceDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
 		if v == nil {
@@ -2748,6 +2799,9 @@ func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSour
 	}).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// The configuration information to connect to Salesforce as your data source.
+//
+// > Salesforce data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationPtrOutput) SalesforceConfiguration() DataSourceSalesforceDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSalesforceDataSourceConfiguration {
 		if v == nil {
@@ -2757,6 +2811,9 @@ func (o DataSourceConfigurationPtrOutput) SalesforceConfiguration() DataSourceSa
 	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
 }
 
+// The configuration information to connect to SharePoint as your data source.
+//
+// > SharePoint data source connector is in preview release and is subject to change.
 func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSharePointDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSharePointDataSourceConfiguration {
 		if v == nil {
@@ -2776,6 +2833,9 @@ func (o DataSourceConfigurationPtrOutput) Type() DataSourceTypePtrOutput {
 	}).(DataSourceTypePtrOutput)
 }
 
+// The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+//
+// > Crawling web URLs as your data source is in preview release and is subject to change.
 func (o DataSourceConfigurationPtrOutput) WebConfiguration() DataSourceWebDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceWebDataSourceConfiguration {
 		if v == nil {
@@ -2787,6 +2847,7 @@ func (o DataSourceConfigurationPtrOutput) WebConfiguration() DataSourceWebDataSo
 
 // The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 type DataSourceConfluenceCrawlerConfiguration struct {
+	// The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -2803,6 +2864,7 @@ type DataSourceConfluenceCrawlerConfigurationInput interface {
 
 // The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 type DataSourceConfluenceCrawlerConfigurationArgs struct {
+	// The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -2884,6 +2946,7 @@ func (o DataSourceConfluenceCrawlerConfigurationOutput) ToDataSourceConfluenceCr
 	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
 }
 
+// The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceConfluenceCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		return v.FilterConfiguration
@@ -2914,6 +2977,7 @@ func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) Elem() DataSourceConf
 	}).(DataSourceConfluenceCrawlerConfigurationOutput)
 }
 
+// The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		if v == nil {
@@ -2925,8 +2989,10 @@ func (o DataSourceConfluenceCrawlerConfigurationPtrOutput) FilterConfiguration()
 
 // The configuration information to connect to Confluence as your data source.
 type DataSourceConfluenceDataSourceConfiguration struct {
+	// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 	CrawlerConfiguration *DataSourceConfluenceCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceConfluenceSourceConfiguration   `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your Confluence data source.
+	SourceConfiguration DataSourceConfluenceSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // DataSourceConfluenceDataSourceConfigurationInput is an input type that accepts DataSourceConfluenceDataSourceConfigurationArgs and DataSourceConfluenceDataSourceConfigurationOutput values.
@@ -2942,8 +3008,10 @@ type DataSourceConfluenceDataSourceConfigurationInput interface {
 
 // The configuration information to connect to Confluence as your data source.
 type DataSourceConfluenceDataSourceConfigurationArgs struct {
+	// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 	CrawlerConfiguration DataSourceConfluenceCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceConfluenceSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your Confluence data source.
+	SourceConfiguration DataSourceConfluenceSourceConfigurationInput `pulumi:"sourceConfiguration"`
 }
 
 func (DataSourceConfluenceDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -3024,12 +3092,14 @@ func (o DataSourceConfluenceDataSourceConfigurationOutput) ToDataSourceConfluenc
 	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
 }
 
+// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 func (o DataSourceConfluenceDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceConfluenceCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your Confluence data source.
 func (o DataSourceConfluenceDataSourceConfigurationOutput) SourceConfiguration() DataSourceConfluenceSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSourceConfluenceDataSourceConfiguration) DataSourceConfluenceSourceConfiguration {
 		return v.SourceConfiguration
@@ -3060,6 +3130,7 @@ func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) Elem() DataSourceC
 	}).(DataSourceConfluenceDataSourceConfigurationOutput)
 }
 
+// The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceConfluenceCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceCrawlerConfiguration {
 		if v == nil {
@@ -3069,6 +3140,7 @@ func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) CrawlerConfigurati
 	}).(DataSourceConfluenceCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your Confluence data source.
 func (o DataSourceConfluenceDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceConfluenceSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceDataSourceConfiguration) *DataSourceConfluenceSourceConfiguration {
 		if v == nil {
@@ -3281,6 +3353,7 @@ func (o DataSourceConfluenceSourceConfigurationPtrOutput) HostUrl() pulumi.Strin
 
 // The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
 type DataSourceCrawlFilterConfiguration struct {
+	// The configuration of filtering certain objects or content types of the data source.
 	PatternObjectFilter *DataSourcePatternObjectFilterConfiguration `pulumi:"patternObjectFilter"`
 	// The crawl filter type.
 	Type DataSourceCrawlFilterConfigurationType `pulumi:"type"`
@@ -3299,6 +3372,7 @@ type DataSourceCrawlFilterConfigurationInput interface {
 
 // The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
 type DataSourceCrawlFilterConfigurationArgs struct {
+	// The configuration of filtering certain objects or content types of the data source.
 	PatternObjectFilter DataSourcePatternObjectFilterConfigurationPtrInput `pulumi:"patternObjectFilter"`
 	// The crawl filter type.
 	Type DataSourceCrawlFilterConfigurationTypeInput `pulumi:"type"`
@@ -3382,6 +3456,7 @@ func (o DataSourceCrawlFilterConfigurationOutput) ToDataSourceCrawlFilterConfigu
 	}).(DataSourceCrawlFilterConfigurationPtrOutput)
 }
 
+// The configuration of filtering certain objects or content types of the data source.
 func (o DataSourceCrawlFilterConfigurationOutput) PatternObjectFilter() DataSourcePatternObjectFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceCrawlFilterConfiguration) *DataSourcePatternObjectFilterConfiguration {
 		return v.PatternObjectFilter
@@ -3417,6 +3492,7 @@ func (o DataSourceCrawlFilterConfigurationPtrOutput) Elem() DataSourceCrawlFilte
 	}).(DataSourceCrawlFilterConfigurationOutput)
 }
 
+// The configuration of filtering certain objects or content types of the data source.
 func (o DataSourceCrawlFilterConfigurationPtrOutput) PatternObjectFilter() DataSourcePatternObjectFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceCrawlFilterConfiguration) *DataSourcePatternObjectFilterConfiguration {
 		if v == nil {
@@ -3438,6 +3514,7 @@ func (o DataSourceCrawlFilterConfigurationPtrOutput) Type() DataSourceCrawlFilte
 
 // Settings for customizing steps in the data source content ingestion pipeline.
 type DataSourceCustomTransformationConfiguration struct {
+	// An S3 bucket path for input and output objects.
 	IntermediateStorage DataSourceIntermediateStorage `pulumi:"intermediateStorage"`
 	// A list of Lambda functions that process documents.
 	Transformations []DataSourceTransformation `pulumi:"transformations"`
@@ -3456,6 +3533,7 @@ type DataSourceCustomTransformationConfigurationInput interface {
 
 // Settings for customizing steps in the data source content ingestion pipeline.
 type DataSourceCustomTransformationConfigurationArgs struct {
+	// An S3 bucket path for input and output objects.
 	IntermediateStorage DataSourceIntermediateStorageInput `pulumi:"intermediateStorage"`
 	// A list of Lambda functions that process documents.
 	Transformations DataSourceTransformationArrayInput `pulumi:"transformations"`
@@ -3539,6 +3617,7 @@ func (o DataSourceCustomTransformationConfigurationOutput) ToDataSourceCustomTra
 	}).(DataSourceCustomTransformationConfigurationPtrOutput)
 }
 
+// An S3 bucket path for input and output objects.
 func (o DataSourceCustomTransformationConfigurationOutput) IntermediateStorage() DataSourceIntermediateStorageOutput {
 	return o.ApplyT(func(v DataSourceCustomTransformationConfiguration) DataSourceIntermediateStorage {
 		return v.IntermediateStorage
@@ -3576,6 +3655,7 @@ func (o DataSourceCustomTransformationConfigurationPtrOutput) Elem() DataSourceC
 	}).(DataSourceCustomTransformationConfigurationOutput)
 }
 
+// An S3 bucket path for input and output objects.
 func (o DataSourceCustomTransformationConfigurationPtrOutput) IntermediateStorage() DataSourceIntermediateStoragePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomTransformationConfiguration) *DataSourceIntermediateStorage {
 		if v == nil {
@@ -4017,6 +4097,7 @@ func (o DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) Index(i pul
 
 // A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
 type DataSourceIntermediateStorage struct {
+	// An S3 bucket path.
 	S3Location DataSourceS3Location `pulumi:"s3Location"`
 }
 
@@ -4033,6 +4114,7 @@ type DataSourceIntermediateStorageInput interface {
 
 // A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
 type DataSourceIntermediateStorageArgs struct {
+	// An S3 bucket path.
 	S3Location DataSourceS3LocationInput `pulumi:"s3Location"`
 }
 
@@ -4114,6 +4196,7 @@ func (o DataSourceIntermediateStorageOutput) ToDataSourceIntermediateStoragePtrO
 	}).(DataSourceIntermediateStoragePtrOutput)
 }
 
+// An S3 bucket path.
 func (o DataSourceIntermediateStorageOutput) S3Location() DataSourceS3LocationOutput {
 	return o.ApplyT(func(v DataSourceIntermediateStorage) DataSourceS3Location { return v.S3Location }).(DataSourceS3LocationOutput)
 }
@@ -4142,6 +4225,7 @@ func (o DataSourceIntermediateStoragePtrOutput) Elem() DataSourceIntermediateSto
 	}).(DataSourceIntermediateStorageOutput)
 }
 
+// An S3 bucket path.
 func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3LocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceIntermediateStorage) *DataSourceS3Location {
 		if v == nil {
@@ -4153,8 +4237,10 @@ func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3Locatio
 
 // Settings for parsing document contents
 type DataSourceParsingConfiguration struct {
+	// Settings for a foundation model used to parse documents for a data source.
 	BedrockFoundationModelConfiguration *DataSourceBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
-	ParsingStrategy                     DataSourceParsingStrategy                      `pulumi:"parsingStrategy"`
+	// The parsing strategy for the data source.
+	ParsingStrategy DataSourceParsingStrategy `pulumi:"parsingStrategy"`
 }
 
 // DataSourceParsingConfigurationInput is an input type that accepts DataSourceParsingConfigurationArgs and DataSourceParsingConfigurationOutput values.
@@ -4170,8 +4256,10 @@ type DataSourceParsingConfigurationInput interface {
 
 // Settings for parsing document contents
 type DataSourceParsingConfigurationArgs struct {
+	// Settings for a foundation model used to parse documents for a data source.
 	BedrockFoundationModelConfiguration DataSourceBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
-	ParsingStrategy                     DataSourceParsingStrategyInput                        `pulumi:"parsingStrategy"`
+	// The parsing strategy for the data source.
+	ParsingStrategy DataSourceParsingStrategyInput `pulumi:"parsingStrategy"`
 }
 
 func (DataSourceParsingConfigurationArgs) ElementType() reflect.Type {
@@ -4252,12 +4340,14 @@ func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationPt
 	}).(DataSourceParsingConfigurationPtrOutput)
 }
 
+// Settings for a foundation model used to parse documents for a data source.
 func (o DataSourceParsingConfigurationOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
 		return v.BedrockFoundationModelConfiguration
 	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
 }
 
+// The parsing strategy for the data source.
 func (o DataSourceParsingConfigurationOutput) ParsingStrategy() DataSourceParsingStrategyOutput {
 	return o.ApplyT(func(v DataSourceParsingConfiguration) DataSourceParsingStrategy { return v.ParsingStrategy }).(DataSourceParsingStrategyOutput)
 }
@@ -4286,6 +4376,7 @@ func (o DataSourceParsingConfigurationPtrOutput) Elem() DataSourceParsingConfigu
 	}).(DataSourceParsingConfigurationOutput)
 }
 
+// Settings for a foundation model used to parse documents for a data source.
 func (o DataSourceParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
 		if v == nil {
@@ -4295,6 +4386,7 @@ func (o DataSourceParsingConfigurationPtrOutput) BedrockFoundationModelConfigura
 	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
 }
 
+// The parsing strategy for the data source.
 func (o DataSourceParsingConfigurationPtrOutput) ParsingStrategy() DataSourceParsingStrategyPtrOutput {
 	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceParsingStrategy {
 		if v == nil {
@@ -4558,6 +4650,7 @@ func (o DataSourcePatternObjectFilterArrayOutput) Index(i pulumi.IntInput) DataS
 
 // The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 type DataSourcePatternObjectFilterConfiguration struct {
+	// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 	Filters []DataSourcePatternObjectFilter `pulumi:"filters"`
 }
 
@@ -4574,6 +4667,7 @@ type DataSourcePatternObjectFilterConfigurationInput interface {
 
 // The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 type DataSourcePatternObjectFilterConfigurationArgs struct {
+	// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 	Filters DataSourcePatternObjectFilterArrayInput `pulumi:"filters"`
 }
 
@@ -4655,6 +4749,7 @@ func (o DataSourcePatternObjectFilterConfigurationOutput) ToDataSourcePatternObj
 	}).(DataSourcePatternObjectFilterConfigurationPtrOutput)
 }
 
+// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 func (o DataSourcePatternObjectFilterConfigurationOutput) Filters() DataSourcePatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v DataSourcePatternObjectFilterConfiguration) []DataSourcePatternObjectFilter { return v.Filters }).(DataSourcePatternObjectFilterArrayOutput)
 }
@@ -4683,6 +4778,7 @@ func (o DataSourcePatternObjectFilterConfigurationPtrOutput) Elem() DataSourcePa
 	}).(DataSourcePatternObjectFilterConfigurationOutput)
 }
 
+// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
 func (o DataSourcePatternObjectFilterConfigurationPtrOutput) Filters() DataSourcePatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v *DataSourcePatternObjectFilterConfiguration) []DataSourcePatternObjectFilter {
 		if v == nil {
@@ -5012,6 +5108,7 @@ func (o DataSourceS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
 
 // The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 type DataSourceSalesforceCrawlerConfiguration struct {
+	// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -5028,6 +5125,7 @@ type DataSourceSalesforceCrawlerConfigurationInput interface {
 
 // The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 type DataSourceSalesforceCrawlerConfigurationArgs struct {
+	// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -5109,6 +5207,7 @@ func (o DataSourceSalesforceCrawlerConfigurationOutput) ToDataSourceSalesforceCr
 	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
 }
 
+// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceSalesforceCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		return v.FilterConfiguration
@@ -5139,6 +5238,7 @@ func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) Elem() DataSourceSale
 	}).(DataSourceSalesforceCrawlerConfigurationOutput)
 }
 
+// The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		if v == nil {
@@ -5150,8 +5250,10 @@ func (o DataSourceSalesforceCrawlerConfigurationPtrOutput) FilterConfiguration()
 
 // The configuration information to connect to Salesforce as your data source.
 type DataSourceSalesforceDataSourceConfiguration struct {
+	// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
 	CrawlerConfiguration *DataSourceSalesforceCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceSalesforceSourceConfiguration   `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your Salesforce data source.
+	SourceConfiguration DataSourceSalesforceSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // DataSourceSalesforceDataSourceConfigurationInput is an input type that accepts DataSourceSalesforceDataSourceConfigurationArgs and DataSourceSalesforceDataSourceConfigurationOutput values.
@@ -5167,8 +5269,10 @@ type DataSourceSalesforceDataSourceConfigurationInput interface {
 
 // The configuration information to connect to Salesforce as your data source.
 type DataSourceSalesforceDataSourceConfigurationArgs struct {
+	// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
 	CrawlerConfiguration DataSourceSalesforceCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceSalesforceSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your Salesforce data source.
+	SourceConfiguration DataSourceSalesforceSourceConfigurationInput `pulumi:"sourceConfiguration"`
 }
 
 func (DataSourceSalesforceDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -5249,12 +5353,14 @@ func (o DataSourceSalesforceDataSourceConfigurationOutput) ToDataSourceSalesforc
 	}).(DataSourceSalesforceDataSourceConfigurationPtrOutput)
 }
 
+// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
 func (o DataSourceSalesforceDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceSalesforceCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your Salesforce data source.
 func (o DataSourceSalesforceDataSourceConfigurationOutput) SourceConfiguration() DataSourceSalesforceSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSourceSalesforceDataSourceConfiguration) DataSourceSalesforceSourceConfiguration {
 		return v.SourceConfiguration
@@ -5285,6 +5391,7 @@ func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) Elem() DataSourceS
 	}).(DataSourceSalesforceDataSourceConfigurationOutput)
 }
 
+// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
 func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceSalesforceCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceCrawlerConfiguration {
 		if v == nil {
@@ -5294,6 +5401,7 @@ func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) CrawlerConfigurati
 	}).(DataSourceSalesforceCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your Salesforce data source.
 func (o DataSourceSalesforceDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceSalesforceSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceDataSourceConfiguration) *DataSourceSalesforceSourceConfiguration {
 		if v == nil {
@@ -5903,6 +6011,7 @@ func (o DataSourceServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi
 
 // The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 type DataSourceSharePointCrawlerConfiguration struct {
+	// The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration *DataSourceCrawlFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -5919,6 +6028,7 @@ type DataSourceSharePointCrawlerConfigurationInput interface {
 
 // The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 type DataSourceSharePointCrawlerConfigurationArgs struct {
+	// The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
 	FilterConfiguration DataSourceCrawlFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -6000,6 +6110,7 @@ func (o DataSourceSharePointCrawlerConfigurationOutput) ToDataSourceSharePointCr
 	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
 }
 
+// The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceSharePointCrawlerConfigurationOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		return v.FilterConfiguration
@@ -6030,6 +6141,7 @@ func (o DataSourceSharePointCrawlerConfigurationPtrOutput) Elem() DataSourceShar
 	}).(DataSourceSharePointCrawlerConfigurationOutput)
 }
 
+// The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
 func (o DataSourceSharePointCrawlerConfigurationPtrOutput) FilterConfiguration() DataSourceCrawlFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointCrawlerConfiguration) *DataSourceCrawlFilterConfiguration {
 		if v == nil {
@@ -6041,8 +6153,10 @@ func (o DataSourceSharePointCrawlerConfigurationPtrOutput) FilterConfiguration()
 
 // The configuration information to connect to SharePoint as your data source.
 type DataSourceSharePointDataSourceConfiguration struct {
+	// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 	CrawlerConfiguration *DataSourceSharePointCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceSharePointSourceConfiguration   `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your SharePoint data source.
+	SourceConfiguration DataSourceSharePointSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // DataSourceSharePointDataSourceConfigurationInput is an input type that accepts DataSourceSharePointDataSourceConfigurationArgs and DataSourceSharePointDataSourceConfigurationOutput values.
@@ -6058,8 +6172,10 @@ type DataSourceSharePointDataSourceConfigurationInput interface {
 
 // The configuration information to connect to SharePoint as your data source.
 type DataSourceSharePointDataSourceConfigurationArgs struct {
+	// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 	CrawlerConfiguration DataSourceSharePointCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceSharePointSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+	// The endpoint information to connect to your SharePoint data source.
+	SourceConfiguration DataSourceSharePointSourceConfigurationInput `pulumi:"sourceConfiguration"`
 }
 
 func (DataSourceSharePointDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -6140,12 +6256,14 @@ func (o DataSourceSharePointDataSourceConfigurationOutput) ToDataSourceSharePoin
 	}).(DataSourceSharePointDataSourceConfigurationPtrOutput)
 }
 
+// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 func (o DataSourceSharePointDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceSharePointCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your SharePoint data source.
 func (o DataSourceSharePointDataSourceConfigurationOutput) SourceConfiguration() DataSourceSharePointSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSourceSharePointDataSourceConfiguration) DataSourceSharePointSourceConfiguration {
 		return v.SourceConfiguration
@@ -6176,6 +6294,7 @@ func (o DataSourceSharePointDataSourceConfigurationPtrOutput) Elem() DataSourceS
 	}).(DataSourceSharePointDataSourceConfigurationOutput)
 }
 
+// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 func (o DataSourceSharePointDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceSharePointCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointCrawlerConfiguration {
 		if v == nil {
@@ -6185,6 +6304,7 @@ func (o DataSourceSharePointDataSourceConfigurationPtrOutput) CrawlerConfigurati
 	}).(DataSourceSharePointCrawlerConfigurationPtrOutput)
 }
 
+// The endpoint information to connect to your SharePoint data source.
 func (o DataSourceSharePointDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceSharePointSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointDataSourceConfiguration) *DataSourceSharePointSourceConfiguration {
 		if v == nil {
@@ -6436,8 +6556,9 @@ func (o DataSourceSharePointSourceConfigurationPtrOutput) TenantId() pulumi.Stri
 // A Lambda function that processes documents.
 type DataSourceTransformation struct {
 	// When the service applies the transformation.
-	StepToApply            DataSourceTransformationStepToApply `pulumi:"stepToApply"`
-	TransformationFunction DataSourceTransformationFunction    `pulumi:"transformationFunction"`
+	StepToApply DataSourceTransformationStepToApply `pulumi:"stepToApply"`
+	// A Lambda function that processes documents.
+	TransformationFunction DataSourceTransformationFunction `pulumi:"transformationFunction"`
 }
 
 // DataSourceTransformationInput is an input type that accepts DataSourceTransformationArgs and DataSourceTransformationOutput values.
@@ -6454,8 +6575,9 @@ type DataSourceTransformationInput interface {
 // A Lambda function that processes documents.
 type DataSourceTransformationArgs struct {
 	// When the service applies the transformation.
-	StepToApply            DataSourceTransformationStepToApplyInput `pulumi:"stepToApply"`
-	TransformationFunction DataSourceTransformationFunctionInput    `pulumi:"transformationFunction"`
+	StepToApply DataSourceTransformationStepToApplyInput `pulumi:"stepToApply"`
+	// A Lambda function that processes documents.
+	TransformationFunction DataSourceTransformationFunctionInput `pulumi:"transformationFunction"`
 }
 
 func (DataSourceTransformationArgs) ElementType() reflect.Type {
@@ -6515,6 +6637,7 @@ func (o DataSourceTransformationOutput) StepToApply() DataSourceTransformationSt
 	return o.ApplyT(func(v DataSourceTransformation) DataSourceTransformationStepToApply { return v.StepToApply }).(DataSourceTransformationStepToApplyOutput)
 }
 
+// A Lambda function that processes documents.
 func (o DataSourceTransformationOutput) TransformationFunction() DataSourceTransformationFunctionOutput {
 	return o.ApplyT(func(v DataSourceTransformation) DataSourceTransformationFunction { return v.TransformationFunction }).(DataSourceTransformationFunctionOutput)
 }
@@ -6541,6 +6664,7 @@ func (o DataSourceTransformationArrayOutput) Index(i pulumi.IntInput) DataSource
 
 // A Lambda function that processes documents.
 type DataSourceTransformationFunction struct {
+	// The Lambda function.
 	TransformationLambdaConfiguration DataSourceTransformationLambdaConfiguration `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -6557,6 +6681,7 @@ type DataSourceTransformationFunctionInput interface {
 
 // A Lambda function that processes documents.
 type DataSourceTransformationFunctionArgs struct {
+	// The Lambda function.
 	TransformationLambdaConfiguration DataSourceTransformationLambdaConfigurationInput `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -6587,6 +6712,7 @@ func (o DataSourceTransformationFunctionOutput) ToDataSourceTransformationFuncti
 	return o
 }
 
+// The Lambda function.
 func (o DataSourceTransformationFunctionOutput) TransformationLambdaConfiguration() DataSourceTransformationLambdaConfigurationOutput {
 	return o.ApplyT(func(v DataSourceTransformationFunction) DataSourceTransformationLambdaConfiguration {
 		return v.TransformationLambdaConfiguration
@@ -6650,6 +6776,7 @@ func (o DataSourceTransformationLambdaConfigurationOutput) LambdaArn() pulumi.St
 
 // A url configuration.
 type DataSourceUrlConfiguration struct {
+	// One or more seed or starting point URLs.
 	SeedUrls []DataSourceSeedUrl `pulumi:"seedUrls"`
 }
 
@@ -6666,6 +6793,7 @@ type DataSourceUrlConfigurationInput interface {
 
 // A url configuration.
 type DataSourceUrlConfigurationArgs struct {
+	// One or more seed or starting point URLs.
 	SeedUrls DataSourceSeedUrlArrayInput `pulumi:"seedUrls"`
 }
 
@@ -6747,6 +6875,7 @@ func (o DataSourceUrlConfigurationOutput) ToDataSourceUrlConfigurationPtrOutputW
 	}).(DataSourceUrlConfigurationPtrOutput)
 }
 
+// One or more seed or starting point URLs.
 func (o DataSourceUrlConfigurationOutput) SeedUrls() DataSourceSeedUrlArrayOutput {
 	return o.ApplyT(func(v DataSourceUrlConfiguration) []DataSourceSeedUrl { return v.SeedUrls }).(DataSourceSeedUrlArrayOutput)
 }
@@ -6775,6 +6904,7 @@ func (o DataSourceUrlConfigurationPtrOutput) Elem() DataSourceUrlConfigurationOu
 	}).(DataSourceUrlConfigurationOutput)
 }
 
+// One or more seed or starting point URLs.
 func (o DataSourceUrlConfigurationPtrOutput) SeedUrls() DataSourceSeedUrlArrayOutput {
 	return o.ApplyT(func(v *DataSourceUrlConfiguration) []DataSourceSeedUrl {
 		if v == nil {
@@ -6787,9 +6917,11 @@ func (o DataSourceUrlConfigurationPtrOutput) SeedUrls() DataSourceSeedUrlArrayOu
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-	ChunkingConfiguration             *DataSourceChunkingConfiguration             `pulumi:"chunkingConfiguration"`
+	ChunkingConfiguration *DataSourceChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration *DataSourceCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
-	ParsingConfiguration              *DataSourceParsingConfiguration              `pulumi:"parsingConfiguration"`
+	// A custom parser for data source documents.
+	ParsingConfiguration *DataSourceParsingConfiguration `pulumi:"parsingConfiguration"`
 }
 
 // DataSourceVectorIngestionConfigurationInput is an input type that accepts DataSourceVectorIngestionConfigurationArgs and DataSourceVectorIngestionConfigurationOutput values.
@@ -6806,9 +6938,11 @@ type DataSourceVectorIngestionConfigurationInput interface {
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-	ChunkingConfiguration             DataSourceChunkingConfigurationPtrInput             `pulumi:"chunkingConfiguration"`
+	ChunkingConfiguration DataSourceChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration DataSourceCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
-	ParsingConfiguration              DataSourceParsingConfigurationPtrInput              `pulumi:"parsingConfiguration"`
+	// A custom parser for data source documents.
+	ParsingConfiguration DataSourceParsingConfigurationPtrInput `pulumi:"parsingConfiguration"`
 }
 
 func (DataSourceVectorIngestionConfigurationArgs) ElementType() reflect.Type {
@@ -6896,12 +7030,14 @@ func (o DataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() Da
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// A custom document transformer for parsed data source documents.
 func (o DataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
 		return v.CustomTransformationConfiguration
 	}).(DataSourceCustomTransformationConfigurationPtrOutput)
 }
 
+// A custom parser for data source documents.
 func (o DataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
 		return v.ParsingConfiguration
@@ -6942,6 +7078,7 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration()
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// A custom document transformer for parsed data source documents.
 func (o DataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
 		if v == nil {
@@ -6951,6 +7088,7 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationCon
 	}).(DataSourceCustomTransformationConfigurationPtrOutput)
 }
 
+// A custom parser for data source documents.
 func (o DataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
 		if v == nil {
@@ -6962,10 +7100,16 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() 
 
 // Configuration for the web crawler.
 type DataSourceWebCrawlerConfiguration struct {
-	CrawlerLimits    *DataSourceWebCrawlerLimits `pulumi:"crawlerLimits"`
-	ExclusionFilters []string                    `pulumi:"exclusionFilters"`
-	InclusionFilters []string                    `pulumi:"inclusionFilters"`
-	Scope            *DataSourceWebScopeType     `pulumi:"scope"`
+	// The configuration of crawl limits for the web URLs.
+	CrawlerLimits *DataSourceWebCrawlerLimits `pulumi:"crawlerLimits"`
+	// A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	// The scope of what is crawled for your URLs.
+	//
+	// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+	Scope *DataSourceWebScopeType `pulumi:"scope"`
 }
 
 // DataSourceWebCrawlerConfigurationInput is an input type that accepts DataSourceWebCrawlerConfigurationArgs and DataSourceWebCrawlerConfigurationOutput values.
@@ -6981,10 +7125,16 @@ type DataSourceWebCrawlerConfigurationInput interface {
 
 // Configuration for the web crawler.
 type DataSourceWebCrawlerConfigurationArgs struct {
-	CrawlerLimits    DataSourceWebCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
-	ExclusionFilters pulumi.StringArrayInput            `pulumi:"exclusionFilters"`
-	InclusionFilters pulumi.StringArrayInput            `pulumi:"inclusionFilters"`
-	Scope            DataSourceWebScopeTypePtrInput     `pulumi:"scope"`
+	// The configuration of crawl limits for the web URLs.
+	CrawlerLimits DataSourceWebCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
+	// A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	// The scope of what is crawled for your URLs.
+	//
+	// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+	Scope DataSourceWebScopeTypePtrInput `pulumi:"scope"`
 }
 
 func (DataSourceWebCrawlerConfigurationArgs) ElementType() reflect.Type {
@@ -7065,18 +7215,24 @@ func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigura
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// The configuration of crawl limits for the web URLs.
 func (o DataSourceWebCrawlerConfigurationOutput) CrawlerLimits() DataSourceWebCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerLimits { return v.CrawlerLimits }).(DataSourceWebCrawlerLimitsPtrOutput)
 }
 
+// A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
 func (o DataSourceWebCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.ExclusionFilters }).(pulumi.StringArrayOutput)
 }
 
+// A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
 func (o DataSourceWebCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.InclusionFilters }).(pulumi.StringArrayOutput)
 }
 
+// The scope of what is crawled for your URLs.
+//
+// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
 func (o DataSourceWebCrawlerConfigurationOutput) Scope() DataSourceWebScopeTypePtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebScopeType { return v.Scope }).(DataSourceWebScopeTypePtrOutput)
 }
@@ -7105,6 +7261,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) Elem() DataSourceWebCrawlerC
 	}).(DataSourceWebCrawlerConfigurationOutput)
 }
 
+// The configuration of crawl limits for the web URLs.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) CrawlerLimits() DataSourceWebCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerLimits {
 		if v == nil {
@@ -7114,6 +7271,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) CrawlerLimits() DataSourceWe
 	}).(DataSourceWebCrawlerLimitsPtrOutput)
 }
 
+// A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -7123,6 +7281,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -7132,6 +7291,9 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// The scope of what is crawled for your URLs.
+//
+// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
 func (o DataSourceWebCrawlerConfigurationPtrOutput) Scope() DataSourceWebScopeTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebScopeType {
 		if v == nil {
@@ -7283,8 +7445,10 @@ func (o DataSourceWebCrawlerLimitsPtrOutput) RateLimit() pulumi.IntPtrOutput {
 
 // Configures a web data source location.
 type DataSourceWebDataSourceConfiguration struct {
+	// The Web Crawler configuration details for the web data source.
 	CrawlerConfiguration *DataSourceWebCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceWebSourceConfiguration   `pulumi:"sourceConfiguration"`
+	// The source configuration details for the web data source.
+	SourceConfiguration DataSourceWebSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // DataSourceWebDataSourceConfigurationInput is an input type that accepts DataSourceWebDataSourceConfigurationArgs and DataSourceWebDataSourceConfigurationOutput values.
@@ -7300,8 +7464,10 @@ type DataSourceWebDataSourceConfigurationInput interface {
 
 // Configures a web data source location.
 type DataSourceWebDataSourceConfigurationArgs struct {
+	// The Web Crawler configuration details for the web data source.
 	CrawlerConfiguration DataSourceWebCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  DataSourceWebSourceConfigurationInput     `pulumi:"sourceConfiguration"`
+	// The source configuration details for the web data source.
+	SourceConfiguration DataSourceWebSourceConfigurationInput `pulumi:"sourceConfiguration"`
 }
 
 func (DataSourceWebDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -7382,12 +7548,14 @@ func (o DataSourceWebDataSourceConfigurationOutput) ToDataSourceWebDataSourceCon
 	}).(DataSourceWebDataSourceConfigurationPtrOutput)
 }
 
+// The Web Crawler configuration details for the web data source.
 func (o DataSourceWebDataSourceConfigurationOutput) CrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceWebDataSourceConfiguration) *DataSourceWebCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// The source configuration details for the web data source.
 func (o DataSourceWebDataSourceConfigurationOutput) SourceConfiguration() DataSourceWebSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSourceWebDataSourceConfiguration) DataSourceWebSourceConfiguration {
 		return v.SourceConfiguration
@@ -7418,6 +7586,7 @@ func (o DataSourceWebDataSourceConfigurationPtrOutput) Elem() DataSourceWebDataS
 	}).(DataSourceWebDataSourceConfigurationOutput)
 }
 
+// The Web Crawler configuration details for the web data source.
 func (o DataSourceWebDataSourceConfigurationPtrOutput) CrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebDataSourceConfiguration) *DataSourceWebCrawlerConfiguration {
 		if v == nil {
@@ -7427,6 +7596,7 @@ func (o DataSourceWebDataSourceConfigurationPtrOutput) CrawlerConfiguration() Da
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// The source configuration details for the web data source.
 func (o DataSourceWebDataSourceConfigurationPtrOutput) SourceConfiguration() DataSourceWebSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebDataSourceConfiguration) *DataSourceWebSourceConfiguration {
 		if v == nil {
@@ -7438,6 +7608,7 @@ func (o DataSourceWebDataSourceConfigurationPtrOutput) SourceConfiguration() Dat
 
 // A web source configuration.
 type DataSourceWebSourceConfiguration struct {
+	// The configuration of the URL/URLs.
 	UrlConfiguration DataSourceUrlConfiguration `pulumi:"urlConfiguration"`
 }
 
@@ -7454,6 +7625,7 @@ type DataSourceWebSourceConfigurationInput interface {
 
 // A web source configuration.
 type DataSourceWebSourceConfigurationArgs struct {
+	// The configuration of the URL/URLs.
 	UrlConfiguration DataSourceUrlConfigurationInput `pulumi:"urlConfiguration"`
 }
 
@@ -7535,6 +7707,7 @@ func (o DataSourceWebSourceConfigurationOutput) ToDataSourceWebSourceConfigurati
 	}).(DataSourceWebSourceConfigurationPtrOutput)
 }
 
+// The configuration of the URL/URLs.
 func (o DataSourceWebSourceConfigurationOutput) UrlConfiguration() DataSourceUrlConfigurationOutput {
 	return o.ApplyT(func(v DataSourceWebSourceConfiguration) DataSourceUrlConfiguration { return v.UrlConfiguration }).(DataSourceUrlConfigurationOutput)
 }
@@ -7563,6 +7736,7 @@ func (o DataSourceWebSourceConfigurationPtrOutput) Elem() DataSourceWebSourceCon
 	}).(DataSourceWebSourceConfigurationOutput)
 }
 
+// The configuration of the URL/URLs.
 func (o DataSourceWebSourceConfigurationPtrOutput) UrlConfiguration() DataSourceUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebSourceConfiguration) *DataSourceUrlConfiguration {
 		if v == nil {

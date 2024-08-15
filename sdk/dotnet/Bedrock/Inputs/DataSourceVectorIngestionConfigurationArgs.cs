@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("chunkingConfiguration")]
         public Input<Inputs.DataSourceChunkingConfigurationArgs>? ChunkingConfiguration { get; set; }
 
+        /// <summary>
+        /// A custom document transformer for parsed data source documents.
+        /// </summary>
         [Input("customTransformationConfiguration")]
         public Input<Inputs.DataSourceCustomTransformationConfigurationArgs>? CustomTransformationConfiguration { get; set; }
 
+        /// <summary>
+        /// A custom parser for data source documents.
+        /// </summary>
         [Input("parsingConfiguration")]
         public Input<Inputs.DataSourceParsingConfigurationArgs>? ParsingConfiguration { get; set; }
 

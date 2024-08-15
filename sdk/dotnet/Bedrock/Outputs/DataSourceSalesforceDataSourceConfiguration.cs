@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceDataSourceConfiguration
     {
+        /// <summary>
+        /// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// The endpoint information to connect to your Salesforce data source.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceSourceConfiguration SourceConfiguration;
 
         [OutputConstructor]

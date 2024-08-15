@@ -734,6 +734,7 @@ class BucketEncryptionConfigurationArgs:
                  replica_kms_key_id: pulumi.Input[str]):
         """
         Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+          If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
         :param pulumi.Input[str] replica_kms_key_id: Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
@@ -2741,6 +2742,7 @@ class BucketServerSideEncryptionByDefaultArgs:
                  kms_master_key_id: Optional[pulumi.Input[str]] = None):
         """
         Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
+          If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm'] sse_algorithm: Server-side encryption algorithm to use for the default encryption.
         :param pulumi.Input[str] kms_master_key_id: AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default encryption. This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
                 You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
@@ -2796,6 +2798,7 @@ class BucketServerSideEncryptionRuleArgs:
                  server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionByDefaultArgs']] = None):
         """
         Specifies the default server-side encryption configuration.
+          If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
         :param pulumi.Input[bool] bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
                 For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultArgs'] server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
@@ -3118,6 +3121,7 @@ class BucketVersioningConfigurationArgs:
                  status: pulumi.Input['BucketVersioningConfigurationStatus']):
         """
         Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
+          When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         :param pulumi.Input['BucketVersioningConfigurationStatus'] status: The versioning state of the bucket.
         """
         pulumi.set(__self__, "status", status)

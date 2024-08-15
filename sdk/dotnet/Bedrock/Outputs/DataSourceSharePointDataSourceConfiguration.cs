@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceSharePointDataSourceConfiguration
     {
+        /// <summary>
+        /// The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+        /// </summary>
         public readonly Outputs.DataSourceSharePointCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// The endpoint information to connect to your SharePoint data source.
+        /// </summary>
         public readonly Outputs.DataSourceSharePointSourceConfiguration SourceConfiguration;
 
         [OutputConstructor]

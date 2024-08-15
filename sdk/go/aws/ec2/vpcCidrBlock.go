@@ -22,10 +22,14 @@ type VpcCidrBlock struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// An IPv4 CIDR block to associate with the VPC.
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	// The IP Source of an IPv6 VPC CIDR Block.
+	IpSource pulumi.StringOutput `pulumi:"ipSource"`
 	// The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
 	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
+	// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+	Ipv6AddressAttribute pulumi.StringOutput `pulumi:"ipv6AddressAttribute"`
 	// An IPv6 CIDR block from the IPv6 address pool.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
@@ -187,6 +191,11 @@ func (o VpcCidrBlockOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// The IP Source of an IPv6 VPC CIDR Block.
+func (o VpcCidrBlockOutput) IpSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringOutput { return v.IpSource }).(pulumi.StringOutput)
+}
+
 // The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
 func (o VpcCidrBlockOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
@@ -195,6 +204,11 @@ func (o VpcCidrBlockOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 // The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
 func (o VpcCidrBlockOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcCidrBlock) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+func (o VpcCidrBlockOutput) Ipv6AddressAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringOutput { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
 }
 
 // An IPv6 CIDR block from the IPv6 address pool.

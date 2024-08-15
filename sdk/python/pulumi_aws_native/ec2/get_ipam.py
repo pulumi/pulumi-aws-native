@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamResult:
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetIpamResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enable_private_gua and not isinstance(enable_private_gua, bool):
+            raise TypeError("Expected argument 'enable_private_gua' to be a bool")
+        pulumi.set(__self__, "enable_private_gua", enable_private_gua)
         if ipam_id and not isinstance(ipam_id, str):
             raise TypeError("Expected argument 'ipam_id' to be a str")
         pulumi.set(__self__, "ipam_id", ipam_id)
@@ -90,6 +93,14 @@ class GetIpamResult:
         The description for the IPAM.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> Optional[bool]:
+        """
+        Enable provisioning of GUA space in private pools.
+        """
+        return pulumi.get(self, "enable_private_gua")
 
     @property
     @pulumi.getter(name="ipamId")
@@ -166,6 +177,7 @@ class AwaitableGetIpamResult(GetIpamResult):
             default_resource_discovery_association_id=self.default_resource_discovery_association_id,
             default_resource_discovery_id=self.default_resource_discovery_id,
             description=self.description,
+            enable_private_gua=self.enable_private_gua,
             ipam_id=self.ipam_id,
             operating_regions=self.operating_regions,
             private_default_scope_id=self.private_default_scope_id,
@@ -194,6 +206,7 @@ def get_ipam(ipam_id: Optional[str] = None,
         default_resource_discovery_association_id=pulumi.get(__ret__, 'default_resource_discovery_association_id'),
         default_resource_discovery_id=pulumi.get(__ret__, 'default_resource_discovery_id'),
         description=pulumi.get(__ret__, 'description'),
+        enable_private_gua=pulumi.get(__ret__, 'enable_private_gua'),
         ipam_id=pulumi.get(__ret__, 'ipam_id'),
         operating_regions=pulumi.get(__ret__, 'operating_regions'),
         private_default_scope_id=pulumi.get(__ret__, 'private_default_scope_id'),

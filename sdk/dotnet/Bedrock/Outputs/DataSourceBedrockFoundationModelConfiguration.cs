@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The model's ARN.
         /// </summary>
         public readonly string ModelArn;
+        /// <summary>
+        /// Instructions for interpreting the contents of a document.
+        /// </summary>
         public readonly Outputs.DataSourceParsingPrompt? ParsingPrompt;
 
         [OutputConstructor]

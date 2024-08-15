@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Enable provisioning of GUA space in private pools.
+        /// </summary>
+        [Output("enablePrivateGua")]
+        public Output<bool?> EnablePrivateGua { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the IPAM.
         /// </summary>
         [Output("ipamId")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Enable provisioning of GUA space in private pools.
+        /// </summary>
+        [Input("enablePrivateGua")]
+        public Input<bool>? EnablePrivateGua { get; set; }
 
         [Input("operatingRegions")]
         private InputList<Inputs.IpamOperatingRegionArgs>? _operatingRegions;

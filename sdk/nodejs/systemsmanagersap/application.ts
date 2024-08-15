@@ -46,13 +46,17 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly applicationType!: pulumi.Output<enums.systemsmanagersap.ApplicationType>;
     /**
-     * The ARN of the Helix application
+     * The ARN of the SSM-SAP application
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The credentials of the SAP application.
      */
     public readonly credentials!: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
+    /**
+     * The ARN of the SAP HANA database
+     */
+    public readonly databaseArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon EC2 instances on which your SAP application is running.
      */
@@ -90,6 +94,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["applicationType"] = args ? args.applicationType : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["databaseArn"] = args ? args.databaseArn : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["sapInstanceNumber"] = args ? args.sapInstanceNumber : undefined;
             resourceInputs["sid"] = args ? args.sid : undefined;
@@ -100,13 +105,14 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["databaseArn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["sapInstanceNumber"] = undefined /*out*/;
             resourceInputs["sid"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["credentials[*]", "instances[*]", "sapInstanceNumber", "sid"] };
+        const replaceOnChanges = { replaceOnChanges: ["credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,6 +134,10 @@ export interface ApplicationArgs {
      * The credentials of the SAP application.
      */
     credentials?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationCredentialArgs>[]>;
+    /**
+     * The ARN of the SAP HANA database
+     */
+    databaseArn?: pulumi.Input<string>;
     /**
      * The Amazon EC2 instances on which your SAP application is running.
      */

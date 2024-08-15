@@ -32,6 +32,14 @@ export interface GetVpcCidrBlockResult {
      * The Id of the VPC associated CIDR Block.
      */
     readonly id?: string;
+    /**
+     * The IP Source of an IPv6 VPC CIDR Block.
+     */
+    readonly ipSource?: string;
+    /**
+     * The value denoting whether an IPv6 VPC CIDR Block is public or private.
+     */
+    readonly ipv6AddressAttribute?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::VPCCidrBlock

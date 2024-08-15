@@ -22,3 +22,4 @@ class ApplicationType(str, Enum):
     The type of the application.
     """
     HANA = "HANA"
+    SAP_ABAP = "SAP_ABAP"

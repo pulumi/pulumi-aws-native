@@ -54,7 +54,7 @@ class GetApplicationResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The ARN of the Helix application
+        The ARN of the SSM-SAP application
         """
         return pulumi.get(self, "arn")
 
@@ -85,7 +85,7 @@ def get_application(arn: Optional[str] = None,
     Resource schema for AWS::SystemsManagerSAP::Application
 
 
-    :param str arn: The ARN of the Helix application
+    :param str arn: The ARN of the SSM-SAP application
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -106,6 +106,6 @@ def get_application_output(arn: Optional[pulumi.Input[str]] = None,
     Resource schema for AWS::SystemsManagerSAP::Application
 
 
-    :param str arn: The ARN of the Helix application
+    :param str arn: The ARN of the SSM-SAP application
     """
     ...

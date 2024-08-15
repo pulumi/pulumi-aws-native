@@ -22,7 +22,13 @@ namespace Pulumi.AwsNative.Redshift.Outputs
         /// - The cluster must have read bucket and put object permissions
         /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+        /// </summary>
         public readonly string? LogDestinationType;
+        /// <summary>
+        /// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+        /// </summary>
         public readonly ImmutableArray<string> LogExports;
         /// <summary>
         /// The prefix applied to the log file names.

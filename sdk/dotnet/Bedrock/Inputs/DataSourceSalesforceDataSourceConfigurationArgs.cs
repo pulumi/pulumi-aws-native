@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.DataSourceSalesforceCrawlerConfigurationArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// The endpoint information to connect to your Salesforce data source.
+        /// </summary>
         [Input("sourceConfiguration", required: true)]
         public Input<Inputs.DataSourceSalesforceSourceConfigurationArgs> SourceConfiguration { get; set; } = null!;
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceSharePointCrawlerConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
+        /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.DataSourceCrawlFilterConfigurationArgs>? FilterConfiguration { get; set; }
 

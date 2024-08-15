@@ -29,7 +29,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
         /// </summary>
         public readonly Outputs.DataSourceFixedSizeChunkingConfiguration? FixedSizeChunkingConfiguration;
+        /// <summary>
+        /// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+        /// </summary>
         public readonly Outputs.DataSourceHierarchicalChunkingConfiguration? HierarchicalChunkingConfiguration;
+        /// <summary>
+        /// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+        /// </summary>
         public readonly Outputs.DataSourceSemanticChunkingConfiguration? SemanticChunkingConfiguration;
 
         [OutputConstructor]

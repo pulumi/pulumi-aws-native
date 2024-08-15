@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the Helix application
+        /// The ARN of the SSM-SAP application
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the Helix application
+        /// The ARN of the SSM-SAP application
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         /// </summary>
         public readonly Pulumi.AwsNative.SystemsManagerSap.ApplicationType? ApplicationType;
         /// <summary>
-        /// The ARN of the Helix application
+        /// The ARN of the SSM-SAP application
         /// </summary>
         public readonly string? Arn;
         /// <summary>

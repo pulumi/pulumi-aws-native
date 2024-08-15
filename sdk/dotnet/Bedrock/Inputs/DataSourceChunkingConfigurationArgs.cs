@@ -32,9 +32,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("fixedSizeChunkingConfiguration")]
         public Input<Inputs.DataSourceFixedSizeChunkingConfigurationArgs>? FixedSizeChunkingConfiguration { get; set; }
 
+        /// <summary>
+        /// Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+        /// </summary>
         [Input("hierarchicalChunkingConfiguration")]
         public Input<Inputs.DataSourceHierarchicalChunkingConfigurationArgs>? HierarchicalChunkingConfiguration { get; set; }
 
+        /// <summary>
+        /// Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+        /// </summary>
         [Input("semanticChunkingConfiguration")]
         public Input<Inputs.DataSourceSemanticChunkingConfigurationArgs>? SemanticChunkingConfiguration { get; set; }
 

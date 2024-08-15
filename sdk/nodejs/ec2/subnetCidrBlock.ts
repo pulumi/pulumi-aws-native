@@ -39,6 +39,14 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
+     * The IP Source of an IPv6 Subnet CIDR Block.
+     */
+    public /*out*/ readonly ipSource!: pulumi.Output<string>;
+    /**
+     * The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+     */
+    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
+    /**
      * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
@@ -74,8 +82,12 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["ipSource"] = undefined /*out*/;
+            resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["ipSource"] = undefined /*out*/;
+            resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
             resourceInputs["ipv6IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv6NetmaskLength"] = undefined /*out*/;

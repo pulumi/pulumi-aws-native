@@ -24,7 +24,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	// The ARN of the Helix application
+	// The ARN of the SSM-SAP application
 	Arn string `pulumi:"arn"`
 }
 
@@ -33,7 +33,7 @@ type LookupApplicationResult struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// The type of the application.
 	ApplicationType *ApplicationType `pulumi:"applicationType"`
-	// The ARN of the Helix application
+	// The ARN of the SSM-SAP application
 	Arn *string `pulumi:"arn"`
 	// The tags of a SystemsManagerSAP application.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -53,7 +53,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	// The ARN of the Helix application
+	// The ARN of the SSM-SAP application
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -85,7 +85,7 @@ func (o LookupApplicationResultOutput) ApplicationType() ApplicationTypePtrOutpu
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationType { return v.ApplicationType }).(ApplicationTypePtrOutput)
 }
 
-// The ARN of the Helix application
+// The ARN of the SSM-SAP application
 func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

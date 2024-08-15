@@ -70,6 +70,8 @@ class ClusterLoggingPropertiesArgs:
                
                - Must be in the same region as the cluster
                - The cluster must have read bucket and put object permissions
+        :param pulumi.Input[str] log_destination_type: The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
         :param pulumi.Input[str] s3_key_prefix: The prefix applied to the log file names.
                
                Constraints:
@@ -112,6 +114,9 @@ class ClusterLoggingPropertiesArgs:
     @property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -121,6 +126,9 @@ class ClusterLoggingPropertiesArgs:
     @property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter

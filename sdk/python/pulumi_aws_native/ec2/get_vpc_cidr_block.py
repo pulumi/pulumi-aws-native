@@ -18,10 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcCidrBlockResult:
-    def __init__(__self__, id=None):
+    def __init__(__self__, id=None, ip_source=None, ipv6_address_attribute=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_source and not isinstance(ip_source, str):
+            raise TypeError("Expected argument 'ip_source' to be a str")
+        pulumi.set(__self__, "ip_source", ip_source)
+        if ipv6_address_attribute and not isinstance(ipv6_address_attribute, str):
+            raise TypeError("Expected argument 'ipv6_address_attribute' to be a str")
+        pulumi.set(__self__, "ipv6_address_attribute", ipv6_address_attribute)
 
     @property
     @pulumi.getter
@@ -31,6 +37,22 @@ class GetVpcCidrBlockResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter(name="ipSource")
+    def ip_source(self) -> Optional[str]:
+        """
+        The IP Source of an IPv6 VPC CIDR Block.
+        """
+        return pulumi.get(self, "ip_source")
+
+    @property
+    @pulumi.getter(name="ipv6AddressAttribute")
+    def ipv6_address_attribute(self) -> Optional[str]:
+        """
+        The value denoting whether an IPv6 VPC CIDR Block is public or private.
+        """
+        return pulumi.get(self, "ipv6_address_attribute")
+
 
 class AwaitableGetVpcCidrBlockResult(GetVpcCidrBlockResult):
     # pylint: disable=using-constant-test
@@ -38,7 +60,9 @@ class AwaitableGetVpcCidrBlockResult(GetVpcCidrBlockResult):
         if False:
             yield self
         return GetVpcCidrBlockResult(
-            id=self.id)
+            id=self.id,
+            ip_source=self.ip_source,
+            ipv6_address_attribute=self.ipv6_address_attribute)
 
 
 def get_vpc_cidr_block(id: Optional[str] = None,
@@ -58,7 +82,9 @@ def get_vpc_cidr_block(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcCidrBlock', __args__, opts=opts, typ=GetVpcCidrBlockResult).value
 
     return AwaitableGetVpcCidrBlockResult(
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        ip_source=pulumi.get(__ret__, 'ip_source'),
+        ipv6_address_attribute=pulumi.get(__ret__, 'ipv6_address_attribute'))
 
 
 @_utilities.lift_output_func(get_vpc_cidr_block)

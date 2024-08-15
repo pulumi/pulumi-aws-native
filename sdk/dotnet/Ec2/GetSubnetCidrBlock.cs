@@ -61,11 +61,26 @@ namespace Pulumi.AwsNative.Ec2
         /// Information about the IPv6 association.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The IP Source of an IPv6 Subnet CIDR Block.
+        /// </summary>
+        public readonly string? IpSource;
+        /// <summary>
+        /// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+        /// </summary>
+        public readonly string? Ipv6AddressAttribute;
 
         [OutputConstructor]
-        private GetSubnetCidrBlockResult(string? id)
+        private GetSubnetCidrBlockResult(
+            string? id,
+
+            string? ipSource,
+
+            string? ipv6AddressAttribute)
         {
             Id = id;
+            IpSource = ipSource;
+            Ipv6AddressAttribute = ipv6AddressAttribute;
         }
     }
 }

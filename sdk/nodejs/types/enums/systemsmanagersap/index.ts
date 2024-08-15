@@ -13,6 +13,7 @@ export type ApplicationCredentialCredentialType = (typeof ApplicationCredentialC
 
 export const ApplicationType = {
     Hana: "HANA",
+    SapAbap: "SAP_ABAP",
 } as const;
 
 /**

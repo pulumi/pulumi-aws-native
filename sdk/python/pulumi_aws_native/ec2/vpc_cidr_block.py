@@ -246,6 +246,8 @@ class VpcCidrBlock(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["ip_source"] = None
+            __props__.__dict__["ipv6_address_attribute"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcCidrBlock, __self__).__init__(
@@ -273,8 +275,10 @@ class VpcCidrBlock(pulumi.CustomResource):
         __props__.__dict__["amazon_provided_ipv6_cidr_block"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_block"] = None
+        __props__.__dict__["ip_source"] = None
         __props__.__dict__["ipv4_ipam_pool_id"] = None
         __props__.__dict__["ipv4_netmask_length"] = None
+        __props__.__dict__["ipv6_address_attribute"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
         __props__.__dict__["ipv6_ipam_pool_id"] = None
         __props__.__dict__["ipv6_netmask_length"] = None
@@ -307,6 +311,14 @@ class VpcCidrBlock(pulumi.CustomResource):
         return pulumi.get(self, "cidr_block")
 
     @property
+    @pulumi.getter(name="ipSource")
+    def ip_source(self) -> pulumi.Output[str]:
+        """
+        The IP Source of an IPv6 VPC CIDR Block.
+        """
+        return pulumi.get(self, "ip_source")
+
+    @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -321,6 +333,14 @@ class VpcCidrBlock(pulumi.CustomResource):
         The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         """
         return pulumi.get(self, "ipv4_netmask_length")
+
+    @property
+    @pulumi.getter(name="ipv6AddressAttribute")
+    def ipv6_address_attribute(self) -> pulumi.Output[str]:
+        """
+        The value denoting whether an IPv6 VPC CIDR Block is public or private.
+        """
+        return pulumi.get(self, "ipv6_address_attribute")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceIntermediateStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An S3 bucket path.
+        /// </summary>
         [Input("s3Location", required: true)]
         public Input<Inputs.DataSourceS3LocationArgs> S3Location { get; set; } = null!;
 

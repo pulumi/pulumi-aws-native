@@ -20,7 +20,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
 export interface GetApplicationArgs {
     /**
-     * The ARN of the Helix application
+     * The ARN of the SSM-SAP application
      */
     arn: string;
 }
@@ -35,7 +35,7 @@ export interface GetApplicationResult {
      */
     readonly applicationType?: enums.systemsmanagersap.ApplicationType;
     /**
-     * The ARN of the Helix application
+     * The ARN of the SSM-SAP application
      */
     readonly arn?: string;
     /**
@@ -52,7 +52,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 
 export interface GetApplicationOutputArgs {
     /**
-     * The ARN of the Helix application
+     * The ARN of the SSM-SAP application
      */
     arn: pulumi.Input<string>;
 }

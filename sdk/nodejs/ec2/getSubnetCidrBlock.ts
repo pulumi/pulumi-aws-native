@@ -27,6 +27,14 @@ export interface GetSubnetCidrBlockResult {
      * Information about the IPv6 association.
      */
     readonly id?: string;
+    /**
+     * The IP Source of an IPv6 Subnet CIDR Block.
+     */
+    readonly ipSource?: string;
+    /**
+     * The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+     */
+    readonly ipv6AddressAttribute?: string;
 }
 /**
  * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR

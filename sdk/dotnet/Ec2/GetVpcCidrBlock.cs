@@ -73,11 +73,26 @@ namespace Pulumi.AwsNative.Ec2
         /// The Id of the VPC associated CIDR Block.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The IP Source of an IPv6 VPC CIDR Block.
+        /// </summary>
+        public readonly string? IpSource;
+        /// <summary>
+        /// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+        /// </summary>
+        public readonly string? Ipv6AddressAttribute;
 
         [OutputConstructor]
-        private GetVpcCidrBlockResult(string? id)
+        private GetVpcCidrBlockResult(
+            string? id,
+
+            string? ipSource,
+
+            string? ipv6AddressAttribute)
         {
             Id = id;
+            IpSource = ipSource;
+            Ipv6AddressAttribute = ipv6AddressAttribute;
         }
     }
 }

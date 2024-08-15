@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceWebSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the URL/URLs.
+        /// </summary>
         [Input("urlConfiguration", required: true)]
         public Input<Inputs.DataSourceUrlConfigurationArgs> UrlConfiguration { get; set; } = null!;
 

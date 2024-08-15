@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceCrawlFilterConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of filtering certain objects or content types of the data source.
+        /// </summary>
         [Input("patternObjectFilter")]
         public Input<Inputs.DataSourcePatternObjectFilterConfigurationArgs>? PatternObjectFilter { get; set; }
 

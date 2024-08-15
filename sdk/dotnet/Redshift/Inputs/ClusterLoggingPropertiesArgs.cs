@@ -23,11 +23,18 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+        /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
 
         [Input("logExports")]
         private InputList<string>? _logExports;
+
+        /// <summary>
+        /// The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+        /// </summary>
         public InputList<string> LogExports
         {
             get => _logExports ?? (_logExports = new InputList<string>());

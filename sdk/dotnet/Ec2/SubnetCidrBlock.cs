@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The IP Source of an IPv6 Subnet CIDR Block.
+        /// </summary>
+        [Output("ipSource")]
+        public Output<string> IpSource { get; private set; } = null!;
+
+        /// <summary>
+        /// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+        /// </summary>
+        [Output("ipv6AddressAttribute")]
+        public Output<string> Ipv6AddressAttribute { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         /// </summary>
         [Output("ipv6CidrBlock")]

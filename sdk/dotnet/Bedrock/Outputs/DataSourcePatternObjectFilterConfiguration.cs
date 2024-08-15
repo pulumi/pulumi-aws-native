@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourcePatternObjectFilterConfiguration
     {
+        /// <summary>
+        /// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourcePatternObjectFilter> Filters;
 
         [OutputConstructor]

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     {
         [Input("filters", required: true)]
         private InputList<Inputs.DataSourcePatternObjectFilterArgs>? _filters;
+
+        /// <summary>
+        /// The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+        /// </summary>
         public InputList<Inputs.DataSourcePatternObjectFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.DataSourcePatternObjectFilterArgs>());

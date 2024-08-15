@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceWebSourceConfiguration
     {
+        /// <summary>
+        /// The configuration of the URL/URLs.
+        /// </summary>
         public readonly Outputs.DataSourceUrlConfiguration UrlConfiguration;
 
         [OutputConstructor]

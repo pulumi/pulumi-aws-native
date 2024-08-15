@@ -18,6 +18,10 @@ type SubnetCidrBlock struct {
 
 	// Information about the IPv6 association.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The IP Source of an IPv6 Subnet CIDR Block.
+	IpSource pulumi.StringOutput `pulumi:"ipSource"`
+	// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+	Ipv6AddressAttribute pulumi.StringOutput `pulumi:"ipv6AddressAttribute"`
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
@@ -140,6 +144,16 @@ func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Co
 // Information about the IPv6 association.
 func (o SubnetCidrBlockOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The IP Source of an IPv6 Subnet CIDR Block.
+func (o SubnetCidrBlockOutput) IpSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.IpSource }).(pulumi.StringOutput)
+}
+
+// The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+func (o SubnetCidrBlockOutput) Ipv6AddressAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
 }
 
 // The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length

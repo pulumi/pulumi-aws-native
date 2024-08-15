@@ -178,7 +178,8 @@ func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredent
 type ApplicationType string
 
 const (
-	ApplicationTypeHana = ApplicationType("HANA")
+	ApplicationTypeHana    = ApplicationType("HANA")
+	ApplicationTypeSapAbap = ApplicationType("SAP_ABAP")
 )
 
 func (ApplicationType) ElementType() reflect.Type {
@@ -304,6 +305,7 @@ func (o ApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // A concrete instance of `ApplicationTypeInput` can be one of the following:
 //
 //	ApplicationTypeHana
+//	ApplicationTypeSapAbap
 type ApplicationTypeInput interface {
 	pulumi.Input
 

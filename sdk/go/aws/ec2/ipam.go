@@ -24,6 +24,8 @@ type Ipam struct {
 	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
 	// The description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Enable provisioning of GUA space in private pools.
+	EnablePrivateGua pulumi.BoolPtrOutput `pulumi:"enablePrivateGua"`
 	// Id of the IPAM.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -84,6 +86,8 @@ func (IpamState) ElementType() reflect.Type {
 type ipamArgs struct {
 	// The description for the IPAM.
 	Description *string `pulumi:"description"`
+	// Enable provisioning of GUA space in private pools.
+	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
@@ -96,6 +100,8 @@ type ipamArgs struct {
 type IpamArgs struct {
 	// The description for the IPAM.
 	Description pulumi.StringPtrInput
+	// Enable provisioning of GUA space in private pools.
+	EnablePrivateGua pulumi.BoolPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
@@ -159,6 +165,11 @@ func (o IpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 // The description for the IPAM.
 func (o IpamOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ipam) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable provisioning of GUA space in private pools.
+func (o IpamOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ipam) pulumi.BoolPtrOutput { return v.EnablePrivateGua }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the IPAM.

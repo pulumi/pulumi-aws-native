@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         public Output<Pulumi.AwsNative.SystemsManagerSap.ApplicationType> ApplicationType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Helix application
+        /// The ARN of the SSM-SAP application
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -38,6 +38,12 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         /// </summary>
         [Output("credentials")]
         public Output<ImmutableArray<Outputs.ApplicationCredential>> Credentials { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the SAP HANA database
+        /// </summary>
+        [Output("databaseArn")]
+        public Output<string?> DatabaseArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon EC2 instances on which your SAP application is running.
@@ -89,6 +95,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
                 ReplaceOnChanges =
                 {
                     "credentials[*]",
+                    "databaseArn",
                     "instances[*]",
                     "sapInstanceNumber",
                     "sid",
@@ -138,6 +145,12 @@ namespace Pulumi.AwsNative.SystemsManagerSap
             get => _credentials ?? (_credentials = new InputList<Inputs.ApplicationCredentialArgs>());
             set => _credentials = value;
         }
+
+        /// <summary>
+        /// The ARN of the SAP HANA database
+        /// </summary>
+        [Input("databaseArn")]
+        public Input<string>? DatabaseArn { get; set; }
 
         [Input("instances")]
         private InputList<string>? _instances;

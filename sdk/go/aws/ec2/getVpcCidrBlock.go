@@ -32,6 +32,10 @@ type LookupVpcCidrBlockArgs struct {
 type LookupVpcCidrBlockResult struct {
 	// The Id of the VPC associated CIDR Block.
 	Id *string `pulumi:"id"`
+	// The IP Source of an IPv6 VPC CIDR Block.
+	IpSource *string `pulumi:"ipSource"`
+	// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+	Ipv6AddressAttribute *string `pulumi:"ipv6AddressAttribute"`
 }
 
 func LookupVpcCidrBlockOutput(ctx *pulumi.Context, args LookupVpcCidrBlockOutputArgs, opts ...pulumi.InvokeOption) LookupVpcCidrBlockResultOutput {
@@ -75,6 +79,16 @@ func (o LookupVpcCidrBlockResultOutput) ToLookupVpcCidrBlockResultOutputWithCont
 // The Id of the VPC associated CIDR Block.
 func (o LookupVpcCidrBlockResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcCidrBlockResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The IP Source of an IPv6 VPC CIDR Block.
+func (o LookupVpcCidrBlockResultOutput) IpSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcCidrBlockResult) *string { return v.IpSource }).(pulumi.StringPtrOutput)
+}
+
+// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+func (o LookupVpcCidrBlockResultOutput) Ipv6AddressAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcCidrBlockResult) *string { return v.Ipv6AddressAttribute }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceUrlConfiguration
     {
+        /// <summary>
+        /// One or more seed or starting point URLs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceSeedUrl> SeedUrls;
 
         [OutputConstructor]

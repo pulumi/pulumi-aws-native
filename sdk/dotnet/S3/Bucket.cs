@@ -1011,6 +1011,7 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        ///   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         /// </summary>
         [Output("versioningConfiguration")]
         public Output<Outputs.BucketVersioningConfiguration?> VersioningConfiguration { get; private set; } = null!;
@@ -1229,6 +1230,7 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        ///   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         /// </summary>
         [Input("versioningConfiguration")]
         public Input<Inputs.BucketVersioningConfigurationArgs>? VersioningConfiguration { get; set; }

@@ -21,10 +21,12 @@ type Application struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The type of the application.
 	ApplicationType ApplicationTypeOutput `pulumi:"applicationType"`
-	// The ARN of the Helix application
+	// The ARN of the SSM-SAP application
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayOutput `pulumi:"credentials"`
+	// The ARN of the SAP HANA database
+	DatabaseArn pulumi.StringPtrOutput `pulumi:"databaseArn"`
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances pulumi.StringArrayOutput `pulumi:"instances"`
 	// The SAP instance number of the application.
@@ -50,6 +52,7 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"credentials[*]",
+		"databaseArn",
 		"instances[*]",
 		"sapInstanceNumber",
 		"sid",
@@ -94,6 +97,8 @@ type applicationArgs struct {
 	ApplicationType ApplicationType `pulumi:"applicationType"`
 	// The credentials of the SAP application.
 	Credentials []ApplicationCredential `pulumi:"credentials"`
+	// The ARN of the SAP HANA database
+	DatabaseArn *string `pulumi:"databaseArn"`
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances []string `pulumi:"instances"`
 	// The SAP instance number of the application.
@@ -112,6 +117,8 @@ type ApplicationArgs struct {
 	ApplicationType ApplicationTypeInput
 	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayInput
+	// The ARN of the SAP HANA database
+	DatabaseArn pulumi.StringPtrInput
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances pulumi.StringArrayInput
 	// The SAP instance number of the application.
@@ -169,7 +176,7 @@ func (o ApplicationOutput) ApplicationType() ApplicationTypeOutput {
 	return o.ApplyT(func(v *Application) ApplicationTypeOutput { return v.ApplicationType }).(ApplicationTypeOutput)
 }
 
-// The ARN of the Helix application
+// The ARN of the SSM-SAP application
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -177,6 +184,11 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 // The credentials of the SAP application.
 func (o ApplicationOutput) Credentials() ApplicationCredentialArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCredentialArrayOutput { return v.Credentials }).(ApplicationCredentialArrayOutput)
+}
+
+// The ARN of the SAP HANA database
+func (o ApplicationOutput) DatabaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DatabaseArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon EC2 instances on which your SAP application is running.

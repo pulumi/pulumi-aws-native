@@ -47,6 +47,10 @@ export class VpcCidrBlock extends pulumi.CustomResource {
      */
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
+     * The IP Source of an IPv6 VPC CIDR Block.
+     */
+    public /*out*/ readonly ipSource!: pulumi.Output<string>;
+    /**
      * The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
      */
     public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
@@ -54,6 +58,10 @@ export class VpcCidrBlock extends pulumi.CustomResource {
      * The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
      */
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * The value denoting whether an IPv6 VPC CIDR Block is public or private.
+     */
+    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
     /**
      * An IPv6 CIDR block from the IPv6 address pool.
      */
@@ -99,12 +107,16 @@ export class VpcCidrBlock extends pulumi.CustomResource {
             resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["ipSource"] = undefined /*out*/;
+            resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
         } else {
             resourceInputs["amazonProvidedIpv6CidrBlock"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
+            resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
             resourceInputs["ipv6IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv6NetmaskLength"] = undefined /*out*/;

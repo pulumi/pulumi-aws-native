@@ -893,6 +893,7 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
         """
         Settings for a foundation model used to parse documents for a data source.
         :param pulumi.Input[str] model_arn: The model's ARN.
+        :param pulumi.Input['DataSourceParsingPromptArgs'] parsing_prompt: Instructions for interpreting the contents of a document.
         """
         pulumi.set(__self__, "model_arn", model_arn)
         if parsing_prompt is not None:
@@ -913,6 +914,9 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
     @property
     @pulumi.getter(name="parsingPrompt")
     def parsing_prompt(self) -> Optional[pulumi.Input['DataSourceParsingPromptArgs']]:
+        """
+        Instructions for interpreting the contents of a document.
+        """
         return pulumi.get(self, "parsing_prompt")
 
     @parsing_prompt.setter
@@ -936,6 +940,8 @@ class DataSourceChunkingConfigurationArgs:
                - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
                - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
         :param pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs'] fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
+        :param pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs'] hierarchical_chunking_configuration: Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+        :param pulumi.Input['DataSourceSemanticChunkingConfigurationArgs'] semantic_chunking_configuration: Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
         """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
@@ -977,6 +983,9 @@ class DataSourceChunkingConfigurationArgs:
     @property
     @pulumi.getter(name="hierarchicalChunkingConfiguration")
     def hierarchical_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']]:
+        """
+        Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+        """
         return pulumi.get(self, "hierarchical_chunking_configuration")
 
     @hierarchical_chunking_configuration.setter
@@ -986,6 +995,9 @@ class DataSourceChunkingConfigurationArgs:
     @property
     @pulumi.getter(name="semanticChunkingConfiguration")
     def semantic_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']]:
+        """
+        Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+        """
         return pulumi.get(self, "semantic_chunking_configuration")
 
     @semantic_chunking_configuration.setter
@@ -1005,7 +1017,19 @@ class DataSourceConfigurationArgs:
         """
         Specifies a raw data source location to ingest.
         :param pulumi.Input['DataSourceType'] type: The type of data source.
+        :param pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs'] confluence_configuration: The configuration information to connect to Confluence as your data source.
+               
+               > Confluence data source connector is in preview release and is subject to change.
         :param pulumi.Input['DataSourceS3DataSourceConfigurationArgs'] s3_configuration: The configuration information to connect to Amazon S3 as your data source.
+        :param pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs'] salesforce_configuration: The configuration information to connect to Salesforce as your data source.
+               
+               > Salesforce data source connector is in preview release and is subject to change.
+        :param pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs'] share_point_configuration: The configuration information to connect to SharePoint as your data source.
+               
+               > SharePoint data source connector is in preview release and is subject to change.
+        :param pulumi.Input['DataSourceWebDataSourceConfigurationArgs'] web_configuration: The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+               
+               > Crawling web URLs as your data source is in preview release and is subject to change.
         """
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
@@ -1034,6 +1058,11 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="confluenceConfiguration")
     def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]:
+        """
+        The configuration information to connect to Confluence as your data source.
+
+        > Confluence data source connector is in preview release and is subject to change.
+        """
         return pulumi.get(self, "confluence_configuration")
 
     @confluence_configuration.setter
@@ -1055,6 +1084,11 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="salesforceConfiguration")
     def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']]:
+        """
+        The configuration information to connect to Salesforce as your data source.
+
+        > Salesforce data source connector is in preview release and is subject to change.
+        """
         return pulumi.get(self, "salesforce_configuration")
 
     @salesforce_configuration.setter
@@ -1064,6 +1098,11 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']]:
+        """
+        The configuration information to connect to SharePoint as your data source.
+
+        > SharePoint data source connector is in preview release and is subject to change.
+        """
         return pulumi.get(self, "share_point_configuration")
 
     @share_point_configuration.setter
@@ -1073,6 +1112,11 @@ class DataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="webConfiguration")
     def web_configuration(self) -> Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']]:
+        """
+        The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+
+        > Crawling web URLs as your data source is in preview release and is subject to change.
+        """
         return pulumi.get(self, "web_configuration")
 
     @web_configuration.setter
@@ -1086,6 +1130,7 @@ class DataSourceConfluenceCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+        :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -1093,6 +1138,9 @@ class DataSourceConfluenceCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        """
+        The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -1107,6 +1155,8 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Confluence as your data source.
+        :param pulumi.Input['DataSourceConfluenceSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your Confluence data source.
+        :param pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs'] crawler_configuration: The configuration of the Confluence content. For example, configuring specific types of Confluence content.
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
         if crawler_configuration is not None:
@@ -1115,6 +1165,9 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Input['DataSourceConfluenceSourceConfigurationArgs']:
+        """
+        The endpoint information to connect to your Confluence data source.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -1124,6 +1177,9 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']]:
+        """
+        The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
@@ -1207,6 +1263,7 @@ class DataSourceCrawlFilterConfigurationArgs:
         """
         The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
         :param pulumi.Input['DataSourceCrawlFilterConfigurationType'] type: The crawl filter type.
+        :param pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs'] pattern_object_filter: The configuration of filtering certain objects or content types of the data source.
         """
         pulumi.set(__self__, "type", type)
         if pattern_object_filter is not None:
@@ -1227,6 +1284,9 @@ class DataSourceCrawlFilterConfigurationArgs:
     @property
     @pulumi.getter(name="patternObjectFilter")
     def pattern_object_filter(self) -> Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']]:
+        """
+        The configuration of filtering certain objects or content types of the data source.
+        """
         return pulumi.get(self, "pattern_object_filter")
 
     @pattern_object_filter.setter
@@ -1241,6 +1301,7 @@ class DataSourceCustomTransformationConfigurationArgs:
                  transformations: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]):
         """
         Settings for customizing steps in the data source content ingestion pipeline.
+        :param pulumi.Input['DataSourceIntermediateStorageArgs'] intermediate_storage: An S3 bucket path for input and output objects.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]] transformations: A list of Lambda functions that process documents.
         """
         pulumi.set(__self__, "intermediate_storage", intermediate_storage)
@@ -1249,6 +1310,9 @@ class DataSourceCustomTransformationConfigurationArgs:
     @property
     @pulumi.getter(name="intermediateStorage")
     def intermediate_storage(self) -> pulumi.Input['DataSourceIntermediateStorageArgs']:
+        """
+        An S3 bucket path for input and output objects.
+        """
         return pulumi.get(self, "intermediate_storage")
 
     @intermediate_storage.setter
@@ -1373,12 +1437,16 @@ class DataSourceIntermediateStorageArgs:
                  s3_location: pulumi.Input['DataSourceS3LocationArgs']):
         """
         A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+        :param pulumi.Input['DataSourceS3LocationArgs'] s3_location: An S3 bucket path.
         """
         pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> pulumi.Input['DataSourceS3LocationArgs']:
+        """
+        An S3 bucket path.
+        """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
@@ -1393,6 +1461,8 @@ class DataSourceParsingConfigurationArgs:
                  bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']] = None):
         """
         Settings for parsing document contents
+        :param pulumi.Input['DataSourceParsingStrategy'] parsing_strategy: The parsing strategy for the data source.
+        :param pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents for a data source.
         """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
         if bedrock_foundation_model_configuration is not None:
@@ -1401,6 +1471,9 @@ class DataSourceParsingConfigurationArgs:
     @property
     @pulumi.getter(name="parsingStrategy")
     def parsing_strategy(self) -> pulumi.Input['DataSourceParsingStrategy']:
+        """
+        The parsing strategy for the data source.
+        """
         return pulumi.get(self, "parsing_strategy")
 
     @parsing_strategy.setter
@@ -1410,6 +1483,9 @@ class DataSourceParsingConfigurationArgs:
     @property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
     def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]:
+        """
+        Settings for a foundation model used to parse documents for a data source.
+        """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
     @bedrock_foundation_model_configuration.setter
@@ -1446,12 +1522,16 @@ class DataSourcePatternObjectFilterConfigurationArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]):
         """
         The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]] filters: The configuration of specific filters applied to your data source content. You can filter out or include certain content.
         """
         pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]:
+        """
+        The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -1590,6 +1670,7 @@ class DataSourceSalesforceCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+        :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -1597,6 +1678,9 @@ class DataSourceSalesforceCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        """
+        The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -1611,6 +1695,8 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Salesforce as your data source.
+        :param pulumi.Input['DataSourceSalesforceSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your Salesforce data source.
+        :param pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs'] crawler_configuration: The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
         if crawler_configuration is not None:
@@ -1619,6 +1705,9 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Input['DataSourceSalesforceSourceConfigurationArgs']:
+        """
+        The endpoint information to connect to your Salesforce data source.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -1628,6 +1717,9 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']]:
+        """
+        The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
@@ -1794,6 +1886,7 @@ class DataSourceSharePointCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+        :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -1801,6 +1894,9 @@ class DataSourceSharePointCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+        """
+        The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -1815,6 +1911,8 @@ class DataSourceSharePointDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to SharePoint as your data source.
+        :param pulumi.Input['DataSourceSharePointSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your SharePoint data source.
+        :param pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs'] crawler_configuration: The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
         if crawler_configuration is not None:
@@ -1823,6 +1921,9 @@ class DataSourceSharePointDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Input['DataSourceSharePointSourceConfigurationArgs']:
+        """
+        The endpoint information to connect to your SharePoint data source.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -1832,6 +1933,9 @@ class DataSourceSharePointDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']]:
+        """
+        The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
@@ -1944,12 +2048,16 @@ class DataSourceTransformationFunctionArgs:
                  transformation_lambda_configuration: pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']):
         """
         A Lambda function that processes documents.
+        :param pulumi.Input['DataSourceTransformationLambdaConfigurationArgs'] transformation_lambda_configuration: The Lambda function.
         """
         pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
 
     @property
     @pulumi.getter(name="transformationLambdaConfiguration")
     def transformation_lambda_configuration(self) -> pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']:
+        """
+        The Lambda function.
+        """
         return pulumi.get(self, "transformation_lambda_configuration")
 
     @transformation_lambda_configuration.setter
@@ -1988,6 +2096,7 @@ class DataSourceTransformationArgs:
         """
         A Lambda function that processes documents.
         :param pulumi.Input['DataSourceTransformationStepToApply'] step_to_apply: When the service applies the transformation.
+        :param pulumi.Input['DataSourceTransformationFunctionArgs'] transformation_function: A Lambda function that processes documents.
         """
         pulumi.set(__self__, "step_to_apply", step_to_apply)
         pulumi.set(__self__, "transformation_function", transformation_function)
@@ -2007,6 +2116,9 @@ class DataSourceTransformationArgs:
     @property
     @pulumi.getter(name="transformationFunction")
     def transformation_function(self) -> pulumi.Input['DataSourceTransformationFunctionArgs']:
+        """
+        A Lambda function that processes documents.
+        """
         return pulumi.get(self, "transformation_function")
 
     @transformation_function.setter
@@ -2020,12 +2132,16 @@ class DataSourceUrlConfigurationArgs:
                  seed_urls: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]):
         """
         A url configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]] seed_urls: One or more seed or starting point URLs.
         """
         pulumi.set(__self__, "seed_urls", seed_urls)
 
     @property
     @pulumi.getter(name="seedUrls")
     def seed_urls(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]:
+        """
+        One or more seed or starting point URLs.
+        """
         return pulumi.get(self, "seed_urls")
 
     @seed_urls.setter
@@ -2042,6 +2158,8 @@ class DataSourceVectorIngestionConfigurationArgs:
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        :param pulumi.Input['DataSourceCustomTransformationConfigurationArgs'] custom_transformation_configuration: A custom document transformer for parsed data source documents.
+        :param pulumi.Input['DataSourceParsingConfigurationArgs'] parsing_configuration: A custom parser for data source documents.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
@@ -2065,6 +2183,9 @@ class DataSourceVectorIngestionConfigurationArgs:
     @property
     @pulumi.getter(name="customTransformationConfiguration")
     def custom_transformation_configuration(self) -> Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']]:
+        """
+        A custom document transformer for parsed data source documents.
+        """
         return pulumi.get(self, "custom_transformation_configuration")
 
     @custom_transformation_configuration.setter
@@ -2074,6 +2195,9 @@ class DataSourceVectorIngestionConfigurationArgs:
     @property
     @pulumi.getter(name="parsingConfiguration")
     def parsing_configuration(self) -> Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]:
+        """
+        A custom parser for data source documents.
+        """
         return pulumi.get(self, "parsing_configuration")
 
     @parsing_configuration.setter
@@ -2090,6 +2214,12 @@ class DataSourceWebCrawlerConfigurationArgs:
                  scope: Optional[pulumi.Input['DataSourceWebScopeType']] = None):
         """
         Configuration for the web crawler.
+        :param pulumi.Input['DataSourceWebCrawlerLimitsArgs'] crawler_limits: The configuration of crawl limits for the web URLs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+        :param pulumi.Input['DataSourceWebScopeType'] scope: The scope of what is crawled for your URLs.
+               
+               You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
         """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -2103,6 +2233,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="crawlerLimits")
     def crawler_limits(self) -> Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']]:
+        """
+        The configuration of crawl limits for the web URLs.
+        """
         return pulumi.get(self, "crawler_limits")
 
     @crawler_limits.setter
@@ -2112,6 +2245,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+        """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
@@ -2121,6 +2257,9 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+        """
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
@@ -2130,6 +2269,11 @@ class DataSourceWebCrawlerConfigurationArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['DataSourceWebScopeType']]:
+        """
+        The scope of what is crawled for your URLs.
+
+        You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -2168,6 +2312,8 @@ class DataSourceWebDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None):
         """
         Configures a web data source location.
+        :param pulumi.Input['DataSourceWebSourceConfigurationArgs'] source_configuration: The source configuration details for the web data source.
+        :param pulumi.Input['DataSourceWebCrawlerConfigurationArgs'] crawler_configuration: The Web Crawler configuration details for the web data source.
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
         if crawler_configuration is not None:
@@ -2176,6 +2322,9 @@ class DataSourceWebDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Input['DataSourceWebSourceConfigurationArgs']:
+        """
+        The source configuration details for the web data source.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -2185,6 +2334,9 @@ class DataSourceWebDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+        """
+        The Web Crawler configuration details for the web data source.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
@@ -2198,12 +2350,16 @@ class DataSourceWebSourceConfigurationArgs:
                  url_configuration: pulumi.Input['DataSourceUrlConfigurationArgs']):
         """
         A web source configuration.
+        :param pulumi.Input['DataSourceUrlConfigurationArgs'] url_configuration: The configuration of the URL/URLs.
         """
         pulumi.set(__self__, "url_configuration", url_configuration)
 
     @property
     @pulumi.getter(name="urlConfiguration")
     def url_configuration(self) -> pulumi.Input['DataSourceUrlConfigurationArgs']:
+        """
+        The configuration of the URL/URLs.
+        """
         return pulumi.get(self, "url_configuration")
 
     @url_configuration.setter

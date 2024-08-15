@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataSourceCustomTransformationConfiguration
     {
+        /// <summary>
+        /// An S3 bucket path for input and output objects.
+        /// </summary>
         public readonly Outputs.DataSourceIntermediateStorage IntermediateStorage;
         /// <summary>
         /// A list of Lambda functions that process documents.
