@@ -16673,7 +16673,7 @@ type NatGatewayTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type NetworkAclTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -21217,7 +21217,7 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) HostnameType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type RouteTableTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -28368,7 +28368,7 @@ func (o SseSpecificationPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type SubnetTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`

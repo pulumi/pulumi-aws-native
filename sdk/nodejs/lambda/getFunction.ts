@@ -93,6 +93,7 @@ export interface GetFunctionResult {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     readonly packageType?: enums.lambda.FunctionPackageType;
+    readonly recursiveLoop?: enums.lambda.FunctionRecursiveLoop;
     /**
      * The number of simultaneous executions to reserve for the function.
      */

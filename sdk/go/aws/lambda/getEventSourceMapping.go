@@ -70,7 +70,8 @@ type LookupEventSourceMappingResult struct {
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
 	// The event source mapping's ID.
-	Id *string `pulumi:"id"`
+	Id        *string `pulumi:"id"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
 	//   *Default (, Kafka, , event sources)*: 500 ms
@@ -199,6 +200,10 @@ func (o LookupEventSourceMappingResultOutput) FunctionResponseTypes() EventSourc
 // The event source mapping's ID.
 func (o LookupEventSourceMappingResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEventSourceMappingResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

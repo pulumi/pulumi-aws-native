@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionResponseTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>> FunctionResponseTypes { get; private set; } = null!;
 
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
         ///   *Default (, , event sources)*: 0
@@ -337,6 +340,9 @@ namespace Pulumi.AwsNative.Lambda
             get => _functionResponseTypes ?? (_functionResponseTypes = new InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>());
             set => _functionResponseTypes = value;
         }
+
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

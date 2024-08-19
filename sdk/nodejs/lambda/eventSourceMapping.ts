@@ -111,6 +111,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      *  Valid Values: ``ReportBatchItemFailures``
      */
     public readonly functionResponseTypes!: pulumi.Output<enums.lambda.EventSourceMappingFunctionResponseTypesItem[] | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *   *Default (, , event sources)*: 0
@@ -195,6 +196,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
             resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
@@ -221,6 +223,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["filterCriteria"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionResponseTypes"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
@@ -308,6 +311,7 @@ export interface EventSourceMappingArgs {
      *  Valid Values: ``ReportBatchItemFailures``
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingFunctionResponseTypesItem>[]>;
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *   *Default (, , event sources)*: 0

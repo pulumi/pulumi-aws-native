@@ -300,6 +300,37 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// The function recursion configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionRecursiveLoop : IEquatable<FunctionRecursiveLoop>
+    {
+        private readonly string _value;
+
+        private FunctionRecursiveLoop(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionRecursiveLoop Allow { get; } = new FunctionRecursiveLoop("Allow");
+        public static FunctionRecursiveLoop Terminate { get; } = new FunctionRecursiveLoop("Terminate");
+
+        public static bool operator ==(FunctionRecursiveLoop left, FunctionRecursiveLoop right) => left.Equals(right);
+        public static bool operator !=(FunctionRecursiveLoop left, FunctionRecursiveLoop right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionRecursiveLoop value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionRecursiveLoop other && Equals(other);
+        public bool Equals(FunctionRecursiveLoop other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify the runtime update mode.
     ///   +   *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
     ///   +   *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.

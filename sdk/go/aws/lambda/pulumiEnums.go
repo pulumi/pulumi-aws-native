@@ -1621,6 +1621,172 @@ func (in *functionPackageTypePtr) ToFunctionPackageTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionPackageTypePtrOutput)
 }
 
+// The function recursion configuration.
+type FunctionRecursiveLoop string
+
+const (
+	FunctionRecursiveLoopAllow     = FunctionRecursiveLoop("Allow")
+	FunctionRecursiveLoopTerminate = FunctionRecursiveLoop("Terminate")
+)
+
+func (FunctionRecursiveLoop) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRecursiveLoop)(nil)).Elem()
+}
+
+func (e FunctionRecursiveLoop) ToFunctionRecursiveLoopOutput() FunctionRecursiveLoopOutput {
+	return pulumi.ToOutput(e).(FunctionRecursiveLoopOutput)
+}
+
+func (e FunctionRecursiveLoop) ToFunctionRecursiveLoopOutputWithContext(ctx context.Context) FunctionRecursiveLoopOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionRecursiveLoopOutput)
+}
+
+func (e FunctionRecursiveLoop) ToFunctionRecursiveLoopPtrOutput() FunctionRecursiveLoopPtrOutput {
+	return e.ToFunctionRecursiveLoopPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionRecursiveLoop) ToFunctionRecursiveLoopPtrOutputWithContext(ctx context.Context) FunctionRecursiveLoopPtrOutput {
+	return FunctionRecursiveLoop(e).ToFunctionRecursiveLoopOutputWithContext(ctx).ToFunctionRecursiveLoopPtrOutputWithContext(ctx)
+}
+
+func (e FunctionRecursiveLoop) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionRecursiveLoop) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionRecursiveLoop) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionRecursiveLoop) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionRecursiveLoopOutput struct{ *pulumi.OutputState }
+
+func (FunctionRecursiveLoopOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRecursiveLoop)(nil)).Elem()
+}
+
+func (o FunctionRecursiveLoopOutput) ToFunctionRecursiveLoopOutput() FunctionRecursiveLoopOutput {
+	return o
+}
+
+func (o FunctionRecursiveLoopOutput) ToFunctionRecursiveLoopOutputWithContext(ctx context.Context) FunctionRecursiveLoopOutput {
+	return o
+}
+
+func (o FunctionRecursiveLoopOutput) ToFunctionRecursiveLoopPtrOutput() FunctionRecursiveLoopPtrOutput {
+	return o.ToFunctionRecursiveLoopPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRecursiveLoopOutput) ToFunctionRecursiveLoopPtrOutputWithContext(ctx context.Context) FunctionRecursiveLoopPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionRecursiveLoop) *FunctionRecursiveLoop {
+		return &v
+	}).(FunctionRecursiveLoopPtrOutput)
+}
+
+func (o FunctionRecursiveLoopOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionRecursiveLoopOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionRecursiveLoop) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionRecursiveLoopOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRecursiveLoopOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionRecursiveLoop) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionRecursiveLoopPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionRecursiveLoopPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRecursiveLoop)(nil)).Elem()
+}
+
+func (o FunctionRecursiveLoopPtrOutput) ToFunctionRecursiveLoopPtrOutput() FunctionRecursiveLoopPtrOutput {
+	return o
+}
+
+func (o FunctionRecursiveLoopPtrOutput) ToFunctionRecursiveLoopPtrOutputWithContext(ctx context.Context) FunctionRecursiveLoopPtrOutput {
+	return o
+}
+
+func (o FunctionRecursiveLoopPtrOutput) Elem() FunctionRecursiveLoopOutput {
+	return o.ApplyT(func(v *FunctionRecursiveLoop) FunctionRecursiveLoop {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionRecursiveLoop
+		return ret
+	}).(FunctionRecursiveLoopOutput)
+}
+
+func (o FunctionRecursiveLoopPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRecursiveLoopPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionRecursiveLoop) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionRecursiveLoopInput is an input type that accepts values of the FunctionRecursiveLoop enum
+// A concrete instance of `FunctionRecursiveLoopInput` can be one of the following:
+//
+//	FunctionRecursiveLoopAllow
+//	FunctionRecursiveLoopTerminate
+type FunctionRecursiveLoopInput interface {
+	pulumi.Input
+
+	ToFunctionRecursiveLoopOutput() FunctionRecursiveLoopOutput
+	ToFunctionRecursiveLoopOutputWithContext(context.Context) FunctionRecursiveLoopOutput
+}
+
+var functionRecursiveLoopPtrType = reflect.TypeOf((**FunctionRecursiveLoop)(nil)).Elem()
+
+type FunctionRecursiveLoopPtrInput interface {
+	pulumi.Input
+
+	ToFunctionRecursiveLoopPtrOutput() FunctionRecursiveLoopPtrOutput
+	ToFunctionRecursiveLoopPtrOutputWithContext(context.Context) FunctionRecursiveLoopPtrOutput
+}
+
+type functionRecursiveLoopPtr string
+
+func FunctionRecursiveLoopPtr(v string) FunctionRecursiveLoopPtrInput {
+	return (*functionRecursiveLoopPtr)(&v)
+}
+
+func (*functionRecursiveLoopPtr) ElementType() reflect.Type {
+	return functionRecursiveLoopPtrType
+}
+
+func (in *functionRecursiveLoopPtr) ToFunctionRecursiveLoopPtrOutput() FunctionRecursiveLoopPtrOutput {
+	return pulumi.ToOutput(in).(FunctionRecursiveLoopPtrOutput)
+}
+
+func (in *functionRecursiveLoopPtr) ToFunctionRecursiveLoopPtrOutputWithContext(ctx context.Context) FunctionRecursiveLoopPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionRecursiveLoopPtrOutput)
+}
+
 // Specify the runtime update mode.
 //
 //   - *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
@@ -3050,6 +3216,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigSystemLogLevelPtrInput)(nil)).Elem(), FunctionLoggingConfigSystemLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypeInput)(nil)).Elem(), FunctionPackageType("Image"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypePtrInput)(nil)).Elem(), FunctionPackageType("Image"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRecursiveLoopInput)(nil)).Elem(), FunctionRecursiveLoop("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRecursiveLoopPtrInput)(nil)).Elem(), FunctionRecursiveLoop("Allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
@@ -3085,6 +3253,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionLoggingConfigSystemLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypeOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypePtrOutput{})
+	pulumi.RegisterOutputType(FunctionRecursiveLoopOutput{})
+	pulumi.RegisterOutputType(FunctionRecursiveLoopPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigUpdateRuntimeOnOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartApplyOnOutput{})

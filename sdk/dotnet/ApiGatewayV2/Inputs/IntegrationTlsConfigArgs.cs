@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
+    /// <summary>
+    /// The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
+    /// </summary>
     public sealed class IntegrationTlsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

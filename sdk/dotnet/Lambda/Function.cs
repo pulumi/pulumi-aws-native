@@ -426,6 +426,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("packageType")]
         public Output<Pulumi.AwsNative.Lambda.FunctionPackageType?> PackageType { get; private set; } = null!;
 
+        [Output("recursiveLoop")]
+        public Output<Pulumi.AwsNative.Lambda.FunctionRecursiveLoop?> RecursiveLoop { get; private set; } = null!;
+
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.
         /// </summary>
@@ -649,6 +652,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("packageType")]
         public Input<Pulumi.AwsNative.Lambda.FunctionPackageType>? PackageType { get; set; }
+
+        [Input("recursiveLoop")]
+        public Input<Pulumi.AwsNative.Lambda.FunctionRecursiveLoop>? RecursiveLoop { get; set; }
 
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.

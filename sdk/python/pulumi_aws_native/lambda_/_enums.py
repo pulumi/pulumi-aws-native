@@ -14,6 +14,7 @@ __all__ = [
     'FunctionLoggingConfigLogFormat',
     'FunctionLoggingConfigSystemLogLevel',
     'FunctionPackageType',
+    'FunctionRecursiveLoop',
     'FunctionRuntimeManagementConfigUpdateRuntimeOn',
     'FunctionSnapStartApplyOn',
     'FunctionSnapStartResponseApplyOn',
@@ -109,6 +110,14 @@ class FunctionPackageType(str, Enum):
     """
     IMAGE = "Image"
     ZIP = "Zip"
+
+
+class FunctionRecursiveLoop(str, Enum):
+    """
+    The function recursion configuration.
+    """
+    ALLOW = "Allow"
+    TERMINATE = "Terminate"
 
 
 class FunctionRuntimeManagementConfigUpdateRuntimeOn(str, Enum):

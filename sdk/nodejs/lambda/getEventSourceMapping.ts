@@ -86,6 +86,7 @@ export interface GetEventSourceMappingResult {
      * The event source mapping's ID.
      */
     readonly id?: string;
+    readonly kmsKeyArn?: string;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *   *Default (, , event sources)*: 0

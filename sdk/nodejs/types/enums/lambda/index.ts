@@ -105,6 +105,16 @@ export const FunctionPackageType = {
  */
 export type FunctionPackageType = (typeof FunctionPackageType)[keyof typeof FunctionPackageType];
 
+export const FunctionRecursiveLoop = {
+    Allow: "Allow",
+    Terminate: "Terminate",
+} as const;
+
+/**
+ * The function recursion configuration.
+ */
+export type FunctionRecursiveLoop = (typeof FunctionRecursiveLoop)[keyof typeof FunctionRecursiveLoop];
+
 export const FunctionRuntimeManagementConfigUpdateRuntimeOn = {
     Auto: "Auto",
     FunctionUpdate: "FunctionUpdate",

@@ -27,6 +27,7 @@ class EventSourceMappingArgs:
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -114,6 +115,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "filter_criteria", filter_criteria)
         if function_response_types is not None:
             pulumi.set(__self__, "function_response_types", function_response_types)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maximum_batching_window_in_seconds is not None:
             pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
@@ -282,6 +285,15 @@ class EventSourceMappingArgs:
     @function_response_types.setter
     def function_response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]]):
         pulumi.set(self, "function_response_types", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
@@ -462,6 +474,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  filter_criteria: Optional[pulumi.Input[Union['EventSourceMappingFilterCriteriaArgs', 'EventSourceMappingFilterCriteriaArgsDict']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -584,6 +597,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  filter_criteria: Optional[pulumi.Input[Union['EventSourceMappingFilterCriteriaArgs', 'EventSourceMappingFilterCriteriaArgsDict']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -618,6 +632,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["function_response_types"] = function_response_types
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
             __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
@@ -667,6 +682,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["filter_criteria"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_response_types"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["maximum_batching_window_in_seconds"] = None
         __props__.__dict__["maximum_record_age_in_seconds"] = None
         __props__.__dict__["maximum_retry_attempts"] = None
@@ -791,6 +807,11 @@ class EventSourceMapping(pulumi.CustomResource):
          Valid Values: ``ReportBatchItemFailures``
         """
         return pulumi.get(self, "function_response_types")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")

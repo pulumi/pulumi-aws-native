@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The threshold for this filter.
         /// </summary>
         public readonly double Threshold;
+        /// <summary>
+        /// The filter details for the guardrails contextual grounding filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingFilterType Type;
 
         [OutputConstructor]

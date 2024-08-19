@@ -15,6 +15,7 @@ __all__ = [
     'AuthorizerJwtConfigurationArgs',
     'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'IntegrationResponseParameterArgs',
     'IntegrationTlsConfigArgs',
     'RouteParameterConstraintsArgs',
     'RouteResponseParameterConstraintsArgs',
@@ -366,10 +367,43 @@ class DomainNameMutualTlsAuthenticationArgs:
 
 
 @pulumi.input_type
+class IntegrationResponseParameterArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None):
+        """
+        response parameter
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
                  server_name_to_verify: Optional[pulumi.Input[str]] = None):
         """
+        The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
         :param pulumi.Input[str] server_name_to_verify: If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         """
         if server_name_to_verify is not None:

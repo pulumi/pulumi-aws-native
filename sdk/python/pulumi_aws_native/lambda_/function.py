@@ -36,6 +36,7 @@ class FunctionArgs:
                  logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
                  runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
@@ -108,6 +109,8 @@ class FunctionArgs:
             pulumi.set(__self__, "memory_size", memory_size)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if recursive_loop is not None:
+            pulumi.set(__self__, "recursive_loop", recursive_loop)
         if reserved_concurrent_executions is not None:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
@@ -332,6 +335,15 @@ class FunctionArgs:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="recursiveLoop")
+    def recursive_loop(self) -> Optional[pulumi.Input['FunctionRecursiveLoop']]:
+        return pulumi.get(self, "recursive_loop")
+
+    @recursive_loop.setter
+    def recursive_loop(self, value: Optional[pulumi.Input['FunctionRecursiveLoop']]):
+        pulumi.set(self, "recursive_loop", value)
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
@@ -451,6 +463,7 @@ class Function(pulumi.CustomResource):
                  logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -952,6 +965,7 @@ class Function(pulumi.CustomResource):
                  logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -988,6 +1002,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["package_type"] = package_type
+            __props__.__dict__["recursive_loop"] = recursive_loop
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
@@ -1042,6 +1057,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["logging_config"] = None
         __props__.__dict__["memory_size"] = None
         __props__.__dict__["package_type"] = None
+        __props__.__dict__["recursive_loop"] = None
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["runtime"] = None
@@ -1191,6 +1207,11 @@ class Function(pulumi.CustomResource):
         The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         """
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="recursiveLoop")
+    def recursive_loop(self) -> pulumi.Output[Optional['FunctionRecursiveLoop']]:
+        return pulumi.get(self, "recursive_loop")
 
     @property
     @pulumi.getter(name="reservedConcurrentExecutions")

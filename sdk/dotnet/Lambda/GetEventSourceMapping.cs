@@ -125,6 +125,7 @@ namespace Pulumi.AwsNative.Lambda
         /// The event source mapping's ID.
         /// </summary>
         public readonly string? Id;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
         ///   *Default (, , event sources)*: 0
@@ -186,6 +187,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? id,
 
+            string? kmsKeyArn,
+
             int? maximumBatchingWindowInSeconds,
 
             int? maximumRecordAgeInSeconds,
@@ -213,6 +216,7 @@ namespace Pulumi.AwsNative.Lambda
             FunctionName = functionName;
             FunctionResponseTypes = functionResponseTypes;
             Id = id;
+            KmsKeyArn = kmsKeyArn;
             MaximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             MaximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
             MaximumRetryAttempts = maximumRetryAttempts;

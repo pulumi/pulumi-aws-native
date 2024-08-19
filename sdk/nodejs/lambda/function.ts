@@ -328,6 +328,7 @@ export class Function extends pulumi.CustomResource {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     public readonly packageType!: pulumi.Output<enums.lambda.FunctionPackageType | undefined>;
+    public readonly recursiveLoop!: pulumi.Output<enums.lambda.FunctionRecursiveLoop | undefined>;
     /**
      * The number of simultaneous executions to reserve for the function.
      */
@@ -401,6 +402,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["recursiveLoop"] = args ? args.recursiveLoop : undefined;
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -430,6 +432,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["loggingConfig"] = undefined /*out*/;
             resourceInputs["memorySize"] = undefined /*out*/;
             resourceInputs["packageType"] = undefined /*out*/;
+            resourceInputs["recursiveLoop"] = undefined /*out*/;
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["runtime"] = undefined /*out*/;
@@ -518,6 +521,7 @@ export interface FunctionArgs {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
+    recursiveLoop?: pulumi.Input<enums.lambda.FunctionRecursiveLoop>;
     /**
      * The number of simultaneous executions to reserve for the function.
      */

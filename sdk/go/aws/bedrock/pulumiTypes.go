@@ -15062,8 +15062,9 @@ func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfig() GuardrailContentF
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfig struct {
 	// The threshold for this filter.
-	Threshold float64                                `pulumi:"threshold"`
-	Type      GuardrailContextualGroundingFilterType `pulumi:"type"`
+	Threshold float64 `pulumi:"threshold"`
+	// The filter details for the guardrails contextual grounding filter.
+	Type GuardrailContextualGroundingFilterType `pulumi:"type"`
 }
 
 // GuardrailContextualGroundingFilterConfigInput is an input type that accepts GuardrailContextualGroundingFilterConfigArgs and GuardrailContextualGroundingFilterConfigOutput values.
@@ -15080,8 +15081,9 @@ type GuardrailContextualGroundingFilterConfigInput interface {
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfigArgs struct {
 	// The threshold for this filter.
-	Threshold pulumi.Float64Input                         `pulumi:"threshold"`
-	Type      GuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The filter details for the guardrails contextual grounding filter.
+	Type GuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
 }
 
 func (GuardrailContextualGroundingFilterConfigArgs) ElementType() reflect.Type {
@@ -15141,6 +15143,7 @@ func (o GuardrailContextualGroundingFilterConfigOutput) Threshold() pulumi.Float
 	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The filter details for the guardrails contextual grounding filter.
 func (o GuardrailContextualGroundingFilterConfigOutput) Type() GuardrailContextualGroundingFilterTypeOutput {
 	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) GuardrailContextualGroundingFilterType { return v.Type }).(GuardrailContextualGroundingFilterTypeOutput)
 }

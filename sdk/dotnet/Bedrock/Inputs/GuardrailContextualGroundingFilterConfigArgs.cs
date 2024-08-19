@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// The filter details for the guardrails contextual grounding filter.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingFilterType> Type { get; set; } = null!;
 

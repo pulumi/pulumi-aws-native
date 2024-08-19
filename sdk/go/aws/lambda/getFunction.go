@@ -66,7 +66,8 @@ type LookupFunctionResult struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType *FunctionPackageType `pulumi:"packageType"`
+	PackageType   *FunctionPackageType   `pulumi:"packageType"`
+	RecursiveLoop *FunctionRecursiveLoop `pulumi:"recursiveLoop"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -200,6 +201,10 @@ func (o LookupFunctionResultOutput) MemorySize() pulumi.IntPtrOutput {
 // The type of deployment package. Set to “Image“ for container image and set “Zip“ for .zip file archive.
 func (o LookupFunctionResultOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionPackageType { return v.PackageType }).(FunctionPackageTypePtrOutput)
+}
+
+func (o LookupFunctionResultOutput) RecursiveLoop() FunctionRecursiveLoopPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionRecursiveLoop { return v.RecursiveLoop }).(FunctionRecursiveLoopPtrOutput)
 }
 
 // The number of simultaneous executions to reserve for the function.

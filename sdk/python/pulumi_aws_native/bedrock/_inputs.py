@@ -3568,6 +3568,7 @@ class GuardrailContextualGroundingFilterConfigArgs:
         """
         A config for grounding filter.
         :param pulumi.Input[float] threshold: The threshold for this filter.
+        :param pulumi.Input['GuardrailContextualGroundingFilterType'] type: The filter details for the guardrails contextual grounding filter.
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -3587,6 +3588,9 @@ class GuardrailContextualGroundingFilterConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['GuardrailContextualGroundingFilterType']:
+        """
+        The filter details for the guardrails contextual grounding filter.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

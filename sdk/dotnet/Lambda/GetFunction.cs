@@ -130,6 +130,7 @@ namespace Pulumi.AwsNative.Lambda
         /// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionPackageType? PackageType;
+        public readonly Pulumi.AwsNative.Lambda.FunctionRecursiveLoop? RecursiveLoop;
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.
         /// </summary>
@@ -198,6 +199,8 @@ namespace Pulumi.AwsNative.Lambda
 
             Pulumi.AwsNative.Lambda.FunctionPackageType? packageType,
 
+            Pulumi.AwsNative.Lambda.FunctionRecursiveLoop? recursiveLoop,
+
             int? reservedConcurrentExecutions,
 
             string? role,
@@ -231,6 +234,7 @@ namespace Pulumi.AwsNative.Lambda
             LoggingConfig = loggingConfig;
             MemorySize = memorySize;
             PackageType = packageType;
+            RecursiveLoop = recursiveLoop;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;
             Runtime = runtime;

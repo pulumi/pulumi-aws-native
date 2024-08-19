@@ -399,7 +399,8 @@ type Function struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType FunctionPackageTypePtrOutput `pulumi:"packageType"`
+	PackageType   FunctionPackageTypePtrOutput   `pulumi:"packageType"`
+	RecursiveLoop FunctionRecursiveLoopPtrOutput `pulumi:"recursiveLoop"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -506,7 +507,8 @@ type functionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType *FunctionPackageType `pulumi:"packageType"`
+	PackageType   *FunctionPackageType   `pulumi:"packageType"`
+	RecursiveLoop *FunctionRecursiveLoop `pulumi:"recursiveLoop"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -564,7 +566,8 @@ type FunctionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrInput
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType FunctionPackageTypePtrInput
+	PackageType   FunctionPackageTypePtrInput
+	RecursiveLoop FunctionRecursiveLoopPtrInput
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -711,6 +714,10 @@ func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
 // The type of deployment package. Set to “Image“ for container image and set “Zip“ for .zip file archive.
 func (o FunctionOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionPackageTypePtrOutput { return v.PackageType }).(FunctionPackageTypePtrOutput)
+}
+
+func (o FunctionOutput) RecursiveLoop() FunctionRecursiveLoopPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionRecursiveLoopPtrOutput { return v.RecursiveLoop }).(FunctionRecursiveLoopPtrOutput)
 }
 
 // The number of simultaneous executions to reserve for the function.

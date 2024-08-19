@@ -69,6 +69,7 @@ type EventSourceMapping struct {
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayOutput `pulumi:"functionResponseTypes"`
+	KmsKeyArn             pulumi.StringPtrOutput                                 `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
 	//   *Default (, Kafka, , event sources)*: 500 ms
@@ -198,6 +199,7 @@ type eventSourceMappingArgs struct {
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
+	KmsKeyArn             *string                                       `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
 	//   *Default (, Kafka, , event sources)*: 500 ms
@@ -277,6 +279,7 @@ type EventSourceMappingArgs struct {
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayInput
+	KmsKeyArn             pulumi.StringPtrInput
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
 	//   *Default (, Kafka, , event sources)*: 500 ms
@@ -433,6 +436,10 @@ func (o EventSourceMappingOutput) FunctionResponseTypes() EventSourceMappingFunc
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFunctionResponseTypesItemArrayOutput {
 		return v.FunctionResponseTypes
 	}).(EventSourceMappingFunctionResponseTypesItemArrayOutput)
+}
+
+func (o EventSourceMappingOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

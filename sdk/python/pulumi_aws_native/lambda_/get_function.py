@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, package_type=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -67,6 +67,9 @@ class GetFunctionResult:
         if package_type and not isinstance(package_type, str):
             raise TypeError("Expected argument 'package_type' to be a str")
         pulumi.set(__self__, "package_type", package_type)
+        if recursive_loop and not isinstance(recursive_loop, str):
+            raise TypeError("Expected argument 'recursive_loop' to be a str")
+        pulumi.set(__self__, "recursive_loop", recursive_loop)
         if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, int):
             raise TypeError("Expected argument 'reserved_concurrent_executions' to be a int")
         pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
@@ -217,6 +220,11 @@ class GetFunctionResult:
         return pulumi.get(self, "package_type")
 
     @property
+    @pulumi.getter(name="recursiveLoop")
+    def recursive_loop(self) -> Optional['FunctionRecursiveLoop']:
+        return pulumi.get(self, "recursive_loop")
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[int]:
         """
@@ -309,6 +317,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             logging_config=self.logging_config,
             memory_size=self.memory_size,
             package_type=self.package_type,
+            recursive_loop=self.recursive_loop,
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
             runtime=self.runtime,
@@ -355,6 +364,7 @@ def get_function(function_name: Optional[str] = None,
         logging_config=pulumi.get(__ret__, 'logging_config'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
         package_type=pulumi.get(__ret__, 'package_type'),
+        recursive_loop=pulumi.get(__ret__, 'recursive_loop'),
         reserved_concurrent_executions=pulumi.get(__ret__, 'reserved_concurrent_executions'),
         role=pulumi.get(__ret__, 'role'),
         runtime=pulumi.get(__ret__, 'runtime'),

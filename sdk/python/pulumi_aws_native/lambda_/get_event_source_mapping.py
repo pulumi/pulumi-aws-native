@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -48,6 +48,9 @@ class GetEventSourceMappingResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maximum_batching_window_in_seconds and not isinstance(maximum_batching_window_in_seconds, int):
             raise TypeError("Expected argument 'maximum_batching_window_in_seconds' to be a int")
         pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
@@ -165,6 +168,11 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> Optional[int]:
         """
@@ -256,6 +264,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             function_name=self.function_name,
             function_response_types=self.function_response_types,
             id=self.id,
+            kms_key_arn=self.kms_key_arn,
             maximum_batching_window_in_seconds=self.maximum_batching_window_in_seconds,
             maximum_record_age_in_seconds=self.maximum_record_age_in_seconds,
             maximum_retry_attempts=self.maximum_retry_attempts,
@@ -298,6 +307,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         function_name=pulumi.get(__ret__, 'function_name'),
         function_response_types=pulumi.get(__ret__, 'function_response_types'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         maximum_batching_window_in_seconds=pulumi.get(__ret__, 'maximum_batching_window_in_seconds'),
         maximum_record_age_in_seconds=pulumi.get(__ret__, 'maximum_record_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'),
