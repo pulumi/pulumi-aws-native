@@ -8,13 +8,13 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "lambda:GetFunction", "lambda:GetFunctionCodeSigningConfig" ]
+      "permissions" : [ "lambda:GetFunction", "lambda:GetFunctionCodeSigningConfig", "lambda:GetFunctionRecursionConfig" ]
     },
     "create" : {
-      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource" ]
+      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig" ]
     },
     "update" : {
-      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig" ]
+      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListFunctions" ]
@@ -228,6 +228,11 @@
         }
       }
     },
+    "RecursiveLoop" : {
+      "description" : "The function recursion configuration.",
+      "type" : "string",
+      "enum" : [ "Allow", "Terminate" ]
+    },
     "Environment" : {
       "description" : "A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.",
       "additionalProperties" : false,
@@ -416,6 +421,10 @@
     "LoggingConfig" : {
       "description" : "The function's Amazon CloudWatch Logs configuration settings.",
       "$ref" : "#/definitions/LoggingConfig"
+    },
+    "RecursiveLoop" : {
+      "description" : "",
+      "$ref" : "#/definitions/RecursiveLoop"
     },
     "Environment" : {
       "description" : "Environment variables that are accessible from function code during execution.",
