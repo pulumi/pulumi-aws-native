@@ -43,6 +43,11 @@ type PlaybackRestrictionPolicyTag struct {
 	Value string `pulumi:"value"`
 }
 
+type PublicKeyTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfiguration struct {
 	// An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
@@ -613,6 +618,167 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSec
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration object for individual participant recording, to attach to the new stage.
+type StageAutoParticipantRecordingConfiguration struct {
+	// Types of media to be recorded. Default: AUDIO_VIDEO.
+	MediaTypes []StageAutoParticipantRecordingConfigurationMediaTypesItem `pulumi:"mediaTypes"`
+	// ARN of the StorageConfiguration resource to use for individual participant recording.
+	StorageConfigurationArn string `pulumi:"storageConfigurationArn"`
+}
+
+// StageAutoParticipantRecordingConfigurationInput is an input type that accepts StageAutoParticipantRecordingConfigurationArgs and StageAutoParticipantRecordingConfigurationOutput values.
+// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationInput` via:
+//
+//	StageAutoParticipantRecordingConfigurationArgs{...}
+type StageAutoParticipantRecordingConfigurationInput interface {
+	pulumi.Input
+
+	ToStageAutoParticipantRecordingConfigurationOutput() StageAutoParticipantRecordingConfigurationOutput
+	ToStageAutoParticipantRecordingConfigurationOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationOutput
+}
+
+// Configuration object for individual participant recording, to attach to the new stage.
+type StageAutoParticipantRecordingConfigurationArgs struct {
+	// Types of media to be recorded. Default: AUDIO_VIDEO.
+	MediaTypes StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput `pulumi:"mediaTypes"`
+	// ARN of the StorageConfiguration resource to use for individual participant recording.
+	StorageConfigurationArn pulumi.StringInput `pulumi:"storageConfigurationArn"`
+}
+
+func (StageAutoParticipantRecordingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAutoParticipantRecordingConfiguration)(nil)).Elem()
+}
+
+func (i StageAutoParticipantRecordingConfigurationArgs) ToStageAutoParticipantRecordingConfigurationOutput() StageAutoParticipantRecordingConfigurationOutput {
+	return i.ToStageAutoParticipantRecordingConfigurationOutputWithContext(context.Background())
+}
+
+func (i StageAutoParticipantRecordingConfigurationArgs) ToStageAutoParticipantRecordingConfigurationOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationOutput)
+}
+
+func (i StageAutoParticipantRecordingConfigurationArgs) ToStageAutoParticipantRecordingConfigurationPtrOutput() StageAutoParticipantRecordingConfigurationPtrOutput {
+	return i.ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StageAutoParticipantRecordingConfigurationArgs) ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationOutput).ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(ctx)
+}
+
+// StageAutoParticipantRecordingConfigurationPtrInput is an input type that accepts StageAutoParticipantRecordingConfigurationArgs, StageAutoParticipantRecordingConfigurationPtr and StageAutoParticipantRecordingConfigurationPtrOutput values.
+// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationPtrInput` via:
+//
+//	        StageAutoParticipantRecordingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StageAutoParticipantRecordingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStageAutoParticipantRecordingConfigurationPtrOutput() StageAutoParticipantRecordingConfigurationPtrOutput
+	ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationPtrOutput
+}
+
+type stageAutoParticipantRecordingConfigurationPtrType StageAutoParticipantRecordingConfigurationArgs
+
+func StageAutoParticipantRecordingConfigurationPtr(v *StageAutoParticipantRecordingConfigurationArgs) StageAutoParticipantRecordingConfigurationPtrInput {
+	return (*stageAutoParticipantRecordingConfigurationPtrType)(v)
+}
+
+func (*stageAutoParticipantRecordingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAutoParticipantRecordingConfiguration)(nil)).Elem()
+}
+
+func (i *stageAutoParticipantRecordingConfigurationPtrType) ToStageAutoParticipantRecordingConfigurationPtrOutput() StageAutoParticipantRecordingConfigurationPtrOutput {
+	return i.ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *stageAutoParticipantRecordingConfigurationPtrType) ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationPtrOutput)
+}
+
+// Configuration object for individual participant recording, to attach to the new stage.
+type StageAutoParticipantRecordingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StageAutoParticipantRecordingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAutoParticipantRecordingConfiguration)(nil)).Elem()
+}
+
+func (o StageAutoParticipantRecordingConfigurationOutput) ToStageAutoParticipantRecordingConfigurationOutput() StageAutoParticipantRecordingConfigurationOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationOutput) ToStageAutoParticipantRecordingConfigurationOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationOutput) ToStageAutoParticipantRecordingConfigurationPtrOutput() StageAutoParticipantRecordingConfigurationPtrOutput {
+	return o.ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StageAutoParticipantRecordingConfigurationOutput) ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfiguration) *StageAutoParticipantRecordingConfiguration {
+		return &v
+	}).(StageAutoParticipantRecordingConfigurationPtrOutput)
+}
+
+// Types of media to be recorded. Default: AUDIO_VIDEO.
+func (o StageAutoParticipantRecordingConfigurationOutput) MediaTypes() StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) []StageAutoParticipantRecordingConfigurationMediaTypesItem {
+		return v.MediaTypes
+	}).(StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput)
+}
+
+// ARN of the StorageConfiguration resource to use for individual participant recording.
+func (o StageAutoParticipantRecordingConfigurationOutput) StorageConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) string { return v.StorageConfigurationArn }).(pulumi.StringOutput)
+}
+
+type StageAutoParticipantRecordingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAutoParticipantRecordingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAutoParticipantRecordingConfiguration)(nil)).Elem()
+}
+
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) ToStageAutoParticipantRecordingConfigurationPtrOutput() StageAutoParticipantRecordingConfigurationPtrOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) ToStageAutoParticipantRecordingConfigurationPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationPtrOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) Elem() StageAutoParticipantRecordingConfigurationOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) StageAutoParticipantRecordingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StageAutoParticipantRecordingConfiguration
+		return ret
+	}).(StageAutoParticipantRecordingConfigurationOutput)
+}
+
+// Types of media to be recorded. Default: AUDIO_VIDEO.
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) MediaTypes() StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) []StageAutoParticipantRecordingConfigurationMediaTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.MediaTypes
+	}).(StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput)
+}
+
+// ARN of the StorageConfiguration resource to use for individual participant recording.
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) StorageConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageConfigurationArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type StageTag struct {
 	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
 	Key string `pulumi:"key"`
@@ -894,6 +1060,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageConfigurationS3StorageConfigurationInput)(nil)).Elem(), StorageConfigurationS3StorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesInput)(nil)).Elem(), VideoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesPtrInput)(nil)).Elem(), VideoPropertiesArgs{})
@@ -904,6 +1072,8 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationOutput{})
+	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationS3StorageConfigurationOutput{})
 	pulumi.RegisterOutputType(VideoPropertiesOutput{})
 	pulumi.RegisterOutputType(VideoPropertiesPtrOutput{})

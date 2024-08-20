@@ -125,6 +125,16 @@ func TestVpcPython(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestIvsChannel(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "ivs-channel"),
+			Verbose: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	basePy := base.With(integration.ProgramTestOptions{

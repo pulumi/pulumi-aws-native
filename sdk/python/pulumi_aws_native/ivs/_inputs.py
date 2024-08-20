@@ -15,6 +15,7 @@ __all__ = [
     'RecordingConfigurationRenditionConfigurationArgs',
     'RecordingConfigurationS3DestinationConfigurationArgs',
     'RecordingConfigurationThumbnailConfigurationArgs',
+    'StageAutoParticipantRecordingConfigurationArgs',
     'StorageConfigurationS3StorageConfigurationArgs',
     'VideoPropertiesArgs',
 ]
@@ -176,6 +177,45 @@ class RecordingConfigurationThumbnailConfigurationArgs:
     @target_interval_seconds.setter
     def target_interval_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_interval_seconds", value)
+
+
+@pulumi.input_type
+class StageAutoParticipantRecordingConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_configuration_arn: pulumi.Input[str],
+                 media_types: Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]] = None):
+        """
+        Configuration object for individual participant recording, to attach to the new stage.
+        :param pulumi.Input[str] storage_configuration_arn: ARN of the StorageConfiguration resource to use for individual participant recording.
+        :param pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]] media_types: Types of media to be recorded. Default: AUDIO_VIDEO.
+        """
+        pulumi.set(__self__, "storage_configuration_arn", storage_configuration_arn)
+        if media_types is not None:
+            pulumi.set(__self__, "media_types", media_types)
+
+    @property
+    @pulumi.getter(name="storageConfigurationArn")
+    def storage_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the StorageConfiguration resource to use for individual participant recording.
+        """
+        return pulumi.get(self, "storage_configuration_arn")
+
+    @storage_configuration_arn.setter
+    def storage_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="mediaTypes")
+    def media_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]:
+        """
+        Types of media to be recorded. Default: AUDIO_VIDEO.
+        """
+        return pulumi.get(self, "media_types")
+
+    @media_types.setter
+    def media_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]):
+        pulumi.set(self, "media_types", value)
 
 
 @pulumi.input_type

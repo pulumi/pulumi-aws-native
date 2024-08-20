@@ -14,6 +14,7 @@ __all__ = [
     'RecordingConfigurationThumbnailConfigurationRecordingMode',
     'RecordingConfigurationThumbnailConfigurationResolution',
     'RecordingConfigurationThumbnailConfigurationStorageItem',
+    'StageAutoParticipantRecordingConfigurationMediaTypesItem',
 ]
 
 
@@ -29,6 +30,7 @@ class ChannelPreset(str, Enum):
     """
     Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
     """
+    EMPTY = ""
     HIGHER_BANDWIDTH_DELIVERY = "HIGHER_BANDWIDTH_DELIVERY"
     CONSTRAINED_BANDWIDTH_DELIVERY = "CONSTRAINED_BANDWIDTH_DELIVERY"
 
@@ -89,3 +91,8 @@ class RecordingConfigurationThumbnailConfigurationResolution(str, Enum):
 class RecordingConfigurationThumbnailConfigurationStorageItem(str, Enum):
     SEQUENTIAL = "SEQUENTIAL"
     LATEST = "LATEST"
+
+
+class StageAutoParticipantRecordingConfigurationMediaTypesItem(str, Enum):
+    AUDIO_VIDEO = "AUDIO_VIDEO"
+    AUDIO_ONLY = "AUDIO_ONLY"

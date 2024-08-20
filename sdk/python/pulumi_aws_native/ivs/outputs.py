@@ -16,6 +16,7 @@ __all__ = [
     'RecordingConfigurationRenditionConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationThumbnailConfiguration',
+    'StageAutoParticipantRecordingConfiguration',
     'StorageConfigurationS3StorageConfiguration',
     'VideoProperties',
 ]
@@ -210,6 +211,59 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
+
+
+@pulumi.output_type
+class StageAutoParticipantRecordingConfiguration(dict):
+    """
+    Configuration object for individual participant recording, to attach to the new stage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageConfigurationArn":
+            suggest = "storage_configuration_arn"
+        elif key == "mediaTypes":
+            suggest = "media_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageAutoParticipantRecordingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageAutoParticipantRecordingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageAutoParticipantRecordingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_configuration_arn: str,
+                 media_types: Optional[Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem']] = None):
+        """
+        Configuration object for individual participant recording, to attach to the new stage.
+        :param str storage_configuration_arn: ARN of the StorageConfiguration resource to use for individual participant recording.
+        :param Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem'] media_types: Types of media to be recorded. Default: AUDIO_VIDEO.
+        """
+        pulumi.set(__self__, "storage_configuration_arn", storage_configuration_arn)
+        if media_types is not None:
+            pulumi.set(__self__, "media_types", media_types)
+
+    @property
+    @pulumi.getter(name="storageConfigurationArn")
+    def storage_configuration_arn(self) -> str:
+        """
+        ARN of the StorageConfiguration resource to use for individual participant recording.
+        """
+        return pulumi.get(self, "storage_configuration_arn")
+
+    @property
+    @pulumi.getter(name="mediaTypes")
+    def media_types(self) -> Optional[Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem']]:
+        """
+        Types of media to be recorded. Default: AUDIO_VIDEO.
+        """
+        return pulumi.get(self, "media_types")
 
 
 @pulumi.output_type

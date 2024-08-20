@@ -8,14 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['StageArgs', 'Stage']
 
 @pulumi.input_type
 class StageArgs:
     def __init__(__self__, *,
+                 auto_participant_recording_configuration: Optional[pulumi.Input['StageAutoParticipantRecordingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -23,10 +27,21 @@ class StageArgs:
         :param pulumi.Input[str] name: Stage name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if auto_participant_recording_configuration is not None:
+            pulumi.set(__self__, "auto_participant_recording_configuration", auto_participant_recording_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoParticipantRecordingConfiguration")
+    def auto_participant_recording_configuration(self) -> Optional[pulumi.Input['StageAutoParticipantRecordingConfigurationArgs']]:
+        return pulumi.get(self, "auto_participant_recording_configuration")
+
+    @auto_participant_recording_configuration.setter
+    def auto_participant_recording_configuration(self, value: Optional[pulumi.Input['StageAutoParticipantRecordingConfigurationArgs']]):
+        pulumi.set(self, "auto_participant_recording_configuration", value)
 
     @property
     @pulumi.getter
@@ -58,6 +73,7 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_participant_recording_configuration: Optional[pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -93,6 +109,7 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_participant_recording_configuration: Optional[pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -104,6 +121,7 @@ class Stage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StageArgs.__new__(StageArgs)
 
+            __props__.__dict__["auto_participant_recording_configuration"] = auto_participant_recording_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["active_session_id"] = None
@@ -132,6 +150,7 @@ class Stage(pulumi.CustomResource):
 
         __props__.__dict__["active_session_id"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["auto_participant_recording_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Stage(resource_name, opts=opts, __props__=__props__)
@@ -151,6 +170,11 @@ class Stage(pulumi.CustomResource):
         Stage ARN is automatically generated on creation and assigned as the unique identifier.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoParticipantRecordingConfiguration")
+    def auto_participant_recording_configuration(self) -> pulumi.Output[Optional['outputs.StageAutoParticipantRecordingConfiguration']]:
+        return pulumi.get(self, "auto_participant_recording_configuration")
 
     @property
     @pulumi.getter

@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetStageResult',
@@ -19,13 +21,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetStageResult:
-    def __init__(__self__, active_session_id=None, arn=None, name=None, tags=None):
+    def __init__(__self__, active_session_id=None, arn=None, auto_participant_recording_configuration=None, name=None, tags=None):
         if active_session_id and not isinstance(active_session_id, str):
             raise TypeError("Expected argument 'active_session_id' to be a str")
         pulumi.set(__self__, "active_session_id", active_session_id)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if auto_participant_recording_configuration and not isinstance(auto_participant_recording_configuration, dict):
+            raise TypeError("Expected argument 'auto_participant_recording_configuration' to be a dict")
+        pulumi.set(__self__, "auto_participant_recording_configuration", auto_participant_recording_configuration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -48,6 +53,11 @@ class GetStageResult:
         Stage ARN is automatically generated on creation and assigned as the unique identifier.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoParticipantRecordingConfiguration")
+    def auto_participant_recording_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfiguration']:
+        return pulumi.get(self, "auto_participant_recording_configuration")
 
     @property
     @pulumi.getter
@@ -74,6 +84,7 @@ class AwaitableGetStageResult(GetStageResult):
         return GetStageResult(
             active_session_id=self.active_session_id,
             arn=self.arn,
+            auto_participant_recording_configuration=self.auto_participant_recording_configuration,
             name=self.name,
             tags=self.tags)
 
@@ -94,6 +105,7 @@ def get_stage(arn: Optional[str] = None,
     return AwaitableGetStageResult(
         active_session_id=pulumi.get(__ret__, 'active_session_id'),
         arn=pulumi.get(__ret__, 'arn'),
+        auto_participant_recording_configuration=pulumi.get(__ret__, 'auto_participant_recording_configuration'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 

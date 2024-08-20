@@ -8866,7 +8866,7 @@ type IpamTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type KeyPairTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -16108,7 +16108,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type LaunchTemplateTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -16127,7 +16127,7 @@ type LaunchTemplateTagInput interface {
 	ToLaunchTemplateTagOutputWithContext(context.Context) LaunchTemplateTagOutput
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type LaunchTemplateTagArgs struct {
 	// The tag key.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -16172,7 +16172,7 @@ func (i LaunchTemplateTagArray) ToLaunchTemplateTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagArrayOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type LaunchTemplateTagOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagOutput) ElementType() reflect.Type {

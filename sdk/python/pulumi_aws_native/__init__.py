@@ -1758,6 +1758,7 @@ _utilities.register(
   "mod": "glue",
   "fqn": "pulumi_aws_native.glue",
   "classes": {
+   "aws-native:glue:Database": "Database",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
    "aws-native:glue:SchemaVersion": "SchemaVersion",
@@ -2023,6 +2024,7 @@ _utilities.register(
    "aws-native:ivs:EncoderConfiguration": "EncoderConfiguration",
    "aws-native:ivs:PlaybackKeyPair": "PlaybackKeyPair",
    "aws-native:ivs:PlaybackRestrictionPolicy": "PlaybackRestrictionPolicy",
+   "aws-native:ivs:PublicKey": "PublicKey",
    "aws-native:ivs:RecordingConfiguration": "RecordingConfiguration",
    "aws-native:ivs:Stage": "Stage",
    "aws-native:ivs:StorageConfiguration": "StorageConfiguration",

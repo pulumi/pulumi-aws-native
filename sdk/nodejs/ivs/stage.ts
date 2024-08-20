@@ -45,6 +45,7 @@ export class Stage extends pulumi.CustomResource {
      * Stage ARN is automatically generated on creation and assigned as the unique identifier.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly autoParticipantRecordingConfiguration!: pulumi.Output<outputs.ivs.StageAutoParticipantRecordingConfiguration | undefined>;
     /**
      * Stage name
      */
@@ -65,6 +66,7 @@ export class Stage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["autoParticipantRecordingConfiguration"] = args ? args.autoParticipantRecordingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activeSessionId"] = undefined /*out*/;
@@ -72,6 +74,7 @@ export class Stage extends pulumi.CustomResource {
         } else {
             resourceInputs["activeSessionId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoParticipantRecordingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -84,6 +87,7 @@ export class Stage extends pulumi.CustomResource {
  * The set of arguments for constructing a Stage resource.
  */
 export interface StageArgs {
+    autoParticipantRecordingConfiguration?: pulumi.Input<inputs.ivs.StageAutoParticipantRecordingConfigurationArgs>;
     /**
      * Stage name
      */

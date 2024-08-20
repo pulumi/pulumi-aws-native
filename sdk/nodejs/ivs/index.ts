@@ -35,6 +35,11 @@ export const getPlaybackRestrictionPolicy: typeof import("./getPlaybackRestricti
 export const getPlaybackRestrictionPolicyOutput: typeof import("./getPlaybackRestrictionPolicy").getPlaybackRestrictionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPlaybackRestrictionPolicy","getPlaybackRestrictionPolicyOutput"], () => require("./getPlaybackRestrictionPolicy"));
 
+export { GetPublicKeyArgs, GetPublicKeyResult, GetPublicKeyOutputArgs } from "./getPublicKey";
+export const getPublicKey: typeof import("./getPublicKey").getPublicKey = null as any;
+export const getPublicKeyOutput: typeof import("./getPublicKey").getPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicKey","getPublicKeyOutput"], () => require("./getPublicKey"));
+
 export { GetRecordingConfigurationArgs, GetRecordingConfigurationResult, GetRecordingConfigurationOutputArgs } from "./getRecordingConfiguration";
 export const getRecordingConfiguration: typeof import("./getRecordingConfiguration").getRecordingConfiguration = null as any;
 export const getRecordingConfigurationOutput: typeof import("./getRecordingConfiguration").getRecordingConfigurationOutput = null as any;
@@ -64,6 +69,11 @@ export { PlaybackRestrictionPolicyArgs } from "./playbackRestrictionPolicy";
 export type PlaybackRestrictionPolicy = import("./playbackRestrictionPolicy").PlaybackRestrictionPolicy;
 export const PlaybackRestrictionPolicy: typeof import("./playbackRestrictionPolicy").PlaybackRestrictionPolicy = null as any;
 utilities.lazyLoad(exports, ["PlaybackRestrictionPolicy"], () => require("./playbackRestrictionPolicy"));
+
+export { PublicKeyArgs } from "./publicKey";
+export type PublicKey = import("./publicKey").PublicKey;
+export const PublicKey: typeof import("./publicKey").PublicKey = null as any;
+utilities.lazyLoad(exports, ["PublicKey"], () => require("./publicKey"));
 
 export { RecordingConfigurationArgs } from "./recordingConfiguration";
 export type RecordingConfiguration = import("./recordingConfiguration").RecordingConfiguration;
@@ -101,6 +111,8 @@ const _module = {
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
             case "aws-native:ivs:PlaybackRestrictionPolicy":
                 return new PlaybackRestrictionPolicy(name, <any>undefined, { urn })
+            case "aws-native:ivs:PublicKey":
+                return new PublicKey(name, <any>undefined, { urn })
             case "aws-native:ivs:RecordingConfiguration":
                 return new RecordingConfiguration(name, <any>undefined, { urn })
             case "aws-native:ivs:Stage":

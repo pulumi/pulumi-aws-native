@@ -6973,13 +6973,13 @@ class LaunchTemplateSpotOptions(dict):
 @pulumi.output_type
 class LaunchTemplateTag(dict):
     """
-    Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+    Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+        Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param str key: The tag key.
         :param str value: The tag value.
         """

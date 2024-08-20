@@ -180,6 +180,7 @@ func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutputWithContext(ctx co
 type ChannelPreset string
 
 const (
+	ChannelPresetEmpty                        = ChannelPreset("")
 	ChannelPresetHigherBandwidthDelivery      = ChannelPreset("HIGHER_BANDWIDTH_DELIVERY")
 	ChannelPresetConstrainedBandwidthDelivery = ChannelPreset("CONSTRAINED_BANDWIDTH_DELIVERY")
 )
@@ -306,6 +307,7 @@ func (o ChannelPresetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ChannelPresetInput is an input type that accepts values of the ChannelPreset enum
 // A concrete instance of `ChannelPresetInput` can be one of the following:
 //
+//	ChannelPresetEmpty
 //	ChannelPresetHigherBandwidthDelivery
 //	ChannelPresetConstrainedBandwidthDelivery
 type ChannelPresetInput interface {
@@ -1532,11 +1534,221 @@ func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) Inde
 	}).(RecordingConfigurationThumbnailConfigurationStorageItemOutput)
 }
 
+type StageAutoParticipantRecordingConfigurationMediaTypesItem string
+
+const (
+	StageAutoParticipantRecordingConfigurationMediaTypesItemAudioVideo = StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO")
+	StageAutoParticipantRecordingConfigurationMediaTypesItemAudioOnly  = StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_ONLY")
+)
+
+func (StageAutoParticipantRecordingConfigurationMediaTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return pulumi.ToOutput(e).(StageAutoParticipantRecordingConfigurationMediaTypesItemOutput)
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StageAutoParticipantRecordingConfigurationMediaTypesItemOutput)
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return e.ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return StageAutoParticipantRecordingConfigurationMediaTypesItem(e).ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutputWithContext(ctx).ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StageAutoParticipantRecordingConfigurationMediaTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StageAutoParticipantRecordingConfigurationMediaTypesItemOutput struct{ *pulumi.OutputState }
+
+func (StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return o.ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfigurationMediaTypesItem) *StageAutoParticipantRecordingConfigurationMediaTypesItem {
+		return &v
+	}).(StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput)
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StageAutoParticipantRecordingConfigurationMediaTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StageAutoParticipantRecordingConfigurationMediaTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) Elem() StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationMediaTypesItem) StageAutoParticipantRecordingConfigurationMediaTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret StageAutoParticipantRecordingConfigurationMediaTypesItem
+		return ret
+	}).(StageAutoParticipantRecordingConfigurationMediaTypesItemOutput)
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StageAutoParticipantRecordingConfigurationMediaTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StageAutoParticipantRecordingConfigurationMediaTypesItemInput is an input type that accepts values of the StageAutoParticipantRecordingConfigurationMediaTypesItem enum
+// A concrete instance of `StageAutoParticipantRecordingConfigurationMediaTypesItemInput` can be one of the following:
+//
+//	StageAutoParticipantRecordingConfigurationMediaTypesItemAudioVideo
+//	StageAutoParticipantRecordingConfigurationMediaTypesItemAudioOnly
+type StageAutoParticipantRecordingConfigurationMediaTypesItemInput interface {
+	pulumi.Input
+
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemOutput
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemOutput
+}
+
+var stageAutoParticipantRecordingConfigurationMediaTypesItemPtrType = reflect.TypeOf((**StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+
+type StageAutoParticipantRecordingConfigurationMediaTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput
+}
+
+type stageAutoParticipantRecordingConfigurationMediaTypesItemPtr string
+
+func StageAutoParticipantRecordingConfigurationMediaTypesItemPtr(v string) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrInput {
+	return (*stageAutoParticipantRecordingConfigurationMediaTypesItemPtr)(&v)
+}
+
+func (*stageAutoParticipantRecordingConfigurationMediaTypesItemPtr) ElementType() reflect.Type {
+	return stageAutoParticipantRecordingConfigurationMediaTypesItemPtrType
+}
+
+func (in *stageAutoParticipantRecordingConfigurationMediaTypesItemPtr) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput)
+}
+
+func (in *stageAutoParticipantRecordingConfigurationMediaTypesItemPtr) ToStageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput)
+}
+
+// StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput is an input type that accepts StageAutoParticipantRecordingConfigurationMediaTypesItemArray and StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput values.
+// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput` via:
+//
+//	StageAutoParticipantRecordingConfigurationMediaTypesItemArray{ StageAutoParticipantRecordingConfigurationMediaTypesItemArgs{...} }
+type StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput
+	ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput
+}
+
+type StageAutoParticipantRecordingConfigurationMediaTypesItemArray []StageAutoParticipantRecordingConfigurationMediaTypesItem
+
+func (StageAutoParticipantRecordingConfigurationMediaTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+}
+
+func (i StageAutoParticipantRecordingConfigurationMediaTypesItemArray) ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return i.ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i StageAutoParticipantRecordingConfigurationMediaTypesItemArray) ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput)
+}
+
+type StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageAutoParticipantRecordingConfigurationMediaTypesItem)(nil)).Elem()
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput() StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput) ToStageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput {
+	return o
+}
+
+func (o StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput) Index(i pulumi.IntInput) StageAutoParticipantRecordingConfigurationMediaTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageAutoParticipantRecordingConfigurationMediaTypesItem {
+		return vs[0].([]StageAutoParticipantRecordingConfigurationMediaTypesItem)[vs[1].(int)]
+	}).(StageAutoParticipantRecordingConfigurationMediaTypesItemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetInput)(nil)).Elem(), ChannelPreset("HIGHER_BANDWIDTH_DELIVERY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset("HIGHER_BANDWIDTH_DELIVERY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetInput)(nil)).Elem(), ChannelPreset(""))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset(""))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelectionInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionSelection("ALL"))
@@ -1551,6 +1763,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItem("SEQUENTIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationStorageItemArrayInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationStorageItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItemArray{})
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(ChannelPresetOutput{})
@@ -1571,4 +1786,7 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput{})
+	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationMediaTypesItemOutput{})
+	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationMediaTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput{})
 }

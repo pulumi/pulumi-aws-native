@@ -12,6 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DatabaseDataLakePrincipal',
+    'DatabaseFederatedDatabase',
+    'DatabaseIdentifier',
+    'DatabaseInput',
+    'DatabasePrincipalPrivileges',
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
@@ -21,6 +26,317 @@ __all__ = [
     'TriggerNotificationProperty',
     'TriggerPredicate',
 ]
+
+@pulumi.output_type
+class DatabaseDataLakePrincipal(dict):
+    """
+    The AWS Lake Formation principal.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakePrincipalIdentifier":
+            suggest = "data_lake_principal_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseDataLakePrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseDataLakePrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseDataLakePrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[str] = None):
+        """
+        The AWS Lake Formation principal.
+        :param str data_lake_principal_identifier: An identifier for the AWS Lake Formation principal.
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[str]:
+        """
+        An identifier for the AWS Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+
+@pulumi.output_type
+class DatabaseFederatedDatabase(dict):
+    """
+    A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseFederatedDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseFederatedDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseFederatedDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        """
+        A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+        :param str connection_name: The name of the connection to the external metastore.
+        :param str identifier: A unique identifier for the federated database.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to the external metastore.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        A unique identifier for the federated database.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class DatabaseIdentifier(dict):
+    """
+    A structure that describes a target database for resource linking.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_id: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        A structure that describes a target database for resource linking.
+        :param str catalog_id: The ID of the Data Catalog in which the database resides.
+        :param str database_name: The name of the catalog database.
+        :param str region: Region of the target database.
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        The ID of the Data Catalog in which the database resides.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the catalog database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the target database.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class DatabaseInput(dict):
+    """
+    The structure used to create or update a database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createTableDefaultPermissions":
+            suggest = "create_table_default_permissions"
+        elif key == "federatedDatabase":
+            suggest = "federated_database"
+        elif key == "locationUri":
+            suggest = "location_uri"
+        elif key == "targetDatabase":
+            suggest = "target_database"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_table_default_permissions: Optional[Sequence['outputs.DatabasePrincipalPrivileges']] = None,
+                 description: Optional[str] = None,
+                 federated_database: Optional['outputs.DatabaseFederatedDatabase'] = None,
+                 location_uri: Optional[str] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Any] = None,
+                 target_database: Optional['outputs.DatabaseIdentifier'] = None):
+        """
+        The structure used to create or update a database.
+        :param Sequence['DatabasePrincipalPrivileges'] create_table_default_permissions: Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+        :param str description: A description of the database.
+        :param 'DatabaseFederatedDatabase' federated_database: A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+        :param str location_uri: The location of the database (for example, an HDFS path).
+        :param str name: The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+        :param Any parameters: These key-value pairs define parameters and properties of the database.
+        :param 'DatabaseIdentifier' target_database: A DatabaseIdentifier structure that describes a target database for resource linking.
+        """
+        if create_table_default_permissions is not None:
+            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if federated_database is not None:
+            pulumi.set(__self__, "federated_database", federated_database)
+        if location_uri is not None:
+            pulumi.set(__self__, "location_uri", location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if target_database is not None:
+            pulumi.set(__self__, "target_database", target_database)
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> Optional[Sequence['outputs.DatabasePrincipalPrivileges']]:
+        """
+        Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the database.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> Optional['outputs.DatabaseFederatedDatabase']:
+        """
+        A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "federated_database")
+
+    @property
+    @pulumi.getter(name="locationUri")
+    def location_uri(self) -> Optional[str]:
+        """
+        The location of the database (for example, an HDFS path).
+        """
+        return pulumi.get(self, "location_uri")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define parameters and properties of the database.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="targetDatabase")
+    def target_database(self) -> Optional['outputs.DatabaseIdentifier']:
+        """
+        A DatabaseIdentifier structure that describes a target database for resource linking.
+        """
+        return pulumi.get(self, "target_database")
+
+
+@pulumi.output_type
+class DatabasePrincipalPrivileges(dict):
+    """
+    The permissions granted to a principal.
+    """
+    def __init__(__self__, *,
+                 permissions: Optional[Sequence[str]] = None,
+                 principal: Optional['outputs.DatabaseDataLakePrincipal'] = None):
+        """
+        The permissions granted to a principal.
+        :param Sequence[str] permissions: The permissions that are granted to the principal.
+        :param 'DatabaseDataLakePrincipal' principal: The principal who is granted permissions.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[str]]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional['outputs.DatabaseDataLakePrincipal']:
+        """
+        The principal who is granted permissions.
+        """
+        return pulumi.get(self, "principal")
+
 
 @pulumi.output_type
 class SchemaRegistry(dict):

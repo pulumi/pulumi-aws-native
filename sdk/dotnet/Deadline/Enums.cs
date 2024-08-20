@@ -158,6 +158,7 @@ namespace Pulumi.AwsNative.Deadline
         }
 
         public static FleetServiceManagedFleetOperatingSystemFamily Linux { get; } = new FleetServiceManagedFleetOperatingSystemFamily("LINUX");
+        public static FleetServiceManagedFleetOperatingSystemFamily Windows { get; } = new FleetServiceManagedFleetOperatingSystemFamily("WINDOWS");
 
         public static bool operator ==(FleetServiceManagedFleetOperatingSystemFamily left, FleetServiceManagedFleetOperatingSystemFamily right) => left.Equals(right);
         public static bool operator !=(FleetServiceManagedFleetOperatingSystemFamily left, FleetServiceManagedFleetOperatingSystemFamily right) => !left.Equals(right);

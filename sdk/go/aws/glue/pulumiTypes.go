@@ -13,6 +13,795 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The AWS Lake Formation principal.
+type DatabaseDataLakePrincipal struct {
+	// An identifier for the AWS Lake Formation principal.
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// DatabaseDataLakePrincipalInput is an input type that accepts DatabaseDataLakePrincipalArgs and DatabaseDataLakePrincipalOutput values.
+// You can construct a concrete instance of `DatabaseDataLakePrincipalInput` via:
+//
+//	DatabaseDataLakePrincipalArgs{...}
+type DatabaseDataLakePrincipalInput interface {
+	pulumi.Input
+
+	ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput
+	ToDatabaseDataLakePrincipalOutputWithContext(context.Context) DatabaseDataLakePrincipalOutput
+}
+
+// The AWS Lake Formation principal.
+type DatabaseDataLakePrincipalArgs struct {
+	// An identifier for the AWS Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (DatabaseDataLakePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput {
+	return i.ToDatabaseDataLakePrincipalOutputWithContext(context.Background())
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalOutput)
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return i.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalOutput).ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx)
+}
+
+// DatabaseDataLakePrincipalPtrInput is an input type that accepts DatabaseDataLakePrincipalArgs, DatabaseDataLakePrincipalPtr and DatabaseDataLakePrincipalPtrOutput values.
+// You can construct a concrete instance of `DatabaseDataLakePrincipalPtrInput` via:
+//
+//	        DatabaseDataLakePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseDataLakePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput
+	ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Context) DatabaseDataLakePrincipalPtrOutput
+}
+
+type databaseDataLakePrincipalPtrType DatabaseDataLakePrincipalArgs
+
+func DatabaseDataLakePrincipalPtr(v *DatabaseDataLakePrincipalArgs) DatabaseDataLakePrincipalPtrInput {
+	return (*databaseDataLakePrincipalPtrType)(v)
+}
+
+func (*databaseDataLakePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (i *databaseDataLakePrincipalPtrType) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return i.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseDataLakePrincipalPtrType) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+// The AWS Lake Formation principal.
+type DatabaseDataLakePrincipalOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDataLakePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return o.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDataLakePrincipal) *DatabaseDataLakePrincipal {
+		return &v
+	}).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+// An identifier for the AWS Lake Formation principal.
+func (o DatabaseDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseDataLakePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDataLakePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) Elem() DatabaseDataLakePrincipalOutput {
+	return o.ApplyT(func(v *DatabaseDataLakePrincipal) DatabaseDataLakePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseDataLakePrincipal
+		return ret
+	}).(DatabaseDataLakePrincipalOutput)
+}
+
+// An identifier for the AWS Lake Formation principal.
+func (o DatabaseDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDataLakePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+type DatabaseFederatedDatabase struct {
+	// The name of the connection to the external metastore.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A unique identifier for the federated database.
+	Identifier *string `pulumi:"identifier"`
+}
+
+// DatabaseFederatedDatabaseInput is an input type that accepts DatabaseFederatedDatabaseArgs and DatabaseFederatedDatabaseOutput values.
+// You can construct a concrete instance of `DatabaseFederatedDatabaseInput` via:
+//
+//	DatabaseFederatedDatabaseArgs{...}
+type DatabaseFederatedDatabaseInput interface {
+	pulumi.Input
+
+	ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput
+	ToDatabaseFederatedDatabaseOutputWithContext(context.Context) DatabaseFederatedDatabaseOutput
+}
+
+// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+type DatabaseFederatedDatabaseArgs struct {
+	// The name of the connection to the external metastore.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A unique identifier for the federated database.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (DatabaseFederatedDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput {
+	return i.ToDatabaseFederatedDatabaseOutputWithContext(context.Background())
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) DatabaseFederatedDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabaseOutput)
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return i.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabaseOutput).ToDatabaseFederatedDatabasePtrOutputWithContext(ctx)
+}
+
+// DatabaseFederatedDatabasePtrInput is an input type that accepts DatabaseFederatedDatabaseArgs, DatabaseFederatedDatabasePtr and DatabaseFederatedDatabasePtrOutput values.
+// You can construct a concrete instance of `DatabaseFederatedDatabasePtrInput` via:
+//
+//	        DatabaseFederatedDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseFederatedDatabasePtrInput interface {
+	pulumi.Input
+
+	ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput
+	ToDatabaseFederatedDatabasePtrOutputWithContext(context.Context) DatabaseFederatedDatabasePtrOutput
+}
+
+type databaseFederatedDatabasePtrType DatabaseFederatedDatabaseArgs
+
+func DatabaseFederatedDatabasePtr(v *DatabaseFederatedDatabaseArgs) DatabaseFederatedDatabasePtrInput {
+	return (*databaseFederatedDatabasePtrType)(v)
+}
+
+func (*databaseFederatedDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i *databaseFederatedDatabasePtrType) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return i.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *databaseFederatedDatabasePtrType) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabasePtrOutput)
+}
+
+// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+type DatabaseFederatedDatabaseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseFederatedDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) DatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return o.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseFederatedDatabase) *DatabaseFederatedDatabase {
+		return &v
+	}).(DatabaseFederatedDatabasePtrOutput)
+}
+
+// The name of the connection to the external metastore.
+func (o DatabaseFederatedDatabaseOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseFederatedDatabase) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the federated database.
+func (o DatabaseFederatedDatabaseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseFederatedDatabase) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseFederatedDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseFederatedDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) Elem() DatabaseFederatedDatabaseOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) DatabaseFederatedDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseFederatedDatabase
+		return ret
+	}).(DatabaseFederatedDatabaseOutput)
+}
+
+// The name of the connection to the external metastore.
+func (o DatabaseFederatedDatabasePtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the federated database.
+func (o DatabaseFederatedDatabasePtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure that describes a target database for resource linking.
+type DatabaseIdentifier struct {
+	// The ID of the Data Catalog in which the database resides.
+	CatalogId *string `pulumi:"catalogId"`
+	// The name of the catalog database.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Region of the target database.
+	Region *string `pulumi:"region"`
+}
+
+// DatabaseIdentifierInput is an input type that accepts DatabaseIdentifierArgs and DatabaseIdentifierOutput values.
+// You can construct a concrete instance of `DatabaseIdentifierInput` via:
+//
+//	DatabaseIdentifierArgs{...}
+type DatabaseIdentifierInput interface {
+	pulumi.Input
+
+	ToDatabaseIdentifierOutput() DatabaseIdentifierOutput
+	ToDatabaseIdentifierOutputWithContext(context.Context) DatabaseIdentifierOutput
+}
+
+// A structure that describes a target database for resource linking.
+type DatabaseIdentifierArgs struct {
+	// The ID of the Data Catalog in which the database resides.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The name of the catalog database.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Region of the target database.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (DatabaseIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentifier)(nil)).Elem()
+}
+
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierOutput() DatabaseIdentifierOutput {
+	return i.ToDatabaseIdentifierOutputWithContext(context.Background())
+}
+
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierOutput)
+}
+
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return i.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierOutput).ToDatabaseIdentifierPtrOutputWithContext(ctx)
+}
+
+// DatabaseIdentifierPtrInput is an input type that accepts DatabaseIdentifierArgs, DatabaseIdentifierPtr and DatabaseIdentifierPtrOutput values.
+// You can construct a concrete instance of `DatabaseIdentifierPtrInput` via:
+//
+//	        DatabaseIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput
+	ToDatabaseIdentifierPtrOutputWithContext(context.Context) DatabaseIdentifierPtrOutput
+}
+
+type databaseIdentifierPtrType DatabaseIdentifierArgs
+
+func DatabaseIdentifierPtr(v *DatabaseIdentifierArgs) DatabaseIdentifierPtrInput {
+	return (*databaseIdentifierPtrType)(v)
+}
+
+func (*databaseIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentifier)(nil)).Elem()
+}
+
+func (i *databaseIdentifierPtrType) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return i.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseIdentifierPtrType) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierPtrOutput)
+}
+
+// A structure that describes a target database for resource linking.
+type DatabaseIdentifierOutput struct{ *pulumi.OutputState }
+
+func (DatabaseIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierOutput() DatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return o.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseIdentifier) *DatabaseIdentifier {
+		return &v
+	}).(DatabaseIdentifierPtrOutput)
+}
+
+// The ID of the Data Catalog in which the database resides.
+func (o DatabaseIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the catalog database.
+func (o DatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Region of the target database.
+func (o DatabaseIdentifierOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseIdentifierPtrOutput) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseIdentifierPtrOutput) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseIdentifierPtrOutput) Elem() DatabaseIdentifierOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) DatabaseIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseIdentifier
+		return ret
+	}).(DatabaseIdentifierOutput)
+}
+
+// The ID of the Data Catalog in which the database resides.
+func (o DatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the catalog database.
+func (o DatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region of the target database.
+func (o DatabaseIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The structure used to create or update a database.
+type DatabaseInputType struct {
+	// Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+	CreateTableDefaultPermissions []DatabasePrincipalPrivileges `pulumi:"createTableDefaultPermissions"`
+	// A description of the database.
+	Description *string `pulumi:"description"`
+	// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+	FederatedDatabase *DatabaseFederatedDatabase `pulumi:"federatedDatabase"`
+	// The location of the database (for example, an HDFS path).
+	LocationUri *string `pulumi:"locationUri"`
+	// The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+	Name *string `pulumi:"name"`
+	// These key-value pairs define parameters and properties of the database.
+	Parameters interface{} `pulumi:"parameters"`
+	// A DatabaseIdentifier structure that describes a target database for resource linking.
+	TargetDatabase *DatabaseIdentifier `pulumi:"targetDatabase"`
+}
+
+// DatabaseInputTypeInput is an input type that accepts DatabaseInputTypeArgs and DatabaseInputTypeOutput values.
+// You can construct a concrete instance of `DatabaseInputTypeInput` via:
+//
+//	DatabaseInputTypeArgs{...}
+type DatabaseInputTypeInput interface {
+	pulumi.Input
+
+	ToDatabaseInputTypeOutput() DatabaseInputTypeOutput
+	ToDatabaseInputTypeOutputWithContext(context.Context) DatabaseInputTypeOutput
+}
+
+// The structure used to create or update a database.
+type DatabaseInputTypeArgs struct {
+	// Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+	CreateTableDefaultPermissions DatabasePrincipalPrivilegesArrayInput `pulumi:"createTableDefaultPermissions"`
+	// A description of the database.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+	FederatedDatabase DatabaseFederatedDatabasePtrInput `pulumi:"federatedDatabase"`
+	// The location of the database (for example, an HDFS path).
+	LocationUri pulumi.StringPtrInput `pulumi:"locationUri"`
+	// The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// These key-value pairs define parameters and properties of the database.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// A DatabaseIdentifier structure that describes a target database for resource linking.
+	TargetDatabase DatabaseIdentifierPtrInput `pulumi:"targetDatabase"`
+}
+
+func (DatabaseInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseInputType)(nil)).Elem()
+}
+
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypeOutput() DatabaseInputTypeOutput {
+	return i.ToDatabaseInputTypeOutputWithContext(context.Background())
+}
+
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypeOutputWithContext(ctx context.Context) DatabaseInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInputTypeOutput)
+}
+
+// The structure used to create or update a database.
+type DatabaseInputTypeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseInputType)(nil)).Elem()
+}
+
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypeOutput() DatabaseInputTypeOutput {
+	return o
+}
+
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypeOutputWithContext(ctx context.Context) DatabaseInputTypeOutput {
+	return o
+}
+
+// Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+func (o DatabaseInputTypeOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v DatabaseInputType) []DatabasePrincipalPrivileges { return v.CreateTableDefaultPermissions }).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// A description of the database.
+func (o DatabaseInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+func (o DatabaseInputTypeOutput) FederatedDatabase() DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *DatabaseFederatedDatabase { return v.FederatedDatabase }).(DatabaseFederatedDatabasePtrOutput)
+}
+
+// The location of the database (for example, an HDFS path).
+func (o DatabaseInputTypeOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+func (o DatabaseInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define parameters and properties of the database.
+func (o DatabaseInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DatabaseInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// A DatabaseIdentifier structure that describes a target database for resource linking.
+func (o DatabaseInputTypeOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *DatabaseIdentifier { return v.TargetDatabase }).(DatabaseIdentifierPtrOutput)
+}
+
+type DatabaseInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseInputType)(nil)).Elem()
+}
+
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
+	return o
+}
+
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
+	return o
+}
+
+func (o DatabaseInputTypePtrOutput) Elem() DatabaseInputTypeOutput {
+	return o.ApplyT(func(v *DatabaseInputType) DatabaseInputType {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseInputType
+		return ret
+	}).(DatabaseInputTypeOutput)
+}
+
+// Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
+func (o DatabaseInputTypePtrOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v *DatabaseInputType) []DatabasePrincipalPrivileges {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTableDefaultPermissions
+	}).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// A description of the database.
+func (o DatabaseInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+func (o DatabaseInputTypePtrOutput) FederatedDatabase() DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *DatabaseFederatedDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.FederatedDatabase
+	}).(DatabaseFederatedDatabasePtrOutput)
+}
+
+// The location of the database (for example, an HDFS path).
+func (o DatabaseInputTypePtrOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
+func (o DatabaseInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define parameters and properties of the database.
+func (o DatabaseInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// A DatabaseIdentifier structure that describes a target database for resource linking.
+func (o DatabaseInputTypePtrOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *DatabaseIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDatabase
+	}).(DatabaseIdentifierPtrOutput)
+}
+
+// The permissions granted to a principal.
+type DatabasePrincipalPrivileges struct {
+	// The permissions that are granted to the principal.
+	Permissions []string `pulumi:"permissions"`
+	// The principal who is granted permissions.
+	Principal *DatabaseDataLakePrincipal `pulumi:"principal"`
+}
+
+// DatabasePrincipalPrivilegesInput is an input type that accepts DatabasePrincipalPrivilegesArgs and DatabasePrincipalPrivilegesOutput values.
+// You can construct a concrete instance of `DatabasePrincipalPrivilegesInput` via:
+//
+//	DatabasePrincipalPrivilegesArgs{...}
+type DatabasePrincipalPrivilegesInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput
+	ToDatabasePrincipalPrivilegesOutputWithContext(context.Context) DatabasePrincipalPrivilegesOutput
+}
+
+// The permissions granted to a principal.
+type DatabasePrincipalPrivilegesArgs struct {
+	// The permissions that are granted to the principal.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The principal who is granted permissions.
+	Principal DatabaseDataLakePrincipalPtrInput `pulumi:"principal"`
+}
+
+func (DatabasePrincipalPrivilegesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (i DatabasePrincipalPrivilegesArgs) ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput {
+	return i.ToDatabasePrincipalPrivilegesOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalPrivilegesArgs) ToDatabasePrincipalPrivilegesOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPrivilegesOutput)
+}
+
+// DatabasePrincipalPrivilegesArrayInput is an input type that accepts DatabasePrincipalPrivilegesArray and DatabasePrincipalPrivilegesArrayOutput values.
+// You can construct a concrete instance of `DatabasePrincipalPrivilegesArrayInput` via:
+//
+//	DatabasePrincipalPrivilegesArray{ DatabasePrincipalPrivilegesArgs{...} }
+type DatabasePrincipalPrivilegesArrayInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput
+	ToDatabasePrincipalPrivilegesArrayOutputWithContext(context.Context) DatabasePrincipalPrivilegesArrayOutput
+}
+
+type DatabasePrincipalPrivilegesArray []DatabasePrincipalPrivilegesInput
+
+func (DatabasePrincipalPrivilegesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (i DatabasePrincipalPrivilegesArray) ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput {
+	return i.ToDatabasePrincipalPrivilegesArrayOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalPrivilegesArray) ToDatabasePrincipalPrivilegesArrayOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// The permissions granted to a principal.
+type DatabasePrincipalPrivilegesOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalPrivilegesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (o DatabasePrincipalPrivilegesOutput) ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesOutput) ToDatabasePrincipalPrivilegesOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesOutput {
+	return o
+}
+
+// The permissions that are granted to the principal.
+func (o DatabasePrincipalPrivilegesOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabasePrincipalPrivileges) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The principal who is granted permissions.
+func (o DatabasePrincipalPrivilegesOutput) Principal() DatabaseDataLakePrincipalPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalPrivileges) *DatabaseDataLakePrincipal { return v.Principal }).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+type DatabasePrincipalPrivilegesArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalPrivilegesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) ToDatabasePrincipalPrivilegesArrayOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalPrivilegesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalPrivileges {
+		return vs[0].([]DatabasePrincipalPrivileges)[vs[1].(int)]
+	}).(DatabasePrincipalPrivilegesOutput)
+}
+
 type RegistryTag struct {
 	// A key to identify the tag.
 	Key string `pulumi:"key"`
@@ -1158,6 +1947,15 @@ func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabasePtrInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentifierInput)(nil)).Elem(), DatabaseIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentifierPtrInput)(nil)).Elem(), DatabaseIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInputTypeInput)(nil)).Elem(), DatabaseInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesInput)(nil)).Elem(), DatabasePrincipalPrivilegesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesArrayInput)(nil)).Elem(), DatabasePrincipalPrivilegesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryPtrInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
@@ -1173,6 +1971,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerNotificationPropertyPtrInput)(nil)).Elem(), TriggerNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateInput)(nil)).Elem(), TriggerPredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicatePtrInput)(nil)).Elem(), TriggerPredicateArgs{})
+	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
+	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})
+	pulumi.RegisterOutputType(DatabaseFederatedDatabasePtrOutput{})
+	pulumi.RegisterOutputType(DatabaseIdentifierOutput{})
+	pulumi.RegisterOutputType(DatabaseIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseInputTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseInputTypePtrOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})

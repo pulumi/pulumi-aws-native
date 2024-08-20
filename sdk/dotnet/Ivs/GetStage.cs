@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.Ivs
         /// Stage ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.StageAutoParticipantRecordingConfiguration? AutoParticipantRecordingConfiguration;
         /// <summary>
         /// Stage name
         /// </summary>
@@ -80,12 +81,15 @@ namespace Pulumi.AwsNative.Ivs
 
             string? arn,
 
+            Outputs.StageAutoParticipantRecordingConfiguration? autoParticipantRecordingConfiguration,
+
             string? name,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ActiveSessionId = activeSessionId;
             Arn = arn;
+            AutoParticipantRecordingConfiguration = autoParticipantRecordingConfiguration;
             Name = name;
             Tags = tags;
         }

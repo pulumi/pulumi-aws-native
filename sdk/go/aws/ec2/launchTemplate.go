@@ -36,7 +36,7 @@ type LaunchTemplate struct {
 	// A name for the launch template.
 	LaunchTemplateName pulumi.StringPtrOutput `pulumi:"launchTemplateName"`
 	// The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// A description for the first version of the launch template.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
@@ -94,7 +94,7 @@ type launchTemplateArgs struct {
 	// A name for the launch template.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	// The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A description for the first version of the launch template.
 	VersionDescription *string `pulumi:"versionDescription"`
@@ -107,7 +107,7 @@ type LaunchTemplateArgs struct {
 	// A name for the launch template.
 	LaunchTemplateName pulumi.StringPtrInput
 	// The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+	//  To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A description for the first version of the launch template.
 	VersionDescription pulumi.StringPtrInput
@@ -179,7 +179,7 @@ func (o LaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 
 // The tags to apply to the launch template on creation. To tag the launch template, the resource type must be “launch-template“.
 //
-//	To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+//	To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
 func (o LaunchTemplateOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateTagSpecificationArrayOutput { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
 }

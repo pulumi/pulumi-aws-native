@@ -32,7 +32,8 @@ type LookupStageResult struct {
 	// ID of the active session within the stage.
 	ActiveSessionId *string `pulumi:"activeSessionId"`
 	// Stage ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn *string `pulumi:"arn"`
+	Arn                                   *string                                     `pulumi:"arn"`
+	AutoParticipantRecordingConfiguration *StageAutoParticipantRecordingConfiguration `pulumi:"autoParticipantRecordingConfiguration"`
 	// Stage name
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
@@ -83,6 +84,12 @@ func (o LookupStageResultOutput) ActiveSessionId() pulumi.StringPtrOutput {
 // Stage ARN is automatically generated on creation and assigned as the unique identifier.
 func (o LookupStageResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStageResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStageResultOutput) AutoParticipantRecordingConfiguration() StageAutoParticipantRecordingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupStageResult) *StageAutoParticipantRecordingConfiguration {
+		return v.AutoParticipantRecordingConfiguration
+	}).(StageAutoParticipantRecordingConfigurationPtrOutput)
 }
 
 // Stage name

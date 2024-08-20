@@ -13,6 +13,7 @@ export const ChannelLatencyMode = {
 export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
 
 export const ChannelPreset = {
+    Empty: "",
     HigherBandwidthDelivery: "HIGHER_BANDWIDTH_DELIVERY",
     ConstrainedBandwidthDelivery: "CONSTRAINED_BANDWIDTH_DELIVERY",
 } as const;
@@ -93,3 +94,10 @@ export const RecordingConfigurationThumbnailConfigurationStorageItem = {
 } as const;
 
 export type RecordingConfigurationThumbnailConfigurationStorageItem = (typeof RecordingConfigurationThumbnailConfigurationStorageItem)[keyof typeof RecordingConfigurationThumbnailConfigurationStorageItem];
+
+export const StageAutoParticipantRecordingConfigurationMediaTypesItem = {
+    AudioVideo: "AUDIO_VIDEO",
+    AudioOnly: "AUDIO_ONLY",
+} as const;
+
+export type StageAutoParticipantRecordingConfigurationMediaTypesItem = (typeof StageAutoParticipantRecordingConfigurationMediaTypesItem)[keyof typeof StageAutoParticipantRecordingConfigurationMediaTypesItem];

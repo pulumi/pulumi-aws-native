@@ -883,7 +883,8 @@ func (in *fleetEc2MarketTypePtr) ToFleetEc2MarketTypePtrOutputWithContext(ctx co
 type FleetServiceManagedFleetOperatingSystemFamily string
 
 const (
-	FleetServiceManagedFleetOperatingSystemFamilyLinux = FleetServiceManagedFleetOperatingSystemFamily("LINUX")
+	FleetServiceManagedFleetOperatingSystemFamilyLinux   = FleetServiceManagedFleetOperatingSystemFamily("LINUX")
+	FleetServiceManagedFleetOperatingSystemFamilyWindows = FleetServiceManagedFleetOperatingSystemFamily("WINDOWS")
 )
 
 func (FleetServiceManagedFleetOperatingSystemFamily) ElementType() reflect.Type {
@@ -1009,6 +1010,7 @@ func (o FleetServiceManagedFleetOperatingSystemFamilyPtrOutput) ToStringPtrOutpu
 // A concrete instance of `FleetServiceManagedFleetOperatingSystemFamilyInput` can be one of the following:
 //
 //	FleetServiceManagedFleetOperatingSystemFamilyLinux
+//	FleetServiceManagedFleetOperatingSystemFamilyWindows
 type FleetServiceManagedFleetOperatingSystemFamilyInput interface {
 	pulumi.Input
 

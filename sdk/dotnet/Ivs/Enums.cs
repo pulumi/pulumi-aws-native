@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.Ivs
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ChannelPreset Empty { get; } = new ChannelPreset("");
         public static ChannelPreset HigherBandwidthDelivery { get; } = new ChannelPreset("HIGHER_BANDWIDTH_DELIVERY");
         public static ChannelPreset ConstrainedBandwidthDelivery { get; } = new ChannelPreset("CONSTRAINED_BANDWIDTH_DELIVERY");
 
@@ -281,6 +282,34 @@ namespace Pulumi.AwsNative.Ivs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecordingConfigurationThumbnailConfigurationStorageItem other && Equals(other);
         public bool Equals(RecordingConfigurationThumbnailConfigurationStorageItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StageAutoParticipantRecordingConfigurationMediaTypesItem : IEquatable<StageAutoParticipantRecordingConfigurationMediaTypesItem>
+    {
+        private readonly string _value;
+
+        private StageAutoParticipantRecordingConfigurationMediaTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StageAutoParticipantRecordingConfigurationMediaTypesItem AudioVideo { get; } = new StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO");
+        public static StageAutoParticipantRecordingConfigurationMediaTypesItem AudioOnly { get; } = new StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_ONLY");
+
+        public static bool operator ==(StageAutoParticipantRecordingConfigurationMediaTypesItem left, StageAutoParticipantRecordingConfigurationMediaTypesItem right) => left.Equals(right);
+        public static bool operator !=(StageAutoParticipantRecordingConfigurationMediaTypesItem left, StageAutoParticipantRecordingConfigurationMediaTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(StageAutoParticipantRecordingConfigurationMediaTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StageAutoParticipantRecordingConfigurationMediaTypesItem other && Equals(other);
+        public bool Equals(StageAutoParticipantRecordingConfigurationMediaTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
