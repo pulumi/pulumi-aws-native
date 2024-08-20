@@ -1,11 +1,10 @@
 {
-  "typeName" : "AWS::IVS::PlaybackKeyPair",
-  "description" : "Resource Type definition for AWS::IVS::PlaybackKeyPair",
+  "typeName" : "AWS::IVS::PublicKey",
+  "description" : "Resource Type definition for AWS::IVS::PublicKey",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "definitions" : {
     "Tag" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "Key" : {
           "type" : "string",
@@ -18,12 +17,13 @@
           "maxLength" : 256
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
     "Name" : {
-      "description" : "An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.",
+      "description" : "Name of the public key to be imported. The value does not need to be unique.",
       "type" : "string",
       "pattern" : "^[a-zA-Z0-9-_]*$",
       "minLength" : 0,
@@ -31,7 +31,8 @@
     },
     "PublicKeyMaterial" : {
       "description" : "The public portion of a customer-generated key pair.",
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "-----BEGIN PUBLIC KEY-----\\r?\\n([a-zA-Z0-9+/=\\r\\n]+)\\r?\\n-----END PUBLIC KEY-----(\\r?\\n)?"
     },
     "Fingerprint" : {
       "description" : "Key-pair identifier.",
@@ -40,7 +41,7 @@
     "Arn" : {
       "description" : "Key-pair identifier.",
       "type" : "string",
-      "pattern" : "^arn:aws:ivs:[a-z0-9-]+:[0-9]+:playback-key/[a-zA-Z0-9-]+$",
+      "pattern" : "^arn:aws:ivs:[a-z0-9-]+:[0-9]+:public-key/[a-zA-Z0-9-]+$",
       "minLength" : 1,
       "maxLength" : 128
     },
@@ -64,25 +65,24 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "ivs:TagResource", "ivs:UntagResource", "ivs:ListTagsForResource" ]
   },
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Fingerprint" ],
-  "writeOnlyProperties" : [ "/properties/PublicKeyMaterial" ],
-  "createOnlyProperties" : [ "/properties/PublicKeyMaterial", "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Fingerprint" ],
+  "createOnlyProperties" : [ "/properties/PublicKeyMaterial", "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivs:ImportPlaybackKeyPair", "ivs:TagResource" ]
+      "permissions" : [ "ivs:ImportPublicKey", "ivs:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "ivs:GetPlaybackKeyPair" ]
+      "permissions" : [ "ivs:GetPublicKey" ]
     },
     "update" : {
-      "permissions" : [ "ivs:GetPlaybackKeyPair", "ivs:ListTagsForResource", "ivs:UntagResource", "ivs:TagResource" ]
+      "permissions" : [ "ivs:GetPublicKey", "ivs:ListTagsForResource", "ivs:UntagResource", "ivs:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "ivs:DeletePlaybackKeyPair", "ivs:UntagResource" ]
+      "permissions" : [ "ivs:DeletePublicKey", "ivs:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "ivs:ListPlaybackKeyPairs", "ivs:ListTagsForResource" ]
+      "permissions" : [ "ivs:ListPublicKeys", "ivs:ListTagsForResource" ]
     }
   }
 }
