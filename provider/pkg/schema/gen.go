@@ -1431,6 +1431,12 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 			continue
 		}
 
+		// Special case for `ChannelPreset` enum in the `AWS::IVS::Channel` resource. The enum has an empty string value which
+		// gets returned by the service in certain default cases (for channel types (BASIC and STANDARD)).
+		if (typName == "ChannelPreset" && str == "") {
+			str = "Empty"
+		}
+
 		// Enum values cannot end in `*Input` or `*Output`. Special casing these two instances
 		if (typName == "FlowNodeType" || typName == "FlowVersionFlowNodeType") && (str == "Input" || str == "Output") {
 			str = str + "Type"
