@@ -399,7 +399,12 @@ type Function struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType   FunctionPackageTypePtrOutput   `pulumi:"packageType"`
+	PackageType FunctionPackageTypePtrOutput `pulumi:"packageType"`
+	// The status of your function's recursive loop detection configuration.
+	//
+	// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+	//
+	// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
 	RecursiveLoop FunctionRecursiveLoopPtrOutput `pulumi:"recursiveLoop"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
@@ -507,7 +512,12 @@ type functionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType   *FunctionPackageType   `pulumi:"packageType"`
+	PackageType *FunctionPackageType `pulumi:"packageType"`
+	// The status of your function's recursive loop detection configuration.
+	//
+	// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+	//
+	// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
 	RecursiveLoop *FunctionRecursiveLoop `pulumi:"recursiveLoop"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
@@ -566,7 +576,12 @@ type FunctionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrInput
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType   FunctionPackageTypePtrInput
+	PackageType FunctionPackageTypePtrInput
+	// The status of your function's recursive loop detection configuration.
+	//
+	// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+	//
+	// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
 	RecursiveLoop FunctionRecursiveLoopPtrInput
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrInput
@@ -716,6 +731,11 @@ func (o FunctionOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionPackageTypePtrOutput { return v.PackageType }).(FunctionPackageTypePtrOutput)
 }
 
+// The status of your function's recursive loop detection configuration.
+//
+// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+//
+// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
 func (o FunctionOutput) RecursiveLoop() FunctionRecursiveLoopPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionRecursiveLoopPtrOutput { return v.RecursiveLoop }).(FunctionRecursiveLoopPtrOutput)
 }

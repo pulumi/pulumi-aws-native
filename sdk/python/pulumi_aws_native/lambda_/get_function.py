@@ -222,6 +222,13 @@ class GetFunctionResult:
     @property
     @pulumi.getter(name="recursiveLoop")
     def recursive_loop(self) -> Optional['FunctionRecursiveLoop']:
+        """
+        The status of your function's recursive loop detection configuration.
+
+        When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+
+        When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        """
         return pulumi.get(self, "recursive_loop")
 
     @property

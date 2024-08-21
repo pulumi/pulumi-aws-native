@@ -328,6 +328,13 @@ export class Function extends pulumi.CustomResource {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     public readonly packageType!: pulumi.Output<enums.lambda.FunctionPackageType | undefined>;
+    /**
+     * The status of your function's recursive loop detection configuration.
+     *
+     * When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+     *
+     * When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+     */
     public readonly recursiveLoop!: pulumi.Output<enums.lambda.FunctionRecursiveLoop | undefined>;
     /**
      * The number of simultaneous executions to reserve for the function.
@@ -521,6 +528,13 @@ export interface FunctionArgs {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
+    /**
+     * The status of your function's recursive loop detection configuration.
+     *
+     * When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+     *
+     * When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+     */
     recursiveLoop?: pulumi.Input<enums.lambda.FunctionRecursiveLoop>;
     /**
      * The number of simultaneous executions to reserve for the function.

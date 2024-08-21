@@ -426,6 +426,13 @@ namespace Pulumi.AwsNative.Lambda
         [Output("packageType")]
         public Output<Pulumi.AwsNative.Lambda.FunctionPackageType?> PackageType { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of your function's recursive loop detection configuration.
+        /// 
+        /// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+        /// 
+        /// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        /// </summary>
         [Output("recursiveLoop")]
         public Output<Pulumi.AwsNative.Lambda.FunctionRecursiveLoop?> RecursiveLoop { get; private set; } = null!;
 
@@ -653,6 +660,13 @@ namespace Pulumi.AwsNative.Lambda
         [Input("packageType")]
         public Input<Pulumi.AwsNative.Lambda.FunctionPackageType>? PackageType { get; set; }
 
+        /// <summary>
+        /// The status of your function's recursive loop detection configuration.
+        /// 
+        /// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+        /// 
+        /// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        /// </summary>
         [Input("recursiveLoop")]
         public Input<Pulumi.AwsNative.Lambda.FunctionRecursiveLoop>? RecursiveLoop { get; set; }
 

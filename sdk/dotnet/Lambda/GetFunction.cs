@@ -130,6 +130,13 @@ namespace Pulumi.AwsNative.Lambda
         /// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionPackageType? PackageType;
+        /// <summary>
+        /// The status of your function's recursive loop detection configuration.
+        /// 
+        /// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+        /// 
+        /// When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionRecursiveLoop? RecursiveLoop;
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.

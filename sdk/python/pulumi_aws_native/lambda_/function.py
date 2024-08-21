@@ -66,6 +66,11 @@ class FunctionArgs:
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
+        :param pulumi.Input['FunctionRecursiveLoop'] recursive_loop: The status of your function's recursive loop detection configuration.
+               
+               When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+               
+               When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
                 The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
@@ -337,6 +342,13 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="recursiveLoop")
     def recursive_loop(self) -> Optional[pulumi.Input['FunctionRecursiveLoop']]:
+        """
+        The status of your function's recursive loop detection configuration.
+
+        When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+
+        When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        """
         return pulumi.get(self, "recursive_loop")
 
     @recursive_loop.setter
@@ -705,6 +717,11 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
+        :param pulumi.Input['FunctionRecursiveLoop'] recursive_loop: The status of your function's recursive loop detection configuration.
+               
+               When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+               
+               When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
@@ -1211,6 +1228,13 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="recursiveLoop")
     def recursive_loop(self) -> pulumi.Output[Optional['FunctionRecursiveLoop']]:
+        """
+        The status of your function's recursive loop detection configuration.
+
+        When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+
+        When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+        """
         return pulumi.get(self, "recursive_loop")
 
     @property

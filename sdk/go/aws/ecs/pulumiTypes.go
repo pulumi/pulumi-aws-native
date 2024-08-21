@@ -7506,10 +7506,8 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput
 }
 
 type TaskDefinitionFSxAuthorizationConfig struct {
-	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 	CredentialsParameter string `pulumi:"credentialsParameter"`
-	// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-	Domain string `pulumi:"domain"`
+	Domain               string `pulumi:"domain"`
 }
 
 // TaskDefinitionFSxAuthorizationConfigInput is an input type that accepts TaskDefinitionFSxAuthorizationConfigArgs and TaskDefinitionFSxAuthorizationConfigOutput values.
@@ -7524,10 +7522,8 @@ type TaskDefinitionFSxAuthorizationConfigInput interface {
 }
 
 type TaskDefinitionFSxAuthorizationConfigArgs struct {
-	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
-	// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-	Domain pulumi.StringInput `pulumi:"domain"`
+	Domain               pulumi.StringInput `pulumi:"domain"`
 }
 
 func (TaskDefinitionFSxAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -7607,12 +7603,10 @@ func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthoriza
 	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
 }
 
-// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 func (o TaskDefinitionFSxAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.CredentialsParameter }).(pulumi.StringOutput)
 }
 
-// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionFSxAuthorizationConfigOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -7641,7 +7635,6 @@ func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Elem() TaskDefinitionFSxA
 	}).(TaskDefinitionFSxAuthorizationConfigOutput)
 }
 
-// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
 		if v == nil {
@@ -7651,7 +7644,6 @@ func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) CredentialsParameter() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
 		if v == nil {

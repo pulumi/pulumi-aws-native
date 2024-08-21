@@ -3603,27 +3603,17 @@ class TaskDefinitionFSxAuthorizationConfig(dict):
     def __init__(__self__, *,
                  credentials_parameter: str,
                  domain: str):
-        """
-        :param str credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
-        :param str domain: A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-        """
         pulumi.set(__self__, "credentials_parameter", credentials_parameter)
         pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> str:
-        """
-        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
-        """
         return pulumi.get(self, "credentials_parameter")
 
     @property
     @pulumi.getter
     def domain(self) -> str:
-        """
-        A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-        """
         return pulumi.get(self, "domain")
 
 
