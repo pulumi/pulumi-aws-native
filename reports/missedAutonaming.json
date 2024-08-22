@@ -8834,7 +8834,7 @@
       },
       "kmsKeyId": {
         "type": "string",
-        "description": "If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster."
+        "description": "The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true."
       },
       "preferredBackupWindow": {
         "type": "string",
@@ -8866,7 +8866,7 @@
       },
       "storageEncrypted": {
         "type": "boolean",
-        "description": "Indicates whether the DB cluster is encrypted.\n\nIf you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.\n\nIf you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true."
+        "description": "Indicates whether the DB cluster is encrypted.\n\nIf you specify the KmsKeyId property, then you must enable encryption and set this property to true.\n\nIf you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.\n\nIf you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.\n\nIf you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used."
       },
       "tags": {
         "type": "array",
@@ -10414,7 +10414,7 @@
       },
       "restoreTime": {
         "type": "string",
-        "description": "The date and time to restore from.\n Constraints:\n  +  Must be a time in Universal Coordinated Time (UTC) format.\n  +  Must be before the latest restorable time for the DB instance.\n  +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled.\n  \n Example: ``2009-09-07T23:45:00Z``"
+        "description": "The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.\n Constraints:\n  +  Must be a time in Universal Coordinated Time (UTC) format.\n  +  Must be before the latest restorable time for the DB instance.\n  +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled.\n  \n Example: ``2009-09-07T23:45:00Z``"
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
@@ -10471,7 +10471,7 @@
       },
       "useLatestRestorableTime": {
         "type": "boolean",
-        "description": "Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.\n Constraints:\n  +  Can't be specified if the ``RestoreTime`` parameter is provided."
+        "description": "Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.\n Constraints:\n  +  Can't be specified if the ``RestoreTime`` parameter is provided."
       },
       "vpcSecurityGroups": {
         "type": "array",
