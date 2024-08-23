@@ -7401,6 +7401,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType MongoAtlas { get; } = new DataSourceType("MONGO_ATLAS");
         public static DataSourceType Documentdb { get; } = new DataSourceType("DOCUMENTDB");
         public static DataSourceType Appflow { get; } = new DataSourceType("APPFLOW");
+        public static DataSourceType Impala { get; } = new DataSourceType("IMPALA");
+        public static DataSourceType Glue { get; } = new DataSourceType("GLUE");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

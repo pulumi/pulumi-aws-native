@@ -566,7 +566,7 @@ class DbInstanceArgs:
                 This setting is only supported in RDS for Oracle.
                 Default: ``open-read-only`` 
                 Valid Values: ``open-read-only`` or ``mounted``
-        :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] restore_time: The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
                 Constraints:
                  +  Must be a time in Universal Coordinated Time (UTC) format.
                  +  Must be before the latest restorable time for the DB instance.
@@ -611,7 +611,7 @@ class DbInstanceArgs:
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone).
         :param pulumi.Input[bool] use_default_processor_features: Specifies whether the DB instance class of the DB instance uses its default processor features.
                 This setting doesn't apply to RDS Custom DB instances.
-        :param pulumi.Input[bool] use_latest_restorable_time: Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        :param pulumi.Input[bool] use_latest_restorable_time: Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
                 Constraints:
                  +  Can't be specified if the ``RestoreTime`` parameter is provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
@@ -1936,7 +1936,7 @@ class DbInstanceArgs:
     @pulumi.getter(name="restoreTime")
     def restore_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The date and time to restore from.
+        The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
          Constraints:
           +  Must be a time in Universal Coordinated Time (UTC) format.
           +  Must be before the latest restorable time for the DB instance.
@@ -2131,7 +2131,7 @@ class DbInstanceArgs:
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
          Constraints:
           +  Can't be specified if the ``RestoreTime`` parameter is provided.
         """
@@ -2740,7 +2740,7 @@ class DbInstance(pulumi.CustomResource):
                 This setting is only supported in RDS for Oracle.
                 Default: ``open-read-only`` 
                 Valid Values: ``open-read-only`` or ``mounted``
-        :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] restore_time: The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
                 Constraints:
                  +  Must be a time in Universal Coordinated Time (UTC) format.
                  +  Must be before the latest restorable time for the DB instance.
@@ -2785,7 +2785,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone).
         :param pulumi.Input[bool] use_default_processor_features: Specifies whether the DB instance class of the DB instance uses its default processor features.
                 This setting doesn't apply to RDS Custom DB instances.
-        :param pulumi.Input[bool] use_latest_restorable_time: Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        :param pulumi.Input[bool] use_latest_restorable_time: Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
                 Constraints:
                  +  Can't be specified if the ``RestoreTime`` parameter is provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
@@ -4048,7 +4048,7 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="restoreTime")
     def restore_time(self) -> pulumi.Output[Optional[str]]:
         """
-        The date and time to restore from.
+        The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
          Constraints:
           +  Must be a time in Universal Coordinated Time (UTC) format.
           +  Must be before the latest restorable time for the DB instance.
@@ -4187,7 +4187,7 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
          Constraints:
           +  Can't be specified if the ``RestoreTime`` parameter is provided.
         """

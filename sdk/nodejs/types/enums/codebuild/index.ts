@@ -6,6 +6,7 @@ export const FleetComputeType = {
     BuildGeneral1Small: "BUILD_GENERAL1_SMALL",
     BuildGeneral1Medium: "BUILD_GENERAL1_MEDIUM",
     BuildGeneral1Large: "BUILD_GENERAL1_LARGE",
+    BuildGeneral1Xlarge: "BUILD_GENERAL1_XLARGE",
     BuildGeneral12xlarge: "BUILD_GENERAL1_2XLARGE",
 } as const;
 
@@ -40,6 +41,7 @@ export const FleetEnvironmentType = {
     LinuxContainer: "LINUX_CONTAINER",
     LinuxGpuContainer: "LINUX_GPU_CONTAINER",
     ArmContainer: "ARM_CONTAINER",
+    MacArm: "MAC_ARM",
 } as const;
 
 /**

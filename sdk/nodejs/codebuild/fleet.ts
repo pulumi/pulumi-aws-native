@@ -89,6 +89,7 @@ export class Fleet extends pulumi.CustomResource {
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
+    public readonly imageId!: pulumi.Output<string | undefined>;
     /**
      * The name of the compute fleet.
      */
@@ -125,6 +126,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["environmentType"] = args ? args.environmentType : undefined;
             resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
             resourceInputs["fleetVpcConfig"] = args ? args.fleetVpcConfig : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -136,6 +138,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["environmentType"] = undefined /*out*/;
             resourceInputs["fleetServiceRole"] = undefined /*out*/;
             resourceInputs["fleetVpcConfig"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overflowBehavior"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -197,6 +200,7 @@ export interface FleetArgs {
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
+    imageId?: pulumi.Input<string>;
     /**
      * The name of the compute fleet.
      */

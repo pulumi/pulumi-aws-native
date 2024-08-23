@@ -43,6 +43,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public static FleetComputeType BuildGeneral1Small { get; } = new FleetComputeType("BUILD_GENERAL1_SMALL");
         public static FleetComputeType BuildGeneral1Medium { get; } = new FleetComputeType("BUILD_GENERAL1_MEDIUM");
         public static FleetComputeType BuildGeneral1Large { get; } = new FleetComputeType("BUILD_GENERAL1_LARGE");
+        public static FleetComputeType BuildGeneral1Xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_XLARGE");
         public static FleetComputeType BuildGeneral12xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_2XLARGE");
 
         public static bool operator ==(FleetComputeType left, FleetComputeType right) => left.Equals(right);
@@ -86,6 +87,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public static FleetEnvironmentType LinuxContainer { get; } = new FleetEnvironmentType("LINUX_CONTAINER");
         public static FleetEnvironmentType LinuxGpuContainer { get; } = new FleetEnvironmentType("LINUX_GPU_CONTAINER");
         public static FleetEnvironmentType ArmContainer { get; } = new FleetEnvironmentType("ARM_CONTAINER");
+        public static FleetEnvironmentType MacArm { get; } = new FleetEnvironmentType("MAC_ARM");
 
         public static bool operator ==(FleetEnvironmentType left, FleetEnvironmentType right) => left.Equals(right);
         public static bool operator !=(FleetEnvironmentType left, FleetEnvironmentType right) => !left.Equals(right);

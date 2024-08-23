@@ -66,6 +66,16 @@ export const ReplicatorReplicationStartingPositionType = {
  */
 export type ReplicatorReplicationStartingPositionType = (typeof ReplicatorReplicationStartingPositionType)[keyof typeof ReplicatorReplicationStartingPositionType];
 
+export const ReplicatorReplicationTopicNameConfigurationType = {
+    PrefixedWithSourceClusterAlias: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+    Identical: "IDENTICAL",
+} as const;
+
+/**
+ * The type of replicated topic name.
+ */
+export type ReplicatorReplicationTopicNameConfigurationType = (typeof ReplicatorReplicationTopicNameConfigurationType)[keyof typeof ReplicatorReplicationTopicNameConfigurationType];
+
 export const VpcConnectionAuthentication = {
     SaslIam: "SASL_IAM",
     SaslScram: "SASL_SCRAM",

@@ -860,6 +860,172 @@ func (in *replicatorReplicationStartingPositionTypePtr) ToReplicatorReplicationS
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationStartingPositionTypePtrOutput)
 }
 
+// The type of replicated topic name.
+type ReplicatorReplicationTopicNameConfigurationType string
+
+const (
+	ReplicatorReplicationTopicNameConfigurationTypePrefixedWithSourceClusterAlias = ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
+	ReplicatorReplicationTopicNameConfigurationTypeIdentical                      = ReplicatorReplicationTopicNameConfigurationType("IDENTICAL")
+)
+
+func (ReplicatorReplicationTopicNameConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationType)(nil)).Elem()
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToReplicatorReplicationTopicNameConfigurationTypeOutput() ReplicatorReplicationTopicNameConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(ReplicatorReplicationTopicNameConfigurationTypeOutput)
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToReplicatorReplicationTopicNameConfigurationTypeOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorReplicationTopicNameConfigurationTypeOutput)
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToReplicatorReplicationTopicNameConfigurationTypePtrOutput() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return e.ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return ReplicatorReplicationTopicNameConfigurationType(e).ToReplicatorReplicationTopicNameConfigurationTypeOutputWithContext(ctx).ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationTopicNameConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorReplicationTopicNameConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationTopicNameConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToReplicatorReplicationTopicNameConfigurationTypeOutput() ReplicatorReplicationTopicNameConfigurationTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToReplicatorReplicationTopicNameConfigurationTypeOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToReplicatorReplicationTopicNameConfigurationTypePtrOutput() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o.ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationTopicNameConfigurationType) *ReplicatorReplicationTopicNameConfigurationType {
+		return &v
+	}).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationTopicNameConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationTopicNameConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationTopicNameConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationTopicNameConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationTopicNameConfigurationType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypePtrOutput) ToReplicatorReplicationTopicNameConfigurationTypePtrOutput() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypePtrOutput) ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypePtrOutput) Elem() ReplicatorReplicationTopicNameConfigurationTypeOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationTopicNameConfigurationType) ReplicatorReplicationTopicNameConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationTopicNameConfigurationType
+		return ret
+	}).(ReplicatorReplicationTopicNameConfigurationTypeOutput)
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorReplicationTopicNameConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorReplicationTopicNameConfigurationTypeInput is an input type that accepts values of the ReplicatorReplicationTopicNameConfigurationType enum
+// A concrete instance of `ReplicatorReplicationTopicNameConfigurationTypeInput` can be one of the following:
+//
+//	ReplicatorReplicationTopicNameConfigurationTypePrefixedWithSourceClusterAlias
+//	ReplicatorReplicationTopicNameConfigurationTypeIdentical
+type ReplicatorReplicationTopicNameConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationTopicNameConfigurationTypeOutput() ReplicatorReplicationTopicNameConfigurationTypeOutput
+	ToReplicatorReplicationTopicNameConfigurationTypeOutputWithContext(context.Context) ReplicatorReplicationTopicNameConfigurationTypeOutput
+}
+
+var replicatorReplicationTopicNameConfigurationTypePtrType = reflect.TypeOf((**ReplicatorReplicationTopicNameConfigurationType)(nil)).Elem()
+
+type ReplicatorReplicationTopicNameConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationTopicNameConfigurationTypePtrOutput() ReplicatorReplicationTopicNameConfigurationTypePtrOutput
+	ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(context.Context) ReplicatorReplicationTopicNameConfigurationTypePtrOutput
+}
+
+type replicatorReplicationTopicNameConfigurationTypePtr string
+
+func ReplicatorReplicationTopicNameConfigurationTypePtr(v string) ReplicatorReplicationTopicNameConfigurationTypePtrInput {
+	return (*replicatorReplicationTopicNameConfigurationTypePtr)(&v)
+}
+
+func (*replicatorReplicationTopicNameConfigurationTypePtr) ElementType() reflect.Type {
+	return replicatorReplicationTopicNameConfigurationTypePtrType
+}
+
+func (in *replicatorReplicationTopicNameConfigurationTypePtr) ToReplicatorReplicationTopicNameConfigurationTypePtrOutput() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
+func (in *replicatorReplicationTopicNameConfigurationTypePtr) ToReplicatorReplicationTopicNameConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
 // The type of private link authentication
 type VpcConnectionAuthentication string
 
@@ -1039,6 +1205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypePtrInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypeInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypePtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationTypeInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationTypePtrInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationPtrInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
@@ -1051,6 +1219,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypeOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationPtrOutput{})
 }

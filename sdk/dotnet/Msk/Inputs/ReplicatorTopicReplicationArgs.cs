@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Msk.Inputs
         [Input("startingPosition")]
         public Input<Inputs.ReplicatorReplicationStartingPositionArgs>? StartingPosition { get; set; }
 
+        /// <summary>
+        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        /// </summary>
+        [Input("topicNameConfiguration")]
+        public Input<Inputs.ReplicatorReplicationTopicNameConfigurationArgs>? TopicNameConfiguration { get; set; }
+
         [Input("topicsToExclude")]
         private InputList<string>? _topicsToExclude;
 

@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, environment_type=None, fleet_service_role=None, fleet_vpc_config=None, name=None, overflow_behavior=None, tags=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, environment_type=None, fleet_service_role=None, fleet_vpc_config=None, image_id=None, name=None, overflow_behavior=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetFleetResult:
         if fleet_vpc_config and not isinstance(fleet_vpc_config, dict):
             raise TypeError("Expected argument 'fleet_vpc_config' to be a dict")
         pulumi.set(__self__, "fleet_vpc_config", fleet_vpc_config)
+        if image_id and not isinstance(image_id, str):
+            raise TypeError("Expected argument 'image_id' to be a str")
+        pulumi.set(__self__, "image_id", image_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -127,6 +130,11 @@ class GetFleetResult:
         return pulumi.get(self, "fleet_vpc_config")
 
     @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[str]:
+        return pulumi.get(self, "image_id")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -170,6 +178,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             environment_type=self.environment_type,
             fleet_service_role=self.fleet_service_role,
             fleet_vpc_config=self.fleet_vpc_config,
+            image_id=self.image_id,
             name=self.name,
             overflow_behavior=self.overflow_behavior,
             tags=self.tags)
@@ -195,6 +204,7 @@ def get_fleet(arn: Optional[str] = None,
         environment_type=pulumi.get(__ret__, 'environment_type'),
         fleet_service_role=pulumi.get(__ret__, 'fleet_service_role'),
         fleet_vpc_config=pulumi.get(__ret__, 'fleet_vpc_config'),
+        image_id=pulumi.get(__ret__, 'image_id'),
         name=pulumi.get(__ret__, 'name'),
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
         tags=pulumi.get(__ret__, 'tags'))

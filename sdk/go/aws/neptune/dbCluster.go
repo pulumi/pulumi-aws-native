@@ -50,7 +50,7 @@ type DbCluster struct {
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled pulumi.BoolPtrOutput `pulumi:"iamAuthEnabled"`
-	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The port number on which the DB cluster accepts connections. For example: `8182`.
 	Port pulumi.StringOutput `pulumi:"port"`
@@ -88,9 +88,13 @@ type DbCluster struct {
 	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
-	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
 	//
-	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+	//
+	// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+	//
+	// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// The tags assigned to this cluster.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -187,7 +191,7 @@ type dbClusterArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
-	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
@@ -221,9 +225,13 @@ type dbClusterArgs struct {
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
-	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
 	//
-	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+	//
+	// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+	//
+	// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// The tags assigned to this cluster.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -269,7 +277,7 @@ type DbClusterArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled pulumi.BoolPtrInput
-	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow pulumi.StringPtrInput
@@ -303,9 +311,13 @@ type DbClusterArgs struct {
 	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// Indicates whether the DB cluster is encrypted.
 	//
-	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
 	//
-	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+	//
+	// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+	//
+	// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
 	StorageEncrypted pulumi.BoolPtrInput
 	// The tags assigned to this cluster.
 	Tags aws.TagArrayInput
@@ -435,7 +447,7 @@ func (o DbClusterOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 func (o DbClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -505,9 +517,13 @@ func (o DbClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
 
 // Indicates whether the DB cluster is encrypted.
 //
-// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
 //
-// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+//
+// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+//
+// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
 func (o DbClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }

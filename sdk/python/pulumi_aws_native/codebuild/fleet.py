@@ -24,6 +24,7 @@ class FleetArgs:
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
                  fleet_service_role: Optional[pulumi.Input[str]] = None,
                  fleet_vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -83,6 +84,8 @@ class FleetArgs:
             pulumi.set(__self__, "fleet_service_role", fleet_service_role)
         if fleet_vpc_config is not None:
             pulumi.set(__self__, "fleet_vpc_config", fleet_vpc_config)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overflow_behavior is not None:
@@ -179,6 +182,15 @@ class FleetArgs:
         pulumi.set(self, "fleet_vpc_config", value)
 
     @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -232,6 +244,7 @@ class Fleet(pulumi.CustomResource):
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
                  fleet_service_role: Optional[pulumi.Input[str]] = None,
                  fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -314,6 +327,7 @@ class Fleet(pulumi.CustomResource):
                  environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
                  fleet_service_role: Optional[pulumi.Input[str]] = None,
                  fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -331,6 +345,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["environment_type"] = environment_type
             __props__.__dict__["fleet_service_role"] = fleet_service_role
             __props__.__dict__["fleet_vpc_config"] = fleet_vpc_config
+            __props__.__dict__["image_id"] = image_id
             __props__.__dict__["name"] = name
             __props__.__dict__["overflow_behavior"] = overflow_behavior
             __props__.__dict__["tags"] = tags
@@ -363,6 +378,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["environment_type"] = None
         __props__.__dict__["fleet_service_role"] = None
         __props__.__dict__["fleet_vpc_config"] = None
+        __props__.__dict__["image_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["overflow_behavior"] = None
         __props__.__dict__["tags"] = None
@@ -443,6 +459,11 @@ class Fleet(pulumi.CustomResource):
         Information about the VPC configuration that AWS CodeBuild accesses.
         """
         return pulumi.get(self, "fleet_vpc_config")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter

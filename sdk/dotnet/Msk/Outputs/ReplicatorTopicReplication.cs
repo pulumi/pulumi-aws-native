@@ -30,6 +30,10 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// </summary>
         public readonly Outputs.ReplicatorReplicationStartingPosition? StartingPosition;
         /// <summary>
+        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        /// </summary>
+        public readonly Outputs.ReplicatorReplicationTopicNameConfiguration? TopicNameConfiguration;
+        /// <summary>
         /// List of regular expression patterns indicating the topics that should not be replicated.
         /// </summary>
         public readonly ImmutableArray<string> TopicsToExclude;
@@ -48,6 +52,8 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
             Outputs.ReplicatorReplicationStartingPosition? startingPosition,
 
+            Outputs.ReplicatorReplicationTopicNameConfiguration? topicNameConfiguration,
+
             ImmutableArray<string> topicsToExclude,
 
             ImmutableArray<string> topicsToReplicate)
@@ -56,6 +62,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
             CopyTopicConfigurations = copyTopicConfigurations;
             DetectAndCopyNewTopics = detectAndCopyNewTopics;
             StartingPosition = startingPosition;
+            TopicNameConfiguration = topicNameConfiguration;
             TopicsToExclude = topicsToExclude;
             TopicsToReplicate = topicsToReplicate;
         }

@@ -2116,6 +2116,8 @@ export const DataSourceType = {
     MongoAtlas: "MONGO_ATLAS",
     Documentdb: "DOCUMENTDB",
     Appflow: "APPFLOW",
+    Impala: "IMPALA",
+    Glue: "GLUE",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];

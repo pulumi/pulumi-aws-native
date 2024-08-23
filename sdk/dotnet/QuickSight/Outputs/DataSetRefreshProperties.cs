@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The refresh configuration for a dataset.
         /// </summary>
-        public readonly Outputs.DataSetRefreshConfiguration RefreshConfiguration;
+        public readonly Outputs.DataSetRefreshConfiguration? RefreshConfiguration;
 
         [OutputConstructor]
-        private DataSetRefreshProperties(Outputs.DataSetRefreshConfiguration refreshConfiguration)
+        private DataSetRefreshProperties(Outputs.DataSetRefreshConfiguration? refreshConfiguration)
         {
             RefreshConfiguration = refreshConfiguration;
         }

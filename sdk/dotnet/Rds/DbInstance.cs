@@ -831,7 +831,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> ReplicaMode { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time to restore from.
+        /// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
         ///  Constraints:
         ///   +  Must be a time in Universal Coordinated Time (UTC) format.
         ///   +  Must be before the latest restorable time for the DB instance.
@@ -942,7 +942,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> UseDefaultProcessorFeatures { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        /// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
         ///  Constraints:
         ///   +  Can't be specified if the ``RestoreTime`` parameter is provided.
         /// </summary>
@@ -1834,7 +1834,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? ReplicaMode { get; set; }
 
         /// <summary>
-        /// The date and time to restore from.
+        /// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
         ///  Constraints:
         ///   +  Must be a time in Universal Coordinated Time (UTC) format.
         ///   +  Must be before the latest restorable time for the DB instance.
@@ -1951,7 +1951,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<bool>? UseDefaultProcessorFeatures { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        /// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
         ///  Constraints:
         ///   +  Can't be specified if the ``RestoreTime`` parameter is provided.
         /// </summary>

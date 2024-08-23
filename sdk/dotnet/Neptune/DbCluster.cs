@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Neptune
         public Output<bool?> IamAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -188,9 +188,13 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// Indicates whether the DB cluster is encrypted.
         /// 
-        /// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+        /// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
         /// 
-        /// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        /// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+        /// 
+        /// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+        /// 
+        /// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
@@ -376,7 +380,7 @@ namespace Pulumi.AwsNative.Neptune
         public Input<bool>? IamAuthEnabled { get; set; }
 
         /// <summary>
-        /// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -442,9 +446,13 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// Indicates whether the DB cluster is encrypted.
         /// 
-        /// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+        /// If you specify the KmsKeyId property, then you must enable encryption and set this property to true.
         /// 
-        /// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        /// If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.
+        /// 
+        /// If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
+        /// 
+        /// If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

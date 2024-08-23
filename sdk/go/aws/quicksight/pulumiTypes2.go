@@ -2840,7 +2840,7 @@ func (o DataSetRefreshConfigurationPtrOutput) IncrementalRefresh() DataSetIncrem
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshProperties struct {
 	// The refresh configuration for a dataset.
-	RefreshConfiguration DataSetRefreshConfiguration `pulumi:"refreshConfiguration"`
+	RefreshConfiguration *DataSetRefreshConfiguration `pulumi:"refreshConfiguration"`
 }
 
 // DataSetRefreshPropertiesInput is an input type that accepts DataSetRefreshPropertiesArgs and DataSetRefreshPropertiesOutput values.
@@ -2857,7 +2857,7 @@ type DataSetRefreshPropertiesInput interface {
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshPropertiesArgs struct {
 	// The refresh configuration for a dataset.
-	RefreshConfiguration DataSetRefreshConfigurationInput `pulumi:"refreshConfiguration"`
+	RefreshConfiguration DataSetRefreshConfigurationPtrInput `pulumi:"refreshConfiguration"`
 }
 
 func (DataSetRefreshPropertiesArgs) ElementType() reflect.Type {
@@ -2939,8 +2939,8 @@ func (o DataSetRefreshPropertiesOutput) ToDataSetRefreshPropertiesPtrOutputWithC
 }
 
 // The refresh configuration for a dataset.
-func (o DataSetRefreshPropertiesOutput) RefreshConfiguration() DataSetRefreshConfigurationOutput {
-	return o.ApplyT(func(v DataSetRefreshProperties) DataSetRefreshConfiguration { return v.RefreshConfiguration }).(DataSetRefreshConfigurationOutput)
+func (o DataSetRefreshPropertiesOutput) RefreshConfiguration() DataSetRefreshConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSetRefreshProperties) *DataSetRefreshConfiguration { return v.RefreshConfiguration }).(DataSetRefreshConfigurationPtrOutput)
 }
 
 type DataSetRefreshPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2973,7 +2973,7 @@ func (o DataSetRefreshPropertiesPtrOutput) RefreshConfiguration() DataSetRefresh
 		if v == nil {
 			return nil
 		}
-		return &v.RefreshConfiguration
+		return v.RefreshConfiguration
 	}).(DataSetRefreshConfigurationPtrOutput)
 }
 

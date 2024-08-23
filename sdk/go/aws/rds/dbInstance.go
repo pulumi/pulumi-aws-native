@@ -572,7 +572,7 @@ type DbInstance struct {
 	//  Default: ``open-read-only``
 	//  Valid Values: ``open-read-only`` or ``mounted``
 	ReplicaMode pulumi.StringPtrOutput `pulumi:"replicaMode"`
-	// The date and time to restore from.
+	// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Must be a time in Universal Coordinated Time (UTC) format.
 	//   +  Must be before the latest restorable time for the DB instance.
@@ -631,7 +631,7 @@ type DbInstance struct {
 	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//  This setting doesn't apply to RDS Custom DB instances.
 	UseDefaultProcessorFeatures pulumi.BoolPtrOutput `pulumi:"useDefaultProcessorFeatures"`
-	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Can't be specified if the ``RestoreTime`` parameter is provided.
 	UseLatestRestorableTime pulumi.BoolPtrOutput `pulumi:"useLatestRestorableTime"`
@@ -1234,7 +1234,7 @@ type dbInstanceArgs struct {
 	//  Default: ``open-read-only``
 	//  Valid Values: ``open-read-only`` or ``mounted``
 	ReplicaMode *string `pulumi:"replicaMode"`
-	// The date and time to restore from.
+	// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Must be a time in Universal Coordinated Time (UTC) format.
 	//   +  Must be before the latest restorable time for the DB instance.
@@ -1293,7 +1293,7 @@ type dbInstanceArgs struct {
 	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//  This setting doesn't apply to RDS Custom DB instances.
 	UseDefaultProcessorFeatures *bool `pulumi:"useDefaultProcessorFeatures"`
-	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Can't be specified if the ``RestoreTime`` parameter is provided.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
@@ -1842,7 +1842,7 @@ type DbInstanceArgs struct {
 	//  Default: ``open-read-only``
 	//  Valid Values: ``open-read-only`` or ``mounted``
 	ReplicaMode pulumi.StringPtrInput
-	// The date and time to restore from.
+	// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Must be a time in Universal Coordinated Time (UTC) format.
 	//   +  Must be before the latest restorable time for the DB instance.
@@ -1901,7 +1901,7 @@ type DbInstanceArgs struct {
 	// Specifies whether the DB instance class of the DB instance uses its default processor features.
 	//  This setting doesn't apply to RDS Custom DB instances.
 	UseDefaultProcessorFeatures pulumi.BoolPtrInput
-	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Can't be specified if the ``RestoreTime`` parameter is provided.
 	UseLatestRestorableTime pulumi.BoolPtrInput
@@ -2742,7 +2742,7 @@ func (o DbInstanceOutput) ReplicaMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.ReplicaMode }).(pulumi.StringPtrOutput)
 }
 
-// The date and time to restore from.
+// The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 //
 //	Constraints:
 //	 +  Must be a time in Universal Coordinated Time (UTC) format.
@@ -2851,7 +2851,7 @@ func (o DbInstanceOutput) UseDefaultProcessorFeatures() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.UseDefaultProcessorFeatures }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+// Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
 //
 //	Constraints:
 //	 +  Can't be specified if the ``RestoreTime`` parameter is provided.

@@ -41902,6 +41902,8 @@ const (
 	DataSourceTypeMongoAtlas          = DataSourceType("MONGO_ATLAS")
 	DataSourceTypeDocumentdb          = DataSourceType("DOCUMENTDB")
 	DataSourceTypeAppflow             = DataSourceType("APPFLOW")
+	DataSourceTypeImpala              = DataSourceType("IMPALA")
+	DataSourceTypeGlue                = DataSourceType("GLUE")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -42066,6 +42068,8 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeMongoAtlas
 //	DataSourceTypeDocumentdb
 //	DataSourceTypeAppflow
+//	DataSourceTypeImpala
+//	DataSourceTypeGlue
 type DataSourceTypeInput interface {
 	pulumi.Input
 

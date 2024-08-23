@@ -2016,6 +2016,8 @@ class DataSourceType(str, Enum):
     MONGO_ATLAS = "MONGO_ATLAS"
     DOCUMENTDB = "DOCUMENTDB"
     APPFLOW = "APPFLOW"
+    IMPALA = "IMPALA"
+    GLUE = "GLUE"
 
 
 class RefreshScheduleMapRefreshType(str, Enum):

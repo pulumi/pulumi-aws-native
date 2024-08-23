@@ -130,6 +130,10 @@
         "StartingPosition" : {
           "description" : "Configuration for specifying the position in the topics to start replicating from.",
           "$ref" : "#/definitions/ReplicationStartingPosition"
+        },
+        "TopicNameConfiguration" : {
+          "description" : "Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.",
+          "$ref" : "#/definitions/ReplicationTopicNameConfiguration"
         }
       },
       "required" : [ "TopicsToReplicate" ]
@@ -149,6 +153,22 @@
       "description" : "The type of replication starting position.",
       "type" : "string",
       "enum" : [ "LATEST", "EARLIEST" ]
+    },
+    "ReplicationTopicNameConfiguration" : {
+      "description" : "Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/ReplicationTopicNameConfigurationType"
+        }
+      },
+      "required" : [ ]
+    },
+    "ReplicationTopicNameConfigurationType" : {
+      "description" : "The type of replicated topic name.",
+      "type" : "string",
+      "enum" : [ "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS", "IDENTICAL" ]
     },
     "ConsumerGroupReplication" : {
       "description" : "Configuration relating to consumer group replication.",

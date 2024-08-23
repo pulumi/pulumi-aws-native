@@ -177,6 +177,37 @@ namespace Pulumi.AwsNative.Msk
     }
 
     /// <summary>
+    /// The type of replicated topic name.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorReplicationTopicNameConfigurationType : IEquatable<ReplicatorReplicationTopicNameConfigurationType>
+    {
+        private readonly string _value;
+
+        private ReplicatorReplicationTopicNameConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorReplicationTopicNameConfigurationType PrefixedWithSourceClusterAlias { get; } = new ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS");
+        public static ReplicatorReplicationTopicNameConfigurationType Identical { get; } = new ReplicatorReplicationTopicNameConfigurationType("IDENTICAL");
+
+        public static bool operator ==(ReplicatorReplicationTopicNameConfigurationType left, ReplicatorReplicationTopicNameConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ReplicatorReplicationTopicNameConfigurationType left, ReplicatorReplicationTopicNameConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorReplicationTopicNameConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorReplicationTopicNameConfigurationType other && Equals(other);
+        public bool Equals(ReplicatorReplicationTopicNameConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of private link authentication
     /// </summary>
     [EnumType]

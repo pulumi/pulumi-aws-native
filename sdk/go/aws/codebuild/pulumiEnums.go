@@ -37,6 +37,7 @@ const (
 	FleetComputeTypeBuildGeneral1Small   = FleetComputeType("BUILD_GENERAL1_SMALL")
 	FleetComputeTypeBuildGeneral1Medium  = FleetComputeType("BUILD_GENERAL1_MEDIUM")
 	FleetComputeTypeBuildGeneral1Large   = FleetComputeType("BUILD_GENERAL1_LARGE")
+	FleetComputeTypeBuildGeneral1Xlarge  = FleetComputeType("BUILD_GENERAL1_XLARGE")
 	FleetComputeTypeBuildGeneral12xlarge = FleetComputeType("BUILD_GENERAL1_2XLARGE")
 )
 
@@ -165,6 +166,7 @@ func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	FleetComputeTypeBuildGeneral1Small
 //	FleetComputeTypeBuildGeneral1Medium
 //	FleetComputeTypeBuildGeneral1Large
+//	FleetComputeTypeBuildGeneral1Xlarge
 //	FleetComputeTypeBuildGeneral12xlarge
 type FleetComputeTypeInput interface {
 	pulumi.Input
@@ -217,6 +219,7 @@ const (
 	FleetEnvironmentTypeLinuxContainer             = FleetEnvironmentType("LINUX_CONTAINER")
 	FleetEnvironmentTypeLinuxGpuContainer          = FleetEnvironmentType("LINUX_GPU_CONTAINER")
 	FleetEnvironmentTypeArmContainer               = FleetEnvironmentType("ARM_CONTAINER")
+	FleetEnvironmentTypeMacArm                     = FleetEnvironmentType("MAC_ARM")
 )
 
 func (FleetEnvironmentType) ElementType() reflect.Type {
@@ -346,6 +349,7 @@ func (o FleetEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	FleetEnvironmentTypeLinuxContainer
 //	FleetEnvironmentTypeLinuxGpuContainer
 //	FleetEnvironmentTypeArmContainer
+//	FleetEnvironmentTypeMacArm
 type FleetEnvironmentTypeInput interface {
 	pulumi.Input
 

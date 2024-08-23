@@ -5474,6 +5474,144 @@ func (o ReplicatorReplicationStartingPositionPtrOutput) Type() ReplicatorReplica
 	}).(ReplicatorReplicationStartingPositionTypePtrOutput)
 }
 
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+type ReplicatorReplicationTopicNameConfiguration struct {
+	Type *ReplicatorReplicationTopicNameConfigurationType `pulumi:"type"`
+}
+
+// ReplicatorReplicationTopicNameConfigurationInput is an input type that accepts ReplicatorReplicationTopicNameConfigurationArgs and ReplicatorReplicationTopicNameConfigurationOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationTopicNameConfigurationInput` via:
+//
+//	ReplicatorReplicationTopicNameConfigurationArgs{...}
+type ReplicatorReplicationTopicNameConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationTopicNameConfigurationOutput() ReplicatorReplicationTopicNameConfigurationOutput
+	ToReplicatorReplicationTopicNameConfigurationOutputWithContext(context.Context) ReplicatorReplicationTopicNameConfigurationOutput
+}
+
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+type ReplicatorReplicationTopicNameConfigurationArgs struct {
+	Type ReplicatorReplicationTopicNameConfigurationTypePtrInput `pulumi:"type"`
+}
+
+func (ReplicatorReplicationTopicNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationTopicNameConfigurationArgs) ToReplicatorReplicationTopicNameConfigurationOutput() ReplicatorReplicationTopicNameConfigurationOutput {
+	return i.ToReplicatorReplicationTopicNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationTopicNameConfigurationArgs) ToReplicatorReplicationTopicNameConfigurationOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationTopicNameConfigurationOutput)
+}
+
+func (i ReplicatorReplicationTopicNameConfigurationArgs) ToReplicatorReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return i.ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationTopicNameConfigurationArgs) ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationTopicNameConfigurationOutput).ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorReplicationTopicNameConfigurationPtrInput is an input type that accepts ReplicatorReplicationTopicNameConfigurationArgs, ReplicatorReplicationTopicNameConfigurationPtr and ReplicatorReplicationTopicNameConfigurationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationTopicNameConfigurationPtrInput` via:
+//
+//	        ReplicatorReplicationTopicNameConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorReplicationTopicNameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationTopicNameConfigurationPtrOutput
+	ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(context.Context) ReplicatorReplicationTopicNameConfigurationPtrOutput
+}
+
+type replicatorReplicationTopicNameConfigurationPtrType ReplicatorReplicationTopicNameConfigurationArgs
+
+func ReplicatorReplicationTopicNameConfigurationPtr(v *ReplicatorReplicationTopicNameConfigurationArgs) ReplicatorReplicationTopicNameConfigurationPtrInput {
+	return (*replicatorReplicationTopicNameConfigurationPtrType)(v)
+}
+
+func (*replicatorReplicationTopicNameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (i *replicatorReplicationTopicNameConfigurationPtrType) ToReplicatorReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return i.ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorReplicationTopicNameConfigurationPtrType) ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationTopicNameConfigurationPtrOutput)
+}
+
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+type ReplicatorReplicationTopicNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationTopicNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationOutput) ToReplicatorReplicationTopicNameConfigurationOutput() ReplicatorReplicationTopicNameConfigurationOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationOutput) ToReplicatorReplicationTopicNameConfigurationOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationOutput) ToReplicatorReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return o.ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationOutput) ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationTopicNameConfiguration) *ReplicatorReplicationTopicNameConfiguration {
+		return &v
+	}).(ReplicatorReplicationTopicNameConfigurationPtrOutput)
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationOutput) Type() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationTopicNameConfiguration) *ReplicatorReplicationTopicNameConfigurationType {
+		return v.Type
+	}).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
+type ReplicatorReplicationTopicNameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationTopicNameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationPtrOutput) ToReplicatorReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationPtrOutput) ToReplicatorReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationPtrOutput) Elem() ReplicatorReplicationTopicNameConfigurationOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationTopicNameConfiguration) ReplicatorReplicationTopicNameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationTopicNameConfiguration
+		return ret
+	}).(ReplicatorReplicationTopicNameConfigurationOutput)
+}
+
+func (o ReplicatorReplicationTopicNameConfigurationPtrOutput) Type() ReplicatorReplicationTopicNameConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationTopicNameConfiguration) *ReplicatorReplicationTopicNameConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
 type ReplicatorTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -5488,6 +5626,8 @@ type ReplicatorTopicReplication struct {
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
 	StartingPosition *ReplicatorReplicationStartingPosition `pulumi:"startingPosition"`
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	TopicNameConfiguration *ReplicatorReplicationTopicNameConfiguration `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	TopicsToExclude []string `pulumi:"topicsToExclude"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -5514,6 +5654,8 @@ type ReplicatorTopicReplicationArgs struct {
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
 	StartingPosition ReplicatorReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	TopicNameConfiguration ReplicatorReplicationTopicNameConfigurationPtrInput `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	TopicsToExclude pulumi.StringArrayInput `pulumi:"topicsToExclude"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -5564,6 +5706,13 @@ func (o ReplicatorTopicReplicationOutput) DetectAndCopyNewTopics() pulumi.BoolPt
 // Configuration for specifying the position in the topics to start replicating from.
 func (o ReplicatorTopicReplicationOutput) StartingPosition() ReplicatorReplicationStartingPositionPtrOutput {
 	return o.ApplyT(func(v ReplicatorTopicReplication) *ReplicatorReplicationStartingPosition { return v.StartingPosition }).(ReplicatorReplicationStartingPositionPtrOutput)
+}
+
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+func (o ReplicatorTopicReplicationOutput) TopicNameConfiguration() ReplicatorReplicationTopicNameConfigurationPtrOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) *ReplicatorReplicationTopicNameConfiguration {
+		return v.TopicNameConfiguration
+	}).(ReplicatorReplicationTopicNameConfigurationPtrOutput)
 }
 
 // List of regular expression patterns indicating the topics that should not be replicated.
@@ -5905,6 +6054,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoArrayInput)(nil)).Elem(), ReplicatorReplicationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionPtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationPtrInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTopicReplicationInput)(nil)).Elem(), ReplicatorTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
@@ -5984,6 +6135,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})

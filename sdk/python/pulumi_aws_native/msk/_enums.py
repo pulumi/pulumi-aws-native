@@ -10,6 +10,7 @@ __all__ = [
     'ClusterStorageMode',
     'ReplicatorReplicationInfoTargetCompressionType',
     'ReplicatorReplicationStartingPositionType',
+    'ReplicatorReplicationTopicNameConfigurationType',
     'VpcConnectionAuthentication',
 ]
 
@@ -66,6 +67,14 @@ class ReplicatorReplicationStartingPositionType(str, Enum):
     """
     LATEST = "LATEST"
     EARLIEST = "EARLIEST"
+
+
+class ReplicatorReplicationTopicNameConfigurationType(str, Enum):
+    """
+    The type of replicated topic name.
+    """
+    PREFIXED_WITH_SOURCE_CLUSTER_ALIAS = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"
+    IDENTICAL = "IDENTICAL"
 
 
 class VpcConnectionAuthentication(str, Enum):

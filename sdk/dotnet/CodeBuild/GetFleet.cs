@@ -109,6 +109,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// Information about the VPC configuration that AWS CodeBuild accesses.
         /// </summary>
         public readonly Outputs.FleetVpcConfig? FleetVpcConfig;
+        public readonly string? ImageId;
         /// <summary>
         /// The name of the compute fleet.
         /// </summary>
@@ -143,6 +144,8 @@ namespace Pulumi.AwsNative.CodeBuild
 
             Outputs.FleetVpcConfig? fleetVpcConfig,
 
+            string? imageId,
+
             string? name,
 
             Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? overflowBehavior,
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.CodeBuild
             EnvironmentType = environmentType;
             FleetServiceRole = fleetServiceRole;
             FleetVpcConfig = fleetVpcConfig;
+            ImageId = imageId;
             Name = name;
             OverflowBehavior = overflowBehavior;
             Tags = tags;

@@ -56,6 +56,7 @@ type Fleet struct {
 	FleetServiceRole pulumi.StringPtrOutput `pulumi:"fleetServiceRole"`
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig FleetVpcConfigPtrOutput `pulumi:"fleetVpcConfig"`
+	ImageId        pulumi.StringPtrOutput  `pulumi:"imageId"`
 	// The name of the compute fleet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The compute fleet overflow behavior.
@@ -149,6 +150,7 @@ type fleetArgs struct {
 	FleetServiceRole *string `pulumi:"fleetServiceRole"`
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig *FleetVpcConfig `pulumi:"fleetVpcConfig"`
+	ImageId        *string         `pulumi:"imageId"`
 	// The name of the compute fleet.
 	Name *string `pulumi:"name"`
 	// The compute fleet overflow behavior.
@@ -204,6 +206,7 @@ type FleetArgs struct {
 	FleetServiceRole pulumi.StringPtrInput
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig FleetVpcConfigPtrInput
+	ImageId        pulumi.StringPtrInput
 	// The name of the compute fleet.
 	Name pulumi.StringPtrInput
 	// The compute fleet overflow behavior.
@@ -312,6 +315,10 @@ func (o FleetOutput) FleetServiceRole() pulumi.StringPtrOutput {
 // Information about the VPC configuration that AWS CodeBuild accesses.
 func (o FleetOutput) FleetVpcConfig() FleetVpcConfigPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetVpcConfigPtrOutput { return v.FleetVpcConfig }).(FleetVpcConfigPtrOutput)
+}
+
+func (o FleetOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the compute fleet.
