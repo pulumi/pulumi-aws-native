@@ -141,6 +141,20 @@
         }
       },
       "additionalProperties" : false
+    },
+    "TagsMap" : {
+      "type" : "object",
+      "description" : "A map of tag keys and values",
+      "patternProperties" : {
+        "^[a-zA-Z0-9\\s._:/=+@-]*$" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 0,
+          "pattern" : "^[a-zA-Z0-9\\s._:/=+@-]*$",
+          "description" : "Value of a tag"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -201,22 +215,32 @@
       "minLength" : 1,
       "description" : "Description for a prompt version resource."
     },
+    "CustomerEncryptionKeyArn" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "minLength" : 1,
+      "pattern" : "^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
+      "description" : "A KMS key ARN"
+    },
     "Name" : {
       "type" : "string",
       "pattern" : "^([0-9a-zA-Z][_-]?){1,100}$",
       "description" : "Name for a prompt resource."
+    },
+    "Tags" : {
+      "$ref" : "#/definitions/TagsMap"
     }
   },
   "required" : [ "PromptArn" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/PromptId", "/properties/UpdatedAt", "/properties/Version", "/properties/Name", "/properties/DefaultVariant", "/properties/Variants" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/PromptId", "/properties/UpdatedAt", "/properties/Version", "/properties/Name", "/properties/DefaultVariant", "/properties/Variants", "/properties/CustomerEncryptionKeyArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/PromptArn", "/properties/Description" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreatePromptVersion", "bedrock:GetPrompt" ]
+      "permissions" : [ "bedrock:CreatePromptVersion", "bedrock:GetPrompt", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "bedrock:GetPrompt" ]
+      "permissions" : [ "bedrock:GetPrompt", "bedrock:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
       "permissions" : [ "noservice:NoAction" ]
@@ -237,7 +261,12 @@
     }
   },
   "tagging" : {
-    "taggable" : false
+    "cloudFormationSystemTags" : false,
+    "tagOnCreate" : true,
+    "tagProperty" : "/properties/Tags",
+    "tagUpdatable" : false,
+    "taggable" : true,
+    "permissions" : [ "bedrock:TagResource", "bedrock:ListTagsForResource" ]
   },
   "additionalProperties" : false
 }

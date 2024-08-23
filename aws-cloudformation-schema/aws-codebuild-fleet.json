@@ -14,11 +14,11 @@
     },
     "EnvironmentType" : {
       "type" : "string",
-      "enum" : [ "WINDOWS_SERVER_2019_CONTAINER", "WINDOWS_SERVER_2022_CONTAINER", "LINUX_CONTAINER", "LINUX_GPU_CONTAINER", "ARM_CONTAINER" ]
+      "enum" : [ "WINDOWS_SERVER_2019_CONTAINER", "WINDOWS_SERVER_2022_CONTAINER", "LINUX_CONTAINER", "LINUX_GPU_CONTAINER", "ARM_CONTAINER", "MAC_ARM" ]
     },
     "ComputeType" : {
       "type" : "string",
-      "enum" : [ "BUILD_GENERAL1_SMALL", "BUILD_GENERAL1_MEDIUM", "BUILD_GENERAL1_LARGE", "BUILD_GENERAL1_2XLARGE" ]
+      "enum" : [ "BUILD_GENERAL1_SMALL", "BUILD_GENERAL1_MEDIUM", "BUILD_GENERAL1_LARGE", "BUILD_GENERAL1_XLARGE", "BUILD_GENERAL1_2XLARGE" ]
     },
     "OverflowBehavior" : {
       "type" : "string",
@@ -41,6 +41,10 @@
     "Arn" : {
       "type" : "string",
       "minLength" : 1
+    },
+    "ImageId" : {
+      "type" : "string",
+      "pattern" : "^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$"
     }
   },
   "definitions" : {

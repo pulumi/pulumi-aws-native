@@ -500,15 +500,15 @@
       },
       "connectionType": {
         "type": "string",
-        "description": "The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET."
+        "description": "The type of the network connection to the integration endpoint. Specify `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and resources in a VPC. The default value is `INTERNET` ."
       },
       "contentHandlingStrategy": {
         "type": "string",
-        "description": "Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT."
+        "description": "Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:\n\n`CONVERT_TO_BINARY` : Converts a response payload from a Base64-encoded string to the corresponding binary blob.\n\n`CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.\n\nIf this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification."
       },
       "credentialsArn": {
         "type": "string",
-        "description": "Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, don't specify this parameter."
+        "description": "Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, don't specify this parameter."
       },
       "description": {
         "type": "string",
@@ -516,51 +516,39 @@
       },
       "integrationMethod": {
         "type": "string",
-        "description": "Specifies the integration's HTTP method type."
+        "description": "Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to `POST` ."
       },
       "integrationSubtype": {
         "type": "string",
-        "description": "Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke."
+        "description": "Supported only for HTTP API `AWS_PROXY` integrations. Specifies the AWS service action to invoke. To learn more, see [Integration subtype reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) ."
       },
       "integrationType": {
         "type": "string",
-        "description": "The integration type of an integration."
+        "description": "The integration type of an integration. One of the following:\n\n`AWS` : for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.\n\n`AWS_PROXY` : for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.\n\n`HTTP` : for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.\n\n`HTTP_PROXY` : for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an `HTTP_PROXY` integration.\n\n`MOCK` : for integrating the route or method request with API Gateway as a \"loopback\" endpoint without invoking any backend. Supported only for WebSocket APIs."
       },
       "integrationUri": {
         "type": "string",
-        "description": "For a Lambda integration, specify the URI of a Lambda function. For an HTTP integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service."
+        "description": "For a Lambda integration, specify the URI of a Lambda function.\n\nFor an HTTP integration, specify a fully-qualified URL.\n\nFor an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses `DiscoverInstances` to identify resources. You can use query parameters to target specific resources. To learn more, see [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) . For private integrations, all resources must be owned by the same AWS account ."
       },
       "passthroughBehavior": {
         "type": "string",
-        "description": "Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs."
+        "description": "Specifies the pass-through behavior for incoming requests based on the `Content-Type` header in the request, and the available mapping templates specified as the `requestTemplates` property on the `Integration` resource. There are three valid values: `WHEN_NO_MATCH` , `WHEN_NO_TEMPLATES` , and `NEVER` . Supported only for WebSocket APIs.\n\n`WHEN_NO_MATCH` passes the request body for unmapped content types through to the integration backend without transformation.\n\n`NEVER` rejects unmapped content types with an `HTTP 415 Unsupported Media Type` response.\n\n`WHEN_NO_TEMPLATES` allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same `HTTP 415 Unsupported Media Type` response."
       },
       "payloadFormatVersion": {
         "type": "string",
-        "description": "Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0 For all other integrations, 1.0 is the only supported value."
+        "description": "Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are `1.0` and `2.0` . For all other integrations, `1.0` is the only supported value. To learn more, see [Working with AWS Lambda proxy integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) ."
       },
       "requestParameters": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A key-value map specifying parameters."
+        "$ref": "pulumi.json#/Any",
+        "description": "For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of `method.request. {location} . {name}` , where `{location}` is `querystring` , `path` , or `header` ; and `{name}` must be a valid and unique method request parameter name.\n\nFor HTTP API integrations with a specified `integrationSubtype` , request parameters are a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Working with AWS service integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html) .\n\nFor HTTP API integrations without a specified `integrationSubtype` request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern \u003caction\u003e:\u003cheader|querystring|path\u003e.\u003clocation\u003e where action can be `append` , `overwrite` or `remove` . For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property."
       },
       "requestTemplates": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client."
+        "$ref": "pulumi.json#/Any",
+        "description": "Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property."
       },
       "responseParameters": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/types/aws-native:apigatewayv2:IntegrationResponseParameter"
-          }
-        },
-        "description": "Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs."
+        "$ref": "pulumi.json#/Any",
+        "description": "Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. The value is of type [`ResponseParameterList`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameterlist.html) . To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property."
       },
       "templateSelectionExpression": {
         "type": "string",
@@ -568,7 +556,7 @@
       },
       "timeoutInMillis": {
         "type": "integer",
-        "description": "Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs."
+        "description": "Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs."
       },
       "tlsConfig": {
         "$ref": "#/types/aws-native:apigatewayv2:IntegrationTlsConfig",
@@ -1339,6 +1327,12 @@
       "promptArn": {
         "type": "string",
         "description": "ARN of a prompt resource possibly with a version"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       }
     }
   },
@@ -5844,7 +5838,7 @@
       },
       "enableAcceleration": {
         "type": "boolean",
-        "description": "Indicate whether to enable acceleration for the VPN connection.\n\nDefault: `false`"
+        "description": "Indicate whether to enable acceleration for the VPN connection.\n Default: ``false``"
       },
       "staticRoutesOnly": {
         "type": "boolean",
@@ -8049,7 +8043,8 @@
         "description": "(Streams and SQS) A list of current response type enums applied to the event source mapping.\n Valid Values: ``ReportBatchItemFailures``"
       },
       "kmsKeyArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) ."
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
@@ -8834,7 +8829,7 @@
       },
       "kmsKeyId": {
         "type": "string",
-        "description": "If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster."
+        "description": "The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true."
       },
       "preferredBackupWindow": {
         "type": "string",
@@ -8866,7 +8861,7 @@
       },
       "storageEncrypted": {
         "type": "boolean",
-        "description": "Indicates whether the DB cluster is encrypted.\n\nIf you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.\n\nIf you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true."
+        "description": "Indicates whether the DB cluster is encrypted.\n\nIf you specify the KmsKeyId property, then you must enable encryption and set this property to true.\n\nIf you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.\n\nIf you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.\n\nIf you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used."
       },
       "tags": {
         "type": "array",
@@ -9580,6 +9575,15 @@
         "$ref": "#/types/aws-native:qbusiness:ApplicationAttachmentsConfiguration",
         "description": "Configuration information for the file upload during chat feature."
       },
+      "autoSubscriptionConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:ApplicationAutoSubscriptionConfiguration"
+      },
+      "clientIdsForOidc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "description": {
         "type": "string",
         "description": "A description for the Amazon Q Business application."
@@ -9592,9 +9596,18 @@
         "$ref": "#/types/aws-native:qbusiness:ApplicationEncryptionConfiguration",
         "description": "Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys."
       },
+      "iamIdentityProviderArn": {
+        "type": "string"
+      },
       "identityCenterInstanceArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.\n\n*Required* : `Yes`"
+      },
+      "identityType": {
+        "$ref": "#/types/aws-native:qbusiness:ApplicationIdentityType"
+      },
+      "personalizationConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:ApplicationPersonalizationConfiguration"
       },
       "qAppsConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:ApplicationQAppsConfiguration",
@@ -9795,6 +9808,16 @@
       "applicationId": {
         "type": "string",
         "description": "The identifier of the Amazon Q Business web experience."
+      },
+      "identityProviderConfiguration": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:qbusiness:WebExperienceIdentityProviderConfiguration0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:qbusiness:WebExperienceIdentityProviderConfiguration1Properties"
+          }
+        ]
       },
       "roleArn": {
         "type": "string",
@@ -10414,7 +10437,7 @@
       },
       "restoreTime": {
         "type": "string",
-        "description": "The date and time to restore from.\n Constraints:\n  +  Must be a time in Universal Coordinated Time (UTC) format.\n  +  Must be before the latest restorable time for the DB instance.\n  +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled.\n  \n Example: ``2009-09-07T23:45:00Z``"
+        "description": "The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.\n Constraints:\n  +  Must be a time in Universal Coordinated Time (UTC) format.\n  +  Must be before the latest restorable time for the DB instance.\n  +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled.\n  \n Example: ``2009-09-07T23:45:00Z``"
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
@@ -10471,7 +10494,7 @@
       },
       "useLatestRestorableTime": {
         "type": "boolean",
-        "description": "Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.\n Constraints:\n  +  Can't be specified if the ``RestoreTime`` parameter is provided."
+        "description": "Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.\n Constraints:\n  +  Can't be specified if the ``RestoreTime`` parameter is provided."
       },
       "vpcSecurityGroups": {
         "type": "array",
