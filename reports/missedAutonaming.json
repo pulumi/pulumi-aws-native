@@ -8049,7 +8049,8 @@
         "description": "(Streams and SQS) A list of current response type enums applied to the event source mapping.\n Valid Values: ``ReportBatchItemFailures``"
       },
       "kmsKeyArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) ."
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
