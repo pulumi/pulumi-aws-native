@@ -18,10 +18,20 @@
       }
     },
     "ResponseParameterList" : {
-      "description" : "Response parameter list for an Integration",
+      "description" : "list of response parameters",
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/ResponseParameter"
+      }
+    },
+    "ResponseParameterMap" : {
+      "description" : "map of response parameter lists",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ResponseParameters" : {
+          "$ref" : "#/definitions/ResponseParameterList"
+        }
       }
     },
     "TlsConfig" : {
@@ -134,7 +144,7 @@
       "additionalProperties" : false,
       "patternProperties" : {
         "[a-zA-Z0-9]+" : {
-          "$ref" : "#/definitions/ResponseParameterList"
+          "$ref" : "#/definitions/ResponseParameterMap"
         }
       }
     },

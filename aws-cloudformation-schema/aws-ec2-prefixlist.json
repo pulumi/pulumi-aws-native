@@ -92,7 +92,9 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "EC2:DeleteTags", "EC2:CreateTags" ]
   },
   "handlers" : {
     "create" : {
